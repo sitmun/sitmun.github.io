@@ -2,6 +2,8 @@
 
 Página temporal. Más información en la página de la [red europea SITMUN](http://sitmun.org/).
 
+Puedes acceder al [lobby de gitter](https://gitter.im/Sitmun/Lobby) del proyecto si quieres conversar. 
+
 ![Logotipo](https://sitmun.github.io/images/redsitmun.jpeg)
 
 Puedes usar el [editor en GitHub](https://github.com/sitmun/sitmun.github.io/edit/master/index.md) para mantener los contenidos.
