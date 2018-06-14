@@ -4,7 +4,7 @@ Página temporal. Más información en la página de la [red europea SITMUN](htt
 
 Puedes acceder al [lobby de gitter](https://gitter.im/Sitmun/Lobby) del proyecto si quieres conversar. 
 
-De momento **la licencia del producto sitmun está por decidir**. En cuanto se decida se reflejará aquí y en los repositorios. En cualquier caso, será una licencia libre / open source.
+El software tiene la licencia libre [EUPL v1.2](http://data.europa.eu/eli/dec_impl/2017/863/oj).
 
 ![Logotipo](https://sitmun.github.io/images/redsitmun.jpeg)
 
