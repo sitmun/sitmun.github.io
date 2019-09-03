@@ -1,0 +1,1850 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-library documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-library documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TaskEditComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>sitmun-task-edit</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./task-edit.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./task-edit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#connections">connections</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#roles">roles</a>
+                            </li>
+                            <li>
+                                <a href="#selection">selection</a>
+                            </li>
+                            <li>
+                                <a href="#sub">sub</a>
+                            </li>
+                            <li>
+                                <a href="#task">task</a>
+                            </li>
+                            <li>
+                                <a href="#taskGroups">taskGroups</a>
+                            </li>
+                            <li>
+                                <a href="#taskTypes">taskTypes</a>
+                            </li>
+                            <li>
+                                <a href="#taskUIs">taskUIs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#compareResource">compareResource</a>
+                            </li>
+                            <li>
+                                <a href="#getAllConnections">getAllConnections</a>
+                            </li>
+                            <li>
+                                <a href="#getAllRoles">getAllRoles</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTaskGroups">getAllTaskGroups</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTaskTypes">getAllTaskTypes</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTaskUIs">getAllTaskUIs</a>
+                            </li>
+                            <li>
+                                <a href="#gotoList">gotoList</a>
+                            </li>
+                            <li>
+                                <a href="#isAllSelected">isAllSelected</a>
+                            </li>
+                            <li>
+                                <a href="#masterToggle">masterToggle</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#remove">remove</a>
+                            </li>
+                            <li>
+                                <a href="#save">save</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, connectionService: <a href="../injectables/ConnectionService.html">ConnectionService</a>, roleService: <a href="../injectables/RoleService.html">RoleService</a>, taskService: <a href="../injectables/TaskService.html">TaskService</a>, taskTypeService: <a href="../injectables/TaskTypeService.html">TaskTypeService</a>, taskUIService: <a href="../injectables/TaskUIService.html">TaskUIService</a>, taskGroupService: <a href="../injectables/TaskGroupService.html">TaskGroupService</a>, taskParameterService: <a href="../injectables/TaskParameterService.html">TaskParameterService</a>, changeDetectorRefs: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, taskAvailabilityService: <a href="../injectables/TaskAvailabilityService.html">TaskAvailabilityService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>connectionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConnectionService.html" target="_self" >ConnectionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>roleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoleService.html" target="_self" >RoleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskService.html" target="_self" >TaskService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskTypeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskTypeService.html" target="_self" >TaskTypeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskUIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskUIService.html" target="_self" >TaskUIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskGroupService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskGroupService.html" target="_self" >TaskGroupService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskParameterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskParameterService.html" target="_self" >TaskParameterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>changeDetectorRefs</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskAvailabilityService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskAvailabilityService.html" target="_self" >TaskAvailabilityService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compareResource"></a>
+                    <span class="name">
+                        <b>
+                            compareResource
+                        </b>
+                        <a href="#compareResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>compareResource(c1: <a href="../injectables/Resource.html">Resource</a>, c2: <a href="../injectables/Resource.html">Resource</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="311"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:311</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c1</td>
+                                    <td>
+                                                <code><a href="../injectables/Resource.html" target="_self" >Resource</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>c2</td>
+                                    <td>
+                                                <code><a href="../injectables/Resource.html" target="_self" >Resource</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllConnections"></a>
+                    <span class="name">
+                        <b>
+                            getAllConnections
+                        </b>
+                        <a href="#getAllConnections"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllConnections()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:192</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRoles"></a>
+                    <span class="name">
+                        <b>
+                            getAllRoles
+                        </b>
+                        <a href="#getAllRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllRoles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="207"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:207</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTaskGroups"></a>
+                    <span class="name">
+                        <b>
+                            getAllTaskGroups
+                        </b>
+                        <a href="#getAllTaskGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTaskGroups()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="177"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:177</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTaskTypes"></a>
+                    <span class="name">
+                        <b>
+                            getAllTaskTypes
+                        </b>
+                        <a href="#getAllTaskTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTaskTypes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTaskUIs"></a>
+                    <span class="name">
+                        <b>
+                            getAllTaskUIs
+                        </b>
+                        <a href="#getAllTaskUIs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTaskUIs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:164</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gotoList"></a>
+                    <span class="name">
+                        <b>
+                            gotoList
+                        </b>
+                        <a href="#gotoList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gotoList()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="218"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:218</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllSelected"></a>
+                    <span class="name">
+                        <b>
+                            isAllSelected
+                        </b>
+                        <a href="#isAllSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAllSelected()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:316</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Whether the number of selected elements matches the total number of rows. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterToggle"></a>
+                    <span class="name">
+                        <b>
+                            masterToggle
+                        </b>
+                        <a href="#masterToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>masterToggle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="323"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:323</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selects all rows if they are not all selected; otherwise clear selection. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <b>
+                            remove
+                        </b>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(task: <a href="../classes/Task.html">Task</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="304"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:304</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <b>
+                            save
+                        </b>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>save()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="connections"></a>
+                        <span class="name">
+                            <b>
+                            connections</b>
+                            <a href="#connections"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Connection.html" target="_self" >Connection[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;Connection&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <span class="name">
+                            <b>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new MatTableDataSource&lt;Role&gt;([])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedColumns"></a>
+                        <span class="name">
+                            <b>
+                            displayedColumns</b>
+                            <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;select&#x27;, &#x27;name&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roles"></a>
+                        <span class="name">
+                            <b>
+                            roles</b>
+                            <a href="#roles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Role.html" target="_self" >Role[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;Role&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selection"></a>
+                        <span class="name">
+                            <b>
+                            selection</b>
+                            <a href="#selection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new SelectionModel&lt;Role&gt;(true, [])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sub"></a>
+                        <span class="name">
+                            <b>
+                            sub</b>
+                            <a href="#sub"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="task"></a>
+                        <span class="name">
+                            <b>
+                            task</b>
+                            <a href="#task"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Task()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskGroups"></a>
+                        <span class="name">
+                            <b>
+                            taskGroups</b>
+                            <a href="#taskGroups"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TaskGroup[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;TaskGroup&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskTypes"></a>
+                        <span class="name">
+                            <b>
+                            taskTypes</b>
+                            <a href="#taskTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TaskType[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;TaskType&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="taskUIs"></a>
+                        <span class="name">
+                            <b>
+                            taskUIs</b>
+                            <a href="#taskUIs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TaskUI[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;TaskUI&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/task/task-edit.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
+import { ResourceHelper } from &#x27;angular-hal&#x27;;
+import { Connection } from &#x27;../connection/connection.model&#x27;;
+import { ConnectionService } from &#x27;../connection/connection.service&#x27;;
+import { Role } from &#x27;../role/role.model&#x27;;
+import { RoleService } from &#x27;../role/role.service&#x27;;
+//import { TerritoryService } from &#x27;../territory/territory.service&#x27;;
+//import { Territory } from &#x27;../territory/territory.model&#x27;;
+import { TaskType } from &#x27;./task-type.model&#x27;;
+import { TaskTypeService } from &#x27;./task-type.service&#x27;;
+import { TaskUI } from &#x27;./task-ui.model&#x27;;
+import { TaskUIService } from &#x27;./task-ui.service&#x27;;
+import { TaskGroup } from &#x27;./task-group.model&#x27;;
+import { TaskGroupService } from &#x27;./task-group.service&#x27;;
+import { TaskParameter } from &#x27;./task-parameter.model&#x27;;
+import { TaskParameterService } from &#x27;./task-parameter.service&#x27;;
+import { TaskAvailability} from &#x27;./task-availability.model&#x27;;
+import { TaskAvailabilityService } from &#x27;./task-availability.service&#x27;;
+import { Task } from &#x27;./task.model&#x27;;
+import {TaskService} from &#x27;./task.service&#x27;;
+import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
+import {NgForm} from &#x27;@angular/forms&#x27;;
+import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
+import { map, concatAll } from &#x27;rxjs/operators&#x27;;
+import {Subscription, Observable, forkJoin, merge, concat, pipe, from} from &#x27;rxjs&#x27;;
+import {MatTableDataSource} from &#x27;@angular/material&#x27;;
+import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
+
+
+@Component({
+    selector: &#x27;sitmun-task-edit&#x27;,
+    templateUrl: &#x27;./task-edit.component.html&#x27;,
+    styleUrls: [&#x27;./task-edit.component.css&#x27;]
+})
+export class TaskEditComponent implements OnInit, OnDestroy {
+    task: Task &#x3D; new Task();
+    taskTypes: TaskType[] &#x3D; new Array&lt;TaskType&gt;();
+    taskUIs: TaskUI[] &#x3D; new Array&lt;TaskUI&gt;();
+    taskGroups: TaskGroup[] &#x3D; new Array&lt;TaskGroup&gt;();
+    connections: Connection[] &#x3D; new Array&lt;Connection&gt;();
+    roles: Role[] &#x3D; new Array&lt;Role&gt;();
+
+
+    sub: Subscription;
+
+    displayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;];
+
+    selection &#x3D; new SelectionModel&lt;Role&gt;(true, []);
+
+    dataSource &#x3D; new MatTableDataSource&lt;Role&gt;([]);
+
+
+    constructor(private route: ActivatedRoute,
+        private router: Router,
+        private connectionService: ConnectionService,
+        private roleService: RoleService,
+        private taskService: TaskService,
+        private taskTypeService: TaskTypeService,
+        private taskUIService: TaskUIService,
+        private taskGroupService: TaskGroupService,
+        private taskParameterService: TaskParameterService,
+        private changeDetectorRefs: ChangeDetectorRef,
+        private taskAvailabilityService: TaskAvailabilityService) {
+    }
+
+    ngOnInit() {
+        this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
+            const id &#x3D; params[&#x27;id&#x27;];
+            this.task.type &#x3D; new TaskType();
+            this.getAllTaskTypes();
+            this.getAllTaskUIs();
+            this.getAllTaskGroups();
+            this.getAllRoles();
+            this.getAllConnections();
+
+
+            if (id) {
+                this.taskService.get(id).subscribe((task: any) &#x3D;&gt; {
+                    if (task) {
+                        this.task &#x3D; task;
+                        this.task.createdDate &#x3D; new Date();
+                        this.task.createdDate.setTime(Date.parse(task.createdDate));
+                        this.task.getRelation(TaskType, &#x27;type&#x27;).subscribe(
+                            (tpe: TaskType) &#x3D;&gt; this.task.type &#x3D; tpe,
+                            error &#x3D;&gt; this.task.type &#x3D; new TaskType());
+                        this.task.getRelation(TaskUI, &#x27;ui&#x27;).subscribe(
+                            (ui: TaskUI) &#x3D;&gt; this.task.ui &#x3D; ui,
+                            error &#x3D;&gt; this.task.ui &#x3D; new TaskUI());
+                        this.task.getRelation(TaskGroup, &#x27;group&#x27;).subscribe(
+                            (group: TaskGroup) &#x3D;&gt; this.task.group &#x3D; group,
+                            error &#x3D;&gt; this.task.group &#x3D; new TaskGroup());
+                        this.task.getRelation(Connection, &#x27;connection&#x27;).subscribe(
+                            (connection: Connection) &#x3D;&gt; this.task.connection &#x3D; connection,
+                            error &#x3D;&gt; this.task.connection &#x3D; new Connection());
+
+                        this.task.getRelationArray(Role, &#x27;roles&#x27;).subscribe(
+                            (roles: Role[]) &#x3D;&gt; {
+
+                                this.task.roles &#x3D; roles;
+                                //this.selection &#x3D; new SelectionModel&lt;Territory&gt;(true, this.territory.members);
+                                this.dataSource.data.forEach(row &#x3D;&gt; {
+                                    for (let member of this.task.roles) {
+                                        if (row._links.self.href &#x3D;&#x3D; member._links.self.href)
+                                            this.selection.select(row)
+                                    }
+                                });
+                                this.changeDetectorRefs.detectChanges();
+
+                            },
+                            error &#x3D;&gt; this.task.roles &#x3D; new Array&lt;Role&gt;());
+                        /*
+
+                        forkJoin(
+                            this.task.getRelation(TaskType, &#x27;type&#x27;).catch(error &#x3D;&gt; this.task.type &#x3D; new TaskType()),
+                            this.task.getRelation(TaskUI, &#x27;ui&#x27;).catch(error &#x3D;&gt; this.task.ui &#x3D; new TaskUI()),
+                            this.task.getRelation(TaskGroup, &#x27;group&#x27;).catch(error &#x3D;&gt; this.task.group &#x3D; new TaskGroup()),
+                            this.task.getRelation(Connection, &#x27;connection&#x27;).catch(error &#x3D;&gt; this.task.connection &#x3D; new Connection()),
+                            this.task.getRelationArray(Role, &#x27;roles&#x27;)).subscribe(
+                            ([tpe, ui, group, connection, roles]) &#x3D;&gt; {
+                                this.task.type &#x3D; tpe;
+                                this.task.connection &#x3D; connection;
+                                this.task.ui &#x3D; ui;
+                                this.task.group &#x3D; group;
+                                //this.selection &#x3D; new SelectionModel&lt;Territory&gt;(true, this.territory.members);
+                                this.task.roles &#x3D; roles;
+                                this.dataSource.data.forEach(row &#x3D;&gt; {
+                                    for (let member of this.task.roles) {
+                                        if (row._links.self.href &#x3D;&#x3D; member._links.self.href)
+                                            this.selection.select(row)
+                                    }
+                                });
+
+                            }, error &#x3D;&gt; this.task.roles &#x3D; new Array&lt;Role&gt;());
+*/
+
+                    } else {
+                        console.log(&#x60;task with id &#x27;${id}&#x27; not found, returning to list&#x60;);
+                        this.gotoList();
+                    }
+                });
+            }
+        });
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
+
+
+    getAllTaskTypes() {
+        this.taskTypeService.getAll()
+            .subscribe((taskTypes: TaskType[]) &#x3D;&gt; {
+                this.taskTypes &#x3D; taskTypes;
+                const voidItem &#x3D; new TaskType();
+                voidItem.name &#x3D; &quot;&quot;;
+                voidItem._links &#x3D; {};
+                voidItem._links.self &#x3D; {};
+                voidItem._links.self.href &#x3D; &quot;&quot;;
+                this.taskTypes.push(voidItem);
+            });
+    }
+
+    getAllTaskUIs() {
+        this.taskUIService.getAll()
+            .subscribe((taskUIs: TaskUI[]) &#x3D;&gt; {
+                this.taskUIs &#x3D; taskUIs;
+                const voidItem &#x3D; new TaskUI();
+                voidItem.name &#x3D; &quot;&quot;;
+                voidItem._links &#x3D; {};
+                voidItem._links.self &#x3D; {};
+                voidItem._links.self.href &#x3D; &quot;&quot;;
+                this.taskUIs.push(voidItem);
+            });
+    }
+
+    getAllTaskGroups() {
+        this.taskGroupService.getAll()
+            .subscribe((taskGroups: TaskGroup[]) &#x3D;&gt; {
+                this.taskGroups &#x3D; taskGroups;
+                const voidItem &#x3D; new TaskGroup();
+                voidItem.name &#x3D; &quot;&quot;;
+                voidItem._links &#x3D; {};
+                voidItem._links.self &#x3D; {};
+                voidItem._links.self.href &#x3D; &quot;&quot;;
+                this.taskGroups.push(voidItem);
+
+            });
+    }
+
+
+    getAllConnections() {
+        this.connectionService.getAll()
+            .subscribe((connections: Connection[]) &#x3D;&gt; {
+                this.connections &#x3D; connections;
+
+                const voidConnection &#x3D; new Connection();
+                voidConnection.name &#x3D; &quot;&quot;;
+                voidConnection._links &#x3D; {};
+                voidConnection._links.self &#x3D; {};
+                voidConnection._links.self.href &#x3D; &quot;&quot;;
+                this.connections.push(voidConnection);
+
+            });
+    }
+
+    getAllRoles() {
+        this.roleService.getAll()
+            .subscribe((roles: Role[]) &#x3D;&gt; {
+                this.roles &#x3D; roles;
+                this.dataSource &#x3D; new MatTableDataSource&lt;Role&gt;(this.roles);
+
+
+            });
+    }
+
+
+    gotoList() {
+        this.router.navigate([&#x27;/task-list&#x27;]);
+    }
+
+    save() {
+        if (this.task.createdDate !&#x3D; null &amp;&amp; (typeof this.task.createdDate !&#x3D; &#x27;string&#x27;)) {
+            this.task.createdDate &#x3D; this.task.createdDate.toISOString();
+        }
+        const isNew &#x3D; this.task._links &#x3D;&#x3D; null;
+
+        if (isNew) {
+            if (this.selection.selected !&#x3D; null) {
+              this.task.roles &#x3D; this.selection.selected;
+            }
+
+            this.task.roles &#x3D; this.task.roles.map(function(role) {
+                return role._links.self.href;
+            });
+
+            this.taskService.create(this.task).subscribe(result &#x3D;&gt; {
+                this.gotoList();
+
+            }
+
+                , error &#x3D;&gt; console.error(error));
+
+        } else {
+            
+            
+            
+            let rolesUpdate &#x3D; null;
+            let taskRoles &#x3D; this.task.roles;
+            if (taskRoles)
+                rolesUpdate &#x3D; concat(forkJoin(taskRoles.map(role &#x3D;&gt; this.task.deleteRelation(&#x27;roles&#x27;, role))));
+            if (this.selection.selected) {
+                if (rolesUpdate !&#x3D; null)
+                    rolesUpdate &#x3D; concat(rolesUpdate, forkJoin(this.selection.selected.map(role &#x3D;&gt; this.task.addRelation(&#x27;roles&#x27;, role))));
+                else
+                    rolesUpdate &#x3D; concat(forkJoin(this.selection.selected.map(role &#x3D;&gt; this.task.addRelation(&#x27;roles&#x27;, role))));
+            }
+
+
+            rolesUpdate.subscribe(result &#x3D;&gt; {
+
+            }
+                , error &#x3D;&gt; console.error(error));
+                
+            delete this.task.roles;
+            let update &#x3D; concat(
+                this.taskService.update(this.task)
+                
+
+            );
+            
+            update &#x3D; concat(update,
+                this.task.deleteAllRelation(&#x27;type&#x27;),
+                this.task.deleteAllRelation(&#x27;ui&#x27;),
+                this.task.deleteAllRelation(&#x27;connection&#x27;),
+                this.task.deleteAllRelation(&#x27;group&#x27;)
+                
+
+            );
+            
+            if (this.task.type._links!&#x3D;null &amp;&amp; this.task.type._links.self.href!&#x3D;&#x27;&#x27;){            
+                update &#x3D; concat(update,this.task.addRelation(&#x27;type&#x27;, this.task.type));
+            } 
+            if (this.task.ui._links!&#x3D;null &amp;&amp; this.task.ui._links.self.href!&#x3D;&#x27;&#x27;){            
+                update &#x3D; concat(update,this.task.addRelation(&#x27;ui&#x27;, this.task.ui));
+            } 
+            if (this.task.connection._links!&#x3D;null &amp;&amp; this.task.connection._links.self.href!&#x3D;&#x27;&#x27;){            
+                update &#x3D; concat(update, this.task.addRelation(&#x27;connection&#x27;, this.task.connection));
+            }     
+            if (this.task.group._links!&#x3D;null &amp;&amp; this.task.group._links.self.href!&#x3D;&#x27;&#x27;){            
+                update &#x3D; concat(update,this.task.addRelation(&#x27;group&#x27;, this.task.group));
+            }
+
+            update.subscribe(result &#x3D;&gt; {
+                this.gotoList();
+            }
+                , error &#x3D;&gt; console.error(error));
+
+
+        }
+
+    }
+
+    remove(task: Task) {
+        this.taskService.delete(task).subscribe(result &#x3D;&gt; {
+            this.gotoList();
+        }, error &#x3D;&gt; console.error(error));
+
+    }
+
+    compareResource(c1: Resource, c2: Resource): boolean {
+        return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
+    }
+
+    /** Whether the number of selected elements matches the total number of rows. */
+    isAllSelected() {
+        const numSelected &#x3D; this.selection.selected.length;
+        const numRows &#x3D; this.dataSource.data.length;
+        return numSelected &#x3D;&#x3D;&#x3D; numRows;
+    }
+
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    masterToggle() {
+        this.isAllSelected() ?
+            this.selection.clear() :
+            this.dataSource.data.forEach(row &#x3D;&gt; this.selection.select(row));
+    }
+
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card&gt;
+&lt;form #taskForm&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;save()&quot;&gt;
+	&lt;mat-card-header&gt; &lt;mat-card-title&gt;
+	&lt;h2&gt;{{task.name ? (&#x27;global.edit&#x27;|translate) :
+		(&#x27;global.add&#x27;|translate)}} {{&#x27;task.item&#x27; | translate}}&lt;/h2&gt;
+	&lt;/mat-card-title&gt; &lt;/mat-card-header&gt;
+	&lt;mat-card-content&gt;
+	&lt;mat-tab-group dynamicHeight&#x3D;&quot;true&quot;&gt;
+    &lt;mat-tab label&#x3D;&quot;{{ &#x27;task.data&#x27;| translate}}&quot;&gt;
+    
+	&lt;div class&#x3D;&quot;container&quot;&gt; 
+		&lt;mat-form-field&gt; &lt;input matInput
+			placeholder&#x3D;&quot;{{&#x27;task.name&#x27; | translate}}&quot; [(ngModel)]&#x3D;&quot;task.name&quot;
+			name&#x3D;&quot;name&quot; #name required&gt; &lt;/mat-form-field&gt;
+		&lt;mat-form-field&gt; &lt;input matInput type&#x3D;&quot;number&quot;
+			placeholder&#x3D;&quot;{{&#x27;task.order&#x27; | translate}}&quot; [(ngModel)]&#x3D;&quot;task.order&quot;
+			name&#x3D;&quot;order&quot; #order required&gt; &lt;/mat-form-field&gt;
+		&lt;mat-form-field&gt; &lt;mat-select
+			[compareWith]&#x3D;&quot;compareResource&quot; name&#x3D;&quot;group&quot;
+			placeholder&#x3D;&quot;{{ &#x27;task.group&#x27;| translate }}&quot;
+			[(ngModel)]&#x3D;&quot;task.group&quot;&gt; &lt;mat-option
+			*ngFor&#x3D;&quot;let taskGroup of taskGroups&quot;
+			[value]&#x3D;&quot;taskGroup&quot;&gt; {{taskGroup.name}} &lt;/mat-option&gt; &lt;/mat-select&gt; &lt;/mat-form-field&gt;
+		&lt;mat-form-field&gt; &lt;mat-select
+			[compareWith]&#x3D;&quot;compareResource&quot; name&#x3D;&quot;type&quot;
+			placeholder&#x3D;&quot;{{ &#x27;task.type&#x27;| translate }}&quot;
+			[(ngModel)]&#x3D;&quot;task.type&quot;&gt; &lt;mat-option
+			*ngFor&#x3D;&quot;let taskType of taskTypes&quot; [value]&#x3D;&quot;taskType&quot;&gt;
+		{{taskType.name}} &lt;/mat-option&gt; &lt;/mat-select&gt; &lt;/mat-form-field&gt;
+		&lt;mat-form-field&gt; &lt;mat-select
+			[compareWith]&#x3D;&quot;compareResource&quot; name&#x3D;&quot;connection&quot;
+			placeholder&#x3D;&quot;{{ &#x27;task.connection&#x27;| translate }}&quot;
+			[(ngModel)]&#x3D;&quot;task.connection&quot;&gt; &lt;mat-option
+			*ngFor&#x3D;&quot;let connection of connections&quot; [value]&#x3D;&quot;connection&quot;&gt;
+		{{connection.name}} &lt;/mat-option&gt; &lt;/mat-select&gt; &lt;/mat-form-field&gt;
+		&lt;mat-form-field&gt; &lt;mat-select
+			[compareWith]&#x3D;&quot;compareResource&quot; name&#x3D;&quot;ui&quot;
+			placeholder&#x3D;&quot;{{ &#x27;task.ui&#x27;| translate }}&quot;
+			[(ngModel)]&#x3D;&quot;task.ui&quot;&gt; &lt;mat-option
+			*ngFor&#x3D;&quot;let ui of taskUIs&quot; [value]&#x3D;&quot;ui&quot;&gt;
+		{{ui.name}} &lt;/mat-option&gt; &lt;/mat-select&gt; &lt;/mat-form-field&gt;
+
+	&lt;/div&gt;
+	&lt;/mat-tab&gt;
+  &lt;mat-tab label&#x3D;&quot;{{ &#x27;task.availabilities&#x27;| translate}}&quot;&gt;
+    &lt;sitmun-task-availability-list [task]&#x3D;&quot;task&quot;&gt;&lt;/sitmun-task-availability-list&gt;
+  &lt;/mat-tab&gt;
+  &lt;mat-tab label&#x3D;&quot;{{ &#x27;task.parameters&#x27;| translate}}&quot;&gt;
+    &lt;sitmun-task-parameter-list [task]&#x3D;&quot;task&quot;&gt;&lt;/sitmun-task-parameter-list&gt;
+  &lt;/mat-tab&gt;
+  &lt;mat-tab label&#x3D;&quot;{{ &#x27;task.roles&#x27;| translate}}&quot; &gt;
+    &lt;table mat-table [dataSource]&#x3D;&quot;roles&quot; class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+
+  &lt;!-- Checkbox Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;select&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt;
+      &lt;mat-checkbox (change)&#x3D;&quot;$event ? masterToggle() : null&quot;
+                    [checked]&#x3D;&quot;selection.hasValue() &amp;&amp; isAllSelected()&quot;
+                    [indeterminate]&#x3D;&quot;selection.hasValue() &amp;&amp; !isAllSelected()&quot;&gt;
+      &lt;/mat-checkbox&gt;
+    &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+      &lt;mat-checkbox (click)&#x3D;&quot;$event.stopPropagation()&quot;
+                    (change)&#x3D;&quot;$event ? selection.toggle(row) : null&quot;
+                    [checked]&#x3D;&quot;selection.isSelected(row)&quot;&gt;
+      &lt;/mat-checkbox&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; {{&#x27;role.name&#x27; | translate}} &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  
+  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;
+      (click)&#x3D;&quot;selection.toggle(row)&quot;&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+  &lt;/mat-tab&gt;
+&lt;/mat-tab-group&gt;
+    
+    
+
+	&lt;/mat-card-content&gt;
+	&lt;mat-card-actions&gt;
+	&lt;button mat-raised-button color&#x3D;&quot;primary&quot; type&#x3D;&quot;submit&quot;
+		[disabled]&#x3D;&quot;!taskForm.form.valid&quot;&gt;{{&#x27;global.save&#x27; |
+		translate}}&lt;/button&gt;
+	&lt;button mat-raised-button color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;remove(task)&quot;
+		*ngIf&#x3D;&quot;task._links?.self.href&quot; type&#x3D;&quot;button&quot;&gt;{{&#x27;global.delete&#x27;
+		| translate}}&lt;/button&gt;
+	&lt;a mat-button routerLink&#x3D;&quot;/task-list&quot;&gt;{{&#x27;global.cancel&#x27; |
+		translate}}&lt;/a&gt; &lt;/mat-card-actions&gt;
+
+&lt;/form&gt;
+&lt;/mat-card&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./task-edit.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container {
+  margin-top: 10px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.container &gt; * {
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card><form #taskForm="ngForm" (ngSubmit)="save()">	<mat-card-header> <mat-card-title>	<h2>{{task.name ? (\'global.edit\'|translate) :		(\'global.add\'|translate)}} {{\'task.item\' | translate}}</h2>	</mat-card-title> </mat-card-header>	<mat-card-content>	<mat-tab-group dynamicHeight="true">    <mat-tab label="{{ \'task.data\'| translate}}">    	<div class="container"> 		<mat-form-field> <input matInput			placeholder="{{\'task.name\' | translate}}" [(ngModel)]="task.name"			name="name" #name required> </mat-form-field>		<mat-form-field> <input matInput type="number"			placeholder="{{\'task.order\' | translate}}" [(ngModel)]="task.order"			name="order" #order required> </mat-form-field>		<mat-form-field> <mat-select			[compareWith]="compareResource" name="group"			placeholder="{{ \'task.group\'| translate }}"			[(ngModel)]="task.group"> <mat-option			*ngFor="let taskGroup of taskGroups"			[value]="taskGroup"> {{taskGroup.name}} </mat-option> </mat-select> </mat-form-field>		<mat-form-field> <mat-select			[compareWith]="compareResource" name="type"			placeholder="{{ \'task.type\'| translate }}"			[(ngModel)]="task.type"> <mat-option			*ngFor="let taskType of taskTypes" [value]="taskType">		{{taskType.name}} </mat-option> </mat-select> </mat-form-field>		<mat-form-field> <mat-select			[compareWith]="compareResource" name="connection"			placeholder="{{ \'task.connection\'| translate }}"			[(ngModel)]="task.connection"> <mat-option			*ngFor="let connection of connections" [value]="connection">		{{connection.name}} </mat-option> </mat-select> </mat-form-field>		<mat-form-field> <mat-select			[compareWith]="compareResource" name="ui"			placeholder="{{ \'task.ui\'| translate }}"			[(ngModel)]="task.ui"> <mat-option			*ngFor="let ui of taskUIs" [value]="ui">		{{ui.name}} </mat-option> </mat-select> </mat-form-field>	</div>	</mat-tab>  <mat-tab label="{{ \'task.availabilities\'| translate}}">    <sitmun-task-availability-list [task]="task"></sitmun-task-availability-list>  </mat-tab>  <mat-tab label="{{ \'task.parameters\'| translate}}">    <sitmun-task-parameter-list [task]="task"></sitmun-task-parameter-list>  </mat-tab>  <mat-tab label="{{ \'task.roles\'| translate}}" >    <table mat-table [dataSource]="roles" class="mat-elevation-z8">  <!-- Checkbox Column -->  <ng-container matColumnDef="select">    <th mat-header-cell *matHeaderCellDef>      <mat-checkbox (change)="$event ? masterToggle() : null"                    [checked]="selection.hasValue() && isAllSelected()"                    [indeterminate]="selection.hasValue() && !isAllSelected()">      </mat-checkbox>    </th>    <td mat-cell *matCellDef="let row">      <mat-checkbox (click)="$event.stopPropagation()"                    (change)="$event ? selection.toggle(row) : null"                    [checked]="selection.isSelected(row)">      </mat-checkbox>    </td>  </ng-container>  <ng-container matColumnDef="name">    <th mat-header-cell *matHeaderCellDef> {{\'role.name\' | translate}} </th>    <td mat-cell *matCellDef="let element"> {{element.name}} </td>  </ng-container>    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: displayedColumns;"      (click)="selection.toggle(row)">  </tr></table>  </mat-tab></mat-tab-group>        	</mat-card-content>	<mat-card-actions>	<button mat-raised-button color="primary" type="submit"		[disabled]="!taskForm.form.valid">{{\'global.save\' |		translate}}</button>	<button mat-raised-button color="secondary" (click)="remove(task)"		*ngIf="task._links?.self.href" type="button">{{\'global.delete\'		| translate}}</button>	<a mat-button routerLink="/task-list">{{\'global.cancel\' |		translate}}</a> </mat-card-actions></form></mat-card></div>'
+    var COMPONENTS = [{'name': 'AccountChangePasswordComponent', 'selector': 'app-account-change-password'},{'name': 'AccountEditComponent', 'selector': 'app-account-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationBackgroundEditDialog', 'selector': 'sitmun-application-background-dialog'},{'name': 'ApplicationBackgroundListComponent', 'selector': 'sitmun-application-background-list'},{'name': 'ApplicationEditComponent', 'selector': 'sitmun-application-edit'},{'name': 'ApplicationListComponent', 'selector': 'sitmun-application-list'},{'name': 'ApplicationParameterEditDialog', 'selector': 'sitmun-application-parameter-dialog'},{'name': 'ApplicationParameterListComponent', 'selector': 'sitmun-application-parameter-list'},{'name': 'BackgroundEditComponent', 'selector': 'sitmun-background-edit'},{'name': 'BackgroundListComponent', 'selector': 'sitmun-background-list'},{'name': 'CartographyAvailabilityEditDialog', 'selector': 'sitmun-cartography-availability-dialog'},{'name': 'CartographyAvailabilityListComponent', 'selector': 'sitmun-cartography-availability-list'},{'name': 'CartographyEditComponent', 'selector': 'sitmun-cartography-edit'},{'name': 'CartographyGroupEditComponent', 'selector': 'sitmun-cartography-group-edit'},{'name': 'CartographyGroupListComponent', 'selector': 'sitmun-cartography-group-list'},{'name': 'CartographyListComponent', 'selector': 'sitmun-cartography-list'},{'name': 'ConnectionEditComponent', 'selector': 'sitmun-connection-edit'},{'name': 'ConnectionListComponent', 'selector': 'sitmun-connection-list'},{'name': 'FeatureInfoDialogComponent', 'selector': 'feature-info-dialog'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LayerSelectionDialogComponent', 'selector': 'layer-selection-dialog'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'sitmun-map-viewer-map'},{'name': 'MessageDialogComponent', 'selector': 'feature-info-message-dialog'},{'name': 'RoleEditComponent', 'selector': 'app-role-edit'},{'name': 'RoleListComponent', 'selector': 'app-role-list'},{'name': 'ServiceEditComponent', 'selector': 'sitmun-service-edit'},{'name': 'ServiceListComponent', 'selector': 'sitmun-service-list'},{'name': 'ServiceParameterEditDialog', 'selector': 'sitmun-service-parameter-dialog'},{'name': 'ServiceParameterListComponent', 'selector': 'sitmun-service-parameter-list'},{'name': 'TaskAvailabilityEditDialog', 'selector': 'sitmun-task-availability-dialog'},{'name': 'TaskAvailabilityListComponent', 'selector': 'sitmun-task-availability-list'},{'name': 'TaskEditComponent', 'selector': 'sitmun-task-edit'},{'name': 'TaskGroupEditComponent', 'selector': 'sitmun-task-group-edit'},{'name': 'TaskGroupListComponent', 'selector': 'sitmun-task-group-list'},{'name': 'TaskListComponent', 'selector': 'sitmun-task-list'},{'name': 'TaskParameterEditDialog', 'selector': 'sitmun-task-parameter-dialog'},{'name': 'TaskParameterListComponent', 'selector': 'sitmun-task-parameter-list'},{'name': 'TaskTypeEditComponent', 'selector': 'sitmun-task-type-edit'},{'name': 'TaskTypeListComponent', 'selector': 'sitmun-task-type-list'},{'name': 'TaskUIEditComponent', 'selector': 'sitmun-task-ui-edit'},{'name': 'TaskUIListComponent', 'selector': 'sitmun-task-ui-list'},{'name': 'TerritoryEditComponent', 'selector': 'app-territory-edit'},{'name': 'TerritoryListComponent', 'selector': 'app-territory-list'},{'name': 'TerritoryTypeEditComponent', 'selector': 'app-territory-type-edit'},{'name': 'TerritoryTypeListComponent', 'selector': 'app-territory-type-list'},{'name': 'TreeEditComponent', 'selector': 'sitmun-tree-edit'},{'name': 'TreeListComponent', 'selector': 'sitmun-tree-list'},{'name': 'TreeNodeEditDialog', 'selector': 'sitmun-tree-node-dialog'},{'name': 'TreeNodeListComponent', 'selector': 'sitmun-tree-node-list'},{'name': 'UserChangePasswordComponent', 'selector': 'sitmun-user-change-password'},{'name': 'UserConfigurationEditComponent', 'selector': 'app-user-configuration-edit'},{'name': 'UserConfigurationEditDialog', 'selector': 'app-user-configuration-dialog'},{'name': 'UserConfigurationListComponent', 'selector': 'sitmun-user-configuration-list'},{'name': 'UserEditComponent', 'selector': 'sitmun-user-edit'},{'name': 'UserListComponent', 'selector': 'sitmun-user-list'},{'name': 'UserPositionEditComponent', 'selector': 'sitmun-user-position-edit'},{'name': 'UserPositionEditDialog', 'selector': 'sitmun-user-position-dialog'},{'name': 'UserPositionListComponent', 'selector': 'sitmun-user-position-list'}];
+    var DIRECTIVES = [{'name': 'HasAnyAuthorityDirective', 'selector': '[sitmunHasAnyAuthority]'},{'name': 'HasAnyAuthorityOnTerritoryDirective', 'selector': '[sitmunHasAnyAuthorityOnTerritory]'}];
+    var ACTUAL_COMPONENT = {'name': 'TaskEditComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TaskEditComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
