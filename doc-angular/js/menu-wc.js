@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">angular-library documentation</a>
+                    <a href="index.html" data-type="index-link">SITMUN Core Angular Library documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -46,6 +46,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                     </ul>
                 </li>
+                    <li class="chapter additional">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#additional-pages"'
+                            : 'data-target="#xs-additional-pages"' }>
+                            <span class="icon ion-ios-book"></span>
+                            <span>Additional documentation</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="additional-pages"' : 'id="xs-additional-pages"' }>
+                                    <li class="link ">
+                                        <a href="additional-documentation/usage.html" data-type="entity-link" data-context-id="additional">USAGE</a>
+                                    </li>
+                        </ul>
+                    </li>
                     <li class="chapter modules">
                         <a data-type="chapter-link" href="modules.html">
                             <div class="menu-toggler linked" data-toggle="collapse" ${ isNormalMode ?
