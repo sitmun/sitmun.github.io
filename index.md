@@ -6,4 +6,4 @@ La **Plataforma SITMUN** tiene la licencia libre [EUPL v1.2](http://data.europa.
 
 Puedes usar el [editor en GitHub](https://github.com/sitmun/sitmun.github.io/edit/master/index.md) para mantener los contenidos.
 
-Cada cambio en este repositorio hace que **GitHub Pages** ejecute [Jekyll](https://jekyllrb.com/) para reconstruir el sitio.
+Cada cambio en este repositorio provoca que **GitHub Pages** ejecute [Jekyll](https://jekyllrb.com/) para reconstruir el sitio.
