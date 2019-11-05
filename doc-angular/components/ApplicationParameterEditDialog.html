@@ -64,6 +64,13 @@
     <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for edit application parameter data</p>
+
+    </p>
 
 
     <p class="comment">
@@ -181,12 +188,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:105</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:117</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -286,14 +295,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:144</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>compare two resources</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -368,14 +379,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:128</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>On component init load all required data dependencies</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -407,14 +420,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:137</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>save application parameter</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -460,10 +475,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:124</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>application parameter to edit</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -488,10 +509,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:111</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/application/application-parameter-list.component.ts:123</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>dialog reference</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -511,42 +538,50 @@ import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
 
 
-
-
+/** Component for managing application parameters*/
 @Component({
   selector: &#x27;sitmun-application-parameter-list&#x27;,
   templateUrl: &#x27;./application-parameter-list.component.html&#x27;,
   styleUrls: [&#x27;./application-parameter-list.component.css&#x27;]
 })
 export class ApplicationParameterListComponent implements OnInit {
-
+  
+  /** application parameters to manage */
   items: ApplicationParameter[];
+
+  /** application to manage */
   _application: Application;
-
+  
+  /** Table displayed columns */ 
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;value&#x27;,&#x27;actions&#x27;];
+  
+  /** MatTableDataSource for table display */
   dataSource &#x3D; null;
-
+  
+  /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
+  /** constructor*/
   constructor(
-    private applicationParameterService: ApplicationParameterService,    
-    
-    public dialog: MatDialog) { 
+          /** application parameter service*/ private applicationParameterService: ApplicationParameterService,    
+          /** dialog*/public dialog: MatDialog) { 
   
   }
-
+  
+  /** On component init, get all data dependencies */
   ngOnInit() {
     this.items &#x3D; new Array&lt;ApplicationParameter&gt;();
     
   }
-
+  
+  /** Set application to manage */
   @Input()
   set application(application: Application) {    
     this._application &#x3D; application;
     this.loadApplicationParameters();
   }
 
-
+  /** load all application parameters*/
   loadApplicationParameters(){
     if (this._application!&#x3D;null){
      this._application.getRelationArray(ApplicationParameter, &#x27;parameters&#x27;).subscribe(
@@ -562,7 +597,8 @@ export class ApplicationParameterListComponent implements OnInit {
       
     }
   }
-
+  
+  /** open dialog to edit application parameter*/
   edit(applicationParameter: ApplicationParameter): void {
     let dialogRef &#x3D; this.dialog.open(ApplicationParameterEditDialog, {
       width: &#x27;250px&#x27;,
@@ -575,7 +611,8 @@ export class ApplicationParameterListComponent implements OnInit {
        
     });
   }
-
+  
+  /** add application parameter*/
   add(): void {
     let applicationParameter &#x3D; new ApplicationParameter();
     applicationParameter.application &#x3D; this._application;
@@ -589,7 +626,8 @@ export class ApplicationParameterListComponent implements OnInit {
       this.loadApplicationParameters();
     });
   }
-
+  
+  /** remove application parameter*/
   remove(item: ApplicationParameter) {
     this.applicationParameterService.delete(item).subscribe(result &#x3D;&gt; {
       this.loadApplicationParameters();
@@ -597,9 +635,10 @@ export class ApplicationParameterListComponent implements OnInit {
      
   }
   
-  
 
 }
+
+/** Component for edit application parameter data*/
 @Component({
   selector: &#x27;sitmun-application-parameter-dialog&#x27;,
   templateUrl: &#x27;./application-parameter-edit.dialog.html&#x27;,
@@ -607,35 +646,31 @@ export class ApplicationParameterListComponent implements OnInit {
 })
 export class ApplicationParameterEditDialog implements OnInit {
 
-  
+  /** constructor*/
   constructor(
-    private applicationService: ApplicationService,
-    private applicationParameterService: ApplicationParameterService,
-    public dialogRef: MatDialogRef&lt;ApplicationParameterEditDialog&gt;,
-    @Inject(MAT_DIALOG_DATA) public applicationParameter: ApplicationParameter ) {
+          /**application service*/ private applicationService: ApplicationService,
+          /**application parameter service*/ private applicationParameterService: ApplicationParameterService,
+          /**dialog reference*/ public dialogRef: MatDialogRef&lt;ApplicationParameterEditDialog&gt;,
+          /**application parameter to edit*/ @Inject(MAT_DIALOG_DATA) public applicationParameter: ApplicationParameter ) {
   }
 
-
+  /** On component init load all required data dependencies*/
   ngOnInit() {
-     
-    
       if (this.applicationParameter._links) {
         this.applicationParameter.getRelation(Application, &#x27;application&#x27;).subscribe(
                     (application: Application) &#x3D;&gt; this.applicationParameter.application &#x3D; application,
                     error &#x3D;&gt; this.applicationParameter.application &#x3D; new Application());
-
-       
      }
-    
   }
   
+  /** save application parameter*/
   save() {
       this.applicationParameterService.save(this.applicationParameter).subscribe(result &#x3D;&gt; {      
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
   }
 
-  
+  /** compare two resources*/
   compareResource(c1: Resource, c2: Resource): boolean {
     if (c2 &amp;&amp; c1)
       return c2._links &amp;&amp; c1._links ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
@@ -765,6 +800,7 @@ export class ApplicationParameterEditDialog implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'ApplicationParameterEditDialog.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

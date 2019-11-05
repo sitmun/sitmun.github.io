@@ -1411,6 +1411,13 @@
         </p>
 
 
+        <p class="comment">
+            <h3>Description</h3>
+        </p>
+        <p class="comment">
+            <p>SITMUN plugin core module </p>
+
+        </p>
 
 
         <div class="container-fluid module">
@@ -1963,18 +1970,18 @@ import { ApplicationBackgroundListComponent,ApplicationBackgroundEditDialog } fr
 import { TaskUIEditComponent } from &#x27;./task/task-ui-edit.component&#x27;;
 import { TaskUIListComponent } from &#x27;./task/task-ui-list.component&#x27;;
 
-
+/** load i18n assets*/
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
 }
 
-
+/** create Material Design pagination service*/
 export function createMatPaginationService(translate: TranslateService){
                 const service &#x3D; new MatPaginationIntlService();
                 service.injectTranslateService(translate);
             return service;
 }
-
+/** SITMUN plugin core module */
 @NgModule({
   imports: [
   RouterModule,
@@ -2264,6 +2271,7 @@ export class SitmunPluginCoreModule {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'SitmunPluginCoreModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

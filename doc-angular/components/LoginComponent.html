@@ -64,6 +64,13 @@
     <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Login component</p>
+
+    </p>
 
 
 
@@ -167,12 +174,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:19</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor </p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -272,14 +281,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:34</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>login action </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -315,10 +326,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>bad credentials message</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -342,10 +359,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>form </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -361,41 +384,45 @@ import { LoginService } from &#x27;./login.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { FormGroup, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
 
-@Component({
-  selector: &#x27;app-login&#x27;,
-  templateUrl: &#x27;./login.component.html&#x27;,
-  styleUrls: [&#x27;./login.component.css&#x27;]
-})
-export class LoginComponent{
+/** Login component*/
+@Component( {
+    selector: &#x27;app-login&#x27;,
+    templateUrl: &#x27;./login.component.html&#x27;,
+    styleUrls: [&#x27;./login.component.css&#x27;]
+} )
+export class LoginComponent {
+    
+    /** bad credentials message*/   
+    badCredentials: string;
 
-  badCredentials: string;
+    /** form */
+    form: FormGroup;
 
-  form:FormGroup;
+    /** constructor */
+    constructor( private fb: FormBuilder,
+        private authService: AuthService,
+        private loginService: LoginService,
+        private router: Router ) {
 
-    constructor(private fb:FormBuilder, 
-                 private authService: AuthService,
-                 private loginService: LoginService,  
-                 private router: Router) {
-
-        this.form &#x3D; this.fb.group({
-            username: [&#x27;&#x27;,Validators.required],
-            password: [&#x27;&#x27;,Validators.required]
-        });
+        this.form &#x3D; this.fb.group( {
+            username: [&#x27;&#x27;, Validators.required],
+            password: [&#x27;&#x27;, Validators.required]
+        } );
     }
 
+    /** login action */
     login() {
         const val &#x3D; this.form.value;
 
-        if (val.username &amp;&amp; val.password) {
-            this.loginService.login(val).then(() &#x3D;&gt;
-                 {
-                        console.log(&#x27;User is logged in&#x27;);
-                        this.router.navigateByUrl(&#x27;/&#x27;);
-                    }, (err) &#x3D;&gt; {
-                  this.badCredentials &#x3D; &#x27;ERROR&#x27;;
-               
-            });
-               
+        if ( val.username &amp;&amp; val.password ) {
+            this.loginService.login( val ).then(() &#x3D;&gt; {
+                console.log( &#x27;User is logged in&#x27; );
+                this.router.navigateByUrl( &#x27;/&#x27; );
+            }, ( err ) &#x3D;&gt; {
+                this.badCredentials &#x3D; &#x27;ERROR&#x27;;
+
+            } );
+
         }
     }
 }
@@ -519,6 +546,7 @@ export class LoginComponent{
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

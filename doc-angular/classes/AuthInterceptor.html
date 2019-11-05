@@ -63,6 +63,13 @@
             <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interceptor for authentication token in API requests </p>
+
+            </p>
 
 
             <p class="comment">
@@ -131,10 +138,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:8</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -170,10 +183,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:7</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>API base path</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -203,7 +222,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -239,14 +258,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth.interceptor.ts:15</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>request handler </p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -312,21 +333,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from &#x27;@angular/common/http&#x27;;
 
+/** Interceptor for authentication token in API requests */
 export class AuthInterceptor implements HttpInterceptor {
+    /** API base path*/
     public SERVER_API_URL &#x3D; &#x27;/api&#x27;;
     public TEST_SERVER_API_URL &#x3D; &#x27;http://localhost:8080/api&#x27;;
+    /** constructor*/
     constructor(
     ) {
     }
-
+    
+    /** request handler */
     intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
-        /*
-        if (!request || !request.url || (/^http/.test(request.url) &amp;&amp; !(this.SERVER_API_URL &amp;&amp; request.url.startsWith(this.SERVER_API_URL))
-            &amp;&amp; !(this.TEST_SERVER_API_URL &amp;&amp; request.url.startsWith(this.TEST_SERVER_API_URL)))) {
-            return next.handle(request);
-        }
-*/
-        //request.url &#x3D; request.url.replace(&#x27;localhost:8080&#x27;,&#x27;localhost:4200&#x27;);
         if (!request || !request.url || !(request.url.includes(&quot;api&quot;)) ) {
             return next.handle(request);
         }
@@ -371,6 +389,7 @@ export class AuthInterceptor implements HttpInterceptor {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'AuthInterceptor.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

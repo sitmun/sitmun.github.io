@@ -64,6 +64,13 @@
     <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Account data edit component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -176,12 +183,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:19</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -245,14 +254,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:27</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>On component init load all required data dependencies</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -284,14 +295,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>save account data</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -332,10 +345,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>user data to edit</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -359,10 +378,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/account/account-edit.component.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>success status variable</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -375,6 +400,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import {AccountService } from &#x27;./account.service&#x27;;
 import {User } from &#x27;../user/user.model&#x27;;
+
+/**
+ * Account data edit component
+ */
 @Component({
   selector: &#x27;app-account-edit&#x27;,
   templateUrl: &#x27;./account-edit.component.html&#x27;,
@@ -382,13 +411,18 @@ import {User } from &#x27;../user/user.model&#x27;;
 })
 export class AccountEditComponent implements OnInit {
 
+  /** user data to edit*/
   item: User &#x3D; new User();
+
+  /** success status variable*/
   success: string;
   
+  /** constructor*/
   constructor(
   	private accountService: AccountService) {
   }
-
+  
+  /** On component init load all required data dependencies*/
   ngOnInit() {
     
         this.accountService.get().subscribe((item: any) &#x3D;&gt; {
@@ -403,7 +437,7 @@ export class AccountEditComponent implements OnInit {
   }
 
  
- 
+  /** save account data*/
   save() {
       this.accountService.save(this.item).subscribe(result &#x3D;&gt; {      
         //Todo display message?
@@ -532,6 +566,7 @@ export class AccountEditComponent implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'AccountEditComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

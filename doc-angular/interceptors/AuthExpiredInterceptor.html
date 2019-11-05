@@ -60,6 +60,13 @@
             <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth-expired.interceptor.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interceptor for authentication expired response in API requests </p>
+
+            </p>
 
 
             <section>
@@ -107,6 +114,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor </p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -190,14 +199,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth-expired.interceptor.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/auth-expired.interceptor.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>request handler </p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -259,20 +270,22 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injector, Injectable } from &#x27;@angular/core&#x27;;
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-//import &#x27;rxjs/add/operator/do&#x27;;
 import { AuthService } from &#x27;./auth.service&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { Principal } from &#x27;./principal.service&#x27;;
 
+/** Interceptor for authentication expired response in API requests */
 @Injectable()
 export class AuthExpiredInterceptor implements HttpInterceptor {
 
+    /** constructor */
     constructor(
         private router: Router,     
         private authService: AuthService, 
         private principal: Principal
     ) {}
 
+    /** request handler */
     intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
         return next.handle(request).do((event: HttpEvent&lt;any&gt;) &#x3D;&gt; {}, (err: any) &#x3D;&gt; {
             if (err instanceof HttpErrorResponse) {
@@ -317,6 +330,7 @@ export class AuthExpiredInterceptor implements HttpInterceptor {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
             var COMPODOC_CURRENT_PAGE_URL = 'AuthExpiredInterceptor.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

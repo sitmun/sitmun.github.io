@@ -59,6 +59,13 @@
             <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Login service</p>
+
+            </p>
 
 
 
@@ -107,12 +114,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:7</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor </p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -184,14 +193,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:16</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Login operation</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -259,14 +270,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:37</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>login with jwt token </p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -325,14 +338,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.service.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>logout operation </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -352,14 +367,17 @@
 import { AuthService } from &#x27;./auth.service&#x27;;
 import { Principal } from &#x27;./principal.service&#x27;;
 
+/** Login service*/
 @Injectable()
 export class LoginService {
-
+    
+    /** constructor */
     constructor(
         private authServerProvider: AuthService, 
         private principal: Principal
     ) {}
 
+    /**Login operation*/
     login(credentials, callback?) {
         const cb &#x3D; callback || function() {};
 
@@ -380,11 +398,12 @@ export class LoginService {
             });
         });
     }
-
+    /**login with jwt token */
     loginWithToken(jwt) {
         return this.authServerProvider.loginWithToken(jwt);
     }
 
+    /** logout operation */
     logout() {
        this.authServerProvider.logout().subscribe();
        this.principal.authenticate(null);
@@ -424,6 +443,7 @@ export class LoginService {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'LoginService-1.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

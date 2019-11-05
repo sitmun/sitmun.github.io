@@ -63,6 +63,13 @@
             <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Layer selection dialog data</p>
+
+            </p>
 
 
 
@@ -127,10 +134,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>iem list</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -154,10 +167,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts:7</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>selected</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -181,10 +200,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/map/layer-selection-dialog.component.ts:8</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>title</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -204,37 +229,48 @@
 import { FormGroup, FormBuilder } from &#x27;@angular/forms&#x27;;
 import {MAT_DIALOG_DATA, MatDialogRef} from &quot;@angular/material&quot;;
 
+/** Layer selection dialog data*/ 
 export class LayerSelectionDialogData {
-  selected: number;
-  title: string;
-  itemList: string[];
+  /**selected*/ selected: number;
+  /**title*/ title: string;
+  /**iem list*/itemList: string[];
 }
-
+/** messages*/
 const messages &#x3D; {
   cancel: &quot;CANCEL&quot;,
   confirm: &quot;OK&quot;
 }
 
+/** Layer selection dialog component*/
 @Component({
     selector: &#x27;layer-selection-dialog&#x27;,
     templateUrl: &#x27;./layer-selection-dialog.component.html&#x27;,
     styleUrls: [&#x27;./layer-selection-dialog.component.css&#x27;]
 })
-
 export class LayerSelectionDialogComponent implements OnInit {
-
+    /** form */
     form: FormGroup;
+    
+    /** title */
     title:string;
+    
+    /** layer list */    
     itemList: string[];
+    
+    /** cancel message*/
     cancel: string &#x3D; messages[&quot;cancel&quot;];
+    
+    /** confirm message*/
     confirm: string &#x3D; messages[&quot;confirm&quot;];
 
+    /** selected layer index*/    
     selected: number &#x3D; 0;
 
+    /** constructor */
     constructor(
         private fb: FormBuilder,
         private dialogRef: MatDialogRef&lt;LayerSelectionDialogComponent&gt;,
-        @Inject(MAT_DIALOG_DATA) data:LayerSelectionDialogData) {
+        /**layer selection data*/@Inject(MAT_DIALOG_DATA) data:LayerSelectionDialogData) {
 
         this.title &#x3D; data.title;
         this.itemList &#x3D; data.itemList;
@@ -248,18 +284,22 @@ export class LayerSelectionDialogComponent implements OnInit {
 
         this.form &#x3D; fb.group(groups);
     }
-
+    
+    /** component init handler*/
     ngOnInit() {
     }
-
+    
+    /** save action */
     save() {
         this.dialogRef.close(this.form.value);
     }
-
+    
+    /** close action */
     close() {
         this.dialogRef.close();
     }
 
+    /** change layer selected to given index */
     change(option:number) {
         //Check it again
         for (var i &#x3D; 0, iLen &#x3D; this.itemList.length; i &lt; iLen; i++) {
@@ -296,6 +336,7 @@ export class LayerSelectionDialogComponent implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'LayerSelectionDialogData.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

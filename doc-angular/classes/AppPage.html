@@ -63,6 +63,13 @@
             <code>src/main/angular-library/e2e/src/app.po.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Demo app page</p>
+
+            </p>
 
 
 
@@ -127,14 +134,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/main/angular-library/e2e/src/app.po.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">src/main/angular-library/e2e/src/app.po.ts:12</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get paragraph text</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -166,14 +175,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="4"
-                            class="link-to-prism">src/main/angular-library/e2e/src/app.po.ts:4</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">src/main/angular-library/e2e/src/app.po.ts:7</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Navigate to root page</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -195,11 +206,15 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { browser, by, element } from &#x27;protractor&#x27;;
 
+/** Demo app page*/
 export class AppPage {
+  
+  /** Navigate to root page*/
   navigateTo() {
     return browser.get(&#x27;/&#x27;);
   }
 
+  /** Get paragraph text*/
   getParagraphText() {
     return element(by.css(&#x27;app-root h1&#x27;)).getText();
   }
@@ -233,6 +248,7 @@ export class AppPage {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'AppPage.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -64,6 +64,13 @@
     <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component for edit service parameter data</p>
+
+    </p>
 
 
     <p class="comment">
@@ -181,12 +188,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:105</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:116</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -286,14 +295,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:148</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>compare two resources</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -368,14 +379,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:127</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>On component init load all required data dependencies</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -407,14 +420,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:141</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>save service parameter</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -451,10 +466,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:111</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:122</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>dialog reference</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -488,10 +509,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/service/service-parameter-list.component.ts:123</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>service parameter to edit</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -511,42 +538,50 @@ import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
 
 
-
-
+/** Component for managing service parameters*/
 @Component({
   selector: &#x27;sitmun-service-parameter-list&#x27;,
   templateUrl: &#x27;./service-parameter-list.component.html&#x27;,
   styleUrls: [&#x27;./service-parameter-list.component.css&#x27;]
 })
 export class ServiceParameterListComponent implements OnInit {
-
+  
+  /** service parameters to manage */
   items: ServiceParameter[];
+
+  /** service to manage its parameters*/
   _service: Service;
-
+  
+  /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;value&#x27;,&#x27;actions&#x27;];
+  
+  /** MatTableDataSource for table display */
   dataSource &#x3D; null;
-
+  
+  /** Paginator for table display */  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
+  /** Component constructor */
   constructor(
-    private serviceParameterService: ServiceParameterService,    
-    
-    public dialog: MatDialog) { 
+          /**service parameters service*/private serviceParameterService: ServiceParameterService,        
+          /**dialog*/public dialog: MatDialog) { 
   
   }
-
+  
+  /** On component init, get all data dependencies */
   ngOnInit() {
     this.items &#x3D; new Array&lt;ServiceParameter&gt;();
     
   }
-
+  
+  /** Set service to manage its parameters*/
   @Input()
   set service(service: Service) {    
     this._service &#x3D; service;
     this.loadServiceParameters();
   }
 
-
+  /** load all service parameters*/
   loadServiceParameters(){
     if (this._service!&#x3D;null){
      this._service.getRelationArray(ServiceParameter, &#x27;parameters&#x27;).subscribe(
@@ -562,7 +597,8 @@ export class ServiceParameterListComponent implements OnInit {
       
     }
   }
-
+  
+  /** open dialog to edit service parameter data*/
   edit(serviceParameter: ServiceParameter): void {
     let dialogRef &#x3D; this.dialog.open(ServiceParameterEditDialog, {
       width: &#x27;250px&#x27;,
@@ -575,7 +611,8 @@ export class ServiceParameterListComponent implements OnInit {
        
     });
   }
-
+  
+  /** add service parameter*/
   add(): void {
     let serviceParameter &#x3D; new ServiceParameter();
     serviceParameter.service &#x3D; this._service;
@@ -589,17 +626,18 @@ export class ServiceParameterListComponent implements OnInit {
       this.loadServiceParameters();
     });
   }
-
+  
+  /** remove service parameter*/
   remove(item: ServiceParameter) {
     this.serviceParameterService.delete(item).subscribe(result &#x3D;&gt; {
       this.loadServiceParameters();
     }, error &#x3D;&gt; console.error(error));
      
   }
-  
-  
 
 }
+
+/** Component for edit service parameter data*/
 @Component({
   selector: &#x27;sitmun-service-parameter-dialog&#x27;,
   templateUrl: &#x27;./service-parameter-edit.dialog.html&#x27;,
@@ -607,15 +645,15 @@ export class ServiceParameterListComponent implements OnInit {
 })
 export class ServiceParameterEditDialog implements OnInit {
 
-  
+  /** constructor*/
   constructor(
-    private serviceService: ServiceService,
-    private serviceParameterService: ServiceParameterService,
-    public dialogRef: MatDialogRef&lt;ServiceParameterEditDialog&gt;,
-    @Inject(MAT_DIALOG_DATA) public serviceParameter: ServiceParameter ) {
+          /** service service*/private serviceService: ServiceService,
+          /** service parameter service*/private serviceParameterService: ServiceParameterService,
+          /** dialog reference*/public dialogRef: MatDialogRef&lt;ServiceParameterEditDialog&gt;,
+          /** service parameter to edit*/@Inject(MAT_DIALOG_DATA) public serviceParameter: ServiceParameter ) {
   }
 
-
+  /** On component init load all required data dependencies*/
   ngOnInit() {
      
     
@@ -629,13 +667,14 @@ export class ServiceParameterEditDialog implements OnInit {
     
   }
   
+  /** save service parameter*/
   save() {
       this.serviceParameterService.save(this.serviceParameter).subscribe(result &#x3D;&gt; {      
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
   }
 
-  
+  /** compare two resources*/
   compareResource(c1: Resource, c2: Resource): boolean {
     if (c2 &amp;&amp; c1)
       return c2._links &amp;&amp; c1._links ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
@@ -765,6 +804,7 @@ export class ServiceParameterEditDialog implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'ServiceParameterEditDialog.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

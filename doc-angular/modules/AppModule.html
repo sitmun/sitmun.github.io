@@ -249,7 +249,6 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
-//import { MatToolbarModule, MatButtonModule, MatIconModule } from &#x27;@angular/material&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
@@ -267,12 +266,12 @@ import {TranslateHttpLoader} from &#x27;@ngx-translate/http-loader&#x27;;
 registerLocaleData(localeCa, &#x27;ca&#x27;);
 registerLocaleData(localeEs, &#x27;es&#x27;);
 
-
+/** Load translation assets */
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
 }
 
-
+/** Demo app routes configuration*/
 const appRoutes: Routes &#x3D; [
     {
         path: &#x27;&#x27;,
@@ -474,26 +473,7 @@ const appRoutes: Routes &#x3D; [
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent/*,
-    
-    TerritoryListComponent,
-    
-    TerritoryEditComponent,
-    TerritoryTypeListComponent,
-    TerritoryTypeEditComponent,
-    RoleListComponent,
-    RoleEditComponent,
-    RoleListComponent,
-    RoleEditComponent,
-    UserListComponent,
-    UserEditComponent,
-    UserPositionListComponent,
-    UserPositionEditDialog,
-    UserPositionEditComponent,
-    UserConfigurationEditComponent,
-    UserConfigurationEditDialog,
-    UserConfigurationListComponent
-    */
+        HomeComponent
     ],
     imports: [
         BrowserModule,
@@ -506,38 +486,12 @@ const appRoutes: Routes &#x3D; [
             }
         }),
 
-        /*,
-    
-        MatToolbarModule,  
-        MatButtonModule,
-        MatIconModule,
-        HttpClientModule,
         
-        MatCardModule,
-        MatInputModule,
-        MatListModule,
-        
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatCheckboxModule,
-        MatTabsModule,
-        MatTableModule,
-        FormsModule,
-        MatSelectModule,
-        MatPaginatorModule,
-        MatSortModule,
-        
-        NoopAnimationsModule,
-        MatDialogModule,
-        */
         AngularHalModule.forRoot(),
         RouterModule.forRoot(appRoutes)
     ],
     entryComponents: [
-        /*
-          UserPositionEditDialog,
-          UserConfigurationEditDialog
-          */
+        
     ],
     providers: [
         { provide: &#x27;ExternalConfigurationService&#x27;, useClass: ExternalConfigurationService },
@@ -556,6 +510,7 @@ const appRoutes: Routes &#x3D; [
     ],
     bootstrap: [AppComponent]
 })
+/** Demo app module*/
 export class AppModule { }
 </code></pre>
     </div>
@@ -593,6 +548,7 @@ export class AppModule { }
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'AppModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

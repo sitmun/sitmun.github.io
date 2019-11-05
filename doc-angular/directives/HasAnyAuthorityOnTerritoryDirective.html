@@ -167,12 +167,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor </p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -250,6 +252,12 @@
                                     <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:32</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Set whether current user has any of the given authorities on territory </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -285,14 +293,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>update view </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -329,10 +339,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>authorities to check </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -357,10 +373,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/has-any-authority-on-territory.directive.ts:24</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>territory to check authorities</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -392,6 +414,8 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Set whether current user has any of the given authorities on territory </p>
+</div>
 
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -454,17 +478,17 @@ import { Principal } from &#x27;./principal.service&#x27;;
 })
 export class HasAnyAuthorityOnTerritoryDirective {
 
+    /** authorities to check */
     public authorities: string[]; 
 
+    /** territory to check authorities*/
     public territory: string; 
 
+    /** constructor */
     constructor(private principal: Principal, private templateRef: TemplateRef&lt;any&gt;, private viewContainerRef: ViewContainerRef) {
     }
-
     
-
-
-
+    /** Set whether current user has any of the given authorities on territory */
     @Input()
     set sitmunHasAnyAuthorityOnTerritory(opts: any) {
 
@@ -474,7 +498,8 @@ export class HasAnyAuthorityOnTerritoryDirective {
         // Get notified each time authentication state changes.
         this.principal.getAuthenticationState().subscribe((identity) &#x3D;&gt; this.updateView());
     }
-
+    
+    /** update view */
     private updateView(): void {
         if (this.territory){
         this.principal.hasAnyAuthorityOnTerritory(this.authorities,this.territory).then((result) &#x3D;&gt; {
@@ -529,6 +554,7 @@ export class HasAnyAuthorityOnTerritoryDirective {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
             var COMPODOC_CURRENT_PAGE_URL = 'HasAnyAuthorityOnTerritoryDirective.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
