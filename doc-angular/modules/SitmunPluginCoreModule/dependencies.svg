@@ -34,7 +34,7 @@
 </g>
 <g id="clust60" class="cluster">
 <title>cluster_SitmunPluginCoreModule_exports</title>
-<polygon fill="none" stroke="#000000" points="3647,-208 3647,-260 6498,-260 6498,-208 3647,-208"/>
+<polygon fill="none" stroke="#000000" points="3559,-208 3559,-260 6609,-260 6609,-208 3559,-208"/>
 </g>
 <!-- AccountChangePasswordComponent -->
 <g id="node1" class="node">
@@ -291,8 +291,8 @@
 <!-- LoginComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge21" class="edge">
 <title>LoginComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M6597,-122.0091C6597,-138.0494 6597,-159 6597,-159 6597,-159 5278.9021,-159 5278.9021,-159"/>
-<polygon fill="#000000" stroke="#000000" points="5278.9021,-155.5001 5268.9021,-159 5278.9021,-162.5001 5278.9021,-155.5001"/>
+<path fill="none" stroke="#000000" d="M6570.4757,-122.0091C6570.4757,-138.0494 6570.4757,-159 6570.4757,-159 6570.4757,-159 5278.8879,-159 5278.8879,-159"/>
+<polygon fill="#000000" stroke="#000000" points="5278.888,-155.5001 5268.8879,-159 5278.8879,-162.5001 5278.888,-155.5001"/>
 </g>
 <!-- MapComponent -->
 <g id="node22" class="node">
@@ -303,8 +303,8 @@
 <!-- MapComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge22" class="edge">
 <title>MapComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M6452.4217,-122.2819C6452.4217,-137.9478 6452.4217,-158 6452.4217,-158 6452.4217,-158 5279.0528,-158 5279.0528,-158"/>
-<polygon fill="#000000" stroke="#000000" points="5279.0529,-154.5001 5269.0528,-158 5279.0528,-161.5001 5279.0529,-154.5001"/>
+<path fill="none" stroke="#000000" d="M6468,-122.2819C6468,-137.9478 6468,-158 6468,-158 6468,-158 5279.081,-158 5279.081,-158"/>
+<polygon fill="#000000" stroke="#000000" points="5279.081,-154.5001 5269.081,-158 5279.081,-161.5001 5279.081,-154.5001"/>
 </g>
 <!-- MessageDialogComponent -->
 <g id="node23" class="node">
@@ -315,8 +315,8 @@
 <!-- MessageDialogComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge23" class="edge">
 <title>MessageDialogComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M6235.7951,-122.2396C6235.7951,-137.5706 6235.7951,-157 6235.7951,-157 6235.7951,-157 5278.8603,-157 5278.8603,-157"/>
-<polygon fill="#000000" stroke="#000000" points="5278.8604,-153.5001 5268.8603,-157 5278.8603,-160.5001 5278.8604,-153.5001"/>
+<path fill="none" stroke="#000000" d="M6291.2951,-122.2396C6291.2951,-137.5706 6291.2951,-157 6291.2951,-157 6291.2951,-157 5279.0994,-157 5279.0994,-157"/>
+<polygon fill="#000000" stroke="#000000" points="5279.0995,-153.5001 5269.0994,-157 5279.0994,-160.5001 5279.0995,-153.5001"/>
 </g>
 <!-- RoleEditComponent -->
 <g id="node24" class="node">
@@ -327,8 +327,8 @@
 <!-- RoleEditComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge24" class="edge">
 <title>RoleEditComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M6083.3249,-122.1871C6083.3249,-137.1824 6083.3249,-156 6083.3249,-156 6083.3249,-156 5278.919,-156 5278.919,-156"/>
-<polygon fill="#000000" stroke="#000000" points="5278.919,-152.5001 5268.919,-156 5278.919,-159.5001 5278.919,-152.5001"/>
+<path fill="none" stroke="#000000" d="M6130.0065,-122.1871C6130.0065,-137.1824 6130.0065,-156 6130.0065,-156 6130.0065,-156 5279.036,-156 5279.036,-156"/>
+<polygon fill="#000000" stroke="#000000" points="5279.036,-152.5001 5269.036,-156 5279.036,-159.5001 5279.036,-152.5001"/>
 </g>
 <!-- RoleListComponent -->
 <g id="node25" class="node">
@@ -339,8 +339,8 @@
 <!-- RoleListComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge25" class="edge">
 <title>RoleListComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M5936.3284,-122.1243C5936.3284,-136.7832 5936.3284,-155 5936.3284,-155 5936.3284,-155 5278.9759,-155 5278.9759,-155"/>
-<polygon fill="#000000" stroke="#000000" points="5278.9759,-151.5001 5268.9759,-155 5278.9759,-158.5001 5278.9759,-151.5001"/>
+<path fill="none" stroke="#000000" d="M5982.6807,-122.1243C5982.6807,-136.7832 5982.6807,-155 5982.6807,-155 5982.6807,-155 5278.7834,-155 5278.7834,-155"/>
+<polygon fill="#000000" stroke="#000000" points="5278.7834,-151.5001 5268.7834,-155 5278.7833,-158.5001 5278.7834,-151.5001"/>
 </g>
 <!-- ServiceEditComponent -->
 <g id="node26" class="node">
@@ -351,8 +351,8 @@
 <!-- ServiceEditComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge26" class="edge">
 <title>ServiceEditComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M5776.962,-122.0511C5776.962,-136.373 5776.962,-154 5776.962,-154 5776.962,-154 5279.0317,-154 5279.0317,-154"/>
-<polygon fill="#000000" stroke="#000000" points="5279.0317,-150.5001 5269.0317,-154 5279.0316,-157.5001 5279.0317,-150.5001"/>
+<path fill="none" stroke="#000000" d="M5778.5291,-122.0511C5778.5291,-136.373 5778.5291,-154 5778.5291,-154 5778.5291,-154 5278.9388,-154 5278.9388,-154"/>
+<polygon fill="#000000" stroke="#000000" points="5278.9389,-150.5001 5268.9388,-154 5278.9388,-157.5001 5278.9389,-150.5001"/>
 </g>
 <!-- ServiceListComponent -->
 <g id="node27" class="node">
@@ -363,8 +363,8 @@
 <!-- ServiceListComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge27" class="edge">
 <title>ServiceListComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M5630.8799,-122.2458C5630.8799,-136.1772 5630.8799,-153 5630.8799,-153 5630.8799,-153 5278.9317,-153 5278.9317,-153"/>
-<polygon fill="#000000" stroke="#000000" points="5278.9317,-149.5001 5268.9317,-153 5278.9317,-156.5001 5278.9317,-149.5001"/>
+<path fill="none" stroke="#000000" d="M5609.9911,-122.2458C5609.9911,-136.1772 5609.9911,-153 5609.9911,-153 5609.9911,-153 5278.8076,-153 5278.8076,-153"/>
+<polygon fill="#000000" stroke="#000000" points="5278.8076,-149.5001 5268.8076,-153 5278.8075,-156.5001 5278.8076,-149.5001"/>
 </g>
 <!-- ServiceParameterEditDialog -->
 <g id="node28" class="node">
@@ -375,8 +375,8 @@
 <!-- ServiceParameterEditDialog&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge28" class="edge">
 <title>ServiceParameterEditDialog&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M5457.2239,-122.1467C5457.2239,-135.7395 5457.2239,-152 5457.2239,-152 5457.2239,-152 5278.8094,-152 5278.8094,-152"/>
-<polygon fill="#000000" stroke="#000000" points="5278.8094,-148.5001 5268.8094,-152 5278.8094,-155.5001 5278.8094,-148.5001"/>
+<path fill="none" stroke="#000000" d="M5437.2768,-122.1467C5437.2768,-135.7395 5437.2768,-152 5437.2768,-152 5437.2768,-152 5278.95,-152 5278.95,-152"/>
+<polygon fill="#000000" stroke="#000000" points="5278.95,-148.5001 5268.95,-152 5278.9499,-155.5001 5278.95,-148.5001"/>
 </g>
 <!-- ServiceParameterListComponent -->
 <g id="node29" class="node">
@@ -411,8 +411,8 @@
 <!-- TaskAvailabilityListComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge31" class="edge">
 <title>TaskAvailabilityListComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M4898.4346,-122.1467C4898.4346,-135.7395 4898.4346,-152 4898.4346,-152 4898.4346,-152 5095.0806,-152 5095.0806,-152"/>
-<polygon fill="#000000" stroke="#000000" points="5095.0806,-155.5001 5105.0806,-152 5095.0806,-148.5001 5095.0806,-155.5001"/>
+<path fill="none" stroke="#000000" d="M4957.0153,-122.1467C4957.0153,-135.7395 4957.0153,-152 4957.0153,-152 4957.0153,-152 5094.9442,-152 5094.9442,-152"/>
+<polygon fill="#000000" stroke="#000000" points="5094.9443,-155.5001 5104.9442,-152 5094.9442,-148.5001 5094.9443,-155.5001"/>
 </g>
 <!-- TaskEditComponent -->
 <g id="node32" class="node">
@@ -423,8 +423,8 @@
 <!-- TaskEditComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge32" class="edge">
 <title>TaskEditComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M4700,-122.2458C4700,-136.1772 4700,-153 4700,-153 4700,-153 5095.2126,-153 5095.2126,-153"/>
-<polygon fill="#000000" stroke="#000000" points="5095.2127,-156.5001 5105.2126,-153 5095.2126,-149.5001 5095.2127,-156.5001"/>
+<path fill="none" stroke="#000000" d="M4746.6036,-122.2458C4746.6036,-136.1772 4746.6036,-153 4746.6036,-153 4746.6036,-153 5095.1969,-153 5095.1969,-153"/>
+<polygon fill="#000000" stroke="#000000" points="5095.197,-156.5001 5105.1969,-153 5095.1969,-149.5001 5095.197,-156.5001"/>
 </g>
 <!-- TaskGroupEditComponent -->
 <g id="node33" class="node">
@@ -435,8 +435,8 @@
 <!-- TaskGroupEditComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge33" class="edge">
 <title>TaskGroupEditComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M4601.9425,-122.0511C4601.9425,-136.373 4601.9425,-154 4601.9425,-154 4601.9425,-154 5095.0342,-154 5095.0342,-154"/>
-<polygon fill="#000000" stroke="#000000" points="5095.0343,-157.5001 5105.0342,-154 5095.0342,-150.5001 5095.0343,-157.5001"/>
+<path fill="none" stroke="#000000" d="M4569.4343,-122.0511C4569.4343,-136.373 4569.4343,-154 4569.4343,-154 4569.4343,-154 5094.992,-154 5094.992,-154"/>
+<polygon fill="#000000" stroke="#000000" points="5094.9921,-157.5001 5104.992,-154 5094.992,-150.5001 5094.9921,-157.5001"/>
 </g>
 <!-- TaskGroupListComponent -->
 <g id="node34" class="node">
@@ -447,8 +447,8 @@
 <!-- TaskGroupListComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge34" class="edge">
 <title>TaskGroupListComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M4407.6029,-122.1243C4407.6029,-136.7832 4407.6029,-155 4407.6029,-155 4407.6029,-155 5095.064,-155 5095.064,-155"/>
-<polygon fill="#000000" stroke="#000000" points="5095.064,-158.5001 5105.064,-155 5095.0639,-151.5001 5095.064,-158.5001"/>
+<path fill="none" stroke="#000000" d="M4363.6029,-122.1243C4363.6029,-136.7832 4363.6029,-155 4363.6029,-155 4363.6029,-155 5095.0393,-155 5095.0393,-155"/>
+<polygon fill="#000000" stroke="#000000" points="5095.0393,-158.5001 5105.0393,-155 5095.0392,-151.5001 5095.0393,-158.5001"/>
 </g>
 <!-- TaskListComponent -->
 <g id="node35" class="node">
@@ -459,8 +459,8 @@
 <!-- TaskListComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge35" class="edge">
 <title>TaskListComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M4200.6853,-122.1871C4200.6853,-137.1824 4200.6853,-156 4200.6853,-156 4200.6853,-156 5095.0257,-156 5095.0257,-156"/>
-<polygon fill="#000000" stroke="#000000" points="5095.0257,-159.5001 5105.0257,-156 5095.0256,-152.5001 5095.0257,-159.5001"/>
+<path fill="none" stroke="#000000" d="M4181,-122.1871C4181,-137.1824 4181,-156 4181,-156 4181,-156 5095.1013,-156 5095.1013,-156"/>
+<polygon fill="#000000" stroke="#000000" points="5095.1014,-159.5001 5105.1013,-156 5095.1013,-152.5001 5095.1014,-159.5001"/>
 </g>
 <!-- TaskParameterEditDialog -->
 <g id="node36" class="node">
@@ -471,8 +471,8 @@
 <!-- TaskParameterEditDialog&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge36" class="edge">
 <title>TaskParameterEditDialog&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M4050.1997,-122.2396C4050.1997,-137.5706 4050.1997,-157 4050.1997,-157 4050.1997,-157 5094.7868,-157 5094.7868,-157"/>
-<polygon fill="#000000" stroke="#000000" points="5094.7869,-160.5001 5104.7868,-157 5094.7868,-153.5001 5094.7869,-160.5001"/>
+<path fill="none" stroke="#000000" d="M4082.4525,-122.2396C4082.4525,-137.5706 4082.4525,-157 4082.4525,-157 4082.4525,-157 5094.8818,-157 5094.8818,-157"/>
+<polygon fill="#000000" stroke="#000000" points="5094.8818,-160.5001 5104.8818,-157 5094.8818,-153.5001 5094.8818,-160.5001"/>
 </g>
 <!-- TaskParameterListComponent -->
 <g id="node37" class="node">
@@ -483,8 +483,8 @@
 <!-- TaskParameterListComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge37" class="edge">
 <title>TaskParameterListComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M3885.0072,-122.2819C3885.0072,-137.9478 3885.0072,-158 3885.0072,-158 3885.0072,-158 5095.0613,-158 5095.0613,-158"/>
-<polygon fill="#000000" stroke="#000000" points="5095.0613,-161.5001 5105.0613,-158 5095.0613,-154.5001 5095.0613,-161.5001"/>
+<path fill="none" stroke="#000000" d="M3905.6112,-122.2819C3905.6112,-137.9478 3905.6112,-158 3905.6112,-158 3905.6112,-158 5094.8941,-158 5094.8941,-158"/>
+<polygon fill="#000000" stroke="#000000" points="5094.8941,-161.5001 5104.8941,-158 5094.894,-154.5001 5094.8941,-161.5001"/>
 </g>
 <!-- TaskTypeEditComponent -->
 <g id="node38" class="node">
@@ -495,8 +495,8 @@
 <!-- TaskTypeEditComponent&#45;&gt;SitmunPluginCoreModule -->
 <g id="edge38" class="edge">
 <title>TaskTypeEditComponent&#45;&gt;SitmunPluginCoreModule</title>
-<path fill="none" stroke="#000000" d="M3683.9273,-122.0091C3683.9273,-138.0494 3683.9273,-159 3683.9273,-159 3683.9273,-159 5095.1209,-159 5095.1209,-159"/>
-<polygon fill="#000000" stroke="#000000" points="5095.1209,-162.5001 5105.1209,-159 5095.1208,-155.5001 5095.1209,-162.5001"/>
+<path fill="none" stroke="#000000" d="M3639.9273,-122.0091C3639.9273,-138.0494 3639.9273,-159 3639.9273,-159 3639.9273,-159 5095.187,-159 5095.187,-159"/>
+<polygon fill="#000000" stroke="#000000" points="5095.1871,-162.5001 5105.187,-159 5095.187,-155.5001 5095.1871,-162.5001"/>
 </g>
 <!-- TaskTypeListComponent -->
 <g id="node39" class="node">
@@ -717,194 +717,206 @@
 <!-- AccountChangePasswordComponent  -->
 <g id="node60" class="node">
 <title>AccountChangePasswordComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="6490.1784,-252 6261.8216,-252 6261.8216,-216 6490.1784,-216 6490.1784,-252"/>
-<text text-anchor="middle" x="6376" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">AccountChangePasswordComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="6601.1784,-252 6372.8216,-252 6372.8216,-216 6601.1784,-216 6601.1784,-252"/>
+<text text-anchor="middle" x="6487" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">AccountChangePasswordComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;AccountChangePasswordComponent  -->
 <g id="edge59" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;AccountChangePasswordComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5269.125,-180C5530.9601,-180 6328.9336,-180 6328.9336,-180 6328.9336,-180 6328.9336,-205.7181 6328.9336,-205.7181"/>
-<polygon fill="#000000" stroke="#000000" points="6325.4336,-205.718 6328.9336,-215.7181 6332.4336,-205.7181 6325.4336,-205.718"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.8332,-180C5538.8564,-180 6384.4336,-180 6384.4336,-180 6384.4336,-180 6384.4336,-205.7181 6384.4336,-205.7181"/>
+<polygon fill="#000000" stroke="#000000" points="6380.9336,-205.718 6384.4336,-215.7181 6387.9336,-205.7181 6380.9336,-205.718"/>
 </g>
 <!-- AccountEditComponent  -->
 <g id="node61" class="node">
 <title>AccountEditComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="6243.5931,-252 6088.4069,-252 6088.4069,-216 6243.5931,-216 6243.5931,-252"/>
-<text text-anchor="middle" x="6166" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">AccountEditComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="6354.5931,-252 6199.4069,-252 6199.4069,-216 6354.5931,-216 6354.5931,-252"/>
+<text text-anchor="middle" x="6277" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">AccountEditComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;AccountEditComponent  -->
 <g id="edge60" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;AccountEditComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5269.0092,-181C5501.6185,-181 6148.8789,-181 6148.8789,-181 6148.8789,-181 6148.8789,-205.7604 6148.8789,-205.7604"/>
-<polygon fill="#000000" stroke="#000000" points="6145.3789,-205.7604 6148.8789,-215.7604 6152.3789,-205.7604 6145.3789,-205.7604"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.9651,-181C5510.7774,-181 6204.3789,-181 6204.3789,-181 6204.3789,-181 6204.3789,-205.7604 6204.3789,-205.7604"/>
+<polygon fill="#000000" stroke="#000000" points="6200.8789,-205.7604 6204.3789,-215.7604 6207.8789,-205.7604 6200.8789,-205.7604"/>
 </g>
 <!-- AngularHalModule  -->
 <g id="node62" class="node">
 <title>AngularHalModule </title>
-<polygon fill="#fb8072" stroke="#000000" points="6070.6341,-252 5941.3659,-252 5941.3659,-216 6070.6341,-216 6070.6341,-252"/>
-<text text-anchor="middle" x="6006" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">AngularHalModule </text>
+<polygon fill="#fb8072" stroke="#000000" points="6181.6341,-252 6052.3659,-252 6052.3659,-216 6181.6341,-216 6181.6341,-252"/>
+<text text-anchor="middle" x="6117" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">AngularHalModule </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;AngularHalModule  -->
 <g id="edge61" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;AngularHalModule </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.7869,-182C5475.2327,-182 6001.1047,-182 6001.1047,-182 6001.1047,-182 6001.1047,-205.8129 6001.1047,-205.8129"/>
-<polygon fill="#000000" stroke="#000000" points="5997.6047,-205.8129 6001.1047,-215.8129 6004.6047,-205.813 5997.6047,-205.8129"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.8103,-182C5485.2864,-182 6056.6047,-182 6056.6047,-182 6056.6047,-182 6056.6047,-205.8129 6056.6047,-205.8129"/>
+<polygon fill="#000000" stroke="#000000" points="6053.1047,-205.8129 6056.6047,-215.8129 6060.1047,-205.813 6053.1047,-205.8129"/>
 </g>
 <!-- LoginComponent  -->
 <g id="node63" class="node">
 <title>LoginComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5923.2759,-252 5804.7241,-252 5804.7241,-216 5923.2759,-216 5923.2759,-252"/>
-<text text-anchor="middle" x="5864" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoginComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="6034.2759,-252 5915.7241,-252 5915.7241,-216 6034.2759,-216 6034.2759,-252"/>
+<text text-anchor="middle" x="5975" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoginComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;LoginComponent  -->
 <g id="edge62" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;LoginComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5269.0754,-183C5448.3667,-183 5859.092,-183 5859.092,-183 5859.092,-183 5859.092,-205.8757 5859.092,-205.8757"/>
-<polygon fill="#000000" stroke="#000000" points="5855.5921,-205.8757 5859.092,-215.8757 5862.5921,-205.8757 5855.5921,-205.8757"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.9917,-183C5460.9753,-183 5923.5429,-183 5923.5429,-183 5923.5429,-183 5923.5429,-205.8757 5923.5429,-205.8757"/>
+<polygon fill="#000000" stroke="#000000" points="5920.043,-205.8757 5923.5429,-215.8757 5927.043,-205.8757 5920.043,-205.8757"/>
 </g>
 <!-- MapComponent  -->
 <g id="node64" class="node">
 <title>MapComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5787.4927,-252 5676.5073,-252 5676.5073,-216 5787.4927,-216 5787.4927,-252"/>
-<text text-anchor="middle" x="5732" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MapComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="5898.4927,-252 5787.5073,-252 5787.5073,-216 5898.4927,-216 5898.4927,-252"/>
+<text text-anchor="middle" x="5843" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MapComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;MapComponent  -->
 <g id="edge63" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;MapComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.8441,-184C5416.5864,-184 5712.6492,-184 5712.6492,-184 5712.6492,-184 5712.6492,-205.9489 5712.6492,-205.9489"/>
-<polygon fill="#000000" stroke="#000000" points="5709.1493,-205.9488 5712.6492,-215.9489 5716.1493,-205.9489 5709.1493,-205.9488"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5269.0873,-184C5445.1079,-184 5843,-184 5843,-184 5843,-184 5843,-205.9489 5843,-205.9489"/>
+<polygon fill="#000000" stroke="#000000" points="5839.5001,-205.9488 5843,-215.9489 5846.5001,-205.9489 5839.5001,-205.9488"/>
 </g>
 <!-- RoleEditComponent  -->
 <g id="node65" class="node">
 <title>RoleEditComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5658.1086,-252 5523.8914,-252 5523.8914,-216 5658.1086,-216 5658.1086,-252"/>
-<text text-anchor="middle" x="5591" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">RoleEditComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="5769.1086,-252 5634.8914,-252 5634.8914,-216 5769.1086,-216 5769.1086,-252"/>
+<text text-anchor="middle" x="5702" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">RoleEditComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;RoleEditComponent  -->
 <g id="edge64" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;RoleEditComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.9916,-185C5377.269,-185 5554.3873,-185 5554.3873,-185 5554.3873,-185 5554.3873,-205.7542 5554.3873,-205.7542"/>
-<polygon fill="#000000" stroke="#000000" points="5550.8874,-205.7542 5554.3873,-215.7542 5557.8874,-205.7542 5550.8874,-205.7542"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.9177,-185C5411.8223,-185 5691.6201,-185 5691.6201,-185 5691.6201,-185 5691.6201,-205.7542 5691.6201,-205.7542"/>
+<polygon fill="#000000" stroke="#000000" points="5688.1202,-205.7542 5691.6201,-215.7542 5695.1202,-205.7542 5688.1202,-205.7542"/>
 </g>
 <!-- RoleListComponent  -->
 <g id="node66" class="node">
 <title>RoleListComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5505.5526,-252 5372.4474,-252 5372.4474,-216 5505.5526,-216 5505.5526,-252"/>
-<text text-anchor="middle" x="5439" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">RoleListComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="5616.5526,-252 5483.4474,-252 5483.4474,-216 5616.5526,-216 5616.5526,-252"/>
+<text text-anchor="middle" x="5550" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">RoleListComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;RoleListComponent  -->
 <g id="edge65" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;RoleListComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5269.0038,-186C5322.2126,-186 5381.6948,-186 5381.6948,-186 5381.6948,-186 5381.6948,-205.8533 5381.6948,-205.8533"/>
-<polygon fill="#000000" stroke="#000000" points="5378.1949,-205.8532 5381.6948,-215.8533 5385.1949,-205.8533 5378.1949,-205.8532"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.8598,-186C5371.5299,-186 5534.2762,-186 5534.2762,-186 5534.2762,-186 5534.2762,-205.8533 5534.2762,-205.8533"/>
+<polygon fill="#000000" stroke="#000000" points="5530.7762,-205.8532 5534.2762,-215.8533 5537.7762,-205.8533 5530.7762,-205.8532"/>
+</g>
+<!-- SitmunFrontendCoreModule  -->
+<g id="node67" class="node">
+<title>SitmunFrontendCoreModule </title>
+<polygon fill="#fb8072" stroke="#000000" points="5465.7646,-252 5284.2354,-252 5284.2354,-216 5465.7646,-216 5465.7646,-252"/>
+<text text-anchor="middle" x="5375" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">SitmunFrontendCoreModule </text>
+</g>
+<!-- SitmunPluginCoreModule&#45;&gt;SitmunFrontendCoreModule  -->
+<g id="edge66" class="edge">
+<title>SitmunPluginCoreModule&#45;&gt;SitmunFrontendCoreModule </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5268.9334,-187C5304.2654,-187 5337.6419,-187 5337.6419,-187 5337.6419,-187 5337.6419,-205.963 5337.6419,-205.963"/>
+<polygon fill="#000000" stroke="#000000" points="5334.1419,-205.963 5337.6419,-215.963 5341.1419,-205.963 5334.1419,-205.963"/>
 </g>
 <!-- TerritoryEditComponent  -->
-<g id="node67" class="node">
+<g id="node68" class="node">
 <title>TerritoryEditComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5354.1967,-252 5195.8033,-252 5195.8033,-216 5354.1967,-216 5354.1967,-252"/>
-<text text-anchor="middle" x="5275" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryEditComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="5266.1967,-252 5107.8033,-252 5107.8033,-216 5266.1967,-216 5266.1967,-252"/>
+<text text-anchor="middle" x="5187" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryEditComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;TerritoryEditComponent  -->
-<g id="edge66" class="edge">
+<g id="edge67" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;TerritoryEditComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5232.2709,-187.1061C5232.2709,-187.1061 5232.2709,-205.991 5232.2709,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="5228.7709,-205.9909 5232.2709,-215.991 5235.7709,-205.991 5228.7709,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5187,-187.1061C5187,-187.1061 5187,-205.991 5187,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="5183.5001,-205.9909 5187,-215.991 5190.5001,-205.991 5183.5001,-205.9909"/>
 </g>
 <!-- TerritoryListComponent  -->
-<g id="node68" class="node">
+<g id="node69" class="node">
 <title>TerritoryListComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5177.6411,-252 5020.3589,-252 5020.3589,-216 5177.6411,-216 5177.6411,-252"/>
-<text text-anchor="middle" x="5099" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryListComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="5089.6411,-252 4932.3589,-252 4932.3589,-216 5089.6411,-216 5089.6411,-252"/>
+<text text-anchor="middle" x="5011" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryListComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;TerritoryListComponent  -->
-<g id="edge67" class="edge">
+<g id="edge68" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;TerritoryListComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5141.3403,-187.1061C5141.3403,-187.1061 5141.3403,-205.991 5141.3403,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="5137.8404,-205.9909 5141.3403,-215.991 5144.8404,-205.991 5137.8404,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.8772,-187C5073.179,-187 5044.4034,-187 5044.4034,-187 5044.4034,-187 5044.4034,-205.963 5044.4034,-205.963"/>
+<polygon fill="#000000" stroke="#000000" points="5040.9035,-205.963 5044.4034,-215.963 5047.9035,-205.963 5040.9035,-205.963"/>
 </g>
 <!-- TerritoryTypeEditComponent  -->
-<g id="node69" class="node">
+<g id="node70" class="node">
 <title>TerritoryTypeEditComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="5002.9642,-252 4815.0358,-252 4815.0358,-216 5002.9642,-216 5002.9642,-252"/>
-<text text-anchor="middle" x="4909" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryTypeEditComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="4914.9642,-252 4727.0358,-252 4727.0358,-216 4914.9642,-216 4914.9642,-252"/>
+<text text-anchor="middle" x="4821" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryTypeEditComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;TerritoryTypeEditComponent  -->
-<g id="edge68" class="edge">
+<g id="edge69" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;TerritoryTypeEditComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.0553,-186C5051.1156,-186 4990.4186,-186 4990.4186,-186 4990.4186,-186 4990.4186,-205.8533 4990.4186,-205.8533"/>
-<polygon fill="#000000" stroke="#000000" points="4986.9187,-205.8532 4990.4186,-215.8533 4993.9187,-205.8533 4986.9187,-205.8532"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.8857,-186C5005.0042,-186 4849.5654,-186 4849.5654,-186 4849.5654,-186 4849.5654,-205.8533 4849.5654,-205.8533"/>
+<polygon fill="#000000" stroke="#000000" points="4846.0655,-205.8532 4849.5654,-215.8533 4853.0655,-205.8533 4846.0655,-205.8532"/>
 </g>
 <!-- TerritoryTypeListComponent  -->
-<g id="node70" class="node">
+<g id="node71" class="node">
 <title>TerritoryTypeListComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="4796.9082,-252 4611.0918,-252 4611.0918,-216 4796.9082,-216 4796.9082,-252"/>
-<text text-anchor="middle" x="4704" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryTypeListComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="4708.9082,-252 4523.0918,-252 4523.0918,-216 4708.9082,-216 4708.9082,-252"/>
+<text text-anchor="middle" x="4616" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TerritoryTypeListComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;TerritoryTypeListComponent  -->
-<g id="edge69" class="edge">
+<g id="edge70" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;TerritoryTypeListComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.8815,-185C4988.7959,-185 4790.6766,-185 4790.6766,-185 4790.6766,-185 4790.6766,-205.7542 4790.6766,-205.7542"/>
-<polygon fill="#000000" stroke="#000000" points="4787.1766,-205.7542 4790.6766,-215.7542 4794.1766,-205.7542 4787.1766,-205.7542"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.0339,-185C4959.5873,-185 4671.5076,-185 4671.5076,-185 4671.5076,-185 4671.5076,-205.7542 4671.5076,-205.7542"/>
+<polygon fill="#000000" stroke="#000000" points="4668.0076,-205.7542 4671.5076,-215.7542 4675.0076,-205.7542 4668.0076,-205.7542"/>
 </g>
 <!-- UserChangePasswordComponent  -->
-<g id="node71" class="node">
+<g id="node72" class="node">
 <title>UserChangePasswordComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="4592.6784,-252 4385.3216,-252 4385.3216,-216 4592.6784,-216 4592.6784,-252"/>
-<text text-anchor="middle" x="4489" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserChangePasswordComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="4504.6784,-252 4297.3216,-252 4297.3216,-216 4504.6784,-216 4504.6784,-252"/>
+<text text-anchor="middle" x="4401" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserChangePasswordComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;UserChangePasswordComponent  -->
-<g id="edge70" class="edge">
+<g id="edge71" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;UserChangePasswordComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.9411,-184C4926.7942,-184 4520.5083,-184 4520.5083,-184 4520.5083,-184 4520.5083,-205.9489 4520.5083,-205.9489"/>
-<polygon fill="#000000" stroke="#000000" points="4517.0083,-205.9488 4520.5083,-215.9489 4524.0083,-205.9489 4517.0083,-205.9488"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.1508,-184C4918.327,-184 4476.5083,-184 4476.5083,-184 4476.5083,-184 4476.5083,-205.9489 4476.5083,-205.9489"/>
+<polygon fill="#000000" stroke="#000000" points="4473.0083,-205.9488 4476.5083,-215.9489 4480.0083,-205.9489 4473.0083,-205.9488"/>
 </g>
 <!-- UserConfigurationListComponent  -->
-<g id="node72" class="node">
+<g id="node73" class="node">
 <title>UserConfigurationListComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="4366.5818,-252 4155.4182,-252 4155.4182,-216 4366.5818,-216 4366.5818,-252"/>
-<text text-anchor="middle" x="4261" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserConfigurationListComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="4278.5818,-252 4067.4182,-252 4067.4182,-216 4278.5818,-216 4278.5818,-252"/>
+<text text-anchor="middle" x="4173" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserConfigurationListComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;UserConfigurationListComponent  -->
-<g id="edge71" class="edge">
+<g id="edge72" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;UserConfigurationListComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.9994,-183C4888.0199,-183 4315.3729,-183 4315.3729,-183 4315.3729,-183 4315.3729,-205.8757 4315.3729,-205.8757"/>
-<polygon fill="#000000" stroke="#000000" points="4311.873,-205.8757 4315.3729,-215.8757 4318.873,-205.8757 4311.873,-205.8757"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.9384,-183C4880.1968,-183 4271.3729,-183 4271.3729,-183 4271.3729,-183 4271.3729,-205.8757 4271.3729,-205.8757"/>
+<polygon fill="#000000" stroke="#000000" points="4267.873,-205.8757 4271.3729,-215.8757 4274.873,-205.8757 4267.873,-205.8757"/>
 </g>
 <!-- UserEditComponent  -->
-<g id="node73" class="node">
+<g id="node74" class="node">
 <title>UserEditComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="4137.0932,-252 4002.9068,-252 4002.9068,-216 4137.0932,-216 4137.0932,-252"/>
-<text text-anchor="middle" x="4070" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserEditComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="4049.0932,-252 3914.9068,-252 3914.9068,-216 4049.0932,-216 4049.0932,-252"/>
+<text text-anchor="middle" x="3982" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserEditComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;UserEditComponent  -->
-<g id="edge72" class="edge">
+<g id="edge73" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;UserEditComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.1117,-182C4856.3776,-182 4126.5675,-182 4126.5675,-182 4126.5675,-182 4126.5675,-205.8129 4126.5675,-205.8129"/>
-<polygon fill="#000000" stroke="#000000" points="4123.0676,-205.8129 4126.5675,-215.8129 4130.0676,-205.813 4123.0676,-205.8129"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.9178,-182C4835.1142,-182 3992.8003,-182 3992.8003,-182 3992.8003,-182 3992.8003,-205.8129 3992.8003,-205.8129"/>
+<polygon fill="#000000" stroke="#000000" points="3989.3004,-205.8129 3992.8003,-215.8129 3996.3004,-205.813 3989.3004,-205.8129"/>
 </g>
 <!-- UserListComponent  -->
-<g id="node74" class="node">
+<g id="node75" class="node">
 <title>UserListComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="3984.5372,-252 3851.4628,-252 3851.4628,-216 3984.5372,-216 3984.5372,-252"/>
-<text text-anchor="middle" x="3918" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserListComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="3896.5372,-252 3763.4628,-252 3763.4628,-216 3896.5372,-216 3896.5372,-252"/>
+<text text-anchor="middle" x="3830" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserListComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;UserListComponent  -->
-<g id="edge73" class="edge">
+<g id="edge74" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;UserListComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.0934,-181C4830.6077,-181 3960.4114,-181 3960.4114,-181 3960.4114,-181 3960.4114,-205.7604 3960.4114,-205.7604"/>
-<polygon fill="#000000" stroke="#000000" points="3956.9115,-205.7604 3960.4114,-215.7604 3963.9115,-205.7604 3956.9115,-205.7604"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.1695,-181C4811.7847,-181 3830,-181 3830,-181 3830,-181 3830,-205.7604 3830,-205.7604"/>
+<polygon fill="#000000" stroke="#000000" points="3826.5001,-205.7604 3830,-215.7604 3833.5001,-205.7604 3826.5001,-205.7604"/>
 </g>
 <!-- UserPositionListComponent  -->
-<g id="node75" class="node">
+<g id="node76" class="node">
 <title>UserPositionListComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="3833.4362,-252 3654.5638,-252 3654.5638,-216 3833.4362,-216 3833.4362,-252"/>
-<text text-anchor="middle" x="3744" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserPositionListComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="3745.4362,-252 3566.5638,-252 3566.5638,-216 3745.4362,-216 3745.4362,-252"/>
+<text text-anchor="middle" x="3656" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserPositionListComponent </text>
 </g>
 <!-- SitmunPluginCoreModule&#45;&gt;UserPositionListComponent  -->
-<g id="edge74" class="edge">
+<g id="edge75" class="edge">
 <title>SitmunPluginCoreModule&#45;&gt;UserPositionListComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5105.1581,-180C4805.0686,-180 3782.4676,-180 3782.4676,-180 3782.4676,-180 3782.4676,-205.7181 3782.4676,-205.7181"/>
-<polygon fill="#000000" stroke="#000000" points="3778.9676,-205.718 3782.4676,-215.7181 3785.9676,-205.7181 3778.9676,-205.718"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M5104.9703,-180C4798.5424,-180 3738.4676,-180 3738.4676,-180 3738.4676,-180 3738.4676,-205.7181 3738.4676,-205.7181"/>
+<polygon fill="#000000" stroke="#000000" points="3734.9676,-205.718 3738.4676,-215.7181 3741.9676,-205.7181 3734.9676,-205.718"/>
 </g>
 <!-- AngularHalModule -->
 <g id="node58" class="node">
