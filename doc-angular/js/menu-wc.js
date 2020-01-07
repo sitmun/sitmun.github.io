@@ -150,13 +150,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SitmunPluginCoreModule.html" data-type="entity-link">SitmunPluginCoreModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SitmunPluginCoreModule-1bcf2606aff9932963e0948405be3941"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-1bcf2606aff9932963e0948405be3941"' }>
+                                            'data-target="#components-links-module-SitmunPluginCoreModule-98d027b3efb2f684a0a83e6b9f109666"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-98d027b3efb2f684a0a83e6b9f109666"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-1bcf2606aff9932963e0948405be3941"' :
-                                            'id="xs-components-links-module-SitmunPluginCoreModule-1bcf2606aff9932963e0948405be3941"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-98d027b3efb2f684a0a83e6b9f109666"' :
+                                            'id="xs-components-links-module-SitmunPluginCoreModule-98d027b3efb2f684a0a83e6b9f109666"' }>
                                             <li class="link">
                                                 <a href="components/AccountChangePasswordComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountChangePasswordComponent</a>

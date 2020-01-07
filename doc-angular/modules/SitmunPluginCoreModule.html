@@ -1345,8 +1345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="232"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/sitmun-plugin-core.module.ts:232</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="233"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/sitmun-plugin-core.module.ts:233</a></div>
                 </td>
             </tr>
 
@@ -1437,6 +1437,7 @@ import { ApplicationBackgroundListComponent,ApplicationBackgroundEditDialog } fr
 import { TaskUIEditComponent } from &#x27;./task/task-ui-edit.component&#x27;;
 import { TaskUIListComponent } from &#x27;./task/task-ui-list.component&#x27;;
 import {SitmunFrontendCoreModule} from &#x27;sitmun-frontend-core&#x27;;
+import {Principal} from &#x27;sitmun-frontend-core&#x27;;
 
 /** load i18n assets*/
 export function createTranslateLoader(http: HttpClient) {
@@ -1600,7 +1601,8 @@ export function createMatPaginationService(translate: TranslateService){
 export class SitmunPluginCoreModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SitmunFrontendCoreModule
+      ngModule: SitmunFrontendCoreModule,
+      providers: [Principal]
     };
   }
 }
