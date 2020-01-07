@@ -113,13 +113,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SitmunFrontendCoreModule.html" data-type="entity-link">SitmunFrontendCoreModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' }>
+                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-d95bfc8a05548113a76e164c4b60257d"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-d95bfc8a05548113a76e164c4b60257d"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' :
-                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-d95bfc8a05548113a76e164c4b60257d"' :
+                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-d95bfc8a05548113a76e164c4b60257d"' }>
                                         <li class="link">
                                             <a href="directives/HasAnyAuthorityDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityDirective</a>
@@ -130,33 +130,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' : 'data-target="#xs-injectables-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' :
-                                        'id="xs-injectables-links-module-SitmunFrontendCoreModule-689327e49f3a3ebb35284f190e0ac10a"' }>
-                                        <li class="link">
-                                            <a href="injectables/Principal.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>Principal</a>
-                                        </li>
-                                    </ul>
-                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/SitmunPluginCoreModule.html" data-type="entity-link">SitmunPluginCoreModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SitmunPluginCoreModule-d625fba2888a7de2b828a7ae70fc7325"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-d625fba2888a7de2b828a7ae70fc7325"' }>
+                                            'data-target="#components-links-module-SitmunPluginCoreModule-227edee43409f8f97b34eb586a3b2330"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-227edee43409f8f97b34eb586a3b2330"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-d625fba2888a7de2b828a7ae70fc7325"' :
-                                            'id="xs-components-links-module-SitmunPluginCoreModule-d625fba2888a7de2b828a7ae70fc7325"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-227edee43409f8f97b34eb586a3b2330"' :
+                                            'id="xs-components-links-module-SitmunPluginCoreModule-227edee43409f8f97b34eb586a3b2330"' }>
                                             <li class="link">
                                                 <a href="components/AccountChangePasswordComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountChangePasswordComponent</a>
@@ -587,6 +572,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/MatPaginationIntlService.html" data-type="entity-link">MatPaginationIntlService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/Principal.html" data-type="entity-link">Principal</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/Resource.html" data-type="entity-link">Resource</a>
