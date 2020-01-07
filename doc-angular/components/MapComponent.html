@@ -6296,10 +6296,10 @@ import { MatDialog, MatDialogRef, MatDialogConfig } from &#x27;@angular/material
 
 import { ElementRef } from &#x27;@angular/core&#x27;;
 
-import {MapConfigurationManagerService, Layer, LayerConfiguration, LayerGroup, MapOptionsConfiguration, MapComponentStatus} from &#x27;./map-configuration-manager.service&#x27;;
+import {MapConfigurationManagerService, Layer, LayerConfiguration, LayerGroup, MapOptionsConfiguration, MapComponentStatus} from &#x27;sitmun-frontend-core&#x27;;
 
 import { Observable, of} from &#x27;rxjs&#x27;;
-import { UserConfigurationService } from &#x27;../public_api&#x27;;
+import { UserConfigurationService } from &#x27;sitmun-frontend-core&#x27;;
 
 try {
 	ol.proj.setProj4(proj4);
@@ -6387,36 +6387,36 @@ export class MapComponent implements OnInit {
 
   /** x-coordinate of initial center of the map*/
   @Input() initialLon;
-  
+
   /** y-coordinate of initial center of the map*/
   @Input() initialLat;
-  
+
   /** code of the srs projection of the coordinates defined in extent, initialLon and initialLat*/
   @Input() initialProjection;
-  
+
   /** inital zoom of the map*/
   @Input() initialZoom;
 
   /** reference to view mapContainer element*/
   @ViewChild(&#x27;mapContainer&#x27;) mapContainer:ElementRef;
-  
+
   /** map extent*/
   _extent: ol.Extent;
-  
+
   /** set map extent*/
   @Input()
-  set extent(extent: ol.Extent) {  
+  set extent(extent: ol.Extent) {
     this._extent &#x3D; extent;
     if ((this.getMap() !&#x3D; null) &amp;&amp; (this.getMap() !&#x3D; undefined)) {
       this.setExtent(extent);
     }
   };
-  
+
   /** load defaults value, default false*/
   _loadDefaults:boolean &#x3D; false;
-  
+
   /** set load defaults value*/
-  @Input() 
+  @Input()
   set loadDefaults(value:boolean) {
     if (this._loadDefaults !&#x3D; value) {
       if (value) {
@@ -6426,15 +6426,15 @@ export class MapComponent implements OnInit {
     }
     this._loadDefaults &#x3D; value;
   }
-  
-  /** get load defaults value*/  
+
+  /** get load defaults value*/
   get loadDefaults():boolean {
     return this._loadDefaults;
   }
 
-  /** map options*/  
+  /** map options*/
   mapOptions: MapOptions;
-  
+
   /** map controls labels*/
   messages &#x3D; {
     zoomInTooltip: &quot;Zoom in&quot;,
@@ -6529,11 +6529,11 @@ export class MapComponent implements OnInit {
     }
   }
 
-  /** translate service*/ 
+  /** translate service*/
   translate: TranslateService;
-  
+
   /** constructor*/
-  constructor(private dialog: MatDialog, 
+  constructor(private dialog: MatDialog,
     private featureInfoDialog: MatDialog,
     private mapConfigurationManagerService: MapConfigurationManagerService,
     translate: TranslateService) {
@@ -6543,7 +6543,7 @@ export class MapComponent implements OnInit {
     });
     this.translateLabels();
   }
-  
+
   /** OpenLayers map */
   map: ol.Map &#x3D; null;
 
@@ -6555,7 +6555,7 @@ export class MapComponent implements OnInit {
           this.getMap().getView().getResolutionForExtent(extent)));
     }
   }
-  
+
   /** get OpenLayers map */
   getMap(){
     return this.map;
@@ -6564,26 +6564,26 @@ export class MapComponent implements OnInit {
   // MapConfigurationManagerService event subscriptors
   /** layers events subscription*/
   layerSubscription;
-  
+
   /** base layers events subscription*/
   baseLayersSubscription;
-  
+
   /** layer configuration events subscription*/
   layerConfigurationSubscription;
-  
+
   /** add layer events subscription*/
   addLayersSubscription;
-  
+
   /** remove layer events subscription*/
   removeLayersSubscription;
-  
+
   /** situation map events subscription*/
   situationMapConfigurationSubscription;
-  
+
   /** map options events subscription*/
   mapOptionsConfigurationSubscription;
 
-  /** show message on console*/ 
+  /** show message on console*/
   showMessage(msg:string) {
     if (console &amp;&amp; (typeof console.log &#x3D;&#x3D; &quot;function&quot;)) {
       console.log(msg);
@@ -6648,14 +6648,14 @@ export class MapComponent implements OnInit {
       () &#x3D;&gt; this.showMessage(&quot;on complete configuration&quot;)
     );
   }
-  
+
   /** set default map projection units*/
   setDefaultMapUnits(units) {
     if (units) {
       this.defaultMapUnits &#x3D; units;
     }
   }
-  
+
   /** get default map projection units*/
   getDefaultMapUnits():string {
     return this.defaultMapUnits;
@@ -6667,7 +6667,7 @@ export class MapComponent implements OnInit {
       this.defaultProjection &#x3D; projection;
     }
   }
-  
+
   /** get default map projection*/
   getDefaultProjection():string {
     return this.defaultProjection.slice();//Return the value cloned
@@ -6690,7 +6690,7 @@ export class MapComponent implements OnInit {
   /** set map projection*/
   setProjection(projectionList:any) {
     var projection:ol.proj.Projection &#x3D; null;
-    
+
     for (var i &#x3D; 0, iLen &#x3D; projectionList.length; i &lt; iLen; i++) {
       projection &#x3D; ol.proj.get(projectionList[i]);
       if (projection) {
@@ -6718,7 +6718,7 @@ export class MapComponent implements OnInit {
   transformExtent(extent, projectionFrom:string, projectionTo:string) {
     if (extent) {
       return ol.extent.applyTransform(
-        [extent[0], extent[1], extent[2], extent[3]], 
+        [extent[0], extent[1], extent[2], extent[3]],
           ol.proj.getTransform(new ol.proj.Projection({
             code: projectionFrom
           }), new ol.proj.Projection({
@@ -6766,7 +6766,7 @@ export class MapComponent implements OnInit {
       this.scales &#x3D; [];
       this.scales &#x3D; this.scales.concat(this.getDefaultMapScales());
     }
-    
+
     if ((options.tileHeight !&#x3D; undefined) &amp;&amp; (options.tileHeight !&#x3D; null)) {
       this.tileHeight &#x3D; options.tileHeight;
     }
@@ -6792,7 +6792,7 @@ export class MapComponent implements OnInit {
             if (prevScale &gt; 1.0) {
               prevScale &#x3D; 1.0/prevScale;
             }
-            if (Math.abs(normalizedMaxScale-scale) &gt; 
+            if (Math.abs(normalizedMaxScale-scale) &gt;
                 Math.abs(normalizedMaxScale-prevScale)) {
               //Closest to the prevous one
               factor &#x3D; 1;
@@ -6812,9 +6812,9 @@ export class MapComponent implements OnInit {
     } else {
       this.minScale &#x3D; this.scales[0];
     }
-    
+
     var maxExtent;
-    if (options.maxExtent &amp;&amp; options.projections) { 
+    if (options.maxExtent &amp;&amp; options.projections) {
       //The extent&#x27;s projection is assumed to be the first on the list
       maxExtent &#x3D; options.maxExtent;
     }
@@ -6829,7 +6829,7 @@ export class MapComponent implements OnInit {
     this.projection &#x3D; this.projections[0];
     var currentExtent &#x3D; this.getMap().getView().calculateExtent();
     if (oldProjection !&#x3D; this.projection) {
-      currentExtent &#x3D; this.transformExtent(currentExtent, 
+      currentExtent &#x3D; this.transformExtent(currentExtent,
                             oldProjection, this.projection);
     }
 
@@ -6849,7 +6849,7 @@ export class MapComponent implements OnInit {
       projection: new ol.proj.Projection({
         code: this.projection,
         units: this.units
-      }),        
+      }),
       resolutions: this.resolutions,
       zoom: 0
     };
@@ -6878,7 +6878,7 @@ export class MapComponent implements OnInit {
 
     if (this.getMap()) {
       this.getMap().setView(view);
-      //FIXME force layer repojection 
+      //FIXME force layer repojection
       //update controls with event listeners
       if (this.overViewMapControl) {
         //Define center otherwise an error is raised
@@ -6899,7 +6899,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  /** get resolutions from given scales*/ 
+  /** get resolutions from given scales*/
   getResolutionsFromScales(scales:number[], units?):number[] {
     var resolutions &#x3D; [];
     for (var i &#x3D; 0, iLen &#x3D; scales.length; i &lt; iLen; i++) {
@@ -6908,7 +6908,7 @@ export class MapComponent implements OnInit {
     return resolutions;
   }
 
-  /** get scales from given resolutions*/ 
+  /** get scales from given resolutions*/
   getScalesFromResolutions(resolutions:number[], units?):number[] {
     var scales &#x3D; [];
     for (var i &#x3D; 0, iLen &#x3D; resolutions.length; i &lt; iLen; i++) {
@@ -6916,8 +6916,8 @@ export class MapComponent implements OnInit {
     }
     return scales;
   }
-  
-  /** parse layers from array of layers*/ 
+
+  /** parse layers from array of layers*/
   parseLayers(layers, layerDataConfig:Array&lt;Layer&gt;) {
     if (!layerDataConfig || !layerDataConfig.length) {
       return;
@@ -6947,7 +6947,7 @@ export class MapComponent implements OnInit {
             //ignore those params that generate an exception
           }
         }
-      }         
+      }
       properties &#x3D; null;
       if ((layerDataConfig[i].id !&#x3D; undefined) &amp;&amp; (layerDataConfig[i].id !&#x3D; null)) {
         properties &#x3D; {
@@ -7020,7 +7020,7 @@ export class MapComponent implements OnInit {
                   resolutions: this.resolutions,
                   tileSize: [layerDataConfig[i].tileWidth?
                               layerDataConfig[i].tileWidth:
-                              this.tileWidth, 
+                              this.tileWidth,
                               layerDataConfig[i].tileHeight?
                               layerDataConfig[i].tileHeight:
                               this.tileHeight]
@@ -7029,12 +7029,12 @@ export class MapComponent implements OnInit {
               visible:layerDataConfig[i].visibility/*,
               //WMTS do not take into account any opacity defined
               opacity:
-                      layerDataConfig[i].opacity? 
+                      layerDataConfig[i].opacity?
                         layerDataConfig[i].opacity:undefined*/
           });
         layer.setProperties(properties);
         layers.push(layer);
-      } else {  
+      } else {
         layer &#x3D; new ol.layer.Image({
             minResolution:layerDataConfig[i].minimumScale?
                           MapComponent.getResolutionFromScale(layerDataConfig[i].minimumScale):undefined,
@@ -7052,7 +7052,7 @@ export class MapComponent implements OnInit {
             }),
             visible:layerDataConfig[i].visibility,
             opacity:
-                    layerDataConfig[i].opacity? 
+                    layerDataConfig[i].opacity?
                       layerDataConfig[i].opacity:undefined
           });
         layer.setProperties(properties);
@@ -7096,7 +7096,7 @@ export class MapComponent implements OnInit {
 
   /** layers*/
   layers;
-  
+
   /** configure given array of layers*/
   configureLayers(layerDataConfig:Array&lt;Layer&gt;) {
     if (layerDataConfig) {
@@ -7131,13 +7131,13 @@ export class MapComponent implements OnInit {
 
   /** loadingControl*/
   loadingControl;
-  
+
   /** add given array of layers to map*/
   addLayers(layerDataConfig:Array&lt;Layer&gt;) {
     if (layerDataConfig) {
       var newLayers &#x3D; [];
       this.parseLayers(newLayers, layerDataConfig);
-  
+
       if (newLayers &amp;&amp; this.map) {
         var layer;
         var source;
@@ -7152,13 +7152,13 @@ export class MapComponent implements OnInit {
             //Avoid duplicates
             this.map.addLayer(layer);
             if (loadingControl_ &amp;&amp; !(layer.getSource() instanceof ol.source.TileWMS)) {
-              source &#x3D; layer.getSource();  
+              source &#x3D; layer.getSource();
               source.on(&#x27;imageloadstart&#x27;, function() {
                 if (layer.getProperties() &amp;&amp; !layer.getProperties()[&quot;loading&quot;]) {
                   layer.setProperties({loading: true});
                   loadingControl_.addLoading();
                 }
-              });  
+              });
               source.on(&#x27;imageloadend&#x27;, function() {
                 if (layer.getProperties() &amp;&amp; layer.getProperties()[&quot;loading&quot;]) {
                   layer.setProperties({loading: false});
@@ -7179,7 +7179,7 @@ export class MapComponent implements OnInit {
                     loadingControl_.addLoaded();
                   }
                   if (getFeatureInfoControl_ !&#x3D; null) {
-                    getFeatureInfoControl_.updateVisibleLayers(layer.getVisible());    
+                    getFeatureInfoControl_.updateVisibleLayers(layer.getVisible());
                   }
                 } else {
                 }
@@ -7202,12 +7202,12 @@ export class MapComponent implements OnInit {
           }
         }
       }
-  
+
       if (this.layers &#x3D;&#x3D; null) {
         this.layers &#x3D; [];
       }
       this.layers &#x3D; this.layers.concat(newLayers);
-  
+
       this.updateVectorDataLayers();
 
       if (this.getFeatureInfoControl !&#x3D; null) {
@@ -7217,7 +7217,7 @@ export class MapComponent implements OnInit {
       }
     }
   }
-  
+
   /** remove given array of layers to map*/
   removeLayers(layerDataConfig:Array&lt;Layer&gt;) {
 
@@ -7260,7 +7260,7 @@ export class MapComponent implements OnInit {
       }
     }
   }
-  
+
   /** apply given layer configuration*/
   applyLayerConfiguration(configuration: LayerConfiguration) {
     if (configuration &amp;&amp; this.map) {
@@ -7288,29 +7288,29 @@ export class MapComponent implements OnInit {
       }
     }
   }
-  
+
   /** update vector added layers*/
   updateVectorDataLayers() {
     if (this.map !&#x3D; null) {
-      this.map.dispatchEvent(&quot;layersadded&quot;);  
+      this.map.dispatchEvent(&quot;layersadded&quot;);
     }
   }
 
   /** base layers*/
   baseLayers;
-  
+
   /** base layers gorups*/
   baseLayerGroups;
-  
+
   /** select base layer control*/
   selectBaseLayerControl;
-  
+
   /** situation layers*/
   situationMapLayers;
-  
+
   /** GetFeatureInfo control*/
   getFeatureInfoControl;
-  
+
   /** configure given array of group of layers as base layers*/
   configureBaseLayers(groups:Array&lt;LayerGroup&gt;) {
     var groupNames;
@@ -7331,7 +7331,7 @@ export class MapComponent implements OnInit {
       groupNames &#x3D; [];
       for (var i &#x3D; 0, iLen &#x3D; groups.length; i &lt; iLen; i++) {
         group &#x3D; groups[i];
-        
+
         baseLayerGroup &#x3D; new BaseLayerGroup();
         baseLayerGroup.id &#x3D; group.id;
         if ((group.name !&#x3D; undefined) &amp;&amp; (group.name !&#x3D; null)) {
@@ -7422,7 +7422,7 @@ export class MapComponent implements OnInit {
         });
       }
 
-      if (!this.situationMapLayers || 
+      if (!this.situationMapLayers ||
         (this.situationMapLayers.length &#x3D;&#x3D; 0)) {
         //If there is no situation map configuration loaded then reload the overview with the new base layers
         this.updateOverviewMap();
@@ -7462,14 +7462,14 @@ export class MapComponent implements OnInit {
         layers &#x3D; this.baseLayers;
       }
       if (this.overViewMapControl) {
-        for (var i &#x3D; 0, iLen:number &#x3D; 
+        for (var i &#x3D; 0, iLen:number &#x3D;
           this.overViewMapControl.getOverviewMap().getLayers().getLength(); i &lt; iLen; i++) {
           this.overViewMapControl.getOverviewMap().removeLayer(
             this.overViewMapControl.getOverviewMap().getLayers().item(0)
           );
         }
         if (layers) {
-          for (var i &#x3D; 0, iLen:number &#x3D; 
+          for (var i &#x3D; 0, iLen:number &#x3D;
             layers.length; i &lt; iLen; i++) {
             //Remove all layers but the base ones
             this.overViewMapControl.getOverviewMap().addLayer(layers[i]);
@@ -7478,7 +7478,7 @@ export class MapComponent implements OnInit {
       }
     }
   }
-  
+
   /** unsubscribe to component events*/
   unsubscribeMapConfigurationManager() {
     this.layerSubscription.unsubscribe();
@@ -7494,7 +7494,7 @@ export class MapComponent implements OnInit {
   ngOnDestroy(): void {
     this.unsubscribeMapConfigurationManager();
   }
-  
+
   /** init proj4 for coordinate transformation*/
   initProj4js() {
     // mercator
@@ -7605,7 +7605,7 @@ export class MapComponent implements OnInit {
     });
     ol.proj.addProjection(projection);
 	  */
-	
+
     // geographic
     proj4.defs(&quot;EPSG:4326&quot;, &quot;+proj&#x3D;longlat +ellps&#x3D;WGS84 +datum&#x3D;WGS84 +no_defs &quot;);// wgs84
     /*
@@ -7632,25 +7632,25 @@ export class MapComponent implements OnInit {
     ol.proj.addProjection(projection);
     */
   }
-  
+
   /** overview map control*/
   overViewMapControl:ol.control.OverviewMap;
-    
+
   /** measurement control*/
   measurementToolControl;
-    
+
   /** scale line tool control*/
   scaleLineToolControl;
-    
+
   /** attribution tool control*/
-  attributionToolControl;  
-  
+  attributionToolControl;
+
   /** zoom control*/
   zoomToolControl;
-  
+
   /** location tool control*/
   locationToolControl;
-  
+
   /** component init handler*/
   ngOnInit() {
 
@@ -7711,11 +7711,11 @@ export class MapComponent implements OnInit {
         this.projection &#x3D; mapConfig.mapProjection;
       }
 
-      if ((mapConfig.initialLat !&#x3D; null) &amp;&amp; (mapConfig.initialLat !&#x3D; undefined) &amp;&amp; 
+      if ((mapConfig.initialLat !&#x3D; null) &amp;&amp; (mapConfig.initialLat !&#x3D; undefined) &amp;&amp;
           (mapConfig.initialLon !&#x3D; null) &amp;&amp; (mapConfig.initialLon !&#x3D; undefined)) {
         initialCenter &#x3D; [mapConfig.initialLon, mapConfig.initialLat];
 
-        if ((mapConfig.initialProjection !&#x3D; null) &amp;&amp; (mapConfig.initialProjection !&#x3D; undefined) &amp;&amp; 
+        if ((mapConfig.initialProjection !&#x3D; null) &amp;&amp; (mapConfig.initialProjection !&#x3D; undefined) &amp;&amp;
             (mapConfig.initialProjection !&#x3D; this.projection)) {
             var projectionTo &#x3D; new ol.proj.Projection({
               code: this.projection
@@ -7761,11 +7761,11 @@ export class MapComponent implements OnInit {
         initialZoom &#x3D; this.mapOptions.zoom;
       }
 
-      if ((this.mapOptions.lon !&#x3D; undefined) &amp;&amp; (this.mapOptions.lat !&#x3D; undefined) &amp;&amp; 
+      if ((this.mapOptions.lon !&#x3D; undefined) &amp;&amp; (this.mapOptions.lat !&#x3D; undefined) &amp;&amp;
           (this.mapOptions.lon !&#x3D; null) &amp;&amp; (this.mapOptions.lat !&#x3D; null)) {
         initialCenter &#x3D; [this.mapOptions.lon, this.mapOptions.lat];
 
-        if ((this.mapOptions.projection !&#x3D; undefined) &amp;&amp; (this.mapOptions.projection !&#x3D; undefined) &amp;&amp; 
+        if ((this.mapOptions.projection !&#x3D; undefined) &amp;&amp; (this.mapOptions.projection !&#x3D; undefined) &amp;&amp;
         (this.mapOptions.projection !&#x3D; this.projection)) {
           var projectionTo &#x3D; new ol.proj.Projection({
               code: this.projection
@@ -7809,15 +7809,15 @@ export class MapComponent implements OnInit {
       loading;
       loaded;
       progress;
-      
+
       /**
        * Renders a progress bar.
        */
-      constructor(opt_options) {  
+      constructor(opt_options) {
             var options &#x3D; opt_options || {};
-            
+
             var element &#x3D; document.createElement(&quot;DIV&quot;);
-            element.className &#x3D; (options.progress?&quot;ol-progress&quot;:&quot;ol-loading&quot;) + 
+            element.className &#x3D; (options.progress?&quot;ol-progress&quot;:&quot;ol-loading&quot;) +
             &quot; ol-unselectable ol-control&quot;;
 
             super({
@@ -7826,7 +7826,7 @@ export class MapComponent implements OnInit {
             });
 
             this.progress &#x3D; this.progress || options.progress;
-            
+
             this.loading &#x3D; 0;
             this.loaded &#x3D; 0;
 
@@ -7920,7 +7920,7 @@ export class MapComponent implements OnInit {
         this.hide(true);
       }
     }
-    
+
     /** Custom base layer selector control*/
     class SelectBaseLayerControl extends ol.control.Control{
 
@@ -7950,7 +7950,7 @@ export class MapComponent implements OnInit {
           this.layers &#x3D; data.layers;
         }
 
-        if ((this.layerGroups &amp;&amp; (this.layerGroups.length &gt; 0)) &amp;&amp; 
+        if ((this.layerGroups &amp;&amp; (this.layerGroups.length &gt; 0)) &amp;&amp;
             (this.layers &amp;&amp; (this.layers.length &gt; 0))) {
           //Show the first on the list
           if (data.groupNames) {
@@ -7961,7 +7961,7 @@ export class MapComponent implements OnInit {
               this.groupNames.push(this.layerGroups[i].name);
             }
           }
-          if ((data.selection !&#x3D; undefined) &amp;&amp; 
+          if ((data.selection !&#x3D; undefined) &amp;&amp;
               (data.selection !&#x3D; null)) {
             this.selectedGroup &#x3D; data.selection;
           } else {
@@ -8009,7 +8009,7 @@ export class MapComponent implements OnInit {
         }
       }
 
-      constructor(opt_options) {  
+      constructor(opt_options) {
         var options &#x3D; opt_options || {};
 
         var element &#x3D; document.createElement(&quot;DIV&quot;);
@@ -8027,7 +8027,7 @@ export class MapComponent implements OnInit {
 
         var this_ &#x3D; this;
 
-        var controlBtn &#x3D; document.createElement(&quot;BUTTON&quot;); 
+        var controlBtn &#x3D; document.createElement(&quot;BUTTON&quot;);
         if ((options.tooltip !&#x3D; null) &amp;&amp; (options.tooltip !&#x3D; null)) {
           controlBtn.title &#x3D; options.tooltip;
         }
@@ -8041,18 +8041,18 @@ export class MapComponent implements OnInit {
         controlBtn.appendChild(icon);
         element.appendChild(controlBtn);
         if (isEventSupported(&#x27;touchstart&#x27;)) {
-          controlBtn.addEventListener(&#x27;touchstart&#x27;, function() {  
+          controlBtn.addEventListener(&#x27;touchstart&#x27;, function() {
                 this_.showSelectionDialog();
               }, false);
         } else {
-          controlBtn.addEventListener(&#x27;click&#x27;, function() {  
+          controlBtn.addEventListener(&#x27;click&#x27;, function() {
                 this_.showSelectionDialog();
               }, false);
         }
 
         this.button &#x3D; controlBtn;
 
-        this.toolContainer &#x3D; element;            
+        this.toolContainer &#x3D; element;
 
         this.onDataChanged({
           layerGroups: options.layerGroups,
@@ -8072,7 +8072,7 @@ export class MapComponent implements OnInit {
       showControlButton() {
         if (this.toolContainer) {
           this.toolContainer.style.display &#x3D; &quot;&quot;;
-          this.toolContainer.style.visibility &#x3D; &quot;visible&quot;;          
+          this.toolContainer.style.visibility &#x3D; &quot;visible&quot;;
           //TODO Notify control shown
         }
       }
@@ -8087,7 +8087,7 @@ export class MapComponent implements OnInit {
             this.hideControlButton();
           }
           var layerList &#x3D; this.layerGroups[value].memberPositions;
-          if ((layerList &#x3D;&#x3D; null) || (layerList &#x3D;&#x3D; undefined) || (this.layers &#x3D;&#x3D; null) || 
+          if ((layerList &#x3D;&#x3D; null) || (layerList &#x3D;&#x3D; undefined) || (this.layers &#x3D;&#x3D; null) ||
               (this.layers &#x3D;&#x3D; undefined)) {
             //No information for the requested type return
             //TODO raise error if needed be
@@ -8119,7 +8119,7 @@ export class MapComponent implements OnInit {
 
       button;
 
-      constructor(opt_options) {  
+      constructor(opt_options) {
         var options &#x3D; opt_options || {};
 
         var icon &#x3D; document.createElement(&#x27;i&#x27;);
@@ -8149,17 +8149,17 @@ export class MapComponent implements OnInit {
 
         function setGeolocationActive(active) {
           if (active) {
-            this_.geolocation.setTracking(true);   
+            this_.geolocation.setTracking(true);
             button.setAttribute(&quot;active&quot;, &quot;true&quot;);
             button.className +&#x3D; &quot; geolocation-active&quot;
             icon.innerHTML &#x3D; &quot;my_location&quot;;
           } else {
-            this_.geolocation.setTracking(false);          
+            this_.geolocation.setTracking(false);
             button.setAttribute(&quot;active&quot;, &quot;false&quot;);
             button.className &#x3D; button.className.replace(&quot; geolocation-active&quot;, &quot;&quot;);
             icon.innerHTML &#x3D; &quot;my_location&quot;;
           }
-    
+
           if (this_.geolocationLayer !&#x3D; null) {
             this_.geolocationLayer.setVisible(active);
             try {
@@ -8184,20 +8184,20 @@ export class MapComponent implements OnInit {
             this_.geolocation &#x3D; new ol.Geolocation({
               projection: this_.getMap().getView().getProjection()
             });
-    
+
             this_.geolocation.on(&#x27;change&#x27;, function(evt) {
               //Update information
             });
             this_.geolocation.on(&#x27;error&#x27;, function(evt) {
               setGeolocationActive(false);
             });
-    
+
             // GeoLocation accuracy
             /*var accuracyFeature &#x3D; new ol.Feature();
             this_.geolocation.on(&#x27;change:accuracyGeometry&#x27;, function() {
               accuracyFeature.setGeometry(this_.geolocation.getAccuracyGeometry());
             });*/
-    
+
             // User position
             var positionFeature &#x3D; new ol.Feature();
             positionFeature.setStyle(getPositionStyle());
@@ -8206,7 +8206,7 @@ export class MapComponent implements OnInit {
               positionFeature.setGeometry(coordinates ?
                 new ol.geom.Point(coordinates) : null);
             });
-    
+
             //Add vector layer
             this_.geolocationLayer &#x3D; new ol.layer.Vector({
               map: this_.getMap(),
@@ -8334,7 +8334,7 @@ export class MapComponent implements OnInit {
 
         if (this.areaSelected || this.lengthSelected) {
           if (this.helpTooltipElement) {
-            this.helpTooltipElement.innerHTML &#x3D; 
+            this.helpTooltipElement.innerHTML &#x3D;
               this.areaSelected?this.continuePolygonMsg:this.continueLineMsg;
           }
         }
@@ -8497,7 +8497,7 @@ export class MapComponent implements OnInit {
               this_.helpTooltipElement.classList.remove(&#x27;hidden&#x27;);
             }
           };
-          
+
           this.mouseOutHandler &#x3D; function (evt) {
             if (this_.helpTooltipElement) {
               this_.helpTooltipElement.classList.add(&#x27;hidden&#x27;);
@@ -8527,7 +8527,7 @@ export class MapComponent implements OnInit {
             for (var i &#x3D; 0, iLen &#x3D; this.overlayCount; i &lt; iLen; i++) {
               overlay &#x3D; this.map.getOverlayById(&quot;measurement-tooltip-&quot; + i);
               if (overlay !&#x3D; null) {
-                this.map.removeOverlay(overlay);  
+                this.map.removeOverlay(overlay);
               }
             }
           }
@@ -8550,14 +8550,14 @@ export class MapComponent implements OnInit {
         if (typeSelected &#x3D;&#x3D; &quot;area&quot;) {
           this.buttonArea.className +&#x3D; &quot; tool-active&quot;;
           this.buttonArea.setAttribute(&quot;tool-active&quot;, &quot;true&quot;);
-          this.buttonLength.className &#x3D; 
+          this.buttonLength.className &#x3D;
             this.buttonLength.className.replace(&quot; tool-active&quot;, &quot;&quot;);
           this.buttonLength.setAttribute(&quot;tool-active&quot;, &quot;false&quot;);
           this.areaSelected &#x3D; true;
         } else {
           this.buttonLength.className +&#x3D; &quot; tool-active&quot;;
           this.buttonLength.setAttribute(&quot;tool-active&quot;, &quot;true&quot;);
-          this.buttonArea.className  &#x3D; 
+          this.buttonArea.className  &#x3D;
             this.buttonArea.className.replace(&quot; tool-active&quot;, &quot;&quot;);
           this.buttonArea.setAttribute(&quot;tool-active&quot;, &quot;false&quot;);
           this.lengthSelected &#x3D; true;
@@ -8577,12 +8577,12 @@ export class MapComponent implements OnInit {
         }
         this.removeDrawInteraction();
         if (typeSelected &#x3D;&#x3D; &quot;area&quot;) {
-          this.buttonArea.className &#x3D; 
+          this.buttonArea.className &#x3D;
             this.buttonArea.className.replace(&quot; tool-active&quot;, &quot;&quot;);
           this.buttonArea.setAttribute(&quot;tool-active&quot;, &quot;false&quot;);
           this.areaSelected &#x3D; false;
         } else {
-          this.buttonLength.className &#x3D; 
+          this.buttonLength.className &#x3D;
             this.buttonLength.className.replace(&quot; tool-active&quot;, &quot;&quot;);
           this.buttonLength.setAttribute(&quot;tool-active&quot;, &quot;false&quot;);
           this.lengthSelected &#x3D; false;
@@ -8763,7 +8763,7 @@ export class MapComponent implements OnInit {
 
     //Custom scalebar control
     class ScaleBarControl extends ol.control.Control{
-      
+
       innerElement_;
       element_;
       viewState_ ;
@@ -8786,11 +8786,11 @@ export class MapComponent implements OnInit {
 
         var options &#x3D; opt_options || {};
 
-        var className &#x3D; options.className !&#x3D;&#x3D; undefined ? options.className : &#x27;ol-scale-line&#x27;;      
+        var className &#x3D; options.className !&#x3D;&#x3D; undefined ? options.className : &#x27;ol-scale-line&#x27;;
         var minWidth &#x3D; options.minWidth !&#x3D;&#x3D; undefined ? options.minWidth : 64;
 
         var innerElement &#x3D; document.createElement(&#x27;DIV&#x27;);
-        innerElement.className &#x3D; className + &#x27;-inner&#x27;;      
+        innerElement.className &#x3D; className + &#x27;-inner&#x27;;
         var element &#x3D; document.createElement(&#x27;DIV&#x27;);
         element.className &#x3D; className + &#x27; &#x27; + &#x27;ol-unselectable&#x27;;
         element.appendChild(innerElement);
@@ -8802,7 +8802,7 @@ export class MapComponent implements OnInit {
             this.updateElement();
           }
         }
-        
+
         super({
           element: element,
           render: options.render?options.render:render,
@@ -8830,7 +8830,7 @@ export class MapComponent implements OnInit {
         this.topInUnits &#x3D; &quot;m&quot;;
         this.bottomOutUnits &#x3D; &quot;mi&quot;;
         this.bottomInUnits &#x3D; &quot;ft&quot;;
-      
+
         this.setUnits((options.units) ||
                         SCALE_BAR_UNITS.METRIC);
       }
@@ -8920,25 +8920,25 @@ export class MapComponent implements OnInit {
        * {Integer} Maximum width of the scale line in pixels.  Default is 100.
        */
       maxWidth;
-      
+
       /**
       * Property: topOutUnits
       * {String} Units for zoomed out on top bar.  Default is km.
       */
       topOutUnits;
-      
+
       /**
         * Property: topInUnits
         * {String} Units for zoomed in on top bar.  Default is m.
         */
       topInUnits;
-  
+
       /**
         * Property: bottomOutUnits
         * {String} Units for zoomed out on bottom bar.  Default is mi.
         */
       bottomOutUnits;
-  
+
       /**
         * Property: bottomInUnits
         * {String} Units for zoomed in on bottom bar.  Default is ft.
@@ -8949,7 +8949,7 @@ export class MapComponent implements OnInit {
         // nearest power of 10 lower than maxLen
         var digits &#x3D; parseInt((Math.log(maxLen) / Math.log(10)) + &quot;&quot;);
         var pow10 &#x3D; Math.pow(10, digits);
-        
+
         // ok, find first character
         var firstChar &#x3D; parseInt((maxLen / pow10) + &quot;&quot;);
 
@@ -8995,7 +8995,7 @@ export class MapComponent implements OnInit {
             maxSizeData *&#x3D; geodesicRatio;
         }
 
-        // decide whether to use large or small scale units     
+        // decide whether to use large or small scale units
         var topUnits;
         var bottomUnits;
         if(maxSizeData &gt; 100000) {
@@ -9021,33 +9021,33 @@ export class MapComponent implements OnInit {
         // and to pixel units
         var topPx &#x3D; topMax / res / geodesicRatio;
         var bottomPx &#x3D; bottomMax / res / geodesicRatio;
-        
+
         // now set the pixel widths
         // and the values inside them
 
         if (this.innerElement_) {
           //Update bar width with top value always
-          this.innerElement_.style.width &#x3D; Math.round(topPx) + &quot;px&quot;; 
+          this.innerElement_.style.width &#x3D; Math.round(topPx) + &quot;px&quot;;
         }
-        
+
         if (this.eBottom &amp;&amp; this.eBottom.style &amp;&amp; (this.eBottom.style.visibility &#x3D;&#x3D; &quot;visible&quot;)) {
             //Update bottom bar width with its corresponding value
-            this.eBottom.style.width &#x3D; Math.round(bottomPx) + &quot;px&quot;; 
+            this.eBottom.style.width &#x3D; Math.round(bottomPx) + &quot;px&quot;;
             this.eBottom.innerHTML &#x3D; bottomRounded + &quot; &quot; + bottomUnits ;
         }
-            
+
         if (this.eTop &amp;&amp; this.eTop.style &amp;&amp; (this.eTop.style.visibility &#x3D;&#x3D; &quot;visible&quot;)) {
             //this.eTop.style.width &#x3D; Math.round(topPx) + &quot;px&quot;;
             this.eTop.innerHTML &#x3D; topRounded + &quot; &quot; + topUnits;
         }
 
         if (this.element_) {
-          var scale &#x3D; MapComponent.getScaleFromResolution(this.getMap().getView().getResolution(), 
+          var scale &#x3D; MapComponent.getScaleFromResolution(this.getMap().getView().getResolution(),
                                                 this.getMap().getView().getProjection().getUnits());
           // update the element title and width
           this.element_.title &#x3D; this.tooltipMessage + this.formatNumber(scale);
         }
-        
+
       }
 
       getGeodesicPixelSize(px?) {
@@ -9069,7 +9069,7 @@ export class MapComponent implements OnInit {
             bottom &#x3D; ol.proj.transform(bottom, source, dest);
             top &#x3D; ol.proj.transform(top, source, dest);
         }
-        
+
         return [
             distVincenty(left, right),//w
             distVincenty(bottom, top)//h
@@ -9123,7 +9123,7 @@ export class MapComponent implements OnInit {
     var distVincenty &#x3D; function(p1, p2) {
       var ct &#x3D; VincentyConstants;
       var a &#x3D; ct.a, b &#x3D; ct.b, f &#x3D; ct.f;
-  
+
       var L &#x3D; rad(p2.lon - p1.lon);
       var U1 &#x3D; Math.atan((1-f) * Math.tan(rad(p1.lat)));
       var U2 &#x3D; Math.atan((1-f) * Math.tan(rad(p2.lat)));
@@ -9161,7 +9161,7 @@ export class MapComponent implements OnInit {
       return d;
     };
 
-    const PROJECTION_INCHES_PER_UNIT &#x3D; { 
+    const PROJECTION_INCHES_PER_UNIT &#x3D; {
       &#x27;inches&#x27;: 1.0,
       &#x27;ft&#x27;: 12.0,
       &#x27;mi&#x27;: 63360.0,
@@ -9255,7 +9255,7 @@ export class MapComponent implements OnInit {
           );
         }
       }
-      
+
       createGetFeatureInfoUrl(layer:ol.layer.Layer, location) {
         //Example
         //http://sitmun.diba.cat/arcgis/services/PUBLIC/DTE50/MapServer/WMSServer?SERVICE&#x3D;WMS&amp;REQUEST&#x3D;GetFeatureInfo&amp;LAYERS&#x3D;DTE50_MUN&amp;QUERY_LAYERS&#x3D;DTE50_MUN&amp;EXCEPTIONS&#x3D;INIMAGE&amp;VERSION&#x3D;1.3.0&amp;TRANSPARENT&#x3D;true&amp;FORMAT&#x3D;image/png8&amp;STYLES&#x3D;&amp;CRS&#x3D;EPSG:25831&amp;INFO_FORMAT&#x3D;text/xml&amp;WIDTH&#x3D;1355&amp;HEIGHT&#x3D;753&amp;BBOX&#x3D;297073.421925,4554115.600155,548030.578075,4693577.399845&amp;I&#x3D;438&amp;J&#x3D;286
@@ -9266,7 +9266,7 @@ export class MapComponent implements OnInit {
         if (source instanceof ol.source.TileWMS) {
           var tileWmsSource:ol.source.TileWMS &#x3D; source;
           return tileWmsSource.getGetFeatureInfoUrl(
-            location, 
+            location,
             this.getMap().getView().getResolution(),
             this.getMap().getView().getProjection(),
             params
@@ -9274,14 +9274,14 @@ export class MapComponent implements OnInit {
         } else if (source instanceof ol.source.ImageWMS) {
           var imageWmsSource:ol.source.ImageWMS &#x3D; source;
           return imageWmsSource.getGetFeatureInfoUrl(
-            location, 
+            location,
             this.getMap().getView().getResolution(),
             this.getMap().getView().getProjection(),
             params);
         }
 		    return null;
       }
-      
+
       getQueryRequests(location):Array&lt;FeatureInfoRequestData&gt; {
         var requests &#x3D; new Array&lt;FeatureInfoRequestData&gt;();
         //Crear peticiones get feature info para cada capa visible
@@ -9311,7 +9311,7 @@ export class MapComponent implements OnInit {
           };
         }
       }
-      
+
       activate() {
         if (this.disabled) {
           return;
@@ -9331,7 +9331,7 @@ export class MapComponent implements OnInit {
           this.getMap().on(&quot;click&quot;, this.listener);
         }
       }
-      
+
       deactivate() {
         if (this.active) {
           if (this.button) {
@@ -9348,7 +9348,7 @@ export class MapComponent implements OnInit {
         }
       }
 
-      constructor(opt_options) {  
+      constructor(opt_options) {
         var options &#x3D; opt_options || {};
 
         var element &#x3D; document.createElement(&quot;DIV&quot;);
@@ -9370,7 +9370,7 @@ export class MapComponent implements OnInit {
 
         var this_ &#x3D; this;
 
-        var controlBtn &#x3D; document.createElement(&quot;BUTTON&quot;); 
+        var controlBtn &#x3D; document.createElement(&quot;BUTTON&quot;);
         if ((options.tooltip !&#x3D; null) &amp;&amp; (options.tooltip !&#x3D; null)) {
           controlBtn.title &#x3D; options.tooltip;
         }
@@ -9396,13 +9396,13 @@ export class MapComponent implements OnInit {
 
         this.button &#x3D; controlBtn;
 
-        this.toolContainer &#x3D; element;            
+        this.toolContainer &#x3D; element;
 
         this.onDataChanged({
           layers: options.layers
         });
       }
-      
+
       enableTool() {
         this.disabled &#x3D; false;
         if (this.button) {
@@ -9411,7 +9411,7 @@ export class MapComponent implements OnInit {
           }
         }
       }
-      
+
       disableTool() {
         this.disabled &#x3D; true;
 		    this.deactivate();
@@ -9434,7 +9434,7 @@ export class MapComponent implements OnInit {
       showTool() {
         if (this.toolContainer) {
           this.toolContainer.style.display &#x3D; &quot;&quot;;
-          this.toolContainer.style.visibility &#x3D; &quot;visible&quot;;          
+          this.toolContainer.style.visibility &#x3D; &quot;visible&quot;;
           //TODO Notify control shown
         }
       }
@@ -9534,7 +9534,7 @@ export class MapComponent implements OnInit {
     //////////////////////////////////
 
     // Scale line control
-    this.scaleLineToolControl &#x3D; 
+    this.scaleLineToolControl &#x3D;
                             new ScaleBarControl({
                               showTopBar: true,//metric
                               showBottomBar: false,//non-metric
@@ -9636,7 +9636,7 @@ export class MapComponent implements OnInit {
 
     var mapStatus &#x3D; new MapComponentStatus();
     mapStatus.loaded &#x3D; true;
-    //Notify the map has been initialized and is ready 
+    //Notify the map has been initialized and is ready
     this.mapConfigurationManagerService.setMapComponentStatus(mapStatus);
   }
 
@@ -9645,7 +9645,7 @@ export class MapComponent implements OnInit {
     var normScale&#x3D;(scale&gt;1.0)?(1.0/scale):scale;
     return normScale;
   }
-  
+
   /** get scale from given resolution*/
   public static getScaleFromResolution(resolution, units?) {
     units &#x3D; units?units:&quot;m&quot;;
@@ -9654,7 +9654,7 @@ export class MapComponent implements OnInit {
     var inchesPerMeter &#x3D; 39.37;
     return (resolution * (mpu * inchesPerMeter * dpi));
   }
-  
+
   /** get resolution from given scale*/
   public static getResolutionFromScale(scale, units?) {
     units &#x3D; units?units:&quot;m&quot;;
@@ -9667,7 +9667,7 @@ export class MapComponent implements OnInit {
 
   /** defaults loaded?*/
   defaultsLoaded:boolean &#x3D; false;
-  
+
   /** load default map configuration*/
   loadDefaultMapConfiguration() {
     //Load default configuration
@@ -9683,12 +9683,12 @@ export class MapComponent implements OnInit {
 
   /** default initial zoom*/
   defaultInitialZoom &#x3D; 0;
-  
+
   /** setdefault initial zoom*/
   setDefaultInitialZoom(zoom) {
     this.defaultInitialZoom &#x3D; zoom;
   }
-  
+
   /** get default initial zoom*/
   getDefaultInitialZoom():number {
     return this.defaultInitialZoom;
@@ -9696,82 +9696,82 @@ export class MapComponent implements OnInit {
 
   /** default initial lon*/
   defaultInitialLon &#x3D; 405808.5;
-  
+
   /** set default initial lon*/
   setDefaultInitialLon(lon) {
     this.defaultInitialLon &#x3D; lon;
   }
-  
+
   /** get default initial lon*/
   getDefaultInitialLon():number {
     return this.defaultInitialLon;
   }
-  
+
   /** default initial lat*/
   defaultInitialLat &#x3D; 4623846.5;
-  
+
   /** set default initial lat*/
   setDefaultInitialLat(lat) {
     this.defaultInitialLat &#x3D; lat;
   }
-  
+
   /** get default initial lat*/
   getDefaultInitialLat():number {
     return this.defaultInitialLat;
   }
-  
+
   /** default tile height*/
   defaultTileHeight &#x3D; 500;
-  
+
   /** set default tile height*/
   setDefaultTileHeight(height) {
     this.defaultTileHeight &#x3D; height;
   }
-  
+
   /** get default tile height*/
   getDefaultTileHeight():number {
     return this.defaultTileHeight;
   }
-  
+
   /** set default tile width*/
   defaultTileWidth &#x3D; 500;
-  
+
   /** set default tile width*/
   setDefaultTileWidth(width) {
     this.defaultTileWidth &#x3D; width;
   }
-  
+
   /** get default tile width*/
   getDefaultTileWidth():number {
     return this.defaultTileWidth;
   }
-  
+
   /** default map max scale*/
   defaultMapMaxScale &#x3D; 3000000;
-  
+
   /** set default map max scale*/
   setDefaultMapMaxScale(scale) {
     this.defaultMapMaxScale &#x3D; scale;
   }
-  
+
   /** get default map max scale*/
   getDefaultMapMaxScale():number {
     return this.defaultMapMaxScale;
   }
-  
+
   /** default map min scale*/
   defaultMapMinScale &#x3D; 3000;
-  
+
   /** set default map min scale*/
   setDefaultMapMinScale(scale) {
     this.defaultMapMinScale &#x3D; scale;
   }
-  
+
   /** get default map min scale*/
   getDefaultMapMinScale():number {
     return this.defaultMapMinScale;
   }
-  
+
   /** default map maximum extent*/
   defaultMapMaxExtent:[number, number, number, number] &#x3D; [
     320000, //xMin
@@ -9779,12 +9779,12 @@ export class MapComponent implements OnInit {
     491617, //xMax
     4686464 //yMax
   ];
-  
+
   /** set default map maximum extent*/
   setDefaultMapMaxExtent(extent) {
     this.defaultMapMaxExtent &#x3D; extent;
   }
-  
+
   /** get default map maximum extent*/
   getDefaultMapMaxExtent():[number, number, number, number] {
     return this.defaultMapMaxExtent;
@@ -9808,12 +9808,12 @@ export class MapComponent implements OnInit {
     ​0.2645831904584105,
     ​0.1322915952292052
   ];
-  
+
   /** set default map resolutions*/
   setDefaultMapResolutions(resolutions) {
     this.defaultMapResolutions &#x3D; resolutions;
   }
-  
+
   /** get default map resolutions*/
   getDefaultMapResolutions() {
     return this.defaultMapResolutions;
@@ -9837,29 +9837,29 @@ export class MapComponent implements OnInit {
     1000,
     500
   ];
-  
+
   /** set default map scales*/
   setDefaultMapScales(scales) {
     this.defaultMapScales &#x3D; scales;
   }
-  
+
   /** get default map scales*/
   getDefaultMapScales() {
     return this.defaultMapScales;
   }
-  
+
   /** default map info format*/
   defaultMapInfoFormat:string &#x3D; &quot;text/xml&quot;;
   setDefaultMapInfoFormat(format:string) {
     this.defaultMapInfoFormat &#x3D; format;
   }
-  
+
   /** get default map info format*/
   getDefaultMapInfoFormat():string {
     return this.defaultMapInfoFormat;
   }
 
-  
+
   /** get default map configuration*/
   getDefaultMapConfiguration() {
     var configuration &#x3D; new MapConfiguration();
@@ -9877,9 +9877,9 @@ export class MapComponent implements OnInit {
     configuration.mapMaxExtent &#x3D; this.getDefaultMapMaxExtent();
     configuration.mapResolutions &#x3D; this.getDefaultMapResolutions();
     */
-    return configuration;   
+    return configuration;
   }
-  
+
   /** get default map options configuration*/
   getDefaultMapOptionsConfiguration() {
     var configuration &#x3D; new MapOptionsConfiguration();
@@ -9891,9 +9891,9 @@ export class MapComponent implements OnInit {
     configuration.minScale &#x3D; this.getDefaultMapMinScale();
     configuration.maxExtent &#x3D; this.getDefaultMapMaxExtent();
     configuration.scales &#x3D; this.getDefaultMapScales().join(&quot;,&quot;);
-    return configuration;   
+    return configuration;
   }
-  
+
   /** get default base layers configuration*/
   getDefaultBaseLayersConfiguration() {
     var baseLayers &#x3D; new Array&lt;LayerGroup&gt;();
@@ -9913,11 +9913,11 @@ export class MapComponent implements OnInit {
     layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
     layer[&quot;title&quot;] &#x3D; &quot;Base Mapa - imgmapa&quot;;
-    layer[&quot;serverName&quot;] &#x3D; &quot;226-212-210-245&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;226-212-210-245&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;serverName&quot;] &#x3D; &quot;226-212-210-245&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;226-212-210-245&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
     layer[&quot;name&quot;] &#x3D; &quot;M_PROV_FONS,M_EURB_250M,M_EDIF_1M_141A,M_BTE50_412A,M_EDIF_1M_611A,M_XHE50_111L,M_BTE50_313L_FFCC,M_EIX,M_EIX_sobre_EDIF,M_XCE50_AUTO,M_XCE50_BASICA,M_XCE50_LOCAL,M_XCE50_ALTRES,M_XCE50_AUTO_f,M_XCE50_BASICA_f,M_XCE50_LOCAL_f,M_XCE50_ALTRES_f,M_MUNIS_f,M_MUNIS&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
@@ -9927,39 +9927,39 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 1;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Mapa - imgmapa_et&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;226-212-210-238&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;226-212-210-238&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Mapa - imgmapa_et&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;226-212-210-238&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;226-212-210-238&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;M_MUNIS&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;M_MUNIS&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
     layerGroup.layers.push(layer);
-    
+
     layer &#x3D; new Layer();
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 1;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Mapa - imgeix&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;226-212-210-247&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;226-212-210-247&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Mapa - imgeix&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;226-212-210-247&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;226-212-210-247&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;M_EIX_ET,M_EDI_ET,M_MUNIS_ET&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;M_EIX_ET,M_EDI_ET,M_MUNIS_ET&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
     layerGroup.layers.push(layer);
 
@@ -9974,21 +9974,21 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 1;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; [254904.96, 4484796.89, 530907.3, 4749795.1];
-    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - ICC1&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;272-266-258-252&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;272-266-258-252&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://mapcache.icc.cat/map/bases/service&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - ICC1&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;272-266-258-252&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;272-266-258-252&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://mapcache.icc.cat/map/bases/service&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;orto&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;orto&quot;;
     layer[&quot;tiled&quot;] &#x3D; true;
-    layer[&quot;tileHeight&quot;] &#x3D; 256; 
+    layer[&quot;tileHeight&quot;] &#x3D; 256;
     layer[&quot;tileWidth&quot;] &#x3D; 256;
     layerGroup.layers.push(layer);
 
@@ -9996,19 +9996,19 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 0.7;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0xFEFEFE&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0xFEFEFE&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - imgaeria_fons&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;272-266-258-256&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;272-266-258-256&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - imgaeria_fons&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;272-266-258-256&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;272-266-258-256&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;M_PROV_FONS,M_MUNIS&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;M_PROV_FONS,M_MUNIS&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
     layerGroup.layers.push(layer);
 
@@ -10016,24 +10016,24 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 1;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - imgeix&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;272-266-258-281&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;272-266-258-281&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - imgeix&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;272-266-258-281&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;272-266-258-281&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;M_EIX_ET,M_EDI_ET,M_MUNIS_ET&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;M_EIX_ET,M_EDI_ET,M_MUNIS_ET&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
     layerGroup.layers.push(layer);
 
     baseLayers.push(layerGroup);
-    
+
     layerGroup &#x3D; new LayerGroup();
     layerGroup.id &#x3D; &quot;hybrid&quot;;
     layerGroup.name &#x3D; &quot;Hìbrida&quot;;
@@ -10043,21 +10043,21 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 1;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; [254904.96, 4484796.89, 530907.3, 4749795.1];
-    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - ICC2&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-254&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-254&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://mapcache.icc.cat/map/bases/service&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Aerial - ICC2&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-254&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-254&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://mapcache.icc.cat/map/bases/service&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;orto&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;orto&quot;;
     layer[&quot;tiled&quot;] &#x3D; true;
-    layer[&quot;tileHeight&quot;] &#x3D; 256; 
+    layer[&quot;tileHeight&quot;] &#x3D; 256;
     layer[&quot;tileWidth&quot;] &#x3D; 256;
     layerGroup.layers.push(layer);
 
@@ -10065,17 +10065,17 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 0.7;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0xFEFEFE&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0xFEFEFE&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Hybrid - imghibrid_fons&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-259&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-259&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Hybrid - imghibrid_fons&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-259&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-259&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;image/png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
     layer[&quot;name&quot;] &#x3D; &quot;M_PROV_FONS,M_EURB_250M,M_EDIF_1M_141A,M_EDIF_1M_611A,M_EIX,M_EIX_sobre_EDIF&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
@@ -10085,17 +10085,17 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 0.85;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Hybrid - imghibrid_ctra&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-261&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-261&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Hybrid - imghibrid_ctra&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-261&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-261&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false
     layer[&quot;name&quot;] &#x3D; &quot;IH_XCE50_AUTO,IH_XCE50_BASICA,IH_XCE50_LOCAL,IH_XCE50_ALTRES,M_XCE50_AUTO_f,M_XCE50_BASICA_f,M_XCE50_LOCAL_f,M_XCE50_ALTRES_f&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
@@ -10105,31 +10105,31 @@ export class MapComponent implements OnInit {
     layer[&quot;visibility&quot;] &#x3D; false;
     layer[&quot;queryable&quot;] &#x3D; false;
     layer[&quot;opacity&quot;] &#x3D; 1;
-    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;; 
-    layer[&quot;desc&quot;] &#x3D; &quot;&quot;; 
-    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;; 
-    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;; 
+    layer[&quot;attributions&quot;] &#x3D; &quot;© Institut Cartogràfíc i Geològic de Catalunya&quot;;
+    layer[&quot;desc&quot;] &#x3D; &quot;&quot;;
+    layer[&quot;url_transparent&quot;] &#x3D; &quot;TRUE&quot;;
+    layer[&quot;url_bgcolor&quot;] &#x3D; &quot;0x000000&quot;;
     layer[&quot;extent&quot;] &#x3D; null;
-    layer[&quot;title&quot;] &#x3D; &quot;Base Hybrid - imghibrid_et&quot;; 
-    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-263&quot;; 
-    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-263&quot;; 
-    layer[&quot;format&quot;] &#x3D; &quot;png&quot;; 
-    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;; 
-    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;; 
+    layer[&quot;title&quot;] &#x3D; &quot;Base Hybrid - imghibrid_et&quot;;
+    layer[&quot;serverName&quot;] &#x3D; &quot;273-267-265-263&quot;;
+    layer[&quot;id&quot;] &#x3D; &quot;273-267-265-263&quot;;
+    layer[&quot;format&quot;] &#x3D; &quot;png&quot;;
+    layer[&quot;version&quot;] &#x3D; &quot;1.1.1&quot;;
+    layer[&quot;url&quot;] &#x3D; &quot;http://sitmun.diba.cat/arcgis/services/PUBLIC/GCA_WEB/MapServer/WMSServer&quot;;
     layer[&quot;isBaseLayer&quot;] &#x3D; false;
-    layer[&quot;name&quot;] &#x3D; &quot;M_MUNIS&quot;; 
+    layer[&quot;name&quot;] &#x3D; &quot;M_MUNIS&quot;;
     layer[&quot;tiled&quot;] &#x3D; false;
     layerGroup.layers.push(layer);
-    
+
     baseLayers.push(layerGroup);
-    
+
     return baseLayers;
   }
-  
+
   /** parse given format*/
   parseFormat(format:String) {
     return ((format.indexOf(&quot;image&quot;) &#x3D;&#x3D; -1)?
-                &quot;image/&quot;:&quot;&quot;) + 
+                &quot;image/&quot;:&quot;&quot;) +
                 format;
   }
 }

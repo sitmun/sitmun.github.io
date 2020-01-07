@@ -552,10 +552,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {CartographyGroup } from &#x27;./cartography-group.model&#x27;;
-import {CartographyGroupService } from &#x27;./cartography-group.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {CartographyGroup } from &#x27;sitmun-frontend-core&#x27;;
+import {CartographyGroupService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;; 
+import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
 /** Component for managing cartography groups*/
 @Component({
@@ -564,28 +564,28 @@ import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
   styleUrls: [&#x27;./cartography-group-list.component.css&#x27;]
 })
 export class CartographyGroupListComponent implements OnInit {
-  
+
   /** cartography groups to manage */
   items:CartographyGroup[];
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;CartographyGroup&gt;(this.items);
 
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-    
+
   /** Component constructor */
   constructor( private cartographyGroupService:CartographyGroupService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllCartographyGroups();
-    
+
   }
-  
+
   /** load all cartography groups*/
   getAllCartographyGroups() {
     this.cartographyGroupService.getAll()
@@ -596,16 +596,17 @@ export class CartographyGroupListComponent implements OnInit {
 
     });
   }
-  
+
   /** remove cartography group*/
   remove(item:CartographyGroup) {
     this.cartographyGroupService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllCartographyGroups();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

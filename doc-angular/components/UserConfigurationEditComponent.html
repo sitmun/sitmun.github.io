@@ -974,15 +974,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;; 
-import { Territory } from &#x27;../territory/territory.model&#x27;;
-import { TerritoryService } from &#x27;../territory/territory.service&#x27;;
-import { Role } from &#x27;../role/role.model&#x27;;
-import { RoleService } from &#x27;../role/role.service&#x27;;
-import { UserConfiguration } from &#x27;./user-configuration.model&#x27;;
-import { UserConfigurationService } from &#x27;./user-configuration.service&#x27;;
-import { UserService } from &#x27;./user.service&#x27;;
-import { User } from &#x27;./user.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
+import { Territory } from &#x27;sitmun-frontend-core&#x27;;
+import { TerritoryService } from &#x27;sitmun-frontend-core&#x27;;
+import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
+import { UserConfiguration } from &#x27;sitmun-frontend-core&#x27;;
+import { UserConfigurationService } from &#x27;sitmun-frontend-core&#x27;;
+import { UserService } from &#x27;sitmun-frontend-core&#x27;;
+import { User } from &#x27;sitmun-frontend-core&#x27;&#x27;;
 import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
 import { Location } from &#x27;@angular/common&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
@@ -998,32 +998,32 @@ import { Subscription } from &#x27;rxjs-compat&#x27;;
   styleUrls: [&#x27;./user-configuration-edit.component.css&#x27;]
 })
 export class UserConfigurationEditComponent implements OnInit {
-  
+
   /** user permission data to edit*/
   userConfiguration: UserConfiguration &#x3D; new UserConfiguration();
-  
+
   /** user*/
   user: User &#x3D; new User();
-  
+
   /** territories to select*/
   territories: Territory[] &#x3D; new Array&lt;Territory&gt;();
 
   /** roles to select*/
   roles: Role[] &#x3D; new Array&lt;Role&gt;();
-  
+
   /** subscription*/
   sub: Subscription;
-  
+
   /** constructor*/
   constructor(private route: ActivatedRoute,
-    private router: Router,    
+    private router: Router,
     private userService: UserService,
     private userConfigurationService: UserConfigurationService,
     private territoryService: TerritoryService,
     private roleService: RoleService,
     private location: Location) {
   }
-  
+
   /** navigate backwards*/
   goBack() {
     this.location.back();
@@ -1036,7 +1036,7 @@ export class UserConfigurationEditComponent implements OnInit {
     this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
       const id &#x3D; params[&#x27;id&#x27;];
       const userId &#x3D; params[&#x27;userId&#x27;];
-      
+
       if (id) {
         this.userConfigurationService.get(id).subscribe((userConfiguration: any) &#x3D;&gt; {
           if (userConfiguration) {
@@ -1075,17 +1075,17 @@ export class UserConfigurationEditComponent implements OnInit {
       }
     });
   }
-  
+
   /** On component destroy remove subscription */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  
+
   /** load all territories*/
   getAllTerritories() {
     this.territoryService.getAll()
     .subscribe((territories: Territory[]) &#x3D;&gt; {
-        this.territories &#x3D; territories;        
+        this.territories &#x3D; territories;
     });
   }
 
@@ -1093,7 +1093,7 @@ export class UserConfigurationEditComponent implements OnInit {
   getAllRoles() {
     this.roleService.getAll()
     .subscribe((roles: Role[]) &#x3D;&gt; {
-        this.roles &#x3D; roles;        
+        this.roles &#x3D; roles;
     });
   }
 
@@ -1105,14 +1105,14 @@ export class UserConfigurationEditComponent implements OnInit {
       this.router.navigate([&#x27;/user-edit&#x27;,this.user._links.self.href.split(&#x27;/&#x27;)[5]]);
     }
   }
-  
+
   /** save user permission*/
   save() {
-      this.userConfigurationService.save(this.userConfiguration).subscribe(result &#x3D;&gt; {      
+      this.userConfigurationService.save(this.userConfiguration).subscribe(result &#x3D;&gt; {
         this.gotoUser();
       }, error &#x3D;&gt; console.error(error));
   }
-  
+
   /** remove user permission*/
   remove(userConfiguration: UserConfiguration) {
     this.userConfigurationService.delete(userConfiguration).subscribe(result &#x3D;&gt; {
@@ -1120,7 +1120,7 @@ export class UserConfigurationEditComponent implements OnInit {
     }, error &#x3D;&gt; console.error(error));
 
   }
-  
+
   /** compare two resources*/
   compareResource(c1: Resource, c2: Resource): boolean {
     return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;

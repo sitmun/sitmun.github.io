@@ -398,8 +398,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import {AccountService } from &#x27;./account.service&#x27;;
-import {User } from &#x27;../user/user.model&#x27;;
+import {AccountService } from &#x27;sitmun-frontend-core&#x27;;
+import {User } from &#x27;sitmun-frontend-core&#x27;;
 
 /**
  * Account data edit component
@@ -416,19 +416,19 @@ export class AccountEditComponent implements OnInit {
 
   /** success status variable*/
   success: string;
-  
+
   /** constructor*/
   constructor(
   	private accountService: AccountService) {
   }
-  
+
   /** On component init load all required data dependencies*/
   ngOnInit() {
-    
+
         this.accountService.get().subscribe((item: any) &#x3D;&gt; {
           if (item) {
             this.item &#x3D; item;
-            
+
           } else {
             console.log(&#x60;no logged user&#x60;);
             //Todo go to login
@@ -436,16 +436,16 @@ export class AccountEditComponent implements OnInit {
         });
   }
 
- 
+
   /** save account data*/
   save() {
-      this.accountService.save(this.item).subscribe(result &#x3D;&gt; {      
+      this.accountService.save(this.item).subscribe(result &#x3D;&gt; {
         //Todo display message?
         this.success &#x3D; &quot;OK&quot;;
       }, error &#x3D;&gt; console.error(error));
   }
 
-  
+
 
 }
 </code></pre>

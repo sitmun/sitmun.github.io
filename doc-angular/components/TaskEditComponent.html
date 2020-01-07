@@ -1394,24 +1394,24 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { Connection } from &#x27;../connection/connection.model&#x27;;
-import { ConnectionService } from &#x27;../connection/connection.service&#x27;;
-import { Role } from &#x27;../role/role.model&#x27;;
-import { RoleService } from &#x27;../role/role.service&#x27;;
+import { Connection } from &#x27;sitmun-frontend-core&#x27;;
+import { ConnectionService } from &#x27;sitmun-frontend-core&#x27;;
+import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
 //import { TerritoryService } from &#x27;../territory/territory.service&#x27;;
 //import { Territory } from &#x27;../territory/territory.model&#x27;;
-import { TaskType } from &#x27;./task-type.model&#x27;;
-import { TaskTypeService } from &#x27;./task-type.service&#x27;;
-import { TaskUI } from &#x27;./task-ui.model&#x27;;
-import { TaskUIService } from &#x27;./task-ui.service&#x27;;
-import { TaskGroup } from &#x27;./task-group.model&#x27;;
-import { TaskGroupService } from &#x27;./task-group.service&#x27;;
-import { TaskParameter } from &#x27;./task-parameter.model&#x27;;
-import { TaskParameterService } from &#x27;./task-parameter.service&#x27;;
-import { TaskAvailability} from &#x27;./task-availability.model&#x27;;
-import { TaskAvailabilityService } from &#x27;./task-availability.service&#x27;;
-import { Task } from &#x27;./task.model&#x27;;
-import {TaskService} from &#x27;./task.service&#x27;;
+import { TaskType } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskTypeService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskUI } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskUIService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskGroup } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskGroupService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskParameter } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskParameterService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskAvailability} from &#x27;sitmun-frontend-core&#x27;;
+import { TaskAvailabilityService } from &#x27;sitmun-frontend-core&#x27;;
+import { Task } from &#x27;sitmun-frontend-core&#x27;;
+import {TaskService} from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -1429,7 +1429,7 @@ import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
     styleUrls: [&#x27;./task-edit.component.css&#x27;]
 })
 export class TaskEditComponent implements OnInit, OnDestroy {
-    
+
     /** task to edit*/
     task: Task &#x3D; new Task();
 
@@ -1442,21 +1442,21 @@ export class TaskEditComponent implements OnInit, OnDestroy {
     /** task groups to select*/
     taskGroups: TaskGroup[] &#x3D; new Array&lt;TaskGroup&gt;();
 
-    /** task connections to select*/    
+    /** task connections to select*/
     connections: Connection[] &#x3D; new Array&lt;Connection&gt;();
-    
-    /** task roles to select*/    
+
+    /** task roles to select*/
     roles: Role[] &#x3D; new Array&lt;Role&gt;();
 
     /** subscription*/
     sub: Subscription;
-    
+
     /** roles table displayed columns*/
     displayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;];
-    
+
     /** selection model for roles table*/
     selection &#x3D; new SelectionModel&lt;Role&gt;(true, []);
-    
+
     /** MatTableDataSource for roles */
     dataSource &#x3D; new MatTableDataSource&lt;Role&gt;([]);
 
@@ -1595,7 +1595,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
 
             });
     }
-    
+
     /** load all roles*/
     getAllRoles() {
         this.roleService.getAll()
@@ -1611,7 +1611,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
     gotoList() {
         this.router.navigate([&#x27;/task-list&#x27;]);
     }
-    
+
     /** save task*/
     save() {
         if (this.task.createdDate !&#x3D; null &amp;&amp; (typeof this.task.createdDate !&#x3D; &#x27;string&#x27;)) {
@@ -1636,9 +1636,9 @@ export class TaskEditComponent implements OnInit, OnDestroy {
                 , error &#x3D;&gt; console.error(error));
 
         } else {
-            
-            
-            
+
+
+
             let rolesUpdate &#x3D; null;
             let taskRoles &#x3D; this.task.roles;
             if (taskRoles)
@@ -1655,33 +1655,33 @@ export class TaskEditComponent implements OnInit, OnDestroy {
 
             }
                 , error &#x3D;&gt; console.error(error));
-                
+
             delete this.task.roles;
             let update &#x3D; concat(
                 this.taskService.update(this.task)
-                
+
 
             );
-            
+
             update &#x3D; concat(update,
                 this.task.deleteAllRelation(&#x27;type&#x27;),
                 this.task.deleteAllRelation(&#x27;ui&#x27;),
                 this.task.deleteAllRelation(&#x27;connection&#x27;),
                 this.task.deleteAllRelation(&#x27;group&#x27;)
-                
+
 
             );
-            
-            if (this.task.type._links!&#x3D;null &amp;&amp; this.task.type._links.self.href!&#x3D;&#x27;&#x27;){            
+
+            if (this.task.type._links!&#x3D;null &amp;&amp; this.task.type._links.self.href!&#x3D;&#x27;&#x27;){
                 update &#x3D; concat(update,this.task.addRelation(&#x27;type&#x27;, this.task.type));
-            } 
-            if (this.task.ui._links!&#x3D;null &amp;&amp; this.task.ui._links.self.href!&#x3D;&#x27;&#x27;){            
+            }
+            if (this.task.ui._links!&#x3D;null &amp;&amp; this.task.ui._links.self.href!&#x3D;&#x27;&#x27;){
                 update &#x3D; concat(update,this.task.addRelation(&#x27;ui&#x27;, this.task.ui));
-            } 
-            if (this.task.connection._links!&#x3D;null &amp;&amp; this.task.connection._links.self.href!&#x3D;&#x27;&#x27;){            
+            }
+            if (this.task.connection._links!&#x3D;null &amp;&amp; this.task.connection._links.self.href!&#x3D;&#x27;&#x27;){
                 update &#x3D; concat(update, this.task.addRelation(&#x27;connection&#x27;, this.task.connection));
-            }     
-            if (this.task.group._links!&#x3D;null &amp;&amp; this.task.group._links.self.href!&#x3D;&#x27;&#x27;){            
+            }
+            if (this.task.group._links!&#x3D;null &amp;&amp; this.task.group._links.self.href!&#x3D;&#x27;&#x27;){
                 update &#x3D; concat(update,this.task.addRelation(&#x27;group&#x27;, this.task.group));
             }
 
@@ -1694,7 +1694,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
         }
 
     }
-    
+
     /** remove task*/
     remove(task: Task) {
         this.taskService.delete(task).subscribe(result &#x3D;&gt; {
@@ -1702,7 +1702,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
         }, error &#x3D;&gt; console.error(error));
 
     }
-    
+
     /** compare two resources*/
     compareResource(c1: Resource, c2: Resource): boolean {
         return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
@@ -1722,7 +1722,8 @@ export class TaskEditComponent implements OnInit, OnDestroy {
             this.dataSource.data.forEach(row &#x3D;&gt; this.selection.select(row));
     }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

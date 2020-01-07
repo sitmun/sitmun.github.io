@@ -783,12 +783,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { Connection } from &#x27;../connection/connection.model&#x27;;
-import { ConnectionService } from &#x27;../connection/connection.service&#x27;;
-import { ServiceParameter } from &#x27;./service-parameter.model&#x27;;
-import { ServiceParameterService } from &#x27;./service-parameter.service&#x27;;
-import { Service } from &#x27;./service.model&#x27;;
-import {ServiceService} from &#x27;./service.service&#x27;;
+import { Connection } from &#x27;sitmun-frontend-core&#x27;;
+import { ConnectionService } from &#x27;sitmun-frontend-core&#x27;;
+import { ServiceParameter } from &#x27;sitmun-frontend-core&#x27;;
+import { ServiceParameterService } from &#x27;sitmun-frontend-core&#x27;;
+import { Service } from &#x27;sitmun-frontend-core&#x27;;
+import {ServiceService} from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -805,16 +805,16 @@ import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
     styleUrls: [&#x27;./service-edit.component.css&#x27;]
 })
 export class ServiceEditComponent implements OnInit, OnDestroy {
-    
+
     /** service to edit*/
     service: Service &#x3D; new Service();
-    
+
     /** connections to select*/
     connections: Connection[] &#x3D; new Array&lt;Connection&gt;();
 
     /** subscription*/
     sub: Subscription;
-    
+
     /** constructor */
     constructor(private route: ActivatedRoute,
         private router: Router,
@@ -822,7 +822,7 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
         private serviceService: ServiceService,
         private serviceParameterService: ServiceParameterService) {
     }
-    
+
     /** On component init load all required data dependencies*/
     ngOnInit() {
         this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
@@ -853,12 +853,12 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
             }
         });
     }
-    
+
     /** On component destroy remove subscription */
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-    
+
     /** load all connections*/
     getAllConnections() {
         this.connectionService.getAll()
@@ -879,7 +879,7 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
     gotoList() {
         this.router.navigate([&#x27;/service-list&#x27;]);
     }
-    
+
     /** save service*/
     save() {
         if (this.service.createdDate !&#x3D; null &amp;&amp; (typeof this.service.createdDate !&#x3D; &#x27;string&#x27;)) {
@@ -922,7 +922,7 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
 
 
     }
-    
+
     /** remove service*/
     remove(service: Service) {
         this.serviceService.delete(service).subscribe(result &#x3D;&gt; {
@@ -930,7 +930,7 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
         }, error &#x3D;&gt; console.error(error));
 
     }
-    
+
     /** compare two resources*/
     compareResource(c1: Resource, c2: Resource): boolean {
         return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
@@ -938,7 +938,8 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
 
 
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

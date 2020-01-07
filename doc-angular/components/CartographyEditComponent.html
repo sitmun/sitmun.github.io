@@ -868,12 +868,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { Connection } from &#x27;../connection/connection.model&#x27;;
-import { ConnectionService } from &#x27;../connection/connection.service&#x27;;
-import { Service } from &#x27;../service/service.model&#x27;;
-import { ServiceService } from &#x27;../service/service.service&#x27;;
-import { Cartography } from &#x27;./cartography.model&#x27;;
-import {CartographyService} from &#x27;./cartography.service&#x27;;
+import { Connection } from &#x27;sitmun-frontend-core&#x27;;
+import { ConnectionService } from &#x27;sitmun-frontend-core&#x27;;
+import { Service } from &#x27;sitmun-frontend-core&#x27;;
+import { ServiceService } from &#x27;sitmun-frontend-core&#x27;;
+import { Cartography } from &#x27;sitmun-frontend-core&#x27;;
+import {CartographyService} from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -891,7 +891,7 @@ import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
     styleUrls: [&#x27;./cartography-edit.component.css&#x27;]
 })
 export class CartographyEditComponent implements OnInit, OnDestroy {
-    
+
     /** cartography to edit*/
     cartography: Cartography &#x3D; new Cartography();
 
@@ -900,10 +900,10 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
 
     /** services to select*/
     services: Service[] &#x3D; new Array&lt;Service&gt;();
-    
+
     /** subscription*/
     sub: Subscription;
-    
+
     /** constructor*/
     constructor(private route: ActivatedRoute,
         private router: Router,
@@ -911,7 +911,7 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
         private serviceService: ServiceService,
         private cartographyService: CartographyService) {
     }
-    
+
     /** On component init load all required data dependencies*/
     ngOnInit() {
         this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
@@ -948,7 +948,7 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
             }
         });
     }
-    
+
     /** On component destroy remove subscription */
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -969,7 +969,7 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
 
             });
     }
-    
+
     /** load all services*/
     getAllServices() {
         this.serviceService.getAll()
@@ -989,7 +989,7 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
     gotoList() {
         this.router.navigate([&#x27;/cartography-list&#x27;]);
     }
-    
+
     /** save cartography*/
     save() {
         if (this.cartography.createdDate !&#x3D; null &amp;&amp; (typeof this.cartography.createdDate !&#x3D; &#x27;string&#x27;)) {
@@ -1037,7 +1037,7 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
         }
 
     }
-    
+
     /** remove cartography*/
     remove(cartography: Cartography) {
         this.cartographyService.delete(cartography).subscribe(result &#x3D;&gt; {
@@ -1053,7 +1053,8 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
 
 
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

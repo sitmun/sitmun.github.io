@@ -952,12 +952,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
-import { TreeNode } from &#x27;./tree-node.model&#x27;;
-import { TreeNodeService } from &#x27;./tree-node.service&#x27;;
-import { TreeService } from &#x27;./tree.service&#x27;;
-import { Tree } from &#x27;./tree.model&#x27;;
-import { CartographyService } from &#x27;../cartography/cartography.service&#x27;;
-import { Cartography } from &#x27;../cartography/cartography.model&#x27;;
+import { TreeNode } from &#x27;sitmun-frontend-core&#x27;;
+import { TreeNodeService } from &#x27;sitmun-frontend-core&#x27;;
+import { TreeService } from &#x27;sitmun-frontend-core&#x27;;
+import { Tree } from &#x27;sitmun-frontend-core&#x27;;
+import { CartographyService } from &#x27;sitmun-frontend-core&#x27;;
+import { Cartography } from &#x27;sitmun-frontend-core&#x27;;
 
 import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
@@ -970,22 +970,22 @@ import { isNullOrUndefined } from &#x27;util&#x27;;
     styleUrls: [&#x27;./tree-node-list.component.css&#x27;]
 })
 export class TreeNodeListComponent implements OnInit {
-    
+
     /** Tree nodes to manage */
     items: TreeNode[];
 
     /** Tree to manage its tree nodes*/
     _tree: Tree;
-    
+
     /** Table displayed columns */
     displayedColumns &#x3D; [&#x27;name&#x27;, &#x27;orden&#x27;, &#x27;parent&#x27;, &#x27;actions&#x27;];
-    
+
     /** MatTableDataSource for table display */
     dataSource &#x3D; null;
-    
-    /** Paginator for table display */  
+
+    /** Paginator for table display */
     @ViewChild(MatPaginator) paginator: MatPaginator;
-    
+
     /** Component constructor */
     constructor(
         /*tree node service*/private treeNodeService: TreeNodeService,
@@ -998,14 +998,14 @@ export class TreeNodeListComponent implements OnInit {
         this.items &#x3D; new Array&lt;TreeNode&gt;();
 
     }
-    
+
     /** Set Tree to manage its tree nodes*/
     @Input()
     set tree(tree: Tree) {
         this._tree &#x3D; tree;
         this.loadTreeNodes();
     }
-    
+
     /** load all tree nodes*/
     loadTreeNodes() {
         if (this._tree !&#x3D; null) {
@@ -1037,7 +1037,7 @@ export class TreeNodeListComponent implements OnInit {
 
         }
     }
-    
+
     /** open dialog to edit tree node data*/
     edit(treeNode: TreeNode): void {
         let dialogRef &#x3D; this.dialog.open(TreeNodeEditDialog, {
@@ -1064,7 +1064,7 @@ export class TreeNodeListComponent implements OnInit {
             this.loadTreeNodes();
         });
     }
-    
+
     /** remove tree node*/
     remove(item: TreeNode) {
         this.treeNodeService.delete(item).subscribe(result &#x3D;&gt; {
@@ -1072,7 +1072,7 @@ export class TreeNodeListComponent implements OnInit {
         }, error &#x3D;&gt; console.error(error));
 
     }
-    
+
     /** get tree node parent name*/
     getNodeParentName(item: TreeNode) {
         return (item.parent !&#x3D; null)?item.parent.name:&quot;&quot;;
@@ -1086,7 +1086,7 @@ export class TreeNodeListComponent implements OnInit {
     styleUrls: [&#x27;./tree-node-edit.dialog.css&#x27;]
 })
 export class TreeNodeEditDialog implements OnInit {
-    
+
     /** whether tree node is a group*/
     isGroup:boolean &#x3D; false;
 
@@ -1095,7 +1095,7 @@ export class TreeNodeEditDialog implements OnInit {
 
     /** parent tree nodes*/
     parentNodes: TreeNode[];
-    
+
     /** constructor*/
     constructor(
         /**tree service*/ private treeService: TreeService,
@@ -1104,7 +1104,7 @@ export class TreeNodeEditDialog implements OnInit {
         /**dialog reference*/ public dialogRef: MatDialogRef&lt;TreeNodeEditDialog&gt;,
         /**tree node to edit*/ @Inject(MAT_DIALOG_DATA) public treeNode: TreeNode) {
     }
-    
+
     /** On component init load all required data dependencies*/
     ngOnInit() {
         this.getAllCartographies();
@@ -1125,7 +1125,7 @@ export class TreeNodeEditDialog implements OnInit {
         }
 
     }
-    
+
     /** save tree node*/
     save() {
         this.treeNodeService.save(this.treeNode).subscribe(result &#x3D;&gt; {
@@ -1145,7 +1145,7 @@ export class TreeNodeEditDialog implements OnInit {
         }
         return null;
     }
-    
+
     /** load all cartographies*/
     getAllCartographies() {
         this.cartographyService.getAll()
@@ -1154,7 +1154,7 @@ export class TreeNodeEditDialog implements OnInit {
 
             });
     }
-    
+
     /** load parent tree nodes*/
     getAllParentNodes() {
         this.parentNodes &#x3D; new Array&lt;TreeNode&gt;();
@@ -1178,15 +1178,15 @@ export class TreeNodeEditDialog implements OnInit {
                 }
             });
     }
-    
+
     /** check whether group field has changed*/
-    isGroupChanged($event){ 
+    isGroupChanged($event){
         if ($event.checked) {
             //Is group reset information
             this.treeNode.active &#x3D; false;
             this.treeNode.cartography &#x3D; null;
         }
-        
+
     }
 
 }

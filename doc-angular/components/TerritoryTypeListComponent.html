@@ -552,8 +552,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TerritoryType } from &#x27;./territory-type.model&#x27;;
-import { TerritoryTypeService } from &#x27;./territory-type.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TerritoryType } from &#x27;sitmun-frontend-core&#x27;;
+import { TerritoryTypeService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { MatTableDataSource } from &#x27;@angular/material&#x27;;
 import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
@@ -565,28 +565,28 @@ import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
   styleUrls: [&#x27;./territory-type-list.component.css&#x27;]
 })
 export class TerritoryTypeListComponent implements OnInit {
-  
+
   /** Territory types to manage */
   items: TerritoryType[];
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;TerritoryType&gt;(this.items);
-  
-  /** Paginator for table display */  
+
+  /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-  /** Component constructor */  
+
+  /** Component constructor */
   constructor( private territoryTypeService: TerritoryTypeService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllTerritories();
-    
+
   }
-  
+
   /** load all territory types*/
   getAllTerritories() {
     this.territoryTypeService.getAll()
@@ -597,13 +597,13 @@ export class TerritoryTypeListComponent implements OnInit {
 
     });
   }
-  
+
   /** remove territory type*/
   remove(item: TerritoryType) {
     this.territoryTypeService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllTerritories();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
 }

@@ -91,13 +91,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-146d22c03d43a1bd73baf5b7d83654ce"' : 'data-target="#xs-components-links-module-AppModule-146d22c03d43a1bd73baf5b7d83654ce"' }>
+                                            'data-target="#components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' : 'data-target="#xs-components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-146d22c03d43a1bd73baf5b7d83654ce"' :
-                                            'id="xs-components-links-module-AppModule-146d22c03d43a1bd73baf5b7d83654ce"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' :
+                                            'id="xs-components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -110,16 +110,38 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/SitmunFrontendCoreModule.html" data-type="entity-link">SitmunFrontendCoreModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-05d578b767e0636b2f77b77b6bad870a"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-05d578b767e0636b2f77b77b6bad870a"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-05d578b767e0636b2f77b77b6bad870a"' :
+                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-05d578b767e0636b2f77b77b6bad870a"' }>
+                                        <li class="link">
+                                            <a href="directives/HasAnyAuthorityDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/HasAnyAuthorityOnTerritoryDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityOnTerritoryDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/SitmunPluginCoreModule.html" data-type="entity-link">SitmunPluginCoreModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' }>
+                                            'data-target="#components-links-module-SitmunPluginCoreModule-4a4ec54d9f778c088cd6dac6421f7ede"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-4a4ec54d9f778c088cd6dac6421f7ede"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' :
-                                            'id="xs-components-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-4a4ec54d9f778c088cd6dac6421f7ede"' :
+                                            'id="xs-components-links-module-SitmunPluginCoreModule-4a4ec54d9f778c088cd6dac6421f7ede"' }>
                                             <li class="link">
                                                 <a href="components/AccountChangePasswordComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountChangePasswordComponent</a>
@@ -346,152 +368,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             </li>
                                         </ul>
                                     </li>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' : 'data-target="#xs-directives-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' }>
-                                        <span class="icon ion-md-code-working"></span>
-                                        <span>Directives</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' :
-                                        'id="xs-directives-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' }>
-                                        <li class="link">
-                                            <a href="directives/HasAnyAuthorityDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/HasAnyAuthorityOnTerritoryDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityOnTerritoryDirective</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' : 'data-target="#xs-injectables-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' :
-                                        'id="xs-injectables-links-module-SitmunPluginCoreModule-78305b486c3981f7911ce29318c7631e"' }>
-                                        <li class="link">
-                                            <a href="injectables/AccountService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>AccountService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/ApplicationBackgroundService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ApplicationBackgroundService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/ApplicationParameterService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ApplicationParameterService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/ApplicationService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ApplicationService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/AuthService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>AuthService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/BackgroundService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>BackgroundService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/CartographyAvailabilityService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>CartographyAvailabilityService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/CartographyGroupService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>CartographyGroupService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/CartographyService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>CartographyService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/ConnectionService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ConnectionService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/LoginService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>LoginService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/MapConfigurationManagerService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>MapConfigurationManagerService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/Principal.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>Principal</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/RoleService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>RoleService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/ServiceParameterService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ServiceParameterService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/ServiceService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ServiceService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TaskAvailabilityService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskAvailabilityService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TaskGroupService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskGroupService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TaskParameterService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskParameterService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TaskService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TaskTypeService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskTypeService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TaskUIService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskUIService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TerritoryService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TerritoryService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TerritoryTypeService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TerritoryTypeService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TreeNodeService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TreeNodeService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/TreeService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TreeService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/UserConfigurationService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>UserConfigurationService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/UserPositionService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>UserPositionService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/UserService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>UserService</a>
-                                        </li>
-                                    </ul>
-                                </li>
                             </li>
                 </ul>
                 </li>
@@ -653,19 +529,106 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
+                                    <a href="injectables/AccountService.html" data-type="entity-link">AccountService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ApplicationBackgroundService.html" data-type="entity-link">ApplicationBackgroundService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ApplicationParameterService.html" data-type="entity-link">ApplicationParameterService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ApplicationService.html" data-type="entity-link">ApplicationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/AuthService.html" data-type="entity-link">AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/BackgroundService.html" data-type="entity-link">BackgroundService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/CartographyAvailabilityService.html" data-type="entity-link">CartographyAvailabilityService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/CartographyGroupService.html" data-type="entity-link">CartographyGroupService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/CartographyService.html" data-type="entity-link">CartographyService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ConnectionService.html" data-type="entity-link">ConnectionService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/ExternalConfigurationService.html" data-type="entity-link">ExternalConfigurationService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/LoginService.html" data-type="entity-link">LoginService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/LoginService-1.html" data-type="entity-link">LoginService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/MapConfigurationManagerService.html" data-type="entity-link">MapConfigurationManagerService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/MatPaginationIntlService.html" data-type="entity-link">MatPaginationIntlService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/Principal.html" data-type="entity-link">Principal</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/Resource.html" data-type="entity-link">Resource</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ResourceService.html" data-type="entity-link">ResourceService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/RoleService.html" data-type="entity-link">RoleService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ServiceParameterService.html" data-type="entity-link">ServiceParameterService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ServiceService.html" data-type="entity-link">ServiceService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskAvailabilityService.html" data-type="entity-link">TaskAvailabilityService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskGroupService.html" data-type="entity-link">TaskGroupService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskParameterService.html" data-type="entity-link">TaskParameterService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskService.html" data-type="entity-link">TaskService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskTypeService.html" data-type="entity-link">TaskTypeService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskUIService.html" data-type="entity-link">TaskUIService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TerritoryService.html" data-type="entity-link">TerritoryService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TerritoryTypeService.html" data-type="entity-link">TerritoryTypeService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TreeNodeService.html" data-type="entity-link">TreeNodeService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TreeService.html" data-type="entity-link">TreeService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UserConfigurationService.html" data-type="entity-link">UserConfigurationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UserPositionService.html" data-type="entity-link">UserPositionService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UserService.html" data-type="entity-link">UserService</a>
                                 </li>
                             </ul>
                         </li>

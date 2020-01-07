@@ -552,10 +552,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {TaskType } from &#x27;./task-type.model&#x27;;
-import {TaskTypeService } from &#x27;./task-type.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {TaskType } from &#x27;sitmun-frontend-core&#x27;;
+import {TaskTypeService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;; 
+import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
 /** Component for managing task types*/
 @Component({
@@ -567,24 +567,24 @@ export class TaskTypeListComponent implements OnInit {
 
   /** Task types to manage */
   items:TaskType[];
-  
-  /** Table displayed columns */  
+
+  /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;TaskType&gt;(this.items);
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-    
+
   /** Component constructor */
   constructor( private taskTypeService:TaskTypeService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
-    this.getAllTaskTypes();    
+    this.getAllTaskTypes();
   }
-  
+
   /** load all task types*/
   getAllTaskTypes() {
     this.taskTypeService.getAll()
@@ -595,16 +595,17 @@ export class TaskTypeListComponent implements OnInit {
 
     });
   }
-  
+
   /** remove task type*/
   remove(item:TaskType) {
     this.taskTypeService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllTaskTypes();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

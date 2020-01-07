@@ -982,10 +982,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { Tree } from &#x27;./tree.model&#x27;;
-import {TreeService} from &#x27;./tree.service&#x27;;
-import { Role } from &#x27;../role/role.model&#x27;;
-import { RoleService } from &#x27;../role/role.service&#x27;;
+import { Tree } from &#x27;sitmun-frontend-core&#x27;;
+import {TreeService} from &#x27;sitmun-frontend-core&#x27;;
+import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -1004,19 +1004,19 @@ import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
 export class TreeEditComponent implements OnInit, OnDestroy {
     /** tree to edit*/
     tree: Tree &#x3D; new Tree();
-    
+
     /** roles to select*/
     roles: Role[] &#x3D; new Array&lt;Role&gt;();
-    
+
     /** subscription*/
     sub: Subscription;
-    
+
     /** roles table displayed columns*/
     displayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;];
-    
+
     /** selection model for roles table*/
     roleSelection &#x3D; new SelectionModel&lt;Role&gt;(true, []);
-    
+
     /** MatTableDataSource for roles */
     roleDataSource &#x3D; new MatTableDataSource&lt;Role&gt;([]);
 
@@ -1029,7 +1029,7 @@ export class TreeEditComponent implements OnInit, OnDestroy {
 
 
     }
-    
+
     /** On component init load all required data dependencies*/
     ngOnInit() {
         this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
@@ -1075,7 +1075,7 @@ export class TreeEditComponent implements OnInit, OnDestroy {
             }
         });
     }
-    
+
     /** On component destroy remove subscription */
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -1096,7 +1096,7 @@ export class TreeEditComponent implements OnInit, OnDestroy {
     gotoList() {
         this.router.navigate([&#x27;/tree-list&#x27;]);
     }
-    
+
     /** save tree*/
     save() {
         const isNew &#x3D; this.tree._links &#x3D;&#x3D; null;
@@ -1157,7 +1157,7 @@ export class TreeEditComponent implements OnInit, OnDestroy {
 
 
     }
-    
+
     /** remove tree*/
     remove(tree: Tree) {
         this.treeService.delete(tree).subscribe(result &#x3D;&gt; {
@@ -1169,14 +1169,14 @@ export class TreeEditComponent implements OnInit, OnDestroy {
     compareResource(c1: Resource, c2: Resource): boolean {
         return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
     }
-    
+
     /** Whether the number of selected elements matches the total number of rows. */
     isAllRoleSelected() {
         const numSelected &#x3D; this.roleSelection.selected.length;
         const numRows &#x3D; this.roleDataSource.data.length;
         return numSelected &#x3D;&#x3D;&#x3D; numRows;
     }
-    
+
     /** Selects all rows if they are not all selected; otherwise clear selection. */
     masterToggleRole() {
         this.isAllRoleSelected() ?
@@ -1186,7 +1186,8 @@ export class TreeEditComponent implements OnInit, OnDestroy {
 
 
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

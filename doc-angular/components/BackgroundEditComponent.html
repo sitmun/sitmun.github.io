@@ -768,14 +768,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Resource} from &#x27;angular-hal&#x27;;  
-import { Background } from &#x27;./background.model&#x27;;
-import { BackgroundService } from &#x27;./background.service&#x27;;
-import { CartographyGroup } from &#x27;./cartography-group.model&#x27;;
-import { CartographyGroupService } from &#x27;./cartography-group.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Resource} from &#x27;angular-hal&#x27;;
+import { Background } from &#x27;sitmun-frontend-core&#x27;;
+import { BackgroundService } from &#x27;sitmun-frontend-core&#x27;;
+import { CartographyGroup } from &#x27;sitmun-frontend-core&#x27;;
+import { CartographyGroupService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
-import { Subscription } from &#x27;rxjs-compat&#x27;; 
+import { Subscription } from &#x27;rxjs-compat&#x27;;
 /**
  * Background edit component
  */
@@ -785,41 +785,41 @@ import { Subscription } from &#x27;rxjs-compat&#x27;;
   styleUrls: [&#x27;./background-edit.component.css&#x27;]
 })
 export class BackgroundEditComponent implements OnInit {
- 
+
   /** background to edit*/
   background: Background &#x3D; new Background();
-  
+
   /** cartography groups to select*/
   cartographyGroups: CartographyGroup[] &#x3D; new Array&lt;CartographyGroup&gt;();
-  
+
   /** subscription*/
   sub: Subscription;
-  
+
   /** constructor*/
   constructor(private route: ActivatedRoute,
-    private router: Router,    
+    private router: Router,
     private cartographyGroupService: CartographyGroupService,
     private backgroundService: BackgroundService) {
   }
-  
+
   /** On component init load all required data dependencies*/
   ngOnInit() {
     this.getAllCartographyGroups();
     this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
       const id &#x3D; params[&#x27;id&#x27;];
-      
+
       if (id) {
         this.backgroundService.get(id).subscribe((background: any) &#x3D;&gt; {
           if (background) {
             this.background &#x3D; background;
             this.background.createdDate &#x3D; new Date();
             this.background.createdDate.setTime(Date.parse(background.createdDate));
-            
+
             this.background.getRelation(CartographyGroup, &#x27;cartographyGroup&#x27;).subscribe(
                     (group: CartographyGroup) &#x3D;&gt; this.background.cartographyGroup &#x3D; group,
                     error &#x3D;&gt; this.background.cartographyGroup &#x3D; new CartographyGroup());
-            
-            
+
+
           } else {
             console.log(&#x60;background with id &#x27;${id}&#x27; not found, returning to list&#x60;);
             this.gotoList();
@@ -828,12 +828,12 @@ export class BackgroundEditComponent implements OnInit {
       }
     });
   }
-  
+
   /** On component destroy remove subscription */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  
+
   /** load all cartography groups*/
   getAllCartographyGroups() {
     this.cartographyGroupService.getAll()
@@ -841,19 +841,19 @@ export class BackgroundEditComponent implements OnInit {
         this.cartographyGroups &#x3D; cartographyGroups;
     });
   }
-  
+
   /** navigate to background list page*/
   gotoList() {
     this.router.navigate([&#x27;/background-list&#x27;]);
   }
-  
+
   /** save background*/
   save() {
-      this.backgroundService.save(this.background).subscribe(result &#x3D;&gt; {      
+      this.backgroundService.save(this.background).subscribe(result &#x3D;&gt; {
         this.gotoList();
       }, error &#x3D;&gt; console.error(error));
   }
-  
+
   /** remove background*/
   remove(background: Background) {
     this.backgroundService.delete(background).subscribe(result &#x3D;&gt; {
@@ -861,12 +861,12 @@ export class BackgroundEditComponent implements OnInit {
     }, error &#x3D;&gt; console.error(error));
 
   }
-  
+
   /** compare two resources*/
   compareResource(c1: Resource, c2: Resource): boolean {
     return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
  }
-  
+
 }
 </code></pre>
     </div>

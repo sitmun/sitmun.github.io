@@ -761,15 +761,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;  
-import { TaskAvailability } from &#x27;./task-availability.model&#x27;;
-import { Territory } from &#x27;../territory/territory.model&#x27;;
-import { TerritoryService } from &#x27;../territory/territory.service&#x27;;
-import { TaskAvailabilityService } from &#x27;./task-availability.service&#x27;;
-import { TaskService } from &#x27;./task.service&#x27;;
-import { Task } from &#x27;./task.model&#x27;;
-import {Principal} from &#x27;../auth/principal.service&#x27;;
-import {LoginService} from &#x27;../auth/login.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
+import { TaskAvailability } from &#x27;sitmun-frontend-core&#x27;;
+import { Territory } from &#x27;sitmun-frontend-core&#x27;;
+import { TerritoryService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskAvailabilityService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskService } from &#x27;sitmun-frontend-core&#x27;;
+import { Task } from &#x27;sitmun-frontend-core&#x27;;
+import {Principal} from &#x27;sitmun-frontend-core&#x27;;
+import {LoginService} from &#x27;sitmun-frontend-core&#x27;;
 
 import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
@@ -786,32 +786,32 @@ export class TaskAvailabilityListComponent implements OnInit {
 
   /** task to manage */
   _task: Task;
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;territory&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; null;
-  
-  /** Paginator for table display */ 
+
+  /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
+
   /** Component constructor */
   constructor(
-          /**task availability service*/private taskAvailabilityService: TaskAvailabilityService,      
-          /**dialog*/public dialog: MatDialog) { 
-  
+          /**task availability service*/private taskAvailabilityService: TaskAvailabilityService,
+          /**dialog*/public dialog: MatDialog) {
+
   }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.items &#x3D; new Array&lt;TaskAvailability&gt;();
-    
+
   }
-  
+
   /** Set task to manage its availabilities*/
   @Input()
-  set task(task: Task) {    
+  set task(task: Task) {
     this._task &#x3D; task;
     this.loadTaskAvailabilities();
   }
@@ -821,25 +821,25 @@ export class TaskAvailabilityListComponent implements OnInit {
     if (this._task!&#x3D;null){
      this._task.getRelationArray(TaskAvailability, &#x27;availabilities&#x27;).subscribe(
                     (items: TaskAvailability[]) &#x3D;&gt; {
-                      
+
                     this.items &#x3D; items;
-                    
+
                     this.items.forEach( (item) &#x3D;&gt; {
                         item.getRelation(Territory, &#x27;territory&#x27;).subscribe(
                         (territory: Territory) &#x3D;&gt; item.territory &#x3D; territory,
                         error &#x3D;&gt; item.territory &#x3D; new Territory());
 
-                      
+
                     });
                     this.dataSource  &#x3D; new MatTableDataSource&lt;TaskAvailability&gt;(this.items);
                     this.dataSource.paginator &#x3D; this.paginator;
 
                  },
                     error &#x3D;&gt; this.items &#x3D; new Array&lt;TaskAvailability&gt;());
-      
+
     }
   }
-  
+
   /** open dialog to edit task availability data*/
   edit(taskAvailability: TaskAvailability): void {
     let dialogRef &#x3D; this.dialog.open(TaskAvailabilityEditDialog, {
@@ -850,10 +850,10 @@ export class TaskAvailabilityListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
       console.log(&#x27;The dialog was closed&#x27;);
       this.loadTaskAvailabilities();
-       
+
     });
   }
-  
+
   /** add task availability*/
   add(): void {
     let taskavailability &#x3D; new TaskAvailability();
@@ -868,13 +868,13 @@ export class TaskAvailabilityListComponent implements OnInit {
       this.loadTaskAvailabilities();
     });
   }
-  
+
   /** remove task availability*/
   remove(item: TaskAvailability) {
     this.taskAvailabilityService.delete(item).subscribe(result &#x3D;&gt; {
       this.loadTaskAvailabilities();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
 }
@@ -886,13 +886,13 @@ export class TaskAvailabilityListComponent implements OnInit {
   styleUrls: [&#x27;./task-availability-edit.dialog.css&#x27;]
 })
 export class TaskAvailabilityEditDialog implements OnInit {
-  
+
   /** territories to select*/
   territories: Territory[] &#x3D; new Array&lt;Territory&gt;();
 
   /** current account*/
   currentAccount: any;
-  
+
   /** constructor*/
   constructor(
     /** task service*/private taskService: TaskService,
@@ -909,7 +909,7 @@ export class TaskAvailabilityEditDialog implements OnInit {
                  this.currentAccount &#x3D; account;
       });
     this.getAllTerritories();
-    
+
       if (this.taskAvailability._links) {
         this.taskAvailability.getRelation(Task, &#x27;task&#x27;).subscribe(
                     (task: Task) &#x3D;&gt; this.taskAvailability.task &#x3D; task,
@@ -918,9 +918,9 @@ export class TaskAvailabilityEditDialog implements OnInit {
         this.taskAvailability.getRelation(Territory, &#x27;territory&#x27;).subscribe(
                     (territory: Territory) &#x3D;&gt; this.taskAvailability.territory &#x3D; territory,
                     error &#x3D;&gt; this.taskAvailability.territory &#x3D; new Territory());
-       
+
      }
-    
+
   }
 
 
@@ -934,19 +934,19 @@ export class TaskAvailabilityEditDialog implements OnInit {
             this.territories &#x3D; territories;
         } else {
 
-          this.territories &#x3D; territories.filter(t &#x3D;&gt; 
+          this.territories &#x3D; territories.filter(t &#x3D;&gt;
              this.principal.hasAnyAuthorityDirectOnTerritory([&#x27;ADMIN ORGANIZACION&#x27;],t.name));
         }
-   
+
 
     });
   }
-  
-  
+
+
 
   /** save task availability*/
   save() {
-      this.taskAvailabilityService.save(this.taskAvailability).subscribe(result &#x3D;&gt; {      
+      this.taskAvailabilityService.save(this.taskAvailability).subscribe(result &#x3D;&gt; {
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
   }
@@ -955,11 +955,12 @@ export class TaskAvailabilityEditDialog implements OnInit {
   compareResource(c1: Resource, c2: Resource): boolean {
     if (c2 &amp;&amp; c1)
       return c2._links &amp;&amp; c1._links ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
-    else 
+    else
       return false;
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

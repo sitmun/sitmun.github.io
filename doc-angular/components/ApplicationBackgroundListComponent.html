@@ -877,12 +877,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
-import { ApplicationBackground } from &#x27;./application-background.model&#x27;;
-import { ApplicationBackgroundService } from &#x27;./application-background.service&#x27;;
-import { ApplicationService } from &#x27;./application.service&#x27;;
-import { Application } from &#x27;./application.model&#x27;;
-import { Background } from &#x27;../cartography/background.model&#x27;;
-import { BackgroundService } from &#x27;../cartography/background.service&#x27;;
+import { ApplicationBackground } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationBackgroundService } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationService } from &#x27;sitmun-frontend-core&#x27;;
+import { Application } from &#x27;sitmun-frontend-core&#x27;;
+import { Background } from &#x27;sitmun-frontend-core&#x27;;
+import { BackgroundService } from &#x27;sitmun-frontend-core&#x27;;
 
 import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
@@ -896,19 +896,19 @@ import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_D
     styleUrls: [&#x27;./application-background-list.component.css&#x27;]
 })
 export class ApplicationBackgroundListComponent implements OnInit {
-    
+
     /** application backgrounds to manage */
     items: ApplicationBackground[];
-    
+
     /** Task to manage */
     _application: Application;
-    
-    /** Table displayed columns */ 
+
+    /** Table displayed columns */
     displayedColumns &#x3D; [&#x27;name&#x27;, &#x27;value&#x27;, &#x27;actions&#x27;];
-    
+
     /** MatTableDataSource for table display */
     dataSource &#x3D; null;
-    
+
     /** Paginator for table display */
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -918,13 +918,13 @@ export class ApplicationBackgroundListComponent implements OnInit {
             /** dialog*/public dialog: MatDialog) {
 
     }
-    
+
     /** On component init, get all data dependencies */
     ngOnInit() {
         this.items &#x3D; new Array&lt;ApplicationBackground&gt;();
 
     }
-    
+
     /** Set task to manage */
     @Input()
     set application(application: Application) {
@@ -953,7 +953,7 @@ export class ApplicationBackgroundListComponent implements OnInit {
 
         }
     }
-    
+
     /** open dialog to edit application background*/
     edit(applicationBackground: ApplicationBackground): void {
         let dialogRef &#x3D; this.dialog.open(ApplicationBackgroundEditDialog, {
@@ -967,7 +967,7 @@ export class ApplicationBackgroundListComponent implements OnInit {
 
         });
     }
-    
+
     /** add application background*/
     add(): void {
         let applicationBackground &#x3D; new ApplicationBackground();
@@ -982,7 +982,7 @@ export class ApplicationBackgroundListComponent implements OnInit {
             this.loadApplicationBackgrounds();
         });
     }
-    
+
     /** remove application background*/
     remove(item: ApplicationBackground) {
         this.applicationBackgroundService.delete(item).subscribe(result &#x3D;&gt; {
@@ -1005,7 +1005,7 @@ export class ApplicationBackgroundEditDialog implements OnInit {
 
     /** backgrounds to select*/
     backgrounds: Background[];
-    
+
     /** constructor*/
     constructor(
             /**task service*/private applicationService: ApplicationService,
@@ -1032,7 +1032,7 @@ export class ApplicationBackgroundEditDialog implements OnInit {
         }
 
     }
-    
+
     /** save application background*/
     save() {
         this.applicationBackgroundService.save(this.applicationBackground).subscribe(result &#x3D;&gt; {
@@ -1047,7 +1047,7 @@ export class ApplicationBackgroundEditDialog implements OnInit {
         else
             return false;
     }
-    
+
     /** load all backgrounds*/
     getAllBackgrounds() {
         this.backgroundService.getAll()
@@ -1057,7 +1057,8 @@ export class ApplicationBackgroundEditDialog implements OnInit {
             });
     }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

@@ -552,10 +552,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Service } from &#x27;./service.model&#x27;;
-import {ServiceService } from &#x27;./service.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Service } from &#x27;sitmun-frontend-core&#x27;;
+import {ServiceService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;; 
+import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
 /** Component for managing services*/
 @Component({
@@ -566,25 +566,25 @@ import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 export class ServiceListComponent implements OnInit {
   /** services to manage */
   items:Service[];
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;type&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;Service&gt;(this.items);
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-  /** Component constructor */  
+
+  /** Component constructor */
   constructor( private serviceService:ServiceService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllServices();
-    
+
   }
-  
+
   /** load all services*/
   getAllServices() {
     this.serviceService.getAll()
@@ -595,16 +595,17 @@ export class ServiceListComponent implements OnInit {
 
     });
   }
-  
+
   /** remove service*/
   remove(item:Service) {
     this.serviceService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllServices();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

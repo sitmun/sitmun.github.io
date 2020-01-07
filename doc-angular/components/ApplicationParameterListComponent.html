@@ -876,11 +876,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;  
-import { ApplicationParameter } from &#x27;./application-parameter.model&#x27;;
-import { ApplicationParameterService } from &#x27;./application-parameter.service&#x27;;
-import { ApplicationService } from &#x27;./application.service&#x27;;
-import { Application } from &#x27;./application.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
+import { ApplicationParameter } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationParameterService } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationService } from &#x27;sitmun-frontend-core&#x27;;
+import { Application } from &#x27;sitmun-frontend-core&#x27;;
 
 import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
@@ -893,38 +893,38 @@ import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_D
   styleUrls: [&#x27;./application-parameter-list.component.css&#x27;]
 })
 export class ApplicationParameterListComponent implements OnInit {
-  
+
   /** application parameters to manage */
   items: ApplicationParameter[];
 
   /** application to manage */
   _application: Application;
-  
-  /** Table displayed columns */ 
+
+  /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;value&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; null;
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
+
   /** constructor*/
   constructor(
-          /** application parameter service*/ private applicationParameterService: ApplicationParameterService,    
-          /** dialog*/public dialog: MatDialog) { 
-  
+          /** application parameter service*/ private applicationParameterService: ApplicationParameterService,
+          /** dialog*/public dialog: MatDialog) {
+
   }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.items &#x3D; new Array&lt;ApplicationParameter&gt;();
-    
+
   }
-  
+
   /** Set application to manage */
   @Input()
-  set application(application: Application) {    
+  set application(application: Application) {
     this._application &#x3D; application;
     this.loadApplicationParameters();
   }
@@ -934,18 +934,18 @@ export class ApplicationParameterListComponent implements OnInit {
     if (this._application!&#x3D;null){
      this._application.getRelationArray(ApplicationParameter, &#x27;parameters&#x27;).subscribe(
                     (items: ApplicationParameter[]) &#x3D;&gt; {
-                      
+
                     this.items &#x3D; items;
-                    
+
                     this.dataSource  &#x3D; new MatTableDataSource&lt;ApplicationParameter&gt;(this.items);
                     this.dataSource.paginator &#x3D; this.paginator;
 
                  },
                     error &#x3D;&gt; this.items &#x3D; new Array&lt;ApplicationParameter&gt;());
-      
+
     }
   }
-  
+
   /** open dialog to edit application parameter*/
   edit(applicationParameter: ApplicationParameter): void {
     let dialogRef &#x3D; this.dialog.open(ApplicationParameterEditDialog, {
@@ -956,10 +956,10 @@ export class ApplicationParameterListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
       console.log(&#x27;The dialog was closed&#x27;);
       this.loadApplicationParameters();
-       
+
     });
   }
-  
+
   /** add application parameter*/
   add(): void {
     let applicationParameter &#x3D; new ApplicationParameter();
@@ -974,15 +974,15 @@ export class ApplicationParameterListComponent implements OnInit {
       this.loadApplicationParameters();
     });
   }
-  
+
   /** remove application parameter*/
   remove(item: ApplicationParameter) {
     this.applicationParameterService.delete(item).subscribe(result &#x3D;&gt; {
       this.loadApplicationParameters();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
-  
+
 
 }
 
@@ -1010,10 +1010,10 @@ export class ApplicationParameterEditDialog implements OnInit {
                     error &#x3D;&gt; this.applicationParameter.application &#x3D; new Application());
      }
   }
-  
+
   /** save application parameter*/
   save() {
-      this.applicationParameterService.save(this.applicationParameter).subscribe(result &#x3D;&gt; {      
+      this.applicationParameterService.save(this.applicationParameter).subscribe(result &#x3D;&gt; {
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
   }
@@ -1022,11 +1022,12 @@ export class ApplicationParameterEditDialog implements OnInit {
   compareResource(c1: Resource, c2: Resource): boolean {
     if (c2 &amp;&amp; c1)
       return c2._links &amp;&amp; c1._links ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
-    else 
+    else
       return false;
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

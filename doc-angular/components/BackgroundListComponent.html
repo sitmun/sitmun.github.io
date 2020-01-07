@@ -552,11 +552,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Background } from &#x27;./background.model&#x27;;
-import {CartographyGroup } from &#x27;./cartography-group.model&#x27;;
-import {BackgroundService } from &#x27;./background.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Background } from &#x27;sitmun-frontend-core&#x27;;
+import {CartographyGroup } from &#x27;sitmun-frontend-core&#x27;;
+import {BackgroundService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;; 
+import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
 /** Component for managing backgrounds*/
 @Component({
@@ -565,28 +565,28 @@ import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
   styleUrls: [&#x27;./background-list.component.css&#x27;]
 })
 export class BackgroundListComponent implements OnInit {
-  
+
   /** backgrounds to manage */
   items:Background[];
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;cartographyGroup&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;Background&gt;(this.items);
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-  /** Component constructor */ 
+
+  /** Component constructor */
   constructor( private backgroundService:BackgroundService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllBackgrounds();
-    
+
   }
-  
+
   /** load all backgrounds*/
   getAllBackgrounds() {
     this.backgroundService.getAll()
@@ -597,22 +597,23 @@ export class BackgroundListComponent implements OnInit {
                         (cartographyGroup: CartographyGroup) &#x3D;&gt; item.cartographyGroup &#x3D; cartographyGroup,
                         error &#x3D;&gt; item.cartographyGroup &#x3D; new CartographyGroup());
         });
-                      
+
         this.dataSource &#x3D; new MatTableDataSource&lt;Background&gt;(this.items);
         this.dataSource.paginator &#x3D; this.paginator;
 
     });
   }
-  
+
   /** remove background*/
   remove(item:Background) {
     this.backgroundService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllBackgrounds();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
-  
-}</code></pre>
+
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

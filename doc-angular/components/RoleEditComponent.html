@@ -669,11 +669,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Role } from &#x27;./role.model&#x27;;
-import { RoleService } from &#x27;./role.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
-import { Subscription } from &#x27;rxjs-compat&#x27;; 
+import { Subscription } from &#x27;rxjs-compat&#x27;;
 
 /**
  * Role edit component
@@ -684,27 +684,27 @@ import { Subscription } from &#x27;rxjs-compat&#x27;;
   styleUrls: [&#x27;./role-edit.component.css&#x27;]
 })
 export class RoleEditComponent implements OnInit {
-  
+
   /** role to edit*/
   item: Role &#x3D; new Role();
-  
+
   /** all roles*/
   items: Role[] &#x3D; new Array&lt;Role&gt;();
 
   /** subscription*/
   sub: Subscription;
-  
+
   /** constructor*/
   constructor(private route: ActivatedRoute,
-    private router: Router,    
+    private router: Router,
     private roleService: RoleService) {
   }
-  
+
   /** On component init load all required data dependencies*/
   ngOnInit() {
     this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
       const id &#x3D; params[&#x27;id&#x27;];
-      
+
       if (id) {
         this.roleService.get(id).subscribe((item: any) &#x3D;&gt; {
           if (item) {
@@ -717,12 +717,12 @@ export class RoleEditComponent implements OnInit {
       }
     });
   }
-  
+
   /** On component destroy remove subscription */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  
+
   /** load all roles*/
   getAllRoles() {
     this.roleService.getAll()
@@ -730,19 +730,19 @@ export class RoleEditComponent implements OnInit {
         this.items &#x3D; items;
     });
   }
-  
+
   /** navigate to role list page*/
   gotoList() {
     this.router.navigate([&#x27;/role-list&#x27;]);
   }
-  
+
   /** save role*/
   save() {
-      this.roleService.save(this.item).subscribe(result &#x3D;&gt; {      
+      this.roleService.save(this.item).subscribe(result &#x3D;&gt; {
         this.gotoList();
       }, error &#x3D;&gt; console.error(error));
   }
-  
+
   /** remove role*/
   remove(item: Role) {
     this.roleService.delete(item).subscribe(result &#x3D;&gt; {

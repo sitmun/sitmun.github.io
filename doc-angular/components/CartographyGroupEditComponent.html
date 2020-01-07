@@ -1278,13 +1278,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { Cartography } from &#x27;./cartography.model&#x27;;
-import { CartographyService } from &#x27;./cartography.service&#x27;;
-import { Role } from &#x27;../role/role.model&#x27;;
-import { RoleService } from &#x27;../role/role.service&#x27;;
+import { Cartography } from &#x27;sitmun-frontend-core&#x27;;
+import { CartographyService } from &#x27;sitmun-frontend-core&#x27;;
+import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
 
-import { CartographyGroup } from &#x27;./cartography-group.model&#x27;;
-import {CartographyGroupService} from &#x27;./cartography-group.service&#x27;;
+import { CartographyGroup } from &#x27;sitmun-frontend-core&#x27;;
+import {CartographyGroupService} from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -1301,16 +1301,16 @@ import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
     styleUrls: [&#x27;./cartography-group-edit.component.css&#x27;]
 })
 export class CartographyGroupEditComponent implements OnInit, OnDestroy {
-    
+
     /** cartography group to edit*/
     cartographyGroup: CartographyGroup &#x3D; new CartographyGroup();
-    
+
     /** cartographies to select*/
     cartographies: Cartography[] &#x3D; new Array&lt;Cartography&gt;();
 
     /** roles to select*/
     roles: Role[] &#x3D; new Array&lt;Role&gt;();
-    
+
     /** subscription*/
     sub: Subscription;
 
@@ -1319,7 +1319,7 @@ export class CartographyGroupEditComponent implements OnInit, OnDestroy {
 
     /** selection model for cartographies table*/
     cartographySelection &#x3D; new SelectionModel&lt;Cartography&gt;(true, []);
-    
+
     /** MatTableDataSource for cartographies*/
     cartographyDataSource &#x3D; new MatTableDataSource&lt;Cartography&gt;([]);
 
@@ -1331,7 +1331,7 @@ export class CartographyGroupEditComponent implements OnInit, OnDestroy {
 
     /** MatTableDataSource for roles*/
     roleDataSource &#x3D; new MatTableDataSource&lt;Role&gt;([]);
-    
+
     /** constructor*/
     constructor(private route: ActivatedRoute,
         private router: Router,
@@ -1402,7 +1402,7 @@ export class CartographyGroupEditComponent implements OnInit, OnDestroy {
             }
         });
     }
-    
+
     /** On component destroy remove subscription */
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -1513,7 +1513,7 @@ export class CartographyGroupEditComponent implements OnInit, OnDestroy {
 
 
     }
-    
+
     /** remove cartography group*/
     remove(cartographyGroup: CartographyGroup) {
         this.cartographyGroupService.delete(cartographyGroup).subscribe(result &#x3D;&gt; {
@@ -1555,7 +1555,8 @@ export class CartographyGroupEditComponent implements OnInit, OnDestroy {
             this.roleSelection.clear() :
             this.roleDataSource.data.forEach(row &#x3D;&gt; this.roleSelection.select(row));
     }
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

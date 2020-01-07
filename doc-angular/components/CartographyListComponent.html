@@ -552,11 +552,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Cartography } from &#x27;./cartography.model&#x27;;
-import {Service } from &#x27;../service/service.model&#x27;;
-import {CartographyService } from &#x27;./cartography.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Cartography } from &#x27;sitmun-frontend-core&#x27;;
+import {Service } from &#x27;sitmun-frontend-core&#x27;;
+import {CartographyService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;; 
+import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
 /** Component for managing cartographys*/
 @Component({
@@ -565,28 +565,28 @@ import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
   styleUrls: [&#x27;./cartography-list.component.css&#x27;]
 })
 export class CartographyListComponent implements OnInit {
-  
+
   /** cartographys to manage */
   items:Cartography[];
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;service&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;Cartography&gt;(this.items);
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-  /** Component constructor */  
+
+  /** Component constructor */
   constructor( private cartographyService:CartographyService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllCartographys();
-    
+
   }
-  
+
   /** load all cartographys*/
   getAllCartographys() {
     this.cartographyService.getAll()
@@ -597,22 +597,23 @@ export class CartographyListComponent implements OnInit {
                         (service: Service) &#x3D;&gt; item.service &#x3D; service,
                         error &#x3D;&gt; item.service &#x3D; new Service());
         });
-                      
+
         this.dataSource &#x3D; new MatTableDataSource&lt;Cartography&gt;(this.items);
         this.dataSource.paginator &#x3D; this.paginator;
 
     });
   }
-  
+
   /** remove cartography*/
   remove(item:Cartography) {
     this.cartographyService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllCartographys();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

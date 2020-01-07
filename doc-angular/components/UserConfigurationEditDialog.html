@@ -858,17 +858,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;  
-import { UserConfiguration } from &#x27;./user-configuration.model&#x27;;
-import { Territory } from &#x27;../territory/territory.model&#x27;;
-import { TerritoryService } from &#x27;../territory/territory.service&#x27;;
-import { Role } from &#x27;../role/role.model&#x27;;
-import { RoleService } from &#x27;../role/role.service&#x27;;
-import { UserConfigurationService } from &#x27;./user-configuration.service&#x27;;
-import { UserService } from &#x27;./user.service&#x27;;
-import { User } from &#x27;./user.model&#x27;;
-import {Principal} from &#x27;../auth/principal.service&#x27;;
-import {LoginService} from &#x27;../auth/login.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
+import { UserConfiguration } from &#x27;sitmun-frontend-core&#x27;;
+import { Territory } from &#x27;sitmun-frontend-core&#x27;;
+import { TerritoryService } from &#x27;sitmun-frontend-core&#x27;;
+import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
+import { UserConfigurationService } from &#x27;sitmun-frontend-core&#x27;;
+import { UserService } from &#x27;sitmun-frontend-core&#x27;;
+import { User } from &#x27;sitmun-frontend-core&#x27;;
+import {Principal} from &#x27;sitmun-frontend-core&#x27;;
+import {LoginService} from &#x27;sitmun-frontend-core&#x27;;
 
 import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
@@ -882,35 +882,35 @@ import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_D
 export class UserConfigurationListComponent implements OnInit {
   /** User permissions to manage */
   items: UserConfiguration[];
-  
+
   /** User to manage its permissions*/
   _user: User;
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;territory&#x27;,&#x27;role&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; null;
-  
-  /** Paginator for table display */  
+
+  /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
+
   /** Component constructor */
   constructor(
-          /**user permissions service*/private userConfigurationService: UserConfigurationService,    
-          /**dialog*/public dialog: MatDialog) { 
-  
+          /**user permissions service*/private userConfigurationService: UserConfigurationService,
+          /**dialog*/public dialog: MatDialog) {
+
   }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.items &#x3D; new Array&lt;UserConfiguration&gt;();
-    
+
   }
-  
+
   /** Set User to manage its permissions*/
   @Input()
-  set user(user: User) {    
+  set user(user: User) {
     this._user &#x3D; user;
     this.loadUserPermissions();
   }
@@ -920,9 +920,9 @@ export class UserConfigurationListComponent implements OnInit {
     if (this._user!&#x3D;null){
      this._user.getRelationArray(UserConfiguration, &#x27;permissions&#x27;).subscribe(
                     (items: UserConfiguration[]) &#x3D;&gt; {
-                      
+
                     this.items &#x3D; items;
-                    
+
                     this.items.forEach( (item) &#x3D;&gt; {
                         item.getRelation(Territory, &#x27;territory&#x27;).subscribe(
                         (territory: Territory) &#x3D;&gt; item.territory &#x3D; territory,
@@ -937,10 +937,10 @@ export class UserConfigurationListComponent implements OnInit {
 
                  },
                     error &#x3D;&gt; this.items &#x3D; new Array&lt;UserConfiguration&gt;());
-      
+
     }
   }
-  
+
   /** open dialog to edit user permission data*/
   edit(userConfiguration: UserConfiguration): void {
     let dialogRef &#x3D; this.dialog.open(UserConfigurationEditDialog, {
@@ -951,10 +951,10 @@ export class UserConfigurationListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
       console.log(&#x27;The dialog was closed&#x27;);
       this.loadUserPermissions();
-       
+
     });
   }
-  
+
   /** add user permission*/
   add(): void {
     let userPermission &#x3D; new UserConfiguration();
@@ -969,13 +969,13 @@ export class UserConfigurationListComponent implements OnInit {
       this.loadUserPermissions();
     });
   }
-  
+
   /** remove user permission*/
   remove(item: UserConfiguration) {
     this.userConfigurationService.delete(item).subscribe(result &#x3D;&gt; {
       this.loadUserPermissions();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
 }
@@ -987,16 +987,16 @@ export class UserConfigurationListComponent implements OnInit {
   styleUrls: [&#x27;./user-configuration-edit.dialog.css&#x27;]
 })
 export class UserConfigurationEditDialog implements OnInit {
-  
+
   /** territories to select*/
   territories: Territory[] &#x3D; new Array&lt;Territory&gt;();
-  
+
   /** roles to select*/
   roles: Role[] &#x3D; new Array&lt;Role&gt;();
 
   /** current account*/
   currentAccount: any;
-  
+
  /** constructor*/
   constructor(
     /** user service*/private userService: UserService,
@@ -1028,7 +1028,7 @@ export class UserConfigurationEditDialog implements OnInit {
                     error &#x3D;&gt; this.userConfiguration.role&#x3D; new Role());
             //
      }
-    
+
   }
 
   /** load all territories*/
@@ -1040,25 +1040,25 @@ export class UserConfigurationEditDialog implements OnInit {
             this.territories &#x3D; territories;
         } else {
 
-          this.territories &#x3D; territories.filter(t &#x3D;&gt; 
+          this.territories &#x3D; territories.filter(t &#x3D;&gt;
              this.principal.hasAnyAuthorityDirectOnTerritory([&#x27;ADMIN ORGANIZACION&#x27;],t.name));
         }
-   
+
 
     });
   }
-  
+
   /** load all roles*/
   getAllRoles() {
     this.roleService.getAll()
     .subscribe((roles: Role[]) &#x3D;&gt; {
-        this.roles &#x3D; roles;        
+        this.roles &#x3D; roles;
     });
   }
-  
+
   /** save user permission*/
   save() {
-      this.userconfigurationService.save(this.userConfiguration).subscribe(result &#x3D;&gt; {      
+      this.userconfigurationService.save(this.userConfiguration).subscribe(result &#x3D;&gt; {
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
   }
@@ -1067,11 +1067,12 @@ export class UserConfigurationEditDialog implements OnInit {
   compareResource(c1: Resource, c2: Resource): boolean {
     if (c2 &amp;&amp; c1)
       return c2._links &amp;&amp; c1._links ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
-    else 
+    else
       return false;
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

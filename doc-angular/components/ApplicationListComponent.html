@@ -552,8 +552,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Application } from &#x27;./application.model&#x27;;
-import {ApplicationService } from &#x27;./application.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Application } from &#x27;sitmun-frontend-core&#x27;;
+import {ApplicationService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
@@ -567,25 +567,25 @@ export class ApplicationListComponent implements OnInit {
 
   /** applications to manage */
   items:Application[];
-  
+
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;Application&gt;(this.items);
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-    
+
   /** Component constructor */
   constructor( private applicationService:ApplicationService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllApplications();
-    
+
   }
-  
+
   /** load all applications*/
   getAllApplications() {
     this.applicationService.getAll()
@@ -596,16 +596,17 @@ export class ApplicationListComponent implements OnInit {
 
     });
   }
- 
+
   /** remove application*/
   remove(item:Application) {
     this.applicationService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllApplications();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

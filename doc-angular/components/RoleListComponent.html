@@ -552,10 +552,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Role } from &#x27;./role.model&#x27;;
-import { RoleService } from &#x27;./role.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;; 
+import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
 
 /** Component for managing roles*/
 @Component({
@@ -564,28 +564,28 @@ import { MatTableDataSource, MatPaginator } from &#x27;@angular/material&#x27;;
   styleUrls: [&#x27;./role-list.component.css&#x27;]
 })
 export class RoleListComponent implements OnInit {
-  
+
   /** roles to manage */
   items: Role[];
 
   /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; new MatTableDataSource&lt;Role&gt;(this.items);
-  
+
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-    
+
   /** Component constructor */
   constructor( private roleService: RoleService ) { }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.getAllRoles();
-    
+
   }
-  
+
   /** load all roles*/
   getAllRoles() {
     this.roleService.getAll()
@@ -596,16 +596,17 @@ export class RoleListComponent implements OnInit {
 
     });
   }
-  
+
   /** remove role*/
   remove(item: Role) {
     this.roleService.delete(item).subscribe(result &#x3D;&gt; {
       this.getAllRoles();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

@@ -669,11 +669,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Connection } from &#x27;./connection.model&#x27;;
-import { ConnectionService } from &#x27;./connection.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Connection } from &#x27;sitmun-frontend-core&#x27;;
+import { ConnectionService } from &#x27;sitmun-frontend-core&#x27;;
 import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
-import { Subscription } from &#x27;rxjs-compat&#x27;; 
+import { Subscription } from &#x27;rxjs-compat&#x27;;
 
 /**
  * Connection edit component
@@ -684,34 +684,34 @@ import { Subscription } from &#x27;rxjs-compat&#x27;;
   styleUrls: [&#x27;./connection-edit.component.css&#x27;]
 })
 export class ConnectionEditComponent implements OnInit {
-  
+
   /** connection to edit*/
   item: Connection &#x3D; new Connection();
 
   /** all connections*/
   items: Connection[] &#x3D; new Array&lt;Connection&gt;();
-  
+
   /** subscription*/
   sub: Subscription;
-  
+
   /** constructor*/
   constructor(private route: ActivatedRoute,
-    private router: Router,    
+    private router: Router,
     private connectionService: ConnectionService) {
   }
-  
+
   /** On component init load all required data dependencies*/
   ngOnInit() {
     this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
       const id &#x3D; params[&#x27;id&#x27;];
-      
+
       if (id) {
         this.connectionService.get(id).subscribe((item: any) &#x3D;&gt; {
           if (item) {
             this.item &#x3D; item;
-            
-            
-            
+
+
+
           } else {
             console.log(&#x60;connection with id &#x27;${id}&#x27; not found, returning to list&#x60;);
             this.gotoList();
@@ -720,12 +720,12 @@ export class ConnectionEditComponent implements OnInit {
       }
     });
   }
-  
+
   /** On component destroy remove subscription */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  
+
   /** load all connections*/
   getAllConnections() {
     this.connectionService.getAll()
@@ -733,19 +733,19 @@ export class ConnectionEditComponent implements OnInit {
         this.items &#x3D; items;
     });
   }
-  
+
   /** navigate to territory list page*/
   gotoList() {
     this.router.navigate([&#x27;/connection-list&#x27;]);
   }
-  
+
   /** save connection*/
   save() {
-      this.connectionService.save(this.item).subscribe(result &#x3D;&gt; {      
+      this.connectionService.save(this.item).subscribe(result &#x3D;&gt; {
         this.gotoList();
       }, error &#x3D;&gt; console.error(error));
   }
-  
+
   /** remove connection*/
   remove(item: Connection) {
     this.connectionService.delete(item).subscribe(result &#x3D;&gt; {

@@ -1103,10 +1103,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { TerritoryType } from &#x27;./territory-type.model&#x27;;
-import { TerritoryTypeService } from &#x27;./territory-type.service&#x27;;
-import { Territory } from &#x27;./territory.model&#x27;;
-import {TerritoryService} from &#x27;./territory.service&#x27;;
+import { TerritoryType } from &#x27;sitmun-frontend-core&#x27;;
+import { TerritoryTypeService } from &#x27;sitmun-frontend-core&#x27;;
+import { Territory } from &#x27;sitmun-frontend-core&#x27;;
+import {TerritoryService} from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -1126,22 +1126,22 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
 
     /** territory to edit*/
     territory: Territory &#x3D; new Territory();
-    
+
     /** territories to select*/
     territories: Territory[];
 
     /** territory types*/
     territoryTypes: TerritoryType[] &#x3D; new Array&lt;TerritoryType&gt;();
-    
+
     /** subscription*/
     sub: Subscription;
 
     /** child territories table displayed columns*/
     displayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;, &#x27;scope&#x27;, &#x27;blocked&#x27;];
-    
+
     /** territory scope values*/
     territoryScopes &#x3D; [&#x27;Municipal&#x27;, &#x27;Supramunicipal&#x27;];
-    
+
     /** selection model for child territories table*/
     selection &#x3D; new SelectionModel&lt;Territory&gt;(true, []);
 
@@ -1155,7 +1155,7 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
         private changeDetectorRefs: ChangeDetectorRef,
         private territoryTypeService: TerritoryTypeService) {
     }
-    
+
     /** On component init load all required data dependencies*/
     ngOnInit() {
         this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
@@ -1207,12 +1207,12 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
             }
         });
     }
-    
+
     /** On component destroy remove subscription */
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-    
+
     /** load all territories*/
     getAllTerritories() {
         this.territoryService.getAll()
@@ -1221,7 +1221,7 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
                 this.dataSource &#x3D; new MatTableDataSource&lt;Territory&gt;(this.territories);
             });
     }
-    
+
     /** load all territory types*/
     getAllTerritoryTypes() {
         this.territoryTypeService.getAll()
@@ -1234,7 +1234,7 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
     gotoList() {
         this.router.navigate([&#x27;/territory-list&#x27;]);
     }
-    
+
     /** save territory*/
     save() {
         if (this.territory.createdDate !&#x3D; null &amp;&amp; (typeof this.territory.createdDate !&#x3D; &#x27;string&#x27;)) {
@@ -1297,7 +1297,7 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
         }
 
     }
-    
+
     /** remove territory*/
     remove(territory: Territory) {
         this.territoryService.delete(territory).subscribe(result &#x3D;&gt; {
@@ -1305,7 +1305,7 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
         }, error &#x3D;&gt; console.error(error));
 
     }
-    
+
     /** compare two resources*/
     compareResource(c1: Resource, c2: Resource): boolean {
         return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
@@ -1325,7 +1325,8 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
             this.selection.clear() :
             this.dataSource.data.forEach(row &#x3D;&gt; this.selection.select(row));
     }
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

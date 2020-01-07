@@ -528,11 +528,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;  
-import { TaskParameter } from &#x27;./task-parameter.model&#x27;;
-import { TaskParameterService } from &#x27;./task-parameter.service&#x27;;
-import { TaskService } from &#x27;./task.service&#x27;;
-import { Task } from &#x27;./task.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
+import { TaskParameter } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskParameterService } from &#x27;sitmun-frontend-core&#x27;;
+import { TaskService } from &#x27;sitmun-frontend-core&#x27;;
+import { Task } from &#x27;sitmun-frontend-core&#x27;;
 
 import { Component, OnInit, ViewChild, Input, Inject} from &#x27;@angular/core&#x27;;
 import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
@@ -544,38 +544,38 @@ import { MatTableDataSource, MatPaginator, MatDialog, MatDialogRef, MAT_DIALOG_D
   styleUrls: [&#x27;./task-parameter-list.component.css&#x27;]
 })
 export class TaskParameterListComponent implements OnInit {
-  
+
   /** Task parameters to manage */
   items: TaskParameter[];
 
   /** Task to manage */
   _task: Task;
 
-  /** Table displayed columns */  
+  /** Table displayed columns */
   displayedColumns &#x3D; [&#x27;name&#x27;,&#x27;value&#x27;,&#x27;actions&#x27;];
-  
+
   /** MatTableDataSource for table display */
   dataSource &#x3D; null;
 
   /** Paginator for table display */
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
+
   /** constructor*/
   constructor(
-    /** task parameter service*/private taskParameterService: TaskParameterService,        
-    /** dialog*/public dialog: MatDialog) { 
-  
+    /** task parameter service*/private taskParameterService: TaskParameterService,
+    /** dialog*/public dialog: MatDialog) {
+
   }
-  
+
   /** On component init, get all data dependencies */
   ngOnInit() {
     this.items &#x3D; new Array&lt;TaskParameter&gt;();
-    
+
   }
-  
+
   /** Set task to manage */
   @Input()
-  set task(task: Task) {    
+  set task(task: Task) {
     this._task &#x3D; task;
     this.loadTaskParameters();
   }
@@ -585,18 +585,18 @@ export class TaskParameterListComponent implements OnInit {
     if (this._task!&#x3D;null){
      this._task.getRelationArray(TaskParameter, &#x27;parameters&#x27;).subscribe(
                     (items: TaskParameter[]) &#x3D;&gt; {
-                      
+
                     this.items &#x3D; items;
-                    
+
                     this.dataSource  &#x3D; new MatTableDataSource&lt;TaskParameter&gt;(this.items);
                     this.dataSource.paginator &#x3D; this.paginator;
 
                  },
                     error &#x3D;&gt; this.items &#x3D; new Array&lt;TaskParameter&gt;());
-      
+
     }
   }
-  
+
   /** open dialog to edit task parameter*/
   edit(taskParameter: TaskParameter): void {
     let dialogRef &#x3D; this.dialog.open(TaskParameterEditDialog, {
@@ -607,10 +607,10 @@ export class TaskParameterListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
       console.log(&#x27;The dialog was closed&#x27;);
       this.loadTaskParameters();
-       
+
     });
   }
-  
+
   /** add task parameter*/
   add(): void {
     let taskParameter &#x3D; new TaskParameter();
@@ -631,9 +631,9 @@ export class TaskParameterListComponent implements OnInit {
     this.taskParameterService.delete(item).subscribe(result &#x3D;&gt; {
       this.loadTaskParameters();
     }, error &#x3D;&gt; console.error(error));
-     
+
   }
-    
+
 
 }
 
@@ -660,12 +660,12 @@ export class TaskParameterEditDialog implements OnInit {
                     (task: Task) &#x3D;&gt; this.taskParameter.task &#x3D; task,
                     error &#x3D;&gt; this.taskParameter.task &#x3D; new Task());
      }
-    
+
   }
-  
+
   /** save task parameter*/
   save() {
-      this.taskParameterService.save(this.taskParameter).subscribe(result &#x3D;&gt; {      
+      this.taskParameterService.save(this.taskParameter).subscribe(result &#x3D;&gt; {
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
   }
@@ -674,11 +674,12 @@ export class TaskParameterEditDialog implements OnInit {
   compareResource(c1: Resource, c2: Resource): boolean {
     if (c2 &amp;&amp; c1)
       return c2._links &amp;&amp; c1._links ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
-    else 
+    else
       return false;
   }
 
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">

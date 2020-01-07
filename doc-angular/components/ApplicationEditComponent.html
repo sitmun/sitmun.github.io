@@ -1399,20 +1399,20 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;angular-hal&#x27;;
 import { ResourceHelper } from &#x27;angular-hal&#x27;;
-import { Connection } from &#x27;../connection/connection.model&#x27;;
-import { ConnectionService } from &#x27;../connection/connection.service&#x27;;
-import { Role } from &#x27;../role/role.model&#x27;;
-import { RoleService } from &#x27;../role/role.service&#x27;;
-import { Tree } from &#x27;../tree/tree.model&#x27;;
-import { TreeService } from &#x27;../tree/tree.service&#x27;;
-import { CartographyGroup } from &#x27;../cartography/cartography-group.model&#x27;;
-import { CartographyGroupService } from &#x27;../cartography/cartography-group.service&#x27;;
-import { ApplicationParameter } from &#x27;./application-parameter.model&#x27;;
-import { ApplicationParameterService } from &#x27;./application-parameter.service&#x27;;
-import { ApplicationBackground} from &#x27;./application-background.model&#x27;;
-import { ApplicationBackgroundService } from &#x27;./application-background.service&#x27;;
-import { Application } from &#x27;./application.model&#x27;;
-import {ApplicationService} from &#x27;./application.service&#x27;;
+import { Connection } from &#x27;sitmun-frontend-core&#x27;;
+import { ConnectionService } from &#x27;sitmun-frontend-core&#x27;;
+import { Role } from &#x27;sitmun-frontend-core&#x27;;
+import { RoleService } from &#x27;sitmun-frontend-core&#x27;;
+import { Tree } from &#x27;sitmun-frontend-core&#x27;;
+import { TreeService } from &#x27;sitmun-frontend-core&#x27;;
+import { CartographyGroup } from &#x27;sitmun-frontend-core&#x27;;
+import { CartographyGroupService } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationParameter } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationParameterService } from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationBackground} from &#x27;sitmun-frontend-core&#x27;;
+import { ApplicationBackgroundService } from &#x27;sitmun-frontend-core&#x27;;
+import { Application } from &#x27;sitmun-frontend-core&#x27;;
+import {ApplicationService} from &#x27;sitmun-frontend-core&#x27;;
 import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
 import {NgForm} from &#x27;@angular/forms&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
@@ -1435,10 +1435,10 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
 
     /** all cartography groups*/
     cartographyGroups: CartographyGroup[] &#x3D; new Array&lt;CartographyGroup&gt;();
-    
+
     /** all connections*/
     connections: Connection[] &#x3D; new Array&lt;Connection&gt;();
-    
+
     /** all roles*/
     roles: Role[] &#x3D; new Array&lt;Role&gt;();
 
@@ -1448,12 +1448,12 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
     /** subscription*/
     sub: Subscription;
 
-    /** displayed columns in table*/    
+    /** displayed columns in table*/
     displayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;];
 
     /** selection model for role table*/
     roleSelection &#x3D; new SelectionModel&lt;Role&gt;(true, []);
-    
+
     /** MatTableDataSource for role table*/
     roleDataSource &#x3D; new MatTableDataSource&lt;Role&gt;([]);
 
@@ -1477,7 +1477,7 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
         this.getAllCartographyGroups();
 
     }
-    
+
     /** On component init load all required data dependencies*/
     ngOnInit() {
         this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
@@ -1544,7 +1544,7 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
             }
         });
     }
-    
+
     /** On component destroy remove subscription */
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -1570,7 +1570,7 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
 
             });
     }
-    
+
     /** load all trees*/
     getAllTrees() {
         this.treeService.getAll()
@@ -1581,12 +1581,12 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
 
             });
     }
-    
+
     /** navigate to application list page*/
     gotoList() {
         this.router.navigate([&#x27;/application-list&#x27;]);
     }
-    
+
     /** save application*/
     save() {
         if (this.application.createdDate !&#x3D; null &amp;&amp; (typeof this.application.createdDate !&#x3D; &#x27;string&#x27;)) {
@@ -1692,7 +1692,7 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
         }
 
     }
-    
+
     /** remove application*/
     remove(application: Application) {
         this.applicationService.delete(application).subscribe(result &#x3D;&gt; {
@@ -1700,40 +1700,41 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
         }, error &#x3D;&gt; console.error(error));
 
     }
-    
+
     /** compare two resources*/
     compareResource(c1: Resource, c2: Resource): boolean {
         return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
     }
-    
+
     /** Whether the number of selected roles matches the total number of roles. */
     isAllRoleSelected() {
         const numSelected &#x3D; this.roleSelection.selected.length;
         const numRows &#x3D; this.roleDataSource.data.length;
         return numSelected &#x3D;&#x3D;&#x3D; numRows;
     }
-    
+
     /** Selects all roles if they are not all selected; otherwise clear selection. */
     masterToggleRole() {
         this.isAllRoleSelected() ?
             this.roleSelection.clear() :
             this.roleDataSource.data.forEach(row &#x3D;&gt; this.roleSelection.select(row));
     }
-    
+
     /** Whether the number of selected trees matches the total number of trees. */
     isAllTreeSelected() {
         const numSelected &#x3D; this.treeSelection.selected.length;
         const numRows &#x3D; this.treeDataSource.data.length;
         return numSelected &#x3D;&#x3D;&#x3D; numRows;
     }
-    
+
     /** Selects all trees if they are not all selected; otherwise clear selection. */
     masterToggleTree() {
         this.isAllTreeSelected() ?
             this.treeSelection.clear() :
             this.treeDataSource.data.forEach(row &#x3D;&gt; this.treeSelection.select(row));
     }
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
