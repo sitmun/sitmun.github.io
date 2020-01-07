@@ -228,8 +228,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:62</a></div>
                 </td>
             </tr>
 
@@ -290,7 +290,8 @@ import { HasAnyAuthorityDirective } from &#x27;./auth/has-any-authority.directiv
 import { HasAnyAuthorityOnTerritoryDirective } from &#x27;./auth/has-any-authority-on-territory.directive&#x27;;
 import { LoginService } from &#x27;./auth/login.service&#x27;;
 import { AccountService } from &#x27;./account/account.service&#x27;;
-import {UserPosition} from &#x27;./user/user-position.model&#x27;;
+import { UserPosition} from &#x27;./user/user-position.model&#x27;;
+
 
 /** SITMUN frontend core module */
 @NgModule({
@@ -313,7 +314,53 @@ export class SitmunFrontendCoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SitmunFrontendCoreModule,
-      providers: [ Principal ]
+      providers: [
+        TerritoryService,
+        TerritoryTypeService,
+        RoleService,
+        AccountService,
+        AuthService,
+        UserService,
+        ConnectionService,
+        TaskService,
+        TaskTypeService,
+        TaskUIService,
+        TaskGroupService,
+        TaskParameterService,
+        TaskAvailabilityService,
+        ServiceService,
+        ServiceParameterService,
+        CartographyService,
+        CartographyGroupService,
+        CartographyAvailabilityService,
+        BackgroundService,
+        TreeService,
+        TreeNodeService,
+        ApplicationService,
+        ApplicationParameterService,
+        ApplicationBackgroundService,
+        AuthInterceptor,
+        AuthExpiredInterceptor,
+        Principal,
+        UserPositionService,
+        UserConfigurationService,
+        LoginService,
+        /*MapConfigurationManagerService,
+        {
+          provide: MatPaginatorIntl,
+          useFactory: (createMatPaginationService),
+          deps: [TranslateService]
+        }, {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true
+        }
+        , {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthExpiredInterceptor,
+          multi: true
+        }*/
+      ]
     };
   }
 }
