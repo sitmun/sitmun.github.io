@@ -1316,53 +1316,7 @@
             </div>
         </div>
 
-        <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="forRoot"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            forRoot
-                        </b>
-                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot()</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="233"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/sitmun-plugin-core.module.ts:233</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
     </div>
 
 
@@ -1441,170 +1395,164 @@ import {Principal} from &#x27;sitmun-frontend-core&#x27;;
 
 /** load i18n assets*/
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
+  return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
 }
 
 /** create Material Design pagination service*/
 export function createMatPaginationService(translate: TranslateService){
-                const service &#x3D; new MatPaginationIntlService();
-                service.injectTranslateService(translate);
-            return service;
+  const service &#x3D; new MatPaginationIntlService();
+  service.injectTranslateService(translate);
+  return service;
 }
 
 /** SITMUN plugin core module */
 @NgModule({
   imports: [
-        RouterModule,
-        HttpClientModule,
-        CommonModule,
-        FormsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatListModule,
-        MatToolbarModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatCheckboxModule,
-        MatTabsModule,
-        MatTableModule,
-        MatSelectModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatIconModule,
-        NoopAnimationsModule,
-        MatDialogModule,
-        AngularHalModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (createTranslateLoader),
-                deps: [HttpClient]
-            }
-        }),
-        SitmunFrontendCoreModule
+    RouterModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
+    NoopAnimationsModule,
+    MatDialogModule,
+    AngularHalModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    SitmunFrontendCoreModule
   ],
   declarations: [
     TerritoryListComponent,
-        TerritoryEditComponent,
-        TerritoryTypeListComponent,
-        TerritoryTypeEditComponent,
-        RoleListComponent,
-        RoleEditComponent,
-        UserListComponent,
-        UserEditComponent,
-        UserPositionListComponent,
-        UserConfigurationListComponent,
-        UserPositionEditDialog,
-        UserConfigurationEditDialog,
-        LayerSelectionDialogComponent,
-        FeatureInfoDialogComponent,
-        MessageDialogComponent,
-        MapComponent,
-        LoginComponent,
-        AccountEditComponent,
-        AccountChangePasswordComponent,
-        UserChangePasswordComponent,
-        ConnectionListComponent,
-        ConnectionEditComponent,
-        TaskTypeListComponent,
-        TaskGroupListComponent,
-        TaskListComponent,
-        TaskTypeEditComponent,
-        TaskGroupEditComponent,
-        TaskEditComponent,
-        TaskAvailabilityListComponent,
-        TaskAvailabilityEditDialog,
-        TaskParameterEditDialog,
-        ServiceParameterEditDialog,
-        TaskParameterListComponent,
-        ServiceEditComponent,
-        ServiceListComponent,
-        ServiceParameterListComponent,
-        CartographyEditComponent,
-        CartographyGroupEditComponent,
-        CartographyGroupListComponent,
-        CartographyListComponent,
-        CartographyAvailabilityListComponent,
-        CartographyAvailabilityEditDialog,
-        BackgroundEditComponent,
-        BackgroundListComponent,
-        TreeListComponent,
-        TreeEditComponent,
-        TreeNodeListComponent,
-        TreeNodeEditDialog,
-        ApplicationEditComponent,
-        ApplicationListComponent,
-        ApplicationParameterListComponent,
-        ApplicationParameterEditDialog,
-        ApplicationBackgroundEditDialog,
-        ApplicationBackgroundListComponent,
-        TaskUIEditComponent,
-        TaskUIListComponent],
+    TerritoryEditComponent,
+    TerritoryTypeListComponent,
+    TerritoryTypeEditComponent,
+    RoleListComponent,
+    RoleEditComponent,
+    UserListComponent,
+    UserEditComponent,
+    UserPositionListComponent,
+    UserConfigurationListComponent,
+    UserPositionEditDialog,
+    UserConfigurationEditDialog,
+    LayerSelectionDialogComponent,
+    FeatureInfoDialogComponent,
+    MessageDialogComponent,
+    MapComponent,
+    LoginComponent,
+    AccountEditComponent,
+    AccountChangePasswordComponent,
+    UserChangePasswordComponent,
+    ConnectionListComponent,
+    ConnectionEditComponent,
+    TaskTypeListComponent,
+    TaskGroupListComponent,
+    TaskListComponent,
+    TaskTypeEditComponent,
+    TaskGroupEditComponent,
+    TaskEditComponent,
+    TaskAvailabilityListComponent,
+    TaskAvailabilityEditDialog,
+    TaskParameterEditDialog,
+    ServiceParameterEditDialog,
+    TaskParameterListComponent,
+    ServiceEditComponent,
+    ServiceListComponent,
+    ServiceParameterListComponent,
+    CartographyEditComponent,
+    CartographyGroupEditComponent,
+    CartographyGroupListComponent,
+    CartographyListComponent,
+    CartographyAvailabilityListComponent,
+    CartographyAvailabilityEditDialog,
+    BackgroundEditComponent,
+    BackgroundListComponent,
+    TreeListComponent,
+    TreeEditComponent,
+    TreeNodeListComponent,
+    TreeNodeEditDialog,
+    ApplicationEditComponent,
+    ApplicationListComponent,
+    ApplicationParameterListComponent,
+    ApplicationParameterEditDialog,
+    ApplicationBackgroundEditDialog,
+    ApplicationBackgroundListComponent,
+    TaskUIEditComponent,
+    TaskUIListComponent],
   entryComponents: [
-        UserPositionEditDialog,
-        UserConfigurationEditDialog,
-        LayerSelectionDialogComponent,
-        FeatureInfoDialogComponent,
-        MessageDialogComponent,
-        TaskAvailabilityEditDialog,
-        TaskParameterEditDialog,
-        ServiceParameterEditDialog,
-        CartographyAvailabilityEditDialog,
-        TreeNodeEditDialog,
-        ApplicationParameterEditDialog,
-        ApplicationBackgroundEditDialog
-    ],
+    UserPositionEditDialog,
+    UserConfigurationEditDialog,
+    LayerSelectionDialogComponent,
+    FeatureInfoDialogComponent,
+    MessageDialogComponent,
+    TaskAvailabilityEditDialog,
+    TaskParameterEditDialog,
+    ServiceParameterEditDialog,
+    CartographyAvailabilityEditDialog,
+    TreeNodeEditDialog,
+    ApplicationParameterEditDialog,
+    ApplicationBackgroundEditDialog
+  ],
   exports: [
-        HttpClientModule,
-        CommonModule,
-        FormsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatListModule,
-        MatToolbarModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatCheckboxModule,
-        MatTabsModule,
-        MatTableModule,
-        MatSelectModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatIconModule,
-        NoopAnimationsModule,
-        MatDialogModule,
-        AngularHalModule,
-        TranslateModule,
-    		TerritoryListComponent,
-        TerritoryEditComponent,
-        TerritoryTypeListComponent,
-        TerritoryTypeEditComponent,
-        RoleListComponent,
-        RoleEditComponent,
-        LoginComponent,
-        UserListComponent,
-        UserEditComponent,
-        UserChangePasswordComponent,
-        UserPositionListComponent,
-        UserConfigurationListComponent,
-        AccountEditComponent,
-        AccountChangePasswordComponent,
-        MapComponent,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        SitmunFrontendCoreModule]
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
+    NoopAnimationsModule,
+    MatDialogModule,
+    AngularHalModule,
+    TranslateModule,
+    TerritoryListComponent,
+    TerritoryEditComponent,
+    TerritoryTypeListComponent,
+    TerritoryTypeEditComponent,
+    RoleListComponent,
+    RoleEditComponent,
+    LoginComponent,
+    UserListComponent,
+    UserEditComponent,
+    UserChangePasswordComponent,
+    UserPositionListComponent,
+    UserConfigurationListComponent,
+    AccountEditComponent,
+    AccountChangePasswordComponent,
+    MapComponent,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    SitmunFrontendCoreModule]
 })
 export class SitmunPluginCoreModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: SitmunPluginCoreModule,
-      providers: [Principal]
-    };
-  }
 }
 </code></pre>
     </div>
