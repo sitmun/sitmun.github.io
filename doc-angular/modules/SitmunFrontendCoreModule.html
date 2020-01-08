@@ -228,8 +228,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:77</a></div>
                 </td>
             </tr>
 
@@ -253,7 +253,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders } from &#x27;@angular/core&#x27;;
 
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { HttpClientModule, HTTP_INTERCEPTORS}  from &#x27;@angular/common/http&#x27;;
+import {HttpClientModule, HTTP_INTERCEPTORS, HttpClient} from &#x27;@angular/common/http&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { AngularHalModule } from &#x27;angular-hal&#x27;;
 
@@ -291,6 +291,13 @@ import { HasAnyAuthorityOnTerritoryDirective } from &#x27;./auth/has-any-authori
 import { LoginService } from &#x27;./auth/login.service&#x27;;
 import { AccountService } from &#x27;./account/account.service&#x27;;
 import { UserPosition} from &#x27;./user/user-position.model&#x27;;
+import {TranslateHttpLoader} from &#x27;@ngx-translate/http-loader&#x27;;
+import {TranslateLoader, TranslateModule} from &#x27;@ngx-translate/core&#x27;;
+
+/** load i18n assets*/
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
+}
 
 
 /** SITMUN frontend core module */
@@ -300,6 +307,13 @@ import { UserPosition} from &#x27;./user/user-position.model&#x27;;
     HttpClientModule,
     CommonModule,
     AngularHalModule,*/
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
   ],
   declarations: [
     HasAnyAuthorityDirective,
@@ -307,7 +321,8 @@ import { UserPosition} from &#x27;./user/user-position.model&#x27;;
   ],
   exports: [
     HasAnyAuthorityDirective,
-    HasAnyAuthorityOnTerritoryDirective
+    HasAnyAuthorityOnTerritoryDirective,
+    TranslateModule
   ]
 })
 export class SitmunFrontendCoreModule {
@@ -345,12 +360,8 @@ export class SitmunFrontendCoreModule {
         UserPositionService,
         UserConfigurationService,
         LoginService,
-        /*MapConfigurationManagerService,
+        MapConfigurationManagerService,
         {
-          provide: MatPaginatorIntl,
-          useFactory: (createMatPaginationService),
-          deps: [TranslateService]
-        }, {
           provide: HTTP_INTERCEPTORS,
           useClass: AuthInterceptor,
           multi: true
@@ -359,7 +370,7 @@ export class SitmunFrontendCoreModule {
           provide: HTTP_INTERCEPTORS,
           useClass: AuthExpiredInterceptor,
           multi: true
-        }*/
+        }
       ]
     };
   }
