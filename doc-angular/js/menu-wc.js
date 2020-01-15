@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">SITMUN Core Angular Library documentation</a>
+                    <a href="index.html" data-type="index-link">SITMUN Frontend Core Angular Library documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -88,38 +88,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
-                                <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' : 'data-target="#xs-components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' :
-                                            'id="xs-components-links-module-AppModule-b282a607dfc440a749b603e50eb66307"' }>
-                                            <li class="link">
-                                                <a href="components/AppComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/HomeComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">HomeComponent</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </li>
-                            <li class="link">
                                 <a href="modules/SitmunFrontendCoreModule.html" data-type="entity-link">SitmunFrontendCoreModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-dc5f627070f460c581423442cfbcf09c"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-dc5f627070f460c581423442cfbcf09c"' }>
+                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-dc5f627070f460c581423442cfbcf09c"' :
-                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-dc5f627070f460c581423442cfbcf09c"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' :
+                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' }>
                                         <li class="link">
                                             <a href="directives/HasAnyAuthorityDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityDirective</a>
@@ -131,262 +109,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </ul>
                                 </li>
                             </li>
-                            <li class="link">
-                                <a href="modules/SitmunPluginCoreModule.html" data-type="entity-link">SitmunPluginCoreModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SitmunPluginCoreModule-6ff9240aa7ebd7d73f095da14c96ab02"' : 'data-target="#xs-components-links-module-SitmunPluginCoreModule-6ff9240aa7ebd7d73f095da14c96ab02"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SitmunPluginCoreModule-6ff9240aa7ebd7d73f095da14c96ab02"' :
-                                            'id="xs-components-links-module-SitmunPluginCoreModule-6ff9240aa7ebd7d73f095da14c96ab02"' }>
-                                            <li class="link">
-                                                <a href="components/AccountChangePasswordComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountChangePasswordComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/AccountEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ApplicationBackgroundEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApplicationBackgroundEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ApplicationBackgroundListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApplicationBackgroundListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ApplicationEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApplicationEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ApplicationListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApplicationListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ApplicationParameterEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApplicationParameterEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ApplicationParameterListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ApplicationParameterListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/BackgroundEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">BackgroundEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/BackgroundListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">BackgroundListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/CartographyAvailabilityEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CartographyAvailabilityEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/CartographyAvailabilityListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CartographyAvailabilityListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/CartographyEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CartographyEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/CartographyGroupEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CartographyGroupEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/CartographyGroupListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CartographyGroupListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/CartographyListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CartographyListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ConnectionEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ConnectionEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ConnectionListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ConnectionListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/FeatureInfoDialogComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeatureInfoDialogComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/LayerSelectionDialogComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerSelectionDialogComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/LoginComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LoginComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/MapComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MapComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/MessageDialogComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MessageDialogComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/RoleEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">RoleEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/RoleListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">RoleListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ServiceEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServiceEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ServiceListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServiceListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ServiceParameterEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServiceParameterEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ServiceParameterListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServiceParameterListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskAvailabilityEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskAvailabilityEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskAvailabilityListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskAvailabilityListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskGroupEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskGroupEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskGroupListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskGroupListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskParameterEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskParameterEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskParameterListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskParameterListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskTypeEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskTypeEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskTypeListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskTypeListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskUIEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskUIEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TaskUIListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskUIListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TerritoryEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TerritoryEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TerritoryListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TerritoryListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TerritoryTypeEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TerritoryTypeEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TerritoryTypeListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TerritoryTypeListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TreeEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TreeEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TreeListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TreeListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TreeNodeEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TreeNodeEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/TreeNodeListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TreeNodeListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserChangePasswordComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserChangePasswordComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserConfigurationEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserConfigurationEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserConfigurationListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserConfigurationListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserEditComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserEditComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserListComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserPositionEditDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserPositionEditDialog</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/UserPositionListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserPositionListComponent</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </li>
                 </ul>
                 </li>
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#components-links"' :
-                            'data-target="#xs-components-links"' }>
-                            <span class="icon ion-md-cog"></span>
-                            <span>Components</span>
-                            <span class="icon ion-ios-arrow-down"></span>
-                        </div>
-                        <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
-                            <li class="link">
-                                <a href="components/UserConfigurationEditComponent.html" data-type="entity-link">UserConfigurationEditComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/UserPositionEditComponent.html" data-type="entity-link">UserPositionEditComponent</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
                             'data-target="#xs-classes-links"' }>
@@ -405,16 +129,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ApplicationParameter.html" data-type="entity-link">ApplicationParameter</a>
                             </li>
                             <li class="link">
-                                <a href="classes/AppPage.html" data-type="entity-link">AppPage</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/AuthInterceptor.html" data-type="entity-link">AuthInterceptor</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Background.html" data-type="entity-link">Background</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/BaseLayerGroup.html" data-type="entity-link">BaseLayerGroup</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Cartography.html" data-type="entity-link">Cartography</a>
@@ -429,12 +147,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Connection.html" data-type="entity-link">Connection</a>
                             </li>
                             <li class="link">
-                                <a href="classes/FeatureInfoDialogData.html" data-type="entity-link">FeatureInfoDialogData</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/FeatureInfoRequestData.html" data-type="entity-link">FeatureInfoRequestData</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/Layer.html" data-type="entity-link">Layer</a>
                             </li>
                             <li class="link">
@@ -444,16 +156,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/LayerGroup.html" data-type="entity-link">LayerGroup</a>
                             </li>
                             <li class="link">
-                                <a href="classes/LayerSelectionDialogData.html" data-type="entity-link">LayerSelectionDialogData</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/MapComponentStatus.html" data-type="entity-link">MapComponentStatus</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/MapConfiguration.html" data-type="entity-link">MapConfiguration</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/MapOptions.html" data-type="entity-link">MapOptions</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MapOptionsConfiguration.html" data-type="entity-link">MapOptionsConfiguration</a>
@@ -559,19 +262,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/ConnectionService.html" data-type="entity-link">ConnectionService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/ExternalConfigurationService.html" data-type="entity-link">ExternalConfigurationService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/LoginService.html" data-type="entity-link">LoginService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/LoginService-1.html" data-type="entity-link">LoginService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/MapConfigurationManagerService.html" data-type="entity-link">MapConfigurationManagerService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/MatPaginationIntlService.html" data-type="entity-link">MatPaginationIntlService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/Principal.html" data-type="entity-link">Principal</a>
@@ -661,9 +355,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ExternalConfigurationHandlerInterface.html" data-type="entity-link">ExternalConfigurationHandlerInterface</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/InfoDialogData.html" data-type="entity-link">InfoDialogData</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Sort.html" data-type="entity-link">Sort</a>
