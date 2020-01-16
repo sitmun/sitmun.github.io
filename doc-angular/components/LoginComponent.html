@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>SITMUN Core Angular Library documentation</title>
+        <title>SITMUN Frontend GUI Angular Library documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">SITMUN Core Angular Library documentation</a>
+            <a href="../" class="navbar-brand">SITMUN Frontend GUI Angular Library documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts</code>
+    <code>src/main/angular-library/projects/sitmun-frontend-gui/src/lib/auth/login.component.ts</code>
 </p>
 
     <p class="comment">
@@ -169,12 +169,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>, loginService: <a href="../injectables/LoginService.html">LoginService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, authService: AuthService, loginService: <a href="../injectables/LoginService.html">LoginService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/auth/login.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -209,7 +209,7 @@
                                                         <td>authService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                                    <code>AuthService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -282,7 +282,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:34</a></div>
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/auth/login.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -326,7 +326,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/auth/login.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -359,7 +359,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-plugin-core/src/lib/auth/login.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/auth/login.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -379,8 +379,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { AuthService } from &#x27;sitmun-frontend-core&#x27;;
-import { LoginService } from &#x27;sitmun-frontend-core&#x27;;
+import { AuthService } from &#x27;@sitmun/frontend-core&#x27;;
+import { LoginService } from &#x27;@sitmun/frontend-core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { FormGroup, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
 
@@ -509,7 +509,7 @@ export class LoginComponent {
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-card><form [formGroup]="form" (ngSubmit)="login()">	  <div class="alert alert-danger" *ngIf="badCredentials">                                {{\'login.bad-credentials\' | translate}}            </div>	<mat-card-header>      <mat-card-title><h2>{{\'global.login\' | translate}}</h2></mat-card-title>    </mat-card-header>	 <mat-card-content>	  <div class="container">	  	 <mat-form-field>        <input matInput type="input" placeholder="{{ \'user.username\'| translate}}" formControlName="username"               name="username">      </mat-form-field>	   <mat-form-field>	        <input matInput type="password" placeholder="{{ \'user.password\'| translate}}" formControlName="password">      </mat-form-field>	      </div>    </mat-card-content>    <mat-card-actions>      <button mat-raised-button color="primary" type="submit"              [disabled]="!form.valid">{{\'global.login\' | translate}}</button>          </mat-card-actions></form></mat-card>  </div>'
     var COMPONENTS = [{'name': 'AccountChangePasswordComponent', 'selector': 'app-account-change-password'},{'name': 'AccountEditComponent', 'selector': 'app-account-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationBackgroundEditDialog', 'selector': 'sitmun-application-background-dialog'},{'name': 'ApplicationBackgroundListComponent', 'selector': 'sitmun-application-background-list'},{'name': 'ApplicationEditComponent', 'selector': 'sitmun-application-edit'},{'name': 'ApplicationListComponent', 'selector': 'sitmun-application-list'},{'name': 'ApplicationParameterEditDialog', 'selector': 'sitmun-application-parameter-dialog'},{'name': 'ApplicationParameterListComponent', 'selector': 'sitmun-application-parameter-list'},{'name': 'BackgroundEditComponent', 'selector': 'sitmun-background-edit'},{'name': 'BackgroundListComponent', 'selector': 'sitmun-background-list'},{'name': 'CartographyAvailabilityEditDialog', 'selector': 'sitmun-cartography-availability-dialog'},{'name': 'CartographyAvailabilityListComponent', 'selector': 'sitmun-cartography-availability-list'},{'name': 'CartographyEditComponent', 'selector': 'sitmun-cartography-edit'},{'name': 'CartographyGroupEditComponent', 'selector': 'sitmun-cartography-group-edit'},{'name': 'CartographyGroupListComponent', 'selector': 'sitmun-cartography-group-list'},{'name': 'CartographyListComponent', 'selector': 'sitmun-cartography-list'},{'name': 'ConnectionEditComponent', 'selector': 'sitmun-connection-edit'},{'name': 'ConnectionListComponent', 'selector': 'sitmun-connection-list'},{'name': 'FeatureInfoDialogComponent', 'selector': 'feature-info-dialog'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LayerSelectionDialogComponent', 'selector': 'layer-selection-dialog'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'sitmun-map-viewer-map'},{'name': 'MessageDialogComponent', 'selector': 'feature-info-message-dialog'},{'name': 'RoleEditComponent', 'selector': 'app-role-edit'},{'name': 'RoleListComponent', 'selector': 'app-role-list'},{'name': 'ServiceEditComponent', 'selector': 'sitmun-service-edit'},{'name': 'ServiceListComponent', 'selector': 'sitmun-service-list'},{'name': 'ServiceParameterEditDialog', 'selector': 'sitmun-service-parameter-dialog'},{'name': 'ServiceParameterListComponent', 'selector': 'sitmun-service-parameter-list'},{'name': 'TaskAvailabilityEditDialog', 'selector': 'sitmun-task-availability-dialog'},{'name': 'TaskAvailabilityListComponent', 'selector': 'sitmun-task-availability-list'},{'name': 'TaskEditComponent', 'selector': 'sitmun-task-edit'},{'name': 'TaskGroupEditComponent', 'selector': 'sitmun-task-group-edit'},{'name': 'TaskGroupListComponent', 'selector': 'sitmun-task-group-list'},{'name': 'TaskListComponent', 'selector': 'sitmun-task-list'},{'name': 'TaskParameterEditDialog', 'selector': 'sitmun-task-parameter-dialog'},{'name': 'TaskParameterListComponent', 'selector': 'sitmun-task-parameter-list'},{'name': 'TaskTypeEditComponent', 'selector': 'sitmun-task-type-edit'},{'name': 'TaskTypeListComponent', 'selector': 'sitmun-task-type-list'},{'name': 'TaskUIEditComponent', 'selector': 'sitmun-task-ui-edit'},{'name': 'TaskUIListComponent', 'selector': 'sitmun-task-ui-list'},{'name': 'TerritoryEditComponent', 'selector': 'app-territory-edit'},{'name': 'TerritoryListComponent', 'selector': 'app-territory-list'},{'name': 'TerritoryTypeEditComponent', 'selector': 'app-territory-type-edit'},{'name': 'TerritoryTypeListComponent', 'selector': 'app-territory-type-list'},{'name': 'TreeEditComponent', 'selector': 'sitmun-tree-edit'},{'name': 'TreeListComponent', 'selector': 'sitmun-tree-list'},{'name': 'TreeNodeEditDialog', 'selector': 'sitmun-tree-node-dialog'},{'name': 'TreeNodeListComponent', 'selector': 'sitmun-tree-node-list'},{'name': 'UserChangePasswordComponent', 'selector': 'sitmun-user-change-password'},{'name': 'UserConfigurationEditComponent', 'selector': 'app-user-configuration-edit'},{'name': 'UserConfigurationEditDialog', 'selector': 'app-user-configuration-dialog'},{'name': 'UserConfigurationListComponent', 'selector': 'sitmun-user-configuration-list'},{'name': 'UserEditComponent', 'selector': 'sitmun-user-edit'},{'name': 'UserListComponent', 'selector': 'sitmun-user-list'},{'name': 'UserPositionEditComponent', 'selector': 'sitmun-user-position-edit'},{'name': 'UserPositionEditDialog', 'selector': 'sitmun-user-position-dialog'},{'name': 'UserPositionListComponent', 'selector': 'sitmun-user-position-list'}];
-    var DIRECTIVES = [{'name': 'HasAnyAuthorityDirective', 'selector': '[sitmunHasAnyAuthority]'},{'name': 'HasAnyAuthorityOnTerritoryDirective', 'selector': '[sitmunHasAnyAuthorityOnTerritory]'}];
+    var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>
 <script src="../js/tree.js"></script>

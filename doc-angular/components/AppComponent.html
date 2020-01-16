@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>SITMUN Core Angular Library documentation</title>
+        <title>SITMUN Frontend GUI Angular Library documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">SITMUN Core Angular Library documentation</a>
+            <a href="../" class="navbar-brand">SITMUN Frontend GUI Angular Library documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -202,7 +202,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(trans: <a href="../classes/Service.html">TranslateService</a>, principal: <a href="../injectables/Principal.html">Principal</a>, loginService: <a href="../injectables/LoginService.html">LoginService</a>)</code>
+<code>constructor(trans: TranslateService, principal: Principal, loginService: <a href="../injectables/LoginService.html">LoginService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -230,7 +230,7 @@
                                                         <td>trans</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Service.html" target="_self" >TranslateService</a></code>
+                                                                    <code>TranslateService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -242,7 +242,7 @@
                                                         <td>principal</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/Principal.html" target="_self" >Principal</a></code>
+                                                                    <code>Principal</code>
                                                         </td>
                                                   
                                                     <td>
@@ -601,7 +601,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../injectables/Principal.html" target="_self" >Principal</a></code>
+                            <i>Type : </i>    <code>Principal</code>
 
                         </td>
                     </tr>
@@ -673,7 +673,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/Service.html" target="_self" >TranslateService</a></code>
+                            <i>Type : </i>    <code>TranslateService</code>
 
                         </td>
                     </tr>
@@ -727,7 +727,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component,OnInit  } from &#x27;@angular/core&#x27;;
 import {TranslateService} from &#x27;@ngx-translate/core&#x27;;
-import {Principal, LoginService} from &#x27;sitmun-frontend-core&#x27;;
+import {Principal, LoginService} from &#x27;@sitmun/frontend-core&#x27;;
 
 /** Demo app component*/
 @Component({
@@ -894,7 +894,7 @@ export class AppComponent implements OnInit {
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary">  <button mat-button [routerLink]="[\'\']">    <img height="50px;" src="https://avatars0.githubusercontent.com/u/24718368?s=200&v=4">    <span>  Sitmun Admin App</span>  </button>     <span class="toolbar-spacer"></span>    <span *ngIf="isLoggedIn()" >    <!--    <button mat-button *sitmunHasAnyAuthority="[\'ADMIN SITMUN\',\'ADMIN ORGANIZACION\']"            [routerLink]="[\'/territory-list\']"><span [translate]="\'menu.territories\'">Territories</span>    </button>     <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/territory-type-list\']"><span [translate]="\'menu.territoriesTypes\'">Territory types</span>    </button>    <button mat-button  *sitmunHasAnyAuthority="[\'ADMIN SITMUN\',\'ADMIN ORGANIZACION\']"            [routerLink]="[\'/user-list\']"><span [translate]="\'menu.users\'">Users</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/role-list\']"><span [translate]="\'menu.roles\'">Roles</span>    </button>        <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/connection-list\']"><span [translate]="\'menu.connection\'">Connections</span>    </button>         <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/task-type-list\']"><span [translate]="\'menu.taskType\'">Task Types</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/task-group-list\']"><span [translate]="\'menu.taskGroup\'">Task Groups</span>    </button>    -->    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/task-list\']"><span [translate]="\'menu.taskList\'">Tasks</span>    </button>         <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/task-ui-list\']"><span [translate]="\'menu.taskUIList\'">Task UIs</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/service-list\']"><span [translate]="\'menu.serviceList\'">Services</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/cartography-list\']"><span [translate]="\'menu.cartographyList\'">Cartographies</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/cartography-group-list\']"><span [translate]="\'menu.cartographyGroupList\'">Cartography Groups</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/background-list\']"><span [translate]="\'menu.backgroundList\'">backgrounds</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/tree-list\']"><span [translate]="\'menu.treeList\'">trees</span>    </button>    <button mat-button *sitmunHasAnyAuthority="\'ADMIN SITMUN\'"            [routerLink]="[\'/application-list\']"><span [translate]="\'menu.applicationList\'">applications</span>    </button>  </span>    <span (click)="changeLanguage(\'ca\')"> CA </span> | <span  (click)="changeLanguage(\'es\')"> ES </span>| <span  (click)="changeLanguage(\'en\')"> EN </span>    <span *ngIf="isLoggedIn()" ><a href="" [routerLink]="[\'/account\']" [translate]="\'menu.account\'">Account</a> <a href="" [routerLink]="[\'/change-password\']" [translate]="\'account.change-password\'">Change password</a><a href="" (click)="logout()" [translate]="\'account.closeSession\'">Close session</a> </span> </mat-toolbar><router-outlet></router-outlet><!-- test map-->        <sitmun-map-viewer-map [extent]="[256901.08041000657, 4544669.980255321, 554715.9195899934, 4703023.019744679]"                        [initialProjection]="\'EPSG:25831\'"                        [loadDefaults]="true"></sitmun-map-viewer-map>                                             </div>'
     var COMPONENTS = [{'name': 'AccountChangePasswordComponent', 'selector': 'app-account-change-password'},{'name': 'AccountEditComponent', 'selector': 'app-account-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationBackgroundEditDialog', 'selector': 'sitmun-application-background-dialog'},{'name': 'ApplicationBackgroundListComponent', 'selector': 'sitmun-application-background-list'},{'name': 'ApplicationEditComponent', 'selector': 'sitmun-application-edit'},{'name': 'ApplicationListComponent', 'selector': 'sitmun-application-list'},{'name': 'ApplicationParameterEditDialog', 'selector': 'sitmun-application-parameter-dialog'},{'name': 'ApplicationParameterListComponent', 'selector': 'sitmun-application-parameter-list'},{'name': 'BackgroundEditComponent', 'selector': 'sitmun-background-edit'},{'name': 'BackgroundListComponent', 'selector': 'sitmun-background-list'},{'name': 'CartographyAvailabilityEditDialog', 'selector': 'sitmun-cartography-availability-dialog'},{'name': 'CartographyAvailabilityListComponent', 'selector': 'sitmun-cartography-availability-list'},{'name': 'CartographyEditComponent', 'selector': 'sitmun-cartography-edit'},{'name': 'CartographyGroupEditComponent', 'selector': 'sitmun-cartography-group-edit'},{'name': 'CartographyGroupListComponent', 'selector': 'sitmun-cartography-group-list'},{'name': 'CartographyListComponent', 'selector': 'sitmun-cartography-list'},{'name': 'ConnectionEditComponent', 'selector': 'sitmun-connection-edit'},{'name': 'ConnectionListComponent', 'selector': 'sitmun-connection-list'},{'name': 'FeatureInfoDialogComponent', 'selector': 'feature-info-dialog'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LayerSelectionDialogComponent', 'selector': 'layer-selection-dialog'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'sitmun-map-viewer-map'},{'name': 'MessageDialogComponent', 'selector': 'feature-info-message-dialog'},{'name': 'RoleEditComponent', 'selector': 'app-role-edit'},{'name': 'RoleListComponent', 'selector': 'app-role-list'},{'name': 'ServiceEditComponent', 'selector': 'sitmun-service-edit'},{'name': 'ServiceListComponent', 'selector': 'sitmun-service-list'},{'name': 'ServiceParameterEditDialog', 'selector': 'sitmun-service-parameter-dialog'},{'name': 'ServiceParameterListComponent', 'selector': 'sitmun-service-parameter-list'},{'name': 'TaskAvailabilityEditDialog', 'selector': 'sitmun-task-availability-dialog'},{'name': 'TaskAvailabilityListComponent', 'selector': 'sitmun-task-availability-list'},{'name': 'TaskEditComponent', 'selector': 'sitmun-task-edit'},{'name': 'TaskGroupEditComponent', 'selector': 'sitmun-task-group-edit'},{'name': 'TaskGroupListComponent', 'selector': 'sitmun-task-group-list'},{'name': 'TaskListComponent', 'selector': 'sitmun-task-list'},{'name': 'TaskParameterEditDialog', 'selector': 'sitmun-task-parameter-dialog'},{'name': 'TaskParameterListComponent', 'selector': 'sitmun-task-parameter-list'},{'name': 'TaskTypeEditComponent', 'selector': 'sitmun-task-type-edit'},{'name': 'TaskTypeListComponent', 'selector': 'sitmun-task-type-list'},{'name': 'TaskUIEditComponent', 'selector': 'sitmun-task-ui-edit'},{'name': 'TaskUIListComponent', 'selector': 'sitmun-task-ui-list'},{'name': 'TerritoryEditComponent', 'selector': 'app-territory-edit'},{'name': 'TerritoryListComponent', 'selector': 'app-territory-list'},{'name': 'TerritoryTypeEditComponent', 'selector': 'app-territory-type-edit'},{'name': 'TerritoryTypeListComponent', 'selector': 'app-territory-type-list'},{'name': 'TreeEditComponent', 'selector': 'sitmun-tree-edit'},{'name': 'TreeListComponent', 'selector': 'sitmun-tree-list'},{'name': 'TreeNodeEditDialog', 'selector': 'sitmun-tree-node-dialog'},{'name': 'TreeNodeListComponent', 'selector': 'sitmun-tree-node-list'},{'name': 'UserChangePasswordComponent', 'selector': 'sitmun-user-change-password'},{'name': 'UserConfigurationEditComponent', 'selector': 'app-user-configuration-edit'},{'name': 'UserConfigurationEditDialog', 'selector': 'app-user-configuration-dialog'},{'name': 'UserConfigurationListComponent', 'selector': 'sitmun-user-configuration-list'},{'name': 'UserEditComponent', 'selector': 'sitmun-user-edit'},{'name': 'UserListComponent', 'selector': 'sitmun-user-list'},{'name': 'UserPositionEditComponent', 'selector': 'sitmun-user-position-edit'},{'name': 'UserPositionEditDialog', 'selector': 'sitmun-user-position-dialog'},{'name': 'UserPositionListComponent', 'selector': 'sitmun-user-position-list'}];
-    var DIRECTIVES = [{'name': 'HasAnyAuthorityDirective', 'selector': '[sitmunHasAnyAuthority]'},{'name': 'HasAnyAuthorityOnTerritoryDirective', 'selector': '[sitmunHasAnyAuthorityOnTerritory]'}];
+    var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>
 <script src="../js/tree.js"></script>
