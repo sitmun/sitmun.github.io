@@ -1,0 +1,1783 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SITMUN Frontend GUI Angular Library documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">SITMUN Frontend GUI Angular Library documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>CartographyGroupEditComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Cartography group edit component</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>sitmun-cartography-group-edit</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./cartography-group-edit.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./cartography-group-edit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cartographies">cartographies</a>
+                            </li>
+                            <li>
+                                <a href="#cartographyDataSource">cartographyDataSource</a>
+                            </li>
+                            <li>
+                                <a href="#cartographyDisplayedColumns">cartographyDisplayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#cartographyGroup">cartographyGroup</a>
+                            </li>
+                            <li>
+                                <a href="#cartographySelection">cartographySelection</a>
+                            </li>
+                            <li>
+                                <a href="#roleDataSource">roleDataSource</a>
+                            </li>
+                            <li>
+                                <a href="#roleDisplayedColumns">roleDisplayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#roles">roles</a>
+                            </li>
+                            <li>
+                                <a href="#roleSelection">roleSelection</a>
+                            </li>
+                            <li>
+                                <a href="#sub">sub</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#compareResource">compareResource</a>
+                            </li>
+                            <li>
+                                <a href="#getAllCartographies">getAllCartographies</a>
+                            </li>
+                            <li>
+                                <a href="#getAllRoles">getAllRoles</a>
+                            </li>
+                            <li>
+                                <a href="#gotoList">gotoList</a>
+                            </li>
+                            <li>
+                                <a href="#isAllCartographySelected">isAllCartographySelected</a>
+                            </li>
+                            <li>
+                                <a href="#isAllRoleSelected">isAllRoleSelected</a>
+                            </li>
+                            <li>
+                                <a href="#masterToggleCartography">masterToggleCartography</a>
+                            </li>
+                            <li>
+                                <a href="#masterToggleRole">masterToggleRole</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#remove">remove</a>
+                            </li>
+                            <li>
+                                <a href="#save">save</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, roleService: RoleService, cartographyGroupService: CartographyGroupService, changeDetectorRefs: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, cartographyService: CartographyService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>roleService</td>
+                                                  
+                                                        <td>
+                                                                    <code>RoleService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cartographyGroupService</td>
+                                                  
+                                                        <td>
+                                                                    <code>CartographyGroupService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>changeDetectorRefs</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cartographyService</td>
+                                                  
+                                                        <td>
+                                                                    <code>CartographyService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compareResource"></a>
+                    <span class="name">
+                        <b>
+                            compareResource
+                        </b>
+                        <a href="#compareResource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>compareResource(c1: Resource, c2: Resource)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>compare two resources</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c1</td>
+                                    <td>
+                                            <code>Resource</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>c2</td>
+                                    <td>
+                                            <code>Resource</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllCartographies"></a>
+                    <span class="name">
+                        <b>
+                            getAllCartographies
+                        </b>
+                        <a href="#getAllCartographies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllCartographies()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>load all cartographies</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRoles"></a>
+                    <span class="name">
+                        <b>
+                            getAllRoles
+                        </b>
+                        <a href="#getAllRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllRoles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:134</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>load all roles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gotoList"></a>
+                    <span class="name">
+                        <b>
+                            gotoList
+                        </b>
+                        <a href="#gotoList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gotoList()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>navigate to cartography group list page</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllCartographySelected"></a>
+                    <span class="name">
+                        <b>
+                            isAllCartographySelected
+                        </b>
+                        <a href="#isAllCartographySelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAllCartographySelected()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="254"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:254</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Whether the number of selected cartographies matches the total number of rows. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllRoleSelected"></a>
+                    <span class="name">
+                        <b>
+                            isAllRoleSelected
+                        </b>
+                        <a href="#isAllRoleSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAllRoleSelected()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="268"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:268</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Whether the number of selected roles matches the total number of rows. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterToggleCartography"></a>
+                    <span class="name">
+                        <b>
+                            masterToggleCartography
+                        </b>
+                        <a href="#masterToggleCartography"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>masterToggleCartography()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="261"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:261</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selects all cartographies if they are not all selected; otherwise clear cartographySelection. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterToggleRole"></a>
+                    <span class="name">
+                        <b>
+                            masterToggleRole
+                        </b>
+                        <a href="#masterToggleRole"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>masterToggleRole()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="275"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:275</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selects all rows if they are not all selected; otherwise clear rolesSelection. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:129</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>On component destroy remove subscription </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>On component init load all required data dependencies</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <b>
+                            remove
+                        </b>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(cartographyGroup: CartographyGroup)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="240"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:240</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>remove cartography group</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>cartographyGroup</td>
+                                    <td>
+                                            <code>CartographyGroup</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <b>
+                            save
+                        </b>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>save()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:160</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>save cartography group</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartographies"></a>
+                        <span class="name">
+                            <b>
+                            cartographies</b>
+                            <a href="#cartographies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Cartography[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;Cartography&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>cartographies to select</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartographyDataSource"></a>
+                        <span class="name">
+                            <b>
+                            cartographyDataSource</b>
+                            <a href="#cartographyDataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new MatTableDataSource&lt;Cartography&gt;([])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>MatTableDataSource for cartographies</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartographyDisplayedColumns"></a>
+                        <span class="name">
+                            <b>
+                            cartographyDisplayedColumns</b>
+                            <a href="#cartographyDisplayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;select&#x27;, &#x27;name&#x27;, &#x27;service&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>cartographies table displayed columns</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartographyGroup"></a>
+                        <span class="name">
+                            <b>
+                            cartographyGroup</b>
+                            <a href="#cartographyGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>CartographyGroup</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new CartographyGroup()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>cartography group to edit</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartographySelection"></a>
+                        <span class="name">
+                            <b>
+                            cartographySelection</b>
+                            <a href="#cartographySelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new SelectionModel&lt;Cartography&gt;(true, [])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>selection model for cartographies table</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roleDataSource"></a>
+                        <span class="name">
+                            <b>
+                            roleDataSource</b>
+                            <a href="#roleDataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new MatTableDataSource&lt;Role&gt;([])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>MatTableDataSource for roles</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roleDisplayedColumns"></a>
+                        <span class="name">
+                            <b>
+                            roleDisplayedColumns</b>
+                            <a href="#roleDisplayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;select&#x27;, &#x27;name&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>roles table displayed columns</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roles"></a>
+                        <span class="name">
+                            <b>
+                            roles</b>
+                            <a href="#roles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Role[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;Role&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>roles to select</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roleSelection"></a>
+                        <span class="name">
+                            <b>
+                            roleSelection</b>
+                            <a href="#roleSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new SelectionModel&lt;Role&gt;(true, [])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>selection model for roles table</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sub"></a>
+                        <span class="name">
+                            <b>
+                            sub</b>
+                            <a href="#sub"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/cartography/cartography-group-edit.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>subscription</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Resource } from &#x27;@sitmun/frontend-core&#x27;;
+import { ResourceHelper } from &#x27;@sitmun/frontend-core&#x27;;
+import { Cartography } from &#x27;@sitmun/frontend-core&#x27;;
+import { CartographyService } from &#x27;@sitmun/frontend-core&#x27;;
+import { Role } from &#x27;@sitmun/frontend-core&#x27;;
+import { RoleService } from &#x27;@sitmun/frontend-core&#x27;;
+
+import { CartographyGroup } from &#x27;@sitmun/frontend-core&#x27;;
+import {CartographyGroupService} from &#x27;@sitmun/frontend-core&#x27;;
+import {Component, OnInit, OnDestroy, ChangeDetectorRef} from &#x27;@angular/core&#x27;;
+import {NgForm} from &#x27;@angular/forms&#x27;;
+import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
+import {Subscription, Observable, forkJoin, merge, concat, pipe, from} from &#x27;rxjs&#x27;;
+import {MatTableDataSource} from &#x27;@angular/material&#x27;;
+import {SelectionModel} from &#x27;@angular/cdk/collections&#x27;;
+
+/**
+ * Cartography group edit component
+ */
+@Component({
+    selector: &#x27;sitmun-cartography-group-edit&#x27;,
+    templateUrl: &#x27;./cartography-group-edit.component.html&#x27;,
+    styleUrls: [&#x27;./cartography-group-edit.component.css&#x27;]
+})
+export class CartographyGroupEditComponent implements OnInit, OnDestroy {
+
+    /** cartography group to edit*/
+    cartographyGroup: CartographyGroup &#x3D; new CartographyGroup();
+
+    /** cartographies to select*/
+    cartographies: Cartography[] &#x3D; new Array&lt;Cartography&gt;();
+
+    /** roles to select*/
+    roles: Role[] &#x3D; new Array&lt;Role&gt;();
+
+    /** subscription*/
+    sub: Subscription;
+
+    /** cartographies table displayed columns*/
+    cartographyDisplayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;, &#x27;service&#x27;];
+
+    /** selection model for cartographies table*/
+    cartographySelection &#x3D; new SelectionModel&lt;Cartography&gt;(true, []);
+
+    /** MatTableDataSource for cartographies*/
+    cartographyDataSource &#x3D; new MatTableDataSource&lt;Cartography&gt;([]);
+
+    /** roles table displayed columns*/
+    roleDisplayedColumns &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;];
+
+    /** selection model for roles table*/
+    roleSelection &#x3D; new SelectionModel&lt;Role&gt;(true, []);
+
+    /** MatTableDataSource for roles*/
+    roleDataSource &#x3D; new MatTableDataSource&lt;Role&gt;([]);
+
+    /** constructor*/
+    constructor(private route: ActivatedRoute,
+        private router: Router,
+        private roleService: RoleService,
+        private cartographyGroupService: CartographyGroupService,
+        private changeDetectorRefs: ChangeDetectorRef,
+        private cartographyService: CartographyService) {
+
+    }
+
+    /** On component init load all required data dependencies*/
+    ngOnInit() {
+
+        this.sub &#x3D; this.route.params.subscribe(params &#x3D;&gt; {
+            const id &#x3D; params[&#x27;id&#x27;];
+
+
+            if (id) {
+                this.cartographyGroupService.get(id).subscribe((cartographyGroup: any) &#x3D;&gt; {
+                    if (cartographyGroup) {
+                        this.cartographyGroup &#x3D; cartographyGroup;
+                        this.cartographyService.getAll()
+                            .subscribe((cartographies: Cartography[]) &#x3D;&gt; {
+                                this.cartographies &#x3D; cartographies;
+                                this.cartographyDataSource &#x3D; new MatTableDataSource&lt;Cartography&gt;(this.cartographies);
+                                this.cartographyGroup.getRelationArray(Cartography, &#x27;members&#x27;).subscribe(
+                                    (members: Cartography[]) &#x3D;&gt; {
+                                        this.cartographyGroup.members &#x3D; members;
+                                        this.cartographyDataSource.data.forEach(row &#x3D;&gt; {
+                                            for (let member of this.cartographyGroup.members) {
+                                                if (row._links.self.href &#x3D;&#x3D; member._links.self.href)
+                                                    this.cartographySelection.select(row);
+                                            }
+                                        });
+                                        this.changeDetectorRefs.detectChanges();
+                                    },
+                                    error &#x3D;&gt; this.cartographyGroup.members &#x3D; new Array&lt;Cartography&gt;());
+                            });
+                        this.roleService.getAll()
+                            .subscribe((roles: Role[]) &#x3D;&gt; {
+                                this.roles &#x3D; roles;
+                                this.roleDataSource &#x3D; new MatTableDataSource&lt;Role&gt;(this.roles);
+                                this.cartographyGroup.getRelationArray(Role, &#x27;roles&#x27;).subscribe(
+                                    (roles: Role[]) &#x3D;&gt; {
+                                        this.cartographyGroup.roles &#x3D; roles;
+                                        this.roleDataSource.data.forEach(row &#x3D;&gt; {
+                                            for (let member of this.cartographyGroup.roles) {
+                                                if (row._links.self.href &#x3D;&#x3D; member._links.self.href)
+                                                    this.roleSelection.select(row);
+                                            }
+                                        });
+                                        this.changeDetectorRefs.detectChanges();
+
+                                    },
+                                    error &#x3D;&gt; this.cartographyGroup.roles &#x3D; new Array&lt;Role&gt;());
+                            });
+
+
+                    } else {
+                        console.log(&#x60;cartographyGroup with id &#x27;${id}&#x27; not found, returning to list&#x60;);
+                        this.gotoList();
+                    }
+                });
+            } else {
+                this.getAllCartographies();
+                this.getAllRoles();
+
+            }
+        });
+    }
+
+    /** On component destroy remove subscription */
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
+    /** load all roles*/
+    getAllRoles() {
+        this.roleService.getAll()
+            .subscribe((roles: Role[]) &#x3D;&gt; {
+                this.roles &#x3D; roles;
+                this.roleDataSource &#x3D; new MatTableDataSource&lt;Role&gt;(this.roles);
+
+
+            });
+    }
+
+    /** load all cartographies*/
+    getAllCartographies() {
+        this.cartographyService.getAll()
+            .subscribe((cartographies: Cartography[]) &#x3D;&gt; {
+                this.cartographies &#x3D; cartographies;
+                this.cartographyDataSource &#x3D; new MatTableDataSource&lt;Cartography&gt;(this.cartographies);
+
+            });
+    }
+
+    /** navigate to cartography group list page*/
+    gotoList() {
+        this.router.navigate([&#x27;/cartography-group-list&#x27;]);
+    }
+
+    /** save cartography group*/
+    save() {
+        const isNew &#x3D; this.cartographyGroup._links &#x3D;&#x3D; null;
+
+        if (isNew) {
+            if (this.roleSelection.selected !&#x3D; null) {
+                this.cartographyGroup.roles &#x3D; this.roleSelection.selected;
+            }
+
+            this.cartographyGroup.roles &#x3D; this.cartographyGroup.roles.map(function(role) {
+                return role._links.self.href;
+            });
+
+            if (this.cartographySelection.selected !&#x3D; null) {
+                this.cartographyGroup.members &#x3D; this.cartographySelection.selected;
+            }
+
+            this.cartographyGroup.members &#x3D; this.cartographyGroup.members.map(function(member) {
+                return member._links.self.href;
+            });
+
+            this.cartographyGroupService.create(this.cartographyGroup).subscribe(result &#x3D;&gt; {
+                this.gotoList();
+
+            }
+
+                , error &#x3D;&gt; console.error(error));
+
+        } else {
+
+
+            let rolesUpdate &#x3D; null;
+            let cartographyGroupRoles &#x3D; this.cartographyGroup.roles;
+            if (cartographyGroupRoles)
+                rolesUpdate &#x3D; concat(forkJoin(cartographyGroupRoles.map(role &#x3D;&gt; this.cartographyGroup.deleteRelation(&#x27;roles&#x27;, role))));
+            if (this.roleSelection.selected) {
+                if (rolesUpdate !&#x3D; null)
+                    rolesUpdate &#x3D; concat(rolesUpdate, forkJoin(this.roleSelection.selected.map(role &#x3D;&gt; this.cartographyGroup.addRelation(&#x27;roles&#x27;, role))));
+                else
+                    rolesUpdate &#x3D; concat(forkJoin(this.roleSelection.selected.map(role &#x3D;&gt; this.cartographyGroup.addRelation(&#x27;roles&#x27;, role))));
+            }
+
+
+            rolesUpdate.subscribe(result &#x3D;&gt; {
+
+            }
+                , error &#x3D;&gt; console.error(error));
+
+            let membersUpdate &#x3D; null;
+            let cartographyGroupMembers &#x3D; this.cartographyGroup.members;
+            if (cartographyGroupMembers)
+                membersUpdate &#x3D; concat(forkJoin(cartographyGroupMembers.map(member &#x3D;&gt; this.cartographyGroup.deleteRelation(&#x27;members&#x27;, member))));
+            if (this.cartographySelection.selected) {
+                if (membersUpdate !&#x3D; null)
+                    membersUpdate &#x3D; concat(membersUpdate, forkJoin(this.cartographySelection.selected.map(member &#x3D;&gt; this.cartographyGroup.addRelation(&#x27;members&#x27;, member))));
+                else
+                    membersUpdate &#x3D; concat(forkJoin(this.cartographySelection.selected.map(member &#x3D;&gt; this.cartographyGroup.addRelation(&#x27;members&#x27;, member))));
+            }
+
+
+            membersUpdate.subscribe(result &#x3D;&gt; {
+
+            }
+                , error &#x3D;&gt; console.error(error));
+            delete this.cartographyGroup.roles;
+            delete this.cartographyGroup.members;
+
+            this.cartographyGroupService.update(this.cartographyGroup).subscribe(result &#x3D;&gt; {
+                this.gotoList();
+            }
+                , error &#x3D;&gt; console.error(error));
+
+
+        }
+
+
+
+
+    }
+
+    /** remove cartography group*/
+    remove(cartographyGroup: CartographyGroup) {
+        this.cartographyGroupService.delete(cartographyGroup).subscribe(result &#x3D;&gt; {
+            this.gotoList();
+        }, error &#x3D;&gt; console.error(error));
+
+    }
+
+    /** compare two resources*/
+    compareResource(c1: Resource, c2: Resource): boolean {
+        return c1 &amp;&amp; c2 ? c1._links.self.href &#x3D;&#x3D;&#x3D; c2._links.self.href : c1 &#x3D;&#x3D;&#x3D; c2;
+    }
+
+
+    /** Whether the number of selected cartographies matches the total number of rows. */
+    isAllCartographySelected() {
+        const numSelected &#x3D; this.cartographySelection.selected.length;
+        const numRows &#x3D; this.cartographyDataSource.data.length;
+        return numSelected &#x3D;&#x3D;&#x3D; numRows;
+    }
+
+    /** Selects all cartographies if they are not all selected; otherwise clear cartographySelection. */
+    masterToggleCartography() {
+        this.isAllCartographySelected() ?
+            this.cartographySelection.clear() :
+            this.cartographyDataSource.data.forEach(row &#x3D;&gt; this.cartographySelection.select(row));
+    }
+
+    /** Whether the number of selected roles matches the total number of rows. */
+    isAllRoleSelected() {
+        const numSelected &#x3D; this.roleSelection.selected.length;
+        const numRows &#x3D; this.roleDataSource.data.length;
+        return numSelected &#x3D;&#x3D;&#x3D; numRows;
+    }
+
+    /** Selects all rows if they are not all selected; otherwise clear rolesSelection. */
+    masterToggleRole() {
+        this.isAllRoleSelected() ?
+            this.roleSelection.clear() :
+            this.roleDataSource.data.forEach(row &#x3D;&gt; this.roleSelection.select(row));
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card&gt;
+  &lt;form #cartographyGroupForm&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;save()&quot;&gt;
+    &lt;mat-card-header&gt;
+      &lt;mat-card-title&gt;&lt;h2&gt;{{cartographyGroup.name ? (&#x27;global.edit&#x27;|translate) : (&#x27;global.add&#x27;|translate)}} {{&#x27;cartographyGroup.item&#x27; | translate}}&lt;/h2&gt;&lt;/mat-card-title&gt;
+    &lt;/mat-card-header&gt;
+    &lt;mat-card-content&gt;
+    &lt;mat-tab-group dynamicHeight&#x3D;&quot;true&quot;&gt;
+    &lt;mat-tab label&#x3D;&quot;{{&#x27;cartographyGroup.data&#x27; | translate}}&quot;&gt;
+     &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;mat-form-field&gt;
+        &lt;input matInput placeholder&#x3D;&quot;{{ &#x27;cartographyGroup.name&#x27;| translate}}&quot; [(ngModel)]&#x3D;&quot;cartographyGroup.name&quot;
+               name&#x3D;&quot;name&quot; #name required&gt;
+      &lt;/mat-form-field&gt;
+            &lt;mat-form-field&gt;
+        &lt;input matInput placeholder&#x3D;&quot;{{ &#x27;cartographyGroup.type&#x27;| translate}}&quot; [(ngModel)]&#x3D;&quot;cartographyGroup.type&quot;
+               name&#x3D;&quot;type&quot; #type&gt;
+      &lt;/mat-form-field&gt;
+      &lt;/div&gt;
+      &lt;/mat-tab&gt;
+  &lt;mat-tab label&#x3D;&quot;{{ &#x27;cartographyGroup.members&#x27;| translate}}&quot; *sitmunHasAnyAuthority&#x3D;&quot;&#x27;ADMIN SITMUN&#x27;&quot;&gt;
+    &lt;table mat-table [dataSource]&#x3D;&quot;cartographies&quot; class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+
+  &lt;!-- Checkbox Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;select&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt;
+      &lt;mat-checkbox (change)&#x3D;&quot;$event ? masterToggleCartography() : null&quot;
+                    [checked]&#x3D;&quot;cartographySelection.hasValue() &amp;&amp; isAllCartographySelected()&quot;
+                    [indeterminate]&#x3D;&quot;cartographySelection.hasValue() &amp;&amp; !isAllCartographySelected()&quot;&gt;
+      &lt;/mat-checkbox&gt;
+    &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+      &lt;mat-checkbox (click)&#x3D;&quot;$event.stopPropagation()&quot;
+                    (change)&#x3D;&quot;$event ? cartographySelection.toggle(row) : null&quot;
+                    [checked]&#x3D;&quot;cartographySelection.isSelected(row)&quot;&gt;
+      &lt;/mat-checkbox&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; {{&#x27;cartography.name&#x27; | translate}} &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;service&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; {{&#x27;cartography.service&#x27; | translate}} &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.service?.name}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  
+    
+  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;cartographyDisplayedColumns&quot;&gt;&lt;/tr&gt;
+  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: cartographyDisplayedColumns;&quot;
+      (click)&#x3D;&quot;cartographySelection.toggle(row)&quot;&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+  &lt;/mat-tab&gt;
+
+ &lt;mat-tab label&#x3D;&quot;{{ &#x27;cartographyGroup.roles&#x27;| translate}}&quot; *sitmunHasAnyAuthority&#x3D;&quot;&#x27;ADMIN SITMUN&#x27;&quot;&gt;
+    &lt;table mat-table [dataSource]&#x3D;&quot;roles&quot; class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+
+  &lt;!-- Checkbox Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;select&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt;
+      &lt;mat-checkbox (change)&#x3D;&quot;$event ? masterToggleRole() : null&quot;
+                    [checked]&#x3D;&quot;roleSelection.hasValue() &amp;&amp; isAllRoleSelected()&quot;
+                    [indeterminate]&#x3D;&quot;roleSelection.hasValue() &amp;&amp; !isAllRoleSelected()&quot;&gt;
+      &lt;/mat-checkbox&gt;
+    &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+      &lt;mat-checkbox (click)&#x3D;&quot;$event.stopPropagation()&quot;
+                    (change)&#x3D;&quot;$event ? roleSelection.toggle(row) : null&quot;
+                    [checked]&#x3D;&quot;roleSelection.isSelected(row)&quot;&gt;
+      &lt;/mat-checkbox&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; {{&#x27;role.name&#x27; | translate}} &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;service&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; {{&#x27;role.service&#x27; | translate}} &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.service?.name}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  
+    
+  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;roleDisplayedColumns&quot;&gt;&lt;/tr&gt;
+  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: roleDisplayedColumns;&quot;
+      (click)&#x3D;&quot;roleSelection.toggle(row)&quot;&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/mat-tab&gt;
+&lt;/mat-tab-group&gt;  
+    
+    &lt;/mat-card-content&gt;
+    &lt;mat-card-actions&gt;
+      &lt;button mat-raised-button color&#x3D;&quot;primary&quot; type&#x3D;&quot;submit&quot;
+              [disabled]&#x3D;&quot;!cartographyGroupForm.form.valid&quot;&gt;{{&#x27;global.save&#x27; | translate}}&lt;/button&gt;
+      &lt;button mat-raised-button color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;remove(cartographyGroup)&quot;
+              *ngIf&#x3D;&quot;cartographyGroup._links?.self.href&quot; type&#x3D;&quot;button&quot;&gt;{{&#x27;global.delete&#x27; | translate}}&lt;/button&gt;
+      &lt;a mat-button routerLink&#x3D;&quot;/cartography-group-list&quot;&gt;{{&#x27;global.cancel&#x27; | translate}}&lt;/a&gt;
+    &lt;/mat-card-actions&gt;
+    
+  &lt;/form&gt;
+&lt;/mat-card&gt;
+  
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./cartography-group-edit.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">table {
+  width: 100%;
+}
+
+.container {
+  margin-top: 10px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.container &gt; * {
+  width: 100%;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card>  <form #cartographyGroupForm="ngForm" (ngSubmit)="save()">    <mat-card-header>      <mat-card-title><h2>{{cartographyGroup.name ? (\'global.edit\'|translate) : (\'global.add\'|translate)}} {{\'cartographyGroup.item\' | translate}}</h2></mat-card-title>    </mat-card-header>    <mat-card-content>    <mat-tab-group dynamicHeight="true">    <mat-tab label="{{\'cartographyGroup.data\' | translate}}">     <div class="container">      <mat-form-field>        <input matInput placeholder="{{ \'cartographyGroup.name\'| translate}}" [(ngModel)]="cartographyGroup.name"               name="name" #name required>      </mat-form-field>            <mat-form-field>        <input matInput placeholder="{{ \'cartographyGroup.type\'| translate}}" [(ngModel)]="cartographyGroup.type"               name="type" #type>      </mat-form-field>      </div>      </mat-tab>  <mat-tab label="{{ \'cartographyGroup.members\'| translate}}" *sitmunHasAnyAuthority="\'ADMIN SITMUN\'">    <table mat-table [dataSource]="cartographies" class="mat-elevation-z8">  <!-- Checkbox Column -->  <ng-container matColumnDef="select">    <th mat-header-cell *matHeaderCellDef>      <mat-checkbox (change)="$event ? masterToggleCartography() : null"                    [checked]="cartographySelection.hasValue() && isAllCartographySelected()"                    [indeterminate]="cartographySelection.hasValue() && !isAllCartographySelected()">      </mat-checkbox>    </th>    <td mat-cell *matCellDef="let row">      <mat-checkbox (click)="$event.stopPropagation()"                    (change)="$event ? cartographySelection.toggle(row) : null"                    [checked]="cartographySelection.isSelected(row)">      </mat-checkbox>    </td>  </ng-container>  <ng-container matColumnDef="name">    <th mat-header-cell *matHeaderCellDef> {{\'cartography.name\' | translate}} </th>    <td mat-cell *matCellDef="let element"> {{element.name}} </td>  </ng-container>  <ng-container matColumnDef="service">    <th mat-header-cell *matHeaderCellDef> {{\'cartography.service\' | translate}} </th>    <td mat-cell *matCellDef="let element"> {{element.service?.name}} </td>  </ng-container>        <tr mat-header-row *matHeaderRowDef="cartographyDisplayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: cartographyDisplayedColumns;"      (click)="cartographySelection.toggle(row)">  </tr></table>  </mat-tab> <mat-tab label="{{ \'cartographyGroup.roles\'| translate}}" *sitmunHasAnyAuthority="\'ADMIN SITMUN\'">    <table mat-table [dataSource]="roles" class="mat-elevation-z8">  <!-- Checkbox Column -->  <ng-container matColumnDef="select">    <th mat-header-cell *matHeaderCellDef>      <mat-checkbox (change)="$event ? masterToggleRole() : null"                    [checked]="roleSelection.hasValue() && isAllRoleSelected()"                    [indeterminate]="roleSelection.hasValue() && !isAllRoleSelected()">      </mat-checkbox>    </th>    <td mat-cell *matCellDef="let row">      <mat-checkbox (click)="$event.stopPropagation()"                    (change)="$event ? roleSelection.toggle(row) : null"                    [checked]="roleSelection.isSelected(row)">      </mat-checkbox>    </td>  </ng-container>  <ng-container matColumnDef="name">    <th mat-header-cell *matHeaderCellDef> {{\'role.name\' | translate}} </th>    <td mat-cell *matCellDef="let element"> {{element.name}} </td>  </ng-container>  <ng-container matColumnDef="service">    <th mat-header-cell *matHeaderCellDef> {{\'role.service\' | translate}} </th>    <td mat-cell *matCellDef="let element"> {{element.service?.name}} </td>  </ng-container>        <tr mat-header-row *matHeaderRowDef="roleDisplayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: roleDisplayedColumns;"      (click)="roleSelection.toggle(row)">  </tr></table></mat-tab></mat-tab-group>          </mat-card-content>    <mat-card-actions>      <button mat-raised-button color="primary" type="submit"              [disabled]="!cartographyGroupForm.form.valid">{{\'global.save\' | translate}}</button>      <button mat-raised-button color="secondary" (click)="remove(cartographyGroup)"              *ngIf="cartographyGroup._links?.self.href" type="button">{{\'global.delete\' | translate}}</button>      <a mat-button routerLink="/cartography-group-list">{{\'global.cancel\' | translate}}</a>    </mat-card-actions>      </form></mat-card>  </div>'
+    var COMPONENTS = [{'name': 'AccountChangePasswordComponent', 'selector': 'app-account-change-password'},{'name': 'AccountEditComponent', 'selector': 'app-account-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ApplicationBackgroundEditDialog', 'selector': 'sitmun-application-background-dialog'},{'name': 'ApplicationBackgroundListComponent', 'selector': 'sitmun-application-background-list'},{'name': 'ApplicationEditComponent', 'selector': 'sitmun-application-edit'},{'name': 'ApplicationListComponent', 'selector': 'sitmun-application-list'},{'name': 'ApplicationParameterEditDialog', 'selector': 'sitmun-application-parameter-dialog'},{'name': 'ApplicationParameterListComponent', 'selector': 'sitmun-application-parameter-list'},{'name': 'BackgroundEditComponent', 'selector': 'sitmun-background-edit'},{'name': 'BackgroundListComponent', 'selector': 'sitmun-background-list'},{'name': 'CartographyAvailabilityEditDialog', 'selector': 'sitmun-cartography-availability-dialog'},{'name': 'CartographyAvailabilityListComponent', 'selector': 'sitmun-cartography-availability-list'},{'name': 'CartographyEditComponent', 'selector': 'sitmun-cartography-edit'},{'name': 'CartographyGroupEditComponent', 'selector': 'sitmun-cartography-group-edit'},{'name': 'CartographyGroupListComponent', 'selector': 'sitmun-cartography-group-list'},{'name': 'CartographyListComponent', 'selector': 'sitmun-cartography-list'},{'name': 'ConnectionEditComponent', 'selector': 'sitmun-connection-edit'},{'name': 'ConnectionListComponent', 'selector': 'sitmun-connection-list'},{'name': 'FeatureInfoDialogComponent', 'selector': 'feature-info-dialog'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LayerSelectionDialogComponent', 'selector': 'layer-selection-dialog'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'sitmun-map-viewer-map'},{'name': 'MessageDialogComponent', 'selector': 'feature-info-message-dialog'},{'name': 'RoleEditComponent', 'selector': 'app-role-edit'},{'name': 'RoleListComponent', 'selector': 'app-role-list'},{'name': 'ServiceEditComponent', 'selector': 'sitmun-service-edit'},{'name': 'ServiceListComponent', 'selector': 'sitmun-service-list'},{'name': 'ServiceParameterEditDialog', 'selector': 'sitmun-service-parameter-dialog'},{'name': 'ServiceParameterListComponent', 'selector': 'sitmun-service-parameter-list'},{'name': 'TaskAvailabilityEditDialog', 'selector': 'sitmun-task-availability-dialog'},{'name': 'TaskAvailabilityListComponent', 'selector': 'sitmun-task-availability-list'},{'name': 'TaskEditComponent', 'selector': 'sitmun-task-edit'},{'name': 'TaskGroupEditComponent', 'selector': 'sitmun-task-group-edit'},{'name': 'TaskGroupListComponent', 'selector': 'sitmun-task-group-list'},{'name': 'TaskListComponent', 'selector': 'sitmun-task-list'},{'name': 'TaskParameterEditDialog', 'selector': 'sitmun-task-parameter-dialog'},{'name': 'TaskParameterListComponent', 'selector': 'sitmun-task-parameter-list'},{'name': 'TaskTypeEditComponent', 'selector': 'sitmun-task-type-edit'},{'name': 'TaskTypeListComponent', 'selector': 'sitmun-task-type-list'},{'name': 'TaskUIEditComponent', 'selector': 'sitmun-task-ui-edit'},{'name': 'TaskUIListComponent', 'selector': 'sitmun-task-ui-list'},{'name': 'TerritoryEditComponent', 'selector': 'app-territory-edit'},{'name': 'TerritoryListComponent', 'selector': 'app-territory-list'},{'name': 'TerritoryTypeEditComponent', 'selector': 'app-territory-type-edit'},{'name': 'TerritoryTypeListComponent', 'selector': 'app-territory-type-list'},{'name': 'TreeEditComponent', 'selector': 'sitmun-tree-edit'},{'name': 'TreeListComponent', 'selector': 'sitmun-tree-list'},{'name': 'TreeNodeEditDialog', 'selector': 'sitmun-tree-node-dialog'},{'name': 'TreeNodeListComponent', 'selector': 'sitmun-tree-node-list'},{'name': 'UserChangePasswordComponent', 'selector': 'sitmun-user-change-password'},{'name': 'UserConfigurationEditComponent', 'selector': 'app-user-configuration-edit'},{'name': 'UserConfigurationEditDialog', 'selector': 'app-user-configuration-dialog'},{'name': 'UserConfigurationListComponent', 'selector': 'sitmun-user-configuration-list'},{'name': 'UserEditComponent', 'selector': 'sitmun-user-edit'},{'name': 'UserListComponent', 'selector': 'sitmun-user-list'},{'name': 'UserPositionEditComponent', 'selector': 'sitmun-user-position-edit'},{'name': 'UserPositionEditDialog', 'selector': 'sitmun-user-position-dialog'},{'name': 'UserPositionListComponent', 'selector': 'sitmun-user-position-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CartographyGroupEditComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CartographyGroupEditComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
