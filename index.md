@@ -1,9 +1,7 @@
-Más información en la página de la **[Red europea SITMUN](http://sitmun.org/)**.
+There is more information on the web site of the **[Red europea SITMUN](http://sitmun.org/)**.
 
-Puedes acceder al [lobby de gitter](https://gitter.im/Sitmun/Lobby) del proyecto si quieres conversar. 
+You can use the [gitter lobby](https://gitter.im/Sitmun/Lobby) if you want to chat about the project.
 
-La **Plataforma SITMUN** tiene licencia libre [EUPL v1.2](http://data.europa.eu/eli/dec_impl/2017/863/oj).
+The **SITMUN platform** is licensed under the [EUPL v1.2](http://data.europa.eu/eli/dec_impl/2017/863/oj).
 
-Puedes usar el [editor en GitHub](https://github.com/sitmun/sitmun.github.io/edit/master/index.md) para mantener los contenidos.
-
-Cada cambio en este repositorio hace que **GitHub Pages** ejecute [Jekyll](https://jekyllrb.com/) para reconstruir el sitio.
+For members of the project, you can use the [GitHub online editor](https://github.com/sitmun/sitmun.github.io/edit/master/index.md) to keep the contents of this site updated. Every change in this repository will make **GitHub Pages** to run [Jekyll](https://jekyllrb.com/) to rebuild this web pages.
