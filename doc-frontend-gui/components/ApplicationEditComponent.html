@@ -1672,7 +1672,7 @@ export class ApplicationEditComponent implements OnInit, OnDestroy {
             );
 
             if (this.application.situationMap._links !&#x3D; null &amp;&amp; this.application.situationMap._links.self.href !&#x3D; &#x27;&#x27;) {
-                update &#x3D; concat(update, this.application.addRelation(&#x27;situationMap&#x27;, this.application.situationMap));
+                update &#x3D; concat(update, this.application.substituteRelation(&#x27;situationMap&#x27;, this.application.situationMap));
             }
 
 

@@ -295,8 +295,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/application/application-parameter-list.component.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/main/angular-library/projects/sitmun-frontend-gui/src/lib/application/application-parameter-list.component.ts:145</a></div>
                 </td>
             </tr>
 
@@ -665,6 +665,7 @@ export class ApplicationParameterEditDialog implements OnInit {
 
   /** save application parameter*/
   save() {
+      delete this.applicationParameter.application.name;
       this.applicationParameterService.save(this.applicationParameter).subscribe(result &#x3D;&gt; {
       this.dialogRef.close();
       }, error &#x3D;&gt; console.error(error));
