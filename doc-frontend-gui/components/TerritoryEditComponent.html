@@ -1286,7 +1286,7 @@ export class TerritoryEditComponent implements OnInit, OnDestroy {
             );
 
             if (this.territory.type._links !&#x3D; null &amp;&amp; this.territory.type._links.self.href !&#x3D; &#x27;&#x27;) {
-                update &#x3D; concat(update, this.territory.addRelation(&#x27;type&#x27;, this.territory.type));
+                update &#x3D; concat(update, this.territory.substituteRelation(&#x27;type&#x27;, this.territory.type));
             }
 
             update.subscribe(result &#x3D;&gt; {

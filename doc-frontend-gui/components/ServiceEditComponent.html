@@ -908,7 +908,7 @@ export class ServiceEditComponent implements OnInit, OnDestroy {
             );
 
             if (this.service.connection._links !&#x3D; null &amp;&amp; this.service.connection._links.self.href !&#x3D; &#x27;&#x27;) {
-                update &#x3D; concat(update, this.service.addRelation(&#x27;connection&#x27;, this.service.connection));
+                update &#x3D; concat(update, this.service.substituteRelation(&#x27;connection&#x27;, this.service.connection));
             }
 
             update.subscribe(result &#x3D;&gt; {

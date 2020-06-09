@@ -1021,13 +1021,13 @@ export class CartographyEditComponent implements OnInit, OnDestroy {
             );
 
             if (this.cartography.connection._links !&#x3D; null &amp;&amp; this.cartography.connection._links.self.href !&#x3D; &#x27;&#x27;) {
-                update &#x3D; concat(update, this.cartography.addRelation(&#x27;connection&#x27;, this.cartography.connection));
+                update &#x3D; concat(update, this.cartography.substituteRelation(&#x27;connection&#x27;, this.cartography.connection));
             }
             if (this.cartography.service._links !&#x3D; null &amp;&amp; this.cartography.service._links.self.href !&#x3D; &#x27;&#x27;) {
-                update &#x3D; concat(update, this.cartography.addRelation(&#x27;service&#x27;, this.cartography.service));
+                update &#x3D; concat(update, this.cartography.substituteRelation(&#x27;service&#x27;, this.cartography.service));
             }
             if (this.cartography.selectionService._links !&#x3D; null &amp;&amp; this.cartography.selectionService._links.self.href !&#x3D; &#x27;&#x27;) {
-                update &#x3D; concat(update, this.cartography.addRelation(&#x27;selectionService&#x27;, this.cartography.selectionService));
+                update &#x3D; concat(update, this.cartography.substituteRelation(&#x27;selectionService&#x27;, this.cartography.selectionService));
             }
 
             update.subscribe(result &#x3D;&gt; {
