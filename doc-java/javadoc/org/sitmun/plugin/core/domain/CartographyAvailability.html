@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">CartographyAvailability</span>
 extends java.lang.Object</pre>
+<div class="block">Grants availability of a Geographic Information in a Territory.</div>
 </li>
 </ul>
 </div>
@@ -157,28 +158,38 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#getOwner--">getOwner</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/sitmun/plugin/core/domain/Territory.html" title="class in org.sitmun.plugin.core.domain">Territory</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#getTerritory--">getTerritory</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#setCartography-org.sitmun.plugin.core.domain.Cartography-">setCartography</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Cartography.html" title="class in org.sitmun.plugin.core.domain">Cartography</a>&nbsp;cartography)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#setCreatedDate-java.util.Date-">setCreatedDate</a></span>(java.util.Date&nbsp;createdDate)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#setId-java.math.BigInteger-">setId</a></span>(java.math.BigInteger&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#setOwner-java.lang.String-">setOwner</a></span>(java.lang.String&nbsp;owner)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#setTerritory-org.sitmun.plugin.core.domain.Territory-">setTerritory</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Territory.html" title="class in org.sitmun.plugin.core.domain">Territory</a>&nbsp;territory)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#toString--">toString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/CartographyAvailability.html#toString--">toString</a></span>()</code>
+<div class="block">Provides a human readable description of the grant.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -219,6 +230,22 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="toString--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toString</h4>
+<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<div class="block">Provides a human readable description of the grant.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a short description of the grant</dd>
+</dl>
+</li>
+</ul>
 <a name="getId--">
 <!--   -->
 </a>
@@ -255,6 +282,24 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;setCreatedDate(java.util.Date&nbsp;createdDate)</pre>
 </li>
 </ul>
+<a name="getOwner--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOwner</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getOwner()</pre>
+</li>
+</ul>
+<a name="setOwner-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOwner</h4>
+<pre>public&nbsp;void&nbsp;setOwner(java.lang.String&nbsp;owner)</pre>
+</li>
+</ul>
 <a name="getTerritory--">
 <!--   -->
 </a>
@@ -285,23 +330,10 @@ extends java.lang.Object</pre>
 <a name="setCartography-org.sitmun.plugin.core.domain.Cartography-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>setCartography</h4>
 <pre>public&nbsp;void&nbsp;setCartography(<a href="../../../../../org/sitmun/plugin/core/domain/Cartography.html" title="class in org.sitmun.plugin.core.domain">Cartography</a>&nbsp;cartography)</pre>
-</li>
-</ul>
-<a name="toString--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
 </li>
 </ul>
 </li>
