@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">UserConfiguration</span>
 extends java.lang.Object</pre>
+<div class="block">User role in a territory.</div>
 </li>
 </ul>
 </div>
@@ -153,26 +154,34 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#getRole--">getRole</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#getRoleChildren--">getRoleChildren</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/sitmun/plugin/core/domain/Territory.html" title="class in org.sitmun.plugin.core.domain">Territory</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#getTerritory--">getTerritory</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#getUser--">getUser</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#setId-java.math.BigInteger-">setId</a></span>(java.math.BigInteger&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#setRole-org.sitmun.plugin.core.domain.Role-">setRole</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&nbsp;role)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#setRoleChildren-org.sitmun.plugin.core.domain.Role-">setRoleChildren</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&nbsp;roleChildren)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#setTerritory-org.sitmun.plugin.core.domain.Territory-">setTerritory</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Territory.html" title="class in org.sitmun.plugin.core.domain">Territory</a>&nbsp;territory)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserConfiguration.html#setUser-org.sitmun.plugin.core.domain.User-">setUser</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a>&nbsp;user)</code>&nbsp;</td>
 </tr>
@@ -281,10 +290,28 @@ extends java.lang.Object</pre>
 <a name="setRole-org.sitmun.plugin.core.domain.Role-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setRole</h4>
 <pre>public&nbsp;void&nbsp;setRole(<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&nbsp;role)</pre>
+</li>
+</ul>
+<a name="getRoleChildren--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRoleChildren</h4>
+<pre>public&nbsp;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&nbsp;getRoleChildren()</pre>
+</li>
+</ul>
+<a name="setRoleChildren-org.sitmun.plugin.core.domain.Role-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setRoleChildren</h4>
+<pre>public&nbsp;void&nbsp;setRoleChildren(<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&nbsp;roleChildren)</pre>
 </li>
 </ul>
 </li>

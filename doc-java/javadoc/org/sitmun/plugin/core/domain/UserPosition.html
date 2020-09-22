@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">UserPosition</span>
 extends java.lang.Object</pre>
+<div class="block">User position in a territory.</div>
 </li>
 </ul>
 </div>
@@ -149,12 +150,12 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getCreatedDate--">getCreatedDate</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.Date</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getDatedDate--">getDatedDate</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getEmail--">getEmail</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.Date</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getExpirationDate--">getExpirationDate</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.math.BigInteger</code></td>
@@ -173,16 +174,16 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getTerritory--">getTerritory</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getType--">getType</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#getUser--">getUser</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setCreatedDate-java.util.Date-">setCreatedDate</a></span>(java.util.Date&nbsp;createdDate)</code>&nbsp;</td>
-</tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setDatedDate-java.util.Date-">setDatedDate</a></span>(java.util.Date&nbsp;datedDate)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setCreatedDate-java.util.Date-">setCreatedDate</a></span>(java.util.Date&nbsp;createdDate)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -190,21 +191,29 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setId-java.math.BigInteger-">setId</a></span>(java.math.BigInteger&nbsp;id)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setExpirationDate-java.util.Date-">setExpirationDate</a></span>(java.util.Date&nbsp;datedDate)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setName-java.lang.String-">setName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setId-java.math.BigInteger-">setId</a></span>(java.math.BigInteger&nbsp;id)</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setOrganization-java.lang.String-">setOrganization</a></span>(java.lang.String&nbsp;organization)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setName-java.lang.String-">setName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setTerritory-org.sitmun.plugin.core.domain.Territory-">setTerritory</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Territory.html" title="class in org.sitmun.plugin.core.domain">Territory</a>&nbsp;territory)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setOrganization-java.lang.String-">setOrganization</a></span>(java.lang.String&nbsp;organization)</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setTerritory-org.sitmun.plugin.core.domain.Territory-">setTerritory</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/Territory.html" title="class in org.sitmun.plugin.core.domain">Territory</a>&nbsp;territory)</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setType-java.lang.String-">setType</a></span>(java.lang.String&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/UserPosition.html#setUser-org.sitmun.plugin.core.domain.User-">setUser</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a>&nbsp;user)</code>&nbsp;</td>
 </tr>
@@ -337,22 +346,40 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;setCreatedDate(java.util.Date&nbsp;createdDate)</pre>
 </li>
 </ul>
-<a name="getDatedDate--">
+<a name="getExpirationDate--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDatedDate</h4>
-<pre>public&nbsp;java.util.Date&nbsp;getDatedDate()</pre>
+<h4>getExpirationDate</h4>
+<pre>public&nbsp;java.util.Date&nbsp;getExpirationDate()</pre>
 </li>
 </ul>
-<a name="setDatedDate-java.util.Date-">
+<a name="setExpirationDate-java.util.Date-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setDatedDate</h4>
-<pre>public&nbsp;void&nbsp;setDatedDate(java.util.Date&nbsp;datedDate)</pre>
+<h4>setExpirationDate</h4>
+<pre>public&nbsp;void&nbsp;setExpirationDate(java.util.Date&nbsp;datedDate)</pre>
+</li>
+</ul>
+<a name="getType--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getType</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getType()</pre>
+</li>
+</ul>
+<a name="setType-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setType</h4>
+<pre>public&nbsp;void&nbsp;setType(java.lang.String&nbsp;type)</pre>
 </li>
 </ul>
 <a name="getUser--">

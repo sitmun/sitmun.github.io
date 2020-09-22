@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">Tree</span>
 extends java.lang.Object</pre>
+<div class="block">Tree.</div>
 </li>
 </ul>
 </div>
@@ -145,36 +146,44 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#getAllNodes--">getAllNodes</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#getAvailableRoles--">getAvailableRoles</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.math.BigInteger</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#getId--">getId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#getName--">getName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#getNodes--">getNodes</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setAvailableRoles-java.util.Set-">setAvailableRoles</a></span>(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;&nbsp;availableRoles)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#getOwner--">getOwner</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setId-java.math.BigInteger-">setId</a></span>(java.math.BigInteger&nbsp;id)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setAllNodes-java.util.Set-">setAllNodes</a></span>(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;&nbsp;roots)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setName-java.lang.String-">setName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setAvailableRoles-java.util.Set-">setAvailableRoles</a></span>(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;&nbsp;availableRoles)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setNodes-java.util.Set-">setNodes</a></span>(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;&nbsp;nodes)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setId-java.math.BigInteger-">setId</a></span>(java.math.BigInteger&nbsp;id)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setName-java.lang.String-">setName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/sitmun/plugin/core/domain/Tree.html#setOwner-org.sitmun.plugin.core.domain.User-">setOwner</a></span>(<a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a>&nbsp;owner)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -215,24 +224,6 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getAvailableRoles--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAvailableRoles</h4>
-<pre>public&nbsp;java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;&nbsp;getAvailableRoles()</pre>
-</li>
-</ul>
-<a name="setAvailableRoles-java.util.Set-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setAvailableRoles</h4>
-<pre>public&nbsp;void&nbsp;setAvailableRoles(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;&nbsp;availableRoles)</pre>
-</li>
-</ul>
 <a name="getId--">
 <!--   -->
 </a>
@@ -240,10 +231,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getId</h4>
 <pre>public&nbsp;java.math.BigInteger&nbsp;getId()</pre>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the id</dd>
-</dl>
 </li>
 </ul>
 <a name="setId-java.math.BigInteger-">
@@ -253,10 +240,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setId</h4>
 <pre>public&nbsp;void&nbsp;setId(java.math.BigInteger&nbsp;id)</pre>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>id</code> - the id to set</dd>
-</dl>
 </li>
 </ul>
 <a name="getName--">
@@ -277,22 +260,58 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;setName(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
-<a name="getNodes--">
+<a name="getOwner--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getNodes</h4>
-<pre>public&nbsp;java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;&nbsp;getNodes()</pre>
+<h4>getOwner</h4>
+<pre>public&nbsp;<a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a>&nbsp;getOwner()</pre>
 </li>
 </ul>
-<a name="setNodes-java.util.Set-">
+<a name="setOwner-org.sitmun.plugin.core.domain.User-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOwner</h4>
+<pre>public&nbsp;void&nbsp;setOwner(<a href="../../../../../org/sitmun/plugin/core/domain/User.html" title="class in org.sitmun.plugin.core.domain">User</a>&nbsp;owner)</pre>
+</li>
+</ul>
+<a name="getAllNodes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAllNodes</h4>
+<pre>public&nbsp;java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;&nbsp;getAllNodes()</pre>
+</li>
+</ul>
+<a name="setAllNodes-java.util.Set-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAllNodes</h4>
+<pre>public&nbsp;void&nbsp;setAllNodes(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;&nbsp;roots)</pre>
+</li>
+</ul>
+<a name="getAvailableRoles--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAvailableRoles</h4>
+<pre>public&nbsp;java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;&nbsp;getAvailableRoles()</pre>
+</li>
+</ul>
+<a name="setAvailableRoles-java.util.Set-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>setNodes</h4>
-<pre>public&nbsp;void&nbsp;setNodes(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/TreeNode.html" title="class in org.sitmun.plugin.core.domain">TreeNode</a>&gt;&nbsp;nodes)</pre>
+<h4>setAvailableRoles</h4>
+<pre>public&nbsp;void&nbsp;setAvailableRoles(java.util.Set&lt;<a href="../../../../../org/sitmun/plugin/core/domain/Role.html" title="class in org.sitmun.plugin.core.domain">Role</a>&gt;&nbsp;availableRoles)</pre>
 </li>
 </ul>
 </li>
