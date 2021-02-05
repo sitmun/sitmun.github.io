@@ -28,11 +28,7 @@
   "cartographyNonSelectedMessage": "Para editar un nodo tienes que seleccionar una cartografia!",
   "projectionMessage": "Introdueix EPSG:Código",
   "projectionsMessage": "Introduce todas las proyecciones EPSG:Código separadas por intros",
-  "passwordMessage" : "Los campos contraseña y confirmar contraseña no coinciden!",
-  "requiredFieldMessage": "Rellene todos los campos obligatorios",
-  "duplicateMessage": "Si dupliques los datos sin guardar los cambios, las modificacions se sobreescribiran, quieres continuar?",
-  "caution": "Peligro",
-  "atention": "Atención",
+  "caution": "Importante",
   "lang": {
     "catalan": "Catalán",
     "spanish": "Castellano",
@@ -130,11 +126,10 @@
     "createdDate": "Alta",
     "minimumScale": "Escala Min",
     "maximumScale": "Escala Max",
-    "metadataURL": "URL metadatos asociados",
+    "metadataURL": "URL datos",
     "geometryType": "Tipo Geometría",
     "transparency": "Transparencia",
     "legendType": "Tipo leyenda",
-    "legendUrl": "Url leyenda",
     "description": "Descripción",
     "datasetURL": "Url de datos",
     "territory": "Territorio",
@@ -291,24 +286,7 @@
     "name": "Nombre",
     "informationType": "Tipo de información",
     "groupTask": "Grupo tarea",
-    "status": "Estado",
-    "taskUI": "Tarea UI",
-    "parameters": "Parámetros",
-    "fix": "Fijo",
-    "user": "Usuario",
-    "format": "Formato",
-    "formatWPS": "Formato datainput (WPS)",
-    "value": "Valor",
-    "order": "Orden",
-    "paramUrl": "Param. URL",
-    "type": "Tipo",
-    "parameter": "Parámetro",
-    "code": "Código",
-    "description":"Descripción",
-    "cartography": "Cartografia",
-    "modificate": "Modificar",
-    "textFilter": "Texto filtro",
-    "deleteCartography": "Eliminar cartografia"
+    "status": "Estado"
   },
   "tasksQueryEntity": {
     "generalData": "Datos Generales",
@@ -331,13 +309,11 @@
     "select": "Select",
     "description": "Descripción",
     "order": "Orden",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksDownloadEntity": {
     "generalData": "Datos Generales",
     "tasksDownload": "Tareas-Descarga",
-    "informationType": "Tipo de información",
     "name": "Nombre",
     "observations": "Observaciones",
     "application": "Aplicación",
@@ -349,8 +325,7 @@
     "extent": "Extensión",
     "roles": "Roles",
     "territories": "Territorios",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksDocumentEntity": {
     "generalData": "Datos Generales",
@@ -368,8 +343,7 @@
     "cartography": "Cartografía",
     "territories": "Territorios",
     "name": "Nombre",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksEditionEntity": {
     "generalData": "Datos Generales",
@@ -404,8 +378,7 @@
     "roles": "Roles",
     "territories": "Territorios",
     "columns": "Columnas",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksExtractionFMEEntity": {
     "generalData": "Datos Generales",
@@ -421,8 +394,7 @@
     "territories": "Territorios",
     "description": "Descripción",
     "value": "Valor",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksLocatorEntity": {
     "generalData": "Datos Generales",
@@ -446,8 +418,7 @@
     "select": "Select",
     "description": "Descripción",
     "order": "Orden",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksMoreInfoEntity": {
     "generalData": "Datos Generales",
@@ -472,8 +443,7 @@
     "description": "Descripción",
     "value": "Valor",
     "order": "Orden",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksReportEntity": {
     "generalData": "Datos Generales",
@@ -490,8 +460,7 @@
     "territories": "Territorios",
     "roles": "Roles",
     "id": "ID",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "tasksThematicEntity": {
     "generalData": "Datos Generales",
@@ -507,8 +476,7 @@
     "territories": "Territorios",
     "description": "Descripción",
     "value": "Valor",
-    "status": "Estado",
-    "taskName": "Nombre tarea"
+    "status": "Estado"
   },
   "loginEntity": {
     "username": "Usuario",

@@ -28,11 +28,7 @@
   "cartographyNonSelectedMessage": "If you want to edit a node you must select a cartography!",
   "projectionMessage": "Introduce EPSG:Code",
   "projectionsMessage": "Introduce all projections like EPSG:Code separated by intro",
-  "passwordMessage" : "Password/confirm passwords fields don't match!",
-  "requiredFieldMessage": "  You must fill all required fields ",
-  "duplicateMessage": "If you duplicate rows without apply changes your modifications will be overwritted, do you want to continue?",
-  "caution": "Caution",
-  "atention": "Atention",
+  "caution": "Important",
   "lang": {
     "catalan": "Catalan",
     "spanish": "Spanish",
@@ -132,11 +128,10 @@
     "createdDate": "Created date",
     "minimumScale": "Min Scale",
     "maximumScale": "Max Scale",
-    "metadataURL": "Associated metadata URL",
+    "metadataURL": "URL data",
     "geometryType": "Geometry Type",
     "transparency": "Transparency",
     "legendType": "Legend Type",
-    "legendUrl": "Legend Url",
     "description": "Description",
     "datasetURL": "Data URL",
     "territory": "Territory",
@@ -281,7 +276,7 @@
     "territory": "Territory",
     "territories": "Territories",
     "layers": "Layers",
-    "code": "Code",
+    "code": "Codi",
     "groupTask": "GroupTask",
     "status": "Status"
   },
@@ -292,24 +287,7 @@
     "name": "Name",
     "informationType": "Information Type",
     "groupTask": "GroupTask",
-    "status": "Status",
-    "taskUI": "Task UI",
-    "parameters": "Parameters",
-    "fix": "Fix",
-    "user": "User",
-    "format": "Format",
-    "formatWPS": "Datainput format (WPS)",
-    "value": "Value",
-    "order": "Order",
-    "paramUrl": "Param. URL",
-    "type": "Type",
-    "parameter": "Parameter",
-    "description":"Description",
-    "code": "Code",
-    "cartography": "Cartography",
-    "modificate": "Modificate",
-    "textFilter": "Text filter",
-    "deleteCartography": "Delete cartography"
+    "status": "Status"
   },
   "tasksQueryEntity": {
     "generalData": "General Data",
@@ -332,13 +310,11 @@
     "select": "Select",
     "description": "Description",
     "order": "Order",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksDownloadEntity": {
     "generalData": "General Data",
     "tasksDownload": "Tasks-Download",
-    "informationType": "Information type",
     "name": "Name",
     "observations": "Observations",
     "application": "Application",
@@ -350,8 +326,7 @@
     "extent": "Extension",
     "roles": "Roles",
     "territories": "Territories",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksDocumentEntity": {
     "generalData": "General Data",
@@ -369,8 +344,7 @@
     "cartography": "Cartography",
     "territories": "Territories",
     "name": "Name",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksEditionEntity": {
     "generalData": "General Data",
@@ -405,8 +379,7 @@
     "roles": "Roles",
     "territories": "Territoris",
     "columns": "Columns",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksExtractionFMEEntity": {
     "generalData": "General Data",
@@ -422,8 +395,7 @@
     "territories": "Territories",
     "description": "Description",
     "value": "Value",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksLocatorEntity": {
     "generalData": "General Data",
@@ -447,8 +419,7 @@
     "select": "Select",
     "description": "Description",
     "order": "Order",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksMoreInfoEntity": {
     "generalData": "General Data",
@@ -473,8 +444,7 @@
     "description": "Description",
     "value": "Value",
     "order": "Order",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksReportEntity": {
     "generalData": "General Data",
@@ -491,8 +461,7 @@
     "territories": "Territories",
     "roles": "Roles",
     "id": "ID",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "tasksThematicEntity": {
     "generalData": "General Data",
@@ -508,8 +477,7 @@
     "territories": "Territories",
     "description": "Description",
     "value": "Value",
-    "status": "Status",
-    "taskName": "Task name"
+    "status": "Status"
   },
   "loginEntity": {
     "username": "User",

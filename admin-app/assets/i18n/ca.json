@@ -28,11 +28,7 @@
   "cartographyNonSelectedMessage": "Per editar un node has de seleccionar una cartografia!",
   "projectionMessage": "Introdueix EPSG:Codi",
   "projectionsMessage": "Introdueix totes les projeccions EPSG:Codi separades per intro",
-  "passwordMessage" : "Els camps contrasenya i confirmar contrasenya no coincideixen!",
-  "requiredFieldMessage": "Empleni tots els camps obligatoris ",
-  "duplicateMessage": "Si dupliques les dades sense guardar els canvis, les modificacions seran sobreescrites, vols continuar?",
-  "caution": "Perill",
-  "atention": "Atenció",
+  "caution": "Important",
   "lang": {
     "catalan": "Català",
     "spanish": "Castellà",
@@ -131,11 +127,10 @@
     "createdDate": "Alta",
     "minimumScale": "Escala Min",
     "maximumScale": "Escala Max",
-    "metadataURL": "URL metadades associades",
+    "metadataURL": "URL dades",
     "geometryType": "Tipus Geometria",
     "transparency": "Transparència",
     "legendType": "Tipus llegenda",
-    "legendUrl": "Url llegenda",
     "description": "Descripció",
     "datasetURL": "Url de dades",
     "territory": "Territori",
@@ -168,12 +163,7 @@
     "selectable": "Seleccionable",
     "service": "Servei",
     "layer": "Capa",
-    "connection":"Connexió",
-    "territorialFilter": "Filtre territorial",
-    "value": "Valor",
-    "valueType": "Tipus valor",
-    "typeId": "Tipus Id",
-    "required": "Obligatori"
+    "connection":"Connexió"
   },
   "layersPermitsEntity": {
     "generalData": "Dades Generals",
@@ -304,24 +294,7 @@
     "name": "Nom",
     "informationType": "Tipus d'informació",
     "groupTask": "Grup tasca",
-    "status": "Estat",
-    "taskUI": "Tasca UI",
-    "parameters": "Paràmetres",
-    "fix": "Fixe",
-    "user": "Usuari",
-    "format": "Format",
-    "formatWPS": "Format datainput (WPS)",
-    "value": "Valor",
-    "order": "Ordre",
-    "paramUrl": "Param. URL",
-    "type": "Tipus",
-    "parameter": "Paràmetre",
-    "code": "Codi",
-    "description":"Descripció",
-    "cartography": "Cartografia",
-    "modificate": "Modificar",
-    "textFilter": "Text filtre",
-    "deleteCartography": "Esborrar cartografia"
+    "status": "Estat"
   },
   "tasksQueryEntity": {
     "generalData": "Dades Generals",
@@ -344,13 +317,11 @@
     "select": "Select",
     "description": "Descripció",
     "order": "Ordre",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksDownloadEntity": {
     "generalData": "Dades Generals",
     "tasksDownload": "Tasques-Descàrrega",
-    "informationType": "Tipus d'informació",
     "name": "Nom",
     "observations": "Observacions",
     "application": "Aplicació",
@@ -362,8 +333,7 @@
     "extent": "Extensió",
     "roles": "Rols",
     "territories": "Territoris",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksDocumentEntity": {
     "generalData": "Dades Generals",
@@ -381,8 +351,7 @@
     "cartography": "Cartografia",
     "territories": "Territoris",
     "name": "Nom",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksEditionEntity": {
     "generalData": "Dades Generals",
@@ -417,8 +386,7 @@
     "roles": "Rols",
     "territories": "Territoris",
     "columns": "Columnes",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksExtractionFMEEntity": {
     "generalData": "Dades Generals",
@@ -434,8 +402,7 @@
     "territories": "Territoris",
     "description": "Descripció",
     "value": "Valor",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksLocatorEntity": {
     "generalData": "Dades Generals",
@@ -459,8 +426,7 @@
     "select": "Select",
     "description": "Descripció",
     "order": "Ordre",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksMoreInfoEntity": {
     "generalData": "Dades Generals",
@@ -485,8 +451,7 @@
     "description": "Descripció",
     "value": "Valor",
     "order": "Ordre",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksReportEntity": {
     "generalData": "Dades Generals",
@@ -503,8 +468,7 @@
     "territories": "Territoris",
     "roles": "Rols",
     "id": "ID",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "tasksThematicEntity": {
     "generalData": "Dades Generals",
@@ -520,8 +484,7 @@
     "territories": "Territoris",
     "description": "Descripció",
     "value": "Valor",
-    "status": "Estat",
-    "taskName": "Nom tasca"
+    "status": "Estat"
   },
   "loginEntity": {
     "username": "Usuari",
