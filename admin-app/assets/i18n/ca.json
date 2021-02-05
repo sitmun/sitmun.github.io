@@ -168,7 +168,12 @@
     "selectable": "Seleccionable",
     "service": "Servei",
     "layer": "Capa",
-    "connection":"Connexió"
+    "connection":"Connexió",
+    "territorialFilter": "Filtre territorial",
+    "value": "Valor",
+    "valueType": "Tipus valor",
+    "typeId": "Tipus Id",
+    "required": "Obligatori"
   },
   "layersPermitsEntity": {
     "generalData": "Dades Generals",
