@@ -30,6 +30,7 @@
   "projectionsMessage": "Introduce all projections like EPSG:Code separated by intro",
   "passwordMessage" : "Password/confirm passwords fields don't match!",
   "requiredFieldMessage": "  You must fill all required fields ",
+  "duplicateMessage": "If you duplicate rows without apply changes your modifications will be overwritted, do you want to continue?",
   "caution": "Caution",
   "atention": "Atention",
   "lang": {

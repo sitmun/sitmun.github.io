@@ -30,6 +30,7 @@
   "projectionsMessage": "Introduce todas las proyecciones EPSG:Código separadas por intros",
   "passwordMessage" : "Los campos contraseña y confirmar contraseña no coinciden!",
   "requiredFieldMessage": "Rellene todos los campos obligatorios",
+  "duplicateMessage": "Si dupliques los datos sin guardar los cambios, las modificacions se sobreescribiran, quieres continuar?",
   "caution": "Peligro",
   "atention": "Atención",
   "lang": {
