@@ -60,13 +60,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AngularHalModule.html" data-type="entity-link">AngularHalModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AngularHalModule-a9b78c45961283e4ede586f38b6d3cf6"' : 'data-target="#xs-injectables-links-module-AngularHalModule-a9b78c45961283e4ede586f38b6d3cf6"' }>
+                                        'data-target="#injectables-links-module-AngularHalModule-c32448fa4a8367efa278113c9067e28e"' : 'data-target="#xs-injectables-links-module-AngularHalModule-c32448fa4a8367efa278113c9067e28e"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AngularHalModule-a9b78c45961283e4ede586f38b6d3cf6"' :
-                                        'id="xs-injectables-links-module-AngularHalModule-a9b78c45961283e4ede586f38b6d3cf6"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AngularHalModule-c32448fa4a8367efa278113c9067e28e"' :
+                                        'id="xs-injectables-links-module-AngularHalModule-c32448fa4a8367efa278113c9067e28e"' }>
                                         <li class="link">
                                             <a href="injectables/ExternalService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ExternalService</a>
@@ -78,13 +78,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SitmunFrontendCoreModule.html" data-type="entity-link">SitmunFrontendCoreModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' }>
+                                        'data-target="#directives-links-module-SitmunFrontendCoreModule-fc035aec9ac158cce79fc98f8847dffc"' : 'data-target="#xs-directives-links-module-SitmunFrontendCoreModule-fc035aec9ac158cce79fc98f8847dffc"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' :
-                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-0fedebc7df585cb4327aa16e4e44204a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SitmunFrontendCoreModule-fc035aec9ac158cce79fc98f8847dffc"' :
+                                        'id="xs-directives-links-module-SitmunFrontendCoreModule-fc035aec9ac158cce79fc98f8847dffc"' }>
                                         <li class="link">
                                             <a href="directives/HasAnyAuthorityDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">HasAnyAuthorityDirective</a>
@@ -129,6 +129,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/CartographyGroup.html" data-type="entity-link">CartographyGroup</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CartographyParameter.html" data-type="entity-link">CartographyParameter</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CodeList.html" data-type="entity-link">CodeList</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Connection.html" data-type="entity-link">Connection</a>
@@ -191,6 +197,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Territory.html" data-type="entity-link">Territory</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TerritoryGroupType.html" data-type="entity-link">TerritoryGroupType</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TerritoryType.html" data-type="entity-link">TerritoryType</a>
                             </li>
                             <li class="link">
@@ -243,7 +252,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/CartographyGroupService.html" data-type="entity-link">CartographyGroupService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/CartographyParameterService.html" data-type="entity-link">CartographyParameterService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/CartographyService.html" data-type="entity-link">CartographyService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/CodeListService.html" data-type="entity-link">CodeListService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ConnectionService.html" data-type="entity-link">ConnectionService</a>
@@ -289,6 +304,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/TaskUIService.html" data-type="entity-link">TaskUIService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TerritoryGroupTypeService.html" data-type="entity-link">TerritoryGroupTypeService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/TerritoryService.html" data-type="entity-link">TerritoryService</a>

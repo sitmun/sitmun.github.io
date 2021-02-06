@@ -99,7 +99,7 @@
                                 <a href="#resourceArray">resourceArray</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#resourceService">resourceService</a>
                             </li>
                             <li>
@@ -437,7 +437,7 @@
                         <a name="resourceService"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                             resourceService</b>
                             <a href="#resourceService"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -916,7 +916,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getAll(options?: <a href="../undefineds/HalOptions.html">HalOptions</a>, subType?: <a href="../interfaces/SubTypeBuilder.html">SubTypeBuilder</a>)</code>
+                    <code>getAll(options?: <a href="../undefineds/HalOptions.html">HalOptions</a>, subType?: <a href="../interfaces/SubTypeBuilder.html">SubTypeBuilder</a>, embeddedName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
                 </td>
             </tr>
 
@@ -961,6 +961,18 @@
                                     <td>subType</td>
                                     <td>
                                                 <code><a href="../interfaces/SubTypeBuilder.html" target="_self" >SubTypeBuilder</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>embeddedName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
                                     </td>
 
                                     <td>
@@ -2124,7 +2136,7 @@ import {Sort} from &#x27;./sort&#x27;;
 import {ResourceService} from &#x27;./resource.service&#x27;;
 import {SubTypeBuilder} from &#x27;./subtype-builder&#x27;;
 import {isNullOrUndefined} from &#x27;util&#x27;;
-import {Observable} from &#x27;rxjs/internal/Observable&#x27;;
+import {Observable} from &#x27;rxjs&#x27;;
 import {Injector} from &quot;@angular/core&quot;;
 
 /** HAL param data model */
@@ -2141,7 +2153,7 @@ export class RestService&lt;T extends Resource&gt; {
     /** resource array */
     public resourceArray: ResourceArray&lt;T&gt;;
     /** resource service */
-    private resourceService: ResourceService;
+    public resourceService: ResourceService;
     /** _embedded field name */
     private _embedded: string &#x3D; &#x27;_embedded&#x27;;
 
@@ -2168,8 +2180,8 @@ export class RestService&lt;T extends Resource&gt; {
     }
 
     /** get all resources with optional options an subType params */
-    public getAll(options?: HalOptions, subType?: SubTypeBuilder): Observable&lt;T[]&gt; {
-        return this.resourceService.getAll(this.type, this.resource, this._embedded, options, subType).pipe(
+    public getAll(options?: HalOptions, subType?: SubTypeBuilder, embeddedName?:String): Observable&lt;T[]&gt; {
+        return this.resourceService.getAll(this.type, this.resource, this._embedded, options, subType,embeddedName).pipe(
             mergeMap((resourceArray: ResourceArray&lt;T&gt;) &#x3D;&gt; {
                 if (options &amp;&amp; options.notPaged &amp;&amp; !isNullOrUndefined(resourceArray.first_uri)) {
                     options.notPaged &#x3D; false;

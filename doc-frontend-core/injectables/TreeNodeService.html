@@ -89,10 +89,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#API">API</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#TREE_NODE_API">TREE_NODE_API</a>
                             </li>
                             <li>
@@ -108,7 +104,7 @@
                                 <a href="#resourceArray">resourceArray</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#resourceService">resourceService</a>
                             </li>
                             <li>
@@ -257,7 +253,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -336,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:20</a></div>
                 </td>
             </tr>
 
@@ -408,8 +404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -905,7 +901,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getAll(options?: <a href="../undefineds/HalOptions.html">HalOptions</a>, subType?: <a href="../interfaces/SubTypeBuilder.html">SubTypeBuilder</a>)</code>
+                    <code>getAll(options?: <a href="../undefineds/HalOptions.html">HalOptions</a>, subType?: <a href="../interfaces/SubTypeBuilder.html">SubTypeBuilder</a>, embeddedName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
                 </td>
             </tr>
 
@@ -956,6 +952,18 @@
                                     <td>subType</td>
                                     <td>
                                                 <code><a href="../interfaces/SubTypeBuilder.html" target="_self" >SubTypeBuilder</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>embeddedName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
                                     </td>
 
                                     <td>
@@ -2219,45 +2227,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="API"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            API</b>
-                            <a href="#API"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;/api&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:12</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>API base path </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="TREE_NODE_API"></a>
                         <span class="name">
                             <b>
@@ -2269,12 +2238,18 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.API + &#x27;/tree-nodes&#x27;</code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;tree-nodes&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/tree/tree-node.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -2422,7 +2397,7 @@
                         <a name="resourceService"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                             resourceService</b>
                             <a href="#resourceService"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -2506,17 +2481,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TreeNode } from &#x27;./tree-node.model&#x27;;
 import { Injectable, Injector } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
 
 /** Tree node manager service */
 @Injectable() 
 export class TreeNodeService extends RestService&lt;TreeNode&gt; {
   
-  /** API base path */
-  public API &#x3D; &#x27;/api&#x27;;
   /** API resource path */
-  public TREE_NODE_API &#x3D; this.API + &#x27;/tree-nodes&#x27;;
+  public TREE_NODE_API &#x3D; &#x27;tree-nodes&#x27;;
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -2565,7 +2538,7 @@ export class TreeNodeService extends RestService&lt;TreeNode&gt; {
       if (item.cartography &amp;&amp; item.cartography._links &amp;&amp; item.cartography._links.self) {
         item.cartography &#x3D; item.cartography._links.self.href;
       }      
-      result &#x3D; this.http.post(this.TREE_NODE_API , item);
+      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.TREE_NODE_API) , item);
     }
     return result;
   }

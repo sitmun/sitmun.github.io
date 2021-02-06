@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>CartographyGroupService</li>
+  <li>CodeListService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,14 +56,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sitmun-frontend-core/src/lib/cartography/cartography-group.service.ts</code>
+            <code>projects/sitmun-frontend-core/src/lib/codelist/codelist.service.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>CartographyGroup manager service </p>
+                <p>Connection manager service </p>
 
             </p>
 
@@ -89,7 +89,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#CARTOGRAPHY_GROUP_API">CARTOGRAPHY_GROUP_API</a>
+                                <a href="#CODELIST_API">CODELIST_API</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -253,7 +253,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography-group.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sitmun-frontend-core/src/lib/codelist/codelist.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -325,7 +325,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>remove(item: <a href="../classes/CartographyGroup.html">CartographyGroup</a>)</code>
+<code>remove(item: <a href="../classes/CodeList.html">CodeList</a>)</code>
                 </td>
             </tr>
 
@@ -333,14 +333,14 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography-group.service.ts:21</a></div>
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/codelist/codelist.service.ts:21</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>remove cartography group</p>
+                    <div class="io-description"><p>remove connection</p>
 </div>
 
                     <div class="io-description">
@@ -357,7 +357,7 @@
                                 <tr>
                                     <td>item</td>
                                     <td>
-                                                <code><a href="../classes/CartographyGroup.html" target="_self" >CartographyGroup</a></code>
+                                                <code><a href="../classes/CodeList.html" target="_self" >CodeList</a></code>
                                     </td>
 
                                     <td>
@@ -397,7 +397,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>save(item: <a href="../classes/CartographyGroup.html">CartographyGroup</a>)</code>
+<code>save(item: <a href="../classes/CodeList.html">CodeList</a>)</code>
                 </td>
             </tr>
 
@@ -405,14 +405,14 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography-group.service.ts:27</a></div>
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/codelist/codelist.service.ts:27</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>save cartography group</p>
+                    <div class="io-description"><p>save connection</p>
 </div>
 
                     <div class="io-description">
@@ -429,7 +429,7 @@
                                 <tr>
                                     <td>item</td>
                                     <td>
-                                                <code><a href="../classes/CartographyGroup.html" target="_self" >CartographyGroup</a></code>
+                                                <code><a href="../classes/CodeList.html" target="_self" >CodeList</a></code>
                                     </td>
 
                                     <td>
@@ -2227,12 +2227,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="CARTOGRAPHY_GROUP_API"></a>
+                        <a name="CODELIST_API"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            CARTOGRAPHY_GROUP_API</b>
-                            <a href="#CARTOGRAPHY_GROUP_API"><span class="icon ion-ios-link"></span></a>
+                            CODELIST_API</b>
+                            <a href="#CODELIST_API"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -2244,12 +2244,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;cartography-groups&#x27;</code>
+                            <i>Default value : </i><code>&#x27;codelist-values&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography-group.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sitmun-frontend-core/src/lib/codelist/codelist.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -2478,38 +2478,39 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CartographyGroup } from &#x27;./cartography-group.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CodeList } from &#x27;./codelist.model&#x27;;
 import { Injectable, Injector } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
 
-/** CartographyGroup manager service */
+/** Connection manager service */
 @Injectable()
-export class CartographyGroupService extends RestService&lt;CartographyGroup&gt; {
+export class CodeListService extends RestService&lt;CodeList&gt; {
   
-
+ 
   /** API resource path */
-  public CARTOGRAPHY_GROUP_API &#x3D;&#x27;cartography-groups&#x27;;
+  public CODELIST_API &#x3D; &#x27;codelist-values&#x27;;
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
-    super(CartographyGroup, &quot;cartography-groups&quot;, injector);
+    super(CodeList, &quot;codelist-values&quot;, injector);
   }
   
-  /** remove cartography group*/
-  remove(item: CartographyGroup) {
+  /** remove connection*/
+  remove(item: CodeList) {
     return this.http.delete(item._links.self.href);
    
   }
   
-  /** save cartography group*/
-  save(item: CartographyGroup): Observable&lt;any&gt; {
+  /** save connection*/
+  save(item: CodeList): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
     if (item._links!&#x3D;null) {
+      
       result &#x3D; this.http.put(item._links.self.href, item);
     } else {
-      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.CARTOGRAPHY_GROUP_API) , item);
+      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.CODELIST_API ), item);
     }
     return result;
   }
@@ -2548,7 +2549,7 @@ export class CartographyGroupService extends RestService&lt;CartographyGroup&gt;
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'CartographyGroupService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CodeListService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

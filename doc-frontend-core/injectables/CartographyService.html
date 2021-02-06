@@ -89,10 +89,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#API">API</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#CARTOGRAPHY_API">CARTOGRAPHY_API</a>
                             </li>
                             <li>
@@ -108,7 +104,7 @@
                                 <a href="#resourceArray">resourceArray</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#resourceService">resourceService</a>
                             </li>
                             <li>
@@ -257,7 +253,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -336,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:20</a></div>
                 </td>
             </tr>
 
@@ -408,8 +404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -905,7 +901,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getAll(options?: <a href="../undefineds/HalOptions.html">HalOptions</a>, subType?: <a href="../interfaces/SubTypeBuilder.html">SubTypeBuilder</a>)</code>
+                    <code>getAll(options?: <a href="../undefineds/HalOptions.html">HalOptions</a>, subType?: <a href="../interfaces/SubTypeBuilder.html">SubTypeBuilder</a>, embeddedName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">String</a>)</code>
                 </td>
             </tr>
 
@@ -956,6 +952,18 @@
                                     <td>subType</td>
                                     <td>
                                                 <code><a href="../interfaces/SubTypeBuilder.html" target="_self" >SubTypeBuilder</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>embeddedName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
                                     </td>
 
                                     <td>
@@ -2219,45 +2227,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="API"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            API</b>
-                            <a href="#API"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;/api&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:12</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>API base path </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="CARTOGRAPHY_API"></a>
                         <span class="name">
                             <b>
@@ -2269,12 +2238,18 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.API + &#x27;/cartographies&#x27;</code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;cartographies&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -2422,7 +2397,7 @@
                         <a name="resourceService"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                             resourceService</b>
                             <a href="#resourceService"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -2506,91 +2481,84 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Cartography } from &#x27;./cartography.model&#x27;;
 import { Injectable, Injector } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
-import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { RestService } from &#x27;../angular-hal/src/lib/rest.service&#x27;;
 
 /** Cartography manager service */
 @Injectable()
 export class CartographyService extends RestService&lt;Cartography&gt; {
-  
-  /** API base path */
-  public API &#x3D; &#x27;/api&#x27;;
+
   /** API resource path */
-  public CARTOGRAPHY_API &#x3D; this.API + &#x27;/cartographies&#x27;;
+  public CARTOGRAPHY_API &#x3D; &#x27;cartographies&#x27;;
 
   /** constructor */
-  constructor(injector: Injector,private http: HttpClient) {
+  constructor(injector: Injector, private http: HttpClient) {
     super(Cartography, &quot;cartographies&quot;, injector);
   }
-  
+
   /** remove cartography*/
   remove(item: Cartography) {
     return this.http.delete(item._links.self.href);
-   
+
   }
-  
+
   /** save cartography*/
   save(item: Cartography): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
+
     let cartographyConnection &#x3D; item.connection;
+    let cartographyService &#x3D; item.service;
+    let cartographySelectionService &#x3D; item.selectionService;
 
-    const cartographyService &#x3D; item.service;
-    const cartographySelectionService &#x3D; item.selectionService;
-    
-      
-    if (item.service!&#x3D;null)
+
+    if (item.service !&#x3D; null)
       item.service &#x3D; item.service._links.self.href;
-    if (item.selectionService!&#x3D;null)
-      item.selectionService &#x3D; item.selectionService._links.self.href;  
-    if (item.connection!&#x3D;null){
-        if (typeof item.connection._links!&#x3D; &#x27;undefined&#x27;) { 
-            item.connection &#x3D; item.connection._links.self.href;
-        } else {
-            cartographyConnection._links&#x3D; {};
-            cartographyConnection._links.self &#x3D; {};
-            cartographyConnection._links.self.href&#x3D;&quot;&quot;;
-        }        
-     }
+    if (item.selectionService !&#x3D; null)
+      item.selectionService &#x3D; item.selectionService._links.self.href;
+    if (item.connection !&#x3D; null) {
+      if (typeof item.connection._links !&#x3D; &#x27;undefined&#x27;) {
+        item.connection &#x3D; item.connection._links.self.href;
+      } else {
+        cartographyConnection._links &#x3D; {};
+        cartographyConnection._links.self &#x3D; {};
+        cartographyConnection._links.self.href &#x3D; &quot;&quot;;
+      }
+    }
 
-    if (item._links!&#x3D;null) {
-        
+    if (item._links !&#x3D; null) {
+
       //update relations
       delete item.connection;
-      delete item.service;            
+      delete item.service;
       delete item.selectionService;
-      
-     if (cartographyConnection._links.self.href&#x3D;&#x3D;&#x27;&#x27;){
-         item.deleteRelation(&#x27;connection&#x27;,cartographyConnection).subscribe(result &#x3D;&gt; {     
-         item.substituteRelation(&#x27;service&#x27;,cartographyService).subscribe(result &#x3D;&gt; {
-          item.substituteRelation(&#x27;selectionService&#x27;,cartographySelectionService).subscribe(result &#x3D;&gt; {
-      
-            }, error &#x3D;&gt; console.error(error));           
+
+      if (cartographyConnection._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
+        item.deleteRelation(&#x27;spatialSelectionConnection&#x27;, cartographyConnection).subscribe(result &#x3D;&gt; {
+          item.substituteRelation(&#x27;service&#x27;, cartographyService).subscribe(result &#x3D;&gt; {
+            item.substituteRelation(&#x27;spatialSelectionService&#x27;, cartographySelectionService).subscribe(result &#x3D;&gt; {
             }, error &#x3D;&gt; console.error(error));
-          
-             }, error &#x3D;&gt; console.error(error));
-          
+          }, error &#x3D;&gt; console.error(error));
+        }, error &#x3D;&gt; console.error(error));
+
       } else {
-          item.substituteRelation(&#x27;connection&#x27;,cartographyConnection).subscribe(result &#x3D;&gt; {
-          item.substituteRelation(&#x27;service&#x27;,cartographyService).subscribe(result &#x3D;&gt; {
-           item.substituteRelation(&#x27;selectionService&#x27;,cartographySelectionService).subscribe(result &#x3D;&gt; {
-      
-            }, error &#x3D;&gt; console.error(error));           
+        item.substituteRelation(&#x27;spatialSelectionConnection&#x27;, cartographyConnection).subscribe(result &#x3D;&gt; {
+          item.substituteRelation(&#x27;service&#x27;, cartographyService).subscribe(result &#x3D;&gt; {
+            item.substituteRelation(&#x27;spatialSelectionService&#x27;, cartographySelectionService).subscribe(result &#x3D;&gt; {
             }, error &#x3D;&gt; console.error(error));
-         
+          }, error &#x3D;&gt; console.error(error));
+        }, error &#x3D;&gt; console.error(error));
+      }
+
 
       
-            }, error &#x3D;&gt; console.error(error));           
-       } 
-         
       result &#x3D; this.http.put(item._links.self.href, item);
 
-           
     } else {
-      result &#x3D; this.http.post(this.CARTOGRAPHY_API , item);
+      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.CARTOGRAPHY_API), item);
     }
     return result;
   }
-  
+
 }
 </code></pre>
     </div>
