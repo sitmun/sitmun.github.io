@@ -2594,7 +2594,7 @@ export class UserService extends RestService&lt;User&gt; {
     if (item._links!&#x3D;null) {
       result &#x3D; this.http.put(item._links.self.href, item);
     } else {
-      result &#x3D; this.http.post(this.USER_API , item);
+      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.USER_API) , item);
     }
     return result;
   }
