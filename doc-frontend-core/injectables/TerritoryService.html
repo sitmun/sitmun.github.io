@@ -2506,17 +2506,16 @@ export class TerritoryService extends RestService&lt;Territory&gt; {
   save(item: Territory): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
 
-
-    let territoryGroupType &#x3D; item.groupType;
+    let territoryGroupType:any &#x3D; {}
+    territoryGroupType._links &#x3D; {};
+    territoryGroupType._links.self &#x3D; {};
+    territoryGroupType._links.self.href &#x3D; &quot;&quot;;
 
     if (item.groupType !&#x3D; null) {
+      territoryGroupType &#x3D; item.groupType;
       if (typeof item.groupType._links !&#x3D; &#x27;undefined&#x27;) {
         item.groupType &#x3D; item.groupType._links.self.href;
-      } else {
-        territoryGroupType._links &#x3D; {};
-        territoryGroupType._links.self &#x3D; {};
-        territoryGroupType._links.self.href &#x3D; &quot;&quot;;
-      }
+      } 
     }
 
     if (item._links !&#x3D; null) {

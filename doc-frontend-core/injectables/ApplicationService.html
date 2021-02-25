@@ -253,7 +253,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -332,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -404,8 +404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -2249,7 +2249,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/application/application.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -2483,6 +2483,7 @@ import { Injectable, Injector } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
+import { CartographyGroup } from &#x27;../cartography/cartography-group.model&#x27;;
 
 /** Application manager service */
 @Injectable()
@@ -2506,16 +2507,17 @@ export class ApplicationService extends RestService&lt;Application&gt; {
   /** save application*/
   save(item: Application): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
-    let applicationSituationMap &#x3D; item.situationMap;
 
+    let applicationSituationMap:any &#x3D; {};
+    applicationSituationMap._links&#x3D; {};
+    applicationSituationMap._links.self &#x3D; {};
+    applicationSituationMap._links.self.href&#x3D;&quot;&quot;;
+     
     if (item.situationMap!&#x3D;null){
+        applicationSituationMap&#x3D;item.situationMap;
         if (typeof item.situationMap._links!&#x3D; &#x27;undefined&#x27;) { 
             item.situationMap &#x3D; item.situationMap._links.self.href;
-        } else {
-            applicationSituationMap._links&#x3D; {};
-            applicationSituationMap._links.self &#x3D; {};
-            applicationSituationMap._links.self.href&#x3D;&quot;&quot;;
-        }        
+        }       
      }
 
     if (item._links!&#x3D;null) {

@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>BackgroundService</li>
+  <li>TranslationService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,16 +56,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sitmun-frontend-core/src/lib/cartography/background.service.ts</code>
+            <code>projects/sitmun-frontend-core/src/lib/translation/translation.service.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Background manager service </p>
-
-            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -89,7 +82,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#BACKGROUND_API">BACKGROUND_API</a>
+                                <a href="#TRANSLATION_API">TRANSLATION_API</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -253,7 +246,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/background.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/translation/translation.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -325,22 +318,22 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>remove(item: <a href="../classes/Background.html">Background</a>)</code>
+<code>remove(item: <a href="../classes/Translation.html">Translation</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/background.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/translation/translation.service.ts:22</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>remove background</p>
+                    <div class="io-description"><p>remove translation</p>
 </div>
 
                     <div class="io-description">
@@ -357,7 +350,7 @@
                                 <tr>
                                     <td>item</td>
                                     <td>
-                                                <code><a href="../classes/Background.html" target="_self" >Background</a></code>
+                                                <code><a href="../classes/Translation.html" target="_self" >Translation</a></code>
                                     </td>
 
                                     <td>
@@ -397,22 +390,22 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>save(item: <a href="../classes/Background.html">Background</a>)</code>
+<code>save(item: <a href="../classes/Translation.html">Translation</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/background.service.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/translation/translation.service.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>save background</p>
+                    <div class="io-description"><p>save translation</p>
 </div>
 
                     <div class="io-description">
@@ -429,7 +422,7 @@
                                 <tr>
                                     <td>item</td>
                                     <td>
-                                                <code><a href="../classes/Background.html" target="_self" >Background</a></code>
+                                                <code><a href="../classes/Translation.html" target="_self" >Translation</a></code>
                                     </td>
 
                                     <td>
@@ -2227,12 +2220,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="BACKGROUND_API"></a>
+                        <a name="TRANSLATION_API"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            BACKGROUND_API</b>
-                            <a href="#BACKGROUND_API"><span class="icon ion-ios-link"></span></a>
+                            TRANSLATION_API</b>
+                            <a href="#TRANSLATION_API"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -2244,12 +2237,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;backgrounds&#x27;</code>
+                            <i>Default value : </i><code>&#x27;translations&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/background.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/translation/translation.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -2478,74 +2471,65 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Background } from &#x27;./background.model&#x27;;
-import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
+import { Translation } from &#x27;./translation.model&#x27;;
 
-/** Background manager service */
-@Injectable()
-export class BackgroundService extends RestService&lt;Background&gt; {
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class TranslationService extends RestService&lt;Translation&gt; {
 
   /** API resource path */
-  public BACKGROUND_API &#x3D; &#x27;backgrounds&#x27;;
+  public TRANSLATION_API &#x3D; &#x27;translations&#x27;;
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
-    super(Background, &quot;backgrounds&quot;, injector);
+    super(Translation, &quot;translations&quot;, injector);
   }
   
-  /** remove background*/
-  remove(item: Background) {
-    return this.http.delete(item._links.self.href);   
+  /** remove translation*/
+  remove(item: Translation) {
+    return this.http.delete(item._links.self.href);
+   
   }
   
-  /** save background*/
-  save(item: Background): Observable&lt;any&gt; {
+  /** save translation*/
+  save(item: Translation): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
-    let backgroundCartographyGroup:any &#x3D; {}         
-    
-    backgroundCartographyGroup._links&#x3D; {};
-    backgroundCartographyGroup._links.self &#x3D; {};
-    backgroundCartographyGroup._links.self.href&#x3D;&quot;&quot;;
-    item.cartographyGroup;
 
-    if (item.cartographyGroup!&#x3D;null){
-      backgroundCartographyGroup &#x3D; item.cartographyGroup;
-        if (typeof item.cartographyGroup._links!&#x3D; &#x27;undefined&#x27;) { 
-            item.cartographyGroup &#x3D; item.cartographyGroup._links.self.href;
-        }    
-     }
+    let language:any &#x3D; {}
+    language._links &#x3D; {};
+    language._links.self &#x3D; {};
+    language._links.self.href &#x3D; &quot;&quot;;
+
+    if (item.language !&#x3D; null) {
+      language &#x3D; item.language;
+      if (typeof item.language._links !&#x3D; &#x27;undefined&#x27;) {
+        item.language &#x3D; item.language._links.self.href;
+      } 
+    }
 
     if (item._links!&#x3D;null) {
-      //update relations
-      delete item.cartographyGroup;        
-      
-      if (backgroundCartographyGroup._links.self.href&#x3D;&#x3D;&#x27;&#x27;){
-         item.deleteRelation(&#x27;cartographyGroup&#x27;,backgroundCartographyGroup).subscribe(result &#x3D;&gt; {     
+      delete item.language;
 
-          
-             }, error &#x3D;&gt; console.error(error));
-          
+      if (language._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
+        item.deleteRelation(&#x27;language&#x27;, language).subscribe(result &#x3D;&gt; {
+        }, error &#x3D;&gt; console.error(error));
+
       } else {
-          item.substituteRelation(&#x27;cartographyGroup&#x27;,backgroundCartographyGroup).subscribe(result &#x3D;&gt; {
-         
-
-      
-            }, error &#x3D;&gt; console.error(error));           
-       } 
-       
-         
+        item.substituteRelation(&#x27;language&#x27;, language).subscribe(result &#x3D;&gt; {
+        }, error &#x3D;&gt; console.error(error));
+      }
       result &#x3D; this.http.put(item._links.self.href, item);
-
-           
     } else {
-      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.BACKGROUND_API) , item);
+      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.TRANSLATION_API) , item);
     }
     return result;
   }
-  
 }
 </code></pre>
     </div>
@@ -2580,7 +2564,7 @@ export class BackgroundService extends RestService&lt;Background&gt; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'BackgroundService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TranslationService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

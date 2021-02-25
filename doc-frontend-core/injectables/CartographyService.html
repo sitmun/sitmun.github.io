@@ -253,7 +253,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -332,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -404,8 +404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -2249,7 +2249,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/cartography/cartography.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -2483,6 +2483,8 @@ import { Injectable, Injector } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { RestService } from &#x27;../angular-hal/src/lib/rest.service&#x27;;
+import { Connection } from &#x27;../connection/connection.model&#x27;;
+import { Service } from &#x27;../service/service.model&#x27;;
 
 /** Cartography manager service */
 @Injectable()
@@ -2506,39 +2508,40 @@ export class CartographyService extends RestService&lt;Cartography&gt; {
   save(item: Cartography): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
 
-    let cartographyConnection &#x3D; item.connection;
-    let cartographyService &#x3D; item.service;
-    let cartographySelectionService &#x3D; item.selectionService;
-
+    let cartographyConnection:any&#x3D;{};
+    cartographyConnection._links &#x3D; {};
+    cartographyConnection._links.self &#x3D; {};
+    cartographyConnection._links.self.href &#x3D; &quot;&quot;;
+     
+    let cartographyService:any&#x3D;{};
+    cartographyService._links &#x3D; {};
+    cartographyService._links.self &#x3D; {};
+    cartographyService._links.self.href &#x3D; &quot;&quot;;
+    
+    let cartographySelectionService:any &#x3D; {};
+    cartographySelectionService._links &#x3D; {};
+    cartographySelectionService._links.self &#x3D; {};
+    cartographySelectionService._links.self.href &#x3D; &quot;&quot;;
 
     if (item.service !&#x3D; null) {
+      cartographyService&#x3D;  item.service;
       if (typeof item.service._links !&#x3D; &#x27;undefined&#x27;) {
         item.service &#x3D; item.service._links.self.href;
-      } else {
-        cartographyService._links &#x3D; {};
-        cartographyService._links.self &#x3D; {};
-        cartographyService._links.self.href &#x3D; &quot;&quot;;
       }
     }
 
     if (item.selectionService !&#x3D; null) {
+      cartographySelectionService &#x3D; item.selectionService
       if (typeof item.selectionService._links !&#x3D; &#x27;undefined&#x27;) {
         item.selectionService &#x3D; item.selectionService._links.self.href;
-      } else {
-        cartographySelectionService._links &#x3D; {};
-        cartographySelectionService._links.self &#x3D; {};
-        cartographySelectionService._links.self.href &#x3D; &quot;&quot;;
       }
     }
 
     if (item.connection !&#x3D; null) {
+      cartographyConnection&#x3D;  item.connection;
       if (typeof item.connection._links !&#x3D; &#x27;undefined&#x27;) {
         item.connection &#x3D; item.connection._links.self.href;
-      } else {
-        cartographyConnection._links &#x3D; {};
-        cartographyConnection._links.self &#x3D; {};
-        cartographyConnection._links.self.href &#x3D; &quot;&quot;;
-      } 
+      }
     }
 
     if (item._links !&#x3D; null) {
@@ -2565,7 +2568,7 @@ export class CartographyService extends RestService&lt;Cartography&gt; {
       }
 
       if (cartographySelectionService._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
-        item.substituteRelation(&#x27;spatialSelectionService&#x27;, cartographySelectionService).subscribe(result &#x3D;&gt; {
+        item.deleteRelation(&#x27;spatialSelectionService&#x27;, cartographySelectionService).subscribe(result &#x3D;&gt; {
         }, error &#x3D;&gt; console.error(error));
       } else {
         item.substituteRelation(&#x27;spatialSelectionService&#x27;, cartographySelectionService).subscribe(result &#x3D;&gt; {

@@ -2510,14 +2510,19 @@ export class CartographyFilterService extends RestService&lt;CartographyFilter&g
       result &#x3D; this.http.put(item._links.self.href, item);
       if (item.cartography !&#x3D;null){
           item.substituteRelation(&#x27;cartography&#x27;,item.cartography).subscribe(result &#x3D;&gt; {
-      
       }, error &#x3D;&gt; console.error(error));
+      }
+
+      if(item.territorialLevel !&#x3D; null &amp;&amp; item.territorialLevel !&#x3D; undefined ){
+        item.substituteRelation(&#x27;territorialLevel&#x27;,item.territorialLevel).subscribe(result &#x3D;&gt; {
+        }, error &#x3D;&gt; console.error(error));
       }
      
     } else {
       
       item.cartography &#x3D; item.cartography._links.self.href;
-  
+      item.territorialLevel&#x3D;item.territorialLevel._links.self.href;
+      
       result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.CARTOGRAPHY_FILTER_API) , item);
     }
     return result;

@@ -2478,7 +2478,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RestService } from &#x27;../angular-hal/src/lib/rest.service&#x27;;
 import { UserConfiguration } from &#x27;./user-configuration.model&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Injectable, Injector } from &#x27;@angular/core&#x27;;
@@ -2486,52 +2486,57 @@ import { Observable } from &#x27;rxjs&#x27;;
 
 /** User configuration manager service */
 @Injectable()
-export class UserConfigurationService  extends RestService&lt;UserConfiguration&gt; {
+export class UserConfigurationService extends RestService&lt;UserConfiguration&gt; {
 
   /** API resource path */
   public USER_CONFIGURATION_API &#x3D; &#x27;user-configurations&#x27;;
 
   /** constructor */
-  constructor(injector: Injector,private http: HttpClient) {
+  constructor(injector: Injector, private http: HttpClient) {
     super(UserConfiguration, &quot;user-configurations&quot;, injector);
   }
-  
+
   /** remove user configuration*/
   remove(item: UserConfiguration) {
     return this.http.delete(item._links.self.href);
-   
+
   }
-  
+
   /** save user configuration*/
   save(item: any): Observable&lt;any&gt; {
     let result: Observable&lt;Object&gt;;
-    if (item._links!&#x3D;null) {
+    if (item._links !&#x3D; null) {
       result &#x3D; this.http.put(item._links.self.href, item);
-      if (item.user !&#x3D;null){
-          item.substituteRelation(&#x27;user&#x27;,item.user).subscribe(result &#x3D;&gt; {
-      
-      }, error &#x3D;&gt; console.error(error));
+      if (item.user !&#x3D; null) {
+        item.substituteRelation(&#x27;user&#x27;, item.user).subscribe(result &#x3D;&gt; {
+
+        }, error &#x3D;&gt; console.error(error));
       }
-      if (item.territory !&#x3D;null){
-          item.substituteRelation(&#x27;territory&#x27;,item.territory).subscribe(result &#x3D;&gt; {
-      
-      }, error &#x3D;&gt; console.error(error));
+      if (item.territory !&#x3D; null) {
+        item.substituteRelation(&#x27;territory&#x27;, item.territory).subscribe(result &#x3D;&gt; {
+
+        }, error &#x3D;&gt; console.error(error));
       }
-      if (item.role !&#x3D;null){
-          item.substituteRelation(&#x27;role&#x27;,item.role).subscribe(result &#x3D;&gt; {
-      
-      }, error &#x3D;&gt; console.error(error));
+      if (item.role !&#x3D; null) {
+        item.substituteRelation(&#x27;role&#x27;, item.role).subscribe(result &#x3D;&gt; {
+
+        }, error &#x3D;&gt; console.error(error));
+      }
+      if (item.roleChildren !&#x3D; null) {
+        item.substituteRelation(&#x27;roleChildren&#x27;, item.roleChildren).subscribe(result &#x3D;&gt; {
+
+        }, error &#x3D;&gt; console.error(error));
       }
     } else {
       item.territory &#x3D; item.territory._links.self.href;
-      item.role &#x3D; item.role._links.self.href;
+      item.role &#x3D; item.role!&#x3D;null?item.role._links.self.href:null;
       item.user &#x3D; item.user._links.self.href;
-  
-      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.USER_CONFIGURATION_API) , item);
+      item.roleChildren &#x3D; item.roleChildren!&#x3D;null?item.roleChildren._links.self.href:null;
+      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.USER_CONFIGURATION_API), item);
     }
     return result;
   }
-  
+
 }
 </code></pre>
     </div>

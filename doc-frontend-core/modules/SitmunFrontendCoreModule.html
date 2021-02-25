@@ -65,13 +65,13 @@
 <title>cluster_SitmunFrontendCoreModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="17,-70 17,-268 479,-268 479,-70 17,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SitmunFrontendCoreModule_declarations</title>
-<polygon fill="none" stroke="black" points="29,-78 29,-130 467,-130 467,-78 29,-78"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_SitmunFrontendCoreModule_exports</title>
 <polygon fill="none" stroke="black" points="25,-208 25,-260 471,-260 471,-208 25,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SitmunFrontendCoreModule_declarations</title>
+<polygon fill="none" stroke="black" points="29,-78 29,-130 467,-130 467,-78 29,-78"/>
 </g>
 <!-- HasAnyAuthorityDirective -->
 <g id="node1" class="node">
@@ -228,8 +228,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:81</a></div>
                 </td>
             </tr>
 
@@ -295,6 +295,8 @@ import { LoginService } from &#x27;./auth/login.service&#x27;;
 import { AccountService } from &#x27;./account/account.service&#x27;;
 import {TranslateHttpLoader} from &#x27;@ngx-translate/http-loader&#x27;;
 import {TranslateLoader, TranslateModule} from &#x27;@ngx-translate/core&#x27;;
+import { TranslationService } from &#x27;./translation/translation.service&#x27;;
+import { LanguageService } from &#x27;./translation/language.service&#x27;;
 
 /** load i18n assets*/
 export function createTranslateLoader(http: HttpClient) {
@@ -366,6 +368,8 @@ export class SitmunFrontendCoreModule {
         UserPositionService,
         UserConfigurationService,
         LoginService,
+        TranslationService,
+        LanguageService,
         MapConfigurationManagerService,
         {
           provide: HTTP_INTERCEPTORS,
