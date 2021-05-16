@@ -2530,6 +2530,14 @@ export class TreeNodeService extends RestService&lt;TreeNode&gt; {
       
           }, error &#x3D;&gt; console.error(error));
       }
+      else{
+          let treeNodeParent:any &#x3D; {};
+          treeNodeParent._links&#x3D; {};
+          treeNodeParent._links.self &#x3D; {};
+          treeNodeParent._links.self.href&#x3D;&quot;&quot;;
+          item.deleteRelation(&#x27;parent&#x27;, treeNodeParent).subscribe(result &#x3D;&gt; {
+        }, error &#x3D;&gt; console.error(error));
+      }
       
     } else {
       if (item.tree &amp;&amp; item.tree._links &amp;&amp; item.tree._links.self) {
