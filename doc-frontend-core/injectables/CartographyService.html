@@ -2551,13 +2551,13 @@ export class CartographyService extends RestService&lt;Cartography&gt; {
       delete item.service;
       delete item.selectionService;
 
-      if (cartographyConnection._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
-        item.deleteRelation(&#x27;spatialSelectionConnection&#x27;, cartographyConnection).subscribe(result &#x3D;&gt; {
-        }, error &#x3D;&gt; console.error(error));
-      } else {
-        item.substituteRelation(&#x27;spatialSelectionConnection&#x27;, cartographyConnection).subscribe(result &#x3D;&gt; {
-        }, error &#x3D;&gt; console.error(error));
-      }
+      // if (cartographyConnection._links.self.href &#x3D;&#x3D; &#x27;&#x27; &amp;&amp; cartographyConnection) {
+      //   item.deleteRelation(&#x27;spatialSelectionConnection&#x27;, cartographyConnection).subscribe(result &#x3D;&gt; {
+      //   }, error &#x3D;&gt; console.error(error));
+      // } else {
+      //   item.substituteRelation(&#x27;spatialSelectionConnection&#x27;, cartographyConnection).subscribe(result &#x3D;&gt; {
+      //   }, error &#x3D;&gt; console.error(error));
+      // }
 
       if (cartographyService._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
         item.deleteRelation(&#x27;service&#x27;, cartographyService).subscribe(result &#x3D;&gt; {
@@ -2567,7 +2567,7 @@ export class CartographyService extends RestService&lt;Cartography&gt; {
         }, error &#x3D;&gt; console.error(error));
       }
 
-      if (cartographySelectionService._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
+      if (cartographySelectionService._links.self.href &#x3D;&#x3D; &#x27;&#x27; &amp;&amp; cartographySelectionService) {
         item.deleteRelation(&#x27;spatialSelectionService&#x27;, cartographySelectionService).subscribe(result &#x3D;&gt; {
         }, error &#x3D;&gt; console.error(error));
       } else {

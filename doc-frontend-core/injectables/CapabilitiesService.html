@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>UserConfigurationService</li>
+  <li>CapabilitiesService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,16 +56,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sitmun-frontend-core/src/lib/user/user-configuration.service.ts</code>
+            <code>projects/sitmun-frontend-core/src/lib/capabilities/capabilities.service.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>User configuration manager service </p>
-
-            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -89,7 +82,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#USER_CONFIGURATION_API">USER_CONFIGURATION_API</a>
+                                <a href="#CAPABILITIES_API">CAPABILITIES_API</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -124,10 +117,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#remove">remove</a>
-                            </li>
-                            <li>
-                                <a href="#save">save</a>
+                                <a href="#getInfo">getInfo</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -253,7 +243,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/user/user-configuration.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/capabilities/capabilities.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -314,33 +304,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="remove"></a>
+                    <a name="getInfo"></a>
                     <span class="name">
                         <b>
-                            remove
+                            getInfo
                         </b>
-                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getInfo"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>remove(item: <a href="../classes/UserConfiguration.html">UserConfiguration</a>)</code>
+<code>getInfo(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/user/user-configuration.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/capabilities/capabilities.service.ts:22</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>remove user configuration</p>
+                    <div class="io-description"><p>save service</p>
 </div>
 
                     <div class="io-description">
@@ -355,81 +345,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>item</td>
+                                    <td>url</td>
                                     <td>
-                                                <code><a href="../classes/UserConfiguration.html" target="_self" >UserConfiguration</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="save"></a>
-                    <span class="name">
-                        <b>
-                            save
-                        </b>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>save(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/user/user-configuration.service.ts:26</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>save user configuration</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>item</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -2227,12 +2145,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="USER_CONFIGURATION_API"></a>
+                        <a name="CAPABILITIES_API"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            USER_CONFIGURATION_API</b>
-                            <a href="#USER_CONFIGURATION_API"><span class="icon ion-ios-link"></span></a>
+                            CAPABILITIES_API</b>
+                            <a href="#CAPABILITIES_API"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -2244,12 +2162,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;user-configurations&#x27;</code>
+                            <i>Default value : </i><code>&#x27;helpers/capabilities?url&#x3D;&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sitmun-frontend-core/src/lib/user/user-configuration.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sitmun-frontend-core/src/lib/capabilities/capabilities.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -2478,45 +2396,46 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RestService } from &#x27;../angular-hal/src/lib/rest.service&#x27;;
-import { UserConfiguration } from &#x27;./user-configuration.model&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
+import {RestService} from &#x27;../angular-hal/src/lib/rest.service&#x27;;
+import { Capabilitie } from &#x27;./capabilitie.model&#x27;;
 
-/** User configuration manager service */
-@Injectable()
-export class UserConfigurationService extends RestService&lt;UserConfiguration&gt; {
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class CapabilitiesService extends RestService&lt;Capabilitie&gt;  {
 
   /** API resource path */
-  public USER_CONFIGURATION_API &#x3D; &#x27;user-configurations&#x27;;
+  public CAPABILITIES_API &#x3D; &#x27;helpers/capabilities?url&#x3D;&#x27;;
 
   /** constructor */
-  constructor(injector: Injector, private http: HttpClient) {
-    super(UserConfiguration, &quot;user-configurations&quot;, injector);
+  constructor(injector: Injector,private http: HttpClient) {
+    super(Capabilitie, &quot;helpers/capabilities?url&#x3D;&quot;, injector);
   }
 
-  /** remove user configuration*/
-  remove(item: UserConfiguration) {
-    return this.http.delete(item._links.self.href);
-
-  }
-
-  /** save user configuration*/
-  save(item: any): Observable&lt;any&gt; {
-    let result: Observable&lt;Object&gt;;
-    if (item._links !&#x3D; null) {
-      result &#x3D; this.http.put(item._links.self.href, item);
-    } else {
-      item.territory &#x3D; item.territory._links.self.href;
-      item.role &#x3D; item.role!&#x3D;null?item.role._links.self.href:null;
-      item.user &#x3D; item.user._links.self.href;
-      item.roleChildren &#x3D; item.roleChildren!&#x3D;null?item.roleChildren._links.self.href:null;
-      result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.USER_CONFIGURATION_API), item);
+    /** save service*/
+    getInfo(url: string): Observable&lt;any&gt; {
+      let result: Observable&lt;Object&gt;;
+      if(url){
+        const headerDict &#x3D; {
+          &#x27;Charset&#x27;: &#x27;UTF-8&#x27;
+        }
+        
+        const requestOptions &#x3D; {                                                                                                                                                                                 
+          headers: new HttpHeaders(headerDict), 
+        };
+        let finalUrl &#x3D; this.resourceService.getResourceUrl(this.CAPABILITIES_API);
+        finalUrl &#x3D; finalUrl.concat(url);
+        console.log(finalUrl);
+        result &#x3D; this.http.get(finalUrl, requestOptions);
+      }
+      return result;
+ 
     }
-    return result;
-  }
-
+  
 }
 </code></pre>
     </div>
@@ -2551,7 +2470,7 @@ export class UserConfigurationService extends RestService&lt;UserConfiguration&g
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserConfigurationService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CapabilitiesService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -246,9 +246,7 @@ export class AuthInterceptor implements HttpInterceptor {
     
     /** request handler */
     intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
-        if (!request || !request.url || !(request.url.includes(&quot;api&quot;)) ) {
-            return next.handle(request);
-        }
+
         const token &#x3D; sessionStorage.getItem(&#x27;authenticationToken&#x27;);
         if (!!token) {
             request &#x3D; request.clone({

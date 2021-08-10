@@ -228,8 +228,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">projects/sitmun-frontend-core/src/lib/sitmun-frontend-core.module.ts:85</a></div>
                 </td>
             </tr>
 
@@ -298,6 +298,10 @@ import {TranslateLoader, TranslateModule} from &#x27;@ngx-translate/core&#x27;;
 import { TranslationService } from &#x27;./translation/translation.service&#x27;;
 import { LanguageService } from &#x27;./translation/language.service&#x27;;
 import { DashboardService } from &#x27;./dashboard/dashboard.service&#x27;;
+import { CapabilitiesService } from &#x27;./capabilities/capabilities.service&#x27;;
+import { ConfigurationParametersService } from &#x27;./configuration/configuration-parameters.service&#x27;;
+import { CartographyStyleService } from &#x27;./cartography/cartography-style.service&#x27;;
+import { CartographySpatialSelectionParameterService } from &#x27;./cartography/cartography-spatial-selection-parameter.service&#x27;;
 /** load i18n assets*/
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, &#x27;./assets/i18n/&#x27;, &#x27;.json&#x27;);
@@ -350,11 +354,15 @@ export class SitmunFrontendCoreModule {
         TaskParameterService,
         TaskAvailabilityService,
         ServiceService,
+        ConfigurationParametersService,
+        CapabilitiesService,
         ServiceParameterService,
         CartographyService,
         CartographyGroupService,
         CartographyAvailabilityService,
         CartographyParameterService,
+        CartographySpatialSelectionParameterService,
+        CartographyStyleService,
         CartographyFilterService,
         BackgroundService,
         TreeService,

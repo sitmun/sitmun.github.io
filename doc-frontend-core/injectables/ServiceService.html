@@ -2517,28 +2517,8 @@ export class ServiceService extends RestService&lt;Service&gt; {
         }        
      }
 
-    if (item._links!&#x3D;null) {
-      //update relations
-      /*delete item.connection;        
-      
-      if (serviceConnection._links.self.href&#x3D;&#x3D;&#x27;&#x27;){
-         item.deleteRelation(&#x27;connection&#x27;,serviceConnection).subscribe(result &#x3D;&gt; {     
-
-          
-             }, error &#x3D;&gt; console.error(error));
-          
-      } else {
-          item.substituteRelation(&#x27;connection&#x27;,serviceConnection).subscribe(result &#x3D;&gt; {
-         
-
-      
-            }, error &#x3D;&gt; console.error(error));           
-       } */
-       
-         
-      result &#x3D; this.http.put(item._links.self.href, item);
-
-           
+    if (item._links!&#x3D;null) {     
+      result &#x3D; this.http.put(item._links.self.href, item);       
     } else {
       result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.SERVICE_API) , item);
     }

@@ -2504,13 +2504,107 @@ export class TaskService extends RestService&lt;Task&gt; {
     /** save task*/
     save(item: Task): Observable&lt;any&gt; {
         let result: Observable&lt;Object&gt;;
-        const taskType &#x3D; item.type;
-        const taskGroup &#x3D; item.group;
-        let taskConnection &#x3D; item.connection;
-        let taskUI &#x3D; item.ui;
+
         if (item._links !&#x3D; null) {
-            result &#x3D; this.http.put(item._links.self.href, item);
+
+            if (!item.service) {
+                let service:any &#x3D; {}
+                service._links &#x3D; {};
+                service._links.self &#x3D; {};
+                service._links.self.href &#x3D; &quot;&quot;;
+                item.deleteRelation(&#x27;service&#x27;, service).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error)); 
+            }else {
+                item.service._links.self.href&#x3D;item.service._links.self.href.split(&quot;{&quot;)[0]
+                item.substituteRelation(&#x27;service&#x27;, item.service).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+                item.service &#x3D; item.service._links.self.href
+            }
+            if (!item.cartography) {
+                let cartography:any &#x3D; {}
+                cartography._links &#x3D; {};
+                cartography._links.self &#x3D; {};
+                cartography._links.self.href &#x3D; &quot;&quot;;
+                item.deleteRelation(&#x27;cartography&#x27;, cartography).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error)); 
+            }else {
+                item.cartography._links.self.href&#x3D;item.cartography._links.self.href.split(&quot;{&quot;)[0]
+                item.substituteRelation(&#x27;cartography&#x27;, item.cartography).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+                item.cartography &#x3D; item.cartography._links.self.href
+            }
+
+            if (!item.connection) {
+                let connection:any &#x3D; {}
+                connection._links &#x3D; {};
+                connection._links.self &#x3D; {};
+                connection._links.self.href &#x3D; &quot;&quot;;
+                item.deleteRelation(&#x27;connection&#x27;, connection).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error)); 
+            }else {
+                item.connection._links.self.href&#x3D;item.connection._links.self.href.split(&quot;{&quot;)[0]
+                item.substituteRelation(&#x27;connection&#x27;, item.connection).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+                item.connection &#x3D; item.connection._links.self.href
+            }
+
+            if (!item.ui) {
+                // item.deleteRelation(&#x27;ui&#x27;, item.ui).subscribe(result &#x3D;&gt; {
+                // }, error &#x3D;&gt; console.error(error)); 
+            }else {
+                item.ui._links.self.href&#x3D;item.ui._links.self.href.split(&quot;{&quot;)[0]
+                item.substituteRelation(&#x27;ui&#x27;, item.ui).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+                item.ui &#x3D; item.ui._links.self.href
+            }
+
+            if (!item.group) {
+                // item.deleteRelation(&#x27;group&#x27;, item.group).subscribe(result &#x3D;&gt; {
+                // }, error &#x3D;&gt; console.error(error)); 
+            }else {
+                item.group._links.self.href&#x3D;item.group._links.self.href.split(&quot;{&quot;)[0]
+                item.substituteRelation(&#x27;group&#x27;, item.group).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+                item.group &#x3D; item.group._links.self.href
+            }
+
+            if (!item.type) {
+                // item.deleteRelation(&#x27;type&#x27;, item.type).subscribe(result &#x3D;&gt; {
+                // }, error &#x3D;&gt; console.error(error)); 
+            }else {
+                item.type._links.self.href&#x3D;item.type._links.self.href.split(&quot;{&quot;)[0]
+                item.substituteRelation(&#x27;type&#x27;, item.type).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+                item.type &#x3D; item.type._links.self.href
+            }
+
+            if(item.roles){
+                let roles &#x3D; [...item.roles];
+                delete item.roles;
+                item.substituteAllRelation(&#x27;roles&#x27;,roles).subscribe(result &#x3D;&gt; {
+                }, error &#x3D;&gt; console.error(error));
+            }
+
+            result &#x3D; this.http.put(item._links.self.href, item);            
         } else {
+            if(item.cartography){
+                item.cartography &#x3D; item.cartography._links.self.href
+            }
+            if(item.connection){
+                item.connection &#x3D; item.connection._links.self.href
+            }
+            if(item.service){
+                item.service &#x3D; item.service._links.self.href
+            }
+            if(item.ui){
+                item.ui &#x3D; item.ui._links.self.href
+            }
+            if(item.group){
+                item.group &#x3D; item.group._links.self.href
+            }
+            if(item.type){
+                item.type &#x3D; item.type._links.self.href
+            }
             result &#x3D; this.http.post(this.resourceService.getResourceUrl(this.CONNECTION_API), item);
         }
         return result;

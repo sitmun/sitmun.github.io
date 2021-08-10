@@ -2511,10 +2511,15 @@ export class TerritoryService extends RestService&lt;Territory&gt; {
     territoryGroupType._links.self &#x3D; {};
     territoryGroupType._links.self.href &#x3D; &quot;&quot;;
 
-    if (item.groupType !&#x3D; null) {
-      territoryGroupType &#x3D; item.groupType;
-      if (typeof item.groupType._links !&#x3D; &#x27;undefined&#x27;) {
-        item.groupType &#x3D; item.groupType._links.self.href;
+    let territoryType:any &#x3D; {}
+    territoryType._links &#x3D; {};
+    territoryType._links.self &#x3D; {};
+    territoryType._links.self.href &#x3D; &quot;&quot;;
+
+    if (item.type !&#x3D; null) {
+      territoryType &#x3D; item.type;
+      if (typeof item.type._links !&#x3D; &#x27;undefined&#x27;) {
+        item.type &#x3D; item.type._links.self.href;
       } 
     }
 
@@ -2522,17 +2527,28 @@ export class TerritoryService extends RestService&lt;Territory&gt; {
       //update relations
       delete item.groupType;
 
-      if (territoryGroupType._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
-        item.deleteRelation(&#x27;groupType&#x27;, territoryGroupType).subscribe(result &#x3D;&gt; {
+
+      // if (territoryGroupType._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
+      //   item.deleteRelation(&#x27;groupType&#x27;, territoryGroupType).subscribe(result &#x3D;&gt; {
+      //   }, error &#x3D;&gt; console.error(error));
+
+      // } else {
+      //   item.substituteRelation(&#x27;groupType&#x27;, territoryGroupType).subscribe(result &#x3D;&gt; {
+      //   }, error &#x3D;&gt; console.error(error));
+      // }
+
+      if (territoryType._links.self.href &#x3D;&#x3D; &#x27;&#x27;) {
+        item.deleteRelation(&#x27;type&#x27;, territoryType).subscribe(result &#x3D;&gt; {
         }, error &#x3D;&gt; console.error(error));
 
       } else {
-        item.substituteRelation(&#x27;groupType&#x27;, territoryGroupType).subscribe(result &#x3D;&gt; {
+        item.substituteRelation(&#x27;type&#x27;, territoryType).subscribe(result &#x3D;&gt; {
         }, error &#x3D;&gt; console.error(error));
       }
 
-      if (item.type !&#x3D; null)
-        item.type &#x3D; item.type._links.self.href;
+      delete item.type;
+      // if (item.type !&#x3D; null)
+      //   item.type &#x3D; item.type._links.self.href;
 
       result &#x3D; this.http.put(item._links.self.href, item);
     } else {

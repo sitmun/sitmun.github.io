@@ -288,11 +288,15 @@ export class AuthExpiredInterceptor implements HttpInterceptor {
     /** request handler */
     intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
         return next.handle(request).do((event: HttpEvent&lt;any&gt;) &#x3D;&gt; {}, (err: any) &#x3D;&gt; {
-            if (err instanceof HttpErrorResponse) {
-                if (err.status &#x3D;&#x3D;&#x3D; 401) {                    
-                    this.authService.logout().subscribe();
-                    this.principal.authenticate(null);
-                    this.router.navigate([&#x27;/&#x27;]);
+            const intercept: boolean &#x3D; request.url.indexOf(&quot;/api/&quot;) !&#x3D; -1;
+            //tractem request
+            if (intercept) {
+                if (err instanceof HttpErrorResponse) {
+                    if (err.status &#x3D;&#x3D;&#x3D; 401) {                    
+                        this.authService.logout().subscribe();
+                        this.principal.authenticate(null);
+                        this.router.navigate([&#x27;/&#x27;]);
+                    }
                 }
             }
         });
