@@ -24,13 +24,13 @@
 <title>cluster_SitmunFrontendCoreModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="17,-70 17,-268 479,-268 479,-70 17,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SitmunFrontendCoreModule_exports</title>
-<polygon fill="none" stroke="black" points="25,-208 25,-260 471,-260 471,-208 25,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SitmunFrontendCoreModule_declarations</title>
 <polygon fill="none" stroke="black" points="29,-78 29,-130 467,-130 467,-78 29,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SitmunFrontendCoreModule_exports</title>
+<polygon fill="none" stroke="black" points="25,-208 25,-260 471,-260 471,-208 25,-208"/>
 </g>
 <!-- HasAnyAuthorityDirective -->
 <g id="node1" class="node">
