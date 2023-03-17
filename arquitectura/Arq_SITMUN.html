@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visión general &#8212; Documentación de diseño de SITMUN</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Arq_SITMUN';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Documentación de diseño de SITMUN</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Visión general
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Arq_SITMUN.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visión general</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visión general</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-componentes">Principales componentes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-secuencia">Diagramas de secuencia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-del-proxy-para-acceder-a-un-wms-privado">Uso del proxy para acceder a un WMS privado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-del-proxy-para-acceder-a-una-bd-en-intranet">Uso del proxy para acceder a una BD en Intranet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrama-de-paquetes-clases-principales-de-sitmun-backend-core">Diagrama de paquetes/clases principales de sitmun-backend-core</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrama-de-paquetes">Diagrama de paquetes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="vision-general">
+<h1>Visión general<a class="headerlink" href="#vision-general" title="Permalink to this heading">#</a></h1>
+<p>SITMUN es un sistema de código libre para poner en marcha sistemas de información territoriales donde múltiples usuarios puedan acceder a distintas aplicaciones según sus necesidades. Esto incluye:</p>
+<ul class="simple">
+<li><p>Unas aplicaciones de usuario final.</p>
+<ul>
+<li><p>La aplicación “básica” es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.</p></li>
+<li><p>En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.</p>
+<ul>
+<li><p>P.ej., una aplicación puede ser el visor de mapas básico. Y si te identificas como usuario “público” del territorio “Municipio X” esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.</p></li>
+</ul>
+</li>
+<li><p>Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración. Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.</p></li>
+</ul>
+</li>
+<li><p>Una aplicación web de administración.</p>
+<ul>
+<li><p>Esta aplicación es para que los administradores de las organizaciones que instalan SITMUN configuren las aplicaciones que quieran ofrecer a sus usuarios.</p>
+<ul>
+<li><p>P.ej., podemos añadir un nuevo servicio de mapas públicamente accesible que acabamos de encontrar al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.</p></li>
+</ul>
+</li>
+<li><p>Esta aplicación lee y modifica los datos en la BD de SITMUN a través de una API REST.</p></li>
+</ul>
+</li>
+<li><p>Algunos componentes adicionales que se usan en varias aplicaciones, (tanto en la de administración como en las de usuario final):</p>
+<ul>
+<li><p>Proxy “middleware”: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).</p>
+<ul>
+<li><p>Es un proxy inverso y por tanto el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.</p></li>
+</ul>
+</li>
+<li><p>API de autenticación: permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones (Microsoft Active Directory, servicios LDAP y otros).</p></li>
+</ul>
+</li>
+</ul>
+<p>SITMUN no tiene un conjunto de datos o servicios geográficos/territoriales predefinidos. Cada despliegue de SITMUN se hace para una organización concreta, normalmente supramunicipal, y esta organización debe decidir qué aplicaciones quiere ofrecer a sus usuarios, típicamente personal técnico de los municipios, y qué servicios y datos geográficos/territoriales van a estar accesibles en estas aplicaciones. Estos servicios y bases de datos los tendrá que tener en sus propios sistemas, o bien tendrán que estar en algún sitio al que puedan acceder.</p>
+<p>Las aplicaciones de usuario final de SITMUN interactúan relativamente poco con las API y componentes de SITMUN:</p>
+<ul class="simple">
+<li><p>Con la API de autenticación solo al principio, para identificar al usuario.</p></li>
+<li><p>Con la API de configuración solo en el arranque.</p></li>
+<li><p>La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.</p>
+<ul>
+<li><p>Las que sean intranet, protegidas etc. irán a través del Proxy “middleware”, las demás serán directas.</p></li>
+</ul>
+</li>
+</ul>
+<p>Esto conviene tenerlo en cuenta cuando estemos dimensionando el hardware que necesitamos para el despliegue, y cómo lo vamos a repartir.</p>
+<p>SITMUN tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular, Spring Boot se usa en el tier web, y una base de datos relacional (Oracle o PostgreSQL a día de hoy, pero se pueden usar otras) en el tier de datos.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="principales-componentes">
+<h1>Principales componentes<a class="headerlink" href="#principales-componentes" title="Permalink to this heading">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/4f053a03f5fd2bd039d56049c413e12da79919296fe205d8056f5c4e63b393ce.svg" src="_images/4f053a03f5fd2bd039d56049c413e12da79919296fe205d8056f5c4e63b393ce.svg" /></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="diagramas-de-secuencia">
+<h1>Diagramas de secuencia<a class="headerlink" href="#diagramas-de-secuencia" title="Permalink to this heading">#</a></h1>
+<p>En esta sección se documentan algunas de las interacciones más relevantes del sistema en forma de diagramas de secuencia.</p>
+<section id="login">
+<h2>Login<a class="headerlink" href="#login" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/aa3f6b95e8ab60d216038db946ac79afb2e35b35e1cf18ffae467273c17023db.svg" src="_images/aa3f6b95e8ab60d216038db946ac79afb2e35b35e1cf18ffae467273c17023db.svg" /></div>
+</div>
+</section>
+<section id="uso-del-proxy-para-acceder-a-un-wms-privado">
+<h2>Uso del proxy para acceder a un WMS privado<a class="headerlink" href="#uso-del-proxy-para-acceder-a-un-wms-privado" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/51776a5c1009cea1b5396bc2d6959a7341ab2fc3c389b53879f014c3fd254aeb.svg" src="_images/51776a5c1009cea1b5396bc2d6959a7341ab2fc3c389b53879f014c3fd254aeb.svg" /></div>
+</div>
+</section>
+<section id="uso-del-proxy-para-acceder-a-una-bd-en-intranet">
+<h2>Uso del proxy para acceder a una BD en Intranet<a class="headerlink" href="#uso-del-proxy-para-acceder-a-una-bd-en-intranet" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/f7c91dc10db0e37371bf4fc1ae837984432bc487c332707183dba843027f3af7.svg" src="_images/f7c91dc10db0e37371bf4fc1ae837984432bc487c332707183dba843027f3af7.svg" /></div>
+</div>
+</section>
+<section id="diagrama-de-paquetes-clases-principales-de-sitmun-backend-core">
+<h2>Diagrama de paquetes/clases principales de sitmun-backend-core<a class="headerlink" href="#diagrama-de-paquetes-clases-principales-de-sitmun-backend-core" title="Permalink to this heading">#</a></h2>
+<p>Explicar lo que hay. Lo más urgente es el punto de vista de Guadaltel: qué necesitan tocar y qué no. Pero en general, ver lo que hay, hacer limpieza, puede que separar alguna cosa a otro sitio…</p>
+<section id="diagrama-de-paquetes">
+<h3>Diagrama de paquetes<a class="headerlink" href="#diagrama-de-paquetes" title="Permalink to this heading">#</a></h3>
+<p>Es la librería que contiene la definición del modelo de datos de SITMUN, la API de autenticación, la API de configuración y autorización y la política de seguridad.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/b8aaab9c100cf5298263edfdc49aa1be59792a8e39b8fc0a279d636f43a3444b.svg" src="_images/b8aaab9c100cf5298263edfdc49aa1be59792a8e39b8fc0a279d636f43a3444b.svg" /></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visión general</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-componentes">Principales componentes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-secuencia">Diagramas de secuencia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-del-proxy-para-acceder-a-un-wms-privado">Uso del proxy para acceder a un WMS privado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-del-proxy-para-acceder-a-una-bd-en-intranet">Uso del proxy para acceder a una BD en Intranet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrama-de-paquetes-clases-principales-de-sitmun-backend-core">Diagrama de paquetes/clases principales de sitmun-backend-core</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrama-de-paquetes">Diagrama de paquetes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rubén Béjar y F. Javier Lopez-Pellicer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
