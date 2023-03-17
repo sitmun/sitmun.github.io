@@ -8,3 +8,5 @@ description: |
   La plataforma SITMUN es una plataforma
   modular de desarrollo de aplicaciones
   de gestión territorial municipal.
+exclude:
+  - arquitectura
