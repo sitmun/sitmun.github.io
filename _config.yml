@@ -7,6 +7,14 @@ owner_name: Red Europea SITMUN
 description: |
   La plataforma SITMUN es una plataforma
   modular de desarrollo de aplicaciones
-  de gestión territorial municipal.
-exclude:
-  - arquitectura
+  de gestión territorial municipal.  
+# Ficheros que empiezan con _ son ignorados por Jekyll a menos 
+# que los incluyamos. Y jupyter book (usando sphinx) los genera
+# con _ (y creo que no se puede cambiar). Esto permite que
+# el subdirectorio arquitectura (y sus subs) se generen bien:
+include:
+  - _images
+  - _sources
+  - _sphinx_design_static
+  - _static
+  - _sphinx_javascript_frameworks_compat
