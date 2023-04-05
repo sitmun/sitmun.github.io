@@ -1,0 +1,6 @@
+.idea
+.jekyll-metadata
+Gemfile.lock
+_site
+.directory
+.venv
