@@ -1,0 +1,24 @@
+site_name: Documentación de SITMUN
+site_url: https://sitmun.github.io
+
+theme:
+  name: material
+  palette:
+    primary: black
+  logo: https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png
+  features:
+    - navigation.tabs
+  language: es
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      info: octicons/browser-16
+
+plugins:
+  - search
+  - render_swagger
+
+nav:
+  - Principal: index.md
+  - Referencia: api/referencia.md
+  - Contacto: contacto.md
