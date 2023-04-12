@@ -17,6 +17,7 @@ theme:
 plugins:
   - search
   - render_swagger
+  - print-site
 
 nav:
   - Principal: index.md
