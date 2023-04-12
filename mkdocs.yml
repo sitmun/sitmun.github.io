@@ -17,8 +17,8 @@ theme:
 plugins:
   - search
   - render_swagger
-  - print-site  # Must be the last plugin listed here
-    add_to_navigation: true
+  - print-site:  # Must be the last plugin listed here
+      add_to_navigation: true
 
 nav:
   - Principal: index.md
