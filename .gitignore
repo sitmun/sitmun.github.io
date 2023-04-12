@@ -4,3 +4,4 @@ Gemfile.lock
 _site
 .directory
 .venv
+site
