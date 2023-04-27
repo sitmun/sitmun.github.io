@@ -12,16 +12,16 @@ la **API de Configuración y Autorización de Proxy**.
 sequenceDiagram
   autonumber
   Visor de mapas->>Proxy: Petición
-  Proxy-->>Proxy: Comprueba cache
+  Proxy->>Proxy: Comprueba cache
   alt no está en cache
-    Proxy-->>Backend: Petición de configuración
+    Proxy->>Backend: Petición de configuración
     Backend-->>Proxy: Configuración
-    Proxy-->>Proxy: Guarda en cache
+    Proxy->>Proxy: Guarda en cache
   end
   Proxy->>Remoto: Petición
   Remoto-->>Proxy: Respuesta
   alt hay que transformar la respuesta
-    Proxy-->>Proxy: Transforma la respuesta
+    Proxy->>Proxy: Transforma la respuesta
   end
   Proxy-->>Visor de mapas: Respuesta
 ```
