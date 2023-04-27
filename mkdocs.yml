@@ -8,6 +8,9 @@ theme:
   logo: https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png
   features:
     - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - toc.integrate
   language: es
   icon:
     repo: fontawesome/brands/github
@@ -17,12 +20,27 @@ theme:
 plugins:
   - search
   - render_swagger
-  - print-site:  # Must be the last plugin listed here
-      add_to_navigation: true
+# - print-site:  # Must be the last plugin listed here
+#     add_to_navigation: true
 
 nav:
   - Principal: index.md
   - Arquitectura: arquitectura/index.html
+  - Desarrollo: desarrollo.md
+  - Referencia: reference.md
   - Gestión: management.md
-  - Documentación de las API: https://sitmun-backend-core.herokuapp.com/swagger-ui/index.html
   - Contacto: contacto.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
