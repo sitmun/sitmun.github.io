@@ -1,7 +1,18 @@
-.idea
-.jekyll-metadata
-Gemfile.lock
+# GitHub Pages
 _site
-.directory
+
+# Jeckyll files
+Gemfile.lock
+.jekyll-metadata
+
+# Python files
 .venv
+
+# Poetry files
+poetry.lock
+pyproject.toml
+
+# Other files
+.idea
+.directory
 site
