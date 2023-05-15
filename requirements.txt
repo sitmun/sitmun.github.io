@@ -15,7 +15,7 @@ mkdocs-print-site-plugin==2.3.4
 mkdocs-render-swagger-plugin==0.0.4
 packaging==23.0
 Pygments==2.14.0
-pymdown-extensions==9.10
+pymdown-extensions==10.0
 python-dateutil==2.8.2
 PyYAML==6.0
 pyyaml_env_tag==0.1
