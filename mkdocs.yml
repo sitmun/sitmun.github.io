@@ -1,4 +1,6 @@
 site_name: Documentación de SITMUN
+repo_url: https://github.com/sitmun/sitmun.github.io
+repo_name: sitmun/sitmun.github.io
 site_url: https://sitmun.github.io
 
 theme:
@@ -6,6 +8,7 @@ theme:
   palette:
     primary: black
   logo: https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png
+  favicon: https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png
   features:
     - navigation.tabs
     - navigation.sections
@@ -20,15 +23,24 @@ theme:
 plugins:
   - search
   - render_swagger
-# - print-site:  # Must be the last plugin listed here
-#     add_to_navigation: true
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      num_workers: 8
+  - print-site:  # Must be the last plugin listed here
+     add_to_navigation: true
+     print_page_title: 'Versión Imprimible'
+     # Table of contents
+     add_table_of_contents: true
+     toc_title: 'Table of Contents'
+     toc_depth: 6
 
 nav:
   - Principal: index.md
   - Arquitectura: arquitectura/index.html
-  - Desarrollo: desarrollo.md
+  - Diseño: diseño.md
   - Referencia: reference.md
   - Gestión: management.md
+  - Archivo: archivo.md
   - Contacto: contacto.md
 
 markdown_extensions:
@@ -44,3 +56,10 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

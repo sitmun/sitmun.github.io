@@ -24,3 +24,4 @@ requests==2.28.2
 six==1.16.0
 urllib3==1.26.15
 watchdog==3.0.0
+mkdocs-puml==1.2.0

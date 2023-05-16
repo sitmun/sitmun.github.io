@@ -1,29 +1,37 @@
-# Desarrollo
+# Diseño
 
 ## Proxy
 
-La **API de Proxy** permite acceder a los visores de mapas a servicios remotos y bases de datos.
+Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)** para que se pueda
+dar acceso a servicios web y a bases de datos restringidas. 
 Para ello, el proxy debe conocer la configuración de los servicios remotos y bases de datos utilizando 
 la **API de Configuración y Autorización de Proxy**.
 
 ### Comportamiento esperado
 
-``` mermaid
-sequenceDiagram
-  autonumber
-  Visor de mapas->>Proxy: Petición
-  Proxy->>Proxy: Comprueba cache
-  alt no está en cache
+Debajo se muestra el comportamiento esperado del proxy.
+```puml
+@startuml
+autonumber
+participant "Visor de mapas" as Client
+participant "SITMUN Proxy" as Proxy
+participant "SIMTUN Backend" as Backend
+participant "WMS Restringido" as Remoto
+
+Client->>Proxy: Petición
+Proxy->>Proxy: Comprueba cache
+alt no está en cache
     Proxy->>Backend: Petición de configuración
     Backend-->>Proxy: Configuración
     Proxy->>Proxy: Guarda en cache
-  end
-  Proxy->>Remoto: Petición
-  Remoto-->>Proxy: Respuesta
-  alt hay que transformar la respuesta
+end
+Proxy->>Remoto: Petición
+Remoto-->>Proxy: Respuesta
+alt hay que transformar la respuesta
     Proxy->>Proxy: Transforma la respuesta
-  end
-  Proxy-->>Visor de mapas: Respuesta
+end
+Proxy-->>Client: Respuesta
+@enduml
 ```
 
 El comportamiento esperado es el siguiente:
