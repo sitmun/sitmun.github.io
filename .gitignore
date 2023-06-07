@@ -10,7 +10,6 @@ Gemfile.lock
 
 # Poetry files
 poetry.lock
-pyproject.toml
 
 # Other files
 .idea
