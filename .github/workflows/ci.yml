@@ -4,7 +4,8 @@ name: Deploy MkDocs with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches:
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +41,7 @@ jobs:
         with:
           key: ${{ github.sha }}
           path: .cache
-      - name: Build site (_site directory name is used for Jekyll compatiblity)
+      - name: Build site (_site directory name is used for Jekyll compatibility)
         run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
