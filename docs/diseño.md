@@ -1,15 +1,63 @@
 # Diseño
 
-## Proxy
+## Servicio de Autenticación
 
-Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)** para que se pueda
-dar acceso a servicios web y a bases de datos restringidas. 
-Para ello, el proxy debe conocer la configuración de los servicios remotos y bases de datos utilizando 
-la **API de Configuración y Autorización de Proxy**.
+El **Servicio de Autenticación** permite que los usuarios se identifiquen en la plataforma SITMUN.
+Tras la identificación, este servicio devuelve un token de acceso [JSON web token](https://jwt.io/) (JWT)
+que permite al usuario acceder a los servicios de la plataforma.
+
+Este servicio soporta los siguientes tipos de autenticación:
+
+- Usuario y contraseña.
+
+Las contraseñas se almacenan tras aplicar una [función de derivación de clave](https://es.wikipedia.org/wiki/Funci%C3%B3n_de_derivaci%C3%B3n_de_clave):
+
+- Si van a estar accesibles vía la base de datos SITMUN se utiliza el algoritmo [bcrypt](https://es.wikipedia.org/wiki/Bcrypt).
+- Si van a estar accesibles a través del protocolo [LDAP](https://es.wikipedia.org/wiki/Protocolo_ligero_de_acceso_a_directorios) se utiliza el algoritmo [SHA-1](https://es.wikipedia.org/wiki/Secure_Hash_Algorithm#SHA-1) usando el esquema para almacenar contraseñas de LDAP (ver [RFC 2307](https://tools.ietf.org/html/rfc2307)).
+
+Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]**.
+
+## Servicio de Configuración y Autorización
+
+El **Servicio de Configuración y Autorización** se encarga de determinar qué puede hacer el **[Servicio de Proxy][servicio-de-proxy]** en cada petición realizada por un usuario.
+Si la petición no contiene el token de acceso del usuario, se asumirá que es una petición realizada para el usuario `público`.
+
+Este servicio se expone vía la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**.
+
+## Servicio de Proxy
+
+Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)** que permite
+controlar el acceso a la información (geográfica o no) que procede de servicios web o de consultas a bases de datos remotas. 
+
+Soporta peticiones a:
+
+- Servicios [OGC Web Map Service](https://www.ogc.org/standard/wms/).
+- Servicios [OGC Web Map Tile Service](https://www.ogc.org/standard/wmts/).
+- Servicios [OGC Web Feature Service](https://www.ogc.org/standard/wfs/).
+- Servicios [OGC API](https://ogcapi.ogc.org/).
+- Bases de datos relacionales que tengan un [driver JDBC](https://es.wikipedia.org/wiki/Java_Database_Connectivity). 
+  Las respuestas de las bases de datos se devuelven en formato JSON.
+
+Las peticiones al proxy han de ir acompañadas de un token de acceso JWT, 
+obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]**, que identifica al usuario. 
+La única excepción es el caso del usuario denominado `público`, donde su autenticación es automática.
+Es decir, si no hay credencial, se asume que es el usuario  `público`. 
+Además, todas las peticiones que se envían a través del proxy han de incluir, además, 
+un identificador de territorio y un identificador de aplicación.
+
+El **proxy** actua como adaptador entre los clientes de SITMUN y servicios y base de datos.
+Para llevarlo a cabo, usa la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**.
+Esta API devuelve la información que necesita el **proxy** para crear las peticiones a estos servicios y adaptar sus respuestas. 
+Los siguientes son caos de uso de este proxy:
+
+- Interactuar con servicios restringidos sin exponer sus credenciales o localización.
+- Aplicar un recorte territorial a la imagen proporcionada por un OGC WMS.
+
+Este servicio se expone vía la **[API de Proxy][api-de-proxy]**.
 
 ### Comportamiento esperado
 
-Debajo se muestra el comportamiento esperado del proxy.
+A continuación se muestra el comportamiento esperado del proxy.
 ```puml
 @startuml
 autonumber
@@ -52,7 +100,7 @@ Las peticiones al **API de Proxy** tienen la siguiente forma
 
 ```http
 GET /proxy/{appId}/{terId}/{type}/{typeId}?{keys*}
-Authorization: Bearer {token}
+Authorization: Bearer {JWT token}
 ```
 
 Lo que permite identificar:
@@ -62,7 +110,7 @@ Lo que permite identificar:
 - `type`: tipo de servicio que se solicita.
 - `typeId`: identificador del servicio que se solicita.
 - `keys`: parámetros adicionales que se envían al servicio.
-- `token`: token de autenticación.
+- `token`: token de autenticación JWT.
 
 Por ejemplo, la siguiente petición correspondería con la petición de acceso a un servicio de mapas remoto:
 
@@ -145,6 +193,6 @@ GET /icgc_bm5m/wms/service?SERVICE=WMS&REQUEST=GetMap
 Host: geoserveis.icgc.cat
 ```
 
-La respuesta de la **API de Configuración y Autorización de Proxy** respuesta debe almacenarse en una caché asociada
+La respuesta de la **API de Configuración y Autorización de Proxy** debe almacenarse en una caché asociada
 a una clave única basada en la petición realizada y que no contenga el campo variable `BBOX` hasta que expire
 la autorización (el campo `exp` de la respuesta).

@@ -23,6 +23,7 @@ theme:
 plugins:
   - search
   - render_swagger
+  - autorefs
   - plantuml:
       puml_url: https://www.plantuml.com/plantuml/
       num_workers: 8

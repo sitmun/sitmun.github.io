@@ -22,3 +22,10 @@ En general haremos siempre énfasis en la automatización de todo lo que sea aut
 - Los secretos (contraseñas o tokens) se gestionan adecuadamente usando GitHub secrets. No hay, ni debe haber, ninguna contraseña o token en ninguna parte de ningún repositorio.
 - En algunos repositorios se hace uso de SonarCloud para el análisis estático del código.
 - Seguiremos [semantic versioning 2.0.0](https://semver.org) cuando haya que dar identificadores de versión públicos a algo.
+
+## Consideraciones técnicas
+
+El desarrollo de los servicios de backend se hace en Java 11, usando Spring Boot 2.4.3. 
+El desarrollo de las aplicaciones de frontend se hace en Angular 16.0.0. 
+En general se usan las últimas versiones de las dependencias, 
+pero hay alguna excepción como el Administrador, que está desarrollado en Angular 10.1.6.

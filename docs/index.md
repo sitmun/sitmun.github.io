@@ -2,7 +2,9 @@
 
 ![sitmun](https://raw.githubusercontent.com/sitmun/community/master/logotip%20SITMUN%20JPG/horitzontal/01.principal-horit-normal.jpg)
 
-La [red europea SITMUN](http://sitmun.org) tiene como objetivo, entre otros, el desarrollo y mantenimiento de la plataforma [SITMUN](https://github.com/sitmun). Esta plataforma, abierta, de código libre con licencia [EUPL v1.2](https://eur-lex.europa.eu/eli/dec_impl/2017/863/oj), permite que las organizaciones supramunicipales que participan puedan ofrecer, a los municipios que coordinan, las aplicaciones de gestión territorial que estos municipios necesitan para su día a día. El despliegue, mantenimiento y actualización de estas aplicaciones está centralizado por la organización supramunicipal, de manera que los recursos de los municipios pueden focalizarse en prestar servicios a sus ciudadanos.
+La [red europea SITMUN](http://sitmun.org) tiene como objetivo, entre otros, el desarrollo y mantenimiento de la plataforma [SITMUN](https://github.com/sitmun). 
+Esta plataforma, abierta, de código libre con licencia [EUPL v1.2](https://eur-lex.europa.eu/eli/dec_impl/2017/863/oj), permite que las organizaciones supramunicipales que participan puedan ofrecer, a los municipios que coordinan, las aplicaciones de gestión territorial que estos municipios necesitan para su día a día. 
+El despliegue, mantenimiento y actualización de estas aplicaciones está centralizado por la organización supramunicipal, de manera que los recursos de los municipios pueden focalizarse en prestar servicios a sus ciudadanos.
 
 Esta web tiene como objetivo poner la documentación técnica de la plataforma SITMUN a disposición de quienes participen en su desarrollo, en su implantación o en el desarrollo de aplicaciones que la utilicen.
 
