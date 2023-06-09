@@ -67,12 +67,8 @@ participant "SIMTUN Backend" as Backend
 participant "WMS Restringido" as Remoto
 
 Client->>Proxy: Petición
-Proxy->>Proxy: Comprueba cache
-alt no está en cache
-    Proxy->>Backend: Petición de configuración
-    Backend-->>Proxy: Configuración
-    Proxy->>Proxy: Guarda en cache
-end
+Proxy->>Backend: Petición de configuración
+Backend-->>Proxy: Configuración
 Proxy->>Remoto: Petición
 Remoto-->>Proxy: Respuesta
 alt hay que transformar la respuesta
@@ -85,14 +81,12 @@ Proxy-->>Client: Respuesta
 El comportamiento esperado es el siguiente:
 
 1. El **visor de mapas** hace una petición que es servida por el **proxy**.
-2. El **proxy** comprueba si tiene en caché la configuración del servicio remoto para esta petición.
-3. Si no está en la caché del **proxy**, este realiza una petición a la **API de Configuración u Autorización** en el **backend** para obtener la configuración.
-4. La **API de Configuración u Autorización** proporciona la configuración de la petición al servicio remoto al **proxy**.
-5. El **proxy** guarda en caché la configuración asociada a la petición.
-6. El **proxy** compone una petición adecuada al servicio remoto y la envía.
-7. El **servicio remoto** devuelve una respuesta.
-8. Si es necesario, el **proxy** aplica una transformación a la respuesta.
-9. El **proxy** devuelve la respuesta al **visor de mapas**.
+2. El **proxy** realiza una petición a la **API de Configuración y Autorización** en el **backend** para obtener la configuración.
+3. La **API de Configuración y Autorización** proporciona la configuración de la petición al servicio remoto al **proxy**.
+4. El **proxy** compone una petición adecuada al servicio remoto y la envía.
+5. El **servicio remoto** devuelve una respuesta.
+6. Si es necesario, el **proxy** aplica una transformación a la respuesta.
+7. El **proxy** devuelve la respuesta al **visor de mapas**.
 
 ### Ejemplo: OGC WMS
 
@@ -141,7 +135,7 @@ La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la 
     "TRANSPARENT": "true",
     "VERSION": "1.1.1",
     "SRS": "EPSG:25831",
-    "BBOX": "405913.25142303,4593667.2516974,411183.74857697,4599953.7483026",
+    "BBOX": "405913.2514230,4593667.251697,411183.7485769,4599953.748302",
     "WIDTH": "498",
     "HEIGHT": "594"
   },
@@ -167,6 +161,7 @@ La respuesta podría ser como sigue:
         "TRANSPARENT": "true",
         "VERSION": "1.1.1",
         "SRS": "EPSG:25831",
+        "BBOX": "405913.2514230,4593667.251697,411183.7485769,4599953.748302",
         "WIDTH": "498",
         "HEIGHT": "594"
     }
@@ -192,7 +187,3 @@ GET /icgc_bm5m/wms/service?SERVICE=WMS&REQUEST=GetMap
     &WIDTH=498&HEIGHT=594
 Host: geoserveis.icgc.cat
 ```
-
-La respuesta de la **API de Configuración y Autorización de Proxy** debe almacenarse en una caché asociada
-a una clave única basada en la petición realizada y que no contenga el campo variable `BBOX` hasta que expire
-la autorización (el campo `exp` de la respuesta).
