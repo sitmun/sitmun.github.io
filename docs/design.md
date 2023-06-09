@@ -27,7 +27,7 @@ Este servicio se expone vía la **[API de Configuración y Autorización][api-de
 ## Servicio de Proxy
 
 Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)** que permite
-controlar el acceso a la información (geográfica o no) que procede de servicios web o de consultas a bases de datos remotas. 
+controlar el acceso a la información (geográfica o no) que procede de servicios web o de consultas a bases de datos remotas.
 
 Soporta peticiones a:
 
@@ -35,19 +35,19 @@ Soporta peticiones a:
 - Servicios [OGC Web Map Tile Service](https://www.ogc.org/standard/wmts/).
 - Servicios [OGC Web Feature Service](https://www.ogc.org/standard/wfs/).
 - Servicios [OGC API](https://ogcapi.ogc.org/).
-- Bases de datos relacionales que tengan un [driver JDBC](https://es.wikipedia.org/wiki/Java_Database_Connectivity). 
+- Bases de datos relacionales que tengan un [driver JDBC](https://es.wikipedia.org/wiki/Java_Database_Connectivity).
   Las respuestas de las bases de datos se devuelven en formato JSON.
 
-Las peticiones al proxy han de ir acompañadas de un token de acceso JWT, 
-obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]**, que identifica al usuario. 
+Las peticiones al proxy han de ir acompañadas de un token de acceso JWT,
+obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]**, que identifica al usuario.
 La única excepción es el caso del usuario denominado `público`, donde su autenticación es automática.
-Es decir, si no hay credencial, se asume que es el usuario  `público`. 
-Además, todas las peticiones que se envían a través del proxy han de incluir, además, 
+Es decir, si no hay credencial, se asume que es el usuario  `público`.
+Además, todas las peticiones que se envían a través del proxy han de incluir, además,
 un identificador de territorio y un identificador de aplicación.
 
-El **proxy** actua como adaptador entre los clientes de SITMUN y servicios y base de datos.
+El **proxy** actúa como adaptador entre los clientes de SITMUN y servicios y base de datos.
 Para llevarlo a cabo, usa la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**.
-Esta API devuelve la información que necesita el **proxy** para crear las peticiones a estos servicios y adaptar sus respuestas. 
+Esta API devuelve la información que necesita el **proxy** para crear las peticiones a estos servicios y adaptar sus respuestas.
 Los siguientes son caos de uso de este proxy:
 
 - Interactuar con servicios restringidos sin exponer sus credenciales o localización.
@@ -58,6 +58,7 @@ Este servicio se expone vía la **[API de Proxy][api-de-proxy]**.
 ### Comportamiento esperado
 
 A continuación se muestra el comportamiento esperado del proxy.
+
 ```puml
 @startuml
 autonumber
@@ -81,8 +82,8 @@ Proxy-->>Client: Respuesta
 El comportamiento esperado es el siguiente:
 
 1. El **visor de mapas** hace una petición que es servida por el **proxy**.
-2. El **proxy** realiza una petición a la **API de Configuración y Autorización** en el **backend** para obtener la configuración.
-3. La **API de Configuración y Autorización** proporciona la configuración de la petición al servicio remoto al **proxy**.
+2. El **proxy** realiza una petición a la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]** en el **backend** para obtener la configuración.
+3. La **[API de configuración y autorización][api-de-configuracion-y-autorizacion]** proporciona la configuración de la petición al servicio remoto al **proxy**.
 4. El **proxy** compone una petición adecuada al servicio remoto y la envía.
 5. El **servicio remoto** devuelve una respuesta.
 6. Si es necesario, el **proxy** aplica una transformación a la respuesta.
@@ -90,7 +91,7 @@ El comportamiento esperado es el siguiente:
 
 ### Ejemplo: OGC WMS
 
-Las peticiones al **API de Proxy** tienen la siguiente forma 
+Las peticiones a la **API de Proxy** tienen la siguiente forma:
 
 ```http
 GET /proxy/{appId}/{terId}/{type}/{typeId}?{keys*}
@@ -118,7 +119,7 @@ GET /proxy/1/34/wms/1?SERVICE=WMS&REQUEST=GetMap
 Authorization: Bearer SOME-TOKEN    
 ```
 
-La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la **API de Configuración y Autorización de Proxy** seria:
+La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]** seria:
 
 ```json
 {
@@ -149,10 +150,10 @@ La respuesta podría ser como sigue:
 {
   "type": "wms",
   "exp": 1623340800,
-  "vary": ["BBOX"],
   "payload": {
     "uri": "https://geoserveis.icgc.cat/icgc_bm5m/wms/service",
     "method": "GET",
+    "vary": ["BBOX"],
     "parameters": {
         "SERVICE": "WMS",
         "REQUEST": "GetMap",
