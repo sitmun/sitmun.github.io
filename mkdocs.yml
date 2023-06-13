@@ -42,10 +42,10 @@ theme:
 plugins:
   - search
   - render_swagger
-  - autorefs
+  - autorefs  
   - plantuml:
       puml_url: https://www.plantuml.com/plantuml/
-      num_workers: 8
+      num_workers: 8      
   - print-site:  # Must be the last plugin listed here
      add_to_navigation: true
      print_page_title: 'Versión Imprimible'
@@ -56,7 +56,7 @@ plugins:
 
 nav:
   - Inicio: index.md
-  - Cómo comenzar:
+  - Cómo empezar:
       - getting-started.md
       - Licencia: license.md
   - Referencia:
@@ -64,7 +64,7 @@ nav:
       - API: api.md
       - Gestión: management.md
       - Archivo: archive.md
-  - Arquitectura: arquitectura/index.html
+  - Arquitectura: architecture.md
   - Contacto: contact.md
 
 markdown_extensions:

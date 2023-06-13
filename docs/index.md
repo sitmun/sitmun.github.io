@@ -10,7 +10,7 @@ Esta web tiene como objetivo poner la documentación técnica de la plataforma S
 
 ## Secciones de esta web
 
-- La [arquitectura](arquitectura/index.html) describe desde un nivel de abstracción alto los principales elementos de la plataforma SITMUN.
+- La [arquitectura](architecture.md) describe desde un nivel de abstracción alto los principales elementos de la plataforma SITMUN.
 - En la sección de [diseño](design.md) se describen aspectos técnicos de la plataforma SITMUN.
 - En la sección de [referencia](api.md) se describen las API de la plataforma SITMUN que están actualmente desplegadas en Heroku (servidor de pruebas y preproducción).
   También se pueden consultar en <https://sitmun-backend-core.herokuapp.com/swagger-ui/index.html>.
