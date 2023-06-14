@@ -975,7 +975,8 @@ package sitmun {
 ### Clases
 
 ```puml
-@startuml Refactor
+@startuml Clases
+left to right direction
 skinparam linetype ortho
 package sitmun {
     package authentication {
