@@ -59,7 +59,7 @@ Este servicio se expone vía la **[API de Proxy][api-de-proxy]**.
 
 A continuación se muestra el comportamiento esperado del proxy.
 
-```puml
+```plantuml
 @startuml
 autonumber
 participant "Visor de mapas" as Client

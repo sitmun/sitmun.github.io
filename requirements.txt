@@ -25,4 +25,4 @@ requests==2.31.0
 six==1.16.0
 urllib3==2.0.3
 watchdog==3.0.0
-mkdocs-puml==1.2.0
+plantuml-markdown==3.9.1

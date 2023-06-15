@@ -43,9 +43,6 @@ plugins:
   - search
   - render_swagger
   - autorefs  
-  - plantuml:
-      puml_url: https://www.plantuml.com/plantuml/
-      num_workers: 8      
   - print-site:  # Must be the last plugin listed here
      add_to_navigation: true
      print_page_title: 'Versión Imprimible'
@@ -107,3 +104,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml
+      format: svg

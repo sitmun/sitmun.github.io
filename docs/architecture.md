@@ -30,7 +30,7 @@ SITMUN tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan co
 
 ## Principales componentes
 
-```puml
+```plantuml
 @startuml
 !include <logos/angular>
 !include <logos/github>
@@ -272,7 +272,7 @@ En esta sección se documentan algunas de las interacciones más relevantes del 
 
 ### Login
 
-```puml
+```plantuml
 @startuml
 
 actor Usuario
@@ -391,7 +391,7 @@ Client -->> Usuario: Visor listo para usar
 
 ### Uso del proxy para acceder a un WMS privado
 
-```puml
+```plantuml
 @startuml
 
 actor Usuario
@@ -569,7 +569,7 @@ Client -->> Usuario: mapa
 
 ### Uso del proxy para acceder a una BD en Intranet
 
-```puml
+```plantuml
 @startuml
 
 actor Usuario
@@ -692,7 +692,7 @@ Hay 3 tipos de módulos:
 - **Módulos de desarrollo (en naranja)**. Datos de prueba, despliegues de prueba y herramientas de apoyo (front end y línea de comandos).
 - **Módulos legados (en gris)**. Clases y funcionalidades que se han ido desechando pero que todavía no han sido eliminadas definitivamente. 
 
-```puml
+```plantuml
 @startuml
 
 skinparam linetype ortho
@@ -759,9 +759,9 @@ together {
 
 ## Diagrama de paquetes
 
-Es la bibioteca que contiene la definición del modelo de datos de SITMUN, la API de autenticación, la API de configuración y autorización y la política de seguridad.
+Es la biblioteca que contiene la definición del modelo de datos de SITMUN, la API de autenticación, la API de configuración y autorización y la política de seguridad.
 
-```puml
+```plantuml
 @startuml
 skinparam linetype ortho
 package "sitmun" {
@@ -923,7 +923,7 @@ Como se puede deducir de las explicaciones anteriores:
 - la **API de Configuración y Autorización** expone vía una API Web mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio definidos en `domain` en función de la identidad y rol del que solicita la información.
 
 
-```puml
+```plantuml
 @startuml Refactor
 skinparam linetype ortho
 package sitmun {
@@ -974,7 +974,7 @@ package sitmun {
 
 ### Clases
 
-```puml
+```plantuml
 @startuml Clases
 left to right direction
 skinparam linetype ortho
