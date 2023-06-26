@@ -1,4 +1,4 @@
-site_name: Documentación de SITMUN
+site_name: Documentación de SITMUN 3
 repo_url: https://github.com/sitmun/sitmun.github.io
 repo_name: sitmun/sitmun.github.io
 site_url: https://sitmun.github.io
@@ -57,11 +57,11 @@ nav:
       - getting-started.md
       - Licencia: license.md
   - Referencia:
+      - Arquitectura: architecture.md
       - Diseño: design.md
       - API: api.md
       - Gestión: management.md
       - Archivo: archive.md
-  - Arquitectura: architecture.md
   - Contacto: contact.md
 
 markdown_extensions:

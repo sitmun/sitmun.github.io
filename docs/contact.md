@@ -16,4 +16,4 @@ La labor principal de este equipo es mantener una visión global del proyecto y 
 
 ## La Red Europea SITMUN
 
-Toda la información sobre la Red Europea SITMUN está disponible en <http://www.sitmun.org>.
+Toda la información sobre la **Red Europea SITMUN** está disponible en <http://www.sitmun.org>.

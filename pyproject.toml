@@ -1,10 +1,9 @@
 [tool.poetry]
 name = "sitmun-github-io"
 version = "0.1.0"
-description = ""
-authors = ["Francisco J Lopez-Pellicer <fjlopez@unizar.es>"]
+description = "Documentación de SITMUN 3"
+authors = ["Equipo de coordinación técnica"]
 readme = "README.md"
-packages = [{include = "sitmun"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -21,7 +20,7 @@ mergedeep = "1.3.4"
 mkdocs = "1.4.3"
 mkdocs-material = "9.1.15"
 mkdocs-material-extensions = "1.1.1"
-mkdocs-print-site-plugin = "2.3.4"
+mkdocs-print-site-plugin = "2.3.5"
 mkdocs-render-swagger-plugin = "0.0.4"
 mkdocs-autorefs = "0.4.1"
 packaging = "23.1"
@@ -35,7 +34,7 @@ requests = "2.31.0"
 six = "1.16.0"
 urllib3 = "2.0.3"
 watchdog = "3.0.0"
-mkdocs-puml = "1.2.0"
+plantuml-markdown = "3.9.1"
 
 
 [build-system]

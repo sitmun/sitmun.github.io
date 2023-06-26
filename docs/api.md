@@ -21,7 +21,7 @@ La **API de Configuración y Autorización** se compone de dos tipos de endpoint
   La petición pueden autenticarse usando un esquema de *autenticación por portador*
   ([*Bearer authentication*](https://swagger.io/docs/specification/authentication/bearer-authentication/))
   usando un token que se ha obtenido previamente mediante la **[API de Autenticación][api-de-autenticacion]**.
-  Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de SITMUN se denomina
+  Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
   *usuario público*.
 - **Configuración y Autorización de Proxy**.
   La petición debe autenticarse usando una API key enviada mediante la cabecera denominada `X-SITMUN-Proxy-Key`.
@@ -39,7 +39,7 @@ permite acceder a los visores de mapas a servicios remotos y bases de datos.
 Los **visores de mapas** pueden autenticarse usando un esquema de *autenticación por portador*
 ([*Bearer authentication*](https://swagger.io/docs/specification/authentication/bearer-authentication/))
 usando un token que se ha obtenido previamente mediante la API de Autenticación.
-Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de SITMUN se denomina
+Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
 *usuario público*.
 
 [Explorar API de Proxy :simple-openapiinitiative:](https://sitmun-backend-core.herokuapp.com/swagger-ui/index.html?urls.primaryName=API%20del%20Proxy){ .md-button }
@@ -47,7 +47,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 ## API de Administración
 
 La **[API de Administración](https://sitmun-backend-core.herokuapp.com/swagger-ui/index.html?urls.primaryName=API%20de%20Administraci%C3%B3n)** expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
-de SITMUN 3 por parte de la **aplicación de administración**.
+de **SITMUN 3** por parte de la **aplicación de administración**.
 La **aplicación de administración** debe autenticarse con un JSON Web Token obtenido de la **[API de Autenticación][api-de-autenticacion]**.
 
 [Explorar API de Administración :simple-openapiinitiative:](https://sitmun-backend-core.herokuapp.com/swagger-ui/index.html?urls.primaryName=API%20de%20Administraci%C3%B3n){ .md-button }
