@@ -60,6 +60,7 @@ nav:
       - Arquitectura: architecture.md
       - Diseño: design.md
       - API: api.md
+      - Configuración: configuration.md
       - Gestión: management.md
       - Archivo: archive.md
   - Contacto: contact.md
