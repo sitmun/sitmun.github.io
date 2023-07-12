@@ -8,9 +8,6 @@ Gemfile.lock
 # Python files
 .venv
 
-# Poetry files
-poetry.lock
-
 # Other files
 .idea
 .directory

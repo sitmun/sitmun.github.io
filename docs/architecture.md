@@ -267,6 +267,57 @@ proxymiddleware -left-> apiconfautoriz
 @enduml
 ```
 
+## Escenario típico de uso
+
+Un escenario típico de uso que ejemplifica la interacción de estos componentes sería:
+
+```plantuml
+@startuml
+title
+    Escenario típico de uso
+end title
+participant "Visor de\nmapas" as Client
+participant "API de\nAutenticación" as SA
+participant "API de\nProxy" as SP
+participant "API de\nConfiguración y Autorización" as SAC
+participant "WMS\nRestringido" as Remoto
+
+autonumber
+Client->>SA: Autentica usuario
+autonumber stop
+SA-->>Client: Token JWT
+autonumber resume
+Client->>SAC: Configura visor de mapas usando token JWT\ne identificadores territorio y aplicación
+autonumber stop
+SAC-->>Client: Configuración
+autonumber resume
+Client->>SP: Petición WMS usando token JWT\ne identificadores territorio y aplicación
+SP->>SAC: Comprueba autorización\ny dame configuración
+autonumber stop
+SAC-->>SP: Autorización y configuración
+autonumber resume
+SP->>Remoto: Petición
+autonumber stop
+Remoto-->>SP: Respuesta
+SP-->Client: Respuesta
+@enduml
+```
+
+1. El usuario abre una aplicación de SITMUN, por ejemplo, un visor de información territorial,
+   selecciona un territorio y se autentica. 
+   Para ello, el visor interactúa con el [Servicio de Autenticación][servicio-de-autenticacion], obteniendo un token JWT.
+2. El visor obtiene la información para su configuración para este usuario, territorio y aplicación 
+   interactuando directamente con el [Servicio de Configuración y Autorización][servicio-de-configuracion-y-autorizacion].
+   A esta petición el visor le ha añadido el token JWT, el identificador de territorio y el identificador de aplicación.
+3. El usuario interactúa con el visor y, por ejemplo, hace visible una capa que corresponde a un 
+   servicio WMS restringido por territorio o realiza una búsqueda entre los datos alfanuméricos del 
+   padrón municipal de habitantes de un municipio. Esta petición ocurrirá a través del [Servicio de proxy][servicio-de-proxy]. 
+   A esta petición el visor le ha añadido el token JWT, el identificador de territorio y el identificador de aplicación.
+4. Con esta información, el [Servicio de proxy][servicio-de-proxy] interactúa con el [Servicio de Configuración y Autorización][servicio-de-configuracion-y-autorizacion]
+   para determinar si puede hacer la petición y, si puede hacerla, cómo debe interrogar este servicio restringido.
+   En este caso, por ejemplo, qué parámetros adicionales hay que añadir a la petición para limitar la respuesta a un territorio concreto. 
+5. Después, el [Servicio de proxy][servicio-de-proxy] hace la petición al servicio WMS restringido con estos parámetros adicionales y devuelve la respuesta al visor tras aplicar alguna transformación si fuera necesaria.
+
 ## Diagramas de secuencia
 En esta sección se documentan algunas de las interacciones más relevantes del sistema en forma de diagramas de secuencia.
 

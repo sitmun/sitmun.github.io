@@ -5,17 +5,64 @@
 El **Servicio de Autenticación** permite que los usuarios se identifiquen en la plataforma SITMUN.
 Tras la identificación, este servicio devuelve un token de acceso [JSON web token](https://jwt.io/) (JWT)
 que permite al usuario acceder a los servicios de la plataforma.
-
-Este servicio soporta los siguientes tipos de autenticación:
-
-- Usuario y contraseña.
-
-Las contraseñas se almacenan tras aplicar una [función de derivación de clave](https://es.wikipedia.org/wiki/Funci%C3%B3n_de_derivaci%C3%B3n_de_clave):
-
-- Si van a estar accesibles vía la base de datos SITMUN se utiliza el algoritmo [bcrypt](https://es.wikipedia.org/wiki/Bcrypt).
-- Si van a estar accesibles a través del protocolo [LDAP](https://es.wikipedia.org/wiki/Protocolo_ligero_de_acceso_a_directorios) se utiliza el algoritmo [SHA-1](https://es.wikipedia.org/wiki/Secure_Hash_Algorithm#SHA-1) usando el esquema para almacenar contraseñas de LDAP (ver [RFC 2307](https://tools.ietf.org/html/rfc2307)).
+SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
+Hay que señalar que está planteado soportar la autenticación de usuarios a través de [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory) y de certificados digitales.
 
 Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]**.
+
+### Comportamiento esperado
+
+El **Servicio de Autenticación** puede funcionar de dos formas distintas tras recibir la petición de un usuario.
+
+```plantuml
+@startuml
+title
+    Secuencias de autenticación básicas
+end title
+participant "Visor de mapas" as Client
+participant "Servicio de Autenticacion" as Auth
+database "SITMUN" as DB
+participant "LDAP externo" as LDAP
+
+Client->>Auth: Petición
+
+alt no hay un LDAP externo
+
+    autonumber
+    Auth->>DB: Comprueba usuario y contraseña
+    autonumber stop
+    DB-->>Auth: Usuario válido o no válido en SITMUN
+
+else
+
+    autonumber resume
+    Auth->>LDAP: Comprueba usuario y contraseña
+    autonumber stop
+    LDAP-->>Auth: Usuario válido en LDAP
+
+    alt si el usuario es válido en LDAP
+        autonumber resume
+        Auth->>DB: Comprueba usuario
+        autonumber stop
+        DB-->>Auth: Usuario válido o no válido en SITMUN
+    end
+
+end
+alt si el usuario es válido en SITMUN
+    autonumber resume
+    Auth->>Auth: Genera token de acceso
+    autonumber stop
+end
+Auth-->>Client: Respuesta
+@enduml
+```
+
+El comportamiento espera es el siguiente:
+
+1. Si no se configura el uso de un LDAP externo, el **Servicio de Autenticación** comprueba si el usuario y la contraseña son válidos en SITMUN y pasa al punto ④.
+2. Si se configura el uso de un LDAP externo, el **Servicio de Autenticación** comprueba si el usuario y la contraseña son válidos en el LDAP externo. 
+3. Si el usuario es válido, el **Servicio de Autenticación** comprueba si el usuario es válido en SITMUN.
+4. Si el usuario es válido en SITMUN, el **Servicio de Autenticación** genera un token de acceso que es devuelto al cliente.
 
 ## Servicio de Configuración y Autorización
 
@@ -26,34 +73,43 @@ Este servicio se expone vía la **[API de Configuración y Autorización][api-de
 
 ## Servicio de Proxy
 
-Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)** que permite
-controlar el acceso a la información (geográfica o no) que procede de servicios web o de consultas a bases de datos remotas.
+Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)** 
+que actúa como un intermediario entre los clientes de SITMUN y diversas fuentes de datos,
+como servicios web y bases de datos remotas, permitiendo controlar el acceso a la información,
+ya sea geográfica o no. 
 
-Soporta peticiones a:
+El proxy inverso es capaz de manejar peticiones a diversos tipos de servicios, incluyendo:
 
-- Servicios [OGC Web Map Service](https://www.ogc.org/standard/wms/).
-- Servicios [OGC Web Map Tile Service](https://www.ogc.org/standard/wmts/).
-- Servicios [OGC Web Feature Service](https://www.ogc.org/standard/wfs/).
-- Servicios [OGC API](https://ogcapi.ogc.org/).
-- Bases de datos relacionales que tengan un [driver JDBC](https://es.wikipedia.org/wiki/Java_Database_Connectivity).
+- Servicios [OGC Web Map Service (WMS)](https://www.ogc.org/standard/wms/),
+  que ofrecen mapas en formato imagen.
+- Servicios [OGC Web Map Tile Service (WMTS)](https://www.ogc.org/standard/wmts/),
+  que proporcionan mapas divididos en teselas (*tiles*).
+- Servicios [OGC Web Feature Service (WFS)](https://www.ogc.org/standard/wfs/), 
+  que permiten el acceso a datos geoespaciales vectoriales.
+- Servicios [OGC API](https://ogcapi.ogc.org/), 
+  una especificación más reciente que permite acceder a diversos tipos de datos geoespaciales a través de una API web.
+- Bases de datos relacionales que dispongan de un controlador (*driver*) [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity).
   Las respuestas de las bases de datos se devuelven en formato JSON.
 
-Las peticiones al proxy han de ir acompañadas de un token de acceso JWT,
-obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]**, que identifica al usuario.
-La única excepción es el caso del usuario denominado `público`, donde su autenticación es automática.
-Es decir, si no hay credencial, se asume que es el usuario  `público`.
-Además, todas las peticiones que se envían a través del proxy han de incluir, además,
+Para acceder a través del **proxy**, todas las peticiones deben incluir un token de acceso JWT,
+obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]**, la cual identifica al usuario.
+La única excepción es el usuario denominado `público`, cuya autenticación es automática.
+Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata del usuario  `público`.
+Además, todas las peticiones enviadas a través del **proxy** deben incluir
 un identificador de territorio y un identificador de aplicación.
 
-El **proxy** actúa como adaptador entre los clientes de SITMUN y servicios y base de datos.
-Para llevarlo a cabo, usa la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**.
-Esta API devuelve la información que necesita el **proxy** para crear las peticiones a estos servicios y adaptar sus respuestas.
-Los siguientes son caos de uso de este proxy:
+El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado
+para los servicios y datos subyacentes.
+Para realizar esta tarea, el **proxy** utiliza la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**,
+que proporciona al **proxy** la información necesaria para construir las solicitudes a los servicios y adaptar las respuestas recibidas.
 
-- Interactuar con servicios restringidos sin exponer sus credenciales o localización.
-- Aplicar un recorte territorial a la imagen proporcionada por un OGC WMS.
+Ejemplos de uso del **proxy** son los siguientes:
 
-Este servicio se expone vía la **[API de Proxy][api-de-proxy]**.
+- El **proxy** permite a los clientes interactuar con servicios restringidos sin que el usuario tenga que conocer las credenciales o la URI de los mismos.
+- El **proxy** puede filtrar la información proporcionada por un OGC WMS, ocultando la parte que no corresponde al territorio indicado en la petición.
+
+Este servicio se expone a través de la **[API de Proxy][api-de-proxy]**, 
+que actúa como punto de entrada para las solicitudes relacionadas.
 
 ### Comportamiento esperado
 
@@ -61,6 +117,9 @@ A continuación se muestra el comportamiento esperado del proxy.
 
 ```plantuml
 @startuml
+title
+    Secuencia de uso del proxy
+end title
 autonumber
 participant "Visor de mapas" as Client
 participant "SITMUN Proxy" as Proxy
