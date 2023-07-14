@@ -26,6 +26,21 @@ En general haremos siempre énfasis en la automatización de todo lo que sea aut
 ## Consideraciones técnicas
 
 El desarrollo de los servicios de backend se hace en Java 11, usando Spring Boot 2.4.3.
-El desarrollo de las aplicaciones de frontend se hace en Angular 16.0.0.
+El desarrollo de las aplicaciones de frontend se hace con TypeScript y Angular 16.0.0.
 En general se usan las últimas versiones de las dependencias,
 pero hay alguna excepción como el Administrador, que está desarrollado en Angular 10.1.6.
+
+## Consideraciones metodológicas
+
+Cualquier desarrollo dentro del marco **SITMUN 3** debe cumplir con los siguientes requisitos metodológicos:
+
+- Utilizar una metodología ágil que permita una gestión eficiente del proyecto y una adaptabilidad a los cambios.
+- Emplear un conjunto de herramientas que ayuden en las diferentes fases y gestiones del ciclo de desarrollo, facilitando tareas como la planificación, el seguimiento y la colaboración.
+- Utilizar git/GitHub para la gestión de versiones, lo que proporciona un control de cambios efectivo y un trabajo colaborativo seguro.
+- Aplicar una metodología de pruebas que permita validar automáticamente las funcionalidades desarrolladas, asegurando la estabilidad de la aplicación al introducir nuevas versiones o desarrollos.
+- Establecer una metodología para el mantenimiento del sistema, garantizando la correcta gestión de actualizaciones, correcciones de errores y mejoras continuas.
+- Realizar una gestión y control eficiente de las funcionalidades incorporadas al sistema, asegurando su correcta implementación y coherencia con los requisitos.
+- Realizar auditorías y control de calidad periódicos para asegurar la fiabilidad, seguridad y eficiencia del sistema.
+- Utilizar el idioma inglés en el código y los comentarios del mismo, así como en la documentación generada, para facilitar la comprensión y colaboración entre los desarrolladores.
+
+Es importante cumplir con estos requisitos metodológicos para asegurar un desarrollo coherente, eficiente y de alta calidad dentro de **SITMUN 3**.
