@@ -12,3 +12,4 @@ Gemfile.lock
 .idea
 .directory
 site
+.DS_Store
