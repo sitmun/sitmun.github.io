@@ -2,7 +2,27 @@
 
 ## Configuración de backend-core
 
-### Configuración del uso del proxy de SITMUN
+### Seguridad
+
+#### Autenticación vía LDAP
+
+Estas propiedades se utilizan para configurar el acceso al servidor LDAP para autenticar a los usuarios.
+
+!!! info "Condición de activación"
+    Estas propiedades se utilizan solo si está activado el perfil `ldap`. 
+    Deben almacenarse en un fichero separado denominado `application-ldap.yml`.
+
+| Propiedad                                    | Descripción                                                               | Valor por defecto |
+|----------------------------------------------|---------------------------------------------------------------------------|-------------------|
+| `sitmun.authentication.ldap.url`             | Localización del servidor LDAP                                            |                   |
+| `sitmun.authentication.ldap.base-dn`         | Contexto raíz para todas las operaciones LDAP                             |                   |
+| `sitmun.authentication.ldap.user-dn-pattern` | Patrón que identifica el usuario                                          |                   |
+| `sitmum.authentication.ldap.username`        | El nombre de usuario a utilizar cuando se autentique con el servidor LDAP | nulo              |
+| `sitmum.authentication.ldap.password`        | La contraseña a utilizar cuando se autentique con el servidor LDAP        | nulo              |
+
+### Proxy
+
+Mediante esta configuración se puede forzar el uso del [API de proxy][api-de-proxy] de SITMUN y configurar su localización.
 
 | Propiedad            | Descripción                       | Valor por defecto |
 |----------------------|-----------------------------------|-------------------|
