@@ -10,4 +10,4 @@ Una aplicación de administración con datos de pruebas.
 
 Un visor de mapas que utiliza los datos gestionados por la aplicación de administración.
 
-[Enlace directo](https://sitmun.github.io/viewer-app){target=_blank .md-button }.
+[Enlace directo](https://sitmun.github.io/sitmun-viewer-app){target=_blank .md-button }.
