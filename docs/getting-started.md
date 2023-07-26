@@ -96,6 +96,58 @@ la configuración necesaria para realizar la petición al servicio o base de dat
 
 ### Instalación del visor de mapas
 
+#### Prerrequisitos
+
+Antes de proceder con la compilación del visor de mapas, 
+asegúrate de tener los siguientes prerrequisitos en tu sistema:
+
+- **Node.js**: El visor de mapas requiere **Node.js** con una versión compatible con **Angular 16**,
+  que puede ser `^16.14.0 || ^18.10.0`. Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
+- **npm**: El visor de mapas depende de paquetes gestionados por **npm**. 
+  Puedes instalar **npm** siguiendo la guía oficial: https://docs.npmjs.com/cli/install
+
+Una vez que hayas cumplido con los prerrequisitos mencionados anteriormente, 
+procede a instalar el Cliente Angular (**Angular CLI**) de la siguiente manera:
+
+```shell
+npm install -g @angular/cli
+```
+
+!!! warning "No olvides activar la ejecución de scripts de PowerShell en Windows"
+    Si estás utilizando un sistema operativo Windows, será necesario permitir la [ejecución de scripts de PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
+    Para hacerlo, abre una consola de PowerShell con privilegios de administrador y ejecuta el siguiente comando:
+
+    ```shell
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
+
+#### Compilación
+
+Una vez completada la instalación de los prerrequisitos, puedes proceder con la compilación del visor de mapas siguiendo estos pasos:
+
+1. Descarga el proyecto https://github.com/sitmun/sitmun-viewer-app en tu equipo.
+1. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte 
+   a la URI donde estará desplegado.
+2. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando `ng build`.
+3. Este comando compilará el visor de mapas para el entorno de producción y 
+   generará los archivos en la carpeta `dist/sitmun-viewer-app`.
+
+#### Despliegue
+
+Para desplegar el visor de mapas en un servidor web, copia la carpeta `sitmun-viewer-app` a tu servidor web.
+
+Configura tu servidor para redirigir las solicitudes de archivos no encontrados a `index.html`
+Es fundamental configurar correctamente esta redirección para el correcto funcionamiento del visor de mapas.
+
+!!! warning "No olvides configurar la redirección a `index.html` en tu servidor"
+    Si no se configura correctamente la redirección, es posible que la navegación dentro del visor de mapas 
+    funcione correctamente, pero al hacer clic en un enlace externo (por ejemplo, un enlace de correo electrónico),
+    al introducir una URI directamente en la barra de direcciones o simplemente al refrescar la página, 
+    se produzca un error 404. Esto ocurre porque estas peticiones son manejadas directamente por el navegador 
+    y no por enrutador de Angular que gestiona la navegación dentro del visor de mapas. 
+    Ver [Routed apps must fall back to index.html](https://angular.io/guide/deployment#fallback) en la documentación
+    oficial de Angular para más información.
+
 ## Creando una aplicación
 
 ## Personalización
