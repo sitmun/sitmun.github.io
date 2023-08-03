@@ -5,8 +5,8 @@
 El **Servicio de Autenticación** permite que los usuarios se identifiquen en la plataforma SITMUN.
 Tras la identificación, este servicio devuelve un token de acceso [JSON web token](https://jwt.io/) (JWT)
 que permite al usuario acceder a los servicios de la plataforma.
-SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
-Hay que señalar que está planteado soportar la autenticación de usuarios a través de [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory) y de certificados digitales.
+SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)). Tambien está soportado el uso de [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory) a través de un servidor LDAP.
+Hay que señalar que está planteado soportar la autenticación de usuarios a través de certificados digitales.
 
 Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]**.
 
@@ -86,8 +86,6 @@ El proxy inverso es capaz de manejar peticiones a diversos tipos de servicios, i
   que proporcionan mapas divididos en teselas (*tiles*).
 - Servicios [OGC Web Feature Service (WFS)](https://www.ogc.org/standard/wfs/), 
   que permiten el acceso a datos geoespaciales vectoriales.
-- Servicios [OGC API](https://ogcapi.ogc.org/), 
-  una especificación más reciente que permite acceder a diversos tipos de datos geoespaciales a través de una API web.
 - Bases de datos relacionales que dispongan de un controlador (*driver*) [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity).
   Las respuestas de las bases de datos se devuelven en formato JSON.
 

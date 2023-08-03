@@ -149,3 +149,21 @@
 ### Otras herramientas
 
 - **Streetview**: Herramienta para agregar Street View al mapa.
+
+## Proxy
+
+### Aspectos globales
+- **Gestión de servicios transparente**: Las peticiones a los servicios externos y consultas a bases de datos son realizadas a través del proxy sin que el usuario conozca los datos que componen la solicitud al servicio o conexión a base de datos.
+
+- **Modificación de peticiones**: Posibilidad de manipular la petición de varias formas para que se adapte a la configuración obtenida de la [API de configuración y autorización][api-de-configuracion-y-autorizacion] y cualquier otro añadido que se quisiera incluir.
+
+- **Modificación de respuestas**: Posibilidad de manipular la respuesta obtenida del servicio para que se adapte a las necesidades de cada despliegue.
+
+### Modificadores generales
+- **Parámetros (Servicios)**: Modificador encargado de añadir a la petición los parámetros proporcionados por el visor y la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
+
+- **Seguridad básica (Servicios)**: Modificador encargado de incluir en la cabecera de la petición un usuario y contraseña si fuese necesario.
+
+- **Conexión (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la  [API de configuración y autorización][api-de-configuracion-y-autorizacion].
+
+- **Filtrado (JDBC)**: Modificador encargado de incluir filtros en la consulta.
