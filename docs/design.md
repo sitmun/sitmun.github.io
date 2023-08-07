@@ -72,8 +72,7 @@ El comportamiento espera es el siguiente:
 
 ## Servicio de Configuración y Autorización
 
-El **Servicio de Configuración y Autorización** se encarga de determinar qué puede hacer el *
-*[Servicio de Proxy][servicio-de-proxy]** en cada petición realizada por un usuario.
+El **Servicio de Configuración y Autorización** se encarga de determinar qué puede hacer el **[Servicio de Proxy][servicio-de-proxy]** en cada petición realizada por un usuario.
 Si la petición no contiene el token de acceso del usuario, se asumirá que es una petición realizada para el
 usuario `público`.
 
@@ -107,8 +106,7 @@ un identificador de territorio y un identificador de aplicación.
 
 El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado
 para los servicios y datos subyacentes.
-Para realizar esta tarea, el **proxy** utiliza la *
-*[API de configuración y autorización][api-de-configuracion-y-autorizacion]**,
+Para realizar esta tarea, el **proxy** utiliza la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**,
 que proporciona al **proxy** la información necesaria para construir las solicitudes a los servicios y adaptar las
 respuestas recibidas.
 
@@ -191,8 +189,8 @@ GET /proxy/1/34/wms/1?SERVICE=WMS&REQUEST=GetMap
 Authorization: Bearer SOME-TOKEN    
 ```
 
-La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la *
-*[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
+La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la 
+**[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
 
 ```json
 {
