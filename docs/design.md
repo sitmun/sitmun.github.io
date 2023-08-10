@@ -7,7 +7,7 @@ Tras la identificación, este servicio devuelve un token de acceso [JSON web tok
 que permite al usuario acceder a los servicios de la plataforma.
 SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
 criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
-También está soportado la autenticación a través de un servidor LDAP.
+También está soportada la autenticación a través de un servidor LDAP.
 Hay que señalar que está planteado soportar la autenticación de usuarios a través
 de [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory) y de certificados digitales.
 
@@ -106,8 +106,7 @@ un identificador de territorio y un identificador de aplicación.
 
 El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado
 para los servicios y datos subyacentes.
-Para realizar esta tarea, el **proxy** utiliza la *
-*[API de configuración y autorización][api-de-configuracion-y-autorizacion]**,
+Para realizar esta tarea, el **proxy** utiliza la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**,
 que proporciona al **proxy** la información necesaria para construir las solicitudes a los servicios y adaptar las
 respuestas recibidas.
 
@@ -190,8 +189,8 @@ GET /proxy/1/34/wms/1?SERVICE=WMS&REQUEST=GetMap
 Authorization: Bearer SOME-TOKEN    
 ```
 
-La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la *
-*[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
+La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la 
+**[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
 
 ```json
 {
