@@ -57,7 +57,9 @@ nav:
       - getting-started.md
       - Licencia: license.md
   - Características:
-      - features.md
+      - features-client.md
+      - features-server.md
+      - roadmap.md
   - Referencia:
       - Arquitectura: architecture.md
       - Diseño: design.md
