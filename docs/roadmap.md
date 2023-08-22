@@ -22,13 +22,12 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita
 ## DESCRIPCIÓN DE LAS FUNCIONALIDADES DEL ROADMAP
 
 ### **Más info avanzado: enriquecimiento de datos asociados a una capa**
+ 
+ !!! info "Aspectos generales"
+ **Estimación horas de desarrollo:**  80 horas              
+ **Entidad solicitante:** Comissión técnica SITMUN
+ **Entidad con previsión de ejecución:** Pyrenees Orientales
 
-!!! info "ddd"
-    **Estimación horas de desarrollo:**  80 horas              **Entidad solicitante:** Comissión técnica SITMUN
-
-!!! info "Condición de activación"
-    Estas propiedades se utilizan solo si está activado el perfil `ldap`. 
-    Deben almacenarse en un fichero separado denominado `application-ldap.yml`.
 
 **Objetivo:**
 Aquesta funcionalitat busca dotar a SITMUN 3 de la capacitat de configurar, des de l’administrador SITMUN 3, el contingut de la finestra que retorna el visualitzador SITMUN 3 al fer una consulta sobre el mapa per a una capa determinada. 
@@ -41,9 +40,44 @@ El contingut de la finestra ha de poder integrar la resposta d’una o diverses 
 
 **Requerimientos funcionales:**
 
-| Funcionalidad            | Descripción                            | Valor por defecto           |
-|--------------------------|----------------------------------------|-----------------------------|
-| `sitmun.proxy.force`     | Fuerza el uso del proxy de SITMUN      | `false`                     |
-| `sitmun.proxy.url`       | Localización del proxy de SITMUN       |                             1|
+_Cliente Administrador SITMUN 3_
+| Funcionalidad| Estado actual | Issues relacionadas |
+|---|---|---|
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
+| Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
+| Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
 
+_Cliente visualizador SITMUN 3 (API SITNA)_
+| Funcionalidad| Estado actual | Issues relacionadas |
+|---|---|---|
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
+| Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
+| Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
 
+_API de autenticación_
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+| Funcionalidad| Estado actual | Issues relacionadas |
+|---|---|---|
+||||
+
+_API de administración_
+| Funcionalidad| Estado actual | Issues relacionadas |
+|---|---|---|
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
+| Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
+| Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
+
+_API configuración y autorización_
+| Funcionalidad| Estado actual | Issues relacionadas |
+|---|---|---|
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
+| Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
+| Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
+
+_API de proxy_
+| Funcionalidad| Estado actual | Issues relacionadas |
+|---|---|---|
