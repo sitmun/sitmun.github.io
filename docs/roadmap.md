@@ -24,9 +24,9 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita
 ### **Más info avanzado: enriquecimiento de datos asociados a una capa**
  
  !!! info "Aspectos generales"
- **Estimación horas de desarrollo:**  80 horas              
- **Entidad solicitante:** Comissión técnica SITMUN
- **Entidad con previsión de ejecución:** Pyrenees Orientales
+     **Estimación horas de desarrollo:**  80 horas              
+     **Entidad solicitante:** Comissión técnica SITMUN
+     **Entidad con previsión de ejecución:** Pyrenees Orientales
 
 
 **Objetivo:**
@@ -40,44 +40,48 @@ El contingut de la finestra ha de poder integrar la resposta d’una o diverses 
 
 **Requerimientos funcionales:**
 
-_Cliente Administrador SITMUN 3_
-| Funcionalidad| Estado actual | Issues relacionadas |
+-_Cliente Administrador SITMUN 3_
+| Funcionalidad | Estado actual | Issues relacionadas |
 |---|---|---|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
 | Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
 | Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
 
-_Cliente visualizador SITMUN 3 (API SITNA)_
-| Funcionalidad| Estado actual | Issues relacionadas |
+
+-_Cliente visualizador SITMUN 3 (API SITNA)_
+| Funcionalidad | Estado actual | Issues relacionadas |
 |---|---|---|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
 | Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
 | Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
 
-_API de autenticación_
+
+-_API de autenticación_
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
-| Funcionalidad| Estado actual | Issues relacionadas |
+| Funcionalidad | Estado actual | Issues relacionadas |
 |---|---|---|
 ||||
 
-_API de administración_
-| Funcionalidad| Estado actual | Issues relacionadas |
+
+-_API de administración_
+| Funcionalidad | Estado actual | Issues relacionadas |
 |---|---|---|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
 | Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
 | Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
 
-_API configuración y autorización_
-| Funcionalidad| Estado actual | Issues relacionadas |
+
+-_API configuración y autorización_
+| Funcionalidad | Estado actual | Issues relacionadas |
 |---|---|---|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
 | Creación de tipo de tareas 'padre' que permitan seleccionar tareas 'hijo' con una vinculación N a M    | Nueva    | |
 | Asignación de parámetros específicos a tareas padre (Tab/scroll...)   | Nueva    | |
 
-_API de proxy_
-| Funcionalidad| Estado actual | Issues relacionadas |
+-_API de proxy_
+| Funcionalidad | Estado actual | Issues relacionadas |
 |---|---|---|
