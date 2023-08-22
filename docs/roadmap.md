@@ -22,7 +22,7 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita
 ## DESCRIPCIÓN DE LAS FUNCIONALIDADES DEL ROADMAP
 
 ### **Más info avanzado: enriquecimiento de datos asociados a una capa**
-!!!info ""
+!!! info "ddd"
 **Estimación horas de desarrollo:**  80 horas              **Entidad solicitante:** Comissión técnica SITMUN
 
 **Objetivo:**
