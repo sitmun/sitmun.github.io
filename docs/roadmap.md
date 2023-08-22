@@ -22,14 +22,23 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita
 ## DESCRIPCIÓN DE LAS FUNCIONALIDADES DEL ROADMAP
 
 ### **Más info avanzado: enriquecimiento de datos asociados a una capa**
-
-**Contexto y casos de uso:**
-
-
+!!!info ""
+**Estimación horas de desarrollo:**  80 horas              **Entidad solicitante:** Comissión técnica SITMUN
 
 **Objetivo:**
 Aquesta funcionalitat busca dotar a SITMUN 3 de la capacitat de configurar, des de l’administrador SITMUN 3, el contingut de la finestra que retorna el visualitzador SITMUN 3 al fer una consulta sobre el mapa per a una capa determinada. 
 
 El contingut de la finestra ha de poder integrar la resposta d’una o diverses consultes definides com a tasques al mateix administrador
 
-**Estimación horas de desarrollo:**  80 horas              **Entidad solicitante:** Comissión técnica SITMUN
+**Contexto y casos de uso:**
+
+
+
+**Requerimientos funcionales:**
+
+| Funcionalidad            | Descripción                            | Valor por defecto           |
+|--------------------------|----------------------------------------|-----------------------------|
+| `sitmun.proxy.force`     | Fuerza el uso del proxy de SITMUN      | `false`                     |
+| `sitmun.proxy.url`       | Localización del proxy de SITMUN       |                             1|
+
+
