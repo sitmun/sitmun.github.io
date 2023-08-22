@@ -22,8 +22,13 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita
 ## DESCRIPCIÓN DE LAS FUNCIONALIDADES DEL ROADMAP
 
 ### **Más info avanzado: enriquecimiento de datos asociados a una capa**
+
 !!! info "ddd"
-**Estimación horas de desarrollo:**  80 horas              **Entidad solicitante:** Comissión técnica SITMUN
+    **Estimación horas de desarrollo:**  80 horas              **Entidad solicitante:** Comissión técnica SITMUN
+
+!!! info "Condición de activación"
+    Estas propiedades se utilizan solo si está activado el perfil `ldap`. 
+    Deben almacenarse en un fichero separado denominado `application-ldap.yml`.
 
 **Objetivo:**
 Aquesta funcionalitat busca dotar a SITMUN 3 de la capacitat de configurar, des de l’administrador SITMUN 3, el contingut de la finestra que retorna el visualitzador SITMUN 3 al fer una consulta sobre el mapa per a una capa determinada. 
