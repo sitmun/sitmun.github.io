@@ -73,7 +73,9 @@ Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso del [vis
 
 **Requerimientos funcionales:**
 
-_Cliente Administrador SITMUN 3_
+Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
+
+:left_speech_bubble: _Cliente Administrador SITMUN 3_
 
 | Funcionalidad                                                                                   | Estado actual         | Issues relacionadas |
 |-------------------------------------------------------------------------------------------------|-----------------------|---------------------|
@@ -82,31 +84,31 @@ _Cliente Administrador SITMUN 3_
 | Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | Nueva                 |                     |
 | Asignación de parámetros específicos a tareas padre Tab scroll                                  | Nueva                 |                     |
 
-_Cliente visualizador SITMUN 3 (API SITNA)_
+:left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
 
 | Funcionalidad                                                 | Estado actual         | Issues relacionadas |
 |---------------------------------------------------------------|-----------------------|---------------------|
 | Parsear json del API de configuración y representar los datos | Existente no testeada |                     |
 
-_API de autenticación_
+:left_speech_bubble: _API de autenticación_
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-_API de administración_
+:left_speech_bubble: _API de administración_
 
 | Funcionalidad                                                        | Estado actual         | Issues relacionadas |
 |----------------------------------------------------------------------|-----------------------|---------------------|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
 
-_API configuración y autorización_
+:left_speech_bubble: _API configuración y autorización_
 
 | Funcionalidad                                                        | Estado actual         | Issues relacionadas |
 |----------------------------------------------------------------------|-----------------------|---------------------|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
 
-_API de proxy_
+:left_speech_bubble: _API de proxy_
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
@@ -138,41 +140,43 @@ En las imagenes siguientes se puede ver la actual ventana de login y selección 
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 
+
 **Requerimientos funcionales:**
 
-_Cliente Administrador SITMUN 3_
+Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
+
+:left_speech_bubble: _Cliente Administrador SITMUN 3_
 
 | Funcionalidad                                                                                   | Estado actual         | Issues relacionadas |
 |-------------------------------------------------------------------------------------------------|-----------------------|---------------------|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada |                     |
 
 
-_Cliente visualizador SITMUN 3 (API SITNA)_
+:left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
 
 | Funcionalidad                                                                              | Estado actual         | Issues relacionadas |
 |--------------------------------------------------------------------------------------------|-----------------------|---------------------|
 | Mejorar el diseño de la ventana de login, mas claro y responsive                           | nueva                 |                     |
 | Mejorar el diseño de la ventana del dashboard de usuario                                   | nueva                 |                     |
 | Ofrecer la opción de cambio de contraseña desde la ventana de login                        | nueva                 |                     |
-| Crear lista de territorios disponibles en forma de lista. 
-Al seleccionar cada territorio se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
+| Crear lista de territorios disponibles en forma de lista. Al seleccionar cada territorio se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
 
-_API de autenticación_
-
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
-
-_API de administración_
+:left_speech_bubble: _API de autenticación_
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-_API configuración y autorización_
+:left_speech_bubble: _API de administración_
+
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+
+:left_speech_bubble: _API configuración y autorización_
 
 | Funcionalidad                                                        | Estado actual         | Issues relacionadas |
 |----------------------------------------------------------------------|-----------------------|---------------------|
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
 
-_API de proxy_
+:left_speech_bubble: _API de proxy_
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
