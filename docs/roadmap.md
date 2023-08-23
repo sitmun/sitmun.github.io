@@ -22,8 +22,9 @@ las cosas más importantes en las que nos enfocamos:
 Busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3, 
 el contenido de la ventana que devuelve el visualizador al hacer una consulta sobre una capa visible en el área de mapa.
 
-- **Mejora de la interficie de usuario de la página de login y selección de territorio/aplicación**  
-
+- **Mejora de la interficie de usuario de la página de login y dashboard de usuario**:
+Mejorar la interficie de la ventana de login a los clientes SITMUN disponibles para el usuario así como el dashboard para la selección de aplicación, territorio i configuración de opciones y datos de usuario.
+  
 - **Edición gráfica y alfanumérica**:
 Implementar herramientas en el cliente SITMUN 3 que permitan la edición gráfica (mediante servicios WFS transaccionales) 
 y alfanumérica.
@@ -42,7 +43,7 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar 
  
 !!! info "Aspectos generales"
 
-    **Estimación horas de desarrollo:** 80 horas
+    **Estimación horas de desarrollo:** 200 horas
 
     **Entidad solicitante:** Comisión técnica SITMUN
 
@@ -108,3 +109,71 @@ _API configuración y autorización_
 _API de proxy_
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+
+
+
+### Mejora GUI de la página de login y dashboard de usuario del cliente SITMUN 3.
+ 
+!!! info "Aspectos generales"
+
+    **Estimación horas de desarrollo:** 40 horas
+
+    **Entidad solicitante:** Comisión técnica SITMUN
+
+    **Entidad con previsión de ejecución:** Pyrenees Orientales
+
+    **Prioridad:** ALTA
+
+**Objetivo:**
+
+Este proyecto busca mejorar el diseño y la funcionalidad de la interficie de acceso y selección de los clientes SITMUN disponibles para un usuario concreto, dotandolas de un diseño más amigable, claro y funcional. Se busca además ampliar la funcionalidad actual.
+
+
+**Contexto y casos de uso:**
+En las imagenes siguientes se puede ver la actual ventana de login y selección de aplicación del actual cliente SITMUN 3.
+
+![MejoraGUI_contexto1](https://github.com/sitmun/sitmun.github.io/assets/26217441/fa18fa8e-02c1-47a4-9ba3-a3267c141ee1)
+
+![MejoraGUI_contexto2](https://github.com/sitmun/sitmun.github.io/assets/26217441/15929a44-00f9-4ebe-a6db-979ccb36ef87)
+
+Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
+
+**Requerimientos funcionales:**
+
+_Cliente Administrador SITMUN 3_
+
+| Funcionalidad                                                                                   | Estado actual         | Issues relacionadas |
+|-------------------------------------------------------------------------------------------------|-----------------------|---------------------|
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada |                     |
+
+
+_Cliente visualizador SITMUN 3 (API SITNA)_
+
+| Funcionalidad                                                                              | Estado actual         | Issues relacionadas |
+|--------------------------------------------------------------------------------------------|-----------------------|---------------------|
+| Mejorar el diseño de la ventana de login, mas claro y responsive                           | nueva                 |                     |
+| Mejorar el diseño de la ventana del dashboard de usuario                                   | nueva                 |                     |
+| Ofrecer la opción de cambio de contraseña desde la ventana de login                        | nueva                 |                     |
+| Crear lista de territorios disponibles en forma de lista. 
+Al seleccionar cada territorio se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
+
+_API de autenticación_
+
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+
+_API de administración_
+
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+
+_API configuración y autorización_
+
+| Funcionalidad                                                        | Estado actual         | Issues relacionadas |
+|----------------------------------------------------------------------|-----------------------|---------------------|
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
+
+_API de proxy_
+
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+
+
