@@ -46,7 +46,7 @@ _Cliente Administrador SITMUN 3_
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos    | Existente no testeada    |  #8 |
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web    | Existente no testeada    | |
 | Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M    | Nueva    | |
-| Asignación de parámetros específicos a tareas padre (Tab scroll)   | Nueva    | |
+| Asignación de parámetros específicos a tareas padre Tab scroll   | Nueva    | |
 
 
 _Cliente visualizador SITMUN 3 (API SITNA)_
