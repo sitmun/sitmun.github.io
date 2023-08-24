@@ -89,6 +89,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Funcionalidad                                                 | Estado actual         | Issues relacionadas |
 |---------------------------------------------------------------|-----------------------|---------------------|
 | Parsear json del API de configuración y representar los datos | Existente no testeada |                     |
+| Interpretar la configuració de la respuesta avanzada para una capa concreta  | Nueva |                     |
 
 :left_speech_bubble: _API de autenticación_
 
