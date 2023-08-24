@@ -15,11 +15,10 @@
 
 ## Proyectos clave
 
-El objetivo de esta hoja de ruta es brindarle una visión general. Aquí hay una lista de nuestros proyectos clave -
-las cosas más importantes en las que nos enfocamos:
+El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y los próximas funcionalidades a desarrollar. La **Comisión Técnica de SITMUN** se encarga de priorizar y revisar o describir el alcance funcional de de cada uno de los puntos. 
 
 - **Localizadores**:
-Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
+Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2. Esta tarea incluye los cambios necesarios en el administrdor y API SITMUN, para poder configurar correctamente la funcionalidad de localizadores integrados genericos existente en el API SITNA 3.
 
 - **Consultas**:
 Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar consultas definidas como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
