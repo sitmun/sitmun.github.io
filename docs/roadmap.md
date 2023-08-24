@@ -86,10 +86,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
 
-| Funcionalidad                                                 | Estado actual         | Issues relacionadas |
-|---------------------------------------------------------------|-----------------------|---------------------|
-| Parsear json del API de configuración y representar los datos | Existente no testeada |                     |
-| Interpretar la configuració de la respuesta avanzada para una capa concreta  | Nueva |                     |
+| Funcionalidad                                                                           | Estado actual         | Issues relacionadas |
+|-----------------------------------------------------------------------------------------|-----------------------|---------------------|
+| Parsear json del API de configuración y representar los datos                           | Existente no testeada |                     |
+| Gestionar y renderizar la configuració de la respuesta avanzada para una capa concreta  | Nueva                 |                     |
+             |
 
 :left_speech_bubble: _API de autenticación_
 
