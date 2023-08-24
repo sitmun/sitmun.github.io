@@ -23,14 +23,14 @@ Busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SIT
 el contenido de la ventana que devuelve el visualizador al hacer una consulta sobre una capa visible en el área de mapa.
 
 - **Mejora de la interficie de usuario de la página de login y dashboard de usuario**:
-Mejorar la interficie de la ventana de login a los clientes SITMUN disponibles para el usuario así como el dashboard para la selección de aplicación, territorio i configuración de opciones y datos de usuario.
+Mejorar la interficie de la ventana de login a los clientes SITMUN disponibles para el usuario así como el dashboard para la selección de aplicación, territorio y configuración de opciones y datos de usuario.
   
 - **Edición gráfica y alfanumérica**:
 Implementar herramientas en el cliente SITMUN 3 que permitan la edición gráfica (mediante servicios WFS transaccionales) 
 y alfanumérica.
 
 - **Creación dinámica de informes**:
-Posiblidad de generar de forma dinámica i parametrizada un informe desde el cliente SITMUN previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas (consultas, generación de imagen de mapa, etc).
+Posiblidad de generar de forma dinámica y parametrizada un informe desde el cliente SITMUN previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas (consultas, generación de imagen de mapa, etc).
 
 - **Creación de temáticos**:
 Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar la simbología de una capa en función del valor de sus atributos.
