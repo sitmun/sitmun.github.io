@@ -18,6 +18,15 @@
 El objetivo de esta hoja de ruta es brindarle una visión general. Aquí hay una lista de nuestros proyectos clave -
 las cosas más importantes en las que nos enfocamos:
 
+- **Localizadores**:
+Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
+
+- **Consultas**:
+Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar consultas definidas como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
+
+- **Más info**:
+Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar tareas más info definidas como tal en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
+
 - **[Más info avanzado][mas-info-avanzado]**:
 Busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3, 
 el contenido de la ventana que devuelve el visualizador al hacer una consulta sobre una capa visible en el área de mapa.
