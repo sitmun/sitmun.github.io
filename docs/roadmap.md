@@ -83,6 +83,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada |                     |
 | Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | Nueva                 |                     |
 | Asignación de parámetros específicos a tareas padre Tab scroll                                  | Nueva                 |                     |
+| Asignación de una respuesta avanzada a una capa existente                                       | Nueva                 |                     |
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
 
