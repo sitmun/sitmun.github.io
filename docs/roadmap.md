@@ -114,6 +114,10 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 
 
+
+
+
+
 ### Mejora GUI de la página de login y dashboard de usuario del cliente SITMUN 3.
  
 !!! info "Aspectos generales"
