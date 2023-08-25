@@ -164,7 +164,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 | Funcionalidad                                                                                   | Estado actual         | Issues relacionadas |
 |-------------------------------------------------------------------------------------------------|-----------------------|---------------------|
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada |                     |
+| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto                          | Existente no testeada |                     |
 
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
@@ -174,7 +174,9 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Mejorar el diseño de la ventana de login, mas claro y responsive                           | nueva                 |                     |
 | Mejorar el diseño de la ventana del dashboard de usuario                                   | nueva                 |                     |
 | Ofrecer la opción de cambio de contraseña desde la ventana de login                        | nueva                 |                     |
-| Crear lista de territorios disponibles en forma de lista. Al seleccionar cada territorio se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
+| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro dinamico. Si no hay territorios selecionados se tienen que presentar todas las aplicaciones.  Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
+| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio, con la opción de, por lo menos, poder modificar la contraseña   | nueva                 |                     |
+| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia los usuarios  | nueva                 |                     |
 
 :left_speech_bubble: _API de autenticación_
 
