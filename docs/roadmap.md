@@ -13,37 +13,45 @@
 
 ¡Bienvenido a la hoja de ruta de SITMUN 3! Estas son las prioridades del equipo SITMUN.
 
-## Proyectos clave
+El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y los próximas funcionalidades a desarrollar. Se agrupan los proyectos o funcionalidades en tres grupos: en desarrollo son funcionalidades que estan siendo desarrolladas en este momento.
 
-El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y los próximas funcionalidades a desarrollar. La **Comisión Técnica de SITMUN** se encarga de priorizar y revisar o describir el alcance funcional de de cada uno de los puntos. 
+!!! info "Aspectos generales"
+    La **Comisión Técnica de SITMUN** se encarga de priorizar y revisar o describir, en su defecto, el alcance funcional de de cada uno de los puntos. 
 
-- **Localizadores**:
-Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2. Esta tarea incluye los cambios necesarios en el administrdor y API SITMUN, para poder configurar correctamente la funcionalidad de localizadores integrados genericos existente en el API SITNA 3.
 
-- **Consultas**:
-Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar consultas definidas como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
+## Proyectos en desarrollo
 
-- **Más info**:
-Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar tareas más info definidas como tal en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.
+| Proyecto - Funcionalidad                            | Descripción         | Estado |
+|------------------------------------------------|-----------------------|---|
+| Cliente SITMUN3 - API SITNA            | Creación de un cliente SITMUN3 generico a partir de la integración de [API SITNA](https://github.com/sitna/api-sitna/blob/master/README.es-ES.md)  y con el layout definido para la IDE menorca                |Revisión de bugs y documentación |
 
-- **[Más info avanzado][mas-info-avanzado]**:
-Busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3, 
-el contenido de la ventana que devuelve el visualizador al hacer una consulta sobre una capa visible en el área de mapa.
 
-- **Mejora de la interficie de usuario de la página de login y dashboard de usuario**:
-Mejorar la interficie de la ventana de login a los clientes SITMUN disponibles para el usuario así como el dashboard para la selección de aplicación, territorio y configuración de opciones y datos de usuario.
-  
-- **Edición gráfica y alfanumérica**:
-Implementar herramientas en el cliente SITMUN 3 que permitan la edición gráfica (mediante servicios WFS transaccionales) 
-y alfanumérica.
+## Proyectos prioritarios
 
-- **Creación dinámica de informes**:
-Posiblidad de generar de forma dinámica y parametrizada un informe desde el cliente SITMUN previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas (consultas, generación de imagen de mapa, etc).
+| Proyecto - Funcionalidad                          | Descripción         | Prioridad |
+|---------------------------------------------------|-----------------------|---|
+| **[Más info avanzado][mas-info-avanzado]**     | Busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3, el contenido de la ventana que devuelve el visualizador al hacer una consulta sobre una capa visible en el área de mapa.| ⭐⭐⭐ |
+| **Mejora de la interficie de usuario de la página de login y dashboard de usuario**    | Mejorar la interficie de la ventana de login a los clientes SITMUN disponibles para el usuario así como el dashboard para la selección de aplicación, territorio y configuración de opciones y datos de usuario.| ⭐⭐ |
+| **Más info**      | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar tareas más info definidas como tal en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.| ⭐ |
 
-- **Creación de temáticos**:
-Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar la simbología de una capa en función del valor de sus atributos.
 
-- **Creación de un cliente SITMUN tipo aplicación para dispositivos móbiles (APP)**
+## Proyectos clave en espera
+
+| Proyecto - Funcionalidad                          | Descripción         | Prioridad |
+|---------------------------------------------------|-----------------------|---|
+| **Localizadores**       | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2. Esta tarea incluye los cambios necesarios en el administrdor y API SITMUN, para poder configurar correctamente la funcionalidad de localizadores integrados genericos existente en el API SITNA 3 | ⭐ |
+| **Consultas**      | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar consultas definidas como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.| ⭐ |
+| **Edición gráfica y alfanumérica**      | Implementar herramientas en el cliente SITMUN 3 que permitan la edición gráfica (mediante servicios WFS transaccionales) y alfanumérica.| ⭐ |
+| **Creación dinámica de informes**     | Posiblidad de generar de forma dinámica y parametrizada un informe desde el cliente SITMUN previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas (consultas, generación de imagen de mapa, etc).| ⭐ |
+| **Creación de temáticos**     |Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar la simbología de una capa en función del valor de sus atributos. | ⭐ |
+| **Creación de un cliente SITMUN tipo aplicación para dispositivos móbiles (APP)**     | | ⭐⭐ |
+| **Creación de un cliente SITMUN  - API CNIG**     |Creación de un cliente SITMUN3 basado en el [API CNIG]([https://github.com/sitna/api-sitna/blob/master/README.es-ES.md](https://github.com/IGN-CNIG/API-CNIG))           | ⭐⭐ |
+
+
+
+
+
+
 
 ## Detalles
 
@@ -57,6 +65,10 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar 
 
     **Prioridad:** ALTA
 
+    **Persona o entidad de referència o contacto:** Consell Insular de Menorca
+
+    
+
 **Objetivo:**
 
 Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3,
@@ -65,6 +77,7 @@ el contenido de la ventana que devuelve el visor SITMUN 3 al realizar una consul
 El contenido de la ventana debe poder integrar la respuesta de una o varias consultas definidas como tareas al propio administrador
 
 **Contexto y casos de uso:**
+
 El actual cliente SITMUN 3, al hacer clic en el area de mapa sobre un objeto de una capa determinada, presenta el resultado de la petición GetFeatureInfo sobre al servicio WMS correspondiente. 
 
 ![MASINFOAVANZADO_context1](https://github.com/sitmun/sitmun.github.io/assets/26217441/f57fee94-c4b2-44a1-a1a5-0263ebe36f22)
