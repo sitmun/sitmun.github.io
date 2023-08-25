@@ -55,8 +55,6 @@ Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar 
 
     **Entidad solicitante:** Comisión técnica SITMUN
 
-    **Entidad con previsión de ejecución:** Pyrenees Orientales
-
     **Prioridad:** ALTA
 
 **Objetivo:**
@@ -137,8 +135,6 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
     **Entidad solicitante:** Comisión técnica SITMUN
 
-    **Entidad con previsión de ejecución:** Pyrenees Orientales
-
     **Prioridad:** ALTA
 
 **Objetivo:**
@@ -149,9 +145,10 @@ Este proyecto busca mejorar el diseño y la funcionalidad de la interficie de ac
 **Contexto y casos de uso:**
 En las imagenes siguientes se puede ver la actual ventana de login y selección de aplicación del actual cliente SITMUN 3.
 
-![MejoraGUI_contexto1](https://github.com/sitmun/sitmun.github.io/assets/26217441/fa18fa8e-02c1-47a4-9ba3-a3267c141ee1)
+![MejoraGUI_contexto1](https://github.com/sitmun/sitmun.github.io/assets/26217441/72462a93-2403-44a8-b8df-99ecbf22130f)
 
-![MejoraGUI_contexto2](https://github.com/sitmun/sitmun.github.io/assets/26217441/15929a44-00f9-4ebe-a6db-979ccb36ef87)
+![MejoraGUI_contexto2](https://github.com/sitmun/sitmun.github.io/assets/26217441/89168d4b-6873-4a60-81da-2123a337fe41)
+
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 
