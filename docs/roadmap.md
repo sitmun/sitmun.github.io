@@ -13,11 +13,12 @@
 
 ¡Bienvenido a la hoja de ruta de SITMUN 3! Estas son las prioridades del equipo SITMUN.
 
-El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y los próximas funcionalidades a desarrollar. Se agrupan los proyectos o funcionalidades en tres grupos: en desarrollo son funcionalidades que estan siendo desarrolladas en este momento.
+El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y los próximas funcionalidades a desarrollar. 
 
 !!! info "Aspectos generales"
     La [**El Comité Técnico de SITMUN**](https://sitmun.github.io/contact/) es el órgano funcional encargado de revisar la descripción o, en su defecto, describir el alcance funcional de de cada uno de los puntos. También de proponer la priorización de cada uno de los proyectos o funcionalidades.
-    Durante la **Asamblea Ordinaria Anual de socios del proyecto SITMUN** se votará y aprobará la priorización.
+    
+    Durante la **Asamblea Ordinaria Anual de socios del proyecto SITMUN** se vota y aprueba la priorización.
 
 
 ## Proyectos en desarrollo
@@ -40,7 +41,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 | Proyecto - Funcionalidad                          | Descripción         | Prioridad |
 |---------------------------------------------------|-----------------------|---|
-| **Localizadores**       | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2. Esta tarea incluye los cambios necesarios en el administrdor y API SITMUN, para poder configurar correctamente la funcionalidad de localizadores integrados genericos existente en el API SITNA 3 | ⭐ |
+| **Localizadores**       | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar localizadores definidos como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2. Esta tarea incluye los cambios necesarios en el administrdor y API SITMUN, para poder configurar correctamente la funcionalidad de localizadores integrados genericos existente en el API SITNA 3 | ⭐⭐⭐ |
 | **Consultas**      | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y ejecutar consultas definidas como tareas en el administrador SITMUN 3. Asimiliando el funcionamiento al de los actuales clientes SITMUN 2.| ⭐ |
 | **Edición gráfica y alfanumérica**      | Implementar herramientas en el cliente SITMUN 3 que permitan la edición gráfica (mediante servicios WFS transaccionales) y alfanumérica.| ⭐ |
 | **Creación dinámica de informes**     | Posiblidad de generar de forma dinámica y parametrizada un informe desde el cliente SITMUN previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas (consultas, generación de imagen de mapa, etc).| ⭐ |
@@ -89,6 +90,7 @@ Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso del [vis
 
 ![MASINFOAVANZADO_context2](https://github.com/sitmun/sitmun.github.io/assets/26217441/07392c2a-c793-49ec-8f25-e833ff9e589b)
 
+Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUn 2.
 ![MASINFOAVANZADO_context3](https://github.com/sitmun/sitmun.github.io/assets/26217441/c4b214fa-851f-4df7-8669-622fa5c45762)
 
 **Requerimientos funcionales:**
@@ -102,8 +104,8 @@ Se prevé la siguiente lógica de funcional:
        - Establecer para cada tarea hija un json con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galeria de fotos, etc).
        - Definir que capa o capas tienen asociada esta funcionalidad.
        - Definir que territorios y roles de usuario tienen asociada esta funcionalidad.             
-    1. Configurada correctamente la tarea, el _API de configuración y autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que se haya logeado), (2) configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un objecto de dicha capa. El cliente permitirà gestionar el comportamiento en caso que el usuario haga clic a dos o más objetos sobre el mapa pertenecientes a la misma capa y/o a distintas capas, algunas de las cuales pueden tener una funcionalidad *más info avanzado** definida y otras no (con lo que presenta la ventana por defecto de respuesta GetFeatureInfo).
-    1. El Cliente SITMUN - API SITNA deberá interpretar el json del _API de configuración y autorización_ y presentar al usuario la ventana más info avanzado, cuando corresponda.
+    2. Configurada correctamente la tarea, el _API de configuración y autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que se haya logeado), (2) configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un objecto de dicha capa. El cliente permitirà gestionar el comportamiento en caso que el usuario haga clic a dos o más objetos sobre el mapa pertenecientes a la misma capa y/o a distintas capas, algunas de las cuales pueden tener una funcionalidad *más info avanzado** definida y otras no (con lo que presenta la ventana por defecto de respuesta GetFeatureInfo).
+    3. El Cliente SITMUN - API SITNA deberá interpretar el json del _API de configuración y autorización_ y presentar al usuario la ventana más info avanzado, cuando corresponda.
                 
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:
@@ -148,7 +150,9 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
+:left_speech_bubble: _Esquema de base de datos SITMUN administrador_
 
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
 
 
@@ -201,9 +205,9 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Mejorar el diseño de la ventana de login, mas claro y responsive                           | ✨ nueva                 |                     |
 | Mejorar el diseño de la ventana del dashboard de usuario                                   | ✨ nueva                 |                     |
 | Ofrecer la opción de cambio de contraseña desde la ventana de login                        | ✨ nueva                 |                     |
-| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro dinamico. Si no hay territorios selecionados se tienen que presentar todas las aplicaciones.  Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
-| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio, con la opción de, por lo menos, poder modificar la contraseña   | nueva                 |                     |
-| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia los usuarios  | nueva                 |                     |
+| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro dinamico. Si no hay territorios selecionados se tienen que presentar todas las aplicaciones.  Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese territorio | ✨ nueva                 |                     |
+| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio, con la opción de, por lo menos, poder modificar la contraseña   | ✨ nueva                 |                     |
+| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia los usuarios  | ✨ nueva                 |                     |
 
 :left_speech_bubble: _API de autenticación_
 
@@ -224,4 +228,6 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
+:left_speech_bubble: _Esquema de base de datos SITMUN administrador_
 
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
