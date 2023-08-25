@@ -16,7 +16,8 @@
 El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y los próximas funcionalidades a desarrollar. Se agrupan los proyectos o funcionalidades en tres grupos: en desarrollo son funcionalidades que estan siendo desarrolladas en este momento.
 
 !!! info "Aspectos generales"
-    La **Comisión Técnica de SITMUN** se encarga de priorizar y revisar o describir, en su defecto, el alcance funcional de de cada uno de los puntos. 
+    La [**El Comité Técnico de SITMUN**](https://sitmun.github.io/contact/) es el órgano funcional encargado de revisar la descripción o, en su defecto, describir el alcance funcional de de cada uno de los puntos. También de proponer la priorización de cada uno de los proyectos o funcionalidades.
+    Durante la **Asamblea Ordinaria Anual de socios del proyecto SITMUN** se votará y aprobará la priorización.
 
 
 ## Proyectos en desarrollo
@@ -92,24 +93,37 @@ Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso del [vis
 
 **Requerimientos funcionales:**
 
-Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
+Se prevé la siguiente lógica de funcional:
+
+    1. En el administrador SITMUN 3 se definirán primero las distintas tareas (que pueden ser de distintos tipos consultas a bases de datos, consultas a servicios, generación de mapa,...) que formaran parte de la ventana de más info avanzado.
+    1. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurarà en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
+       - Establecer la relación con las distintas tareas hijas que forman parte del mas info avanzado. Una tarea hija, a su vez, debe poder formar parte de varias tareas padre.
+       - Establecer el tipo de más info avanzado, para establecer cómo se presentaran en la ventana las distintas tareas hijo (en tabs, en scroll...)
+       - Establecer para cada tarea hija un json con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galeria de fotos, etc).
+       - Definir que capa o capas tienen asociada esta funcionalidad.
+       - Definir que territorios y roles de usuario tienen asociada esta funcionalidad.             
+    1. Configurada correctamente la tarea, el _API de configuración y autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que se haya logeado), (2) configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un objecto de dicha capa. El cliente permitirà gestionar el comportamiento en caso que el usuario haga clic a dos o más objetos sobre el mapa pertenecientes a la misma capa y/o a distintas capas, algunas de las cuales pueden tener una funcionalidad *más info avanzado** definida y otras no (con lo que presenta la ventana por defecto de respuesta GetFeatureInfo).
+    1. El Cliente SITMUN - API SITNA deberá interpretar el json del _API de configuración y autorización_ y presentar al usuario la ventana más info avanzado, cuando corresponda.
+                
+
+Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:
 
 :left_speech_bubble: _Cliente Administrador SITMUN 3_
 
-| Funcionalidad                                                                                   | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                                                   | [Commit message](https://gitmoji.dev/)        | Issues relacionadas |
 |-------------------------------------------------------------------------------------------------|-----------------------|---------------------|
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada |                     |
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada |                     |
-| Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | Nueva                 |                     |
-| Asignación de parámetros específicos a tareas padre Tab scroll                                  | Nueva                 |                     |
-| Asignación de una respuesta avanzada a una capa existente                                       | Nueva                 |                     |
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | 🧐Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | 🧐Existente no testeada |                     |
+| Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | ✨Nueva                 |                     |
+| Asignación de parámetros específicos a tareas padre Tab scroll                                  | ✨Nueva                 |                     |
+| Asignación de una respuesta avanzada a una capa existente                                       | ✨Nueva                 |                     |
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
 
-| Funcionalidad                                                                           | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                                           | [Commit message](https://gitmoji.dev/)           | Issues relacionadas |
 |-----------------------------------------------------------------------------------------|-----------------------|---------------------|
-| Parsear json del API de configuración y representar los datos                           | Existente no testeada |                     |
-| Gestionar y renderizar la configuració de la respuesta avanzada para una capa concreta  | Nueva                 |                     |
+| Parsear json del API de configuración y representar los datos                           | 🧐Existente no testeada |                     |
+| Gestionar y renderizar la configuració de la respuesta avanzada para una capa concreta  | ✨Nueva                 |                     |
              |
 
 :left_speech_bubble: _API de autenticación_
@@ -118,17 +132,17 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 :left_speech_bubble: _API de administración_
 
-| Funcionalidad                                                        | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                        | [Commit message](https://gitmoji.dev/)           | Issues relacionadas |
 |----------------------------------------------------------------------|-----------------------|---------------------|
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos |🧐 Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web  |🧐 Existente no testeada |                     |
 
 :left_speech_bubble: _API configuración y autorización_
 
-| Funcionalidad                                                        | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                        | [Commit message](https://gitmoji.dev/)           | Issues relacionadas |
 |----------------------------------------------------------------------|-----------------------|---------------------|
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos |🧐 Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web  |🧐 Existente no testeada |                     |
 
 :left_speech_bubble: _API de proxy_
 
@@ -149,6 +163,9 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
     **Entidad solicitante:** Comisión técnica SITMUN
 
     **Prioridad:** ALTA
+    
+    **Persona o entidad de referència o contacto:** Consell Insular de Menorca
+
 
 **Objetivo:**
 
@@ -172,18 +189,18 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 :left_speech_bubble: _Cliente Administrador SITMUN 3_
 
-| Funcionalidad                                                                                   | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                                                   | [Commit message](https://gitmoji.dev/)         | Issues relacionadas |
 |-------------------------------------------------------------------------------------------------|-----------------------|---------------------|
-| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto                          | Existente no testeada |                     |
+| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto                          | 🧐 Existente no testeada |                     |
 
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
 
-| Funcionalidad                                                                              | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                                              | [Commit message](https://gitmoji.dev/)         | Issues relacionadas |
 |--------------------------------------------------------------------------------------------|-----------------------|---------------------|
-| Mejorar el diseño de la ventana de login, mas claro y responsive                           | nueva                 |                     |
-| Mejorar el diseño de la ventana del dashboard de usuario                                   | nueva                 |                     |
-| Ofrecer la opción de cambio de contraseña desde la ventana de login                        | nueva                 |                     |
+| Mejorar el diseño de la ventana de login, mas claro y responsive                           | ✨ nueva                 |                     |
+| Mejorar el diseño de la ventana del dashboard de usuario                                   | ✨ nueva                 |                     |
+| Ofrecer la opción de cambio de contraseña desde la ventana de login                        | ✨ nueva                 |                     |
 | Presentar territorios disponibles en forma de lista, con un buscador que realice filtro dinamico. Si no hay territorios selecionados se tienen que presentar todas las aplicaciones.  Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese territorio | nueva                 |                     |
 | Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio, con la opción de, por lo menos, poder modificar la contraseña   | nueva                 |                     |
 | Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia los usuarios  | nueva                 |                     |
@@ -198,10 +215,10 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 :left_speech_bubble: _API configuración y autorización_
 
-| Funcionalidad                                                        | Estado actual         | Issues relacionadas |
+| Funcionalidad                                                        | [Commit message](https://gitmoji.dev/)          | Issues relacionadas |
 |----------------------------------------------------------------------|-----------------------|---------------------|
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos | Existente no testeada |                     |
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web  | Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos |🧐 Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web  |🧐 Existente no testeada |                     |
 
 :left_speech_bubble: _API de proxy_
 
