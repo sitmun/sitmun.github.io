@@ -26,3 +26,4 @@ six==1.16.0
 urllib3==2.0.3
 watchdog==3.0.0
 plantuml-markdown==3.9.1
+markdown-grid-tables==0.3.1
