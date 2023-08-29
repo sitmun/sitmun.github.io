@@ -167,7 +167,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 :left_speech_bubble: _Cliente Administrador SITMUN 3_
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
+| Funcionalidad                                                                                   | [Commit messages](https://gitmoji.dev/)     | Issues relacionadas |
 +=================================================================================================+=========================+=====================+
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | 🧐Existente no testeada  |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
