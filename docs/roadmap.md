@@ -127,20 +127,24 @@ Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUn
 
 Se prevé la siguiente lógica de funcional:
 
-1. En el administrador SITMUN 3 se definirán primero las distintas tareas (que pueden ser de distintos tipos consultas a bases de datos, consultas a servicios, generación de mapa, ...)
-   que formaran parte de la ventana de más info avanzado.
-2. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurará en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
+1. En el administrador SITMUN 3 se definirán primero las distintas tareas (que pueden ser de distintos tipos consultas a bases de datos, consultas a servicios, ...) que formaran parte de la ventana de más info avanzado.
+
+Por ejemplo, en el caso del visor medio ambiental anterior, se establecen varias consultas:
+
+    -Una primera tarea que consiste en consulta que devuelve toda la información relativa a una ruta turística:
+
+3. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurará en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
     - Establecer la relación con las distintas tareas hijas que forman parte del **más info avanzado**. Una tarea hija, a su vez, debe poder formar parte de varias tareas padre.
     - Establecer el tipo de más info avanzado, para establecer cómo se presentarán en la ventana las distintas tareas hijo (en tabs, en scroll...)
     - Establecer para cada tarea hija un json con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galería de fotos, etc.).
     - Definir que capa o capas tienen asociada esta funcionalidad.
     - Definir que territorios y roles de usuario tienen asociada esta funcionalidad.
-3. Configurada correctamente la tarea, la _API de configuración y autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA
+4. Configurada correctamente la tarea, la _API de configuración y autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA
    (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio en el que se halla autorizado), (2) configurar correctamente la ventana de info cuando
    se realice un clic sobre el mapa a un objeto de dicha capa. El cliente permitirá gestionar el comportamiento en caso de que el usuario haga clic a dos o más objetos
    sobre el mapa pertenecientes a la misma capa y/o a distintas capas, algunas de las cuales pueden tener una funcionalidad **más info avanzado** definida y otras
    no (con lo que presenta la ventana por defecto de respuesta GetFeatureInfo).
-4. El Cliente SITMUN - API SITNA deberá interpretar el json del _API de configuración y autorización_ y presentar al usuario la ventana más info avanzado, cuando corresponda.
+5. El Cliente SITMUN - API SITNA deberá interpretar el json del _API de configuración y autorización_ y presentar al usuario la ventana más info avanzado, cuando corresponda.
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:
 
