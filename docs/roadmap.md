@@ -57,6 +57,9 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
 +============================================+=============================================================================+===================+
+| **Creación de un cliente SITMUN - API**    | Creación de un cliente SITMUN3 basado en el                                 | ⭐⭐                |
+| **CNIG**                                   | [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                            |                   |
++--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | **Localizadores**                          | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | ⭐⭐⭐               |
 |                                            | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.  |                   |
 |                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
@@ -83,9 +86,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **aplicación para dispositivos móbiles**   |                                                                             |                   |
 | **(APP)**                                  |                                                                             |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación de un cliente SITMUN - API**    | Creación de un cliente SITMUN3 basado en el                                 | ⭐⭐                |
-| **CNIG**                                   | [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                            |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+
 
 ## Detalles
 
