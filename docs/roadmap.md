@@ -223,7 +223,9 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### Mejora GUI de la página de login y dashboard de usuario del cliente SITMUN 3.
+
+
+### Mejora GUI del login y dashboard de usuario del cliente SITMUN 3.
  
 !!! info "Aspectos generales"
 
@@ -294,24 +296,23 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Mejorar el diseño de la ventana de login, mas claro y responsive                                | ✨ nueva                 |                     |
+| Mejorar el diseño de la ventana de login, mas claro y responsive                                | ✨ nueva                |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Mejorar el diseño de la ventana del dashboard de usuario                                        | ✨ nueva                 |                     |
+| Mejorar el diseño de la ventana del dashboard de usuario                                        | ✨ nueva                |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Ofrecer la opción de cambio de contraseña desde la ventana de login                             | ✨ nueva                 |                     |
+| Ofrecer la opción de cambio de contraseña desde la ventana de login                             | ✨ nueva                |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | ✨ nueva                 |                     |
+| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | ✨ nueva                |                     |
 | dinámico. Si no hay territorios seleccionados se tienen que presentar todas las aplicaciones.   |                         |                     |
 | Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese     |                         |                     |
 |territorio                                                                                       |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | ✨ nueva                 |                     |
+| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | ✨ nueva                |                     |
 | de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio,|                         |                     |
 | con la opción de, por lo menos, poder modificar la contraseña                                   |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia| ✨ nueva                 |                     |
-| los usuarios                                                                                    |                         |                     |                                                                                            | ✨ nueva                                |                     |
-+-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia| ✨ nueva                |                     |
+| los usuarios                                                                                    |                         |                     |                                                                        +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 :left_speech_bubble: _API de autenticación_
 
@@ -319,17 +320,21 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 :left_speech_bubble: _API de administración_
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
-
-:left_speech_bubble: _API configuración y autorización_
-
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | 🧐 Existente no testeada |                     |
+| Incorporar los parámetros necesarios para configurar el listado de aplicaciones (descripción,   | ✨ nueva                |                     |
+| imagen, título, fecha de caducidad, fecha último acceso) accesibles para el usuario en la       |                         |                     |
+| aplicación de Administdración SITMUN 3                                                          |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | 🧐 Existente no testeada |                     |
+| Incorporar los parámetros necesarios para configurar en el dashboard las comunicaciones y       | ✨ nueva                |                     |
+| notícias (título, descripcion, enlaces, imagen) para cada usuario desde la aplicación           |                         |                     |
+| de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+
+:left_speech_bubble: _API configuración y autorización_
+
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 :left_speech_bubble: _API de proxy_
 
@@ -337,4 +342,12 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 :left_speech_bubble: _Esquema de base de datos SITMUN administrador_
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
++-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+| Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
++=================================================================================================+=========================+=====================+ 
+| Analizar e incorporar a la bbdd, si se requiere, los campos necesarios para permitir almacernar | ✨ nueva                |                     |
+| los parámetros necesarios para configurar el listado de aplicaciones                            |                         |                     |
++-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+| Analizar e incorporar a la bbdd si se requiere, locs campos necesarios para configurar          | ✨ nueva                |                     |
+| en el dashboard las comunicaciones y notícias para cada usuario                                 |                         |                     |
++-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
