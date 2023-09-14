@@ -126,7 +126,7 @@ Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUn
 
 **Requerimientos funcionales:**
 
-Se prevé la siguiente lógica de funcional:
+Se prevé la siguiente lógica funcional:
 
 1. En el administrador SITMUN 3 se definirán primero las distintas tareas (que pueden ser de distintos tipos consultas a bases de datos, consultas a servicios, ...) que formaran parte de la ventana de más info avanzado.
    
@@ -248,12 +248,32 @@ En las imágenes siguientes se puede ver la actual ventana de login y selección
 
 ![MejoraGUI_contexto1](https://github.com/sitmun/sitmun.github.io/assets/26217441/72462a93-2403-44a8-b8df-99ecbf22130f)
 
+En la imagen siguiente se puede ver el dashboard inicial:
 ![MejoraGUI_contexto2](https://github.com/sitmun/sitmun.github.io/assets/26217441/89168d4b-6873-4a60-81da-2123a337fe41)
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 
 
 **Requerimientos funcionales:**
+
+Se prevé la siguiente lógica funcional:
+
+1. Acceso a SITMUN. Desde la ventana de login se permite entrar en el espacio de usuario, que ofrece acceso a las distintas combinaciones de apliación y territorio sobre las que un usuario tiene permisos. Así mismo, y de forma diferenciada en la interficie de usuario, se ofrece acceso a las aplicaciones públicas. La ventana de acceso incorpora, además del espacio de usuario/pasword una opción de acceso 'publico' permite el acceso a un espacio público que únicamente ofrece el listado de aplicaciones / territorio que són de carácter público.
+
+2. Una vez logeado al espacio de usuario se ofrecerá al usuario de forma clara el listado de territorios y de aplicaciones. El listado de territorios se ofrece como una lista de todos los territorios a los que el usuario tiene acceso con una opción 'todos' por defecto que no realiza filtro sobre las aplicaciones. En caso que un usuario tenga acceso a muchos territorios y este hecho dificulte presentar las opciones sin filtrar por volumen, aparecerà un aviso a la pantalla principal pidiendo al usuaro que seleccione un territorio de la lista.  El listado de aplicaciones se presenta como un conjunto de elementos con características (imagen, descripción, territorio i último acceso). La ventana de usuario ofrece la siguiente funcionalidad:
+
+    - Opción de consultar los datos de usuario en el SITMUN (territorio, rol, caducidad...) y gestionar determinados datos de usuario (cambiar el correo electrónico, el teléfono y la contraseña)
+    - Informar de forma clara de: fecha del último acceso a SITMUN, fecha de último acceso para cada aplicación, fecha de caducidad de los permisos para cada aplicación/territorio,
+    - Espacio de notícias y comunicados para que el administrador SITMUN pueda enviar mensajes a cada usuario en función de sus permisos de acceso. 
+    - Acceso diferenciado a las aplicaciones públicas.
+    - Buscador de territorios
+    - Cambio de idioma
+    - Logout
+
+A continuación se presenta de forma ilustrativa el concepto de interficie. **Éste diseño es solo demostrativo para plasmar la idea inicial de la Red SITMUN**, la empresa contractante deberá desarrollar esta idea y plantear una o varias propuestas de GUI. En la propuesta de diseño se pondrá énfasis en crear una imagen moderna, clara y funcional para el usuario y que sea responsiva.
+
+![Sitmun dashboard user_conceptExample](https://github.com/sitmun/sitmun.github.io/assets/26217441/5a05eb9a-afe9-427a-b642-b12b04f12c2e)
+
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
 
@@ -262,11 +282,14 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto   | 🧐 Existente no testeada |                     |
+| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto.| ✨ nueva                 |                     |
+| Cada notícia ha de tener, por lo menos, un título, texto (multiidoma), una imagen y           |                          |                     | 
+| la posiblidad de agregar enlaces.                                                             |                          |                     |                   
++-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+| Asociar una imagen o thumbnail a cada aplicación                                              | 🧐 Existente no testeada |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-
-:left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
+:left_speech_bubble: _Cliente visualizador SITMUN 3 (Dashboad de usuario)
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
