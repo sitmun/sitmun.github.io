@@ -266,7 +266,11 @@ Se prevé la siguiente lógica funcional:
     - Cambio de idioma
     - Logout
 
-A continuación se presenta de forma ilustrativa el concepto de interficie. **Éste diseño es solo demostrativo para plasmar la idea inicial de la Red SITMUN**, la empresa contractante deberá desarrollar esta idea y plantear una o varias propuestas de GUI. En la propuesta de diseño se pondrá énfasis en crear una imagen moderna, clara y funcional para el usuario y que sea responsiva.
+A continuación se presenta de forma ilustrativa el concepto de interficie. 
+**Este diseño es solo demostrativo para plasmar la idea inicial de la Red SITMUN**, 
+la empresa contractante deberá desarrollar esta idea y plantear una o varias propuestas de GUI. 
+En la propuesta de diseño se pondrá énfasis en crear una imagen moderna, 
+clara y funcional para el usuario y que sea responsiva.
 
 ![Sitmun dashboard user_conceptExample](https://github.com/sitmun/sitmun.github.io/assets/26217441/5a05eb9a-afe9-427a-b642-b12b04f12c2e)
 
@@ -278,11 +282,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto.| ✨ nueva                 |                     |
-| Cada notícia ha de tener, por lo menos, un título, texto (multiidoma), una imagen y           |                          |                     | 
-| la posiblidad de agregar enlaces.                                                             |                          |                     |                   
+| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto.  | ✨nueva                  |                     |
+| Cada notícia ha de tener, por lo menos, un título, texto (multiidioma), una imagen y            |                         |                     | 
+| la posiblidad de agregar enlaces.                                                               |                         |                     |                   
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Asociar una imagen o thumbnail a cada aplicación                                              | 🧐 Existente no testeada |                     |
+| Asociar una imagen o thumbnail a cada aplicación                                                | 🧐Existente no testeada  |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (Dashboad de usuario)_
@@ -290,23 +294,24 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Mejorar el diseño de la ventana de login, mas claro y responsive                                | ✨ nueva                |                     |
+| Mejorar el diseño de la ventana de login, mas claro y responsive                                | ✨nueva                  |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Mejorar el diseño de la ventana del dashboard de usuario                                        | ✨ nueva                |                     |
+| Mejorar el diseño de la ventana del dashboard de usuario                                        | ✨nueva                  |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Ofrecer la opción de cambio de contraseña desde la ventana de login                             | ✨ nueva                |                     |
+| Ofrecer la opción de cambio de contraseña desde la ventana de login                             | ✨nueva                  |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | ✨ nueva                |                     |
+| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | ✨nueva                  |                     |
 | dinámico. Si no hay territorios seleccionados se tienen que presentar todas las aplicaciones.   |                         |                     |
 | Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese     |                         |                     |
 | territorio                                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | ✨ nueva                |                     |
+| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | ✨nueva                  |                     |
 | de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio,|                         |                     |
 | con la opción de, por lo menos, poder modificar la contraseña                                   |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia| ✨ nueva                |                     |
-| los usuarios                                                                                    |                         |                     |                                                                        +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia| ✨nueva                  |                     |
+| los usuarios                                                                                    |                         |                     |                                                                        
++-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 :left_speech_bubble: _API de autenticación_
 
@@ -317,11 +322,11 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Incorporar los parámetros necesarios para configurar el listado de aplicaciones (descripción,   | ✨ nueva                |                     |
+| Incorporar los parámetros necesarios para configurar el listado de aplicaciones (descripción,   | ✨nueva                  |                     |
 | imagen, título, fecha de caducidad, fecha último acceso) accesibles para el usuario en la       |                         |                     |
 | aplicación de Administdración SITMUN 3                                                          |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Incorporar los parámetros necesarios para configurar en el dashboard las comunicaciones y       | ✨ nueva                |                     |
+| Incorporar los parámetros necesarios para configurar en el dashboard las comunicaciones y       | ✨nueva                  |                     |
 | notícias (título, descripcion, enlaces, imagen) para cada usuario desde la aplicación           |                         |                     |
 | de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
@@ -339,9 +344,9 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Analizar e incorporar a la bbdd, si se requiere, los campos necesarios para permitir almacernar | ✨ nueva                |                     |
+| Analizar e incorporar a la bbdd, si se requiere, los campos necesarios para permitir almacernar | ✨nueva                  |                     |
 | los parámetros necesarios para configurar el listado de aplicaciones                            |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Analizar e incorporar a la bbdd si se requiere, locs campos necesarios para configurar          | ✨ nueva                |                     |
+| Analizar e incorporar a la bbdd si se requiere, locs campos necesarios para configurar          | ✨nueva                  |                     |
 | en el dashboard las comunicaciones y notícias para cada usuario                                 |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
