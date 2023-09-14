@@ -207,13 +207,7 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 :left_speech_bubble: _API configuración y autorización_
 
-+-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
-+=================================================================================================+=========================+=====================+
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            |🧐 Existente no testeada  |                     |
-+-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             |🧐 Existente no testeada  |                     |
-+-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
 :left_speech_bubble: _API de proxy_
 
@@ -291,7 +285,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Asociar una imagen o thumbnail a cada aplicación                                              | 🧐 Existente no testeada |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-:left_speech_bubble: _Cliente visualizador SITMUN 3 (Dashboad de usuario)
+:left_speech_bubble: _Cliente visualizador SITMUN 3 (Dashboad de usuario)_
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -305,7 +299,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | ✨ nueva                |                     |
 | dinámico. Si no hay territorios seleccionados se tienen que presentar todas las aplicaciones.   |                         |                     |
 | Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese     |                         |                     |
-|territorio                                                                                       |                         |                     |
+| territorio                                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | ✨ nueva                |                     |
 | de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio,|                         |                     |
