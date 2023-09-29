@@ -38,19 +38,27 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
 +============================================+=============================================================================+===================+
-| **[Más info avanzado][mas-info-avanzado]** | Busca dotar a SITMUN 3 de la capacidad de configurar, desde                 | ⭐⭐⭐               |
+| **[Más info avanzado][mas-info-avanzado]** | Busca dotar a SITMUN 3 de la capacidad de configurar, desde                 | ⭐⭐⭐              |
 |                                            | el administrador SITMUN 3, el contenido de la ventana que                   |                   |
 |                                            | devuelve el visualizador al hacer una consulta sobre una capa               |                   |
 |                                            | visible en el área de mapa.                                                 |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Mejora de la interficie de usuario de**  | Mejorar la interficie de la ventana de login a los clientes SITMUN          | ⭐⭐                |
+| **Mejora de la interficie de usuario de**  | Mejorar la interficie de la ventana de login a los clientes SITMUN          | ⭐⭐               |
 | **página de login y dashboard de usuario** | disponibles para el usuario así como el dashboard para la selección de      |                   |
 |                                            | aplicación, territorio y configuración de opciones y datos de usuario.      |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Más info**                               | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | ⭐⭐⭐               |
+| **Más info**                               | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | ⭐⭐⭐              |
 |                                            | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.   |                   |
 |                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Autorización por token en el cliente**   | Autenticación por token en el cliente SITMUN 3 API SITNA                    | ⭐⭐⭐              |
+|                                            |                                                                             |                   |
++--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Cambio de arbol en aplicación cliente**  | Cambio de árbol del cliente SITMUN 3 API SITNA.                             | ⭐⭐⭐               |
+|                                            |                                                                             |                   |
++--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+
+
 
 ## Proyectos clave en espera
 
