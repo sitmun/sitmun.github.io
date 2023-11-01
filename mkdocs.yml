@@ -59,7 +59,11 @@ nav:
   - Características:
       - features-client.md
       - features-server.md
-      - roadmap.md
+      - Hoja de ruta:
+          - roadmap.md
+      - Propuestas:
+          - roadmap/mas-info-avanzado.md
+          - roadmap/mejora-ui-login-dashboard-cliente.md
   - Referencia:
       - Arquitectura: architecture.md
       - Diseño: design.md
