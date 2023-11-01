@@ -59,8 +59,6 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 |                                                                                     |                                                                             |                   |
 +-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 
-
-
 ## Proyectos clave en espera
 
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
@@ -94,4 +92,15 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Creación de un cliente SITMUN tipo**     |                                                                             | Media             |
 | **aplicación para dispositivos móbiles**   |                                                                             |                   |
 | **(APP)**                                  |                                                                             |                   |
++--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+
+## Otros proyectos
+
++--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
++============================================+=============================================================================+===================+
+| [Informe](roadmap/informe.md)              | Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar,    | Baja              |
+|                                            | desde el administrador SITMUN 3, el contenido de una ventana que devuelve el|                   |
+|                                            | visor SITMUN 3 cuando el usuario busca una referencia catastral o dirección |                   | 
+|                                            | del visor o como información complementaria del "Mas info".                 |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
