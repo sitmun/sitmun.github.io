@@ -38,23 +38,23 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
 +============================================+=============================================================================+===================+
-| **[Más info avanzado][mas-info-avanzado]** | Busca dotar a SITMUN 3 de la capacidad de configurar, desde                 | ⭐⭐⭐               |
+| **[Más info avanzado][mas-info-avanzado]** | Busca dotar a SITMUN 3 de la capacidad de configurar, desde                 | Alta              |
 |                                            | el administrador SITMUN 3, el contenido de la ventana que                   |                   |
 |                                            | devuelve el visualizador al hacer una consulta sobre una capa               |                   |
 |                                            | visible en el área de mapa.                                                 |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Mejora de la interficie de usuario de**  | Mejorar la interficie de la ventana de login a los clientes SITMUN          | ⭐⭐                |
+| **Mejora de la interficie de usuario de**  | Mejorar la interficie de la ventana de login a los clientes SITMUN          | Media             |
 | **página de login y dashboard de usuario** | disponibles para el usuario así como el dashboard para la selección de      |                   |
 |                                            | aplicación, territorio y configuración de opciones y datos de usuario.      |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Más info**                               | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | ⭐⭐⭐               |
+| **Más info**                               | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Alta              |
 |                                            | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.   |                   |
 |                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Autorización por token en el cliente**   | Autenticación por token en el cliente SITMUN 3 API SITNA                    | ⭐⭐⭐               |
+| **Autorización por token en el cliente**   | Autenticación por token en el cliente SITMUN 3 API SITNA                    | Alta              |
 |                                            |                                                                             |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Cambio de arbol en aplicación cliente**  | Cambio de árbol del cliente SITMUN 3 API SITNA.                             | ⭐⭐⭐               |
+| **Cambio de arbol en aplicación cliente**  | Cambio de árbol del cliente SITMUN 3 API SITNA.                             | Alta              |
 |                                            |                                                                             |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 
@@ -65,32 +65,32 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
 +============================================+=============================================================================+===================+
-| **Creación de un cliente SITMUN - API**    | Creación de un cliente SITMUN3 basado en el                                 | ⭐⭐                |
+| **Creación de un cliente SITMUN - API**    | Creación de un cliente SITMUN3 basado en el                                 | Media             |
 | **CNIG**                                   | [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                            |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Localizadores**                          | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | ⭐⭐⭐               |
+| **Localizadores**                          | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Alta              |
 |                                            | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.  |                   |
 |                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
 |                                            |  Esta tarea incluye los cambios necesarios en el administrador y API SITMUN,|                   |
 |                                            | para poder configurar correctamente la funcionalidad de localizadores       |                   |
 |                                            | integrados genéricos existente en el API SITNA 3.                           |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Consultas**                              | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | ⭐                 |
+| **Consultas**                              | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Baja              |
 |                                            | ejecutar consultas definidas como tareas en el administrador SITMUN 3.      |                   |
 |                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Edición gráfica y alfanumérica**         | Implementar herramientas en el cliente SITMUN 3 que permitan la edición     | ⭐                 |
+| **Edición gráfica y alfanumérica**         | Implementar herramientas en el cliente SITMUN 3 que permitan la edición     | Baja              |
 |                                            | gráfica (mediante servicios WFS transaccionales) y alfanumérica.            |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación dinámica de informes**          | Posibilidad de generar de forma dinámica y parametrizada un informe desde el| ⭐                 |
+| **Creación dinámica de informes**          | Posibilidad de generar de forma dinámica y parametrizada un informe desde el| Baja              |
 |                                            | cliente SITMUN previamente configurado en el administrador SITMUN 3. Un     |                   |
 |                                            | informe se configura en SITMUN como una tarea que integra el resultado de   |                   |
 |                                            | otras tareas (consultas, generación de imagen de mapa, etc).                |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación de temáticos**                  | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario       | ⭐                 |
+| **Creación de temáticos**                  | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario       | Baja              |
 |                                            | modificar la simbología de una capa en función del valor de sus atributos.  |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación de un cliente SITMUN tipo**     |                                                                             | ⭐⭐                |
+| **Creación de un cliente SITMUN tipo**     |                                                                             | Media             |
 | **aplicación para dispositivos móbiles**   |                                                                             |                   |
 | **(APP)**                                  |                                                                             |                   |
 +--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
@@ -178,15 +178,15 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
 | Funcionalidad                                                                                   | [Commit messages](https://gitmoji.dev/)     | Issues relacionadas |
 +=================================================================================================+=============================================+=====================+
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | 🧐Existente no testeada                      |                     |
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | 🧐Existente no testeada                      |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
-| Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | ✨Nueva                                      |                     |
+| Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
-| Asignación de parámetros específicos a tareas padre Tab scroll                                  | ✨Nueva                                      |                     |
+| Asignación de parámetros específicos a tareas padre Tab scroll                                  | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
-| Asignación de una respuesta avanzada a una capa existente                                       | ✨Nueva                                      |                     |
+| Asignación de una respuesta avanzada a una capa existente                                       | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
@@ -194,9 +194,9 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+
-| Parsear json del API de configuración y representar los datos                                   | 🧐Existente no testeada  |                     |
+| Parsear json del API de configuración y representar los datos                                   | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | ✨Nueva                  |                     |
+| Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 :left_speech_bubble: _API de autenticación_
@@ -208,9 +208,9 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+
-| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | 🧐 Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | 🧐 Existente no testeada |                     |
+| Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 :left_speech_bubble: _API configuración y autorización_
@@ -290,11 +290,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto.  | ✨nueva                  |                     |
+| Añadir noticias, avisos o mensajes para todos los usuarios, para un rol o un usuario concreto.  | Nueva                   |                     |
 | Cada notícia ha de tener, por lo menos, un título, texto (multiidioma), una imagen y            |                         |                     | 
 | la posiblidad de agregar enlaces.                                                               |                         |                     |                   
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Asociar una imagen o thumbnail a cada aplicación                                                | 🧐Existente no testeada  |                     |
+| Asociar una imagen o thumbnail a cada aplicación                                                | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 :left_speech_bubble: _Cliente visualizador SITMUN 3 (Dashboad de usuario)_
@@ -302,22 +302,22 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Mejorar el diseño de la ventana de login, mas claro y responsive                                | ✨nueva                  |                     |
+| Mejorar el diseño de la ventana de login, mas claro y responsive                                | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Mejorar el diseño de la ventana del dashboard de usuario                                        | ✨nueva                  |                     |
+| Mejorar el diseño de la ventana del dashboard de usuario                                        | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Ofrecer la opción de cambio de contraseña desde la ventana de login                             | ✨nueva                  |                     |
+| Ofrecer la opción de cambio de contraseña desde la ventana de login                             | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | ✨nueva                  |                     |
+| Presentar territorios disponibles en forma de lista, con un buscador que realice filtro         | Nueva                   |                     |
 | dinámico. Si no hay territorios seleccionados se tienen que presentar todas las aplicaciones.   |                         |                     |
 | Al seleccionar un territorio de la lista se presentan las aplicaciones disponibles para ese     |                         |                     |
 | territorio                                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | ✨nueva                  |                     |
+| Añadir espacio para consultar datos de usuario: nombre usuario, fecha última conexión, numero   | Nueva                   |                     |
 | de conexiones i tiempo de conexión total del último mes, tabla de datos asociados al territorio,|                         |                     |
 | con la opción de, por lo menos, poder modificar la contraseña                                   |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia| ✨nueva                  |                     |
+| Crear un espacio en el dashboard para crear notícias y mensajes / avisos del administrador hacia| Nueva                   |                     |
 | los usuarios                                                                                    |                         |                     |                                                                        
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
@@ -330,11 +330,11 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Incorporar los parámetros necesarios para configurar el listado de aplicaciones (descripción,   | ✨nueva                  |                     |
+| Incorporar los parámetros necesarios para configurar el listado de aplicaciones (descripción,   | Nueva                   |                     |
 | imagen, título, fecha de caducidad, fecha último acceso) accesibles para el usuario en la       |                         |                     |
 | aplicación de Administdración SITMUN 3                                                          |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Incorporar los parámetros necesarios para configurar en el dashboard las comunicaciones y       | ✨nueva                  |                     |
+| Incorporar los parámetros necesarios para configurar en el dashboard las comunicaciones y       | Nueva                   |                     |
 | notícias (título, descripcion, enlaces, imagen) para cada usuario desde la aplicación           |                         |                     |
 | de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
@@ -352,9 +352,9 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+ 
-| Analizar e incorporar a la bbdd, si se requiere, los campos necesarios para permitir almacernar | ✨nueva                  |                     |
+| Analizar e incorporar a la bbdd, si se requiere, los campos necesarios para permitir almacernar | Nueva                   |                     |
 | los parámetros necesarios para configurar el listado de aplicaciones                            |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
-| Analizar e incorporar a la bbdd si se requiere, locs campos necesarios para configurar          | ✨nueva                  |                     |
+| Analizar e incorporar a la bbdd si se requiere, locs campos necesarios para configurar          | Nueva                   |                     |
 | en el dashboard las comunicaciones y notícias para cada usuario                                 |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
