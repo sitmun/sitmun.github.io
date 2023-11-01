@@ -126,10 +126,10 @@ npm install -g @angular/cli
 Una vez completada la instalación de los prerrequisitos, puedes proceder con la compilación del visor de mapas siguiendo estos pasos:
 
 1. Descarga el proyecto https://github.com/sitmun/sitmun-viewer-app en tu equipo.
-1. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte 
+2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte 
    a la URI donde estará desplegado.
-2. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando `ng build`.
-3. Este comando compilará el visor de mapas para el entorno de producción y 
+3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando `ng build`.
+4. Este comando compilará el visor de mapas para el entorno de producción y 
    generará los archivos en la carpeta `dist/sitmun-viewer-app`.
 
 #### Despliegue

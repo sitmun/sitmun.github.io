@@ -20,14 +20,14 @@ any other means his willingness to license under the EUPL.
 In this Licence, the following terms have the following meaning:
 — ‘The Licence’: this Licence.
 — ‘The Original Work’: the work or software distributed or communicated by the
-  ‘Licensor under this Licence, available as Source Code and also as
-  ‘Executable Code as the case may be.
+  Licensor under this Licence, available as Source Code and also as
+  Executable Code as the case may be.
 — ‘Derivative Works’: the works or software that could be created by the
-  ‘Licensee, based upon the Original Work or modifications thereof. This
-  ‘Licence does not define the extent of modification or dependence on the
-  ‘Original Work required in order to classify a work as a Derivative Work;
-  ‘this extent is determined by copyright law applicable in the country
-  ‘mentioned in Article 15.
+  Licensee, based upon the Original Work or modifications thereof. This
+  Licence does not define the extent of modification or dependence on the
+  Original Work required in order to classify a work as a Derivative Work;
+  this extent is determined by copyright law applicable in the country
+  mentioned in Article 15.
 — ‘The Work’: the Original Work or its Derivative Works.
 — ‘The Source Code’: the human-readable form of the Work which is the most
   convenient for people to study and modify.

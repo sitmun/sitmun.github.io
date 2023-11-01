@@ -5,15 +5,15 @@
 - Unas aplicaciones de usuario final. 
   - La aplicación “básica” es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
   - En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.
-    - P.ej., una aplicación puede ser el visor de mapas básico. Y si te identificas como usuario “público” del territorio “Municipio X” esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
+    - P. ej., una aplicación puede ser el visor de mapas básico. Y si te identificas como usuario “público” del territorio “Municipio X” esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
   - Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración. Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
 - Una aplicación web de administración.
   - Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
-    - P.ej., podemos añadir un nuevo servicio de mapas públicamente accesible que acabamos de encontrar al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
+    - P. ej., podemos añadir un nuevo servicio de mapas públicamente accesible que acabamos de encontrar al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
   - Esta aplicación lee y modifica los datos en la BD de **SITMUN 3** a través de una API REST.
 - Algunos componentes adicionales que se usan en varias aplicaciones, (tanto en la de administración como en las de usuario final):
   - Proxy “middleware”: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa). 
-    - Es un proxy inverso y por tanto el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.
+    - Es un proxy inverso y, por tanto, el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.
   - API de autenticación: permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones (Microsoft Active Directory, servicios LDAP y otros).
 
 **SITMUN 3** no tiene un conjunto de datos o servicios geográficos/territoriales predefinidos. Cada despliegue de **SITMUN 3** se hace para una organización concreta, normalmente supramunicipal, y esta organización debe decidir qué aplicaciones quiere ofrecer a sus usuarios, típicamente personal técnico de los municipios, y qué servicios y datos geográficos/territoriales van a estar accesibles en estas aplicaciones. Estos servicios y bases de datos los tendrá que tener en sus propios sistemas, o bien tendrán que estar en algún sitio al que puedan acceder.
@@ -736,7 +736,7 @@ Client -->> Usuario: respuesta
 ```
 
 ### Diagrama de módulos
-[sitmun-backend-core](https://github.com/sitmun/sitmun-backend-core) es un proyecto multimódulo.
+[sitmun-backend-core](https://github.com/sitmun/sitmun-backend-core) es un proyecto multi módulo.
 
 Hay 3 tipos de módulos:
 - **Módulos estables (en amarillo)**. Lógica principal de **SITMUN 3** y componentes de soporte.
@@ -915,35 +915,35 @@ package "sitmun" {
 ### Paquetes (Arquitectura por Capas)
 En general, cada API que en despliegue quede expuesta de manera separada, es decir, con su propio endpoint HTTP, tiene un paquete. 
 
-- subpaquete `authentication` que corresponde con la **API de Autenticación**.
-- subpaquete `authorization` que corresponde con la **API de Configuración y Autorización**.
-- subpaquete `administration` que corresponde con la **API de Administración**.
+- paquete `authentication` que corresponde con la **API de Autenticación**.
+- paquete `authorization` que corresponde con la **API de Configuración y Autorización**.
+- paquete `administration` que corresponde con la **API de Administración**.
 
 Cada uno de estos paquetes puede contener: 
 
-- subpaquete `controller`: contiene los controladores (clases anotadas con `@Controller`) y otras cosas necesarias para implementar ese endpoint HTTP. 
-- subpaquete `service`: contiene los servicios de aplicación específicos del API (clases anotadas con `@Service`) y clases asociadas. Estos servicos sólo se invocarán desde los controladores del paquete `controller`.
-- subpaquete `config`: contiene la configuración específica de los componentes del endpoint definidos en los paquetes `web` y `service`. Normalmente son clases anotadas con `@Configuration` y parte de la configuración puede estar referidad a clases de infraestructura (de biblioteca) de Spring Framework. 
+- paquete `controller`: contiene los controladores (clases anotadas con `@Controller`) y otras cosas necesarias para implementar ese endpoint HTTP. 
+- paquete `service`: contiene los servicios de aplicación específicos del API (clases anotadas con `@Service`) y clases asociadas. Estos servicios solo se invocarán desde los controladores del paquete `controller`.
+- paquete `config`: contiene la configuración específica de los componentes del endpoint definidos en los paquetes `web` y `service`. Normalmente, son clases anotadas con `@Configuration` y parte de la configuración puede estar referida a clases de infraestructura (de biblioteca) de Spring Framework. 
 
-Además hay dos paquetes adicionales:
+Además, hay dos paquetes adicionales:
 
 - paquete `domain` que contiene las clases y los tipos del modelo de **SITMUN 3**. Es decir, el modelo que permite definir aplicaciones **SITMUN 3**, los territorios en
 los que están disponibles, a qué servicios territorios y bases de datos pueden
-acceder y qué usuarios pueden utilizarlas.  Los paquetes que contienen las clases de domino están anidados, de tal forma que las clases de dominio dependientes de otra aparecen en un subpquete del paquete que contiene la clase principal. Las entidades del paquete `entities` se exponen a través de la **API de Administración** usando el framework **Spring Data REST**.
-- paquete `infrastructure` que describe los componentes de infrastructura (persistencia, seguridad, web).
+acceder y qué usuarios pueden utilizarlas.  Los paquetes que contienen las clases de dominio están anidados, de tal forma que las clases de dominio dependientes de otra aparecen en un paquete anidado en el paquete que contiene la clase principal. Las entidades del paquete `entities` se exponen a través de la **API de Administración** usando el framework **Spring Data REST**.
+- paquete `infrastructure` que describe los componentes de infraestructura (persistencia, seguridad, web).
 
 
 El paquete `infrastructure` contiene:
-- subpaquete `persistence`
-- subpaquete `security`
+- paquete `persistence`
+- paquete `security`
 
-Se divide en tres subpquetes: el paquete `definition` con constantes, el paquete `entities` con las clases de dominio, y el paquete `types` con los tipos del dominio. El paquete `entities`, además de las clases de dominio, contiene agrupadas junto a la clase formando paquetes la definición de los accesos a base de datos (interfaces anotadas con `@Repository`), las definiciones de las proyecciones y mecanismos de validación de datos del dominio.
+Se divide en tres paquetes: el paquete `definition` con constantes, el paquete `entities` con las clases de dominio, y el paquete `types` con los tipos del dominio. El paquete `entities`, además de las clases de dominio, contiene agrupadas junto a la clase formando paquetes la definición de los accesos a base de datos (interfaces anotadas con `@Repository`), las definiciones de las proyecciones y mecanismos de validación de datos del dominio.
 
  El paquete `types` contiene la definición de conversores y anotaciones que permiten ser más expresivo en la definición del modelo en el paquete `entities`.
 
 
 - paquete `security` que contiene la configuración del framework de seguridad
-`Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad a nivel de aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PROXY`. Además, este
+`Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad a nivel de la aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PROXY`. Además, este
 paquete asegura que todos los accesos anónimos sean identificados como un acceso con usuario *público*. 
 
 La relación de las API públicas con el paquete `security`es la siguiente:
