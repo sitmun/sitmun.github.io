@@ -1,4 +1,4 @@
-# Mejora GUI del login y dashboard de usuario del cliente SITMUN 3
+# Mejora UI del login y dashboard de usuario del cliente SITMUN 3
  
 !!! info "Aspectos generales"
 
@@ -11,14 +11,15 @@
     **Persona o entidad de referència o contacto:** Consell Insular de Menorca
 
 
-**Objetivo:**
+## Objetivo
 
 Este proyecto busca mejorar el diseño y la funcionalidad de la interficie de acceso y selección de los clientes SITMUN 
 disponibles para un usuario concreto, dotándolas de un diseño más amigable, claro y funcional. 
 Se busca además ampliar la funcionalidad actual.
 
 
-**Contexto y casos de uso:**
+## Contexto y casos de uso
+
 En las imágenes siguientes se puede ver la actual ventana de login y selección de aplicación del actual cliente SITMUN 3.
 
 ![MejoraGUI_contexto1](https://github.com/sitmun/sitmun.github.io/assets/26217441/72462a93-2403-44a8-b8df-99ecbf22130f)
@@ -28,8 +29,7 @@ En la imagen siguiente se puede ver el dashboard inicial:
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 
-
-**Requerimientos funcionales:**
+## Requerimientos funcionales
 
 Se prevé la siguiente lógica funcional:
 
@@ -53,10 +53,9 @@ clara y funcional para el usuario y que sea responsiva.
 
 ![Sitmun dashboard user_conceptExample](https://github.com/sitmun/sitmun.github.io/assets/26217441/5a05eb9a-afe9-427a-b642-b12b04f12c2e)
 
-
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
 
-:left_speech_bubble: _Cliente Administrador SITMUN 3_
+### Cliente Administrador
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -68,7 +67,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Asociar una imagen o thumbnail a cada aplicación                                                | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-:left_speech_bubble: _Cliente visualizador SITMUN 3 (Dashboad de usuario)_
+### Cliente visualizador (Dashboard de usuario)
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -92,11 +91,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | los usuarios                                                                                    |                         |                     |                                                                        
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-:left_speech_bubble: _API de autenticación_
+### API de autenticación
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API de administración_
+### API de administración
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -110,15 +109,15 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 | de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-:left_speech_bubble: _API configuración y autorización_
+### API configuración y autorización
 
 No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API de proxy_
+### API de proxy
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _Esquema de base de datos SITMUN administrador_
+### Esquema de base de datos
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |

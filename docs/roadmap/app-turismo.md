@@ -12,8 +12,8 @@
 
 ## Objetivo
 
-Esta funcionalidad busca dotar a la plataforma SITMUN de la capacidad de configurar APP móviles a través de un primer
-caso de uso de una APP turística.
+Esta funcionalidad busca dotar a la plataforma SITMUN de la capacidad de configurar aplicaciones móviles a través de 
+un primer caso de uso de una APP turística.
 
 ## Contexto y casos de uso
 

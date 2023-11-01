@@ -10,14 +10,14 @@
 
     **Persona o entidad de referència o contacto:** Consell Insular de Menorca
 
-**Objetivo:**
+## Objetivo
 
 Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3,
 el contenido de la ventana que devuelve el visor SITMUN 3 al realizar una consulta sobre el mapa para una capa determinada.
 
 El contenido de la ventana debe poder integrar la respuesta de una o varias consultas definidas como tareas al propio administrador
 
-**Contexto y casos de uso:**
+## Contexto y casos de uso
 
 El actual cliente SITMUN 3, al hacer clic en el área de mapa sobre un objeto de una capa determinada, presenta el resultado de la petición GetFeatureInfo sobre al servicio WMS correspondiente.
 
@@ -32,7 +32,7 @@ Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso del [vis
 Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUn 2.
 ![MASINFOAVANZADO_context3](https://github.com/sitmun/sitmun.github.io/assets/26217441/c4b214fa-851f-4df7-8669-622fa5c45762)
 
-**Requerimientos funcionales:**
+## Requerimientos funcionales
 
 Se prevé la siguiente lógica funcional:
 
@@ -71,7 +71,7 @@ Se prevé la siguiente lógica funcional:
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:
 
-:left_speech_bubble: _Cliente Administrador SITMUN 3_
+### Cliente Administrador
 
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
 | Funcionalidad                                                                                   | [Commit messages](https://gitmoji.dev/)     | Issues relacionadas |
@@ -87,7 +87,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Asignación de una respuesta avanzada a una capa existente                                       | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
 
-:left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
+### Cliente visualizador (API SITNA)
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -97,11 +97,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-:left_speech_bubble: _API de autenticación_
+### API de autenticación
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API de administración_
+### API de administración
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -111,16 +111,14 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-:left_speech_bubble: _API configuración y autorización_
+### API configuración y autorización
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API de proxy_
+### API de proxy
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _Esquema de base de datos SITMUN administrador_
+### Esquema de base de datos
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
-
-

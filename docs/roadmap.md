@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td><strong>Última modificación</strong></td>
-        <td><strong>Agosto 2023</strong></td>
+        <td><strong>Noviembre 2023</strong></td>
     </tr>
     <tr>
         <td><strong>Próxima modificación</strong></td>
@@ -16,7 +16,7 @@
 El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y las próximas funcionalidades a desarrollar.
 
 !!! info "Aspectos generales"
-    La [**El Comité Técnico de SITMUN**](https://sitmun.github.io/contact/) es el órgano funcional encargado de revisar la descripción o,
+    [**El Comité Técnico de SITMUN**](https://sitmun.github.io/contact/) es el órgano funcional encargado de revisar la descripción o,
     en su defecto, describir el alcance funcional de cada uno de los puntos. 
     También de proponer la priorización de cada uno de los proyectos o funcionalidades.
 
@@ -59,48 +59,42 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 |                                                                                     |                                                                             |                   |
 +-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 
-## Proyectos clave en espera
+## Proyectos en espera
 
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
-+============================================+=============================================================================+===================+
-| **Creación de un cliente SITMUN - API**    | Creación de un cliente SITMUN3 basado en el                                 | Media             |
-| **CNIG**                                   | [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                            |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Localizadores**                          | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Alta              |
-|                                            | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.  |                   |
-|                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
-|                                            |  Esta tarea incluye los cambios necesarios en el administrador y API SITMUN,|                   |
-|                                            | para poder configurar correctamente la funcionalidad de localizadores       |                   |
-|                                            | integrados genéricos existente en el API SITNA 3.                           |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Consultas**                              | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Baja              |
-|                                            | ejecutar consultas definidas como tareas en el administrador SITMUN 3.      |                   |
-|                                            | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Edición gráfica y alfanumérica**         | Implementar herramientas en el cliente SITMUN 3 que permitan la edición     | Baja              |
-|                                            | gráfica (mediante servicios WFS transaccionales) y alfanumérica.            |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación dinámica de informes**          | Posibilidad de generar de forma dinámica y parametrizada un informe desde el| Baja              |
-|                                            | cliente SITMUN previamente configurado en el administrador SITMUN 3. Un     |                   |
-|                                            | informe se configura en SITMUN como una tarea que integra el resultado de   |                   |
-|                                            | otras tareas (consultas, generación de imagen de mapa, etc).                |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación de temáticos**                  | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario       | Baja              |
-|                                            | modificar la simbología de una capa en función del valor de sus atributos.  |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación de un cliente SITMUN tipo**     |                                                                             | Media             |
-| **aplicación para dispositivos móbiles**   |                                                                             |                   |
-| **(APP)**                                  |                                                                             |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-
-## Otros proyectos
-
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| Proyecto - Funcionalidad                   | Descripción                                                                 | Prioridad         |
-+============================================+=============================================================================+===================+
-| [Informe](roadmap/informe.md)              | Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar,    | Baja              |
-|                                            | desde el administrador SITMUN 3, el contenido de una ventana que devuelve el|                   |
-|                                            | visor SITMUN 3 cuando el usuario busca una referencia catastral o dirección |                   | 
-|                                            | del visor o como información complementaria del "Mas info".                 |                   |
-+--------------------------------------------+-----------------------------------------------------------------------------+-------------------+
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| Proyecto - Funcionalidad                       | Descripción                                                                 | Prioridad         |
++================================================+=============================================================================+===================+
+| **Creación de un cliente SITMUN - API**        | Creación de un cliente SITMUN3 basado en el                                 | Media             |
+| **CNIG**                                       | [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                            |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Localizadores**                              | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Alta              |
+|                                                | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.  |                   |
+|                                                | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
+|                                                |  Esta tarea incluye los cambios necesarios en el administrador y API SITMUN,|                   |
+|                                                | para poder configurar correctamente la funcionalidad de localizadores       |                   |
+|                                                | integrados genéricos existente en el API SITNA 3.                           |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Consultas**                                  | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Baja              |
+|                                                | ejecutar consultas definidas como tareas en el administrador SITMUN 3.      |                   |
+|                                                | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Edición gráfica y alfanumérica**             | Implementar herramientas en el cliente SITMUN 3 que permitan la edición     | Baja              |
+|                                                | gráfica (mediante servicios WFS transaccionales) y alfanumérica.            |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Creación dinámica de informes**              | Posibilidad de generar de forma dinámica y parametrizada un informe desde el| Baja              |
+|                                                | cliente SITMUN previamente configurado en el administrador SITMUN 3. Un     |                   |
+|                                                | informe se configura en SITMUN como una tarea que integra el resultado de   |                   |
+|                                                | otras tareas (consultas, generación de imagen de mapa, etc).                |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Creación de temáticos**                      | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario       | Baja              |
+|                                                | modificar la simbología de una capa en función del valor de sus atributos.  |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| [Cliente APP turística](roadmap/app-turismo.md)| Esta funcionalidad busca dotar a la plataforma SITMUN de la capacidad de    | Media             |
+|                                                | configurar aplicaciones móviles a través de  un primer caso de uso de una   |                   |
+|                                                | APP turística.                                                              |                   |  
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| [Informe](roadmap/informe.md)                  | Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar,    | Baja              |
+|                                                | desde el administrador SITMUN 3, el contenido de una ventana que devuelve el|                   |
+|                                                | visor SITMUN 3 cuando el usuario busca una referencia catastral o dirección |                   | 
+|                                                | del visor o como información complementaria del "Mas info".                 |                   |
++------------------------------------------------+-----------------------------------------------------------------------------+-------------------+

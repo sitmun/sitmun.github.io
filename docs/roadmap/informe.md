@@ -10,7 +10,7 @@
 
     **Persona o entidad de referència o contacto:** Agueda Isern, Consell Insular de Mallorca
 
-**Objetivo:**
+## Objetivo
 
 Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar, desde el administrador SITMUN 3, 
 el contenido de una ventana que devuelve el visor SITMUN 3 cuando el usuario busca una referencia catastral o 
@@ -19,7 +19,7 @@ dirección del visor o como información complementaria del "Mas info".
 El contenido de la ventana debe poder integrar el mapa de una parcela, la respuesta de varias consultas definidas como 
 tareas al propio administrador y otros textos y imágenes que pueden ser fijos para cada territorio.
 
-**Contexto y casos de uso:**
+## Contexto y casos de uso
 
 Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso de los visores de urbanismo del 
 Consell de Mallorca, en el geoportal IDELMA. 
@@ -44,7 +44,7 @@ y el cliente descarga un archivo en formato pdf:
 
 Ejemplo de informe del SITMUN 2.
 
-**Requerimientos funcionales:**
+## Requerimientos funcionales
 
 Se prevé la siguiente lógica funcional:
 
@@ -78,38 +78,38 @@ Por ejemplo, en el caso del visor urbanístico anterior, se establecen varias co
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:
 
-:left_speech_bubble: _Cliente Administrador SITMUN 3_
+### Cliente Administrador
 
 +----------------------------------------------------------+----------------------+---------------------+
-| Funcionalidad                                            | Commit messages      | Issues relacionadas |
+| Funcionalidad                                            | Estado               | Issues relacionadas |
 +==========================================================+======================+=====================+
 |                                                          |                      |                     |
 +----------------------------------------------------------+----------------------+---------------------+
 
-:left_speech_bubble: _Cliente visualizador SITMUN 3 (API SITNA)_
+### Cliente visualizador (API SITNA)
 
 +----------------------------------------------------------+----------------------+---------------------+
-| Funcionalidad                                            | Commit messages      | Issues relacionadas |
+| Funcionalidad                                            | Estado               | Issues relacionadas |
 +==========================================================+======================+=====================+
 |                                                          |                      |                     |
 +----------------------------------------------------------+----------------------+---------------------+
 
-:left_speech_bubble: _API de autenticación_
+### API de autenticación
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API de administración_
+### API de administración
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API configuración y autorización_
+### API configuración y autorización
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _API de proxy_
+### API de proxy
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-:left_speech_bubble: _Esquema de base de datos SITMUN administrador_
+### Esquema de base de datos
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
