@@ -13,7 +13,7 @@ Esta web tiene como objetivo poner la documentación técnica de la plataforma *
 En la sección **Cómo empezar** se explica todo lo necesario para comenzar a trabajar con **SITMUN 3**. 
 Podemos encontrar en ella:
 
-- Los [primeros pasos](getting-started.md) para comenzar a trabajar con **SITMUN 3**.
+- Los [primeros pasos](getting-started/que-es.md) para comenzar a trabajar con **SITMUN 3**.
 - La [licencia](license.md) de **SITMUN 3**.
 
 En la sección **Referencia** se puede encontrar la documentación técnica de la plataforma **SITMUN 3**. 

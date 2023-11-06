@@ -1,6 +1,9 @@
 # Configuración
 
-## Componente Backend-core
+!!! info "En desarrollo"
+    Esta sección está siendo actualizada.
+
+## Backend
 
 ### API de Autenticación
 
@@ -33,9 +36,21 @@ configuración para clientes de mapas para que apunten al componente Proxy.
 | `sitmun.proxy.force` | Fuerza el uso del proxy de SITMUN | `false`           |
 | `sitmun.proxy.url`   | Localización del proxy de SITMUN  |                   |
 
-## Componente Proxy
+## Proxy
 
-| Propiedad                                 | Descripción                                                                           | Valor por defecto |
-|-------------------------------------------|---------------------------------------------------------------------------------------|-------------------|
-| `sitmun.config.url`                       | Ruta al endpoint de configuración del proxy en la API de configuración y autorización |                   |
-| `sitmun.authentication.middleware.secret` | Token que usa el proxy para autenticarse                                              |                   |
+| Propiedad                                 | Descripción                                                                                                                | Valor por defecto |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-------------------|
+| `sitmun.config.url`                       | Ruta al endpoint de configuración del **proxy** en la API de configuración y autorización                                  |                   |
+| `sitmun.authentication.middleware.secret` | Token que usa el proxy para autenticarse (ver [API de configuración y autorización](#api-de-configuracion-y-autorizacion)) |                   |
+
+## Visor de mapas
+
+| Propiedad | Descripción                                       | Valor por defecto                           |
+|-----------|---------------------------------------------------|---------------------------------------------|
+| `apiUrl`  | La URL pública donde se despliega el **backend**. | `https://sitmun-backend-core.herokuapp.com` |
+
+## Administrador
+
+| Propiedad    | Descripción                                       | Valor por defecto                            |
+|--------------|---------------------------------------------------|----------------------------------------------|
+| `apiBaseURL` | La URL pública donde se despliega el **backend**. | `https://sitmun-backend-core.herokuapp.com`  |

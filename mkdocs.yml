@@ -54,7 +54,11 @@ plugins:
 nav:
   - Inicio: index.md
   - Cómo empezar:
-      - getting-started.md
+      - getting-started/que-es.md
+      - getting-started/requisitos.md
+      - getting-started/instalacion.md
+      - getting-started/creando.md
+      - getting-started/personalizando.md
       - Licencia: license.md
   - Características:
       - features-client.md
@@ -72,7 +76,6 @@ nav:
       - API: api.md
       - Configuración: configuration.md
       - Gestión: management.md
-      - Archivo: archive.md
   - Demostradores:
       - demo.md
   - Contacto: contact.md
