@@ -2,7 +2,7 @@
 
 ## Aplicación de administración
 
-Una aplicación de administración con datos de pruebas. 
+Una aplicación de administración con datos de pruebas.
 
 [Enlace directo](https://sitmun.github.io/admin-app){target=_blank .md-button }
 

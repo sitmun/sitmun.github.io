@@ -13,3 +13,4 @@ Gemfile.lock
 .directory
 site
 .DS_Store
+.vscode

@@ -26,6 +26,8 @@ Podemos encontrar en ella:
 - En la sección de [gestión](management.md) se describen aspectos organizativos y técnicos en lo que respecta al versionado, seguimiento del trabajo y automatización de procesos.
 - La sección de [contacto](contact.md) sugiere formas de contactar con los distintos participantes en el proyecto así como sus roles en el mismo.
 
-## Aviso
+!!! warning "Proyecto en desarrollo"
 
-Esta web de documentación está en pleno proceso de renovación y, por tanto, es un trabajo en marcha. Si se detecta algún problema se puede abrir una incidencia en <https://github.com/sitmun/community/issues/new>.
+    SITMUN es un proyecto en continuo desarrollo y la documentación se actualiza para ir reflejando los cambios más
+    importantes. Pueden existir algunas discrepancias entre la documentación y las últimas versiones del software.
+    Si se detecta alguna discrepacia, notifícala en <https://github.com/sitmun/community/issues/new>.

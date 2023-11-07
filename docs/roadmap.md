@@ -17,7 +17,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 !!! info "Aspectos generales"
     [**El Comité Técnico de SITMUN**](https://sitmun.github.io/contact/) es el órgano funcional encargado de revisar la descripción o,
-    en su defecto, describir el alcance funcional de cada uno de los puntos. 
+    en su defecto, describir el alcance funcional de cada uno de los puntos.
     También de proponer la priorización de cada uno de los proyectos o funcionalidades.
 
     Durante la **Asamblea Ordinaria Anual de socios del proyecto SITMUN** se vota y aprueba la priorización.
@@ -30,11 +30,10 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | Cliente SITMUN3 - API SITNA | Creación de un cliente SITMUN3 genérico a partir de                         | Revisión de bugs y documentación |
 |                             | la integración de                                                           |                                  |
 |                             | [API SITNA](https://github.com/sitna/api-sitna/blob/master/README.es-ES.md) |                                  |
-|                             | y con el layout definido para la IDE menorca                                |                                  |
+|                             | y con el layout definido para la IDE Menorca                                |                                  |
 +-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
 
-## Proyectos prioritarios 
-[](roadmap/mas-info-avanzado.md)
+## Proyectos prioritarios
 
 +-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | Proyecto - Funcionalidad                                                            | Descripción                                                                 | Prioridad         |
@@ -70,9 +69,9 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Localizadores**                              | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Alta              |
 |                                                | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.  |                   |
 |                                                | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
-|                                                |  Esta tarea incluye los cambios necesarios en el administrador y API SITMUN,|                   |
+|                                                | Esta tarea incluye los cambios necesarios en el administrador y API SITMUN  |                   |
 |                                                | para poder configurar correctamente la funcionalidad de localizadores       |                   |
-|                                                | integrados genéricos existente en el API SITNA 3.                           |                   |
+|                                                | integrados genéricos existente en la API SITNA 3.                           |                   |
 +------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | **Consultas**                                  | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Baja              |
 |                                                | ejecutar consultas definidas como tareas en el administrador SITMUN 3.      |                   |
@@ -84,7 +83,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Creación dinámica de informes**              | Posibilidad de generar de forma dinámica y parametrizada un informe desde el| Baja              |
 |                                                | cliente SITMUN previamente configurado en el administrador SITMUN 3. Un     |                   |
 |                                                | informe se configura en SITMUN como una tarea que integra el resultado de   |                   |
-|                                                | otras tareas (consultas, generación de imagen de mapa, etc).                |                   |
+|                                                | otras tareas (consultas, generación de imagen de mapa, etc.).               |                   |
 +------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | **Creación de temáticos**                      | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario       | Baja              |
 |                                                | modificar la simbología de una capa en función del valor de sus atributos.  |                   |
@@ -96,5 +95,5 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | [Informe](roadmap/informe.md)                  | Esta funcionalidad busca dotar a SITMUN 3 de la capacidad de configurar,    | Baja              |
 |                                                | desde el administrador SITMUN 3, el contenido de una ventana que devuelve el|                   |
 |                                                | visor SITMUN 3 cuando el usuario busca una referencia catastral o dirección |                   | 
-|                                                | del visor o como información complementaria del "Mas info".                 |                   |
+|                                                | del visor o como información complementaria del "Más info".                 |                   |
 +------------------------------------------------+-----------------------------------------------------------------------------+-------------------+

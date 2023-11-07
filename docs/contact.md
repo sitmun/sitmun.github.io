@@ -2,7 +2,7 @@
 
 ## Comité técnico
 
-- Fina Sáez <saezbj@diba.cat> and Montse Marco <marcosm@diba.cat> - Diputació de Barcelona.
+- Fina Sáez <saezbj@diba.cat> y Montse Marco <marcosm@diba.cat> - Diputació de Barcelona.
 - Marta Codinachs <codinachssm@diba.cat> - Diputació de Barcelona.
 - Ricard Cots <cartografia@cime.es> - Consell Insular de Menorca.
 - Marc Rosés <cartografia@cime.es> - SILME.

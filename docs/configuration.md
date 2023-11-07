@@ -10,7 +10,7 @@
 Estas propiedades se utilizan para configurar el acceso al servidor LDAP para autenticar a los usuarios.
 
 !!! info "Condición de activación"
-    Estas propiedades se utilizan solo si está activado el perfil `ldap`. 
+    Estas propiedades se utilizan solo si está activado el perfil `ldap`.
     Deben almacenarse en un fichero separado denominado `application-ldap.yml`.
 
 | Propiedad                                    | Descripción                                                               | Valor por defecto |
@@ -25,10 +25,10 @@ Estas propiedades se utilizan para configurar el acceso al servidor LDAP para au
 
 | Propiedad                                         | Descripción                                           | Valor por defecto |
 |---------------------------------------------------|-------------------------------------------------------|-------------------|
-| `sitmun.proxy.config-response-validity-in-secons` | Duración máxima del token de acceso que admite el API | `3600`            |
+| `sitmun.proxy.config-response-validity-in-secons` | Duración máxima del token de acceso que admite la API | `3600`            |
 | `sitmun.authentication.middleware.secret`         | Token que usa el componente proxy para autenticarse   |                   |
 
-Mediante las siguientes propiedades se puede forzar la reescritura de las URI de los servicios en las repuestas de 
+Mediante las siguientes propiedades se puede forzar la reescritura de las URI de los servicios en las repuestas de
 configuración para clientes de mapas para que apunten al componente Proxy.
 
 | Propiedad            | Descripción                       | Valor por defecto |

@@ -189,7 +189,7 @@ GET /proxy/1/34/wms/1?SERVICE=WMS&REQUEST=GetMap
 Authorization: Bearer SOME-TOKEN    
 ```
 
-La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la 
+La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la
 **[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
 
 ```json
