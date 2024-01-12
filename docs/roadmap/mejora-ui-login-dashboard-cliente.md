@@ -88,6 +88,10 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Crear un espacio en el dashboard para crear noticias y mensajes / avisos del administrador hacia | Nueva                   |                     |
 | los usuarios                                                                                     |                         |                     |
 +--------------------------------------------------------------------------------------------------+-------------------------+---------------------+
+| Diferenciar estilos de ventanas login, dashboard y cliente visualizador y simplificar al         | Nueva                   |                     |
+| máximo el diseño de la barra para el cliente para interferir al mínimo en el diseño del          |                         |                     |
+| visor (p.e. barra transparente y boton pequeño en margen superior derecho).                      |                         |                     |
++--------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 ### API de autenticación
 
