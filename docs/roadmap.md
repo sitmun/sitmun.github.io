@@ -62,6 +62,9 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Cambio de arbol en aplicación cliente**                                           | Cambio de árbol del cliente SITMUN 3 API SITNA.                             | Alta              |
 |                                                                                     |                                                                             |                   |
 +-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Buscador genérico API SITNA**                                                     | Configurar los servicios WFS del buscador generico desde el administrador   | Alta              |
+|                                                                                     |                                                                             |                   |
++-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 
 ## Proyectos en espera
 
