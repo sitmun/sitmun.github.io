@@ -54,7 +54,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Selector de dos mapas de fondo**                                                  | Implementar dos mapas de fondo en la tabla de contenidos y una barra de     | Alta              |
 |                                                                                     | transparencia entre los dos. Funcionalidad desarrollada en Menorca sobre el |                   |
 |                                                                                     | API SITNA, falta decidir si se sobreescribe el control o se espera a que la |                   |
-|                                                                                     | API SITNA implemente su punto 51 de la [hora de ruta](https://github.com/sitna/api-sitna/blob/master/roadmap.es-ES.md)             |                   |
+|                                                                                     | API SITNA implemente su punto 51 de la [hora de ruta](https://github.com/sitna/api-sitna/blob/master/roadmap.es-ES.md) |                   |
 +-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 | **Autorización por token en el cliente**                                            | Autenticación por token en el cliente SITMUN 3 API SITNA                    | Alta              |
 |                                                                                     |                                                                             |                   |
