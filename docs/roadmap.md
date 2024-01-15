@@ -1,4 +1,4 @@
-# Proyectos
+![image](https://github.com/sitmun/sitmun.github.io/assets/26217441/177706f3-11a8-4b66-8053-ee1824ab1ebd)# Proyectos
 
 <table>
     <tr>
@@ -35,36 +35,36 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 ## Proyectos prioritarios
 
-+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| Proyecto - Funcionalidad                                                            | Descripción                                                                 | Prioridad         |
-+=====================================================================================+=============================================================================+===================+
-| [Más info avanzado](roadmap/mas-info-avanzado.md)                                   | Busca dotar a SITMUN 3 de la capacidad de configurar, desde                 | Alta              |
-|                                                                                     | el administrador SITMUN 3, el contenido de la ventana que                   |                   |
-|                                                                                     | devuelve el visualizador al hacer una consulta sobre una capa               |                   |
-|                                                                                     | visible en el área de mapa.                                                 |                   |
-+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| [Mejora UI login y dashboard usuario](roadmap/mejora-ui-login-dashboard-cliente.md) | Mejorar la interficie de la ventana de login a los clientes SITMUN          | Media             |
-|                                                                                     | disponibles para el usuario así como el dashboard para la selección de      |                   |
-|                                                                                     | aplicación, territorio y configuración de opciones y datos de usuario.      |                   |
-+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Más info**                                                                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y  | Alta              |
-|                                                                                     | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.   |                   |
-|                                                                                     | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.          |                   |
++-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
+| Proyecto - Funcionalidad                                                            | Descripción                                                                                                            | Prioridad         |
++=====================================================================================+========================================================================================================================+===================+
+| [Más info avanzado](roadmap/mas-info-avanzado.md)                                   | Busca dotar a SITMUN 3 de la capacidad de configurar, desde                                                            | Alta              |
+|                                                                                     | el administrador SITMUN 3, el contenido de la ventana que                                                              |                   |
+|                                                                                     | devuelve el visualizador al hacer una consulta sobre una capa                                                          |                   |
+|                                                                                     | visible en el área de mapa.                                                                                            |                   |
++-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
+| [Mejora UI login y dashboard usuario](roadmap/mejora-ui-login-dashboard-cliente.md) | Mejorar la interficie de la ventana de login a los clientes SITMUN                                                     | Media             |
+|                                                                                     | disponibles para el usuario así como el dashboard para la selección de                                                 |                   |
+|                                                                                     | aplicación, territorio y configuración de opciones y datos de usuario.                                                 |                   |
++-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
+| **Más info**                                                                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y                                             | Alta              |
+|                                                                                     | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.                                              |                   |
+|                                                                                     | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                                                     |                   |
 +-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
 | **Selector de dos mapas de fondo**                                                  | Implementar dos mapas de fondo en la tabla de contenidos y una barra de                                                | Alta              |
 |                                                                                     | transparencia entre los dos. Funcionalidad desarrollada en Menorca sobre el                                            |                   |
 |                                                                                     | API SITNA, falta decidir si se sobreescribe el control o se espera a que la                                            |                   |
 |                                                                                     | API SITNA implemente su punto 51 de la [hora de ruta](https://github.com/sitna/api-sitna/blob/master/roadmap.es-ES.md) |                   |
 +-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-| **Autorización por token en el cliente**                                            | Autenticación por token en el cliente SITMUN 3 API SITNA                    | Alta              |
-|                                                                                     |                                                                             |                   |
-+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Cambio de arbol en aplicación cliente**                                           | Cambio de árbol del cliente SITMUN 3 API SITNA.                             | Alta              |
-|                                                                                     |                                                                             |                   |
-+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Buscador genérico API SITNA**                                                     | Configurar los servicios WFS del buscador generico desde el administrador   | Alta              |
-|                                                                                     |                                                                             |                   |
-+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
+| **Autorización por token en el cliente**                                            | Autenticación por token en el cliente SITMUN 3 API SITNA                                                               | Alta              |
+|                                                                                     |                                                                                                                        |                   |
++-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
+| **Cambio de arbol en aplicación cliente**                                           | Cambio de árbol del cliente SITMUN 3 API SITNA.                                                                        | Alta              |
+|                                                                                     |                                                                                                                        |                   |
++-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
+| **Buscador genérico API SITNA**                                                     | Configurar los servicios WFS del buscador generico desde el administrador                                              | Alta              |
+|                                                                                     |                                                                                                                        |                   |
++-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
 
 ## Proyectos en espera
 
