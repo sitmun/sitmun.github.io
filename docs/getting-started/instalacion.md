@@ -1,16 +1,83 @@
-# Instalación de la plataforma
+# Instalación
 
-!!! info "En desarrollo"
-    Esta sección está siendo actualizada.
-    La documentación se basan en versiones `nightly` del código.
+## Instalación basada en contenedores
 
-## Instalación del backend
+### Organización de los servicios
 
-### Prerrequisitos
+Los servicios están definidos en el archivo `docker-compose.yml`.
 
-Instala el software requerido por el **backend** descrito en [Requisitos del sistema](requisitos.md).
+Los siguientes servicios están disponibles:
 
-### Compilación
+- `viewer`: aplicación del visor de SITMUN
+- `admin`: aplicación administrativa de SITMUN
+- `backend`: API de SITMUN
+- `proxy`: proxy de SITMUN
+- `postgres`: base de datos PostgreSQL
+
+Para fines de prueba, el uso del `proxy` está controlado por la variable de entorno `sitmun.proxy.force` en `backend`, que por defecto es `true`.
+
+Los datos se almacenan en el volumen `pgdata`, que es utilizado por el servicio `postgres`.
+
+### Pasos de instalación
+
+Para instalar SITMUN, sigue estos pasos:
+
+1. Clona el repositorio y los proyectos anidados de SITMUN:
+
+    ```bash
+    git clone --recurse-submodules https://github.com/sitmun/sitmun-application-stack.git
+    ```
+
+2. Cambia al directorio del repositorio:
+
+    ```bash
+    cd sitmun-application-stack
+    ```
+
+3. Crea un nuevo archivo llamado `.env` dentro del directorio.
+   Abre el archivo `.env` en un editor de texto y agrega tu token de acceso personal de GitHub (`GITHUB_TOKEN`) en el siguiente formato:
+
+    ```properties
+    GITHUB_TOKEN=tu_token_de_acceso_personal
+    ```
+
+4. Inicia la plataforma SITMUN:
+
+    ```bash
+    docker compose up
+    ```
+
+    Este comando construirá e iniciará todos los servicios definidos en el archivo `docker-compose.yml`.
+
+5. Accede a la aplicación del visor de SITMUN en [http://localhost:9000/viewer](http://localhost:9000/viewer).
+   Usa el acceso público que no requiere autenticación.
+
+6. Accede a la aplicación administrativa de SITMUN en [http://localhost:9000/admin](http://localhost:9000/admin).
+   Esto requiere autenticación.
+   El nombre de usuario predeterminado es `admin` y la contraseña predeterminada es `admin`.
+
+### Configuración
+
+Las variables de entorno se definen en el archivo `.env`.
+
+Las siguientes variables de entorno están disponibles:
+
+- `GITHUB_TOKEN`: [Token de acceso personal de GitHub (clásico)](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages).
+  El token es necesario para obtener paquetes `npm` de [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#about-github-packages).
+
+### Desinstalación
+
+Para detener y eliminar todos los servicios, volúmenes y redes definidos en el archivo `docker-compose.yml`, usa:
+
+```bash
+docker compose down -v
+```
+
+## Instalación desde la fuente
+
+### Instalación del backend
+
+#### Compilación del backend
 
 !!! info "En desarrollo"
     Esta sección está siendo actualizada.
@@ -31,20 +98,16 @@ Una vez completada la instalación de los prerrequisitos y la configuración, pu
     Este comando genera el fichero JAR del **proxy** en la ruta `.[proyecto]/build/libs/[proyecto]-${version}.jar`
     con el nombre `[proyecto]-[version].jar`.
 
-### Despliegue
+#### Despliegue del backend
 
 Los sistemas operativos en los que se pueden desplegar el **backend** son:
 
 - Linux: como servicio *init.d*, como servicio *systemd* o mediante un script de arranque.
 - Windows: puede ejecutarse como un servicio Windows usando la herramienta *WinSW* o mediante un script de arranque.
 
-## Instalación del proxy
+### Instalación del proxy
 
-### Prerrequisitos
-
-Instala el software requerido por el **proxy** descrito en [Requisitos del sistema](requisitos.md).
-
-### Compilación
+#### Compilación del proxy
 
 Una vez completada la instalación de los prerrequisitos y la configuración, puedes proceder con la compilación del **proxy** siguiendo estos pasos:
 
@@ -52,18 +115,17 @@ Una vez completada la instalación de los prerrequisitos y la configuración, pu
 2. Abre el proyecto descargado y modifica del fichero `application.yml` las propiedades `security.authentication.middleware.secret` y `sitmun.config.url`.
    `security.authentication.middleware.secret` debe contener el token que se ha configurado en el **backend** para que el **proxy** pueda autenticarse.
    `sitmun.config.url` debe contener la URI de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** del **backend**.
-    Si el **proxy** y el **backend** son servicios internos de la misma red, se recomienda usar el nombre interno o la
-    dirección IP interna del **backend**. Ver [Configuración](../configuration.md#proxy).
+   Si el **proxy** y el **backend** son servicios internos de la misma red, se recomienda usar el nombre interno o la
+   dirección IP interna del **backend**. Ver [Configuración](../configuration.md#proxy).
 3. Ejecutar el siguiente comando desde la raíz del proyecto en una terminal.
 
     ```bash
     ./gradlew clean build
     ```
 
-    Este comando genera el fichero JAR del **proxy** en la ruta `./build/libs/`
-    con el nombre `sitmun-proxy-middleware-[version].jar`.
+    Este comando genera el fichero JAR del **proxy** en la ruta `./build/libs/` con el nombre `sitmun-proxy-middleware-[version].jar`.
 
-### Despliegue
+#### Despliegue del proxy
 
 Los sistemas operativos en los que se pueden desplegar el **proxy** son:
 
@@ -93,13 +155,9 @@ comando en la ubicación del fichero JAR generado al construir el proxy.
 java -jar sitmun-proxy-middleware-[version].jar
 ```
 
-## Instalación del visor de mapas
+### Instalación del visor de mapas
 
-### Prerrequisitos
-
-Instala el software requerido por el **visor de mapas** descrito en [Requisitos del sistema](requisitos.md).
-
-### Compilación
+#### Compilación del visor de mapas
 
 Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **visor de mapas** siguiendo estos pasos:
 
@@ -107,25 +165,25 @@ Una vez completada la instalación de los prerrequisitos puedes proceder con la 
 2. Obtiene un [token de GitHub para trabajar con el registro de npm de GitHub Packages](https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
 3. Desde la consola de comandos ejecuta el siguiente comando para autenticarte en el registro de GitHub Packages de npm:
 
-      ```shell
-      npm set //npm.pkg.github.com/:_authToken <token>
-      ```
+   ```shell
+   npm set //npm.pkg.github.com/:_authToken <token>
+   ```
 
    Sustituye `<token>` por el token que has obtenido en el paso anterior.
 4. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
    a la URI donde está desplegado el **backend**. Ver [Configuración](../configuration.md#visor-de-mapas).
 5. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
 
-      ```shell
-      npm ci
-      npm build -- --configuration=<conf> --baseHref=<baseHref>
-      ```
+   ```shell
+   npm ci
+   npm build -- --configuration=<conf> --baseHref=<baseHref>
+   ```
 
    Donde `<conf>` es la configuración y `<baseHref>` es la URI donde se va a desplegar.
    Este comando compilará el **visor de mapas** para el entorno de producción y
-   generará los archivos en la carpeta `dist/sitmun-admin-app`.
+   generará los archivos en la carpeta `dist/sitmun-viewer-app`.
 
-### Despliegue
+#### Despliegue del visor de mapas
 
 Para desplegar el visor de mapas en un servidor web, copia la carpeta `sitmun-viewer-app` a tu servidor web.
 
@@ -141,13 +199,9 @@ Es fundamental configurar correctamente esta redirección para el correcto funci
     Ver [Routed apps must fall back to index.html](https://angular.io/guide/deployment#fallback) en la documentación
     oficial de Angular para más información.
 
-## Instalación del administrador
+### Instalación del administrador
 
-### Prerrequisitos
-
-Instala el software requerido por el **administrador** descrito en [Requisitos del sistema](requisitos.md).
-
-### Compilación
+#### Compilación del administrador
 
 Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **administrador** siguiendo estos pasos:
 
@@ -155,24 +209,24 @@ Una vez completada la instalación de los prerrequisitos puedes proceder con la 
 2. Obtiene un [token de GitHub para trabajar con el registro de npm de GitHub Packages](https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
 3. Desde la consola de comandos ejecuta el siguiente comando para autenticarte en el registro de GitHub Packages de npm:
 
-      ```shell
-      npm set //npm.pkg.github.com/:_authToken <token>
-      ```
+   ```shell
+   npm set //npm.pkg.github.com/:_authToken <token>
+   ```
 
    Sustituye `<token>` por el token que has obtenido en el paso anterior.
 4. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
    a la URI donde está desplegado el **backend**. Ver [Configuración](../configuration.md#visor-de-mapas).
 5. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
 
-      ```shell
-      npm ci
-      npm build -- --configuration=<conf> --baseHref=<baseHref>
-      ```
+   ```shell
+   npm ci
+   npm build -- --configuration=<conf> --baseHref=<baseHref>
+   ```
 
    Donde `<conf>` es la configuración y `<baseHref>` es la URI donde se va a desplegar.
    Este comando compilará el **administrador** para el entorno de producción y
    generará los archivos en la carpeta `dist/sitmun-admin-app`.
 
-### Despliegue
+#### Despliegue del administrador
 
 Para desplegar el **administrador** en un servidor web, copia la carpeta `sitmun-admin-app` a tu servidor web.

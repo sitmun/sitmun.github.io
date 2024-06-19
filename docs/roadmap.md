@@ -1,4 +1,4 @@
-![image](https://github.com/sitmun/sitmun.github.io/assets/26217441/177706f3-11a8-4b66-8053-ee1824ab1ebd)# Proyectos
+# Proyectos
 
 <table>
     <tr>
