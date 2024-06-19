@@ -2,9 +2,9 @@
 
 Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
-- Tienes una máquina *Windows/Linux/Mac*.
+- Una máquina *Windows/Linux/Mac*.
 - Has instalado [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) en tu máquina.
-- Tienes una cuenta de GitHub para [crear un token de acceso personal]((https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)).
+- Una cuenta de GitHub con la que [crear un token de acceso personal](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
 - Tienes un conocimiento básico de Git.
 - Tienes acceso a internet en tu máquina para descargar repositorios de Git.
 
@@ -50,8 +50,7 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
         ```
 
-
-=== "Linux"
+=== "Linux/Mac"
 
     - Java 11 SE (LTS).
     - **Node.js**. Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
@@ -72,4 +71,3 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
            mientras que el soporte de Oracle requiere de pruebas adicionales.
     - Se recomienda usar un proxy inverso delante del backend y del proxy (por ejemplo, nginx) 
       que sea capaz de proporcionar encabezados HTTP Forward (X-Forward u otros similares).
-
