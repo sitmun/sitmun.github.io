@@ -39,6 +39,8 @@ theme:
     admonition:
       info: octicons/browser-16
 
+extra_css: [css/extra.css]
+
 plugins:
   - search
   - render_swagger

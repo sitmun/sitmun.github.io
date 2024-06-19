@@ -5,15 +5,35 @@
       Los servicios están definidos en el archivo `docker-compose.yml`.
       Los siguientes servicios están disponibles:
 
-      - `viewer`: aplicación del visor de SITMUN
-      - `admin`: aplicación administrativa de SITMUN
-      - `backend`: API de SITMUN
-      - `proxy`: proxy de SITMUN
-      - `postgres`: base de datos PostgreSQL
+      - `front`, un servidor web *nginx* en el puerto 9000 que publica la aplicación del visor de SITMUN (`http://localhost:9000/viewer`) y la aplicación administrativa de SITMUN (`http://localhost:9000/admin`) y enruta las solicitudes a los servicios `backend` (`http://localhost:9000/backend`) y `proxy` (`http://localhost:9000/middleware`)
+      - `backend`, que expone el API de autenticación, autorización y configuración de SITMUN
+      - `proxy`, que expone el API proxy-middleware de SITMUN y que se comunica con el servicio `backend`
+      - `persistence`: base de datos PostgreSQL que almacena los datos en el volumen `pgdata`.
 
       Para fines de prueba, el uso del `proxy` está controlado por la variable de entorno `sitmun.proxy.force` en `backend`, que por defecto es `true`.
 
-      Los datos se almacenan en el volumen `pgdata`, que es utilizado por el servicio `postgres`.
+
+      ```mermaid
+      block-beta
+      columns 5
+
+      space:2
+      front["<b>front</b><br>nginx<br>localhost:9000"]
+      space:2
+
+      space:5
+
+      persistence[("<b>persistence</b><br>postgres<br>SITMUN database")]
+      space:1
+      backend["<b>backend</b><br>Spring Boot<br>SITMUN backend"]
+      space:1
+      proxy["<b>proxy</b><br>Spring Boot<br>SITMUN proxy-middleware"]
+
+      front -- "/middleware" --> proxy
+      front -- "/backend" --> backend
+      proxy -- "/api/config/proxy" --> backend
+      backend -- "jdbc" --> persistence
+      ```
 
       **Pasos de instalación**
 

@@ -22,13 +22,61 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
 
 **SITMUN 3** tiene una arquitectura de 3 niveles:
 
-- **Nivel de datos**: Puede estar en cualquier base de datos relacional, aunque actualmente se utilizan **Oracle** y **PostgreSQL**.
-  El modelo de datos está documentado en [la organización de SITMUN en GitHub](https://github.com/sitmun).
-- **Nivel de lógica de negocio**: Desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
-  tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
-  El acceso a la lógica de negocio de los **visores de mapas** se realiza a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** y de la **[API de Proxy][api-de-proxy]**.
-  El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]**.
-  En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
 - **Nivel cliente**: Actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun-admin-app)** para los administradores
   y un **[visor de mapas](https://github.com/sitmun/sitmun-viewer-app)** basado en la [API SITNA](https://github.com/sitna/api-sitna)
   que es utilizado por los diferentes tipos de usuarios finales, tanto al público en general como a especialistas de los ayuntamientos, entre otros.
+- **Nivel de lógica de negocio**: Desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
+  tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
+  El acceso a la lógica de negocio de los **visores de mapas** se realiza a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy-middleware**).
+  El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]** (parte de **SITMUN Backend**).
+  En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
+- **Nivel de datos**: Puede estar en cualquier base de datos relacional, aunque actualmente se utilizan **Oracle** y **PostgreSQL**.
+  El modelo de datos está documentado en [la organización de SITMUN en GitHub](https://github.com/sitmun).
+
+La siguiente figura recoge el modelo descrito:
+```mermaid
+block-beta
+  columns 5
+
+  block:A:3
+    columns 3
+    admin["Aplicación<BR>de administración"]
+    space
+    viewer["Visor<BR>de mapas"]
+  end
+  space
+  db4["Cualquier<br>servicio web"]
+
+  space:5
+
+  block:B:3
+    columns 3
+    backend["SITMUN<br>Backend"]
+    space
+    proxy["SITMUN<br>proxy-middleware"]
+  end
+  space
+  db3["Servicio web<br>restringido"]
+
+  space:5
+
+  db1[("Base de datos<br>SITMUN")]
+  space:3
+  db2[("Cualquier<br>base de datos")]
+
+  admin -- "Autenticación <br> + Administración" --> backend
+  viewer -- "Autenticación <br> + Autorización <br> + Configuración" --> backend
+  viewer -- "OGC API<br>+ Web API" --> proxy
+  proxy -- "Autorización <br> + Configuración" --> backend
+  backend --> db1
+  proxy -- "Como<br>middleware" --> db2
+  proxy --  "Como<br>proxy" --> db3
+  viewer --> db4  
+
+  classDef sitmun fill:yellow,stroke:#333;
+  class admin sitmun
+  class backend sitmun
+  class viewer sitmun
+  class proxy sitmun
+  class db1 sitmun 
+```

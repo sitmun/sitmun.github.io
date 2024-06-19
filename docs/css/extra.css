@@ -5,3 +5,7 @@
 .md-typeset table:not([class]) {
     display: table;
 }
+
+.mermaid {
+    text-align: center;
+}
