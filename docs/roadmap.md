@@ -27,10 +27,16 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
 | Proyecto - Funcionalidad    | Descripción                                                                 | Estado                           |
 +=============================+=============================================================================+==================================+
-| Cliente SITMUN3 - API SITNA | Creación de un cliente SITMUN3 genérico a partir de                         | Revisión de bugs y documentación |
-|                             | la integración de                                                           |                                  |
-|                             | [API SITNA](https://github.com/sitna/api-sitna/blob/master/README.es-ES.md) |                                  |
-|                             | y con el layout definido para la IDE Menorca                                |                                  |
+| Mejora pàgina de acceso de  | Mejorar la interficie de la ventana de login a los clientes SITMUN          | Análisis previo y propuesta      |
+| a la plataforma SITMUN      | disponibles para el usuario así como el dashboard para la selección de      | técnica de implementación.       |
+|                             | aplicación, territorio y configuración de opciones y datos de usuario.      |                                  |
+|                             | [Ver detalles](roadmap/mejora-ui-login-dashboard-cliente.md)                |                                  |
+|                             |                                                                             |                                  |
++-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
+| Publicación v1.0.0 SITMUN3  | Publicación de la primera versión estable de SITMUN 3 y la                  | Revisión de bugs y documentación |
+|                             | organización del repositorio de Github y la creación de un stack            |                                  |
+|                             | que facilite la instalación y creación de un entorno de desarrollo.         |                                  |
+|                             |                                                                             |                                  |
 +-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
 
 ## Proyectos prioritarios
@@ -42,10 +48,6 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 |                                                                                     | el administrador SITMUN 3, el contenido de la ventana que                                                              |                   |
 |                                                                                     | devuelve el visualizador al hacer una consulta sobre una capa                                                          |                   |
 |                                                                                     | visible en el área de mapa.                                                                                            |                   |
-+-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-| [Mejora UI página de acceso   SITMUN](roadmap/mejora-ui-login-dashboard-cliente.md) | Mejorar la interficie de la ventana de login a los clientes SITMUN                                                     | Media             |
-|                                                                                     | disponibles para el usuario así como el dashboard para la selección de                                                 |                   |
-|                                                                                     | aplicación, territorio y configuración de opciones y datos de usuario.                                                 |                   |
 +-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
 | **Más info**                                                                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y                                             | Alta              |
 |                                                                                     | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.                                              |                   |
