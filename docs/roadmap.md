@@ -68,11 +68,12 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | Proyecto - Funcionalidad             | Descripción                                                                       | Prioridad         |
 +======================================+===================================================================================+===================+
 | **Edición gráfica y alfanumérica**   | Integrar en el cliente SITMUN 3 API SITNA la herramienta de edición               | Alta              |
-|                                      | disponible en el API SITNA.  [API CNIG](https://github.com/IGN-CNIG/API-CNIG)     |                   |
+|                                      | disponible en el API SITNA.  [API SITNA](https://github.com/IGN-CNIG/API-CNIG)    |                   |
 +--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
 | **Más info**                         | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
 |                                      | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.         |                   |
 |                                      | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                |                   |
+|                                      | [Ver detalles aquí.](roadmap/mas-info-avanzado.md)                                |                   |
 +--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
 | **Localizadores**                    | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
 |                                      | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.        |                   |
@@ -123,11 +124,11 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 |                                                | el seguimiento del proyecto, la comprensión tecnológica de la plataforma y facilite el          |
 |                                                | el uso y la participación en los desarrollos (contibuciones de código)                          |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Desarrollo cliente visualizador SITMUN 3**   | Creación de un cliente SITMUN3 basado en el API SITNA que se configure de forma dinámica       |
+| **Desarrollo cliente visualizador SITMUN 3**   | Creación de un cliente SITMUN3 basado en el API SITNA que se configure de forma dinámica        |
 | (**Integración  API SITNA**)                   | a partir de la respuesta JSON que proporciona la API Rest del backoffice de SITMUN              |
 |                                                | [Ver ejemplo](https://sitmun.github.io/sitmun-viewer-app/)                                      |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Desarrollo del Administrador SITMUN 3**        | Desarrollo de una herramienta de administración SITMUN que permita la configuración de        |
+| **Desarrollo del Administrador SITMUN 3**      | Desarrollo de una herramienta de administración SITMUN que permita la configuración de          |
 |                                                | múltiples visualizadores de mapas SITMUN a partir de la definición de contenidos y la           |
 |                                                | gestión de permisos de usuario [Ver ejemplo](https://sitmun.github.io/admin-app/)               |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
