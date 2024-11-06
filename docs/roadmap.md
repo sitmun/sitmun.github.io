@@ -64,24 +64,23 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 ## Proyectos prioritarios
 
-+-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-| Proyecto - Funcionalidad                                                            | Descripción                                                                                                            | Prioridad         |
-+=====================================================================================+========================================================================================================================+===================+
-| **Edición gráfica y alfanumérica**                                                  | Integrar en el cliente SITMUN 3 API SITNA la herramienta de edición                                                    | Alta              |
-|                                                                                     | disponible en el API SITNA.  [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                                          |                   |
-+-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-| **Más info**                                                                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y                                             | Alta              |
-|                                                                                     | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.                                              |                   |
-|                                                                                     | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                                                     |                   |
-+-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-| **Localizadores**                                                                   | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y                                             | Alta              |
-|                                                                                     | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.                                             |                   |
-+-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-| **Consultas**                                                                       | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y                                             | Alta              |
-|                                                                                     | ejecutar consultas definidas como tareas en el administrador SITMUN 3.                                                 |                   |
-|                                                                                     | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                                                     |                   |
-+-------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------+
-
++--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
+| Proyecto - Funcionalidad             | Descripción                                                                       | Prioridad         |
++======================================+===================================================================================+===================+
+| **Edición gráfica y alfanumérica**   | Integrar en el cliente SITMUN 3 API SITNA la herramienta de edición               | Alta              |
+|                                      | disponible en el API SITNA.  [API CNIG](https://github.com/IGN-CNIG/API-CNIG)     |                   |
++--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
+| **Más info**                         | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
+|                                      | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.         |                   |
+|                                      | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                |                   |
++--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
+| **Localizadores**                    | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
+|                                      | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.        |                   |
++--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
+| **Consultas**                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
+|                                      | ejecutar consultas definidas como tareas en el administrador SITMUN 3.            |                   |
+|                                      | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                |                   |
++--------------------------------------+-------------- --------------------------------------------------------------------+-------------------+
 
 ## Cola de proyectos (sala de espera)
 
@@ -96,7 +95,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
 
 
-# Proyectos finalizados
+## Proyectos finalizados
 
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
 | Proyecto - Funcionalidad                       | Descripción                                                                                     |
@@ -117,11 +116,25 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Actualización versión Angular**              | Actualización del administrador SITMUN a la última versión de Ángular y refactorización         |
 |                                                | del código.                                                                                     |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Integración  API SITNA**                     | Creación de un cliente SITMUN3 basado en el API SITNA y que se configure de forma dinámica      |
-|                                                | a partir de la respuesta JSON que proporciona la API Rest del backoffice de SITMUN              |
+| **Creación de página web del proyecto**        | Creación de una página web de difusión del proyecto y actualización de la imagen corporativa    |
+|  (e imagen corporativa)                        |                                                                                                 |
++------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| **Creación de página de documentación**        | Creación de una página web de documentación del proyecto SITMUN 3 que facilite                  |
+|                                                | el seguimiento del proyecto, la comprensión tecnológica de la plataforma y facilite el          |
+|                                                | el uso y la participación en los desarrollos (contibuciones de código)                          |
++------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| **Desarrollo cliente visualizador SITMUN 3**   | Creación de un cliente SITMUN3 basado en el API SITNA que se configure de forma dinámica       |
+| (**Integración  API SITNA**)                   | a partir de la respuesta JSON que proporciona la API Rest del backoffice de SITMUN              |
 |                                                | [Ver ejemplo](https://sitmun.github.io/sitmun-viewer-app/)                                      |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Desarrollo del Administrador SITMUN**        | Desarrollo de una herramienta de administración SITMUN que permita la configuración de       |
-|                                                | a partir de la respuesta JSON que proporciona la API Rest del backoffice de SITMUN              |
-|                                                | [Ver ejemplo](https://sitmun.github.io/sitmun-viewer-app/)                                      |
+| **Desarrollo del Administrador SITMUN 3**        | Desarrollo de una herramienta de administración SITMUN que permita la configuración de        |
+|                                                | múltiples visualizadores de mapas SITMUN a partir de la definición de contenidos y la           |
+|                                                | gestión de permisos de usuario [Ver ejemplo](https://sitmun.github.io/admin-app/)               |
++------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| **Desarrollo del nivel intermedio SITMUN 3**   | Desarrollo de las API de Configuración y Autorización, la API de Proxy,                         |
+| (Backoffice y Proxy middleware)                | la API de Administración y la API de Autenticación                                              |
+|                                                |                                                                                                 |
++------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| **Diseño de base de datos SITMUN 3**           | Revisión e internacionalización de la base de datos de SITMUN 3                                 |
+|                                                |                                                                                                 |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
