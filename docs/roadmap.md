@@ -81,7 +81,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 | **Consultas**                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
 |                                      | ejecutar consultas definidas como tareas en el administrador SITMUN 3.            |                   |
 |                                      | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                |                   |
-+--------------------------------------+-------------- --------------------------------------------------------------------+-------------------+
++--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
 
 ## Cola de proyectos (sala de espera)
 
