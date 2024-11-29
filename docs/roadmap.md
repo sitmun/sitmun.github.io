@@ -55,12 +55,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 |                             | [Ver detalles aquí](roadmap/informe.md)                                     |                                  |
 |                             |                                                                             |                                  |
 +-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
-| Publicación                 | Publicación de la primera versión estable de SITMUN 3 y la                  | Revisión de bugs y documentación |
-| **SITMUN3 v1.0.0**          | organización del repositorio de Github y la creación de un stack            |                                  |
-|                             | que facilite la instalación y creación de un entorno de desarrollo.         |                                  |
-|                             |                                                                             |                                  |
-|                             |                                                                             |                                  |
-+-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
+
 
 ## Proyectos prioritarios
 
@@ -101,6 +96,11 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
 | Proyecto - Funcionalidad                       | Descripción                                                                                     |
 +================================================+=================================================================================================+
+| Publicación                                    | Publicación de la primera versión estable de SITMUN 3 y la                                      |
+| **SITMUN3 v1.0.0**                             | organización del repositorio de Github y la creación de un stack                                |
+|                                                | que facilite la instalación y creación de un entorno de desarrollo.                             |
+|                                                |                                                                                                 |
++------------------------------------------------+-------------------------------------------------------------------------------------------------+
 | **Múltiples árboles de capas**                 | Extender la funcionalidad de API SITNA para poder vincular más de un árbol a un cliente         |
 |                                                | SITMUN                                                                                          |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
