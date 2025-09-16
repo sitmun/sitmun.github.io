@@ -80,3 +80,11 @@ block-beta
   class proxy sitmun
   class db1 sitmun 
 ```
+
+[api-de-autenticacion]: ../api.md#api-de-autenticacion
+[api-de-configuracion-y-autorizacion]: ../api.md#api-de-configuracion-y-autorizacion
+[api-de-proxy]: ../api.md#api-de-proxy
+
+---
+
+Siguiente paso: [Requisitos](requisitos.md)

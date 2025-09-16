@@ -196,7 +196,7 @@ La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la
 {
   "appId": 1,
   "terId": 34,
-  "type": "wms",
+  "type": "WMS",
   "typeId": 1,
   "method": "GET",
   "parameters": {
@@ -219,14 +219,14 @@ La respuesta podría ser como sigue:
 
 ```json
 {
-  "type": "wms",
+  "type": "OgcWmsPayload",
   "exp": 1623340800,
   "payload": {
-    "uri": "https://geoserveis.icgc.cat/icgc_bm5m/wms/service",
-    "method": "GET",
     "vary": [
       "BBOX"
     ],
+    "uri": "https://geoserveis.icgc.cat/icgc_bm5m/wms/service",
+    "method": "GET",
     "parameters": {
       "SERVICE": "WMS",
       "REQUEST": "GetMap",
@@ -261,3 +261,8 @@ GET /icgc_bm5m/wms/service?SERVICE=WMS&REQUEST=GetMap
     &WIDTH=498&HEIGHT=594
 Host: geoserveis.icgc.cat
 ```
+
+[api-de-autenticacion]: api.md#api-de-autenticacion
+[api-de-configuracion-y-autorizacion]: api.md#api-de-configuracion-y-autorizacion
+[api-de-proxy]: api.md#api-de-proxy
+[servicio-de-proxy]: design.md#servicio-de-proxy

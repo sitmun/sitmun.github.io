@@ -4,7 +4,6 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
 - Una máquina *Windows/Linux/Mac*.
 - Has instalado [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) en tu máquina.
-- Una cuenta de GitHub con la que [crear un token de acceso personal](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
 - Tienes un conocimiento básico de Git.
 - Tienes acceso a internet en tu máquina para descargar repositorios de Git.
 
@@ -19,12 +18,10 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
 === "Windows"
 
-    - Java 11 SE (LTS).
+    - Java 17 SE (LTS).
     - **Node.js**. Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
-        - El **visor de mapas** requiere **Node.js** con una versión compatible con **Angular 16**,
-          que puede ser `^16.14.0 || ^18.10.0`. 
-        - El **administrador** requiere **Node.js** con una versión compatible con **Angular 10**,
-          que puede ser `^12.11.1`. 
+        - Tanto el **visor de mapas** como el **administrador** requieren **Node.js** con una versión compatible con **Angular 16**,
+          que debe ser `>=16.0.0`. 
     - **npm**: Puedes instalar **npm** siguiendo la guía oficial: https://docs.npmjs.com/cli/install
     - **angular cli**: Una vez que hayas cumplido con los prerrequisitos mencionados anteriormente,
       procede a instalar el Cliente Angular de la siguiente manera:
@@ -34,8 +31,7 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
     - Entorno de ejecución:  
          - Al menos 1 GB de memoria.
          - Al menos 1 CPU.
-         - Acceso a una base de datos soportada (Postgres u Oracle) en el caso de backend. El soporte de Postgres es estable,
-           mientras que el soporte de Oracle requiere de pruebas adicionales.
+         - Acceso a una base de datos soportada (PostgreSQL u Oracle) en el caso de backend.
     - Si se va a instalar en Windows como servicio, se necesita además:
          - [WinSW](https://github.com/winsw/winsw) 2.12.0 o posterior
          - .NET Framework 2.0, 3.1, 4.0 o 4.6.1
@@ -52,12 +48,10 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
 === "Linux/Mac"
 
-    - Java 11 SE (LTS).
+    - Java 17 SE (LTS).
     - **Node.js**. Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
-        - El **visor de mapas** requiere **Node.js** con una versión compatible con **Angular 16**,
-          que puede ser `^16.14.0 || ^18.10.0`. 
-        - El **administrador** requiere **Node.js** con una versión compatible con **Angular 10**,
-          que puede ser `^12.11.1`. 
+        - Tanto el **visor de mapas** como el **administrador** requieren **Node.js** con una versión compatible con **Angular 16**,
+          que debe ser `>=16.0.0`. 
     - **npm**: Puedes instalar **npm** siguiendo la guía oficial: https://docs.npmjs.com/cli/install
     - **angular cli**: Una vez que hayas cumplido con los prerrequisitos mencionados anteriormente,
       procede a instalar el Cliente Angular de la siguiente manera:
@@ -67,7 +61,11 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
     - Entorno de ejecución:  
          - Al menos 1 GB de memoria.
          - Al menos 1 CPU.
-         - Acceso a una base de datos soportada (Postgres u Oracle) en el caso de backend. El soporte de Postgres es estable,
-           mientras que el soporte de Oracle requiere de pruebas adicionales.
+         - Acceso a una base de datos soportada (PostgreSQL u Oracle) en el caso de backend.
     - Se recomienda usar un proxy inverso delante del backend y del proxy (por ejemplo, nginx) 
       que sea capaz de proporcionar encabezados HTTP Forward (X-Forward u otros similares).
+
+---
+
+Siguiente paso: [Instalación](instalacion.md)
+

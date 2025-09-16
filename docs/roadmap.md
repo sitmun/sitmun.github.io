@@ -3,11 +3,11 @@
 <table>
     <tr>
         <td><strong>Última modificación</strong></td>
-        <td><strong>Noviembre 2024</strong></td>
+        <td><strong>Junio 2025</strong></td>
     </tr>
     <tr>
         <td><strong>Próxima modificación</strong></td>
-        <td><strong>Marzo 2025</strong></td>
+        <td><strong>Diciembre 2025</strong></td>
     </tr>
 </table>
 
@@ -16,7 +16,7 @@
 El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y las próximas funcionalidades a desarrollar.
 
 !!! info "Aspectos generales"
-    [**El Comité Técnico de SITMUN**](https://sitmun.github.io/contact/) es el órgano funcional encargado de revisar la descripción o,
+    **El Comité Técnico de SITMUN** es el órgano funcional encargado de revisar la descripción o,
     en su defecto, describir el alcance funcional de cada uno de los puntos.
     También de proponer la priorización de cada uno de los proyectos o funcionalidades.
 
@@ -126,11 +126,11 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
 | **Desarrollo cliente visualizador SITMUN 3**   | Creación de un cliente SITMUN3 basado en el API SITNA que se configure de forma dinámica        |
 | (**Integración  API SITNA**)                   | a partir de la respuesta JSON que proporciona la API Rest del backoffice de SITMUN              |
-|                                                | [Ver ejemplo](https://sitmun.github.io/sitmun-viewer-app/)                                      |
+|                                                |                                                                                                 |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
 | **Desarrollo del Administrador SITMUN 3**      | Desarrollo de una herramienta de administración SITMUN que permita la configuración de          |
 |                                                | múltiples visualizadores de mapas SITMUN a partir de la definición de contenidos y la           |
-|                                                | gestión de permisos de usuario [Ver ejemplo](https://sitmun.github.io/admin-app/)               |
+|                                                | gestión de permisos de usuario                                                                  |
 +------------------------------------------------+-------------------------------------------------------------------------------------------------+
 | **Desarrollo del nivel intermedio SITMUN 3**   | Desarrollo de las API de Configuración y Autorización, la API de Proxy,                         |
 | (Backoffice y Proxy middleware)                | la API de Administración y la API de Autenticación                                              |

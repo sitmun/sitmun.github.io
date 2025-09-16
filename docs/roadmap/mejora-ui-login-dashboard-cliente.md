@@ -93,11 +93,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | visor (p.e. barra transparente y boton pequeño en margen superior derecho).                      |                         |                     |
 +--------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API de autenticación
+### API de autenticación {#roadmap-mejora-ui-api-de-autenticacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de administración
+### API de administración {#roadmap-mejora-ui-api-de-administracion}
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -111,11 +111,11 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 | de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API configuración y autorización
+### API configuración y autorización {#roadmap-mejora-ui-api-de-configuracion-y-autorizacion}
 
 No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
-### API de proxy
+### API de proxy {#roadmap-mejora-ui-api-de-proxy}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 

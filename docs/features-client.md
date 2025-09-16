@@ -153,3 +153,13 @@
 ## Aplicación de Administración
 
 !!! warning "Documentación en desarrollo"
+
+[api-de-autenticacion]: api.md#api-de-autenticacion
+[api-de-configuracion-y-autorizacion]: api.md#api-de-configuracion-y-autorizacion
+[api-de-proxy]: api.md#api-de-proxy
+
+## Canonical Link References
+
+- [API de autenticación][api-de-autenticacion]
+- [API de configuración y autorización][api-de-configuracion-y-autorizacion]
+- [API de Proxy][api-de-proxy]

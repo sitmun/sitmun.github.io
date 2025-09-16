@@ -61,7 +61,6 @@ nav:
       - getting-started/instalacion.md
       - getting-started/creando.md
       - getting-started/personalizando.md
-      - Licencia: license.md
   - Características:
       - features-client.md
       - features-server.md
@@ -78,9 +77,10 @@ nav:
       - API: api.md
       - Configuración: configuration.md
       - Gestión: management.md
-  - Demostradores:
-      - demo.md
-  - Contacto: contact.md
+  - Solución de problemas: troubleshooting.md
+  - Acerca de:
+      - Licencia: license.md
+      - Contacto: contact.md
 
 markdown_extensions:
   - abbr

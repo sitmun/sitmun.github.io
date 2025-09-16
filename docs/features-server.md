@@ -1,6 +1,6 @@
 # Servidores
 
-## API de Autenticación
+## API de Autenticación {#features-server-api-de-autenticacion}
 
 - **Proporcionar token de acceso [JSON web token](https://jwt.io/) (JWT)**
 que permite al usuario acceder a los servicios de la plataforma. 
@@ -10,7 +10,11 @@ criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
 
 - **Autenticación LDAP**. Está soportado la autenticación a través de un servidor LDAP.
 
-## API de Configuración y Autorización
+- **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de email.
+
+- **Recuperación de contraseña**. Sistema de recuperación de contraseña por email con tokens seguros.
+
+## API de Configuración y Autorización {#features-server-api-de-configuracion-y-autorizacion}
 
 - **Proporcionar configuración a clientes**. Proporciona la configuración necesaria para que el visor de mapas se configure 
   para cada usuario, con los territorios y aplicaciones (capas y funcionalidades) a las que tiene acceso.
@@ -25,11 +29,25 @@ criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
   proxy. Estos parámetros se gestionan mediante la [API de Administración][api-de-administracion] indicando como 
   valor una de las siguientes variables: `$USER_ID`, `$APP_ID`, `$TERR_ID` y `$TERR_COD`.
 
-## API de Administración
+## API de Administración {#features-server-api-de-administracion}
 
-!!! warning "Documentación en desarrollo"
+- **Gestión de usuarios**. CRUD completo de usuarios con roles y permisos.
 
-## API de Proxy
+- **Gestión de territorios**. Administración de territorios y sus configuraciones.
+
+- **Gestión de aplicaciones**. Configuración de aplicaciones y sus funcionalidades.
+
+- **Gestión de tareas**. Configuración de tareas y herramientas disponibles.
+
+- **Gestión de capas**. Administración de capas cartográficas y servicios.
+
+- **Pruebas de conexión**. Herramientas para probar conexiones a bases de datos.
+
+- **Extracción de capacidades**. Herramientas para extraer capacidades de servicios OGC.
+
+- **Extracción de tipos de entidad**. Herramientas para extraer información de tipos de entidad.
+
+## API de Proxy {#features-server-api-de-proxy}
 
 ### Aspectos globales
 
@@ -39,8 +57,7 @@ criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
 
 - **Adaptación transparente**. Las peticiones se adaptan en función de la aplicación, el territorio y el usuario.
 
-- **Personalizado**. La petición pueden autenticarse usando un esquema de *autenticación por portador*
-  (*[Bearer authentication](https://swagger.io/docs/specification/authentication/bearer-authentication/)*)
+- **Personalizado**. La petición pueden autenticarse usando un esquema de autenticación por portador (Bearer authentication)
   usando un token que se ha obtenido previamente mediante la [API de Autenticación][api-de-autenticacion].
   Si no se autentica, se asume que la petición se ha realizado por un usuario
   que en el dominio de SITMUN se denomina *usuario público*. 
@@ -74,3 +91,7 @@ criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
 - **Selección (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
 
 - **Filtrado (JDBC)**: Modificador encargado de incluir filtros en la consulta.
+
+[api-de-autenticacion]: api.md#api-de-autenticacion
+[api-de-configuracion-y-autorizacion]: api.md#api-de-configuracion-y-autorizacion
+[api-de-administracion]: api.md#api-de-administracion

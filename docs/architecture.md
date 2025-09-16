@@ -27,7 +27,7 @@ Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poc
 
 Esto conviene tenerlo en cuenta cuando estemos dimensionando el hardware que necesitamos para el despliegue, y cómo lo vamos a repartir.
 
-**SITMUN 3** tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular, Spring Boot se usa en el tier web, y una base de datos relacional (Oracle o PostgreSQL a día de hoy, pero se pueden usar otras) en el tier de datos.
+**SITMUN 3** tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular 16, Spring Boot 3 se usa en el tier web, y una base de datos relacional (PostgreSQL 16, Oracle 23c, o H2 para desarrollo a día de hoy, pero se pueden usar otras) en el tier de datos.
 
 ## Principales componentes
 
@@ -61,7 +61,7 @@ rectangle appadmin [
 ]
 
 database configdb [
-  <color:Crimson><$oracle> / <color: RoyalBlue><$postgresql> (PostgreSQL)
+  <color:Crimson><$oracle> (Oracle 23c) / <color: RoyalBlue><$postgresql> (PostgreSQL 16) / <color: Green>H2 (Desarrollo)
   
   --
   
@@ -117,7 +117,7 @@ component privatewms #PapayaWhip [
 ]
 
 database territdb #PapayaWhip [
-  <$lock_protected{scale=0.5}> <color:Crimson><$oracle> / <color: RoyalBlue><$postgresql> (PostgreSQL)
+  <$lock_protected{scale=0.5}> <color:Crimson><$oracle> (Oracle 23c) / <color: RoyalBlue><$postgresql> (PostgreSQL 16)
   
   --
   
@@ -778,16 +778,6 @@ together {
 }
 
 together {
-  package "Despliegue en Heroku" <<application, dev>> as ":deploy:heroku-dev-full" #ffa500  {
-    
-  }
-
-  note top of ":deploy:heroku-dev-full"
-    Configuración adaptada para
-    su despliegue en **Heroku**
-    usando **Heroku postgres**
-    para persistencia
-  end note
 
   package "Schema Export" <<tool, dev>> as ":cli" #ffa500  {
     
@@ -801,8 +791,7 @@ together {
 }
 
 
-":deploy:heroku-dev-full" ..> ":app" : <<import>>
-":deploy:heroku-dev-full" .[norank].> ":legacy" : <<import>>
+
 
 ":cli" .r.> ":app" : <<import>>
 

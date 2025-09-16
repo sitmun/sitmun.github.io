@@ -94,19 +94,19 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 |                                                          |                      |                     |
 +----------------------------------------------------------+----------------------+---------------------+
 
-### API de autenticación
+### API de autenticación {#roadmap-informe-api-de-autenticacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de administración
+### API de administración {#roadmap-informe-api-de-administracion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API configuración y autorización
+### API configuración y autorización {#roadmap-informe-api-de-configuracion-y-autorizacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de proxy
+### API de proxy {#roadmap-informe-api-de-proxy}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 

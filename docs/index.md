@@ -21,8 +21,7 @@ Podemos encontrar en ella:
 
 - La [arquitectura](architecture.md) describe desde un nivel de abstracción alto los principales elementos de la plataforma **SITMUN 3**.
 - En la sección de [diseño](design.md) se describen aspectos técnicos de la plataforma **SITMUN 3**.
-- En la sección de [referencia](api.md) se describen las API de la plataforma **SITMUN 3** que están actualmente desplegadas en Heroku (servidor de pruebas y preproducción).
-  También se pueden consultar en <https://sitmun-backend-core.herokuapp.com/swagger-ui/index.html>.
+- En la sección de [referencia](api.md) se describen las API de la plataforma **SITMUN 3** que están disponibles localmente durante el desarrollo.
 - En la sección de [gestión](management.md) se describen aspectos organizativos y técnicos en lo que respecta al versionado, seguimiento del trabajo y automatización de procesos.
 - La sección de [contacto](contact.md) sugiere formas de contactar con los distintos participantes en el proyecto así como sus roles en el mismo.
 

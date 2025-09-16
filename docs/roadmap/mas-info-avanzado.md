@@ -97,11 +97,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API de autenticación
+### API de autenticación {#roadmap-mas-info-api-de-autenticacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de administración
+### API de administración {#roadmap-mas-info-api-de-administracion}
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -111,11 +111,11 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API configuración y autorización
+### API configuración y autorización {#roadmap-mas-info-api-de-configuracion-y-autorizacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de proxy
+### API de proxy {#roadmap-mas-info-api-de-proxy}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 

@@ -2,15 +2,73 @@
 
 === "Docker"
 
+      **Pasos de instalación**
+
+      Para instalar SITMUN, sigue estos pasos:
+
+      1. Clona el repositorio con submódulos y entra en el directorio:
+
+         ```bash
+         git clone --branch dev --recurse-submodules https://github.com/sitmun/sitmun-application-stack.git
+         cd sitmun-application-stack
+         ```
+
+      2. Prepara el entorno:
+
+         - Linux/macOS:
+
+           ```bash
+           ./setup.sh
+           ```
+
+         - Windows:
+
+           ```powershell
+           ./setup.ps1
+           ```
+
+      3. Arranca la plataforma SITMUN:
+
+         ```bash
+         docker compose up -d
+         ```
+
+         Nota: Por defecto se utiliza PostgreSQL. Para usar Oracle:
+
+         ```bash
+         COMPOSE_PROFILES=oracle docker compose up -d
+         ```
+
+      4. Verifica la instalación:
+
+         ```bash
+         docker compose ps
+         curl http://localhost:9001/api/dashboard/health
+         curl http://localhost:9002/actuator/health
+         ```
+
+      5. Accede a las aplicaciones:
+
+         - Visor: http://localhost:9000/viewer
+         - Administrador: http://localhost:9000/admin
+         - Backend API: http://localhost:9000/backend
+
+         Credenciales por defecto:
+
+         - Usuario: `admin`
+         - Contraseña: `admin`
+
+      **Servicios**
+
       Los servicios están definidos en el archivo `docker-compose.yml`.
       Los siguientes servicios están disponibles:
 
       - `front`, un servidor web *nginx* en el puerto 9000 que publica la aplicación del visor de SITMUN (`http://localhost:9000/viewer`) y la aplicación administrativa de SITMUN (`http://localhost:9000/admin`) y enruta las solicitudes a los servicios `backend` (`http://localhost:9000/backend`) y `proxy` (`http://localhost:9000/middleware`)
-      - `backend`, que expone el API de autenticación, autorización y configuración de SITMUN
-      - `proxy`, que expone el API proxy-middleware de SITMUN y que se comunica con el servicio `backend`
-      - `persistence`: base de datos PostgreSQL que almacena los datos en el volumen `pgdata`.
-
-      Para fines de prueba, el uso del `proxy` está controlado por la variable de entorno `sitmun.proxy.force` en `backend`, que por defecto es `true`.
+      - `backend`, que expone el API de autenticación, autorización y configuración de SITMUN (puerto 9001)
+      - `proxy`, que expone el API proxy-middleware de SITMUN y que se comunica con el servicio `backend` (puerto 9002)
+      - `postgres`: base de datos PostgreSQL 16 que almacena los datos en el volumen `pgdata` (puerto 9003)
+      - `oracle`: base de datos Oracle 23c alternativa (puerto 9004)
+      - `example`: base de datos PostgreSQL de ejemplo (puerto 9005)
 
 
       ```mermaid
@@ -23,7 +81,7 @@
 
       space:5
 
-      persistence[("<b>persistence</b><br>postgres<br>SITMUN database")]
+      postgres[("<b>postgres</b><br>PostgreSQL 16<br>SITMUN database")]
       space:1
       backend["<b>backend</b><br>Spring Boot<br>SITMUN backend"]
       space:1
@@ -32,55 +90,16 @@
       front -- "/middleware" --> proxy
       front -- "/backend" --> backend
       proxy -- "/api/config/proxy" --> backend
-      backend -- "jdbc" --> persistence
+      backend -- "jdbc" --> postgres
       ```
-
-      **Pasos de instalación**
-
-      Para instalar SITMUN, sigue estos pasos:
-
-      1. Clona el repositorio y los proyectos anidados de SITMUN:
-
-         ```bash
-         git clone --recurse-submodules https://github.com/sitmun/sitmun-application-stack.git
-         ```
-
-      2. Cambia al directorio del repositorio:
-
-         ```bash
-         cd sitmun-application-stack
-         ```
-
-      3. Crea un nuevo archivo llamado `.env` dentro del directorio.
-         Abre el archivo `.env` en un editor de texto y agrega tu token de acceso personal de GitHub (`GITHUB_TOKEN`) en el siguiente formato:
-
-         ```properties
-         GITHUB_TOKEN=tu_token_de_acceso_personal
-         ```
-
-      4. Inicia la plataforma SITMUN:
-
-         ```bash
-         docker compose up
-         ```
-
-         Este comando construirá e iniciará todos los servicios definidos en el archivo `docker-compose.yml`.
-
-      5. Accede a la aplicación del visor de SITMUN en [http://localhost:9000/viewer](http://localhost:9000/viewer).
-         Usa el acceso público que no requiere autenticación.
-
-      6. Accede a la aplicación administrativa de SITMUN en [http://localhost:9000/admin](http://localhost:9000/admin).
-         Esto requiere autenticación.
-         El nombre de usuario predeterminado es `admin` y la contraseña predeterminada es `admin`.
 
       **Configuración**
 
-      Las variables de entorno se definen en el archivo `.env`.
+      Las variables de entorno se definen en el archivo `.env` (si no existe, `./setup.sh` copiará `.env.example`). Variables clave:
 
-      Las siguientes variables de entorno están disponibles:
-
-      - `GITHUB_TOKEN`: [Token de acceso personal de GitHub (clásico)](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages).
-      El token es necesario para obtener paquetes `npm` de [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#about-github-packages).
+      - `COMPOSE_PROFILES`: perfiles activos (`postgres`/`oracle`). Por defecto: `postgres`.
+      - `DATABASE`, `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
+      - `FORCE_USE_OF_PROXY`: fuerza el uso del proxy (`false` por defecto).
 
       **Desinstalación**
 
@@ -95,7 +114,7 @@
     !!! info "En desarrollo"
         Esta sección está siendo actualizada.
         Las instrucciones de instalación son un ejemplo de como serán en un futuro.
-        Actualmente, se recomienda solo usar en modo de prueba `heroku-dev-full` que requiere de una base de datos `postgres`.
+        
 
     === "Backend"
 
@@ -169,17 +188,8 @@
          Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **visor de mapas** siguiendo estos pasos:
 
          1. Descarga el proyecto <https://github.com/sitmun/sitmun-viewer-app> en tu equipo.
-         2. Obtiene un [token de GitHub para trabajar con el registro de npm de GitHub Packages](https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
-         3. Desde la consola de comandos ejecuta el siguiente comando para autenticarte en el registro de GitHub Packages de npm:
-
-            ```shell
-            npm set //npm.pkg.github.com/:_authToken <token>
-            ```
-
-            Sustituye `<token>` por el token que has obtenido en el paso anterior.
-         4. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
-            a la URI donde está desplegado el **backend**. Ver [Configuración](../configuration.md#visor-de-mapas).
-         5. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
+         2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte a la URI donde está desplegado el **backend**. Ver [Configuración](../configuration.md#visor-de-mapas).
+         3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
 
             ```shell
             npm ci
@@ -209,17 +219,9 @@
          Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **administrador** siguiendo estos pasos:
 
          1. Descarga el proyecto <https://github.com/sitmun/sitmun-admin-app> en tu equipo.
-         2. Obtiene un [token de GitHub para trabajar con el registro de npm de GitHub Packages](https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
-         3. Desde la consola de comandos ejecuta el siguiente comando para autenticarte en el registro de GitHub Packages de npm:
-
-            ```shell
-            npm set //npm.pkg.github.com/:_authToken <token>
-            ```
-
-            Sustituye `<token>` por el token que has obtenido en el paso anterior.
-         4. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
+         2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
             a la URI donde está desplegado el **backend**. Ver [Configuración](../configuration.md#visor-de-mapas).
-         5. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
+         3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
 
             ```shell
             npm ci
@@ -231,3 +233,8 @@
             generará los archivos en la carpeta `dist/sitmun-admin-app`.
 
          Para desplegar el **administrador** en un servidor web, copia la carpeta `sitmun-admin-app` a tu servidor web.
+
+    
+---
+
+Siguiente paso: [Creando una aplicación](creando.md)
