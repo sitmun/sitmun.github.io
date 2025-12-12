@@ -9,7 +9,7 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
 === "Docker"
 
-    - Al menos 4 GB de RAM.
+    - Al menos 16 GB de RAM.
     - Soporte de virtualización (Hyper-V, KMV, WSL2, etc).
     - Has instalado la última versión de [Docker CE](https://docs.docker.com/engine/install/) y [Docker Compose](https://docs.docker.com/compose/install/), o [Docker Desktop](https://www.docker.com/products/docker-desktop/).
       *Docker CE* es totalmente de código abierto, mientras que *Docker Desktop* es un producto comercial.
