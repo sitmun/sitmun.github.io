@@ -55,7 +55,7 @@ plugins:
 
 nav:
   - Inicio: index.md
-  - Cómo empezar:
+  - Guías y manuales de usuario:
       - getting-started/que-es.md
       - getting-started/requisitos.md
       - getting-started/instalacion.md
