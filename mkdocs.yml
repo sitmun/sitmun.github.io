@@ -79,7 +79,8 @@ plugins:
 nav:
   - Inicio: index.md
   - ¿Qué es SITMUN?:
-      - La red SITMUN: que-es-sitmun/red-sitmun.md
+      - La red SITMUN:
+          - que-es-sitmun/red-sitmun/index.md
       - Plataforma SITMUN:
           - que-es-sitmun/plataforma/index.md
           - Clientes: que-es-sitmun/plataforma/clientes.md
