@@ -12,7 +12,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 
 ![Formulario de nuevo servicio](img/servicios-formulario.webp){ loading=lazy }
 
-- **Nombre\* y descripción**: pueden ser cualquier nombre que nos permita reconocer el servicio añadido. Se recomienda disponer de algún criterio de taxonomía para poder nombrar todos los elementos de SITMUN y luego facilitar su identificación.
+- **Título del servicio\*** y **Descripción del servicio**: pueden ser cualquier texto que nos permita reconocer el servicio añadido. Se recomienda disponer de algún criterio de taxonomía para poder nombrar todos los elementos de SITMUN y luego facilitar su identificación.
 - **Bloqueado**: si está activado, bloquea un servicio y todas sus capas, que ya no son visibles en el visor SITMUN.
 - **Tipo de servicio\***: es posible añadir servicios de tipo Web Map Service (WMS), Web Feature Service (WFS) o Web Map Tile Service (WMTS).
 - **Endpoint del servicio\***: será la URL de conexión del servicio cartográfico.
@@ -34,7 +34,7 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para la conexión a servicios con autenticación debemos utilizar el desplegable **Modo de autenticación** y seleccionar **Autenticación HTTP básica**. También debemos activar el uso del proxy, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
+Para la conexión a servicios con autenticación debemos utilizar el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica**. Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
 
 Al seleccionar la opción de autenticación deberemos facilitar el usuario y la contraseña de conexión al servicio.
 
