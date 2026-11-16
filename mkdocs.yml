@@ -63,11 +63,11 @@ plugins:
         architecture.md: que-es-sitmun/plataforma/arquitectura/index.md
         design.md: que-es-sitmun/plataforma/arquitectura/diseno.md
         api.md: que-es-sitmun/plataforma/arquitectura/api.md
-        configuration.md: desarrollador/configuracion.md
+        configuration.md: usuario/instalacion/instalacion.md
         management.md: desarrollador/contribuir.md
         troubleshooting.md: usuario/instalacion/solucion-problemas.md
         license.md: que-es-sitmun/plataforma/licencia.md
-        contact.md: red-sitmun/contacto.md
+        contact.md: que-es-sitmun/red-sitmun/contacto.md
   - print-site:  # Must be the last plugin listed here
      add_to_navigation: true
      print_page_title: 'Versión Imprimible'
@@ -81,6 +81,7 @@ nav:
   - ¿Qué es SITMUN?:
       - La red SITMUN:
           - que-es-sitmun/red-sitmun/index.md
+          - Contacto: que-es-sitmun/red-sitmun/contacto.md
       - Plataforma SITMUN:
           - que-es-sitmun/plataforma/index.md
           - Clientes: que-es-sitmun/plataforma/clientes.md
@@ -123,9 +124,6 @@ nav:
               - Cliente app edición: usuario/manual/clientes/app-edicion.md
   - Manual de desarrollador:
       - Cómo contribuir: desarrollador/contribuir.md
-      - Configuración: desarrollador/configuracion.md
-  - La red SITMUN:
-      - Contacto: red-sitmun/contacto.md
 
 markdown_extensions:
   - abbr

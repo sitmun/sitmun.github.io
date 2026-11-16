@@ -122,7 +122,7 @@
 
         1. Descarga el proyecto <https://github.com/sitmun/sitmun-backend-core> en tu equipo.
         2. Crea un proyecto nuevo a partir de las plantillas de la carpeta `deploy` y añádelo a `settings.gradle`.
-        3. Configura el fichero `application.yml` del nuevo proyecto. Ver [Configuración](../../desarrollador/configuracion.md#administrador).
+        3. Configura el fichero `application.yml` del nuevo proyecto.
         4. Ejecutar el siguiente comando desde la raíz del proyecto en una terminal.
            ```bash
            ./gradlew clean :[proyecto]:build
@@ -146,7 +146,7 @@
             `security.authentication.middleware.secret` debe contener el token que se ha configurado en el **backend** para que el **proxy** pueda autenticarse.
             `sitmun.config.url` debe contener la URI de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** del **backend**.
             Si el **proxy** y el **backend** son servicios internos de la misma red, se recomienda usar el nombre interno o la
-            dirección IP interna del **backend**. Ver [Configuración](../../desarrollador/configuracion.md#proxy).
+            dirección IP interna del **backend**.
          3. Ejecutar el siguiente comando desde la raíz del proyecto en una terminal.
 
             ```bash
@@ -188,7 +188,7 @@
          Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **visor de mapas** siguiendo estos pasos:
 
          1. Descarga el proyecto <https://github.com/sitmun/sitmun-viewer-app> en tu equipo.
-         2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte a la URI donde está desplegado el **backend**. Ver [Configuración](../../desarrollador/configuracion.md#visor-de-mapas).
+         2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte a la URI donde está desplegado el **backend**.
          3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
 
             ```shell
@@ -220,7 +220,7 @@
 
          1. Descarga el proyecto <https://github.com/sitmun/sitmun-admin-app> en tu equipo.
          2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
-            a la URI donde está desplegado el **backend**. Ver [Configuración](../../desarrollador/configuracion.md#visor-de-mapas).
+            a la URI donde está desplegado el **backend**.
          3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
 
             ```shell
