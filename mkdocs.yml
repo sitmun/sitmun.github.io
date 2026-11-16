@@ -48,25 +48,25 @@ plugins:
   - autorefs  
   - redirects:
       redirect_maps:
-        getting-started/que-es.md: que-es-sitmun/descripcion/index.md
+        getting-started/que-es.md: que-es-sitmun/plataforma/index.md
         getting-started/requisitos.md: usuario/primeros-pasos/requisitos.md
         getting-started/instalacion.md: usuario/primeros-pasos/instalacion.md
         getting-started/creando.md: usuario/guias/primer-proyecto/index.md
         getting-started/personalizando.md: usuario/guias/personalizacion.md
-        features-client.md: que-es-sitmun/descripcion/clientes.md
-        features-server.md: que-es-sitmun/descripcion/servidores.md
-        roadmap.md: que-es-sitmun/hoja-de-ruta/index.md
-        roadmap/mas-info-avanzado.md: que-es-sitmun/hoja-de-ruta/propuestas/mas-info-avanzado.md
-        roadmap/mejora-ui-login-dashboard-cliente.md: que-es-sitmun/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md
-        roadmap/app-turismo.md: que-es-sitmun/hoja-de-ruta/propuestas/app-turismo.md
-        roadmap/informe.md: que-es-sitmun/hoja-de-ruta/propuestas/informe.md
-        architecture.md: que-es-sitmun/arquitectura/index.md
-        design.md: que-es-sitmun/arquitectura/diseno.md
-        api.md: que-es-sitmun/arquitectura/api.md
+        features-client.md: que-es-sitmun/plataforma/clientes.md
+        features-server.md: que-es-sitmun/plataforma/arquitectura/api.md
+        roadmap.md: que-es-sitmun/plataforma/hoja-de-ruta/index.md
+        roadmap/mas-info-avanzado.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md
+        roadmap/mejora-ui-login-dashboard-cliente.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md
+        roadmap/app-turismo.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/app-turismo.md
+        roadmap/informe.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md
+        architecture.md: que-es-sitmun/plataforma/arquitectura/index.md
+        design.md: que-es-sitmun/plataforma/arquitectura/diseno.md
+        api.md: que-es-sitmun/plataforma/arquitectura/api.md
         configuration.md: usuario/primeros-pasos/configuracion.md
         management.md: desarrollador/contribuir.md
         troubleshooting.md: usuario/primeros-pasos/solucion-problemas.md
-        license.md: red-sitmun/licencia.md
+        license.md: que-es-sitmun/plataforma/licencia.md
         contact.md: red-sitmun/contacto.md
   - print-site:  # Must be the last plugin listed here
      add_to_navigation: true
@@ -79,21 +79,22 @@ plugins:
 nav:
   - Inicio: index.md
   - ¿Qué es SITMUN?:
-      - Descripción:
-          - que-es-sitmun/descripcion/index.md
-          - que-es-sitmun/descripcion/clientes.md
-          - que-es-sitmun/descripcion/servidores.md
-      - Arquitectura:
-          - que-es-sitmun/arquitectura/index.md
-          - Diseño de los servicios: que-es-sitmun/arquitectura/diseno.md
-          - API: que-es-sitmun/arquitectura/api.md
-      - Hoja de ruta:
-          - que-es-sitmun/hoja-de-ruta/index.md
-          - Propuestas:
-              - que-es-sitmun/hoja-de-ruta/propuestas/mas-info-avanzado.md
-              - que-es-sitmun/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md
-              - que-es-sitmun/hoja-de-ruta/propuestas/app-turismo.md
-              - que-es-sitmun/hoja-de-ruta/propuestas/informe.md
+      - La red SITMUN: que-es-sitmun/red-sitmun.md
+      - Plataforma SITMUN:
+          - que-es-sitmun/plataforma/index.md
+          - Clientes: que-es-sitmun/plataforma/clientes.md
+          - Arquitectura:
+              - que-es-sitmun/plataforma/arquitectura/index.md
+              - API: que-es-sitmun/plataforma/arquitectura/api.md
+              - Diseño de los servicios: que-es-sitmun/plataforma/arquitectura/diseno.md
+          - Hoja de ruta:
+              - que-es-sitmun/plataforma/hoja-de-ruta/index.md
+              - Propuestas:
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/app-turismo.md
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md
+          - Licencia: que-es-sitmun/plataforma/licencia.md
   - Guías y manuales de usuario:
       - Primeros pasos:
           - usuario/primeros-pasos/requisitos.md
@@ -119,7 +120,6 @@ nav:
   - Manual de desarrollador:
       - Cómo contribuir: desarrollador/contribuir.md
   - La red SITMUN:
-      - Licencia: red-sitmun/licencia.md
       - Contacto: red-sitmun/contacto.md
 
 markdown_extensions:

@@ -81,9 +81,9 @@ block-beta
   class db1 sitmun 
 ```
 
-[api-de-autenticacion]: ../arquitectura/api.md#api-de-autenticacion
-[api-de-configuracion-y-autorizacion]: ../arquitectura/api.md#api-de-configuracion-y-autorizacion
-[api-de-proxy]: ../arquitectura/api.md#api-de-proxy
+[api-de-autenticacion]: arquitectura/api.md#api-de-autenticacion
+[api-de-configuracion-y-autorizacion]: arquitectura/api.md#api-de-configuracion-y-autorizacion
+[api-de-proxy]: arquitectura/api.md#api-de-proxy
 
 ---
 
