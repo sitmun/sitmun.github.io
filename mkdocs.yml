@@ -118,7 +118,37 @@ nav:
               - Glosario: usuario/guias/primer-proyecto/glosario.md
           - Añadir OpenStreetMap como mapa de fondo: usuario/guias/mapa-fondo-openstreetmap.md
       - Manual de usuario:
-          - Administrador: usuario/manual/administrador.md
+          - Administrador:
+              - Introducción: usuario/manual/administrador/index.md
+              - Conexiones: usuario/manual/administrador/conexiones.md
+              - Servicios: usuario/manual/administrador/servicios.md
+              - Capas: usuario/manual/administrador/capas.md
+              - Árboles: usuario/manual/administrador/arboles.md
+              - Capas de fondo: usuario/manual/administrador/capas-de-fondo.md
+              - Permisos sobre las capas: usuario/manual/administrador/permisos-capas.md
+              - Territorios: usuario/manual/administrador/territorios.md
+              - Roles: usuario/manual/administrador/roles.md
+              - Usuarios: usuario/manual/administrador/usuarios.md
+              - Grupos de tareas: usuario/manual/administrador/grupos-de-tareas.md
+              - Tareas:
+                  - Introducción: usuario/manual/administrador/tareas/index.md
+                  - Tareas básicas:
+                      - Introducción: usuario/manual/administrador/tareas/basicas/index.md
+                      - Navegación y vista: usuario/manual/administrador/tareas/basicas/navegacion.md
+                      - Capas: usuario/manual/administrador/tareas/basicas/capas.md
+                      - Información: usuario/manual/administrador/tareas/basicas/informacion.md
+                      - Herramientas: usuario/manual/administrador/tareas/basicas/herramientas.md
+                  - Tareas de consulta: usuario/manual/administrador/tareas/consulta.md
+                  - Imagen del mapa: usuario/manual/administrador/tareas/imagen-mapa.md
+                  - Exportación documental: usuario/manual/administrador/tareas/exportacion-documental.md
+                  - Localizador: usuario/manual/administrador/tareas/localizador.md
+                  - Plantillas: usuario/manual/administrador/tareas/plantillas.md
+                  - Edición: usuario/manual/administrador/tareas/edicion.md
+                  - Más información: usuario/manual/administrador/tareas/mas-informacion.md
+                  - Más información avanzada: usuario/manual/administrador/tareas/mas-informacion-avanzada.md
+              - Aplicación: usuario/manual/administrador/aplicacion.md
+              - Sistema: usuario/manual/administrador/sistema.md
+              - Variables de sistema: usuario/manual/administrador/variables-sistema.md
           - Clientes:
               - Clientes web: usuario/manual/clientes/web.md
               - Cliente app edición: usuario/manual/clientes/app-edicion.md
