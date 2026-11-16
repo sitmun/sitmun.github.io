@@ -26,7 +26,7 @@ Complementariamente, existe la opción de definir también otros parámetros de 
 
 - **Descripción**
 - **Dirección**
-- **Territorio bloqueado**: asegurarse de que está activo si se quiere que esté disponible para las aplicaciones.
+- **Territorio bloqueado**: debe estar **desactivado** para que el territorio esté disponible en las aplicaciones. Un territorio nuevo se crea bloqueado por defecto.
 - **Logo**
 - **Observaciones**
 

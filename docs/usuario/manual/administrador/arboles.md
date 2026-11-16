@@ -40,7 +40,7 @@ Al crear una capa de información, lo más importante es indicar la capa, de ent
 
 Para que este árbol esté disponible en una aplicación, se puede asignar directamente desde la pestaña **Aplicaciones** (si la aplicación ha sido creada previamente) o bien se puede enlazar en el momento de crear la [aplicación](aplicacion.md).
 
-Paralelamente, para dar acceso según usuarios y territorios, se requiere indicar el rol o roles a los que se desea dar permisos de acceso a esta estructura de árbol, desde la pestaña **Rol**.
+Paralelamente, para dar acceso según usuarios y territorios, se requiere indicar el rol o roles a los que se desea dar permisos de acceso a esta estructura de árbol, desde la pestaña **Roles**.
 
 Finalmente es imprescindible guardar los cambios de la configuración del árbol, desde el botón que aparece en la parte superior derecha de la pantalla.
 

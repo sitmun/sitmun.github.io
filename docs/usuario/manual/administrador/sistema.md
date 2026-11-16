@@ -14,7 +14,7 @@ Permite gestionar los idiomas disponibles en SITMUN. Añadir un idioma no signif
 
 Este idioma se refiere al idioma de los contenidos de SITMUN (lo que el usuario o el administrador pueden añadir), no al idioma de los propios mensajes de la aplicación, que se deberían gestionar de manera diferente en el caso de añadir un nuevo idioma.
 
-## Traducciones literales
+## Traducciones de literales
 
 Esta opción permite añadir palabras o frases del sistema en diversos idiomas. A partir de su versión en inglés (que actúa como clave), se pueden proporcionar el resto de traducciones de dicha frase.
 

@@ -25,4 +25,4 @@ Las tareas básicas que incluye SITMUN se describen agrupadas en cuatro páginas
 | [Navegación y vista](navegacion.md) | 3D View, Full screen, Geolocation, Navigation Bar, Overview Map, Scale, Scale Bar, Scale Selector, Street View |
 | [Capas](capas.md) | Basemap selector, Data Loader, Layer Catalog, Legend, Work Layer Manager |
 | [Información](informacion.md) | Click, Coordinates display, Feature Info, More Info Advanced, Multi Feature Info, Popup |
-| [Herramientas](herramientas.md) | Attribution, Download, Draw, Measure and Modify, Loading Indicator, Measure, Offline Map Marker, Print Map, Search, Share, WFS Query, WFSEdit |
+| [Herramientas](herramientas.md) | Attribution, Download, Draw, Measure and Modify, Loading Indicator, Measure, Offline Map Maker, Print Map, Search, Share, WFS Query, WFSEdit |

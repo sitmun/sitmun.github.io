@@ -6,7 +6,7 @@ Con la combinación de los tres elementos, [territorios](territorios.md), roles 
 
 Para definir un rol, únicamente hace falta definir un parámetro mínimo:
 
-- **Nombre**: nombre del territorio que permita identificar el elemento; se mostrará en las aplicaciones.
+- **Nombre**: nombre del rol que permita identificar el elemento; se mostrará en las aplicaciones.
 
 En otras pestañas se detallan las relaciones de acceso con los otros elementos existentes en la plataforma:
 

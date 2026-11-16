@@ -45,7 +45,7 @@ Se trata de una herramienta de medición sencilla que permite medir distancias o
 
 ![Herramienta de medición del visor](../../img/basicas-measure.webp){ width="532" loading=lazy }
 
-## Offline Map Marker
+## Offline Map Maker
 
 Permite crear, del lado del cliente, mapas que estarán disponibles sin conexión.
 

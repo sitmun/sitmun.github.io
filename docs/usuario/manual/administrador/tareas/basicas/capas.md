@@ -32,7 +32,7 @@ Permite visualizar el catálogo de capas disponibles en el [árbol de capas](../
 
 Permite visualizar la leyenda de las capas cargadas. La leyenda que se muestra se reconfigura con las capas cargadas y visibles. Si, por ejemplo, una capa está cargada pero aún no es visible porque no está dentro del rango de escalas de visualización, la leyenda de esa capa no se mostrará.
 
-- Control API SITNA: `sitna.Legend`
+- Control API SITNA: `sitna.legend`
 
 ![Leyenda del visor](../../img/basicas-legend.webp){ loading=lazy }
 

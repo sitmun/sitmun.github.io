@@ -26,7 +26,7 @@ El objetivo de este manual es explicar la parte de SITMUN admin, y va dirigido a
 
 ## Multiidioma
 
-Una característica general de SITMUN es que es multiidioma, permitiendo gestionar el proyecto en 6 posibles idiomas: inglés, francés, español, catalán y occitano. Se trata de los idiomas oficiales de las administraciones impulsoras del proyecto SITMUN.
+Una característica general de SITMUN es que es multiidioma, permitiendo gestionar el proyecto en 5 posibles idiomas: inglés, francés, español, catalán y occitano (aranés). Se trata de los idiomas oficiales de las administraciones impulsoras del proyecto SITMUN.
 
 Hay que diferenciar dos aspectos de la gestión del multiidioma en SITMUN:
 

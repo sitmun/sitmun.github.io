@@ -27,7 +27,7 @@ Permite activar la visualización en pantalla completa.
 
 Son los elementos que permiten realizar las operaciones de acercar y alejar, así como volver a la escala original.
 
-- Control API SITNA: `sitna-navBar`
+- Control API SITNA: `sitna.navBar`
 
 ![Barra de navegación del visor](../../img/basicas-navigation-bar.webp){ width="297" loading=lazy }
 
