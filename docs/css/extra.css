@@ -21,6 +21,11 @@
     display: none;
 }
 
+/* Encabezados de sección no clicables del menú lateral: mismo color que los clicables */
+.md-nav__item--section > .md-nav__link[for] {
+    color: var(--md-default-fg-color);
+}
+
 /* Listas de comprobación interactivas (ver js/checklists.js) */
 .md-typeset .task-list-control {
     cursor: pointer;

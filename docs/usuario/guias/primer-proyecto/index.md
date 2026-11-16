@@ -1,4 +1,4 @@
-# De cero al primer proyecto
+# Primer proyecto
 
 Al terminar tendrás un visor público funcionando: mapa de fondo, capas en un árbol y herramientas básicas, accesible para cualquier persona.
 

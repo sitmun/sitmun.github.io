@@ -87,4 +87,4 @@ block-beta
 
 ---
 
-Siguiente paso: [Requisitos](../../usuario/primeros-pasos/requisitos.md)
+Siguiente paso: [Requisitos](../../usuario/instalacion/requisitos.md)

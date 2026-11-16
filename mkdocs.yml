@@ -49,10 +49,10 @@ plugins:
   - redirects:
       redirect_maps:
         getting-started/que-es.md: que-es-sitmun/plataforma/index.md
-        getting-started/requisitos.md: usuario/primeros-pasos/requisitos.md
-        getting-started/instalacion.md: usuario/primeros-pasos/instalacion.md
+        getting-started/requisitos.md: usuario/instalacion/requisitos.md
+        getting-started/instalacion.md: usuario/instalacion/instalacion.md
         getting-started/creando.md: usuario/guias/primer-proyecto/index.md
-        getting-started/personalizando.md: usuario/guias/personalizacion.md
+        getting-started/personalizando.md: usuario/guias/primer-proyecto/index.md
         features-client.md: que-es-sitmun/plataforma/clientes.md
         features-server.md: que-es-sitmun/plataforma/arquitectura/api.md
         roadmap.md: que-es-sitmun/plataforma/hoja-de-ruta/index.md
@@ -63,9 +63,9 @@ plugins:
         architecture.md: que-es-sitmun/plataforma/arquitectura/index.md
         design.md: que-es-sitmun/plataforma/arquitectura/diseno.md
         api.md: que-es-sitmun/plataforma/arquitectura/api.md
-        configuration.md: usuario/primeros-pasos/configuracion.md
+        configuration.md: desarrollador/configuracion.md
         management.md: desarrollador/contribuir.md
-        troubleshooting.md: usuario/primeros-pasos/solucion-problemas.md
+        troubleshooting.md: usuario/instalacion/solucion-problemas.md
         license.md: que-es-sitmun/plataforma/licencia.md
         contact.md: red-sitmun/contacto.md
   - print-site:  # Must be the last plugin listed here
@@ -97,13 +97,12 @@ nav:
                   - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md
           - Licencia: que-es-sitmun/plataforma/licencia.md
   - Guías y manuales de usuario:
-      - Primeros pasos:
-          - usuario/primeros-pasos/requisitos.md
-          - Primera instalación: usuario/primeros-pasos/instalacion.md
-          - usuario/primeros-pasos/configuracion.md
-          - usuario/primeros-pasos/solucion-problemas.md
-      - Guías:
-          - De cero al primer proyecto:
+      - Instalación:
+          - usuario/instalacion/requisitos.md
+          - Instalación: usuario/instalacion/instalacion.md
+          - usuario/instalacion/solucion-problemas.md
+      - Guías de usuario:
+          - Primer proyecto:
               - Introducción: usuario/guias/primer-proyecto/index.md
               - Primera entrada al administrador: usuario/guias/primer-proyecto/primera-entrada.md
               - "Paso 1: Territorio, rol y usuario público": usuario/guias/primer-proyecto/paso-1-territorio-rol-usuario.md
@@ -117,9 +116,14 @@ nav:
               - Problemas frecuentes: usuario/guias/primer-proyecto/problemas-frecuentes.md
               - Glosario: usuario/guias/primer-proyecto/glosario.md
           - Añadir OpenStreetMap como mapa de fondo: usuario/guias/mapa-fondo-openstreetmap.md
-          - usuario/guias/personalizacion.md
+      - Manual de usuario:
+          - Administrador: usuario/manual/administrador.md
+          - Clientes:
+              - Clientes web: usuario/manual/clientes/web.md
+              - Cliente app edición: usuario/manual/clientes/app-edicion.md
   - Manual de desarrollador:
       - Cómo contribuir: desarrollador/contribuir.md
+      - Configuración: desarrollador/configuracion.md
   - La red SITMUN:
       - Contacto: red-sitmun/contacto.md
 

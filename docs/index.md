@@ -15,7 +15,7 @@ Elige por dónde empezar según lo que necesites:
 - **[¿Qué es SITMUN?](que-es-sitmun/plataforma/index.md)**: qué es la plataforma **SITMUN 3**, qué funcionalidades ofrece,
   su [arquitectura](que-es-sitmun/plataforma/arquitectura/index.md), su [hoja de ruta](que-es-sitmun/plataforma/hoja-de-ruta/index.md)
   y su [licencia](que-es-sitmun/plataforma/licencia.md).
-- **[Guías y manuales de usuario](usuario/primeros-pasos/requisitos.md)**: cómo instalar **SITMUN 3** por primera vez
+- **[Guías y manuales de usuario](usuario/instalacion/requisitos.md)**: cómo instalar **SITMUN 3** por primera vez
   y cómo configurar aplicaciones, capas y mapas de fondo desde el administrador.
 - **[Manual de desarrollador](desarrollador/contribuir.md)**: cómo se organiza el desarrollo y cómo contribuir al proyecto.
 - **La red SITMUN**: la [información de contacto](red-sitmun/contacto.md)
