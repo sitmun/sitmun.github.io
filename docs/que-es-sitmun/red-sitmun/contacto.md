@@ -1,6 +1,6 @@
 # Órganos de gobierno de la RED SITMUN
 
-Los órganos de la Red SITMUN los establece el protocolo de colaboración de la Red y se escogen anualmente por votación en la asamblea de socios de la Red SITMUN. Toda la información sobre la Red Europea SITMUN está disponible en http://www.sitmun.org.
+Los órganos de la Red SITMUN los establece el protocolo de colaboración de la Red y se escogen anualmente por votación en la asamblea de socios de la Red SITMUN. 
 
 
 ## Presidencia
