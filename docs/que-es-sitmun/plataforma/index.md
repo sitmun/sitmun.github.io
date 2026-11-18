@@ -1,4 +1,4 @@
-# ¿Qué es SITMUN 3?
+# LA PLATAFORMA SITMUN 3
 
 **SITMUN 3** es una plataforma que permite la creación y gestión de aplicaciones personalizadas en el ámbito de los [Sistemas de Información Geográfica](https://es.wikipedia.org/wiki/Sistema_de_informaci%C3%B3n_geogr%C3%A1fica) (SIG).
 Está diseñada específicamente para satisfacer las necesidades de información territorial de las administraciones locales y supramunicipales.
