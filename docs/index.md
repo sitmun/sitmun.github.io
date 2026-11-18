@@ -10,20 +10,15 @@ Esta web tiene como objetivo poner la documentación técnica de la plataforma *
 
 ## Secciones de esta web
 
-En la sección **Cómo empezar** se explica todo lo necesario para comenzar a trabajar con **SITMUN 3**. 
-Podemos encontrar en ella:
+Elige por dónde empezar según lo que necesites:
 
-- Los [primeros pasos](getting-started/que-es.md) para comenzar a trabajar con **SITMUN 3**.
-- La [licencia](license.md) de **SITMUN 3**.
-
-En la sección **Referencia** se puede encontrar la documentación técnica de la plataforma **SITMUN 3**. 
-Podemos encontrar en ella:
-
-- La [arquitectura](architecture.md) describe desde un nivel de abstracción alto los principales elementos de la plataforma **SITMUN 3**.
-- En la sección de [diseño](design.md) se describen aspectos técnicos de la plataforma **SITMUN 3**.
-- En la sección de [referencia](api.md) se describen las API de la plataforma **SITMUN 3** que están disponibles localmente durante el desarrollo.
-- En la sección de [gestión](management.md) se describen aspectos organizativos y técnicos en lo que respecta al versionado, seguimiento del trabajo y automatización de procesos.
-- La sección de [contacto](contact.md) sugiere formas de contactar con los distintos participantes en el proyecto así como sus roles en el mismo.
+- **[¿Qué es SITMUN?](que-es-sitmun/plataforma/index.md)**: qué es la plataforma **SITMUN 3**, qué funcionalidades ofrece,
+  su [arquitectura](que-es-sitmun/plataforma/arquitectura/index.md), su [hoja de ruta](que-es-sitmun/plataforma/hoja-de-ruta/index.md),
+  su [licencia](que-es-sitmun/plataforma/licencia.md) y la [información de contacto](que-es-sitmun/red-sitmun/contacto.md)
+  de los participantes en el proyecto.
+- **[Guías y manuales de usuario](usuario/instalacion/requisitos.md)**: cómo instalar **SITMUN 3** por primera vez
+  y cómo configurar aplicaciones, capas y mapas de fondo desde el administrador.
+- **[Manual de desarrollador](desarrollador/contribuir.md)**: cómo se organiza el desarrollo y cómo contribuir al proyecto.
 
 !!! warning "Proyecto en desarrollo"
 

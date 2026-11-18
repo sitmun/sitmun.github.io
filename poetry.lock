@@ -443,6 +443,26 @@ files = [
 mkdocs-material = ">=7.3.0"
 
 [[package]]
+name = "mkdocs-redirects"
+version = "1.2.1"
+description = "A MkDocs plugin for dynamic page redirects to prevent broken links."
+optional = false
+python-versions = ">=3.6"
+groups = ["main"]
+files = [
+    {file = "mkdocs-redirects-1.2.1.tar.gz", hash = "sha256:9420066d70e2a6bb357adf86e67023dcdca1857f97f07c7fe450f8f1fb42f861"},
+    {file = "mkdocs_redirects-1.2.1-py3-none-any.whl", hash = "sha256:497089f9e0219e7389304cffefccdfa1cac5ff9509f2cb706f4c9b221726dffb"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.1.1"
+
+[package.extras]
+dev = ["autoflake", "black", "isort", "pytest", "twine (>=1.13.0)"]
+release = ["twine (>=1.13.0)"]
+test = ["autoflake", "black", "isort", "pytest"]
+
+[[package]]
 name = "mkdocs-render-swagger-plugin"
 version = "0.1.2"
 description = "MKDocs plugin for rendering swagger & openapi files."
@@ -850,4 +870,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "7b40ab9e134c9eb20031d11b5be0d9185742d028add1c4ddf125e53005bbcd88"
+content-hash = "b77321ab03788c6168172fb85cc965c052216c60e7201c5fcf8d8606a24f42ef"

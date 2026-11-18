@@ -179,6 +179,9 @@ mkdocs-material==9.5.27 ; python_version >= "3.11" and python_version < "4.0" \
 mkdocs-print-site-plugin==2.5.0 ; python_version >= "3.11" and python_version < "4.0" \
     --hash=sha256:48b3d41ae80384de72062b2712fce677f2e46d8364d9fe603ba837b0cf7156a4 \
     --hash=sha256:95dccc8d5cc8a59da67815a2d3304ef0101b065e363f2b9ac919c23d6196dd24
+mkdocs-redirects==1.2.1 ; python_version >= "3.11" and python_version < "4.0" \
+    --hash=sha256:497089f9e0219e7389304cffefccdfa1cac5ff9509f2cb706f4c9b221726dffb \
+    --hash=sha256:9420066d70e2a6bb357adf86e67023dcdca1857f97f07c7fe450f8f1fb42f861
 mkdocs-render-swagger-plugin==0.1.2 ; python_version >= "3.11" and python_version < "4.0" \
     --hash=sha256:0340d45e12a0f1633a4b8af2eb99ea75469006ddf418ef0f1acd51ed1e4969e4
 mkdocs==1.6.0 ; python_version >= "3.11" and python_version < "4.0" \

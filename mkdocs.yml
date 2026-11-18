@@ -40,11 +40,34 @@ theme:
       info: octicons/browser-16
 
 extra_css: [css/extra.css]
+extra_javascript: [js/checklists.js]
 
 plugins:
   - search
   - render_swagger
   - autorefs  
+  - redirects:
+      redirect_maps:
+        getting-started/que-es.md: que-es-sitmun/plataforma/index.md
+        getting-started/requisitos.md: usuario/instalacion/requisitos.md
+        getting-started/instalacion.md: usuario/instalacion/instalacion.md
+        getting-started/creando.md: usuario/guias/primer-proyecto/index.md
+        getting-started/personalizando.md: usuario/guias/primer-proyecto/index.md
+        features-client.md: que-es-sitmun/plataforma/clientes.md
+        features-server.md: que-es-sitmun/plataforma/arquitectura/api.md
+        roadmap.md: que-es-sitmun/plataforma/hoja-de-ruta/index.md
+        roadmap/mas-info-avanzado.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md
+        roadmap/mejora-ui-login-dashboard-cliente.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md
+        roadmap/app-turismo.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/app-turismo.md
+        roadmap/informe.md: que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md
+        architecture.md: que-es-sitmun/plataforma/arquitectura/index.md
+        design.md: que-es-sitmun/plataforma/arquitectura/diseno.md
+        api.md: que-es-sitmun/plataforma/arquitectura/api.md
+        configuration.md: usuario/instalacion/instalacion.md
+        management.md: desarrollador/contribuir.md
+        troubleshooting.md: usuario/instalacion/solucion-problemas.md
+        license.md: que-es-sitmun/plataforma/licencia.md
+        contact.md: que-es-sitmun/red-sitmun/contacto.md
   - print-site:  # Must be the last plugin listed here
      add_to_navigation: true
      print_page_title: 'Versión Imprimible'
@@ -55,32 +78,82 @@ plugins:
 
 nav:
   - Inicio: index.md
+  - ¿Qué es SITMUN?:
+      - La red SITMUN:
+          - que-es-sitmun/red-sitmun/index.md
+          - Contacto: que-es-sitmun/red-sitmun/contacto.md
+      - Plataforma SITMUN:
+          - que-es-sitmun/plataforma/index.md
+          - Clientes: que-es-sitmun/plataforma/clientes.md
+          - Arquitectura:
+              - que-es-sitmun/plataforma/arquitectura/index.md
+              - API: que-es-sitmun/plataforma/arquitectura/api.md
+              - Diseño de los servicios: que-es-sitmun/plataforma/arquitectura/diseno.md
+          - Hoja de ruta:
+              - que-es-sitmun/plataforma/hoja-de-ruta/index.md
+              - Propuestas:
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/app-turismo.md
+                  - que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md
+          - Licencia: que-es-sitmun/plataforma/licencia.md
   - Guías y manuales de usuario:
-      - getting-started/que-es.md
-      - getting-started/requisitos.md
-      - getting-started/instalacion.md
-      - getting-started/creando.md
-      - getting-started/personalizando.md
-  - Características:
-      - features-client.md
-      - features-server.md
-      - Hoja de ruta:
-          - roadmap.md
-      - Propuestas:
-          - roadmap/mas-info-avanzado.md
-          - roadmap/mejora-ui-login-dashboard-cliente.md
-          - roadmap/app-turismo.md
-          - roadmap/informe.md
-  - Referencia:
-      - Arquitectura: architecture.md
-      - Diseño: design.md
-      - API: api.md
-      - Configuración: configuration.md
-      - Gestión: management.md
-  - Solución de problemas: troubleshooting.md
-  - Acerca de:
-      - Licencia: license.md
-      - Contacto: contact.md
+      - Instalación:
+          - usuario/instalacion/requisitos.md
+          - Instalación: usuario/instalacion/instalacion.md
+          - usuario/instalacion/solucion-problemas.md
+      - Guías de usuario:
+          - Primer proyecto:
+              - Introducción: usuario/guias/primer-proyecto/index.md
+              - Primera entrada al administrador: usuario/guias/primer-proyecto/primera-entrada.md
+              - "Paso 1: Territorio, rol y usuario público": usuario/guias/primer-proyecto/paso-1-territorio-rol-usuario.md
+              - "Paso 2: Servicios": usuario/guias/primer-proyecto/paso-2-servicios.md
+              - "Paso 3: Capas": usuario/guias/primer-proyecto/paso-3-capas.md
+              - "Paso 4: Grupos de capas y capas de fondo": usuario/guias/primer-proyecto/paso-4-grupos-y-fondos.md
+              - "Paso 5: Árbol de capas": usuario/guias/primer-proyecto/paso-5-arbol.md
+              - "Paso 6: Herramientas (tareas)": usuario/guias/primer-proyecto/paso-6-herramientas.md
+              - "Paso 7: Aplicación": usuario/guias/primer-proyecto/paso-7-aplicacion.md
+              - "Paso 8: Comprobar en el visor": usuario/guias/primer-proyecto/paso-8-comprobar.md
+              - Problemas frecuentes: usuario/guias/primer-proyecto/problemas-frecuentes.md
+              - Glosario: usuario/guias/primer-proyecto/glosario.md
+          - Añadir OpenStreetMap como mapa de fondo: usuario/guias/mapa-fondo-openstreetmap.md
+      - Manual de usuario:
+          - Administrador:
+              - Introducción: usuario/manual/administrador/index.md
+              - Conexiones: usuario/manual/administrador/conexiones.md
+              - Servicios: usuario/manual/administrador/servicios.md
+              - Capas: usuario/manual/administrador/capas.md
+              - Árboles: usuario/manual/administrador/arboles.md
+              - Capas de fondo: usuario/manual/administrador/capas-de-fondo.md
+              - Permisos sobre las capas: usuario/manual/administrador/permisos-capas.md
+              - Territorios: usuario/manual/administrador/territorios.md
+              - Roles: usuario/manual/administrador/roles.md
+              - Usuarios: usuario/manual/administrador/usuarios.md
+              - Grupos de tareas: usuario/manual/administrador/grupos-de-tareas.md
+              - Tareas:
+                  - Introducción: usuario/manual/administrador/tareas/index.md
+                  - Tareas básicas:
+                      - Introducción: usuario/manual/administrador/tareas/basicas/index.md
+                      - Navegación y vista: usuario/manual/administrador/tareas/basicas/navegacion.md
+                      - Capas: usuario/manual/administrador/tareas/basicas/capas.md
+                      - Información: usuario/manual/administrador/tareas/basicas/informacion.md
+                      - Herramientas: usuario/manual/administrador/tareas/basicas/herramientas.md
+                  - Tareas de consulta: usuario/manual/administrador/tareas/consulta.md
+                  - Imagen del mapa: usuario/manual/administrador/tareas/imagen-mapa.md
+                  - Exportación documental: usuario/manual/administrador/tareas/exportacion-documental.md
+                  - Localizador: usuario/manual/administrador/tareas/localizador.md
+                  - Plantillas: usuario/manual/administrador/tareas/plantillas.md
+                  - Edición: usuario/manual/administrador/tareas/edicion.md
+                  - Más información: usuario/manual/administrador/tareas/mas-informacion.md
+                  - Más información avanzada: usuario/manual/administrador/tareas/mas-informacion-avanzada.md
+              - Aplicación: usuario/manual/administrador/aplicacion.md
+              - Sistema: usuario/manual/administrador/sistema.md
+              - Variables de sistema: usuario/manual/administrador/variables-sistema.md
+          - Clientes:
+              - Clientes web: usuario/manual/clientes/web.md
+              - Cliente app edición: usuario/manual/clientes/app-edicion.md
+  - Manual de desarrollador:
+      - Cómo contribuir: desarrollador/contribuir.md
 
 markdown_extensions:
   - abbr

@@ -9,3 +9,94 @@
 .mermaid {
     text-align: center;
 }
+
+/* Oculta la barra de desplazamiento de los menús laterales (se siguen pudiendo desplazar) */
+.md-sidebar .md-sidebar__scrollwrap,
+.md-sidebar .md-sidebar__scrollwrap:hover,
+.md-sidebar .md-sidebar__scrollwrap:focus-within {
+    scrollbar-width: none;
+}
+
+.md-sidebar .md-sidebar__scrollwrap::-webkit-scrollbar {
+    display: none;
+}
+
+/* Encabezados de sección no clicables del menú lateral: mismo color que los clicables */
+.md-nav__item--section > .md-nav__link[for] {
+    color: var(--md-default-fg-color);
+}
+
+/* Listas de comprobación interactivas (ver js/checklists.js) */
+.md-typeset .task-list-control {
+    cursor: pointer;
+}
+
+.md-typeset .task-list-control:hover [type=checkbox]:not(:checked) + .task-list-indicator::before {
+    background-color: var(--md-default-fg-color--light);
+}
+
+/* Botones «Anterior / Siguiente» del pie: tarjetas con la flecha en un círculo */
+.md-footer__inner {
+    gap: .8rem;
+    padding: 1rem .8rem;
+}
+
+.md-footer__link {
+    align-items: center;
+    margin: 0;
+    padding: .7rem .9rem;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: .6rem;
+    transition: background-color .2s, border-color .2s;
+}
+
+.md-footer__link--next {
+    margin-left: auto;
+}
+
+.md-footer__link:focus,
+.md-footer__link:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .07);
+    border-color: rgba(255, 255, 255, .55);
+}
+
+.md-footer__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    transition: transform .2s;
+}
+
+.md-footer__button svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: currentColor;
+}
+
+.md-footer__link--prev:hover .md-footer__button,
+.md-footer__link--prev:focus .md-footer__button {
+    transform: translateX(-4px);
+}
+
+.md-footer__link--next:hover .md-footer__button,
+.md-footer__link--next:focus .md-footer__button {
+    transform: translateX(4px);
+}
+
+.md-footer__title {
+    margin-bottom: 0;
+}
+
+.md-footer__direction {
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
