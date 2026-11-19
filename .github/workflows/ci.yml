@@ -44,7 +44,7 @@ jobs:
       - name: Install MkDocs and other requirements
         run: pip install -r requirements.txt      
       - name: Build site (_site directory name is used for Jekyll compatibility)
-        run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
+        run: mkdocs build --strict --config-file ./mkdocs.yml --site-dir ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
