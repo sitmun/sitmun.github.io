@@ -22,8 +22,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Fail before building if requirements.txt has drifted from poetry.lock
+  requirements-sync:
+    uses: ./.github/workflows/requirements-sync.yml
+
   # Build job
   build:
+    needs: requirements-sync
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
