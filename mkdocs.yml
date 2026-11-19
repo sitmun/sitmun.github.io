@@ -42,6 +42,13 @@ theme:
 extra_css: [css/extra.css]
 extra_javascript: [js/checklists.js]
 
+# Turn link and nav problems into warnings so `mkdocs build --strict` fails on them
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
 plugins:
   - search
   - render_swagger
@@ -181,8 +188,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: sitmun
+      repo: sitmun.github.io
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:

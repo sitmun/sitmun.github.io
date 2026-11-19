@@ -56,7 +56,7 @@ Se prevé la siguiente lógica funcional:
       ![MASINFOAVANZADO_context6](https://ide.cime.es/img/Captura%20de%20pantalla%202023-08-29%20105351.png)
 
     - Establecer para cada tarea hija el código HTML con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galeria de fotos, etc.). A este código se añadirán marcas especiales con el nombre de los campos de la subconsulta que serán sustituidas en el cliente (API SITNA) por el valor de los mismos.
-    Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, dónde los valores @@CODIGOTAREA_NOMBRECAMPO@@ deben de ser sustituidos por el valor del campo correspondiente a la consulta 289.
+    Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, dónde los valores `@@CODIGOTAREA_NOMBRECAMPO@@` deben de ser sustituidos por el valor del campo correspondiente a la consulta 289.
 
         ![MASINFOAVANZADO_context7](https://ide.cime.es/img/Captura%20de%20pantalla%202023-08-29%20105432.png)
 
