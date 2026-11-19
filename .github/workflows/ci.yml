@@ -7,6 +7,11 @@ on:
     branches:
       - master
 
+  # Builds (without deploying) pull requests targeting the default branch
+  pull_request:
+    branches:
+      - master
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -16,19 +21,25 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Allow one concurrent run per ref, so PR builds never cancel a deployment
 concurrency:
-  group: "pages"
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  # Fail before building if requirements.txt has drifted from poetry.lock
+  requirements-sync:
+    uses: ./.github/workflows/requirements-sync.yml
+
   # Build job
   build:
+    needs: requirements-sync
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v4
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -39,14 +50,16 @@ jobs:
       - name: Install MkDocs and other requirements
         run: pip install -r requirements.txt      
       - name: Build site (_site directory name is used for Jekyll compatibility)
-        run: mkdocs build --config-file ./mkdocs.yml --site-dir ./_site
+        run: mkdocs build --strict --config-file ./mkdocs.yml --site-dir ./_site
       - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
   # Deployment job
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

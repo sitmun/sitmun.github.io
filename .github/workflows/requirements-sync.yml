@@ -1,0 +1,35 @@
+# poetry.lock is the source of truth for dependencies; CI installs from the
+# exported requirements.txt. This fails when the two drift apart.
+# Fix locally with:
+#   poetry self add poetry-plugin-export
+#   poetry export -f requirements.txt --output requirements.txt
+name: Check requirements.txt matches poetry.lock
+
+# Called from ci.yml, which runs it on pull requests and before every deploy.
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  requirements-sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: '.python-version'
+      - name: Install Poetry with the export plugin
+        run: pip install "poetry==2.5.1" "poetry-plugin-export==1.10.1"
+      - name: Check poetry.lock matches pyproject.toml
+        run: poetry check --lock
+      - name: Check requirements.txt matches poetry.lock
+        run: |
+          poetry export -f requirements.txt --output "$RUNNER_TEMP/requirements.txt"
+          if ! diff -u requirements.txt "$RUNNER_TEMP/requirements.txt"; then
+            echo "::error file=requirements.txt::requirements.txt is out of sync with poetry.lock. Run 'poetry export -f requirements.txt --output requirements.txt' and commit the result."
+            exit 1
+          fi
