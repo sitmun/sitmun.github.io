@@ -14,7 +14,7 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
   que permite al usuario acceder a los servicios de la plataforma.
 
 - **Autenticación local**. SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
-  criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
+  criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
 
 - **Autenticación LDAP**. Está soportada la autenticación a través de un servidor LDAP.
 

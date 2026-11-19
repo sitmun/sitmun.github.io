@@ -1,0 +1,10 @@
+# Link checker settings (https://lychee.cli.rs), used by ci.yml and links.yml
+exclude = [
+  # "Edit"/"View source" buttons: GitHub sends bots to a login page or rate-limits them
+  '^https://github\.com/sitmun/sitmun\.github\.io/(edit|raw)/',
+]
+# Installation guides link to the local stack (http://localhost:9000/...)
+exclude_loopback = true
+
+# Some sites (npmjs.com) refuse bots with 403; 429 is rate limiting, not a dead link
+accept = ["200..=299", "403", "429"]
