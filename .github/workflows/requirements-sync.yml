@@ -5,8 +5,8 @@
 #   poetry export -f requirements.txt --output requirements.txt
 name: Check requirements.txt matches poetry.lock
 
+# Called from ci.yml, which runs it on pull requests and before every deploy.
 on:
-  pull_request:
   workflow_call:
 
 permissions:
