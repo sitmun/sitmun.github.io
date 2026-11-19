@@ -6,7 +6,7 @@ El **Servicio de Autenticación** permite que los usuarios se identifiquen en la
 Tras la identificación, este servicio devuelve un token de acceso [JSON web token](https://jwt.io/) (JWT)
 que permite al usuario acceder a los servicios de la plataforma.
 SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
-criptográfico ([bcrypt](https://es.wikipedia.org/wiki/Bcrypt)).
+criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
 También está soportada la autenticación a través de un servidor LDAP.
 Hay que señalar que está planteado soportar la autenticación de usuarios a través
 de [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory) y de certificados digitales.
