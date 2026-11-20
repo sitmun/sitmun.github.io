@@ -56,11 +56,11 @@ Ahora hay que gestionar los parámetros. Nuestro objetivo es el siguiente:
 
 2. Una vez que sabemos qué campos del GFI podemos utilizar, es el momento de crear un parámetro que vincule uno de estos campos con un parámetro del MIA. Esto lo haremos mediante la pestaña **Parámetros** del menú superior.
 
-    Hay dos campos que rellenar: en **Parámetro de la tarea consulta** pondremos el nombre que queramos y en **Campo**, el nombre del campo del GFI que queremos utilizar.
+    Hay dos campos que rellenar: en **Parámetro de tarea de consulta** pondremos el nombre que queramos y en **Campo**, el nombre del campo del GFI que queremos utilizar.
 
     ![Parámetros de la tarea MIA](../img/mia-parametros.webp){ loading=lazy }
 
-3. Ahora será necesario mapear el parámetro que acabamos de crear hacia la consulta que lo necesita. Esto lo haremos con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que mapear dos campos: **Parámetro MIA**, que es el nombre que hemos puesto al parámetro en el paso anterior, y **Parámetro de la tarea hija**, que es el nombre del parámetro que hemos definido en la consulta.
+3. Ahora será necesario mapear el parámetro que acabamos de crear hacia la consulta que lo necesita. Esto lo haremos con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que mapear dos campos: **Parámetro MIA**, que es el nombre que hemos puesto al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el nombre del parámetro que hemos definido en la consulta.
 
     ![Mapeo de parámetros](../img/mia-mapeo.webp){ loading=lazy }
 

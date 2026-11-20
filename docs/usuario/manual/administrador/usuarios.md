@@ -6,10 +6,10 @@ Con la combinación de los tres elementos, [territorios](territorios.md), [roles
 
 Para definir un usuario, únicamente hace falta definir un parámetro mínimo:
 
-- **Nombre**: nombre del usuario que le permite identificarse para acceder a la plataforma con los privilegios asignados.
+- **Nombre de usuario**: identificador con el que el usuario accede a la plataforma con los privilegios asignados.
 - **Contraseña**: aunque no se indica como obligatoria, no se podrá acceder sin contraseña (el acceso sin contraseña se reserva para el usuario público, disponible por defecto).
 
-Aunque únicamente será requisito el nombre, hay disponible una variedad de parámetros para detallar características personales, así como para detallar los privilegios otorgados al usuario.
+Aunque únicamente será requisito el nombre de usuario, hay disponible una variedad de parámetros para detallar características personales, así como para detallar los privilegios otorgados al usuario.
 
 **Información general:**
 
@@ -21,5 +21,5 @@ Aunque únicamente será requisito el nombre, hay disponible una variedad de par
 En las otras pestañas se detallan las relaciones de acceso con los otros elementos existentes en la plataforma:
 
 - **Roles por territorio**: definir la relación con los otros componentes que permitirán el acceso a este usuario.
-- **Puesto por territorio**: donde se puede definir el cargo y la relación que tenga el usuario con cada territorio al que tenga acceso. Esto permite tener una relación diferente de un mismo usuario con cada territorio.
+- **Puestos por territorio**: donde se puede definir el cargo y la relación que tenga el usuario con cada territorio al que tenga acceso. Esto permite tener una relación diferente de un mismo usuario con cada territorio.
 - **Aplicaciones (punto de contacto)**: lista de solo lectura de las aplicaciones en las que este usuario es el punto de contacto. El correo electrónico institucional del usuario se publica en las aplicaciones cliente. Para cambiar el punto de contacto, edite cada aplicación.
