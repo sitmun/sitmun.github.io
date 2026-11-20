@@ -11,7 +11,8 @@ edit_uri = "https://github.com/sitmun/sitmun.github.io/edit/master/docs/"
 site_url = "https://sitmun.github.io"
 site_dir = "_site"
 extra_css = ["css/fonts.css", "css/extra.css"]
-extra_javascript = ["js/checklists.js"]
+# js/mermaid-local.js serves Mermaid from this site instead of unpkg.com.
+extra_javascript = ["js/checklists.js", "js/mermaid-local.js"]
 nav = [
   { "Inicio" = "index.md" },
   { "¿Qué es SITMUN?" = [
