@@ -6,8 +6,10 @@ are not. Checked in the built site:
 
 - HTML: src, srcset (every URL), data and poster attributes, SVG href and
   xlink:href, <link> tags that load something (stylesheet, preload, icon...),
-  url() in style attributes and <style> blocks, and scripts added by inline
-  JavaScript (x.src = "https://...", as the theme does for analytics);
+  url() in style attributes and <style> blocks;
+- JavaScript, in inline scripts and in the site's own files (docs/js, not
+  vendor libraries): URLs given to .src =, setAttribute("src"/"href"),
+  fetch() and import() (the theme loads analytics this way);
 - CSS files: @import and url();
 - Mermaid: every page with a diagram must load js/mermaid-local.js, or the
   theme fetches Mermaid from unpkg.com.
@@ -24,7 +26,7 @@ host = sys.argv[2] if len(sys.argv) > 2 else "sitmun.github.io"
 
 LOADING_RELS = {"stylesheet", "preload", "modulepreload", "prefetch", "icon",
                 "shortcut", "apple-touch-icon", "manifest"}
-SCRIPT_SRC = re.compile(r"""\.src\s*=\s*['"]((?:https?:)?//[^'"]+)['"]""")
+SCRIPT_SRC = re.compile(r"""(?:\.src\s*=\s*|setAttribute\(\s*['"](?:src|href)['"]\s*,\s*|fetch\(\s*|import\(\s*)['"]((?:https?:)?//[^'"]+)['"]""")
 CSS_URL = re.compile(r"""(?:@import\s+|url\()\s*['"]?(https?:)?//([^'")\s;]+)""", re.I)
 
 
@@ -92,6 +94,13 @@ for page in sorted(site.rglob("*.html")):
             found.append((page.relative_to(site), url))
     if parser.mermaid and not parser.shim:
         found.append((page.relative_to(site), "Mermaid from unpkg.com (js/mermaid-local.js is not loaded)"))
+docs_js = pathlib.Path("docs/js")
+for source in sorted(docs_js.rglob("*.js")) if docs_js.is_dir() else []:
+    if "vendor" in source.parts:
+        continue
+    for url in SCRIPT_SRC.findall(source.read_text(encoding="utf-8")):
+        if external(url):
+            found.append((source, url))
 for sheet in sorted(site.rglob("*.css")):
     for m in CSS_URL.finditer(sheet.read_text(encoding="utf-8", errors="replace")):
         url = "https://" + m.group(2)

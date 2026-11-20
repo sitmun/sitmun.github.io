@@ -66,14 +66,16 @@ allowed = {re.sub(r"\s+", " ", line).strip() for line in allowlist_file.read_tex
 
 FENCE = re.compile(r"^( *)(```|~~~).*?^\1\2[^\n]*$", re.M | re.S)
 INLINE_CODE = re.compile(r"`[^`\n]+`")
-# **bold**, ***bold italic*** and __bold__, not inside words (SITMUN__DB__URL).
-BOLD = re.compile(r"(?<![\w*])(\*\*\*|\*\*|__)(?=\S)((?:(?!\n\s*\n).)+?)(?<=\S)\1(?![\w*])", re.S)
+# **bold** and ***bold italic***, also glued to letters (**Capa**s), and
+# __bold__, but not __ inside words (SITMUN__DB__URL), as Python-Markdown reads them.
+BOLD = re.compile(r"(?<!\*)(\*\*\*|\*\*)(?=\S)((?:(?!\n\s*\n).)+?)(?<=\S)\1(?!\*)"
+                  r"|(?<![\w*])(__)(?=\S)((?:(?!\n\s*\n).)+?)(?<=\S)__(?![\w*])", re.S)
 
 unknown = {}
 for page in sorted(docs.rglob("*.md")):
     text = INLINE_CODE.sub("", FENCE.sub("", page.read_text(encoding="utf-8")))
     for match in BOLD.finditer(text):
-        phrase = re.sub(r"\s+", " ", match.group(2)).strip()
+        phrase = re.sub(r"\s+", " ", match.group(2) or match.group(4)).strip()
         if phrase in allowed:
             continue
         parts = [norm(part) for part in re.split(r"\s*→\s*", phrase)]
