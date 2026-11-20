@@ -1,0 +1,250 @@
+# Zensical configuration (https://zensical.org/docs/setup/basics/).
+# Build: zensical build --strict --clean    Preview: zensical serve
+
+[project]
+site_name = "Documentación de SITMUN 3"
+# The header links to the SITMUN code; the Edit/View buttons on each page
+# point to this documentation repository (edit_uri).
+repo_url = "https://github.com/sitmun/sitmun"
+repo_name = "sitmun/sitmun"
+edit_uri = "https://github.com/sitmun/sitmun.github.io/edit/master/docs/"
+site_url = "https://sitmun.github.io"
+site_dir = "_site"
+extra_css = ["css/extra.css"]
+extra_javascript = ["js/checklists.js"]
+nav = [
+  { "Inicio" = "index.md" },
+  { "¿Qué es SITMUN?" = [
+    { "La red SITMUN" = [
+      "que-es-sitmun/red-sitmun/index.md",
+      { "Órganos de la Red" = "que-es-sitmun/red-sitmun/contacto.md" },
+    ] },
+    { "Plataforma SITMUN" = [
+      "que-es-sitmun/plataforma/index.md",
+      { "Clientes" = "que-es-sitmun/plataforma/clientes.md" },
+      { "Arquitectura" = [
+        "que-es-sitmun/plataforma/arquitectura/index.md",
+        { "API" = "que-es-sitmun/plataforma/arquitectura/api.md" },
+        { "Diseño de los servicios" = "que-es-sitmun/plataforma/arquitectura/diseno.md" },
+      ] },
+      { "Hoja de ruta" = [
+        "que-es-sitmun/plataforma/hoja-de-ruta/index.md",
+        { "Propuestas" = [
+          "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md",
+          "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md",
+          "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/app-turismo.md",
+          "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md",
+        ] },
+      ] },
+      { "Licencia" = "que-es-sitmun/plataforma/licencia.md" },
+    ] },
+  ] },
+  { "Guías y manuales de usuario" = [
+    { "Instalación" = [
+      "usuario/instalacion/requisitos.md",
+      { "Instalación" = "usuario/instalacion/instalacion.md" },
+      "usuario/instalacion/solucion-problemas.md",
+    ] },
+    { "Guías de usuario" = [
+      { "Primer proyecto" = [
+        { "Introducción" = "usuario/guias/primer-proyecto/index.md" },
+        { "Primera entrada al administrador" = "usuario/guias/primer-proyecto/primera-entrada.md" },
+        { "Paso 1: Territorio, rol y usuario público" = "usuario/guias/primer-proyecto/paso-1-territorio-rol-usuario.md" },
+        { "Paso 2: Servicios" = "usuario/guias/primer-proyecto/paso-2-servicios.md" },
+        { "Paso 3: Capas" = "usuario/guias/primer-proyecto/paso-3-capas.md" },
+        { "Paso 4: Grupos de capas y capas de fondo" = "usuario/guias/primer-proyecto/paso-4-grupos-y-fondos.md" },
+        { "Paso 5: Árbol de capas" = "usuario/guias/primer-proyecto/paso-5-arbol.md" },
+        { "Paso 6: Herramientas (tareas)" = "usuario/guias/primer-proyecto/paso-6-herramientas.md" },
+        { "Paso 7: Aplicación" = "usuario/guias/primer-proyecto/paso-7-aplicacion.md" },
+        { "Paso 8: Comprobar en el visor" = "usuario/guias/primer-proyecto/paso-8-comprobar.md" },
+        { "Problemas frecuentes" = "usuario/guias/primer-proyecto/problemas-frecuentes.md" },
+        { "Glosario" = "usuario/guias/primer-proyecto/glosario.md" },
+      ] },
+      { "Añadir OpenStreetMap como mapa de fondo" = "usuario/guias/mapa-fondo-openstreetmap.md" },
+    ] },
+    { "Manual de usuario" = [
+      { "Administrador" = [
+        { "Introducción" = "usuario/manual/administrador/index.md" },
+        { "Conexiones" = "usuario/manual/administrador/conexiones.md" },
+        { "Servicios" = "usuario/manual/administrador/servicios.md" },
+        { "Capas" = "usuario/manual/administrador/capas.md" },
+        { "Árboles" = "usuario/manual/administrador/arboles.md" },
+        { "Capas de fondo" = "usuario/manual/administrador/capas-de-fondo.md" },
+        { "Permisos sobre las capas" = "usuario/manual/administrador/permisos-capas.md" },
+        { "Territorios" = "usuario/manual/administrador/territorios.md" },
+        { "Roles" = "usuario/manual/administrador/roles.md" },
+        { "Usuarios" = "usuario/manual/administrador/usuarios.md" },
+        { "Grupos de tareas" = "usuario/manual/administrador/grupos-de-tareas.md" },
+        { "Tareas" = [
+          { "Introducción" = "usuario/manual/administrador/tareas/index.md" },
+          { "Tareas básicas" = [
+            { "Introducción" = "usuario/manual/administrador/tareas/basicas/index.md" },
+            { "Navegación y vista" = "usuario/manual/administrador/tareas/basicas/navegacion.md" },
+            { "Capas" = "usuario/manual/administrador/tareas/basicas/capas.md" },
+            { "Información" = "usuario/manual/administrador/tareas/basicas/informacion.md" },
+            { "Herramientas" = "usuario/manual/administrador/tareas/basicas/herramientas.md" },
+          ] },
+          { "Tareas de consulta" = "usuario/manual/administrador/tareas/consulta.md" },
+          { "Imagen del mapa" = "usuario/manual/administrador/tareas/imagen-mapa.md" },
+          { "Exportación documental" = "usuario/manual/administrador/tareas/exportacion-documental.md" },
+          { "Localizador" = "usuario/manual/administrador/tareas/localizador.md" },
+          { "Plantillas" = "usuario/manual/administrador/tareas/plantillas.md" },
+          { "Edición" = "usuario/manual/administrador/tareas/edicion.md" },
+          { "Más información" = "usuario/manual/administrador/tareas/mas-informacion.md" },
+          { "Más información avanzada" = "usuario/manual/administrador/tareas/mas-informacion-avanzada.md" },
+        ] },
+        { "Aplicación" = "usuario/manual/administrador/aplicacion.md" },
+        { "Sistema" = "usuario/manual/administrador/sistema.md" },
+        { "Variables de sistema" = "usuario/manual/administrador/variables-sistema.md" },
+      ] },
+      { "Clientes" = [
+        { "Clientes web" = "usuario/manual/clientes/web.md" },
+        { "Cliente app edición" = "usuario/manual/clientes/app-edicion.md" },
+      ] },
+    ] },
+  ] },
+  { "Manual de desarrollador" = [
+    { "Cómo contribuir" = "desarrollador/contribuir.md" },
+  ] },
+]
+
+# Current SITMUN version, shown in the announcement bar (overrides/main.html).
+[project.extra]
+sitmun_version = "1.3.0"
+
+# With --strict, the build fails on links to missing pages or anchors.
+[project.validation]
+invalid_links = true
+invalid_link_anchors = true
+
+[project.theme]
+# Template overrides: the announcement bar with the current version.
+custom_dir = "overrides"
+# classic keeps the Material for MkDocs look (and docs/css/extra.css).
+variant = "classic"
+logo = "https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png"
+favicon = "https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png"
+features = [
+  "announce.dismiss",
+  "content.action.edit",
+  "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "search.share",
+  "search.suggest",
+  "toc.follow",
+]
+language = "es"
+
+[project.theme.palette]
+primary = "black"
+
+[project.theme.icon]
+repo = "fontawesome/brands/github"
+
+[project.theme.icon.admonition]
+info = "octicons/browser-16"
+
+# search, autorefs and redirects are built into Zensical.
+[project.plugins.search]
+
+[project.plugins.autorefs]
+
+[project.plugins.redirects]
+
+[project.plugins.redirects.redirect_maps]
+"getting-started/que-es.md" = "que-es-sitmun/plataforma/index.md"
+"getting-started/requisitos.md" = "usuario/instalacion/requisitos.md"
+"getting-started/instalacion.md" = "usuario/instalacion/instalacion.md"
+"getting-started/creando.md" = "usuario/guias/primer-proyecto/index.md"
+"getting-started/personalizando.md" = "usuario/guias/primer-proyecto/index.md"
+"features-client.md" = "que-es-sitmun/plataforma/clientes.md"
+"features-server.md" = "que-es-sitmun/plataforma/arquitectura/api.md"
+"roadmap.md" = "que-es-sitmun/plataforma/hoja-de-ruta/index.md"
+"roadmap/mas-info-avanzado.md" = "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md"
+"roadmap/mejora-ui-login-dashboard-cliente.md" = "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mejora-ui-login-dashboard-cliente.md"
+"roadmap/app-turismo.md" = "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/app-turismo.md"
+"roadmap/informe.md" = "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/informe.md"
+"architecture.md" = "que-es-sitmun/plataforma/arquitectura/index.md"
+"design.md" = "que-es-sitmun/plataforma/arquitectura/diseno.md"
+"api.md" = "que-es-sitmun/plataforma/arquitectura/api.md"
+"configuration.md" = "usuario/instalacion/instalacion.md"
+"management.md" = "desarrollador/contribuir.md"
+"troubleshooting.md" = "usuario/instalacion/solucion-problemas.md"
+"license.md" = "que-es-sitmun/plataforma/licencia.md"
+"contact.md" = "que-es-sitmun/red-sitmun/contacto.md"
+
+[project.markdown_extensions.abbr]
+
+[project.markdown_extensions.admonition]
+
+[project.markdown_extensions.attr_list]
+
+[project.markdown_extensions.def_list]
+
+[project.markdown_extensions.footnotes]
+
+[project.markdown_extensions.md_in_html]
+
+[project.markdown_extensions.toc]
+permalink = true
+
+[project.markdown_extensions."pymdownx.arithmatex"]
+generic = true
+
+[project.markdown_extensions."pymdownx.betterem"]
+smart_enable = "all"
+
+[project.markdown_extensions."pymdownx.caret"]
+
+[project.markdown_extensions."pymdownx.details"]
+
+[project.markdown_extensions."pymdownx.emoji"]
+emoji_generator = "zensical.extensions.emoji.to_svg"
+emoji_index = "zensical.extensions.emoji.twemoji"
+
+[project.markdown_extensions."pymdownx.highlight"]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+
+[project.markdown_extensions."pymdownx.inlinehilite"]
+
+[project.markdown_extensions."pymdownx.keys"]
+
+[project.markdown_extensions."pymdownx.magiclink"]
+repo_url_shorthand = true
+user = "sitmun"
+repo = "sitmun.github.io"
+
+[project.markdown_extensions."pymdownx.mark"]
+
+[project.markdown_extensions."pymdownx.smartsymbols"]
+
+[project.markdown_extensions."pymdownx.superfences"]
+custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]
+
+[project.markdown_extensions."pymdownx.tabbed"]
+alternate_style = true
+
+[project.markdown_extensions."pymdownx.tasklist"]
+custom_checkbox = true
+
+[project.markdown_extensions."pymdownx.tilde"]
+
+# Third-party Python-Markdown extensions (installed from requirements.txt).
+[project.markdown_extensions.plantuml_markdown]
+server = "http://www.plantuml.com/plantuml"
+format = "svg"
+
+[project.markdown_extensions.markdown_grid_tables]

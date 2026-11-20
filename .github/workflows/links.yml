@@ -25,7 +25,7 @@ jobs:
       - name: Install MkDocs and other requirements
         run: pip install -r requirements.txt
       - name: Build site
-        run: zensical build --strict --clean --config-file ./mkdocs.yml
+        run: zensical build --strict --clean --config-file ./zensical.toml
       - name: Check all links in the built site
         uses: lycheeverse/lychee-action@v2
         with:

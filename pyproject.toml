@@ -9,10 +9,10 @@ readme = "README.md"
 # Only the packages the site uses directly. Their own dependencies
 # (Markdown, pymdown-extensions, Pygments, Jinja2, PyYAML...) come from poetry.lock.
 python = ">=3.11.5,<4.0"
-# Zensical builds the site from mkdocs.yml; search, autorefs and redirects
+# Zensical builds the site from zensical.toml; search, autorefs and redirects
 # are built in.
 zensical = "^0.1.2"
-# Python-Markdown extensions enabled in mkdocs.yml
+# Python-Markdown extensions enabled in zensical.toml
 plantuml-markdown = "^3.11.6"
 markdown-grid-tables = "^0.6.0"
 

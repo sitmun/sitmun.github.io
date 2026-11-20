@@ -1,4 +1,4 @@
-# Cogido de <https://gaseri.org/en/blog/2022-11-01-publishing-material-for-mkdocs-website-to-github-pages-using-custom-actions-workflow/>
+# Builds the site with Zensical (zensical.toml) and deploys it to GitHub Pages.
 name: Deploy the site with GitHub Pages
 
 on:
@@ -49,8 +49,8 @@ jobs:
           cache-dependency-path: 'requirements.txt'
       - name: Install Zensical and other requirements
         run: pip install -r requirements.txt
-      - name: Build site (site_dir in mkdocs.yml is _site)
-        run: zensical build --strict --clean --config-file ./mkdocs.yml
+      - name: Build site (site_dir in zensical.toml is _site)
+        run: zensical build --strict --clean --config-file ./zensical.toml
       # zensical --strict can't see raw HTML (<img src>, <a href>); check every local link in the output.
       # External links are checked weekly by links.yml so a flaky site can't block a deploy.
       - name: Check local links in the built site
