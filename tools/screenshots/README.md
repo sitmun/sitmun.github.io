@@ -66,8 +66,7 @@ Then check the images (`git diff --stat docs/`), build the site
 
 ## Images the script does not take
 
-- The diagrams `general-esquema-despliegue`, `mia-esquema-consultas` and
-  `mia-esquema-plantillas`.
+- The diagrams `mia-esquema-consultas` and `mia-esquema-plantillas`.
 - `basicas-search` and `basicas-legend`: in 1.3.0 the search finds nothing
   (sitmun/sitmun#352) and the legend stays empty (sitmun/sitmun#375). Take them
   again once a release fixes those issues.

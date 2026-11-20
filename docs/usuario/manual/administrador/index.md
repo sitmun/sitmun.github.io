@@ -22,9 +22,27 @@ Sin entrar en detalles técnicos que no son objeto de este manual, sí que es co
 - **SITMUN proxy-middleware.** Es una parte de la aplicación que tiene como fin gestionar peticiones al backend que requieren una capa extra de seguridad, como por ejemplo las conexiones a servicios cartográficos con autenticación.
 - **Base de datos SITMUN.** Es la base de datos donde SITMUN guarda toda la información referente a servicios, capas, usuarios, roles, tareas, aplicaciones, etc. El proyecto contiene modelos de base de datos en Oracle y PostgreSQL, pero también permite utilizar bases de datos externas a la propia aplicación.
 
-![Esquema de despliegue de SITMUN 3](img/general-esquema-despliegue.webp){ width="399" loading=lazy }
+```mermaid
+flowchart TB
+    admin["<b>SITMUN admin</b><br>/admin"]
+    viewer["<b>SITMUN viewer</b><br>/viewer"]
+    front["<b>Servidor web</b><br>nginx"]
+    backend["<b>SITMUN backend</b>"]
+    proxy["<b>SITMUN proxy-middleware</b>"]
+    db[("<b>Base de datos SITMUN</b><br>PostgreSQL u Oracle")]
+    ext["<b>Servicios cartográficos<br>y bases de datos externas</b>"]
 
-*Esquema de despliegue.*
+    admin --> front
+    viewer --> front
+    front -- "/backend" --> backend
+    front -- "/middleware" --> proxy
+    proxy -- "configuración" --> backend
+    backend --> db
+    proxy --> ext
+    viewer -. "servicios sin proxy" .-> ext
+```
+
+*Esquema de despliegue. El servidor web publica el administrador y el visor, y reenvía sus peticiones al backend y al proxy.*
 
 El objetivo de este manual es explicar la parte de SITMUN admin, y va dirigido a los usuarios administradores de SITMUN.
 
