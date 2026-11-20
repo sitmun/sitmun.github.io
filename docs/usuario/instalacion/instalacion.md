@@ -280,8 +280,6 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         Copia el contenido de esa carpeta a tu servidor web.
         Más detalles en [sitmun-admin/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-admin/README.md).
 
-[api-de-configuracion-y-autorizacion]: ../../que-es-sitmun/plataforma/arquitectura/api.md#api-de-configuracion-y-autorizacion
-
 ---
 
 Siguiente paso: [Primer proyecto](../guias/primer-proyecto/index.md)

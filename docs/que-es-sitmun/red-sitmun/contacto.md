@@ -1,7 +1,6 @@
 # Órganos de gobierno de la RED SITMUN
 
-Los órganos de la Red SITMUN los establece el protocolo de colaboración de la Red y se escogen anualmente por votación en la asamblea de socios de la Red SITMUN. 
-
+Los órganos de la Red SITMUN los establece el protocolo de colaboración de la Red y se escogen anualmente por votación en la asamblea de socios de la Red SITMUN.
 
 ## Presidencia
 
@@ -9,7 +8,7 @@ Consell Insular de Menorca (contacto: <ricard.cots@cime.es> ).
 
 ## Secretariado
 
-Diputació de Barcelona (contacto: <saezbj@diba.cat>). 
+Diputació de Barcelona (contacto: <saezbj@diba.cat>).
 
 ## Comité técnico
 
@@ -25,5 +24,3 @@ La labor principal de este equipo es mantener una visión global del proyecto y 
 
 - Francisco Javier Lopez Pellicer <fjlopez@unizar.es> - Universidad Zaragoza.
 - Rubén Béjar <rbejar@unizar.es> - Universidad Zaragoza.
-
-

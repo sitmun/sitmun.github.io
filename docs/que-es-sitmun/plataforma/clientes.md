@@ -49,7 +49,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   En caso de ser un visualizador público, la solicitud no incluirá un token.
   A partir de los datos de configuración (gestionados por la **aplicación de administrador**),
   el visor se configura para cada usuario, con los territorios y aplicaciones (capas y funcionalidades)
-  a las que tiene acceso. 
+  a las que tiene acceso.
 
 - **Solicitudes a servicios remotos**: Las solicitudes a algunos servicios remotos se realizan a través de
   la [API de Proxy][api-de-proxy]. Las solicitudes deben ir acompañadas de un token JWT,

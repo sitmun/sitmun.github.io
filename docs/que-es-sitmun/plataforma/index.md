@@ -35,6 +35,7 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
   El modelo de datos está documentado en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
 
 La siguiente figura recoge el modelo descrito:
+
 ```mermaid
 block-beta
   columns 5

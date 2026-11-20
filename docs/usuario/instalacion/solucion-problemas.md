@@ -12,10 +12,12 @@ Esta sección proporciona soluciones a los problemas más comunes que pueden sur
 ### Docker no se inicia
 
 **Síntomas:**
+
 - Error al ejecutar `docker compose up`
 - Servicios no se levantan correctamente
 
 **Soluciones:**
+
 ```bash
 # Verificar que Docker esté ejecutándose
 docker --version
@@ -33,10 +35,12 @@ sudo systemctl restart docker
 ### Puerto ya en uso
 
 **Síntomas:**
+
 - Error: "Port 9000 is already in use"
 - Servicios no pueden iniciarse
 
 **Soluciones:**
+
 ```bash
 # Verificar qué proceso usa el puerto
 lsof -i :9000  # macOS/Linux
@@ -51,10 +55,12 @@ netstat -ano | findstr :9000  # Windows
 ### Problemas de memoria
 
 **Síntomas:**
+
 - Contenedores se detienen inesperadamente
 - Errores de "Out of memory"
 
 **Soluciones:**
+
 ```bash
 # Aumentar memoria disponible para Docker
 # En Docker Desktop: Settings > Resources > Memory
@@ -71,10 +77,12 @@ docker system prune -a
 ### Conexión a PostgreSQL falla
 
 **Síntomas:**
+
 - Error: "Connection refused"
 - Backend no puede conectarse a la base de datos
 
 **Soluciones:**
+
 ```bash
 # Verificar que PostgreSQL esté ejecutándose
 docker compose ps postgres
@@ -92,10 +100,12 @@ docker compose exec postgres psql -U sitmun3 -d sitmun3
 ### Errores de migración de base de datos
 
 **Síntomas:**
+
 - Error: "Liquibase migration failed"
 - Tablas no se crean correctamente
 
 **Soluciones:**
+
 ```bash
 # Limpiar base de datos y volver a migrar
 docker compose exec postgres psql -U sitmun3 -d sitmun3 -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
@@ -109,10 +119,12 @@ docker compose restart backend
 ### No se puede acceder al administrador
 
 **Síntomas:**
+
 - Error 401 Unauthorized
 - No se puede hacer login
 
 **Soluciones:**
+
 ```bash
 # Verificar que el backend esté ejecutándose
 curl http://localhost:9001/api/dashboard/health
@@ -129,10 +141,12 @@ curl http://localhost:9001/api/setup/status
 ### Token JWT inválido
 
 **Síntomas:**
+
 - Error: "Invalid JWT token"
 - Sesión expira inesperadamente
 
 **Soluciones:**
+
 ```bash
 # Limpiar cookies del navegador
 # O usar modo incógnito
@@ -146,10 +160,12 @@ curl http://localhost:9001/api/setup/status
 ### Aplicaciones no cargan
 
 **Síntomas:**
+
 - Página en blanco
 - Errores 404 en recursos estáticos
 
 **Soluciones:**
+
 ```bash
 # Verificar que el frontend esté ejecutándose
 curl http://localhost:9000
@@ -164,10 +180,12 @@ docker compose exec front cat /etc/nginx/conf.d/default.conf
 ### Problemas de CORS
 
 **Síntomas:**
+
 - Error: "CORS policy"
 - Requests bloqueados desde el navegador
 
 **Soluciones:**
+
 ```bash
 # Verificar configuración CORS en el backend
 # Revisar headers en las respuestas HTTP
@@ -181,10 +199,12 @@ docker compose exec front cat /etc/nginx/conf.d/default.conf
 ### Servicios no se comunican
 
 **Síntomas:**
+
 - Error: "Connection refused"
 - Timeouts en requests internos
 
 **Soluciones:**
+
 ```bash
 # Verificar red de Docker
 docker network ls
@@ -199,10 +219,12 @@ docker compose exec backend curl -s http://proxy:8080/actuator/health
 ### Problemas de DNS
 
 **Síntomas:**
+
 - Error: "Name resolution failed"
 - Servicios no pueden resolverse
 
 **Soluciones:**
+
 ```bash
 # Verificar resolución DNS dentro de contenedores
 docker compose exec backend getent hosts postgres
@@ -217,10 +239,12 @@ docker compose up -d
 ### Aplicación lenta
 
 **Síntomas:**
+
 - Tiempos de respuesta altos
 - Interfaz no responde
 
 **Soluciones:**
+
 ```bash
 # Verificar uso de recursos
 docker stats
@@ -233,10 +257,12 @@ docker stats
 ### Problemas de memoria
 
 **Síntomas:**
+
 - Aplicación se cuelga
 - Errores de "Out of memory"
 
 **Soluciones:**
+
 ```bash
 # Las imágenes de backend y proxy usan por defecto
 # JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75" (75 % de la memoria del contenedor).

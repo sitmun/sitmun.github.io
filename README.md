@@ -1,3 +1,13 @@
 # SITMUN Documentation
 
 Este repositorio contiene la documentación del proyecto SITMUN.
+
+## Comprobaciones
+
+Cada *pull request* hacia `master` ejecuta en GitHub Actions:
+
+- `markdownlint-cli2 --fix` sobre `docs/**/*.md` con las reglas de `.markdownlint-cli2.yaml`.
+  Las correcciones se suben como un *commit* a la rama del *pull request*; lo que no se puede corregir
+  solo aparece como aviso y no hace fallar la comprobación.
+  En local: `npx markdownlint-cli2@0.24.0 --fix`.
+- `mkdocs build --strict` y una comprobación de enlaces locales con `lychee`.

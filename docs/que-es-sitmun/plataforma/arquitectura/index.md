@@ -23,7 +23,7 @@ Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poc
 - Con la API de autenticación solo al principio, para identificar al usuario.
 - Con la API de configuración solo en el arranque.
 - La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.
-  - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
+    - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
 
 Esto conviene tenerlo en cuenta cuando estemos dimensionando el hardware que necesitamos para el despliegue, y cómo lo vamos a repartir.
 

@@ -63,4 +63,3 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 ---
 
 Siguiente paso: [Instalación](instalacion.md)
-
