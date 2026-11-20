@@ -33,6 +33,7 @@ def main() -> int:
     import steps  # noqa: F401  (registers the @shot steps)
 
     if args.list:
+        print("before_login  (first-run wizard and login page, before signing in)")
         print("\n".join(SHOTS))
         return 0
     if not args.password_file:

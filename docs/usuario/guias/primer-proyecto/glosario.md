@@ -1,3 +1,7 @@
+---
+description: "Glosario de los términos de SITMUN 3 que usa la guía del primer proyecto."
+---
+
 # Glosario
 
 | Término | Significado |

@@ -1,3 +1,7 @@
+---
+description: "Aplicaciones en el administrador de SITMUN 3: configurar el visor con roles, mapas de fondo, árboles y parámetros."
+---
+
 # Aplicación
 
 La aplicación es el elemento principal para configurar el visor de SITMUN. Todos los elementos anteriores (capas, árboles, tareas, etc.) quedarán integrados en una aplicación. Cuando el usuario accede a SITMUN, visualiza un panel con todas las aplicaciones disponibles, ya sean las públicas o aquellas para las que tiene permisos con su rol.

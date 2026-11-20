@@ -1,3 +1,7 @@
+---
+description: "Tareas de consulta en SITMUN 3: consultas SQL sobre una conexión, con parámetros y variables de sistema."
+---
+
 # Tareas de consulta
 
 Las tareas de consulta están diseñadas para realizar distintos tipos de consultas sobre fuentes de datos, tales como bases de datos, cartografía, documentos, etc., y obtener información que posteriormente será utilizada en otras tareas.

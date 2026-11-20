@@ -1,3 +1,7 @@
+---
+description: "Usuarios en el administrador de SITMUN 3: datos, usuario administrador, cuenta bloqueada y roles por territorio."
+---
+
 # Usuarios
 
 En este apartado se definen las características de un usuario con acceso con privilegios.

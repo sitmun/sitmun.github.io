@@ -1,3 +1,7 @@
+---
+description: "Paso 2 de la guía: dar de alta en SITMUN 3 los servicios de mapas (WMS, WMTS o WFS)."
+---
+
 # Paso 2: dar de alta los servicios
 
 Un servicio es la dirección de un servidor de mapas. Crea uno por cada servidor: uno para las capas de trabajo y otro para el mapa de fondo, si vienen de sitios distintos.

@@ -1,3 +1,7 @@
+---
+description: "Propuesta de la hoja de ruta de SITMUN: más información avanzada al consultar elementos del mapa."
+---
+
 # Más info avanzado
 
 !!! success "Estado (noviembre 2026): implementado"

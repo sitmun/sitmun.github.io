@@ -1,3 +1,7 @@
+---
+description: "Conexiones a bases de datos en el administrador de SITMUN 3, para las consultas SQL y la edición."
+---
+
 # Conexiones
 
 En SITMUN, además de poder consultar información cartográfica, también se pueden realizar consultas a bases de datos para obtener información alfanumérica.

@@ -1,3 +1,7 @@
+---
+description: "Roles en el administrador de SITMUN 3: accesos a capas, tareas, aplicaciones y árboles."
+---
+
 # Roles
 
 El rol es el elemento para definir las características de un rol de comportamiento; en él se detallan los accesos a otros elementos.

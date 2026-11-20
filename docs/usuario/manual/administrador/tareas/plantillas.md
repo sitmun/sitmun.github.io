@@ -1,3 +1,7 @@
+---
+description: "Plantillas en SITMUN 3: dar formato HTML a los resultados de las consultas, con fuentes, editor y parámetros."
+---
+
 # Plantillas
 
 Las plantillas tienen la finalidad de proporcionar una visualización más amigable de la información obtenida a partir de consultas a bases de datos u otras fuentes de información.

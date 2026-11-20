@@ -1,3 +1,7 @@
+---
+description: "Capas de fondo en el administrador de SITMUN 3: mapas base de las aplicaciones y sus permisos."
+---
+
 # Capas de fondo
 
 Las capas de fondo sirven para configurar los mapas base de las aplicaciones.

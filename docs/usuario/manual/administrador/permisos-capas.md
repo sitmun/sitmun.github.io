@@ -1,3 +1,7 @@
+---
+description: "Permisos sobre las capas en SITMUN 3: grupos de capas que dan acceso a los roles."
+---
+
 # Permisos sobre las capas
 
 Se generan grupos de capas para darles permisos conjuntamente y asignarles los roles.

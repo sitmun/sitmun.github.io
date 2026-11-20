@@ -1,3 +1,7 @@
+---
+description: "Propuesta de la hoja de ruta de SITMUN: aplicación móvil para recursos turísticos."
+---
+
 # Cliente APP SITMUN aplicada a los recursos turísticos
 
 !!! success "Estado (noviembre 2026): implementado para Android"

@@ -1,3 +1,7 @@
+---
+description: "Variables de sistema de SITMUN 3 que se pueden usar en consultas, plantillas y otras tareas."
+---
+
 # Anexo I: variables de sistema
 
 Con el fin de poder interactuar con la propia aplicación de SITMUN, se ofrecen algunas variables de sistema que pueden utilizarse en la aplicación de administración de SITMUN, por ejemplo en las [consultas SQL](tareas/consulta.md#parametros-en-las-consultas-sql).

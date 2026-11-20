@@ -1,3 +1,7 @@
+---
+description: "Servicios en el administrador de SITMUN 3: alta de servicios WMS, WMTS y WFS, autenticación, registro de capas y monitorización."
+---
+
 # Servicios
 
 La funcionalidad principal de SITMUN es la visualización de cartografía mediante capas. Dicha cartografía se obtiene mediante la conexión a servicios que ofrecen datos cartográficos.

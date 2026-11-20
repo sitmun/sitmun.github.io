@@ -1,3 +1,7 @@
+---
+description: "Tarea de localizador en SITMUN 3: ubicar en el mapa del visor los resultados de una consulta."
+---
+
 # Tarea de localizador
 
 La tarea de localizador tiene la finalidad de ubicar un elemento en el mapa del visor.

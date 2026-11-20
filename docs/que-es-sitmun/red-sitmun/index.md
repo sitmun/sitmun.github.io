@@ -1,3 +1,7 @@
+---
+description: "La Red SITMUN: entidades públicas locales y universidades que desarrollan y comparten la plataforma SITMUN."
+---
+
 # La red SITMUN
 
 La red SITMUN es un espacio de colaboración y trabajo conjunto entre entidades del sector público local y universidades, que comparten conocimientos, experiencias y recursos en el ámbito de los sistemas de información geográfica (SIG) y la gestión de los datos geográficos.

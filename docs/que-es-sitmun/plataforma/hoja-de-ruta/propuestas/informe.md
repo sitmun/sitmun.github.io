@@ -1,3 +1,7 @@
+---
+description: "Propuesta de la hoja de ruta de SITMUN: tarea de informe (exportación documental en PDF a partir de plantillas)."
+---
+
 # Informe
 
 !!! info "Estado (noviembre 2026): parcialmente implementado"
