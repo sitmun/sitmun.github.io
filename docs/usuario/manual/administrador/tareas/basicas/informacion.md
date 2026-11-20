@@ -1,22 +1,26 @@
+---
+description: "Tareas básicas de información en SITMUN 3: consultar los elementos del mapa (GetFeatureInfo, coordenadas, ventanas emergentes)."
+---
+
 # Información
 
 Tareas básicas para consultar la información de los elementos del mapa.
 
-## Click
+## Clic (Click) { #click }
 
 - Control API SITNA: `sitna.click`
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## Coordinates display
+## Coordenadas (Coordinates) { #coordinates-display }
 
 - Control API SITNA: `sitna.coordinates`
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## Feature Info
+## Información de entidad (Feature Info) { #feature-info }
 
 Permite obtener información mediante las capacidades de GetFeatureInfo (GFI) de las capas visualizadas en el mapa.
 
@@ -26,7 +30,7 @@ Además de tener esta tarea básica asignada a los roles y territorios correspon
 
 **Paso 1: activar la visualización de datos alfanuméricos de la capa**
 
-Acceda a la [capa](../../capas.md) en la que desea mostrar información GFI y active la opción *La capa o las capas del servicio pueden ser consultadas para la recuperación de información alfanumérica*.
+Acceda a la [capa](../../capas.md) en la que desea mostrar información GFI y active la opción *La capa o capas del servicio pueden ser consultadas para la recuperación de información alfanumérica*.
 
 ![Opción de consulta de información alfanumérica de la capa](../../img/basicas-feature-info-capa.webp){ loading=lazy }
 
@@ -40,7 +44,7 @@ Una vez configuradas la capa y el árbol, al hacer clic sobre un elemento de la 
 
 ![Información GFI de un elemento en el visor](../../img/basicas-feature-info-resultado.webp){ loading=lazy }
 
-## More Info Advanced
+## Información avanzada (More Info Advanced) { #more-info-advanced }
 
 Esta tarea permite utilizar las funcionalidades de More Info Advanced (MIA), que permiten ampliar la información mostrada de un elemento seleccionado, más allá de la proporcionada por GetFeatureInfo (GFI), incorporando, por ejemplo, información procedente de otras fuentes de datos.
 
@@ -48,13 +52,13 @@ Para definir un More Info Advanced (MIA), además de asignar a esta tarea los pe
 
 - Control API SITNA: `sitna.moreInfoAdvanced`
 
-## Multi Feature Info
+## Información múltiple de entidades (Multi Feature Info) { #multi-feature-info }
 
 Permite obtener información más detallada de un elemento de tipo punto, línea o polígono, siempre y cuando la capa sobre la que se hace clic sea de tipo WFS.
 
 - Control API SITNA: `sitna.multiFeatureInfo`
 
-## Popup
+## Ventana emergente (Popup) { #popup }
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.

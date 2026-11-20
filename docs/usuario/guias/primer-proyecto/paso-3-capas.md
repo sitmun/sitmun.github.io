@@ -1,3 +1,7 @@
+---
+description: "Paso 3 de la guía: crear las capas de SITMUN 3, desde el servicio WMS o a mano."
+---
+
 # Paso 3: crear las capas
 
 Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio es WMS.

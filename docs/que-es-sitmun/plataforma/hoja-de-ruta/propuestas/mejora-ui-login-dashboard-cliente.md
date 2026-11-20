@@ -1,3 +1,7 @@
+---
+description: "Propuesta de la hoja de ruta de SITMUN: mejora del inicio de sesión y del panel de usuario del visor."
+---
+
 # Mejora UI del login y dashboard de usuario del cliente SITMUN 3
 
 !!! info "Estado (noviembre 2026): parcialmente implementado"

@@ -1,3 +1,7 @@
+---
+description: "Tareas de SITMUN 3: tipos de tarea del administrador y cómo se asignan a roles y territorios."
+---
+
 # Tareas
 
 Las tareas de SITMUN 3 son un conjunto de elementos que permiten realizar determinadas acciones de interacción con el usuario.
@@ -15,7 +19,7 @@ Las tareas se clasifican en [grupos de tareas](../grupos-de-tareas.md). Los tipo
 Estos tipos de tarea también existen en SITMUN 1.3.0 y aparecen en el menú **Tarea** del administrador,
 pero su documentación todavía no está escrita:
 
-- **Imagen del mapa**.
+- **Tarea de imagen de mapa**.
 - **Exportación documental**: genera documentos PDF a partir de [plantillas](plantillas.md).
-- **Edición**: edición de datos, en base de datos o en servicios WFS (también la usa la aplicación móvil de edición).
-- **Más información**.
+- **Tarea de edición**: edición de datos, en base de datos o en servicios WFS (también la usa la aplicación móvil de edición).
+- **Tarea de más información**.

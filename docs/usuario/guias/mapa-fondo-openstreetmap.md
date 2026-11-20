@@ -1,3 +1,7 @@
+---
+description: "Guía para ofrecer OpenStreetMap como mapa de fondo en una aplicación de SITMUN 3: servicio WMTS, capa, capa de fondo y aplicación."
+---
+
 # Añadir OpenStreetMap como mapa de fondo
 
 Esta guía explica cómo ofrecer el mapa de [OpenStreetMap](https://www.openstreetmap.org) (OSM) como mapa de fondo en una aplicación de SITMUN. Todo se hace desde el administrador. No hace falta instalar nada ni cambiar código.

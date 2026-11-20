@@ -1,3 +1,7 @@
+---
+description: "Paso 7 de la guía: crear la aplicación de SITMUN 3 y enlazarle roles, mapas de fondo y árboles."
+---
+
 # Paso 7: crear la aplicación y juntarlo todo
 
 La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué roles forman el visor.

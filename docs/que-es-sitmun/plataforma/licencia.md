@@ -1,3 +1,7 @@
+---
+description: "Licencia de SITMUN 3: Licencia Pública de la Unión Europea (EUPL) v1.2."
+---
+
 # Licencia
 
 **[LICENCIA PÚBLICA DE LA UNIÓN EUROPEA v. 1.2](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12)**

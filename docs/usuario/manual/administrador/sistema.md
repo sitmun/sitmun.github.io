@@ -1,3 +1,7 @@
+---
+description: "Opciones de sistema del administrador de SITMUN 3: idiomas, traducciones, tipos de territorio y de tareas, listas de códigos y parámetros."
+---
+
 # Sistema
 
 Las opciones de sistema permiten ajustar algunos parámetros generales de SITMUN.
@@ -30,7 +34,7 @@ Permite definir y mantener las diferentes tipologías de territorio, así como l
 
 ## Tipos de tareas
 
-Permite gestionar la lista de tipos de tareas.
+Muestra la lista de tipos de tareas. Los tipos son fijos: no se pueden añadir ni borrar, solo se puede editar su título.
 
 ## Valores de listas de códigos
 

@@ -1,3 +1,7 @@
+---
+description: "Paso 8 de la guía: abrir el visor de SITMUN 3 y comprobar con una lista de verificación que la aplicación funciona."
+---
+
 # Paso 8: comprobar el resultado en el visor
 
 El administrador no tiene ningún botón para abrir el visor. Hay que abrirlo aparte, en otra pestaña del navegador.

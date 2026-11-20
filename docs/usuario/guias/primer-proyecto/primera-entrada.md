@@ -1,3 +1,7 @@
+---
+description: "Primera entrada al administrador de SITMUN 3: inicio de sesión, menú lateral y funcionamiento de las pantallas."
+---
+
 # Primera entrada al administrador
 
 El administrador se abre en `http://<servidor>/admin/` (en una instalación local, `http://localhost:9000/admin/`).

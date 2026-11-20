@@ -57,7 +57,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         docker compose up -d --pull always --no-build
         ```
 
-    4. Espera a que el backend responda `{"status":"UP"}` (la primera vez tarda un par de minutos, mientras crea la base de datos):
+    4. Espera a que el backend responda con `"status":"UP"` (la primera vez tarda un par de minutos, mientras crea la base de datos):
 
         ```bash
         curl http://localhost:9001/api/dashboard/health

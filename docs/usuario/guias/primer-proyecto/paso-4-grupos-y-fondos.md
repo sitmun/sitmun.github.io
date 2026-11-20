@@ -1,3 +1,7 @@
+---
+description: "Paso 4 de la guía: crear en SITMUN 3 el grupo de capas que da acceso al rol y las capas de fondo."
+---
+
 # Paso 4: grupos de capas y capas de fondo
 
 Un grupo de capas es la manera de dar capas a un rol. Sin grupo, ningún rol tiene acceso a las capas del [paso 3](paso-3-capas.md).

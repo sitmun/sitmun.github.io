@@ -1,3 +1,7 @@
+---
+description: "Tarea de más información avanzada (MIA) en SITMUN 3: mostrar consultas y plantillas al hacer clic en una capa del visor."
+---
+
 # Tarea de más información avanzada
 
 Este tipo de tarea se basa en la tarea MoreInfoAdvanced de la API SITNA. Por tanto, para poder definir tareas de tipo MIA es necesario tener antes alguna tarea básica con el control de la API SITNA `sitna.moreInfoAdvanced` y que disponga de los roles y territorios correctamente asignados (ver [More Info Advanced](basicas/informacion.md#more-info-advanced)).

@@ -187,6 +187,13 @@ info = "octicons/browser-16"
 "troubleshooting.md" = "usuario/instalacion/solucion-problemas.md"
 "license.md" = "que-es-sitmun/plataforma/licencia.md"
 "contact.md" = "que-es-sitmun/red-sitmun/contacto.md"
+# Pages of the nav deployed until 2026-11-16 (mkdocs), moved since.
+"usuario/primeros-pasos/instalacion.md" = "usuario/instalacion/instalacion.md"
+"usuario/primeros-pasos/requisitos.md" = "usuario/instalacion/requisitos.md"
+"usuario/primeros-pasos/configuracion.md" = "usuario/instalacion/instalacion.md"
+"usuario/primeros-pasos/solucion-problemas.md" = "usuario/instalacion/solucion-problemas.md"
+"usuario/guias/personalizacion.md" = "usuario/guias/primer-proyecto/index.md"
+"red-sitmun/contacto.md" = "que-es-sitmun/red-sitmun/contacto.md"
 
 [project.markdown_extensions.abbr]
 
@@ -202,6 +209,7 @@ info = "octicons/browser-16"
 
 [project.markdown_extensions.toc]
 permalink = true
+permalink_title = "Enlace a esta sección"
 
 [project.markdown_extensions."pymdownx.arithmatex"]
 generic = true

@@ -1,3 +1,7 @@
+---
+description: "Problemas frecuentes al montar el primer proyecto en SITMUN 3, casi siempre por un rol, territorio u opción que falta."
+---
+
 # Problemas frecuentes
 
 Casi siempre que algo no aparece en el visor es porque falta un enlace: un rol, un territorio o una opción activada. El visor no muestra ningún error.

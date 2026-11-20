@@ -1,3 +1,7 @@
+---
+description: "Paso 5 de la guía: construir en SITMUN 3 el árbol de capas que verá el usuario en el visor."
+---
+
 # Paso 5: construir el árbol de capas
 
 El árbol es lo que el usuario ve en el panel de capas: carpetas que contienen capas. Una capa solo aparece en el árbol si el usuario ya tiene acceso a ella por el [paso 4](paso-4-grupos-y-fondos.md).
