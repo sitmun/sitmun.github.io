@@ -31,8 +31,13 @@ From a checkout of `sitmun/sitmun` at the release tag:
 
 ```bash
 cp profiles/showcase.env .env && ./setup.sh
-SITMUN_BOOTSTRAP_ADMIN_PASSWORD= docker compose up -d --pull always --no-build
+COMPOSE_PROFILES=postgres,demo SITMUN_BOOTSTRAP_ADMIN_PASSWORD= \
+    docker compose up -d --pull always --no-build
 ```
+
+The `demo` profile starts the example database that the query, template and
+MIA images use; `showcase.env` alone does not include it. If the connection test
+to it fails, the script stops rather than take error screens.
 
 Leaving `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` empty keeps the first-run wizard, which
 the script captures for the installation page and completes with the password
@@ -57,6 +62,8 @@ Put the admin password (8 to 50 characters) in a file outside the repository:
 - `--only STEP ...` runs some steps. Later steps use records created by earlier
   ones, so use it to retake images while working on the script, not on a fresh
   showcase.
+- If the script cannot sign in (wrong address or password), it says so and
+  exits with status 1 without taking any image.
 - A failed step does not stop the run. Its last screen goes to
   `/tmp/shot-fail-<step>.png`, and the script exits with status 1.
 
