@@ -10,7 +10,7 @@ repo_name = "sitmun/sitmun"
 edit_uri = "https://github.com/sitmun/sitmun.github.io/edit/master/docs/"
 site_url = "https://sitmun.github.io"
 site_dir = "_site"
-extra_css = ["css/extra.css"]
+extra_css = ["css/fonts.css", "css/extra.css"]
 extra_javascript = ["js/checklists.js"]
 nav = [
   { "Inicio" = "index.md" },
@@ -122,8 +122,11 @@ invalid_link_anchors = true
 custom_dir = "overrides"
 # classic keeps the Material for MkDocs look (and docs/css/extra.css).
 variant = "classic"
-logo = "https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png"
-favicon = "https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png"
+# Fonts are self-hosted (docs/css/fonts.css); nothing is loaded from Google Fonts.
+font = false
+# Logo and favicon are copies of the SITMUN isotype from sitmun/community.
+logo = "assets/images/sitmun-isotipo-28.png"
+favicon = "assets/images/sitmun-isotipo-28.png"
 features = [
   "announce.dismiss",
   "content.action.edit",
