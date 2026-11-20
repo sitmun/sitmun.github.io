@@ -4,9 +4,16 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
 
 **Opción A: desde el servicio (WMS)**
 
-1. Abre el servicio y ve a la pestaña **Capas**.
-2. Pulsa **Actualizar capas del servicio** (en un servicio que aún no has guardado, el botón se llama **Obtener capas del servicio**). Aparece la lista de capas que ofrece el servidor, marcadas como **Capa no registrada**.
+1. Abre el servicio, ya guardado en el [paso 2](paso-2-servicios.md), y ve a la pestaña **Capas**.
+2. Pulsa **Actualizar capas del servicio**. Aparece la lista de capas que ofrece el servidor, marcadas como **Capa no registrada**.
 3. Selecciona las que quieras, pulsa **Registrar** y después **Guarda**. Se crea una capa de SITMUN por cada una, ya disponible para los clientes.
+
+    ![Capas del servicio seleccionadas para registrar](../../manual/administrador/img/servicios-seleccionar-capas.webp){ loading=lazy }
+
+!!! warning "Guarda el servicio antes"
+    En un servicio que aún no has guardado, el botón se llama **Obtener capas del servicio**.
+    En SITMUN 1.3.0 las capas que registras así no se crean al guardar
+    ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)): guarda primero el servicio.
 
 **Opción B: a mano** (menú **Capas** → **Nuevo**)
 

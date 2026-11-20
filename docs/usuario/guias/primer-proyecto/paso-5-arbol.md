@@ -13,6 +13,8 @@ El árbol es lo que el usuario ve en el panel de capas: carpetas que contienen c
 4. Pestaña **Roles**: añade el rol del [paso 1](paso-1-territorio-rol-usuario.md). Sin rol, el árbol no llega a nadie.
 5. **Guarda**. Los cambios en la estructura no se guardan hasta aquí.
 
+![Nodo de capa del árbol con la capa elegida en Cartografía](../../manual/administrador/img/arboles-nodo-cartografia.webp){ loading=lazy }
+
 **Atajo:** el botón **Cargar desde servicio** de la estructura crea las carpetas y las capas a partir de la organización del servicio WMS. Revisa el resultado antes de guardar: cada nodo tiene que quedar enlazado a una capa de SITMUN.
 
 El árbol se enlaza a la aplicación en el [paso 7](paso-7-aplicacion.md).

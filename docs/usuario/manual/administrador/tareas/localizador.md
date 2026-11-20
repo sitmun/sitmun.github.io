@@ -14,8 +14,9 @@ En la pestaña **Configuración del geocodificador** se detalla cómo se quiere 
 
 - **Campo de etiqueta**: campo devuelto por la consulta con un valor identificativo fácil de interpretar por el usuario. Por ejemplo: ID, nombre o referencia catastral.
 - **Sistema de referencia**: sistema de referencia con código EPSG. Por ejemplo, EPSG:25831.
-- **Campo de latitud**: coordenada de latitud o Y.
-- **Campo de longitud**: coordenada de longitud o X.
+- **Campo de latitud** y **Campo de longitud**: coordenadas Y y X de cada resultado. Son opcionales: en su lugar se puede indicar un **Campo de geometría** con una geometría GeoJSON.
+
+En el ejemplo, la consulta «Patrimonio UNESCO por identificador» devuelve `nombre` (campo de etiqueta) y las coordenadas `etrs89y` y `etrs89x`, en `EPSG:4326`.
 
 ![Configuración del geocodificador de una tarea de localizador](../img/localizador-configuracion.webp){ loading=lazy }
 

@@ -8,6 +8,8 @@ Cada herramienta del visor es una **tarea básica** enlazada a un control del vi
 2. Pestaña **Territorios**: añade el territorio del [paso 1](paso-1-territorio-rol-usuario.md).
 3. **Guarda**.
 
+![Pestaña Roles de una tarea básica](img/paso-6-tarea-roles.webp){ loading=lazy }
+
 Si falta el rol o el territorio, la herramienta no aparece en el visor.
 
 **Herramientas mínimas para un primer proyecto:**

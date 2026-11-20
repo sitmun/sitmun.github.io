@@ -16,7 +16,7 @@ También se puede especificar la **institución responsable**, así como la URL 
 
 Finalmente, existe la posibilidad de indicar que una aplicación es **privada** (solo accesible cuando se accede con un usuario registrado) y también la posibilidad de poner la aplicación en **modo de mantenimiento**, que impedirá que los usuarios puedan acceder a ella. En ese caso, los usuarios verán la siguiente pantalla:
 
-![Aplicación en mantenimiento en la lista del visor](img/aplicacion-mantenimiento.webp){ width="416" loading=lazy }
+![Aplicación en mantenimiento en la lista del visor](img/aplicacion-mantenimiento.webp){ loading=lazy }
 
 Cabe señalar que, en función del tipo de aplicación seleccionado, se requerirá información adicional. En el caso de la aplicación interna, se deberá facilitar el **título** de la aplicación (nombre con el que el usuario la va a identificar).
 
@@ -48,6 +48,6 @@ Podemos añadir tantos mapas de fondo como se desee, ya que el usuario podrá se
 
 Los mapas de fondo pueden ser cualquiera de los que se hayan definido como tales en el apartado [Capas de fondo](capas-de-fondo.md).
 
-![Selector de mapas de fondo del visor](img/aplicacion-selector-fondos.webp){ width="412" loading=lazy }
+![Selector de mapas de fondo del visor](img/aplicacion-selector-fondos.webp){ loading=lazy }
 
 *Ejemplo del selector de mapas de fondo en el visor.*

@@ -11,6 +11,8 @@ Un servicio es la dirección de un servidor de mapas. Crea uno por cada servidor
 5. **Método de autenticación**: deja **Ninguno** si el servicio es público. Si pide usuario y contraseña, elige **Autenticación HTTP básica** y rellénalos. La opción **Usar proxy SITMUN** se activa sola, porque el visor tiene que pasar por el servidor intermediario (proxy) de SITMUN para no exponer la contraseña.
 6. Pulsa **Guarda**.
 
+![Servicio WMS con los datos obtenidos del servidor](../../manual/administrador/img/servicios-obtener-detalles.webp){ loading=lazy }
+
 **Si el mapa de fondo es WMTS**, ve a la pestaña **Parámetros de configuración** y añade `matrixSet` y `format` (por ejemplo `image/png`). Sin estos dos valores el visor no puede dibujar el mapa de fondo.
 
 La pestaña **Monitorización** tiene un botón **Probar acceso** para comprobar que el servidor responde.

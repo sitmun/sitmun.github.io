@@ -10,7 +10,7 @@ Este control únicamente permite seleccionar entre los mapas base disponibles. S
 
 - Control API SITNA: `sitna.basemapSelector`
 
-![Selector de mapas de fondo del visor](../../img/basicas-basemap-selector.webp){ width="433" loading=lazy }
+![Selector de mapas de fondo del visor](../../img/basicas-basemap-selector.webp){ loading=lazy }
 
 ## Data Loader
 
@@ -26,7 +26,7 @@ Permite visualizar el catálogo de capas disponibles en el [árbol de capas](../
 
 - Control API SITNA: `sitna.layerCatalog`
 
-![Catálogo de capas disponibles del visor](../../img/basicas-layer-catalog.webp){ width="307" loading=lazy }
+![Catálogo de capas disponibles del visor](../../img/basicas-layer-catalog.webp){ loading=lazy }
 
 ## Legend
 
@@ -36,10 +36,14 @@ Permite visualizar la leyenda de las capas cargadas. La leyenda que se muestra s
 
 ![Leyenda del visor](../../img/basicas-legend.webp){ loading=lazy }
 
+!!! warning "SITMUN 1.3.0"
+    En la versión 1.3.0 el panel **Leyenda** muestra «No hay datos» aunque haya capas cargadas
+    ([sitmun/sitmun#375](https://github.com/sitmun/sitmun/issues/375)).
+
 ## Work Layer Manager
 
 Permite gestionar las capas activadas: quitarlas, ocultarlas, cambiar el orden, la transparencia, etc.
 
 - Control API SITNA: `sitna.workLayerManager`
 
-![Gestor de capas cargadas del visor](../../img/basicas-work-layer-manager.webp){ width="488" loading=lazy }
+![Gestor de capas cargadas del visor](../../img/basicas-work-layer-manager.webp){ loading=lazy }

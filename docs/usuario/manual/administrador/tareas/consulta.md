@@ -55,11 +55,13 @@ Al crear un nuevo parámetro aparecerá el siguiente formulario:
 ![Formulario para añadir un parámetro](../img/consulta-anadir-parametro.webp){ loading=lazy }
 
 - **Nombre**: es el texto que se utilizará dentro de la consulta SQL para hacer uso de este parámetro.
-- **Etiqueta**: es el nombre que se utilizará para identificar el parámetro cuando se requiera en otras configuraciones.
+- **Etiqueta**: es el nombre que se utilizará para identificar el parámetro cuando se requiera en otras configuraciones (por ejemplo, en el mapeo de parámetros de una [tarea MIA](mas-informacion-avanzada.md)).
 - **Valor**: valor por defecto, si así se desea. Es posible dejarlo en blanco si no se quiere proporcionar ningún valor por defecto.
-- **Tipo**: seleccione *Query parameter*, ya que se trata de un parámetro que se insertará en una consulta (*query*).
+- **Tipo de dato**: tipo del valor (`string`, `integer`, `number`, `date`, `timestamp` o `boolean`). El valor se enlaza a la consulta con este tipo.
+- **Opcional**: márquelo solo si la consulta puede ejecutarse sin este parámetro. En nuestro ejemplo no se marca, ya que la consulta no podría ejecutarse correctamente sin él.
+- **Proporcionado (solo backend)**: el valor no lo envía el cliente, sino que lo aporta el propio backend.
 
-Si el parámetro es obligatorio, marque la casilla correspondiente. En nuestro caso se marca como obligatorio, ya que la consulta no podría ejecutarse correctamente sin este parámetro.
+En el ejemplo, el parámetro se llama `ID`, con la etiqueta «Identificador del bien» y el tipo `integer`.
 
 Ahora el parámetro ya está definido, pero aún es necesario indicar cómo utilizarlo dentro de la consulta SQL. Para ello, se debe modificar la consulta SQL utilizando la siguiente sintaxis:
 
@@ -90,7 +92,7 @@ La sintaxis para utilizar variables de sistema es ligeramente diferente a la de 
     - Todos los parámetros usados deben estar definidos en la pestaña **Parámetros**, y todos los definidos deben usarse.
     - El botón **Probar** ejecuta la consulta guardada y muestra la SQL resultante y los valores enlazados.
 
-Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla.
+Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla. Esto también se aplica cuando la consulta se usa dentro de una [tarea MIA](mas-informacion-avanzada.md): si no tiene el rol y el territorio de la aplicación, el visor muestra «No data» en su lugar.
 
 ### Consulta Web API (Web API query)
 
