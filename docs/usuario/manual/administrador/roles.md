@@ -1,5 +1,5 @@
 ---
-description: "Roles en el administrador de SITMUN 3: accesos a capas, tareas, aplicaciones y árboles."
+description: "Roles en el administrador de SITMUN 3: nombre del rol y su relación con usuarios por territorio, tareas y aplicaciones."
 ---
 
 # Roles

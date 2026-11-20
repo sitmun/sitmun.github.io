@@ -8,7 +8,7 @@ Casi siempre que algo no aparece en el visor es porque falta un enlace: un rol, 
 
 | Qué pasa | Causa probable | Dónde se corrige |
 | --- | --- | --- |
-| La aplicación no aparece en la lista del visor | La aplicación no tiene el rol, o el usuario no tiene ese rol en ningún territorio. Si el usuario es `public`, quizá la aplicación es privada. | Aplicación → Roles; Usuario → Roles por Territorio |
+| La aplicación no aparece en la lista del visor | La aplicación no tiene el rol, o el usuario no tiene ese rol en ningún territorio. Si el usuario es `public`, quizá la aplicación es privada. Si la asignación tiene **Rol territorial**, la aplicación necesita **Garantizar acceso al territorio de la asignación** o **Garantizar acceso a territorios hijo**. | Aplicación → Roles; Usuario → Roles por Territorio; Aplicación → Información general |
 | No aparece ningún mapa de fondo | La capa de fondo no está **Activo**, no tiene el rol, o sus capas no tienen el territorio. | Capas de fondo; Capas → Territorios |
 | El mapa de fondo WMTS aparece en blanco | Faltan `matrixSet` o `format`. | Servicio → Parámetros de configuración |
 | No se ve el panel de capas | La tarea `sitna.layerCatalog` no tiene el rol o el territorio. | Tarea básica → Roles / Territorios |

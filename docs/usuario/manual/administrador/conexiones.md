@@ -1,5 +1,5 @@
 ---
-description: "Conexiones a bases de datos en el administrador de SITMUN 3, para las consultas SQL y la edición."
+description: "Conexiones a bases de datos en el administrador de SITMUN 3: datos JDBC, prueba de conexión y tareas que las usan."
 ---
 
 # Conexiones

@@ -386,8 +386,10 @@ AuthTokenFilter-> Database: ¿Detalles usuario?
 Database -->> AuthTokenFilter: roles
 note right
   Si no se encuentra 401 Unauthorized
-  Los roles pueden ser USER, ADMIN, PUBLIC
-  (usuario público) y MOBILE_EDITION
+  Los roles pueden ser USER y/o ADMIN.
+  PUBLIC (usuario público, sin token) y
+  MOBILE_EDITION (token de la app de edición)
+  los asignan otros filtros
 end note
 AuthTokenFilter -> SecurityContext: set(Autenticación(usuario, roles))
 SecurityContext -->> AuthTokenFilter

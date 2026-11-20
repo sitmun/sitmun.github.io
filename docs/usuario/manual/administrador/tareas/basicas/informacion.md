@@ -40,6 +40,11 @@ Acceda al menú de [árboles](../../arboles.md) y localice el nodo donde se encu
 
 ![Opción Consultable del nodo del árbol](../../img/basicas-feature-info-arbol.webp){ loading=lazy }
 
+!!! warning "SITMUN 1.3.0"
+    En la versión 1.3.0 el visor no aplica esta opción del nodo: la capa se consulta aunque esté desactivada
+    ([sitmun/sitmun#377](https://github.com/sitmun/sitmun/issues/377)). Lo que sí impide la consulta es desactivar
+    la opción de la capa del paso 1.
+
 Una vez configuradas la capa y el árbol, al hacer clic sobre un elemento de la capa en cuestión, se visualizará la información GetFeatureInfo (GFI) del elemento o de los elementos seleccionados.
 
 ![Información GFI de un elemento en el visor](../../img/basicas-feature-info-resultado.webp){ loading=lazy }

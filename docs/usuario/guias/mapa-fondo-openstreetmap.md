@@ -18,6 +18,11 @@ Al terminar, los usuarios del visor verán **OpenStreetMap** en la lista de mapa
 
 ## Antes de empezar
 
+!!! note "En el *showcase*"
+    El *showcase* ya trae un mapa de fondo «OpenStreetMap» en sus aplicaciones. Si sigues esta guía en él,
+    quita antes ese mapa de fondo de la aplicación (menú **Aplicación**, pestaña **Mapas de fondo**) para no ver dos con
+    el mismo nombre. Las capturas de esta guía se hicieron así, en la aplicación «Camí de Cavalls».
+
 Necesitas:
 
 - Acceso al administrador de SITMUN con un usuario administrador.
@@ -46,9 +51,10 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | **Título del servicio** | `OpenStreetMap` (solo lo ven los administradores) |
     | **Tipo de servicio** | `WMTS` |
     | **Endpoint del servicio** | La dirección del archivo que has comprobado antes |
-    | **CRS soportados** | `EPSG:3857` |
     | **Usar proxy SITMUN** | Desactivado |
     | **Método de autenticación** | Ninguno |
+
+    ![Servicio WMTS de OpenStreetMap](img/osm-servicio.webp){ loading=lazy }
 
 3. En **Parámetros de configuración**, añade estos dos parámetros con el botón de añadir. En los dos, el **Tipo** es *WMTS*:
 
@@ -56,6 +62,8 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | --- | --- | --- |
     | `matrixSet` | WMTS | `WorldWebMercatorQuad` |
     | `format` | WMTS | `image/png` |
+
+    ![Parámetros de configuración matrixSet y format](img/osm-parametros.webp){ loading=lazy }
 
 4. Guarda el servicio.
 
@@ -73,6 +81,8 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | **Capa disponible para su uso por parte de los clientes** | Activado |
     | **Servicio** (*Selecciona un servicio*) | El servicio creado en el paso 1 |
     | **Capa o capas del servicio utilizadas** | `osm` |
+
+    ![Capa OpenStreetMap del servicio](img/osm-capa.webp){ loading=lazy }
 
 3. En la pestaña **Territorios**, añade los territorios donde debe estar disponible el mapa.
 4. Guarda la capa.
@@ -92,6 +102,8 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | **Imagen** | Miniatura que verán los usuarios. El visor incluye una: `<dirección del visor>/assets/js/api-sitna/css/img/thumb-osm.png` |
     | **Activo** | Activado |
 
+    ![Capa de fondo OpenStreetMap activa](img/osm-capa-fondo.webp){ loading=lazy }
+
 3. En la pestaña **Capas**, añade la capa creada en el paso 2.
 4. En la pestaña **Roles**, añade los roles que deben ver el mapa. Si la aplicación es pública, incluye también el rol que tenga asignado el usuario `public` (ver [Paso 1](primer-proyecto/paso-1-territorio-rol-usuario.md)).
 5. En la pestaña **Aplicaciones**, añade las aplicaciones donde debe aparecer el mapa.
@@ -103,7 +115,11 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
 
 1. Abre la aplicación en el visor. Si ya estaba abierta, recárgala.
 2. Abre el panel de capas y despliega **Mapas de fondo**. Debe aparecer **OpenStreetMap** con su miniatura.
+
+    ![OpenStreetMap en el selector de mapas de fondo del visor](img/osm-visor-fondos.webp){ loading=lazy }
 3. Haz clic en **OpenStreetMap**. Si la aplicación no usa EPSG:3857, aparece el aviso *Mapa de fondo no compatible*: elige **EPSG:3857**.
+
+    ![Aviso Mapa de fondo no compatible con la opción EPSG:3857](img/osm-visor-aviso.webp){ loading=lazy }
 4. Acerca el mapa hasta nivel de calle para comprobar que se ve con detalle.
 5. Vuelve a un mapa de fondo de la aplicación para comprobar que el mapa recupera su sistema de referencia.
 
