@@ -66,4 +66,4 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
 ---
 
-Siguiente paso: [Instalación](instalacion.md)
+Cuando cumplas los requisitos, sigue con la [Instalación](instalacion.md).
