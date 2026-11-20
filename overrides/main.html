@@ -1,0 +1,15 @@
+{#-
+  Announcement bar with the current SITMUN version.
+  The version comes from extra.sitmun_version in mkdocs.yml; change it there
+  when a new version is released. Readers can dismiss the bar
+  (announce.dismiss); it shows again when the text changes.
+-#}
+{% extends "base.html" %}
+
+{% block announce %}
+  Versión actual: <strong>SITMUN {{ config.extra.sitmun_version }}</strong>
+  ·
+  <a href="https://github.com/sitmun/sitmun/releases/tag/v{{ config.extra.sitmun_version }}">Notas de la versión</a>
+  ·
+  <a href="{{ 'usuario/instalacion/instalacion/' | url }}">Instalación</a>
+{% endblock %}
