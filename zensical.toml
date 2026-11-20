@@ -9,6 +9,7 @@ repo_url = "https://github.com/sitmun/sitmun"
 repo_name = "sitmun/sitmun"
 edit_uri = "https://github.com/sitmun/sitmun.github.io/edit/master/docs/"
 site_url = "https://sitmun.github.io"
+site_description = "Documentación técnica de SITMUN 3: instalación, administración, arquitectura y API de la plataforma de información territorial para administraciones locales."
 site_dir = "_site"
 extra_css = ["css/fonts.css", "css/extra.css"]
 # js/mermaid-local.js serves Mermaid from this site instead of unpkg.com.
@@ -48,7 +49,7 @@ nav = [
     ] },
     { "Guías de usuario" = [
       { "Primer proyecto" = [
-        { "Introducción" = "usuario/guias/primer-proyecto/index.md" },
+        "usuario/guias/primer-proyecto/index.md",
         { "Primera entrada al administrador" = "usuario/guias/primer-proyecto/primera-entrada.md" },
         { "Paso 1: Territorio, rol y usuario público" = "usuario/guias/primer-proyecto/paso-1-territorio-rol-usuario.md" },
         { "Paso 2: Servicios" = "usuario/guias/primer-proyecto/paso-2-servicios.md" },
@@ -65,7 +66,7 @@ nav = [
     ] },
     { "Manual de usuario" = [
       { "Administrador" = [
-        { "Introducción" = "usuario/manual/administrador/index.md" },
+        "usuario/manual/administrador/index.md",
         { "Conexiones" = "usuario/manual/administrador/conexiones.md" },
         { "Servicios" = "usuario/manual/administrador/servicios.md" },
         { "Capas" = "usuario/manual/administrador/capas.md" },
@@ -77,11 +78,11 @@ nav = [
         { "Usuarios" = "usuario/manual/administrador/usuarios.md" },
         { "Grupos de tareas" = "usuario/manual/administrador/grupos-de-tareas.md" },
         { "Tareas" = [
-          { "Introducción" = "usuario/manual/administrador/tareas/index.md" },
+          "usuario/manual/administrador/tareas/index.md",
           { "Tareas básicas" = [
-            { "Introducción" = "usuario/manual/administrador/tareas/basicas/index.md" },
+            "usuario/manual/administrador/tareas/basicas/index.md",
             { "Navegación y vista" = "usuario/manual/administrador/tareas/basicas/navegacion.md" },
-            { "Capas" = "usuario/manual/administrador/tareas/basicas/capas.md" },
+            { "Tareas de capas" = "usuario/manual/administrador/tareas/basicas/capas.md" },
             { "Información" = "usuario/manual/administrador/tareas/basicas/informacion.md" },
             { "Herramientas" = "usuario/manual/administrador/tareas/basicas/herramientas.md" },
           ] },

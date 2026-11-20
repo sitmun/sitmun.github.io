@@ -18,7 +18,7 @@ Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]*
 
 El **Servicio de Autenticación** puede funcionar de dos formas distintas tras recibir la petición de un usuario.
 
-```plantuml
+```plantuml alt="Diagrama de secuencia: el visor envía usuario y contraseña al Servicio de Autenticación, que los comprueba en la base de datos de SITMUN o, si está configurado, en un LDAP externo y después en SITMUN, y devuelve un token de acceso si el usuario es válido."
 @startuml
 title
     Secuencias de autenticación básicas
@@ -128,7 +128,7 @@ que actúa como punto de entrada para las solicitudes relacionadas.
 
 A continuación se muestra el comportamiento esperado del proxy.
 
-```plantuml
+```plantuml alt="Diagrama de secuencia: el visor hace una petición al proxy; el proxy pide la configuración al backend, hace la petición al WMS restringido, transforma la respuesta si hace falta y la devuelve al visor."
 @startuml
 title
     Secuencia de uso del proxy

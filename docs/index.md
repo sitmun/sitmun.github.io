@@ -1,3 +1,7 @@
+---
+description: "Documentación técnica de SITMUN 3, la plataforma abierta de información territorial (SIG) para administraciones locales y supramunicipales."
+---
+
 # SITMUN
 
 ![Logotipo de SITMUN](assets/images/sitmun-logo-horizontal.webp)

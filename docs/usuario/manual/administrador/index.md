@@ -1,3 +1,7 @@
+---
+description: "Manual del administrador de SITMUN 3: cómo configurar servicios, capas, árboles, territorios, roles, usuarios, tareas y aplicaciones."
+---
+
 # Manual del administrador
 
 Este manual es una guía para los usuarios administradores de SITMUN, en su versión 3.

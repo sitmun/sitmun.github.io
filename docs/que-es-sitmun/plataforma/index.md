@@ -1,3 +1,7 @@
+---
+description: "Qué es SITMUN 3: visores de mapas, aplicación de administración, backend, proxy y base de datos de la plataforma."
+---
+
 # LA PLATAFORMA SITMUN 3
 
 **SITMUN 3** es una plataforma que permite la creación y gestión de aplicaciones personalizadas en el ámbito de los [Sistemas de Información Geográfica](https://es.wikipedia.org/wiki/Sistema_de_informaci%C3%B3n_geogr%C3%A1fica) (SIG).

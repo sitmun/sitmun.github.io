@@ -1,3 +1,7 @@
+---
+description: "Requisitos para instalar SITMUN 3 con Docker o compilarlo desde el código fuente."
+---
+
 # Requisitos
 
 Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:

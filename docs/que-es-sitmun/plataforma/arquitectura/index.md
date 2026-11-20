@@ -1,3 +1,7 @@
+---
+description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, diagramas de secuencia, módulos y paquetes del backend."
+---
+
 # Arquitectura de SITMUN 3
 
 **SITMUN 3** es un sistema de código libre para poner en marcha sistemas de información territoriales donde múltiples usuarios puedan acceder a distintas aplicaciones según sus necesidades. Esto incluye:
@@ -32,7 +36,7 @@ Todo el código está en el repositorio [sitmun/sitmun](https://github.com/sitmu
 
 ## Principales componentes
 
-```plantuml
+```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el proxy middleware da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
 @startuml
 !include <logos/angular>
 !include <logos/github>
@@ -276,7 +280,7 @@ proxymiddleware -down-> mbtiles
 
 Un escenario típico de uso que ejemplifica la interacción de estos componentes sería:
 
-```plantuml
+```plantuml alt="Diagrama de secuencia del escenario típico: el visor se autentica y obtiene un token JWT, pide su configuración con el token y los identificadores de territorio y aplicación, y hace las peticiones WMS a través del proxy, que comprueba la autorización con la API de configuración y autorización antes de llamar al WMS restringido."
 @startuml
 title
     Escenario típico de uso
@@ -330,7 +334,7 @@ En esta sección se documentan algunas de las interacciones más relevantes del 
 
 ### Login
 
-```plantuml
+```plantuml alt="Diagrama de secuencia del inicio de sesión: el visor envía las credenciales a la API de autenticación, Spring Security las comprueba en la base de datos y se devuelve el token JWT en una cookie; después el visor pide su perfil a la API de configuración y autorización, que valida el token y devuelve la configuración del usuario, territorio y aplicación."
 @startuml
 
 actor Usuario
@@ -444,7 +448,7 @@ Client -->> Usuario: Visor listo para usar
 
 ### Uso del proxy para acceder a un WMS privado
 
-```plantuml
+```plantuml alt="Diagrama de secuencia del acceso a un WMS privado: el visor pide el mapa al proxy con su token; si no hay una configuración válida en caché, el proxy la pide al backend con su clave de proxy, el backend valida el token y devuelve la URL y los parámetros del servicio, y el proxy hace la petición al WMS y devuelve la imagen."
 @startuml
 
 actor Usuario
@@ -625,7 +629,7 @@ Client -->> Usuario: mapa
 
 ### Uso del proxy para acceder a una BD en Intranet
 
-```plantuml
+```plantuml alt="Diagrama de secuencia del acceso a una base de datos en la intranet: el visor pide una tarea al proxy con su token; el proxy pide la configuración al backend, que valida el token y devuelve la conexión y la consulta SQL; el proxy ejecuta la consulta en la base de datos protegida y devuelve el resultado en JSON."
 @startuml
 
 actor Usuario
@@ -749,7 +753,7 @@ El repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun) agrupa todos lo
 Los componentes Java se construyen con un único proyecto Gradle multimódulo (`settings.gradle`);
 las aplicaciones Angular e Ionic, con un *workspace* de pnpm (`pnpm-workspace.yaml`).
 
-```plantuml
+```plantuml alt="Diagrama de módulos: los módulos Java (sitmun-backend, sitmun-proxy y sitmun-mbtiles) y las bibliotecas comunes sitmun-proxy-contract y sitmun-spring-upstream, y las aplicaciones Angular e Ionic (sitmun-admin, sitmun-viewer, sitmun-edition y sitmun-touristic)."
 @startuml
 
 skinparam linetype ortho
@@ -853,7 +857,7 @@ Como se puede deducir de las explicaciones anteriores:
 - La **API de Administración** expone vía una API Web mecanismos para modificar el estado de los objetos de dominio definidos en `domain` por parte de los administradores.
 - La **API de Configuración y Autorización** expone vía una API Web mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio definidos en `domain` en función de la identidad y rol del que solicita la información.
 
-```plantuml
+```plantuml alt="Diagrama de paquetes de org.sitmun: administration (config, controller, service), authentication (controller, dto), authorization (client, proxy, access), domain e infrastructure (persistence, security, variables, web)."
 @startuml Refactor
 skinparam linetype ortho
 package org.sitmun {
