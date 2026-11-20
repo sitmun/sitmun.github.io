@@ -6,7 +6,7 @@ La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué ro
 
 **Información general**
 
-- **Nombre** y **Descripción** (obligatorios).
+- **Nombre** (obligatorio) y **Descripción**.
 - **Tipo** = **Aplicación interna** (el visor de SITMUN). **Aplicación externa** solo guarda un enlace a otra web.
 - **Título**: el texto de la cabecera del visor.
 - **Estilo de mapa utilizado**: déjalo en blanco o pon `sitmun-base`.

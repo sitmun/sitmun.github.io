@@ -502,14 +502,14 @@ PublicWMS -->> Client: Imagen de mapa pedida
 Client ->> Client: Carga una capa de un WMS restringido
 note right
  Por la configuración previamente recibida ya sabe que 
- https://proxy/7/5/cartography/23 es el endpoint de un OGC WMS que devuelve
- una cartografía para una aplicacion (7) y territorio (5). 
+ https://<servidor>/middleware/proxy/7/5/WMS/12/23 es el endpoint de la capa 23
+ del servicio WMS 12 para una aplicación (7) y territorio (5). 
  Debe además usar LAYERS=default para obtenerla. 
 
  Este podría ser el código
  new ImageLayer({
     source: new ImageWMS({
-      url: 'https://proxy/7/5/cartography/23',
+      url: 'https://<servidor>/middleware/proxy/7/5/WMS/12/23',
       params: {'LAYERS': 'default},
       serverType: 'geoserver',
     }),
@@ -598,20 +598,23 @@ else No hay configuración reusable en la cache
 
   note right
     {
-        "type": "ogc:wms",
+        "type": "WMS",
+        "exp": 1300819380,
         "payload": {
-          "url": "http://geoserveis.icgc.cat/map/bases/service",
-          "override-parameters": { "LAYERS": "topogris", "COD_INE": "08630" },
-          "exp": 1300819380,
-          "vary-parameters": [ "BBOX" ]
+          "type": "OgcWmsPayload",
+          "uri": "http://geoserveis.icgc.cat/map/bases/service",
+          "method": "GET",
+          "parameters": { "LAYERS": "topogris", "COD_INE": "08630" },
+          "vary": [ "BBOX" ]
         }
     }
 
-    "override-parameters" quiere decir que debe sustituir o añadir estos parámetros
-    "exp" es la expiration time del token JWT, 
-    luego esta respuesta debe ser cacheada en el proxy hasta alcanzar el expiration time
-    "vary-parameters" es para indicarle al proxy que debe usar esta 
-    respuesta cacheada si el único cambio es en el parámetro BBOX
+    "parameters" son los parámetros que el proxy añade a la petición
+    o sustituye en ella.
+    "exp" es el momento hasta el que el proxy puede reutilizar
+    (cachear) esta configuración.
+    "vary" indica al proxy que puede usar esta respuesta cacheada
+    si el único cambio es en el parámetro BBOX
 
   end note
 
@@ -726,14 +729,20 @@ ConfigurationAPI ->> ConfigurationAPI: Refinar\nconfiguración según\nqué hay 
 ConfigurationAPI -->> AuthenticationEntryPoint: Configuración\npedida (JSON)
 note right
   {
-      "type": "datasource",
+      "type": "SQL",
+      "exp": 1300819380,
       "payload": {
-        "url": "jdbc:mysql://127.0.0.1:3306/db_example",
-        "username": "user",
-        "password": "password",
-        "sql": "SELECT * FROM Parcelas WHERE territory=32"
+        "type": "DatasourcePayload",
+        "uri": "jdbc:postgresql://bd.intranet:5432/catastro",
+        "user": "usuario",
+        "password": "contraseña",
+        "driver": "org.postgresql.Driver",
+        "sql": "SELECT * FROM parcelas WHERE territorio = ?",
+        "parameters": [ { "sqlType": 12, "value": "32" } ]
       }
   }
+  Los parámetros se envían como valores tipados (sqlType de JDBC)
+  y nunca se concatenan en el texto SQL.
 end note
 AuthenticationEntryPoint -->> Backend: Configuración\npedida (JSON)
 Backend -->> Proxy: Configuración\npedida (JSON)
@@ -815,19 +824,19 @@ Cada uno de estos paquetes puede contener:
 
 - Paquete `controller`: contiene los controladores (clases anotadas con `@Controller`) y otras cosas necesarias para implementar ese endpoint HTTP.
 - Paquete `service`: contiene los servicios de aplicación específicos del API (clases anotadas con `@Service`) y clases asociadas. Estos servicios solo se invocarán desde los controladores del paquete `controller`.
-- Paquete `config`: contiene la configuración específica de los componentes del endpoint definidos en los paquetes `web` y `service`. Normalmente, son clases anotadas con `@Configuration` y parte de la configuración puede estar referida a clases de infraestructura (de biblioteca) de Spring Framework.
+- Paquete `config`: contiene la configuración específica de los componentes del endpoint definidos en los paquetes `controller` y `service`. Normalmente, son clases anotadas con `@Configuration` y parte de la configuración puede estar referida a clases de infraestructura (de biblioteca) de Spring Framework.
 
 Además, hay dos paquetes adicionales:
 
 - Paquete `domain` que contiene las clases y los tipos del modelo de **SITMUN 3**. Es decir, el modelo que permite definir aplicaciones **SITMUN 3**, los territorios en
 los que están disponibles, a qué servicios territorios y bases de datos pueden
-acceder y qué usuarios pueden utilizarlas.  Los paquetes que contienen las clases de dominio están anidados, de tal forma que las clases de dominio dependientes de otra aparecen en un paquete anidado en el paquete que contiene la clase principal. Las entidades del paquete `entities` se exponen a través de la **API de Administración** usando el framework **Spring Data REST**.
+acceder y qué usuarios pueden utilizarlas.  Los paquetes que contienen las clases de dominio están anidados, de tal forma que las clases de dominio dependientes de otra aparecen en un paquete anidado en el paquete que contiene la clase principal. Las entidades de `domain` se exponen a través de la **API de Administración** usando el framework **Spring Data REST**.
 - Paquete `infrastructure` que describe los componentes de infraestructura (persistencia, seguridad, web).
 
 El paquete `infrastructure` contiene:
 
-- Paquete `persistence`. Se divide en tres paquetes: el paquete `definition` con constantes, el paquete `entities` con las clases de dominio, y el paquete `types` con los tipos del dominio. El paquete `entities`, además de las clases de dominio, contiene agrupadas junto a la clase formando paquetes la definición de los accesos a base de datos (interfaces anotadas con `@Repository`), las definiciones de las proyecciones y mecanismos de validación de datos del dominio.
-  El paquete `types` contiene la definición de conversores y anotaciones que permiten ser más expresivo en la definición del modelo en el paquete `entities`.
+- Paquete `persistence`: configuración de la persistencia (`config`), dialectos de Hibernate para Oracle (`dialect`), excepciones (`exception`), tipos y conversores que usan las entidades (`type`) y validadores (`validation`).
+  Las entidades del modelo, con sus repositorios (interfaces anotadas con `@Repository`) y proyecciones, están en los paquetes de `domain`.
 - Paquete `security` que contiene la configuración del framework de seguridad `Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad a nivel de la aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PROXY`. Además, este paquete asegura que todos los accesos anónimos sean identificados como un acceso con usuario *público*.
 
 La relación de las API públicas con el paquete `security`es la siguiente:

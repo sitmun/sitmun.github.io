@@ -54,8 +54,12 @@ sudo systemctl restart docker
 lsof -i :9000  # macOS/Linux
 netstat -ano | findstr :9000  # Windows
 
-# Cambiar el puerto publicado del front en .env (por defecto 9000):
+# Cambiar el puerto del front en .env (por defecto 9000). Cambia los dos:
+# LOCAL_PORT es el puerto que se abre en la máquina y PUBLIC_PORT el que
+# aparece en las direcciones que genera SITMUN (por ejemplo, la del proxy):
 #   LOCAL_PORT=8080
+#   PUBLIC_PORT=8080
+# y vuelve a arrancar: docker compose up -d
 # Los puertos 9001-9005 se publican directamente en compose.yaml
 # O detener el proceso que usa el puerto
 ```

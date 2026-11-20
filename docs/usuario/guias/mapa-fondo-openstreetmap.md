@@ -46,12 +46,12 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | **Usar proxy SITMUN** | Desactivado |
     | **Método de autenticación** | Ninguno |
 
-3. En **Parámetros de configuración**, añade estos dos parámetros con el botón de añadir. En los dos, el **Tipo** es *Ajustes de teselas del visor*:
+3. En **Parámetros de configuración**, añade estos dos parámetros con el botón de añadir. En los dos, el **Tipo** es *WMTS*:
 
     | Nombre | Tipo | Valor |
     | --- | --- | --- |
-    | `matrixSet` | Ajustes de teselas del visor | `WorldWebMercatorQuad` |
-    | `format` | Ajustes de teselas del visor | `image/png` |
+    | `matrixSet` | WMTS | `WorldWebMercatorQuad` |
+    | `format` | WMTS | `image/png` |
 
 4. Guarda el servicio.
 
@@ -89,7 +89,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | **Activo** | Activado |
 
 3. En la pestaña **Capas**, añade la capa creada en el paso 2.
-4. En la pestaña **Roles**, añade los roles que deben ver el mapa. Si la aplicación tiene acceso público, incluye también el rol público.
+4. En la pestaña **Roles**, añade los roles que deben ver el mapa. Si la aplicación es pública, incluye también el rol que tenga asignado el usuario `public` (ver [Paso 1](primer-proyecto/paso-1-territorio-rol-usuario.md)).
 5. En la pestaña **Aplicaciones**, añade las aplicaciones donde debe aparecer el mapa.
 6. Guarda.
 

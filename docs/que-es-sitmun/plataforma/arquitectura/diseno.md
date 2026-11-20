@@ -231,9 +231,10 @@ La respuesta podría ser como sigue:
 
 ```json
 {
-  "type": "OgcWmsPayload",
+  "type": "WMS",
   "exp": 1623340800,
   "payload": {
+    "type": "OgcWmsPayload",
     "vary": [
       "BBOX"
     ],

@@ -14,7 +14,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     | Uso | Rama o etiqueta | Perfil (`profiles/*.env`) | Datos |
     | --- | --- | --- | --- |
-    | Probar SITMUN (*showcase*) | `main` | `showcase.env` | Tres aplicaciones de demostración |
+    | Probar SITMUN (*showcase*) | `v1.3.0` | `showcase.env` | Tres aplicaciones de demostración |
     | Producción con PostgreSQL | `v1.3.0` | `postgres.env` | Sin datos de ejemplo |
     | Producción con Oracle | `v1.3.0` | `oracle.env` | Sin datos de ejemplo |
     | Desarrollo con PostgreSQL | `dev` | `development-postgres.env` | Datos de ejemplo |
@@ -57,26 +57,20 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         docker compose up -d --pull always --no-build
         ```
 
-    4. Verifica la instalación:
+    4. Espera a que el backend responda `{"status":"UP"}` (la primera vez tarda un par de minutos, mientras crea la base de datos):
 
         ```bash
-        docker compose ps
         curl http://localhost:9001/api/dashboard/health
-        curl http://localhost:9002/actuator/health
         ```
 
         En PowerShell usa `curl.exe` en lugar de `curl`.
 
-    5. Accede a las aplicaciones:
-
-        - Visor: <http://localhost:9000/viewer/>
-        - Administrador: <http://localhost:9000/admin/>
-        - Backend API: <http://localhost:9000/backend/>
-        - Documentación de la API (Swagger UI): <http://localhost:9001/swagger-ui/index.html>
+    5. Abre el administrador en <http://localhost:9000/admin/> y el visor en <http://localhost:9000/viewer/>.
+       La documentación de la API (Swagger UI) está en <http://localhost:9001/swagger-ui/index.html>.
 
     **Primer acceso al administrador**
 
-    En una base de datos de producción el usuario `admin` no tiene contraseña.
+    En una base de datos de producción (y en el *showcase*) el usuario `admin` no tiene contraseña.
     La primera visita a `/admin/` pide crear su contraseña y elegir el idioma por defecto.
     Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que hazla enseguida,
     o define `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, si quieres, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
@@ -86,13 +80,25 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Probar SITMUN (showcase)**
 
-    ```bash
-    git clone https://github.com/sitmun/sitmun.git
-    cd sitmun
-    cp profiles/showcase.env .env
-    ./setup.sh
-    docker compose -p sitmun-showcase up -d --pull always --no-build
-    ```
+    - Linux/macOS:
+
+        ```bash
+        git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
+        cd sitmun
+        cp profiles/showcase.env .env
+        ./setup.sh
+        docker compose -p sitmun-showcase up -d --pull always --no-build
+        ```
+
+    - Windows:
+
+        ```powershell
+        git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
+        cd sitmun
+        Copy-Item profiles\showcase.env .env
+        .\setup.ps1
+        docker compose -p sitmun-showcase up -d --pull always --no-build
+        ```
 
     En el visor, el usuario `demo` con contraseña `demo` ve las tres aplicaciones de demostración.
 
@@ -105,7 +111,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     docker compose up -d
     ```
 
-    Sin `.env`, `setup.sh` copia `profiles/development-postgres.env`.
+    En Windows, usa `.\setup.ps1` en lugar de `./setup.sh`.
+    Sin `.env`, `setup.sh` (o `setup.ps1`) copia `profiles/development-postgres.env`.
     `docker compose up -d` sin `--no-build` compila las imágenes a partir del código del repositorio.
 
     **Servicios**
@@ -157,9 +164,16 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     La actualización desde 1.2.8 o 1.2.9 está en
     [docs/upgrade](https://github.com/sitmun/sitmun/tree/main/docs/upgrade).
 
-    **Desinstalación**
+    **Parar y desinstalar**
 
-    Para detener y eliminar todos los servicios, volúmenes y redes definidos en `compose.yaml`, usa:
+    Para parar SITMUN conservando los datos:
+
+    ```bash
+    docker compose down
+    ```
+
+    Para eliminarlo todo, **incluida la base de datos** (no se puede deshacer; haz antes una
+    [copia de seguridad](solucion-problemas.md#backup-de-base-de-datos) si la necesitas):
 
     ```bash
     docker compose down -v
@@ -202,11 +216,16 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             export SPRING_JPA_HIBERNATE_DDL_AUTO=validate
             export SITMUN_USER_SECRET=$(openssl rand -hex 32)
             export SITMUN_PROXY_MIDDLEWARE_SECRET=$(openssl rand -hex 32)
+            export SITMUN_PROXY_MIDDLEWARE_URL=http://localhost:8082
             java -jar sitmun-backend/build/libs/sitmun-backend-1.3.0.jar \
               --spring.profiles.active=prod,postgres \
               --spring.config.additional-location=file:profiles/postgres/
             ```
 
+            - `SITMUN_PROXY_MIDDLEWARE_URL` es la dirección **pública** del proxy, la que usarán los navegadores
+              para las capas y tareas que pasan por el proxy (por ejemplo `https://ejemplo.org/middleware`
+              si un servidor web lo publica en esa ruta). El ejemplo apunta al proxy del paso siguiente,
+              arrancado en el puerto 8082.
             - Guarda los dos secretos: `SITMUN_PROXY_MIDDLEWARE_SECRET` debe ser el mismo que use el **proxy**
               (`SITMUN_BACKEND_CONFIG_SECRET`), y si cambia `SITMUN_USER_SECRET` se invalidan las sesiones.
             - Para Oracle usa el perfil `prod,oracle` (u `oracle-11` para Oracle 11g), la carpeta `profiles/oracle/`,
@@ -232,18 +251,21 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             El JAR ejecutable se genera en `sitmun-proxy/build/libs/sitmun-proxy-<versión>.jar`.
 
-        2. Configura las variables de entorno:
-
-            - `SITMUN_BACKEND_CONFIG_URL`: URL de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**
-              del backend, por ejemplo `http://backend:8080/api/config/proxy`.
-              Si el **proxy** y el **backend** están en la misma red, usa el nombre o la dirección IP interna del **backend**.
-            - `SITMUN_BACKEND_CONFIG_SECRET`: el mismo secreto que el backend tiene en `SITMUN_PROXY_MIDDLEWARE_SECRET`.
-
-        3. Ejecútalo:
+        2. Ejecútalo desde la raíz del repositorio:
 
             ```bash
-            java -jar sitmun-proxy/build/libs/sitmun-proxy-1.3.0.jar --spring.profiles.active=prod
+            export SITMUN_BACKEND_CONFIG_URL=http://localhost:8080/api/config/proxy
+            export SITMUN_BACKEND_CONFIG_SECRET=<el valor de SITMUN_PROXY_MIDDLEWARE_SECRET del backend>
+            java -jar sitmun-proxy/build/libs/sitmun-proxy-1.3.0.jar --spring.profiles.active=prod --server.port=8082
             ```
+
+            - `SITMUN_BACKEND_CONFIG_URL` es la URL de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**
+              del backend. Si el **proxy** y el **backend** están en máquinas distintas, usa el nombre o la dirección IP interna del **backend**.
+            - `SITMUN_BACKEND_CONFIG_SECRET` debe ser idéntico al secreto del backend y tener al menos 32 caracteres.
+
+            El backend y el proxy usan por defecto el puerto 8080. Si están en la misma máquina, arranca el proxy
+            en otro puerto (aquí 8082, el mismo que `SITMUN_PROXY_MIDDLEWARE_URL` del backend).
+            Cuando arranque, `http://localhost:8082/actuator/health` responde `UP`.
 
         La imagen Docker se construye desde la raíz con `docker/proxy/Dockerfile`.
         Más detalles en [sitmun-proxy/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-proxy/README.md).
@@ -256,28 +278,24 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             pnpm ci
             ```
 
-        2. Revisa `apiUrl` en `sitmun-viewer/src/environments/environment.prod.ts`. Por defecto es `/backend`.
-
-        3. Compila:
+        2. Compila. `PUBLIC_BASE_PATH` es la ruta pública bajo la que se publica SITMUN (`/` si el visor queda en `/viewer/`).
+           El visor la necesita para cargar sus módulos y registrar su *service worker* desde `/viewer/`,
+           igual que hace la imagen Docker:
 
             ```bash
             cd sitmun-viewer
-            pnpm run build --configuration=production --base-href=/viewer/
+            export PUBLIC_BASE_PATH=/
+            envsubst '$PUBLIC_BASE_PATH' < ../docker/front/viewer/index.html.template > src/index.html
+            pnpm run build --configuration=production --base-href=${PUBLIC_BASE_PATH}viewer/
             ```
 
+            `envsubst` forma parte de GNU gettext. Sin `PUBLIC_BASE_PATH` el visor compila, pero
+            se queda en blanco: busca sus módulos en la raíz del servidor en lugar de en `/viewer/`.
+
             Los archivos se generan en `sitmun-viewer/dist/viewer-app`.
+            Esta compilación usa direcciones con `#`, por ejemplo `/viewer/#/public/dashboard`.
 
-        Copia el contenido de esa carpeta a tu servidor web y
-        configura el servidor para redirigir las solicitudes de archivos no encontrados a `index.html`.
-
-        !!! warning "No olvides configurar la redirección a `index.html` en tu servidor"
-            Si no se configura correctamente la redirección, es posible que la navegación dentro del visor de mapas
-            funcione correctamente, pero al hacer clic en un enlace externo (por ejemplo, un enlace de correo electrónico),
-            al introducir una URI directamente en la barra de direcciones o simplemente al refrescar la página,
-            se produzca un error 404. Esto ocurre porque estas peticiones son manejadas directamente por el navegador
-            y no por enrutador de Angular que gestiona la navegación dentro del visor de mapas.
-            Ver [Routed apps must fall back to index.html](https://angular.dev/tools/cli/deployment#server-configuration)
-            en la documentación oficial de Angular para más información.
+        Copia el contenido de esa carpeta a `/viewer/` en tu servidor web (ver más abajo, *Publicar en un servidor web*).
 
         Más detalles en [sitmun-viewer/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-viewer/README.md).
 
@@ -289,9 +307,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             pnpm ci
             ```
 
-        2. Revisa `apiBaseURL` en `sitmun-admin/src/environments/environment.prod.ts`. Por defecto es `/backend`.
-
-        3. Compila:
+        2. Compila:
 
             ```bash
             cd sitmun-admin
@@ -300,9 +316,22 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             Los archivos se generan en `sitmun-admin/dist/admin-app`.
 
-        Copia el contenido de esa carpeta a tu servidor web.
+        Copia el contenido de esa carpeta a `/admin/` en tu servidor web (ver *Publicar en un servidor web*).
         Más detalles en [sitmun-admin/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-admin/README.md).
+
+    **Publicar en un servidor web**
+
+    El visor y el administrador llaman a la API en `/backend` del mismo servidor, y el visor usa el proxy
+    en la dirección `SITMUN_PROXY_MIDDLEWARE_URL` del backend. El servidor web (nginx, Apache, IIS…) debe:
+
+    - servir `dist/viewer-app` en `/viewer/` y `dist/admin-app` en `/admin/`, devolviendo el `index.html` de cada uno
+      cuando el archivo pedido no existe;
+    - reenviar `/backend/` al backend (`http://localhost:8080/`) y, si publicas el proxy en `/middleware/`, reenviar
+      esa ruta al proxy (`http://localhost:8082/`), quitando el prefijo en ambos casos.
+
+    La configuración que usa la imagen Docker es un ejemplo completo:
+    [docker/front/config/default.conf.template](https://github.com/sitmun/sitmun/blob/main/docker/front/config/default.conf.template).
 
 ---
 
-Siguiente paso: [Primer proyecto](../guias/primer-proyecto/index.md)
+Con SITMUN instalado, crea tu primer visor con la guía [Primer proyecto](../guias/primer-proyecto/index.md). Si algo no arranca, consulta [Solución de problemas](solucion-problemas.md).

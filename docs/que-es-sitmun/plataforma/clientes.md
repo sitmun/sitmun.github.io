@@ -9,7 +9,7 @@ description: "Clientes de SITMUN 3: visor de mapas web y embebible, aplicación 
 | Cliente | Carpeta en [sitmun/sitmun](https://github.com/sitmun/sitmun) | Dirección |
 | --- | --- | --- |
 | Visor de mapas web | `sitmun-viewer` | `/viewer/` |
-| Visor embebible (para insertar en otra web con un `iframe`) | `sitmun-viewer` | `/viewer/embedded-map/{aplicación}/{territorio}/{idioma}` |
+| Visor embebible (para insertar en otra web con un `iframe`) | `sitmun-viewer` | `/viewer/#/embedded-map/{aplicación}/{territorio}/{idioma}` (sin `#/` en una instalación de desarrollo) |
 | Aplicación de administración | `sitmun-admin` | `/admin/` |
 | Aplicación móvil de edición (Android) | `sitmun-mobile/sitmun-edition` | — |
 | Aplicación móvil turística (Android) | `sitmun-mobile/sitmun-touristic` | — |

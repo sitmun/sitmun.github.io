@@ -93,4 +93,4 @@ block-beta
 
 ---
 
-Siguiente paso: [Requisitos](../../usuario/instalacion/requisitos.md)
+Para instalar SITMUN, empieza por los [Requisitos](../../usuario/instalacion/requisitos.md).

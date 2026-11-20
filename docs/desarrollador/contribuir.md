@@ -2,7 +2,9 @@
 description: "Cómo se organiza el desarrollo de SITMUN 3 y cómo contribuir: repositorio, automatización y requisitos técnicos y metodológicos."
 ---
 
-# Gestión
+# Cómo contribuir
+
+## Gestión
 
 En líneas generales se trata de mantener una gestión ágil, dentro de las limitaciones impuestas por un proyecto de estas características, coordinado entre varias administraciones públicas que a su vez subcontratan la mayor parte de los esfuerzos de desarrollo a distintos adjudicatarios. El equipo de coordinación técnica del proyecto es el punto de contacto ante cualquier duda que surja sobre estas cosas.
 
@@ -13,7 +15,11 @@ Se trabaja en abierto sobre GitHub, bajo el paraguas de la [organización SITMUN
 - Los desarrolladores y desarrolladoras tienen que crear cuentas en GitHub y se les darán los permisos necesarios para trabajar en repositorios en esa organización.
 - La gestión del trabajo (tareas/incidencias) se hace usando [GitHub Issues](https://docs.github.com/es/issues). En ocasiones se usan [tableros de proyecto de GitHub](https://docs.github.com/es/issues/trying-out-the-new-projects-experience/about-projects), esto depende del subproyecto concreto y se acuerda con los desarrolladores en cada caso. En cualquier caso, los tableros de proyecto solo son una forma distinta de ver las tareas/incidencias de GitHub Issues.
 - La construcción y despliegue automáticos se hace usando [GitHub Actions](https://docs.github.com/es/actions).
-- En general, se proporciona acceso directo, en lectura y escritura, a los repositorios necesarios. No hay un equipo de desarrollo principal que haga el grueso del trabajo y luego pequeñas contribuciones puntuales de otros, así que el modelo de forks y pull requests no es, por ahora, adecuado.
+- Todo cambio entra mediante *pull request*, según [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md):
+    - Se crea una rama desde `dev` y se abre la *pull request* contra `dev`.
+    - `main` solo recibe las *pull requests* de publicación que vienen de `dev`.
+    - Hace falta la revisión de un responsable del código (`tech-com`) y que las comprobaciones de CI (`ci-gate` y las pruebas de base de datos que correspondan) estén en verde.
+    - No se admiten *push* directos a `dev` ni a `main`.
 - El equipo de coordinación técnica del proyecto tiene que tener acceso a los desarrollos en tiempo real para poder cumplir su papel de coordinación y de validación técnica de los resultados.
 
 ## Automatización de procesos
@@ -24,7 +30,6 @@ En general haremos siempre énfasis en la automatización de todo lo que sea aut
 - La construcción y despliegue automáticos, al menos en servidores de pruebas y/o preproducción, también serán el requisito por defecto, salvo muy buena razón en contra. Ahora mismo la construcción y pruebas automáticas se hacen en [GitHub Actions](https://docs.github.com/en/actions). Esto puede evolucionar con el tiempo.
 - La construcción automática se hace con [Gradle](https://gradle.org) para los componentes Java y con [pnpm](https://pnpm.io) para las aplicaciones Angular e Ionic, desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun). Las órdenes de construcción, pruebas y comprobaciones están en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md) y en los flujos de GitHub Actions del repositorio.
 - Los secretos (contraseñas o tokens) se gestionan adecuadamente usando [GitHub secrets](https://docs.github.com/es/actions/security-guides/encrypted-secrets). No hay, ni debe haber, ninguna contraseña o token en ninguna parte de ningún repositorio.
-- En algunos repositorios se hace uso de [SonarCloud](https://sonarcloud.io) para el análisis estático del código.
 - Seguiremos [semantic versioning 2.0.0](https://semver.org) cuando haya que dar identificadores de versión públicos a algo.
 
 ## Consideraciones técnicas
