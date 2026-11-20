@@ -8,7 +8,7 @@ Para definir un territorio se deben definir los parámetros mínimos:
 
 - **Nombre**: nombre del territorio que permita identificar el elemento; se mostrará en las aplicaciones.
 - **Código**: código único oficial del territorio.
-- **Tipo**: hay varias opciones seleccionables de una lista (Provincia, Mancomunidad, Consorcio, Consejo Comarcal, Municipio, EMD, Parque Natural o Área). Esta lista está definida en la configuración del [Sistema](sistema.md).
+- **Tipo**: se selecciona de una lista que se mantiene en [Sistema → Tipos de territorio](sistema.md#tipos-de-territorio). Una instalación nueva incluye, entre otros, país, comunidad autónoma, diputación, consejo insular, comarca, área metropolitana, mancomunidad, municipio y entidad inframunicipal; cada instalación puede añadir los suyos.
 
 Aunque no sean requisito indispensable, también es de gran importancia detallar la presentación inicial con la que se abrirá una aplicación de tipo visor con este territorio. Para ello se debe definir la ubicación del territorio con una de las dos opciones disponibles:
 

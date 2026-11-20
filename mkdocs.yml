@@ -2,9 +2,13 @@ site_name: Documentación de SITMUN 3
 repo_url: https://github.com/sitmun/sitmun.github.io
 repo_name: sitmun/sitmun.github.io
 site_url: https://sitmun.github.io
+# Built with Zensical (https://zensical.org), which reads this mkdocs.yml.
+site_dir: _site
 
 theme:
   name: material
+  # Keeps the Material for MkDocs look (and css/extra.css) under Zensical.
+  variant: classic
   palette:
     primary: black
   logo: https://raw.githubusercontent.com/sitmun/community/master/Isotip%20SITMUN/PNG/02.principal-transparent-28x28.png
@@ -42,7 +46,7 @@ theme:
 extra_css: [css/extra.css]
 extra_javascript: [js/checklists.js]
 
-# Turn link and nav problems into warnings so `mkdocs build --strict` fails on them
+# Turn link and nav problems into warnings so `zensical build --strict` fails on them
 validation:
   omitted_files: warn
   absolute_links: warn
@@ -51,7 +55,6 @@ validation:
 
 plugins:
   - search
-  - render_swagger
   - autorefs  
   - redirects:
       redirect_maps:
@@ -75,13 +78,6 @@ plugins:
         troubleshooting.md: usuario/instalacion/solucion-problemas.md
         license.md: que-es-sitmun/plataforma/licencia.md
         contact.md: que-es-sitmun/red-sitmun/contacto.md
-  - print-site:  # Must be the last plugin listed here
-     add_to_navigation: true
-     print_page_title: 'Versión Imprimible'
-     # Table of contents
-     add_table_of_contents: true
-     toc_title: 'Table of Contents'
-     toc_depth: 6
 
 nav:
   - Inicio: index.md
@@ -178,8 +174,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
+      emoji_index: !!python/name:zensical.extensions.emoji.twemoji
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span

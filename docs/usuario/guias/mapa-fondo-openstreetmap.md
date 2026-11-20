@@ -38,7 +38,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 2. Rellena los datos principales:
 
     | Campo | Valor |
-    |---|---|
+    | --- | --- |
     | **Título del servicio** | `OpenStreetMap` (solo lo ven los administradores) |
     | **Tipo de servicio** | `WMTS` |
     | **Endpoint del servicio** | La dirección del archivo que has comprobado antes |
@@ -49,7 +49,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 3. En **Parámetros de configuración**, añade estos dos parámetros con el botón de añadir. En los dos, el **Tipo** es *Ajustes de teselas del visor*:
 
     | Nombre | Tipo | Valor |
-    |---|---|---|
+    | --- | --- | --- |
     | `matrixSet` | Ajustes de teselas del visor | `WorldWebMercatorQuad` |
     | `format` | Ajustes de teselas del visor | `image/png` |
 
@@ -64,7 +64,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 2. Rellena los datos:
 
     | Campo | Valor |
-    |---|---|
+    | --- | --- |
     | **Nombre** | `OpenStreetMap` |
     | **Capa disponible para su uso por parte de los clientes** | Activado |
     | **Servicio** (*Selecciona un servicio*) | El servicio creado en el paso 1 |
@@ -82,7 +82,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 2. Rellena los datos:
 
     | Campo | Valor |
-    |---|---|
+    | --- | --- |
     | **Nombre** | `OpenStreetMap` |
     | **Descripción** | Opcional |
     | **Imagen** | Miniatura que verán los usuarios. El visor incluye una: `<dirección del visor>/assets/js/api-sitna/css/img/thumb-osm.png` |
@@ -106,7 +106,7 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
 ## Si no se ve
 
 | Qué pasa | Qué revisar |
-|---|---|
+| --- | --- |
 | OpenStreetMap no aparece en la lista de mapas de fondo | El mapa de fondo está **Activo** y tiene la aplicación (paso 3). La capa está marcada como disponible y tiene el **territorio** (paso 2). El mapa de fondo tiene el **rol** del usuario (paso 3). |
 | Aparece en la lista, pero el mapa queda en blanco | Los parámetros `matrixSet` y `format` del servicio (paso 1). El campo **Capa o capas del servicio utilizadas** de la capa es `osm`, en minúsculas (paso 2). |
 | Aparece con otro nombre | El nombre que se muestra es el de la **capa** (paso 2). |

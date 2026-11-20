@@ -1,5 +1,8 @@
 # Cliente APP SITMUN aplicada a los recursos turísticos
 
+!!! success "Estado (noviembre 2026): implementado para Android"
+    La aplicación turística está en la carpeta [`sitmun-mobile/sitmun-touristic`](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile/sitmun-touristic) del repositorio de SITMUN.
+
 !!! info "Aspectos generales"
 
     **Estimación horas de desarrollo:** 2.500 horas
@@ -40,7 +43,7 @@ información (turística) y funcionalidades asociadas al usuario.
 
 Por administrador (de aplicaciones) SITMUN se entenderá la aplicación web de la plataforma SITMUN que permite la
 configuración de aplicaciones por usuario final. Esta aplicación ya está desarrollada en una
-[versión beta inicial](https://github.com/sitmun/sitmun-admin-app).
+[versión beta inicial](https://github.com/sitmun/sitmun/tree/main/sitmun-admin).
 
 El administrador SITMUN ha de disponer de la capacidad de poder configurar los apartados, contenido y funcionalidades
 de una APP de forma flexible.

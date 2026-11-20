@@ -18,16 +18,18 @@ En general haremos siempre énfasis en la automatización de todo lo que sea aut
 
 - En especial, no se puede trabajar en este proyecto sin tener claro que la automatización de pruebas es una buena práctica inexcusable en el desarrollo de software.
 - La construcción y despliegue automáticos, al menos en servidores de pruebas y/o preproducción, también serán el requisito por defecto, salvo muy buena razón en contra. Ahora mismo la construcción y pruebas automáticas se hacen en [GitHub Actions](https://docs.github.com/en/actions). Esto puede evolucionar con el tiempo.
-- La construcción automática se hace con [Gradle](https://gradle.org) o [NPM](https://www.npmjs.com) según sean proyectos Java o Angular. En general, la mejor documentación sobre los procesos de construcción automática son los scripts de GitHub Actions en cada repositorio. En algunos repositorios hay algunos scripts de Bash en `/build-scripts`. Estos pueden usarse en local, pero de nuevo es importante ver cómo se usan desde los scripts de GitHub Actions, incluyendo qué variables de entorno deben estar configuradas.
+- La construcción automática se hace con [Gradle](https://gradle.org) para los componentes Java y con [pnpm](https://pnpm.io) para las aplicaciones Angular e Ionic, desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun). Las órdenes de construcción, pruebas y comprobaciones están en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md) y en los flujos de GitHub Actions del repositorio.
 - Los secretos (contraseñas o tokens) se gestionan adecuadamente usando [GitHub secrets](https://docs.github.com/es/actions/security-guides/encrypted-secrets). No hay, ni debe haber, ninguna contraseña o token en ninguna parte de ningún repositorio.
 - En algunos repositorios se hace uso de [SonarCloud](https://sonarcloud.io) para el análisis estático del código.
 - Seguiremos [semantic versioning 2.0.0](https://semver.org) cuando haya que dar identificadores de versión públicos a algo.
 
 ## Consideraciones técnicas
 
-El desarrollo de los servicios de backend se hace en Java 17, usando [Spring Boot 3.5.4](https://spring.io/projects/spring-boot).
-El desarrollo de las aplicaciones de frontend se hace con TypeScript y [Angular 16.2.12](https://angular.io).
-Tanto el Administrador como el Visor de mapas están desarrollados en Angular 16.2.12.
+El desarrollo de los servicios de backend (backend, proxy y MBTiles) se hace en Java 17, usando [Spring Boot 4.1](https://spring.io/projects/spring-boot).
+El desarrollo de las aplicaciones de frontend se hace con TypeScript y [Angular 22](https://angular.dev):
+tanto el Administrador como el Visor de mapas están desarrollados en Angular 22,
+y las aplicaciones móviles en [Ionic 8](https://ionicframework.com) y [Capacitor 8](https://capacitorjs.com) sobre Angular 22.
+Las versiones exactas de todas las herramientas están en el [README](https://github.com/sitmun/sitmun#toolchain) del repositorio.
 
 ## Consideraciones metodológicas
 
@@ -44,16 +46,25 @@ Cualquier desarrollo dentro del marco **SITMUN 3** debe cumplir con los siguient
 
 Es importante cumplir con estos requisitos metodológicos para asegurar un desarrollo coherente, eficiente y de alta calidad dentro de **SITMUN 3**.
 
-## Repositorios de GitHub
+## Repositorio de GitHub
 
-A continuación se listan los repositorios de la organización SITMUN junto con una breve descripción de cada uno:
+Desde la versión 1.3.0 todo el código de SITMUN está en un único repositorio,
+[sitmun/sitmun](https://github.com/sitmun/sitmun). Cada componente es una carpeta:
 
-- **[sitmun-viewer-app](https://github.com/sitmun/sitmun-viewer-app)**: Aplicación web para visualizar mapas en la plataforma SITMUN, desarrollada con TypeScript, JavaScript, npm y Angular. [Más información](https://github.com/sitmun/sitmun-viewer-app).
-- **[sitmun-admin-app](https://github.com/sitmun/sitmun-admin-app)**: Aplicación de administración para la plataforma SITMUN.
-- **[sitmun-backend-core](https://github.com/sitmun/sitmun-backend-core)**: Proporciona la lógica de negocio del backend mediante una API REST. Desarrollado en Java 17 y Spring Boot 3. [Más información](https://github.com/sitmun/sitmun-backend-core).
-- **[sitmun-proxy-middleware](https://github.com/sitmun/sitmun-proxy-middleware)**: Proxy a servicios web restringidos y middleware a bases de datos. Desarrollado en Java 17 y Spring Boot 3. [Más información](https://github.com/sitmun/sitmun-proxy-middleware).
-- :material-new-box: **[sitmun-application-stack](https://github.com/sitmun/sitmun-application-stack)**: Contiene las configuraciones necesarias para desplegar la plataforma SITMUN utilizando Docker. [Más información](https://github.com/sitmun/sitmun-application-stack).
-- :material-new-box: **[administration-mobile-app](https://github.com/sitmun/administration-mobile-app)**: Aplicación móvil para la administración de SITMUN. [Más información](https://github.com/sitmun/administration-mobile-app).
-- :material-new-box: **[touristic-mobile-app](https://github.com/sitmun/touristic-mobile-app)**: Aplicación móvil turística desarrollada para SITMUN. [Más información](https://github.com/sitmun/touristic-mobile-app).
+| Componente | Carpeta | Tecnología |
+| --- | --- | --- |
+| Administrador | `sitmun-admin` | Angular 22 |
+| Visor de mapas | `sitmun-viewer` | Angular 22, API SITNA |
+| App móvil de edición | `sitmun-mobile/sitmun-edition` | Ionic 8, Angular 22, Capacitor 8 |
+| App turística | `sitmun-mobile/sitmun-touristic` | Ionic 8, Angular 22, Capacitor 8 |
+| Backend | `sitmun-backend` | Spring Boot 4.1, Java 17 |
+| Proxy middleware | `sitmun-proxy` | Spring Boot 4.1, Java 17 |
+| MBTiles | `sitmun-addons/sitmun-mbtiles` | Spring Boot 4.1, Java 17 |
+| Bibliotecas comunes | `sitmun-common` | Java 17 |
+| Despliegue con Docker | `compose.yaml`, `docker/`, `profiles/` | Docker Compose |
 
-Estos repositorios contienen el código y las configuraciones necesarias para los distintos componentes del sistema SITMUN, abarcando tanto el backend como el frontend y las aplicaciones móviles.
+Los repositorios anteriores (`sitmun-admin-app`, `sitmun-viewer-app`, `sitmun-backend-core`, `sitmun-proxy-middleware`,
+`sitmun-application-stack`, `edition-mobile-app`, `administration-mobile-app` y `touristic-mobile-app`) corresponden a la versión 1.2.9 y anteriores.
+Las versiones publicadas de los repositorios web y de servicios se conservan en el repositorio único como etiquetas `legacy/<repositorio>/…`.
+
+Las normas de contribución están en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md).

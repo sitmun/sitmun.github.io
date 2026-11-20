@@ -12,13 +12,17 @@ En este apartado podemos gestionar de manera rápida la relación entre dichos c
 
 Permite gestionar los idiomas disponibles en SITMUN. Añadir un idioma no significa que se añadan automáticamente todas las traducciones, sino que será posible, si se desea, generar los textos en el idioma añadido.
 
+Desde aquí también se cambia el **idioma por defecto** de SITMUN: al marcar otro idioma como idioma por defecto, el administrador muestra una vista previa de los textos afectados antes de aplicar el cambio.
+
 Este idioma se refiere al idioma de los contenidos de SITMUN (lo que el usuario o el administrador pueden añadir), no al idioma de los propios mensajes de la aplicación, que se deberían gestionar de manera diferente en el caso de añadir un nuevo idioma.
 
 ## Traducciones de literales
 
-Esta opción permite añadir palabras o frases del sistema en diversos idiomas. A partir de su versión en inglés (que actúa como clave), se pueden proporcionar el resto de traducciones de dicha frase.
+Esta opción permite añadir palabras o frases del sistema en diversos idiomas. Cada literal tiene un texto original en un idioma de origen y, a partir de él, se pueden proporcionar el resto de traducciones de dicha frase.
 
-También se puede modificar la propia clave en inglés con el símbolo de editar situado a la derecha de cada literal.
+También se puede modificar el propio texto original con el símbolo de editar situado a la derecha de cada literal.
+
+Las traducciones se pueden exportar e importar en formato CSV.
 
 ## Tipos de territorio
 
@@ -36,5 +40,5 @@ En general, las listas de valores que se utilizan en SITMUN provienen de un conj
 
 Permite editar y añadir parámetros de configuración general de SITMUN, por ejemplo:
 
-- `language.default`: indica el idioma por defecto de SITMUN.
+- `language.default`: indica el idioma por defecto de SITMUN. Es de solo lectura: se cambia desde [Idiomas](#idiomas).
 - `srs.default.identifier`: indica el sistema de referencia que se utilizará por defecto.

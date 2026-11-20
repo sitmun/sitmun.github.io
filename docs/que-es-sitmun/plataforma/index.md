@@ -22,18 +22,20 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
 
 **SITMUN 3** tiene una arquitectura de 3 niveles:
 
-- **Nivel cliente**: Actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun-admin-app)** para los administradores
-  y un **[visor de mapas](https://github.com/sitmun/sitmun-viewer-app)** basado en la [API SITNA](https://github.com/sitna/api-sitna)
-  que es utilizado por los diferentes tipos de usuarios finales, tanto al público en general como a especialistas de los ayuntamientos, entre otros.
+- **Nivel cliente**: Actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun/tree/main/sitmun-admin)** para los administradores,
+  un **[visor de mapas](https://github.com/sitmun/sitmun/tree/main/sitmun-viewer)** basado en la [API SITNA](https://github.com/sitna/api-sitna)
+  que es utilizado por los diferentes tipos de usuarios finales, tanto al público en general como a especialistas de los ayuntamientos, entre otros,
+  y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: una de edición de datos sin conexión y una turística.
 - **Nivel de lógica de negocio**: Desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
   tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
   El acceso a la lógica de negocio de los **visores de mapas** se realiza a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy-middleware**).
   El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]** (parte de **SITMUN Backend**).
   En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
 - **Nivel de datos**: Puede estar en cualquier base de datos relacional, aunque actualmente se utilizan **Oracle** y **PostgreSQL**.
-  El modelo de datos está documentado en [la organización de SITMUN en GitHub](https://github.com/sitmun).
+  El modelo de datos está documentado en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
 
 La siguiente figura recoge el modelo descrito:
+
 ```mermaid
 block-beta
   columns 5

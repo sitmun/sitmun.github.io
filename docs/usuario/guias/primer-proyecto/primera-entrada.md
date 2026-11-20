@@ -3,7 +3,7 @@
 El administrador se abre en `http://<servidor>/admin` (en una instalación local, `http://localhost:9000/admin`).
 
 1. Elige el **Idioma** en la pantalla de inicio.
-2. Escribe **Usuario** y **Contraseña** y pulsa **Iniciar sesión**. En una instalación nueva el usuario es `admin` y la contraseña `admin`: cámbiala el primer día.
+2. Escribe **Usuario** y **Contraseña** y pulsa **Iniciar sesión**. En una instalación de producción nueva, la primera visita pide crear la contraseña del usuario `admin` y elegir el idioma por defecto (ver [Instalación](../../instalacion/instalacion.md)). En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
 3. Solo pueden entrar los usuarios con la opción **Usuario administrador de SITMUN** activada.
 
 **El menú lateral** está agrupado en el orden de trabajo de esta guía:

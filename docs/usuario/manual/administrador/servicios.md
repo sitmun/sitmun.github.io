@@ -34,9 +34,9 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para la conexión a servicios con autenticación debemos utilizar el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica**. Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
+Para la conexión a servicios con autenticación debemos utilizar el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica** (usuario y contraseña) o **API key** (una clave enviada en una cabecera, un parámetro de la consulta o una cookie). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
 
-Al seleccionar la opción de autenticación deberemos facilitar el usuario y la contraseña de conexión al servicio.
+Al seleccionar la opción de autenticación deberemos facilitar el usuario y la contraseña, o la clave, de conexión al servicio.
 
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 
@@ -74,7 +74,7 @@ Podemos quitar una capa ya registrada seleccionándola de la lista y pulsando el
 
 Las pestañas **Monitorización** y **Uso** ofrecen herramientas útiles para poder realizar un seguimiento del servicio en cuestión y conocer su estado.
 
-En concreto, la pestaña **Monitorización** permite mantener un seguimiento permanente que prueba la conexión al servicio cada 10 minutos. Esto resulta útil, ya que se pueden detectar servicios que han dejado de funcionar sin necesidad de realizar una prueba explícita sobre el servicio.
+En concreto, la pestaña **Monitorización** permite mantener un seguimiento permanente que prueba la conexión al servicio periódicamente (cada 15 minutos por defecto; el intervalo se configura en el backend con `sitmun.service-check.interval`). Esto resulta útil, ya que se pueden detectar servicios que han dejado de funcionar sin necesidad de realizar una prueba explícita sobre el servicio.
 
 ![Pestaña Monitorización](img/servicios-monitorizacion.webp){ loading=lazy }
 

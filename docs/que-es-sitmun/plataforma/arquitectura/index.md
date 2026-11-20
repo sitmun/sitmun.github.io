@@ -14,7 +14,7 @@
 - **Componentes adicionales.** Se usan en varias aplicaciones, (tanto en la de administración como en las de usuario final):
     - **Proxy**: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).
     Es un proxy inverso y, por tanto, el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.
-    - **API de autenticación**: permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones (Microsoft Active Directory, servicios LDAP y otros).
+    - **API de autenticación**: permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones: usuario y contraseña guardados en la base de datos de SITMUN, servicios LDAP (incluido Microsoft Active Directory) y proveedores OpenID Connect (OIDC).
 
 **SITMUN 3** no tiene un conjunto de datos o servicios geográficos/territoriales predefinidos. Cada despliegue de **SITMUN 3** se hace para una organización concreta, normalmente supramunicipal, y esta organización debe decidir qué aplicaciones quiere ofrecer a sus usuarios, típicamente personal técnico de los municipios, y qué servicios y datos geográficos/territoriales van a estar accesibles en estas aplicaciones. Estos servicios y bases de datos los tendrá que tener en sus propios sistemas, o bien tendrán que estar en algún sitio al que puedan acceder.
 
@@ -23,11 +23,12 @@ Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poc
 - Con la API de autenticación solo al principio, para identificar al usuario.
 - Con la API de configuración solo en el arranque.
 - La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.
-  - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
+    - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
 
 Esto conviene tenerlo en cuenta cuando estemos dimensionando el hardware que necesitamos para el despliegue, y cómo lo vamos a repartir.
 
-**SITMUN 3** tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular 16, Spring Boot 3 se usa en el tier web, y una base de datos relacional (PostgreSQL 16, Oracle 23c, o H2 para desarrollo a día de hoy, pero se pueden usar otras) en el tier de datos.
+**SITMUN 3** tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular 22 (y las aplicaciones móviles con Ionic y Capacitor), Spring Boot 4.1 con Java 17 se usa en el tier web, y una base de datos relacional (PostgreSQL 12 o superior, Oracle 11g o superior, o H2 para pruebas) en el tier de datos.
+Todo el código está en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun); las versiones exactas están en su README.
 
 ## Principales componentes
 
@@ -57,11 +58,11 @@ rectangle appadmin [
   **Aplicación de Administración**
   
   <$github{scale=0.5}>
-  [[https://github.com/sitmun/sitmun-admin-app/]] 
+  [[https://github.com/sitmun/sitmun/tree/main/sitmun-admin]] 
 ]
 
 database configdb [
-  <color:Crimson><$oracle> (Oracle 23c) / <color: RoyalBlue><$postgresql> (PostgreSQL 16) / <color: Green>H2 (Desarrollo)
+  <color:Crimson><$oracle> (Oracle) / <color: RoyalBlue><$postgresql> (PostgreSQL) / <color: Green>H2 (Pruebas)
   
   --
   
@@ -71,7 +72,7 @@ database configdb [
   Usuarios, Territorios, Aplicaciones etc.
   
   <$github{scale=0.5}>
-  [[https://github.com/sitmun/sitmun-backend-core/]]
+  [[https://github.com/sitmun/sitmun/tree/main/sitmun-backend]]
 ]
 
 note bottom of configdb
@@ -90,8 +91,8 @@ rectangle visor [
   --
   
   **Visor de mapas**
-  
-  <<Pendiente iniciar desarrollo>>
+  <$github{scale=0.5}>
+  [[https://github.com/sitmun/sitmun/tree/main/sitmun-viewer]]
 ]
 
 component publicwms #PapayaWhip [
@@ -136,10 +137,24 @@ component proxymiddleware [
   --
   
   **Proxy "Middleware"**
-  
-  <<Pendiente iniciar desarrollo>>
 ]
 
+rectangle appmovil [
+  <color:DarkRed><$angular> <$application_generic{scale=1.5}>
+  --
+  **Aplicaciones móviles**
+  (edición y turística)
+  <$github{scale=0.5}>
+  [[https://github.com/sitmun/sitmun/tree/main/sitmun-mobile]]
+]
+component mbtiles [
+  <color:Green><$spring> (Spring)
+  --
+  **MBTiles** (opcional)
+  Genera paquetes de teselas
+  para trabajar sin conexión
+  en la aplicación de edición.
+]
 note right of proxymiddleware
   Da acceso transparente a 
   usuarios/territorios/aplicaciones
@@ -177,20 +192,18 @@ component backendcore {
   --
   
   **API de Configuración y Autorización**
-  
-  <<Pendiente iniciar desarrollo>>  
  ]
 }
 
 note bottom of backendcore
 <$github{scale=0.5}>
-[[https://github.com/sitmun/sitmun-backend-core/]]
+[[https://github.com/sitmun/sitmun/tree/main/sitmun-backend]]
 end note
 
 
 note bottom of proxymiddleware
 <$github{scale=0.5}>
-[[https://github.com/sitmun/sitmun-proxy-middleware]]
+[[https://github.com/sitmun/sitmun/tree/main/sitmun-proxy]]
 end note
 
 note left of apibackendcore
@@ -201,21 +214,14 @@ end note
 
 note top of apiautentic 
   Autentica al usuario desde una aplicación,
-  verificando que el existe en la BD
-  de configuación de SITMUN 3, y devuelve un
+  verificando que existe en la BD
+  de configuración de SITMUN 3, y devuelve un
   **token JWT** para interactuar con el resto
   del sistema.
 
-  Actualmente hay una solución de mínimos 
-  que habrá que sustituir cuando esté 
-  implementada la nueva versión. 
-  La solución de mínimos soporta
-  autenticación usuario/contaseña enviado 
-  por POST implementada con Spring Security.
-
-  El mecanismo de autenticación debe 
-  manternerse por compatiblidad con la 
-  **Aplicación de Administración**.
+  Proveedores: base de datos de SITMUN
+  (bcrypt), LDAP y OpenID Connect (OIDC),
+  según los perfiles Spring activos.
 
 end note
 
@@ -228,17 +234,10 @@ note bottom of apiconfautoriz
   el árbol, qué herramientas deben estar
   habilitadas, etc.
   
-  Actualmente hay una solución de mínimos 
-  que devuelve la configuración para un 
-  usuario/territorio/aplicacion sin aplicar
-  las restricciones que se habrá que sustituir 
-  cuando esté implementada la nueva versión. 
-  La solución de mínimos soporta el uso del
-  **token JWT** para identificar el usuario
-  implementado con Spring Security.  
-
-  No es necesaria mantener compatibilidad 
-  hacia atrás.
+  Solo devuelve lo que el usuario puede
+  ver según sus roles y territorios.
+  Sin **token JWT**, devuelve la
+  configuración del usuario público.
 
   Uso desde el **proxy "middleware"**: con
   un **token JWT**, autoriza
@@ -249,6 +248,7 @@ note bottom of apiconfautoriz
   un secreto conocido solo por el 
   **proxy "middleware"** y el 
   **API de configuración y autorización**
+  (cabecera `X-SITMUN-Proxy-Key`)
   para asegurar que proviene de un proxy
   conocido.
 
@@ -265,6 +265,10 @@ visor -down-> apiconfautoriz
 proxymiddleware -down-> privatewms
 proxymiddleware -down-> territdb
 proxymiddleware -left-> apiconfautoriz
+appmovil -down-> apiautentic
+appmovil -down-> apiconfautoriz
+appmovil -down-> proxymiddleware
+proxymiddleware -down-> mbtiles
 @enduml
 ```
 
@@ -341,7 +345,7 @@ participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 
 Usuario ->> Client: Login
-Client -> AuthenticationAPI: Login (POST /api/authenticate)
+Client -> AuthenticationAPI: Login (POST /api/authenticate,\n/api/authenticate/admin para el administrador)
 AuthenticationAPI -> AuthenticationEntryPoint
 AuthenticationEntryPoint -> AuthenticationAPI: Login(usuario, password)
 AuthenticationAPI-> AuthenticationManager: Obtener Autenticación
@@ -357,23 +361,19 @@ AuthenticationEntryPoint -->> AuthenticationAPI: Token JWT
 AuthenticationAPI -->> Client: Token JWT
 note right
 200 Ok
-Authorization: Bearer {tokenJWT}
-{
-    "idToken": "{tokenJWT}"
-}
+Set-Cookie: viewer_access_token={tokenJWT}; HttpOnly
+(admin_access_token en el administrador;
+la app móvil de edición usa /api/authenticate/mobile
+y recibe el token en el cuerpo de la respuesta)
 end note
 Client -> ConfigurationAPI: Obtener configuración 
 note right
- POST /api/config/user 
- Authorization: Bearer {tokenJWT}
- {
-   "appId" : {appId},
-   "terrId" : {terrId}
- }
+ GET /api/config/client/profile/{appId}/{terId}
+ Cookie: viewer_access_token={tokenJWT}
 end note
 
 ConfigurationAPI -> AuthenticationEntryPoint
-AuthenticationEntryPoint -> AuthTokenFilter: Filtra petición
+AuthenticationEntryPoint -> AuthTokenFilter: Filtra petición\n(lee el token de la cookie)
 AuthTokenFilter -> JWTUtils: Validar token JWT
 JWTUtils -->> AuthTokenFilter: Token OK
 AuthTokenFilter -> JWTUtils: Extraer usuario del token JWT
@@ -391,27 +391,26 @@ AuthenticationEntryPoint -> SecurityContext: contexto seguridad?
 SecurityContext -->> AuthenticationEntryPoint: contexto actual
 AuthenticationEntryPoint -> AuthenticationEntryPoint: verificar contexto\nactual tiene rol USER
 note right
-  método asociado a "/api/config/user" 
+  método asociado a "/api/config/client/profile/{appId}/{terId}" 
   solo puede ser accedido con el rol USER
   por la configuración de seguridad
   Si no se verifica 401 Unauthorized
 end note
-AuthenticationEntryPoint -> ConfigurationAPI: getUserConfiguration(UserConfigurationRequest)
+AuthenticationEntryPoint -> ConfigurationAPI: getProfile(appId, terId)
 note right
-  UserConfigurationRequest es un objeto con propiedades:
-  appId, terrId
-  Ambos son opcionales
+  appId y terId son variables de la ruta.
+  Sin cookie, se usa el usuario público.
 end note
 ConfigurationAPI -> JWTUtils: Validar token JWT
 JWTUtils -->> ConfigurationAPI: Token OK
-ConfigurationAPI -> JWTUtils: Extraer "username" del token JWT
+ConfigurationAPI -> JWTUtils: Extraer "username" del token\n(cabecera Authorization)
 JWTUtils -->> ConfigurationAPI: "username"
 ConfigurationAPI -> Database: Recuperar configuración según\nqué hay que configurar
 note right
   buscamos información para 
   User = username
-  Territory = userConfigurationRequest.terrId
-  Application = userConfigurationRequest.appId
+  Territory = terId
+  Application = appId
 
   Si no hay territorio, estamos configurando la aplicación 
   para que pueda seleccionar el territorio. 
@@ -517,7 +516,9 @@ end note
 Client ->> Proxy: GetMap
 note right
  GET /proxy/{appId}/{terId}/{type}/{typeId}?{mapParams}
- Authorization: Bearer TokenJWT
+ Authorization: Bearer {proxyToken}
+ (token de corta duración obtenido con
+ POST /api/authenticate/proxy)
 end note
 
 Proxy -> Proxy: Configuración en cache?
@@ -531,17 +532,17 @@ else No hay configuración reusable en la cache
   note right
   POST /api/config/proxy
   Host: backend
-  X-sitmun-proxy: MiddlewareKey
+  X-SITMUN-Proxy-Key: MiddlewareKey
+  Authorization: Bearer {proxyToken}
   {
     "type" : "{type}",
     "typeId" : {typeId},
-    "terrId" : {terId},
+    "terId" : {terId},
     "appId" : {appId},
     "method" : "GET",
     "parameters" : {
         mapParams
-    },
-    "token" : "{tokenJWT}"    
+    }
   }
   end note
   ConfigurationAPI ->> AuthenticationEntryPoint: 
@@ -561,27 +562,28 @@ else No hay configuración reusable en la cache
     por la configuración de seguridad
     Si no se verifica 401 Unauthorized
   end note
-  AuthenticationEntryPoint ->> ConfigurationAPI: getProxyConfiguration(UserRequest)
+  AuthenticationEntryPoint ->> ConfigurationAPI: getServiceConfiguration(ConfigProxyRequestDto)
   note right
-    UserRequest es un objeto con propiedades: 
-    type, typeId, method, terrId, appId, parameters, token
+    ConfigProxyRequestDto: appId, terId, type, typeId,
+    cartographyId, method, parameters, requestBody.
+    El token del usuario llega en la cabecera Authorization.
   end note
   ConfigurationAPI ->> JWTUtils: Validar token JWT
   JWTUtils -->> ConfigurationAPI: Token OK
-  ConfigurationAPI ->> JWTUtils: Extraer "username" del token JWT
+  ConfigurationAPI ->> JWTUtils: Extraer "username" del token\n(cabecera Authorization)
   JWTUtils -->> ConfigurationAPI: "username"
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
   note right
-    Decodificamos userRequest.type
+    Decodificamos configProxyRequest.type
     en este caso es "cartography"
   end note
   ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
   note right
     buscamos información para 
     User = username
-    Territory = userRequest.terrId
-    Application = userRequest.appId
-    Cartography = userRequest.typeId
+    Territory = configProxyRequest.terId
+    Application = configProxyRequest.appId
+    Cartography = configProxyRequest.typeId
   end note
   Database -->> ConfigurationAPI: Configuración\nsin\nrefinar
   ConfigurationAPI ->> ConfigurationAPI: Refinar\nconfiguración según\nqué hay que configurar
@@ -645,7 +647,9 @@ Client ->> Proxy: DoTask
 note right
  GET /proxy/{appId}/{terId}/{type}/{typeId}?{taskParams}
  Host: proxy
- Authorization: Bearer TokenJWT
+ Authorization: Bearer {proxyToken}
+ (token de corta duración obtenido con
+ POST /api/authenticate/proxy)
 end note
 Proxy ->> Proxy: Comprueba cache
 note right
@@ -658,17 +662,17 @@ Proxy ->> Backend: GetConfiguration
 note right
  POST /api/config/proxy
  Host: backend
- X-sitmun-proxy: MiddlewareKey
+ X-SITMUN-Proxy-Key: MiddlewareKey
+ Authorization: Bearer {proxyToken}
  {
    "type" : "{type}",
    "typeId" : {typeId},
-   "terrId" : {terrId},
+   "terId" : {terId},
    "appId" : {appId},
    "method" : "GET",
    "parameters" : {
        taskParams
-   },
-   "token" : "{tokenJWT}"    
+   }
  }
 end note
 
@@ -689,18 +693,19 @@ note right
   por la configuración de seguridad
   Si no se verifica 401 Unauthorized
 end note
-AuthenticationEntryPoint ->> ConfigurationAPI: getProxyConfiguration(UserRequest)
+AuthenticationEntryPoint ->> ConfigurationAPI: getServiceConfiguration(ConfigProxyRequestDto)
 note right
-  UserRequest es un objeto con propiedades: 
-  type, typeId, method, terrId, appId, parameters, token
+  ConfigProxyRequestDto: appId, terId, type, typeId,
+  cartographyId, method, parameters, requestBody.
+  El token del usuario llega en la cabecera Authorization.
 end note
 ConfigurationAPI ->> JWTUtils: Validar token JWT
 JWTUtils -->> ConfigurationAPI: Token OK
-ConfigurationAPI ->> JWTUtils: Extraer "username" del token JWT
+ConfigurationAPI ->> JWTUtils: Extraer "username" del token\n(cabecera Authorization)
 JWTUtils -->> ConfigurationAPI: "username"
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
 note right
-  Decodificamos userRequest.type
+  Decodificamos configProxyRequest.type
   en este caso es "task:{taskType}"
   y taskType es el "id" de pregunta a base de datos
 end note
@@ -708,9 +713,9 @@ ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que con
 note right
   buscamos información para 
   User = username
-  Territory = userRequest.terrId
-  Application = userRequest.appId
-  Task = userRequest.typeId
+  Territory = configProxyRequest.terId
+  Application = configProxyRequest.appId
+  Task = configProxyRequest.typeId
 end note
 Database -->> ConfigurationAPI: Configuración\nsin\nrefinar
 ConfigurationAPI ->> ConfigurationAPI: Refinar\nconfiguración según\nqué hay que configurar
@@ -740,171 +745,59 @@ Client -->> Usuario: respuesta
 
 ### Diagrama de módulos
 
-[sitmun-backend-core](https://github.com/sitmun/sitmun-backend-core) es un proyecto multi módulo.
-
-Hay 3 tipos de módulos:
-
-- **Módulos estables (en amarillo)**. Lógica principal de **SITMUN 3** y componentes de soporte.
-- **Módulos de desarrollo (en naranja)**. Datos de prueba, despliegues de prueba y herramientas de apoyo (front end y línea de comandos).
-- **Módulos legados (en gris)**. Clases y funcionalidades que se han ido desechando y que todavía no han sido eliminadas definitivamente.
+El repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun) agrupa todos los componentes.
+Los componentes Java se construyen con un único proyecto Gradle multimódulo (`settings.gradle`);
+las aplicaciones Angular e Ionic, con un *workspace* de pnpm (`pnpm-workspace.yaml`).
 
 ```plantuml
 @startuml
 
 skinparam linetype ortho
 
-together {
-  package "Common" <<library>> as ":common" #FFFF00 {
-  }
-  note bottom of ":common" 
-    Código común del backend
-  end note
+package "Java (Gradle, Spring Boot)" {
+  component ":sitmun-backend" as backend
+  component ":sitmun-proxy" as proxy
+  component ":sitmun-mbtiles" as mbtiles
+  component ":sitmun-proxy-contract" as contract <<library>>
+  component ":sitmun-spring-upstream" as upstream <<library>>
 }
 
-together {
-  package "Legacy" <<library, deprecated>> as ":legacy"  #AAAAAA {
-  }
-  note right of ":legacy"
-    Clases modelo propuesto por GeoSlab
-    que han quedado obsoletas
-    Código de migración SITMUN 2 a SITMUN 3
-  end note
-  package "Aplicación" <<application, dev>> as ":app" #ffa500 {
-  }
-  note left of ":app"
-    Configuración y datos iniciales   
-    Puede ser ejecutada en local
-  end note
+package "Angular / Ionic (pnpm)" {
+  component "sitmun-admin" as admin
+  component "sitmun-viewer" as viewer
+  component "sitmun-mobile/sitmun-edition" as edition
+  component "sitmun-mobile/sitmun-touristic" as touristic
 }
 
-together {
+note bottom of backend
+  sitmun-backend
+  API de autenticación, configuración
+  y autorización, y administración
+end note
+note bottom of proxy
+  sitmun-proxy
+end note
+note bottom of mbtiles
+  sitmun-addons/sitmun-mbtiles
+end note
+note right of contract
+  sitmun-common/
+  Bibliotecas compartidas
+end note
 
-  package "Schema Export" <<tool, dev>> as ":cli" #ffa500  {
-    
-  }
-  
-  note top of ":cli"
-    Herramienta para la exportación
-    del modelo para distintos tipos
-    de bases de datos
-  end note
-}
-
-
-
-
-":cli" .r.> ":app" : <<import>>
-
-":app" ..> ":common" : <<import>>
-
-":legacy" ..> ":common" : <<import>>
+backend ..> contract
+backend ..> upstream
+proxy ..> contract
+contract ..> upstream
 
 @enduml
 ```
 
 ## Diagrama de paquetes
 
-Es la biblioteca que contiene la definición del modelo de datos de **SITMUN 3**, la API de autenticación, la API de configuración y autorización y la política de seguridad.
-
-```plantuml
-@startuml
-skinparam linetype ortho
-package "sitmun" {
-    package "common" {
-      package "def" <<util>> {
-
-      } 
-      note bottom of "def"
-        Estandarización de longitudes de campos 
-        Nombres de listas controladas
-      end note
-      package "domain" <<domain entities>> {
-
-      } 
-      note bottom of "domain"
-        Definición de clases de dominio
-        Cada definición esta junto a
-        la definición de su respectivo
-        su repositorio, projección y validación
-        si es necesario;
-        **API de Administración** 
-        relacionada con entidades
-      end note
-      package "types" <<domain types>> {
-
-      } 
-      note bottom of "types"
-        Conversores de tipos
-        usados en domain
-      end note
-      "domain".d.->"def": <<import>>
-      "domain".d.>"types": <<import>>
-
-      package "security" {
-        package "jwt" {
-
-        } 
-        note right of "jwt"
-          Aquí estaría el filtro de JWT Token que 
-          usa la **API de Configuración y Autorización**
-          cuando la petición procede de un cliente 
-          previamente autenticado por **API de Autenticación**
-        end note
-        package "middleware" {
-
-        } 
-        note right of "middleware"
-          Aquí estaría un ejemplo de filtro para implementar
-          el Proxy Token que 
-          usa la **API de Configuración y Autorización**
-          cuando la petición procede del proxy.
-        end note
-        package "services" {
-
-        } 
-        note right of "services"
-          Servicios de acceso a detalle de usuarios en base de datos
-        end note
-        package "web" {
-
-        } 
-        note right of "web"
-          **API de Autenticación**
-        end note
-        
-       "jwt"-d[hidden]->"middleware"
-       "middleware"-d[hidden]->"services"
-       "services"-d[hidden]->"web"
-      } 
-      note bottom of "security"
-        Definición de la configuración 
-        de Spring Security y herramientas
-        adicionales
-        <color:red>Refactorizar para extraer 3 API</color>
-      end note
-    }
-    package "feature" {
-      package "admin" {
-        
-      }
-      note bottom of "admin"
-        **API de Administración** 
-        no relacionada con entidades
-      end note
-      package "client" {
-        package "config" {
-        
-        }
-        note bottom of "config"
-          Prueba de concepto del 
-          **API de Configuración** 
-          **y Autorización**
-        end note
-      }
-    }
-}
-@enduml
-```
+El módulo `sitmun-backend` contiene el modelo de datos de **SITMUN 3**, la API de autenticación,
+la API de configuración y autorización, la API de administración y la política de seguridad.
+Todos sus paquetes cuelgan de `org.sitmun`.
 
 ### Paquetes (Arquitectura por Capas)
 
@@ -963,7 +856,7 @@ Como se puede deducir de las explicaciones anteriores:
 ```plantuml
 @startuml Refactor
 skinparam linetype ortho
-package sitmun {
+package org.sitmun {
     package administration {
         package config {
         }
@@ -983,14 +876,14 @@ package sitmun {
         controller-d[hidden]->dto
     }
     package authorization {
-        package controller {
+        package client {
         }
-        package dto {
+        package proxy {
         }
-        package service {
+        package access {
         }
-        controller-d[hidden]->dto
-        dto-d[hidden]->service
+        client-d[hidden]->proxy
+        proxy-d[hidden]->access
     }
     package domain {
     }
@@ -999,10 +892,13 @@ package sitmun {
         }    
         package security {
         }    
+        package variables {
+        }    
         package web {
         }    
         persistence-d[hidden]->security
-        security-d[hidden]->web
+        security-d[hidden]->variables
+        variables-d[hidden]->web
     }
 }
 
@@ -1011,191 +907,7 @@ package sitmun {
 
 ### Clases
 
-```plantuml
-@startuml Clases
-left to right direction
-skinparam linetype ortho
-package sitmun {
-    package authentication {
-        package web {
-            class AuthenticationController
-            note bottom of AuthenticationController
-               sitmun.common.security.web.AuthenticationController
-            end note
-            class AuthenticationResponse
-            note bottom of AuthenticationResponse
-               sitmun.common.security.web.JwtResponse
-            end note
-            class UserPasswordAuthenticationRequest
-            note bottom of UserPasswordAuthenticationRequest
-               sitmun.common.security.web.LoginRequest
-            end note
-
-            AuthenticationController-d[hidden]->AuthenticationResponse
-            AuthenticationResponse-d[hidden]->UserPasswordAuthenticationRequest
-        }
-    }
-    note top of authentication 
-      API de autenticación
-    end note
-    package authorization {
-        package web {
-            class ClientConfigurationController
-            class ProxyConfigurationController
-
-            ClientConfigurationController-d[hidden]->ProxyConfigurationController
-        }
-    }
-    note top of authorization 
-      API de configuración y autorización
-    end note
-    package administration {
-        package config {
-            class AdministrationRestConfigurer
-            note right: sitmun::common::domain::RepositoryRestConfigurerImpl
-        }
-        package web {
-            class DatabaseConnectionController
-            note bottom: sitmun.feature.admin.database.tester.DatabaseConnectionController
-            class ServiceCapabilitiesExtractorController
-            note bottom: sitmun.feature.admin.extractor.capabilities.ServiceCapabilitiesExtractorController
-            class FeatureTypeExtractorController   
-            note bottom: sitmun.feature.admin.extractor.featuretype.FeatureTypeExtractorController
-            class DomainExceptionHandler
-            note bottom: sitmun.common.web.CommonExceptionHandler    
-            class DomainExceptionResponse
-            note bottom: sitmun.common.web.ErrorResponse    
-
-            DatabaseConnectionController-d[hidden]->ServiceCapabilitiesExtractorController
-            ServiceCapabilitiesExtractorController-d[hidden]->FeatureTypeExtractorController
-            FeatureTypeExtractorController-d[hidden]->DomainExceptionHandler
-            DomainExceptionHandler-d[hidden]->DomainExceptionResponse
-        }
-        package services {
-            package dashboard {
-                
-            }
-            note left of dashboard 
-              sitmun::feature::admin::dashboard
-            end note
-            package "database::tester" {
-                
-            }
-            note left of "database::tester"
-              sitmun::feature::admin::database::tester
-            end note
-            package "extractor::capabilities" {
-                
-            }
-            note left of "extractor::capabilities"  
-              sitmun::feature::admin::extractor::capabilities
-            end note
-            package "extractor::featuretype" {
-                
-            }
-            note left of "extractor::featuretype"  
-              sitmun::feature::admin::extractor::featuretype
-            end note
-
-            dashboard-d[hidden]->"database::tester"
-            "database::tester"-d[hidden]->"extractor::capabilities"
-            "extractor::capabilities"-d[hidden]->"extractor::featuretype"
-        }
-        web-d[hidden]->services
-    }
-    note top of administration 
-      API de administración
-    end note
-
-    authentication-r[hidden]>authorization
-    authorization-r[hidden]>administration
-
-    package config {
-            class AdministrationDashboardConfig
-            note right: sitmun::feature::admin::dashboard::DashboardConfig    
-            class WebLocaleConfigurer
-            note right: sitmun::common::web::LocaleConfigurer           
-            class OpenApiConfigurer
-            note right: sitmun::common::web::OpenApiConfigurer           
-            class PostgresSQL93DialectFixed
-            note right: sitmun::common::tools::PostgresSQL93DialectFixed
-
-            AdministrationDashboardConfig -d[hidden]-> WebLocaleConfigurer
-            WebLocaleConfigurer -d[hidden]-> OpenApiConfigurer
-            OpenApiConfigurer -d[hidden]-> PostgresSQL93DialectFixed
-    }
-    package security {
-        package config {
-            class Role
-            note right: sitmun::common::security::Role
-            class WebSecurityConfigurer
-            note right: sitmun::common::security::WebSecurityConfigurer           
-            Role-d[hidden]->WebSecurityConfigurer
-        }
-        package core {
-            package userdetails {
-                class UserDetailsServiceImplementation
-                note right: sitmun::common::security::services::UserDetailsServiceImpl
-                class UserDetailsImplementation
-                note right: sitmun::common::security::services::UserDetailsImpl
-                UserDetailsServiceImplementation-d[hidden]->UserDetailsImplementation
-            }
-            class SecurityEntryPoint
-            note right: sitmun::common::security::jwt::AuthEntryPointJwt
-            userdetails-d[hidden]->SecurityEntryPoint
-        }
-        package web {
-            package filter {
-                class JsonWebTokenFilter
-                note right: sitmun::common::security::jwt::AuthTokenFilter
-                class ProxyTokenFilter
-                note right: sitmun::common::security::middleware::MiddlewareKeyFilter
-                JsonWebTokenFilter-d[hidden]->ProxyTokenFilter
-            }
-            class AccessDeniedHandler
-            note right: sitmun::common::security::WebSecurityControllerAdvice
-
-            filter-d[hidden]->AccessDeniedHandler
-        }
-        package service {
-            class JsonWebTokenService
-            note right: sitmun::common::security::jwt::JwtUtils
-        }
-
-        config-d[hidden]->core
-        core-d[hidden]->service
-        service-d[hidden]->web
-    }
-    package domain {
-        package definitions {
-        }
-        note right of definitions
-          sitmun::common::def
-        end note
-        package entities {
-        }
-        note right of entities
-          sitmun::common::domain
-          Entidades y sus eventos, repositorios y proyecciones
-          Se organiza alrededor de las definiciones de las entidades
-        end note
-        package types {            
-        }
-        note right of types
-          sitmun::common::types
-          Tipos, resricciones y validadores
-          usados en entidades
-        end note
-
-        definitions -d[hidden]-> entities
-        entities -d[hidden]-> types
-    }
-
-    administration...d.>domain: <<import>>
-    authorization....d.>domain: <<import>>
-    authentication....d.>domain: : <<import>>
-    security....d.>domain: : <<import>>
-} 
-
-@enduml
-```
+La descripción de los componentes y clases principales del backend, y el flujo de cada petición,
+está en la sección *Architecture* de
+[sitmun-backend/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-backend/README.md#architecture),
+que se mantiene junto al código.

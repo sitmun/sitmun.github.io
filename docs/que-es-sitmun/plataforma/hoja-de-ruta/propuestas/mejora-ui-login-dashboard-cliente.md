@@ -1,5 +1,9 @@
 # Mejora UI del login y dashboard de usuario del cliente SITMUN 3
 
+!!! info "Estado (noviembre 2026): parcialmente implementado"
+    El visor incluye dashboard de aplicaciones y territorios, perfil de usuario, sugerencias, cambio de idioma y cierre de sesión.
+    Las noticias y avisos para los usuarios no están implementados.
+
 !!! info "Aspectos generales"
 
     **Estimación horas de desarrollo:** 40 horas

@@ -1,0 +1,49 @@
+# Fixes Markdown style on pull requests instead of failing them.
+# markdownlint-cli2 --fix applies the rules in .markdownlint-cli2.yaml and the
+# result is pushed back to the PR branch. Issues it cannot fix are reported as
+# annotations; this workflow never fails.
+name: Markdown lint (auto-fix)
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**.md'
+      - '.markdownlint-cli2.yaml'
+      - '.github/workflows/markdownlint.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: markdownlint-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  fix:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout the PR branch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+      - name: Fix Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v25
+        continue-on-error: true
+        with:
+          fix: true
+      # A push made with GITHUB_TOKEN does not start new workflow runs, so this
+      # cannot loop. Pull requests from forks only get the annotations.
+      - name: Push the fixes to the PR branch
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          if git diff --quiet; then
+            echo "Nothing to fix."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "style: apply markdownlint fixes"
+          git push

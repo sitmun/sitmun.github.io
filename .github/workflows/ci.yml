@@ -1,5 +1,5 @@
 # Cogido de <https://gaseri.org/en/blog/2022-11-01-publishing-material-for-mkdocs-website-to-github-pages-using-custom-actions-workflow/>
-name: Deploy MkDocs with GitHub Pages dependencies preinstalled
+name: Deploy the site with GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -47,11 +47,11 @@ jobs:
           python-version-file: '.python-version'
           cache: 'pip'
           cache-dependency-path: 'requirements.txt'
-      - name: Install MkDocs and other requirements
-        run: pip install -r requirements.txt      
-      - name: Build site (_site directory name is used for Jekyll compatibility)
-        run: mkdocs build --strict --config-file ./mkdocs.yml --site-dir ./_site
-      # --strict can't see raw HTML (<img src>, <a href>); check every local link in the output.
+      - name: Install Zensical and other requirements
+        run: pip install -r requirements.txt
+      - name: Build site (site_dir in mkdocs.yml is _site)
+        run: zensical build --strict --clean --config-file ./mkdocs.yml
+      # zensical --strict can't see raw HTML (<img src>, <a href>); check every local link in the output.
       # External links are checked weekly by links.yml so a flaky site can't block a deploy.
       - name: Check local links in the built site
         uses: lycheeverse/lychee-action@v2

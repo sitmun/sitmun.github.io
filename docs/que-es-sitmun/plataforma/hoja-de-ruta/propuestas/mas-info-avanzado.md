@@ -1,5 +1,10 @@
 # Más info avanzado
 
+!!! success "Estado (noviembre 2026): implementado"
+    Disponible como tarea de **más información avanzada** en el administrador y en el visor. Ver [Tarea de más información avanzada](../../../../usuario/manual/administrador/tareas/mas-informacion-avanzada.md).
+    El formato de cada resultado se define con [plantillas](../../../../usuario/manual/administrador/tareas/plantillas.md) (`{{campo}}`, `data-sitmun-each`) en lugar de los marcadores `@@CODIGOTAREA_NOMBRECAMPO@@` de esta propuesta.
+    Las tablas de estado de más abajo reflejan la situación cuando se redactó la propuesta.
+
 !!! info "Aspectos generales"
 
     **Estimación horas de desarrollo:** 200 horas
@@ -67,7 +72,7 @@ Se prevé la siguiente lógica funcional:
 
 4. El Cliente SITMUN - API SITNA deberá configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un elemento de dicha capa, en caso de que la capa tenga asociada una tarea de esta índole.
 
-    El cliente permitirá gestionar el comportamiento en caso de que el usuario haga clic a dos o más objetos sobre el mapa pertenecientes a la misma capa y/o a distintas capas, algunas de las cuales pueden tener una funcionalidad *más info avanzado** definida y otras no (con lo que presenta la ventana por defecto de respuesta GetFeatureInfo).
+    El cliente permitirá gestionar el comportamiento en caso de que el usuario haga clic a dos o más objetos sobre el mapa pertenecientes a la misma capa y/o a distintas capas, algunas de las cuales pueden tener una funcionalidad *más info avanzado* definida y otras no (con lo que presenta la ventana por defecto de respuesta GetFeatureInfo).
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:
 

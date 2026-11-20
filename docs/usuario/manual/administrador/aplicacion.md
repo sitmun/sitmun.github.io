@@ -20,7 +20,7 @@ Finalmente, existe la posibilidad de indicar que una aplicación es **privada** 
 
 Cabe señalar que, en función del tipo de aplicación seleccionado, se requerirá información adicional. En el caso de la aplicación interna, se deberá facilitar el **título** de la aplicación (nombre con el que el usuario la va a identificar).
 
-También se puede personalizar el estilo de la aplicación indicándolo en el campo **Estilo de mapa utilizado**. Si se deja en blanco, la aplicación utilizará los estilos CSS definidos en la carpeta por defecto (carpeta `sitmun-base`, ubicada en la ruta `front/viewer/sitmun-viewer-app/src/assets/map-styles/`), pero se puede crear otra carpeta con los mismos estilos CSS y personalizarlos para cumplir con los estilos corporativos de cada institución. En ese caso, se deberá facilitar el nombre del nuevo directorio donde se encuentran estos estilos.
+También se puede personalizar el estilo de la aplicación indicándolo en el campo **Estilo de mapa utilizado**. Si se deja en blanco, la aplicación utilizará los estilos CSS definidos en la carpeta por defecto (carpeta `sitmun-base`, ubicada en la ruta `sitmun-viewer/src/assets/map-styles/` del repositorio), pero se puede crear otra carpeta con los mismos estilos CSS y personalizarlos para cumplir con los estilos corporativos de cada institución. En ese caso, se deberá facilitar el nombre del nuevo directorio donde se encuentran estos estilos.
 
 También se puede especificar un CRS concreto con el que trabajará la aplicación.
 

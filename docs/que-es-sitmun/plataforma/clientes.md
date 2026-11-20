@@ -1,6 +1,24 @@
 # Clientes
 
-## Visores de mapas
+## Clientes disponibles
+
+| Cliente | Carpeta en [sitmun/sitmun](https://github.com/sitmun/sitmun) | Dirección |
+| --- | --- | --- |
+| Visor de mapas web | `sitmun-viewer` | `/viewer/` |
+| Visor embebible (para insertar en otra web con un `iframe`) | `sitmun-viewer` | `/viewer/embedded-map/{aplicación}/{territorio}/{idioma}` |
+| Aplicación de administración | `sitmun-admin` | `/admin/` |
+| Aplicación móvil de edición (Android) | `sitmun-mobile/sitmun-edition` | — |
+| Aplicación móvil turística (Android) | `sitmun-mobile/sitmun-touristic` | — |
+
+La mayor parte de las herramientas del visor provienen de la [API SITNA](https://github.com/sitna/api-sitna)
+y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
+
+## Requisitos de los visores de mapas
+
+!!! note "Requisitos originales"
+    Este apartado recoge los requisitos con los que se diseñó el visor de mapas.
+    No todos están disponibles; la lista de herramientas que se pueden activar
+    está en [Tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
 
 ### Aspectos globales
 
@@ -11,8 +29,9 @@
 - **Autenticación**: El cliente estará diseñado para utilizar solo HTTP sobre TLS (HTTPS).
   En caso de ser un visor público, el usuario ingresará directamente sin inicio de sesión.
   El cliente debe permitir la autenticación del usuario frente a la [API de autenticación][api-de-autenticacion].
-  La API responderá con el envío de un token JSON Web Token (JWT) que se utilizará para interactuar con la
-  [API de configuración y autorización][api-de-configuracion-y-autorizacion] y la [API de Proxy][api-de-proxy].
+  La API responderá con un token JSON Web Token (JWT) en una cookie de sesión, que se utilizará para interactuar con la
+  [API de configuración y autorización][api-de-configuracion-y-autorizacion]. Para la [API de Proxy][api-de-proxy]
+  el cliente pide un token de corta duración.
 
 - **Inicio de sesión**: Botón de inicio de sesión.
   El botón de inicio de sesión inicia el proceso descrito en la funcionalidad de autenticación, seguido,
@@ -26,11 +45,11 @@
 
 - **Configuración de los clientes**: El cliente se configura mediante una solicitud a
   la [API de configuración y autorización][api-de-configuracion-y-autorizacion]. Si el usuario ha iniciado sesión,
-  la solicitud debe incluir el token JWT obtenido de la [API de autenticación][api-de-autenticacion].
+  la solicitud incluye la cookie de sesión obtenida de la [API de autenticación][api-de-autenticacion].
   En caso de ser un visualizador público, la solicitud no incluirá un token.
   A partir de los datos de configuración (gestionados por la **aplicación de administrador**),
   el visor se configura para cada usuario, con los territorios y aplicaciones (capas y funcionalidades)
-  a las que tiene acceso. 
+  a las que tiene acceso.
 
 - **Solicitudes a servicios remotos**: Las solicitudes a algunos servicios remotos se realizan a través de
   la [API de Proxy][api-de-proxy]. Las solicitudes deben ir acompañadas de un token JWT,
@@ -54,7 +73,7 @@
 
 - **Zoom con desplazamiento**: Zoom dinámico con desplazamiento del ratón. Doble clic en el mapa para hacer Zoom-in.
 
-- **Pan**: Botón derecho del ratón y arrastrar el botón.
+- **Pan**: Arrastrar el mapa con el ratón.
 
 - **Barra de zoom**: Barra deslizante vertical.
 
@@ -138,7 +157,7 @@
     - A través de un enlace.
     - A través de un IFRAME configurable con las capas activas en el momento de generar el IFRAME y
       en el que se pueda hacer `GetFeatureInfo` de las capas y algunas herramientas básicas (cambiar el fondo del mapa).
-    - Enlace a redes sociales (Twitter, Facebook).
+    - Enlace a redes sociales.
     - Generar código QR.
 
 - **WMC**: Posibilidad de guardar el WMC (vinculado a la funcionalidad anterior).
@@ -152,14 +171,8 @@
 
 ## Aplicación de Administración
 
-!!! warning "Documentación en desarrollo"
+Ver el [Manual del administrador](../../usuario/manual/administrador/index.md).
 
 [api-de-autenticacion]: arquitectura/api.md#api-de-autenticacion
 [api-de-configuracion-y-autorizacion]: arquitectura/api.md#api-de-configuracion-y-autorizacion
 [api-de-proxy]: arquitectura/api.md#api-de-proxy
-
-## Canonical Link References
-
-- [API de autenticación][api-de-autenticacion]
-- [API de configuración y autorización][api-de-configuracion-y-autorizacion]
-- [API de Proxy][api-de-proxy]

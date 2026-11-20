@@ -1,5 +1,8 @@
 # Informe
 
+!!! info "Estado (noviembre 2026): parcialmente implementado"
+    La tarea de **exportación documental** genera documentos PDF a partir de plantillas de visualización.
+
 !!! info "Aspectos generales"
 
     **Estimación horas de desarrollo:** ?? horas
@@ -66,14 +69,14 @@ Por ejemplo, en el caso del visor urbanístico anterior, se establecen varias co
 - Una tercera consulta que devuelve la referencia catastral y dirección de la parcela seleccionada
 - Una imagen de la fachada del edificio o una imagen de una tabla de un texto
 
-6. Una vez definidas estas tareas, que llamaremos tareas hijas, se configuraran en el administrador SITMUN la tarea
+1. Una vez definidas estas tareas, que llamaremos tareas hijas, se configuraran en el administrador SITMUN la tarea
     padre informe. En la ventana de configuración de dicha tarea se podrá:
     - Configurar la plantilla del informe
     - Establecer el mapa, así como la escala, que aparecerá en el informe
     - Establecer las consultas que deben aparecer en el informe
     - Establecer las imágenes que aparecerán en el informe
     - Definir qué territorios y roles de usuario tienen asociada esta funcionalidad.
-7. Cliente SITMUN - API SITNA deberá configurar correctamente la ventana de informe cuando se realice la búsqueda de la
+2. Cliente SITMUN - API SITNA deberá configurar correctamente la ventana de informe cuando se realice la búsqueda de la
    referencia catastral o la dirección o cuando se active el “Más info”.
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN:

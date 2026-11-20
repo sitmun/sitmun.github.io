@@ -5,29 +5,27 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 - Una máquina *Windows/Linux/Mac*.
 - Has instalado [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) en tu máquina.
 - Tienes un conocimiento básico de Git.
-- Tienes acceso a internet en tu máquina para descargar repositorios de Git.
+- Tienes acceso a internet en tu máquina para descargar el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
 
 === "Docker"
 
     - Al menos 16 GB de RAM.
-    - Soporte de virtualización (Hyper-V, KMV, WSL2, etc).
-    - Has instalado la última versión de [Docker CE](https://docs.docker.com/engine/install/) y [Docker Compose](https://docs.docker.com/compose/install/), o [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+    - Soporte de virtualización (Hyper-V, KVM, WSL2, etc).
+    - Has instalado una versión reciente de [Docker CE](https://docs.docker.com/engine/install/) y [Docker Compose](https://docs.docker.com/compose/install/), o [Docker Desktop](https://www.docker.com/products/docker-desktop/).
       *Docker CE* es totalmente de código abierto, mientras que *Docker Desktop* es un producto comercial.
     - Tienes un conocimiento básico de Docker y Docker Compose.
-    - Tienes acceso a internet en tu máquina para descargar imágenes de Docker.
+    - Tienes acceso a internet en tu máquina para descargar imágenes de Docker (`ghcr.io/sitmun/*`).
+    - Los puertos 9000 a 9005 de la máquina están libres.
 
 === "Windows"
 
-    - Java 17 SE (LTS).
-    - **Node.js**. Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
-        - Tanto el **visor de mapas** como el **administrador** requieren **Node.js** con una versión compatible con **Angular 16**,
-          que debe ser `>=16.0.0`. 
-    - **npm**: Puedes instalar **npm** siguiendo la guía oficial: https://docs.npmjs.com/cli/install
-    - **angular cli**: Una vez que hayas cumplido con los prerrequisitos mencionados anteriormente,
-      procede a instalar el Cliente Angular de la siguiente manera:
-      ```shell
-      npm install -g @angular/cli
-      ```
+    - Java 17 SE (LTS) para el backend, el proxy y MBTiles.
+    - **Node.js 24** (la versión exacta está en el archivo `.nvmrc` de la raíz del repositorio, actualmente 24.22.0).
+      Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
+    - **pnpm** (la versión exacta está en el campo `packageManager` del `package.json` de la raíz, actualmente 12.15.0).
+      Se puede activar con `corepack enable` o instalar siguiendo la guía oficial: https://pnpm.io/installation
+    - No hace falta instalar Angular CLI de forma global: los scripts de `pnpm` usan la versión del repositorio (Angular 22).
+    - Para compilar las aplicaciones móviles, además: JDK 21 y Android SDK 36.
     - Entorno de ejecución:  
          - Al menos 1 GB de memoria.
          - Al menos 1 CPU.
@@ -48,16 +46,13 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
 === "Linux/Mac"
 
-    - Java 17 SE (LTS).
-    - **Node.js**. Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
-        - Tanto el **visor de mapas** como el **administrador** requieren **Node.js** con una versión compatible con **Angular 16**,
-          que debe ser `>=16.0.0`. 
-    - **npm**: Puedes instalar **npm** siguiendo la guía oficial: https://docs.npmjs.com/cli/install
-    - **angular cli**: Una vez que hayas cumplido con los prerrequisitos mencionados anteriormente,
-      procede a instalar el Cliente Angular de la siguiente manera:
-      ```shell
-      npm install -g @angular/cli
-      ```
+    - Java 17 SE (LTS) para el backend, el proxy y MBTiles.
+    - **Node.js 24** (la versión exacta está en el archivo `.nvmrc` de la raíz del repositorio, actualmente 24.22.0).
+      Puedes descargar **Node.js** desde el sitio oficial: https://nodejs.org/
+    - **pnpm** (la versión exacta está en el campo `packageManager` del `package.json` de la raíz, actualmente 12.15.0).
+      Se puede activar con `corepack enable` o instalar siguiendo la guía oficial: https://pnpm.io/installation
+    - No hace falta instalar Angular CLI de forma global: los scripts de `pnpm` usan la versión del repositorio (Angular 22).
+    - Para compilar las aplicaciones móviles, además: JDK 21 y Android SDK 36.
     - Entorno de ejecución:  
          - Al menos 1 GB de memoria.
          - Al menos 1 CPU.
@@ -68,4 +63,3 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 ---
 
 Siguiente paso: [Instalación](instalacion.md)
-
