@@ -66,7 +66,8 @@ allowed = {re.sub(r"\s+", " ", line).strip() for line in allowlist_file.read_tex
 
 FENCE = re.compile(r"^( *)(```|~~~).*?^\1\2[^\n]*$", re.M | re.S)
 INLINE_CODE = re.compile(r"`[^`\n]+`")
-BOLD = re.compile(r"(\*\*|__)(?=\S)((?:(?!\n\s*\n).)+?)(?<=\S)\1", re.S)
+# **bold**, ***bold italic*** and __bold__, not inside words (SITMUN__DB__URL).
+BOLD = re.compile(r"(?<![\w*])(\*\*\*|\*\*|__)(?=\S)((?:(?!\n\s*\n).)+?)(?<=\S)\1(?![\w*])", re.S)
 
 unknown = {}
 for page in sorted(docs.rglob("*.md")):

@@ -4,9 +4,10 @@ The site self-hosts fonts, images and Mermaid so readers' browsers make no
 third-party requests. Links to other sites are fine; resources a page loads
 are not. Checked in the built site:
 
-- HTML: src, srcset (every URL), data and poster attributes, <link> tags that
-  load something (stylesheet, preload, icon...), and url() in style attributes
-  and <style> blocks;
+- HTML: src, srcset (every URL), data and poster attributes, SVG href and
+  xlink:href, <link> tags that load something (stylesheet, preload, icon...),
+  url() in style attributes and <style> blocks, and scripts added by inline
+  JavaScript (x.src = "https://...", as the theme does for analytics);
 - CSS files: @import and url();
 - Mermaid: every page with a diagram must load js/mermaid-local.js, or the
   theme fetches Mermaid from unpkg.com.
@@ -23,6 +24,7 @@ host = sys.argv[2] if len(sys.argv) > 2 else "sitmun.github.io"
 
 LOADING_RELS = {"stylesheet", "preload", "modulepreload", "prefetch", "icon",
                 "shortcut", "apple-touch-icon", "manifest"}
+SCRIPT_SRC = re.compile(r"""\.src\s*=\s*['"]((?:https?:)?//[^'"]+)['"]""")
 CSS_URL = re.compile(r"""(?:@import\s+|url\()\s*['"]?(https?:)?//([^'")\s;]+)""", re.I)
 
 
@@ -38,6 +40,8 @@ class Page(html.parser.HTMLParser):
         super().__init__()
         self.urls: list[str] = []
         self.in_style = False
+        self.in_script = False
+        self.in_svg = 0
         self.mermaid = False
         self.shim = False
 
@@ -49,6 +53,10 @@ class Page(html.parser.HTMLParser):
         for name in ("srcset", "imagesrcset"):
             if name in a:
                 self.urls += [part.strip().split(" ")[0] for part in a[name].split(",") if part.strip()]
+        if tag == "svg":
+            self.in_svg += 1
+        if self.in_svg and tag in ("image", "use", "feimage"):
+            self.urls += [a[name] for name in ("href", "xlink:href") if name in a]
         if tag == "link" and LOADING_RELS & set(a.get("rel", "").lower().split()):
             self.urls.append(a.get("href", ""))
         if "style" in a:
@@ -58,14 +66,21 @@ class Page(html.parser.HTMLParser):
         if tag == "script" and a.get("src", "").endswith("js/mermaid-local.js"):
             self.shim = True
         self.in_style = tag == "style"
+        self.in_script = tag == "script" and "src" not in a
 
     def handle_endtag(self, tag):
         if tag == "style":
             self.in_style = False
+        if tag == "script":
+            self.in_script = False
+        if tag == "svg" and self.in_svg:
+            self.in_svg -= 1
 
     def handle_data(self, data):
         if self.in_style:
             self.urls += ["https://" + m.group(2) for m in CSS_URL.finditer(data)]
+        if self.in_script:
+            self.urls += SCRIPT_SRC.findall(data)
 
 
 found = []
