@@ -92,7 +92,7 @@ La sintaxis para utilizar variables de sistema es ligeramente diferente a la de 
     - Todos los parámetros usados deben estar definidos en la pestaña **Parámetros**, y todos los definidos deben usarse.
     - El botón **Probar** ejecuta la consulta guardada y muestra la SQL resultante y los valores enlazados.
 
-Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla. Esto también se aplica cuando la consulta se usa dentro de una [tarea MIA](mas-informacion-avanzada.md): si no tiene el rol y el territorio de la aplicación, el visor muestra «No data» en su lugar.
+Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla. Esto también se aplica cuando la consulta se usa dentro de una [tarea MIA](mas-informacion-avanzada.md): si no tiene el rol y el territorio de la aplicación, el visor muestra «Sin datos» en su lugar.
 
 ### Consulta Web API (Web API query)
 

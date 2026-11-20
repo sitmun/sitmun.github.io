@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import re
 
-from lib import GUIDE_IMG, INSTALL_IMG, Ctx, shot
+from lib import GUIDE_IMG, INSTALL_IMG, Abort, Ctx, shot
 
 def before_login(c: Ctx) -> None:
     """Runs before the script logs in.
@@ -93,6 +93,13 @@ def conexiones_formulario(c: Ctx) -> None:
     fill(c, "url", "jdbc:postgresql://example:5432/example")
     c.page.get_by_role("button", name="Probar conexión").click()
     c.settle(1500)
+    # Without the example database every query, template and MIA image would
+    # show an error instead of data.
+    try:
+        c.page.get_by_text("Establecida", exact=True).first.wait_for(timeout=10000)
+    except Exception:
+        raise Abort("the example database does not answer: start the showcase with the "
+                    "demo profile (COMPOSE_PROFILES=postgres,demo), see README.md") from None
     c.save("conexiones-formulario", c.content, keep_toast=True)
     save_form(c)
 
@@ -146,8 +153,8 @@ def servicios(c: Ctx) -> None:
     c.save("servicios-autenticacion", auth)
     choose(c, "authenticationMode", "Ninguno")
 
-    # In 1.3.0, layers fetched before the service is first saved are not
-    # created, so save the service first and register layers afterwards.
+    # Save first so the layers tab shows "Actualizar capas del servicio", the
+    # button of an existing service, as the manual describes.
     save_form(c)
     p.wait_for_url("**/service/*/serviceForm", timeout=15000)
     c.tab("Capas")

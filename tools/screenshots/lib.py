@@ -20,6 +20,10 @@ HIGHLIGHT = "3px dashed #e53935"
 SHOTS: dict[str, Callable[["Ctx"], None]] = {}
 
 
+class Abort(Exception):
+    """A step found the showcase unusable; later images would show errors, so stop."""
+
+
 def shot(func: Callable[["Ctx"], None]) -> Callable[["Ctx"], None]:
     """Register a screenshot step. Steps run in definition order."""
     SHOTS[func.__name__] = func

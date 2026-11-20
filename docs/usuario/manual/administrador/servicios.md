@@ -34,9 +34,9 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para la conexión a servicios con autenticación debemos utilizar el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica** (usuario y contraseña) o **API key** (una clave enviada en una cabecera, un parámetro de la consulta o una cookie). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
+Para la conexión a servicios con autenticación debemos utilizar el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica** (usuario y contraseña). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
 
-Al seleccionar la opción de autenticación deberemos facilitar el usuario y la contraseña, o la clave, de conexión al servicio.
+Al seleccionar la opción de autenticación deberemos facilitar el usuario y la contraseña de conexión al servicio.
 
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 
@@ -46,19 +46,18 @@ Una vez configurado el servicio podemos gestionar las capas que dicho servicio p
 
 La pestaña **Capas** aparecerá vacía en el momento de crear el servicio. Las capas se pueden configurar automáticamente o también existe la opción de definirlas manualmente, lo que ofrece otras posibilidades de configuración. Esta segunda opción se detalla en el apartado [Capas](capas.md).
 
-!!! warning "Guarde el servicio antes de registrar sus capas"
-    En SITMUN 1.3.0, las capas que se obtienen en un servicio que todavía no se ha guardado
-    (botón **Obtener capas del servicio**) no se crean al guardarlo
-    ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
-    Guarde primero el servicio y después registre sus capas como se explica a continuación.
-
-Para cargar las capas automáticamente, con el servicio ya guardado, se utiliza el botón **Actualizar capas del servicio**. Al pulsarlo se listan todas las capas que proporciona el servicio:
+Para cargar las capas automáticamente se utiliza el botón **Actualizar capas del servicio** (en un servicio que todavía no se ha guardado se llama **Obtener capas del servicio**). Al pulsarlo se listan todas las capas que proporciona el servicio:
 
 ![Capas ofrecidas por el servicio](img/servicios-obtener-capas.webp){ loading=lazy }
 
-En este punto aún no tenemos ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La columna **Estado** las muestra como **Capa no registrada**.
+En este punto aún no tenemos ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, **Capa no registrada**.
 
-Del listado podemos seleccionar las capas que deseemos incorporar a SITMUN y pulsar el botón **Registrar** (símbolo **+**). Su estado pasa a **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
+Del listado podemos seleccionar las capas que deseemos incorporar a SITMUN y pulsar el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
+
+!!! warning "Registre las capas que quiera crear"
+    En un servicio que todavía no se ha guardado, las capas obtenidas aparecen con el punto naranja
+    **Pendiente crear**, pero en SITMUN 1.3.0 solo se crean al guardar las que se registran con
+    **Registrar** ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
 
 ![Selección de capas del servicio](img/servicios-seleccionar-capas.webp){ loading=lazy }
 
@@ -70,7 +69,7 @@ Una vez guardado, si volvemos a la pestaña **Capas** veremos que esas capas ya 
 
 ![Capas registradas en el servicio](img/servicios-capas-registradas.webp){ loading=lazy }
 
-Podemos quitar una capa ya registrada seleccionándola de la lista y pulsando el icono de la papelera. La capa queda en estado **Pendiente eliminar**, y al guardar se materializa el cambio.
+Podemos quitar una capa ya registrada seleccionándola de la lista y pulsando el icono de la papelera. La capa queda marcada con un punto rojo, **Pendiente eliminar**, y al guardar se materializa el cambio.
 
 ![Capa marcada para quitar](img/servicios-quitar-capa.webp){ loading=lazy }
 

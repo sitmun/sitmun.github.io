@@ -60,7 +60,7 @@ Debe tenerse en cuenta que esta capa deberá tener activada la función de visua
 
 *En este ejemplo, el MIA se activará al hacer clic sobre un monumento de la capa «Monumentos de la Menorca Talayótica (UNESCO)», ya que es la cartografía seleccionada.*
 
-Como siempre, será necesario asignar roles y territorios a esta tarea MIA según convenga. Las tareas que incluya el MIA (consultas y plantillas) también deben tener el rol y el territorio de la aplicación; si no, el visor muestra «No data» en su lugar.
+Como siempre, será necesario asignar roles y territorios a esta tarea MIA según convenga. Las tareas que incluya el MIA (consultas y plantillas) también deben tener el rol y el territorio de la aplicación; si no, el visor muestra «Sin datos» en su lugar.
 
 ### Paso 2: preparar las fuentes de información
 

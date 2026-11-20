@@ -19,13 +19,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from playwright.sync_api import sync_playwright  # noqa: E402
 
-from lib import SHOTS, VIEWPORT, Ctx, login_admin  # noqa: E402
+from lib import SHOTS, VIEWPORT, Abort, Ctx, login_admin  # noqa: E402
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--base", default="http://localhost:9000")
-    ap.add_argument("--password-file", required=True)
+    ap.add_argument("--password-file", help="file with the admin password (required unless --list)")
     ap.add_argument("--only", nargs="*", default=[])
     ap.add_argument("--list", action="store_true", help="list the steps and exit")
     args = ap.parse_args()
@@ -35,22 +35,33 @@ def main() -> int:
     if args.list:
         print("\n".join(SHOTS))
         return 0
+    if not args.password_file:
+        ap.error("--password-file is required")
     password = Path(args.password_file).read_text().strip()
     with sync_playwright() as p:
         browser = p.chromium.launch()
         context = browser.new_context(viewport=VIEWPORT, locale="es-ES", device_scale_factor=1)
         page = context.new_page()
         ctx = Ctx(page, args.base, password, set(args.only))
-        if not ctx.only or "before_login" in ctx.only:
-            steps.before_login(ctx)
-        login_admin(page, args.base, password)
         failed = []
+        try:
+            if not ctx.only or "before_login" in ctx.only:
+                steps.before_login(ctx)
+            login_admin(page, args.base, password)
+        except Exception as exc:
+            failed.append("login")
+            print(f"Could not sign in to the admin at {args.base} (address or password?): {exc}")
+            page.screenshot(path="/tmp/shot-fail-login.png")
         for name, step in SHOTS.items():
-            if ctx.only and name not in ctx.only:
+            if failed == ["login"] or (ctx.only and name not in ctx.only):
                 continue
             print(f"- {name}")
             try:
                 step(ctx)
+            except Abort as exc:  # later images would be wrong: stop here
+                failed.append(name)
+                print(f"  STOPPED: {exc}")
+                break
             except Exception as exc:  # keep going; report at the end
                 failed.append(name)
                 print(f"  FAILED: {exc}")
