@@ -53,6 +53,9 @@ jobs:
         run: pip install -r requirements.txt
       - name: Build site (site_dir in zensical.toml is _site)
         run: zensical build --strict --clean --config-file ./zensical.toml
+      # Zensical writes the redirect pages from a built-in English template.
+      - name: Translate the redirect pages into Spanish
+        run: python .github/scripts/localize_redirects.py zensical.toml _site
       # PlantUML diagrams come from a remote server; when it fails, the build still
       # succeeds with an error in place of the diagram. Fail instead.
       - name: Check that every PlantUML diagram rendered
