@@ -3,11 +3,13 @@
 The admin manual and guides quote UI labels in bold (**Guarda**, **Registrar**).
 Each bold phrase must be a label of the admin (es.json) or a seeded Spanish
 translation (04-translations.sql) of the SITMUN version in zensical.toml
-(extra.sitmun_version), or be listed in .github/label-allowlist.txt (bold used
-for emphasis, headings or names that are not UI labels). A phrase matches a
-label exactly or as its beginning before a bracket ("Campo de latitud" matches
-"Campo de latitud (opcional)"). Paths like **Sistema** → **Idiomas** are checked
-part by part.
+(extra.sitmun_version), or be listed exactly, with the same case, in
+.github/label-allowlist.txt (bold used for emphasis, headings or names that are
+not UI labels). A phrase matches a label ignoring case, exactly or as its
+beginning before a bracket ("Campo de latitud" matches "Campo de latitud
+(opcional)"). Paths like **Sistema** → **Idiomas** are checked part by part.
+Both **bold** and __bold__ are read, also when wrapped over lines; code blocks
+and inline code are skipped.
 
 Usage: python .github/scripts/check_ui_labels.py [docs_dir]
 Set SITMUN_SOURCE to a local sitmun checkout to read the files with git instead
@@ -59,13 +61,19 @@ for match in re.finditer(r"lang\.lan_id, '((?:[^']|'')*)' FROM [^;]*?lan_shortna
 prefixes = {label.split(" (")[0] for label in labels}
 
 allowlist_file = pathlib.Path(".github/label-allowlist.txt")
-allowed = {norm(line) for line in allowlist_file.read_text(encoding="utf-8").splitlines()
+allowed = {re.sub(r"\s+", " ", line).strip() for line in allowlist_file.read_text(encoding="utf-8").splitlines()
            if line.strip() and not line.startswith("#")}
+
+FENCE = re.compile(r"^( *)(```|~~~).*?^\1\2[^\n]*$", re.M | re.S)
+INLINE_CODE = re.compile(r"`[^`\n]+`")
+BOLD = re.compile(r"(\*\*|__)(?=\S)((?:(?!\n\s*\n).)+?)(?<=\S)\1", re.S)
 
 unknown = {}
 for page in sorted(docs.rglob("*.md")):
-    for phrase in re.findall(r"\*\*([^*\n]+?)\*\*", page.read_text(encoding="utf-8")):
-        if norm(phrase) in allowed:
+    text = INLINE_CODE.sub("", FENCE.sub("", page.read_text(encoding="utf-8")))
+    for match in BOLD.finditer(text):
+        phrase = re.sub(r"\s+", " ", match.group(2)).strip()
+        if phrase in allowed:
             continue
         parts = [norm(part) for part in re.split(r"\s*→\s*", phrase)]
         if all(part in labels or part in prefixes for part in parts):

@@ -1,4 +1,5 @@
 # Bold phrases in docs/usuario that are not UI labels (emphasis, headings, names).
+# Matched exactly, with the same case: a label written the same way is still checked.
 +
 1.1 Territorio
 1.2 Rol
