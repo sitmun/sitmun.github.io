@@ -1,4 +1,4 @@
-# Cogido de <https://gaseri.org/en/blog/2022-11-01-publishing-material-for-mkdocs-website-to-github-pages-using-custom-actions-workflow/>
+# Builds the site with Zensical (zensical.toml) and deploys it to GitHub Pages.
 name: Deploy the site with GitHub Pages
 
 on:
@@ -15,11 +15,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Read-only by default. Only the deploy job, which never runs on pull
+# requests, gets the Pages and OIDC permissions it needs.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # Allow one concurrent run per ref, so PR builds never cancel a deployment
 concurrency:
@@ -35,6 +34,9 @@ jobs:
   build:
     needs: requirements-sync
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: read      # actions/configure-pages reads the Pages settings
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,9 +51,14 @@ jobs:
           cache-dependency-path: 'requirements.txt'
       - name: Install Zensical and other requirements
         run: pip install -r requirements.txt
-      - name: Build site (site_dir in mkdocs.yml is _site)
-        run: zensical build --strict --clean --config-file ./mkdocs.yml
-      # zensical --strict can't see raw HTML (<img src>, <a href>); check every local link in the output.
+      - name: Build site (site_dir in zensical.toml is _site)
+        run: zensical build --strict --clean --config-file ./zensical.toml
+      # PlantUML diagrams come from a remote server; when it fails, the build still
+      # succeeds with an error in place of the diagram. Fail instead.
+      - name: Check that every PlantUML diagram rendered
+        run: python .github/scripts/check_diagrams.py docs _site
+      # --strict checks links written in the Markdown sources; lychee also checks the
+      # generated HTML (theme and template links, such as the announcement bar).
       # External links are checked weekly by links.yml so a flaky site can't block a deploy.
       - name: Check local links in the built site
         uses: lycheeverse/lychee-action@v2
@@ -72,6 +79,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-24.04
     needs: build
+    permissions:
+      pages: write     # to deploy to Pages
+      id-token: write  # to verify the deployment originates from an appropriate source
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

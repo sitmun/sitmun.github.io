@@ -1,3 +1,7 @@
+---
+description: "Soluciones a los problemas más comunes al instalar y usar SITMUN 3 con Docker: puertos, base de datos, autenticación, red y copias de seguridad."
+---
+
 # Solución de problemas
 
 Esta sección proporciona soluciones a los problemas más comunes que pueden surgir durante la instalación, configuración y uso de SITMUN 3.
@@ -23,14 +27,18 @@ Esta sección proporciona soluciones a los problemas más comunes que pueden sur
 docker --version
 docker compose --version
 
-# Limpiar contenedores y volúmenes
-docker compose down -v
+# Parar y eliminar los contenedores (los datos se conservan)
+docker compose down
 docker system prune -f
 
 # Reiniciar Docker Desktop (si aplica)
 # Reiniciar el servicio Docker en Linux
 sudo systemctl restart docker
 ```
+
+!!! danger "`docker compose down -v` borra la base de datos"
+    La opción `-v` elimina también los volúmenes, entre ellos `pgdata` (u `oradata`), donde está la base de datos de SITMUN.
+    Úsala solo si quieres empezar desde cero y, antes, haz una [copia de seguridad](#backup-de-base-de-datos).
 
 ### Puerto ya en uso
 
@@ -106,8 +114,16 @@ docker compose exec postgres psql -U sitmun3 -d sitmun3
 
 **Soluciones:**
 
+Revisa primero el error en `docker compose logs backend`.
+Si vienes de la versión 1.2.8 o 1.2.9, sigue la [guía de actualización](https://github.com/sitmun/sitmun/tree/main/docs/upgrade),
+que explica `SITMUN_UPGRADE_DEFAULT_LANGUAGE`.
+
+!!! danger "El comando siguiente borra todos los datos de SITMUN"
+    `DROP SCHEMA public CASCADE` elimina todas las tablas: usuarios, territorios, servicios, capas, tareas y aplicaciones.
+    Úsalo solo en una instalación nueva o de pruebas y, antes, haz una [copia de seguridad](#backup-de-base-de-datos).
+
 ```bash
-# Limpiar base de datos y volver a migrar
+# Borrar la base de datos y volver a crearla desde cero (¡se pierden los datos!)
 docker compose exec postgres psql -U sitmun3 -d sitmun3 -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
 
 # Reiniciar el backend para ejecutar migraciones

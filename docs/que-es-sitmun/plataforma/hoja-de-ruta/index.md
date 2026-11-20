@@ -1,12 +1,16 @@
+---
+description: "Hoja de ruta de SITMUN 3: proyectos en desarrollo, en cola y finalizados."
+---
+
 # Proyectos
 
 <table>
     <tr>
-        <td><strong>Última modificación</strong></td>
+        <th scope="row">Última modificación</th>
         <td><strong>Noviembre 2026</strong></td>
     </tr>
     <tr>
-        <td><strong>Versión publicada</strong></td>
+        <th scope="row">Versión publicada</th>
         <td><strong><a href="https://github.com/sitmun/sitmun/releases/tag/v1.3.0">SITMUN 1.3.0</a> (noviembre 2026)</strong></td>
     </tr>
 </table>

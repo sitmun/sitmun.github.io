@@ -4,7 +4,7 @@ Este repositorio contiene la documentación del proyecto SITMUN.
 
 ## Construir la web
 
-La web se construye con [Zensical](https://zensical.org) a partir de `mkdocs.yml`:
+La web se construye con [Zensical](https://zensical.org) a partir de `zensical.toml`:
 
 ```bash
 python -m venv .venv

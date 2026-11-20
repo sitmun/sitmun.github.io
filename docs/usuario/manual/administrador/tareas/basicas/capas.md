@@ -1,4 +1,4 @@
-# Capas
+# Tareas de capas
 
 Tareas básicas para elegir el mapa de fondo y gestionar las capas del mapa.
 

@@ -1,3 +1,7 @@
+---
+description: "Las API web de SITMUN 3: autenticación, configuración y autorización, proxy y administración."
+---
+
 # API
 
 **SITMUN 3** expone cuatro API web. Para cada una se describe para qué sirve y qué funcionalidades ofrece.

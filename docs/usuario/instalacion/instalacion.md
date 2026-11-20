@@ -1,3 +1,7 @@
+---
+description: "Cómo instalar SITMUN 1.3.0 con Docker (producción, showcase o desarrollo) o compilar cada componente desde el código fuente."
+---
+
 # Instalación
 
 Todo el código de **SITMUN 3** está en un único repositorio: [sitmun/sitmun](https://github.com/sitmun/sitmun).
@@ -184,12 +188,31 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             El JAR ejecutable se genera en `sitmun-backend/build/libs/sitmun-backend-<versión>.jar`
             (no uses el JAR `-plain`). Con `-Ppackaging=war` se genera un WAR.
 
-        2. Ejecútalo indicando el perfil Spring de la base de datos (`postgres`, `oracle` u `oracle-11`)
-           y la conexión a la base de datos:
+        2. Ejecútalo desde la raíz del repositorio. El JAR no incluye la configuración de cada base de datos:
+           está en `profiles/postgres/` (o `profiles/oracle/`) y se carga con `--spring.config.additional-location`.
+           La conexión, el *changelog* de Liquibase y los dos secretos se pasan como variables de entorno
+           (son los mismos valores que usa `profiles/postgres.env` con Docker):
 
             ```bash
-            java -jar sitmun-backend/build/libs/sitmun-backend-1.3.0.jar --spring.profiles.active=postgres
+            export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/sitmun3
+            export SPRING_DATASOURCE_USERNAME=sitmun3
+            export SPRING_DATASOURCE_PASSWORD=<contraseña>
+            export SPRING_LIQUIBASE_CHANGE_LOG=file:profiles/postgres/liquibase/master.xml
+            export SPRING_LIQUIBASE_CONTEXTS=
+            export SPRING_JPA_HIBERNATE_DDL_AUTO=validate
+            export SITMUN_USER_SECRET=$(openssl rand -hex 32)
+            export SITMUN_PROXY_MIDDLEWARE_SECRET=$(openssl rand -hex 32)
+            java -jar sitmun-backend/build/libs/sitmun-backend-1.3.0.jar \
+              --spring.profiles.active=prod,postgres \
+              --spring.config.additional-location=file:profiles/postgres/
             ```
+
+            - Guarda los dos secretos: `SITMUN_PROXY_MIDDLEWARE_SECRET` debe ser el mismo que use el **proxy**
+              (`SITMUN_BACKEND_CONFIG_SECRET`), y si cambia `SITMUN_USER_SECRET` se invalidan las sesiones.
+            - Para Oracle usa el perfil `prod,oracle` (u `oracle-11` para Oracle 11g), la carpeta `profiles/oracle/`,
+              su `liquibase/master.xml` y una URL `jdbc:oracle:thin:@//<servidor>:1521/<servicio>`.
+            - Cuando arranque, `http://localhost:8080/api/dashboard/health` responde `UP`.
+              En una base de datos nueva, la primera visita al administrador pide crear la contraseña de `admin`.
 
         La configuración (base de datos, secretos, LDAP, OIDC…) se detalla en
         [sitmun-backend/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-backend/README.md).
@@ -239,7 +262,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             ```bash
             cd sitmun-viewer
-            pnpm run build -- --configuration=production --base-href=/viewer/
+            pnpm run build --configuration=production --base-href=/viewer/
             ```
 
             Los archivos se generan en `sitmun-viewer/dist/viewer-app`.
@@ -272,7 +295,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             ```bash
             cd sitmun-admin
-            pnpm run build -- --configuration=production --base-href=/admin/
+            pnpm run build --configuration=production --base-href=/admin/
             ```
 
             Los archivos se generan en `sitmun-admin/dist/admin-app`.
