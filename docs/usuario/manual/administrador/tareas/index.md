@@ -8,10 +8,14 @@ Las tareas se clasifican en [grupos de tareas](../grupos-de-tareas.md). Los tipo
 
 - [Tareas básicas](basicas/index.md): las herramientas básicas del visor (selector de mapas de fondo, leyenda, impresión, medición…).
 - [Tareas de consulta](consulta.md): consultas a bases de datos y otras fuentes, que utilizan otras tareas.
-- [Tarea de imagen del mapa](imagen-mapa.md).
-- [Exportación documental](exportacion-documental.md).
 - [Tarea de localizador](localizador.md): sitúa un elemento en el mapa del visor.
 - [Plantillas](plantillas.md): dan formato a la información obtenida con las consultas.
-- [Tarea de edición](edicion.md).
-- [Tarea de más información](mas-informacion.md).
 - [Tarea de más información avanzada](mas-informacion-avanzada.md): amplía la información de un elemento seleccionado en el mapa.
+
+Estos tipos de tarea también existen en SITMUN 1.3.0 y aparecen en el menú **Tarea** del administrador,
+pero su documentación todavía no está escrita:
+
+- **Imagen del mapa**.
+- **Exportación documental**: genera documentos PDF a partir de [plantillas](plantillas.md).
+- **Edición**: edición de datos, en base de datos o en servicios WFS (también la usa la aplicación móvil de edición).
+- **Más información**.

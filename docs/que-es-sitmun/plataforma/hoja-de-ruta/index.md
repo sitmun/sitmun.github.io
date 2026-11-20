@@ -44,6 +44,8 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 Todas las funcionalidades de esta tabla están disponibles en la versión 1.3.0.
 
+Algunas todavía no tienen su página en el manual del administrador: la tarea de edición, la de *más información* y la exportación documental (ver [Tareas](../../../usuario/manual/administrador/tareas/index.md)).
+
 | Proyecto - Funcionalidad | Descripción |
 | --- | --- |
 | **Repositorio único y despliegue con imágenes publicadas** | Todos los componentes en [sitmun/sitmun](https://github.com/sitmun/sitmun), imágenes Docker publicadas en `ghcr.io/sitmun`, asistente de primer arranque y actualización desde 1.2.8/1.2.9. |
