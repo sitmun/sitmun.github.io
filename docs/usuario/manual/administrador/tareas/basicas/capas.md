@@ -36,6 +36,8 @@ Permite visualizar la leyenda de las capas cargadas. La leyenda que se muestra s
 
 ![Leyenda del visor](../../img/basicas-legend.webp){ loading=lazy }
 
+*Captura de una versión anterior de SITMUN; en 1.3.0, véase la nota siguiente.*
+
 !!! warning "SITMUN 1.3.0"
     En la versión 1.3.0 el panel **Leyenda** muestra «No hay datos» aunque haya capas cargadas
     ([sitmun/sitmun#375](https://github.com/sitmun/sitmun/issues/375)).

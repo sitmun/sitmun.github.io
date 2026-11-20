@@ -21,4 +21,4 @@ Desde el botón **+** de la derecha aparece un listado de los permisos sobre las
 
 ![Añadir permisos a una capa](img/permisos-anadir.webp){ loading=lazy }
 
-La fila nueva aparece en estado **Pendiente crear** hasta que se guarda la capa.
+La fila nueva aparece con un punto naranja (al pasar el ratón, «Pendiente crear») hasta que se guarda la capa.

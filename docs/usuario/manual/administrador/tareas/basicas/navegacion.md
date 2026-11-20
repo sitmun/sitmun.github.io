@@ -49,7 +49,7 @@ Permite visualizar la escala del mapa. Se muestra en la parte inferior derecha.
 
 ## Scale Bar
 
-Permite visualizar la escala en formato de barra. Este control no puede estar activado conjuntamente con el control Scale. Si lo está, se mostrará un mensaje informando de que son controles incompatibles entre sí y se visualizará el primero, en este caso Scale.
+Permite visualizar la escala en formato de barra. Se muestra en la esquina inferior derecha del mapa, en el mismo lugar que el control Scale, así que conviene no activar los dos en la misma aplicación (véase la nota siguiente).
 
 - Control API SITNA: `sitna.scaleBar`
 
