@@ -8,8 +8,9 @@ are not. Checked in the built site:
   xlink:href, <link> tags that load something (stylesheet, preload, icon...),
   url() in style attributes and <style> blocks;
 - JavaScript, in inline scripts and in the site's own files (docs/js, not
-  vendor libraries): URLs given to .src =, setAttribute("src"/"href"),
-  fetch() and import() (the theme loads analytics this way);
+  vendor libraries): URLs given to .src =, setAttribute("src"), fetch() and
+  import() (the theme loads analytics this way). An href set by script is a
+  link and loads nothing, so it is not checked;
 - CSS files: @import and url();
 - Mermaid: every page with a diagram must load js/mermaid-local.js, or the
   theme fetches Mermaid from unpkg.com.
@@ -26,7 +27,7 @@ host = sys.argv[2] if len(sys.argv) > 2 else "sitmun.github.io"
 
 LOADING_RELS = {"stylesheet", "preload", "modulepreload", "prefetch", "icon",
                 "shortcut", "apple-touch-icon", "manifest"}
-SCRIPT_SRC = re.compile(r"""(?:\.src\s*=\s*|setAttribute\(\s*['"](?:src|href)['"]\s*,\s*|fetch\(\s*|import\(\s*)['"]((?:https?:)?//[^'"]+)['"]""")
+SCRIPT_SRC = re.compile(r"""(?:\.src\s*=\s*|setAttribute\(\s*['"]src['"]\s*,\s*|fetch\(\s*|import\(\s*)['"]((?:https?:)?//[^'"]+)['"]""")
 CSS_URL = re.compile(r"""(?:@import\s+|url\()\s*['"]?(https?:)?//([^'")\s;]+)""", re.I)
 
 
