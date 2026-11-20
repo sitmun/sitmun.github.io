@@ -1,209 +1,251 @@
 # Instalación
 
+Todo el código de **SITMUN 3** está en un único repositorio: [sitmun/sitmun](https://github.com/sitmun/sitmun).
+Cada componente (administrador, visor, backend, proxy, MBTiles y aplicaciones móviles) es una carpeta de ese repositorio.
+Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-backend-core`, `sitmun-admin-app`, etc.) solo llegan a la versión 1.2.9.
+
 === "Docker"
 
-      **Pasos de instalación**
+    **Elegir cómo instalar**
 
-      Para instalar SITMUN, sigue estos pasos:
+    | Uso | Rama o etiqueta | Perfil (`profiles/*.env`) | Datos |
+    | --- | --- | --- | --- |
+    | Probar SITMUN (*showcase*) | `main` | `showcase.env` | Tres aplicaciones de demostración |
+    | Producción con PostgreSQL | `v1.3.0` | `postgres.env` | Sin datos de ejemplo |
+    | Producción con Oracle | `v1.3.0` | `oracle.env` | Sin datos de ejemplo |
+    | Desarrollo con PostgreSQL | `dev` | `development-postgres.env` | Datos de ejemplo |
+    | Desarrollo con Oracle | `dev` | `development-oracle.env` | Datos de ejemplo |
 
-      1. Clona el repositorio con submódulos y entra en el directorio:
+    **Pasos de instalación (producción)**
 
-         ```bash
-         git clone --branch dev --recurse-submodules https://github.com/sitmun/sitmun-application-stack.git
-         cd sitmun-application-stack
-         ```
+    1. Clona la versión publicada y entra en el directorio:
 
-      2. Prepara el entorno:
+        ```bash
+        git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
+        cd sitmun
+        ```
 
-         - Linux/macOS:
+    2. Copia el perfil a `.env` y genera los secretos:
 
-           ```bash
-           ./setup.sh
-           ```
+        - Linux/macOS:
 
-         - Windows:
+            ```bash
+            cp profiles/postgres.env .env
+            ./setup.sh
+            ```
 
-           ```powershell
-           ./setup.ps1
-           ```
+        - Windows:
 
-      3. Arranca la plataforma SITMUN:
+            ```powershell
+            Copy-Item profiles\postgres.env .env
+            .\setup.ps1
+            ```
 
-         ```bash
-         docker compose up -d
-         ```
+        Para Oracle, copia `profiles/oracle.env` en lugar de `profiles/postgres.env`.
 
-         Nota: Por defecto se utiliza PostgreSQL. Para usar Oracle:
+        `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
+        `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
+        Docker Compose no arranca si falta alguno.
 
-         ```bash
-         COMPOSE_PROFILES=oracle docker compose up -d
-         ```
+    3. Arranca la plataforma con las imágenes publicadas:
 
-      4. Verifica la instalación:
+        ```bash
+        docker compose up -d --pull always --no-build
+        ```
 
-         ```bash
-         docker compose ps
-         curl http://localhost:9001/api/dashboard/health
-         curl http://localhost:9002/actuator/health
-         ```
+    4. Verifica la instalación:
 
-      5. Accede a las aplicaciones:
+        ```bash
+        docker compose ps
+        curl http://localhost:9001/api/dashboard/health
+        curl http://localhost:9002/actuator/health
+        ```
 
-         - Visor: http://localhost:9000/viewer
-         - Administrador: http://localhost:9000/admin
-         - Backend API: http://localhost:9000/backend
+        En PowerShell usa `curl.exe` en lugar de `curl`.
 
-         Credenciales por defecto:
+    5. Accede a las aplicaciones:
 
-         - Usuario: `admin`
-         - Contraseña: `admin`
+        - Visor: <http://localhost:9000/viewer/>
+        - Administrador: <http://localhost:9000/admin/>
+        - Backend API: <http://localhost:9000/backend/>
+        - Documentación de la API (Swagger UI): <http://localhost:9001/swagger-ui/index.html>
 
-      **Servicios**
+    **Primer acceso al administrador**
 
-      Los servicios están definidos en el archivo `docker-compose.yml`.
-      Los siguientes servicios están disponibles:
+    En una base de datos de producción el usuario `admin` no tiene contraseña.
+    La primera visita a `/admin/` pide crear su contraseña y elegir el idioma por defecto.
+    Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que hazla enseguida,
+    o define `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, si quieres, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
+    Quita esas variables de `.env` cuando `GET /api/dashboard/health` responda `UP`.
 
-      - `front`, un servidor web *nginx* en el puerto 9000 que publica la aplicación del visor de SITMUN (`http://localhost:9000/viewer`) y la aplicación administrativa de SITMUN (`http://localhost:9000/admin`) y enruta las solicitudes a los servicios `backend` (`http://localhost:9000/backend`) y `proxy` (`http://localhost:9000/middleware`)
-      - `backend`, que expone el API de autenticación, autorización y configuración de SITMUN (puerto 9001)
-      - `proxy`, que expone el API proxy-middleware de SITMUN y que se comunica con el servicio `backend` (puerto 9002)
-      - `postgres`: base de datos PostgreSQL 16 que almacena los datos en el volumen `pgdata` (puerto 9003)
-      - `oracle`: base de datos Oracle 23c alternativa (puerto 9004)
-      - `example`: base de datos PostgreSQL de ejemplo (puerto 9005)
+    En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
 
+    **Probar SITMUN (showcase)**
 
-      ```mermaid
-      block-beta
-      columns 5
+    ```bash
+    git clone https://github.com/sitmun/sitmun.git
+    cd sitmun
+    cp profiles/showcase.env .env
+    ./setup.sh
+    docker compose -p sitmun-showcase up -d --pull always --no-build
+    ```
 
-      space:2
-      front["<b>front</b><br>nginx<br>localhost:9000"]
-      space:2
+    En el visor, el usuario `demo` con contraseña `demo` ve las tres aplicaciones de demostración.
 
-      space:5
+    **Entorno de desarrollo**
 
-      postgres[("<b>postgres</b><br>PostgreSQL 16<br>SITMUN database")]
-      space:1
-      backend["<b>backend</b><br>Spring Boot<br>SITMUN backend"]
-      space:1
-      proxy["<b>proxy</b><br>Spring Boot<br>SITMUN proxy-middleware"]
+    ```bash
+    git clone --branch dev https://github.com/sitmun/sitmun.git
+    cd sitmun
+    ./setup.sh
+    docker compose up -d
+    ```
 
-      front -- "/middleware" --> proxy
-      front -- "/backend" --> backend
-      proxy -- "/api/config/proxy" --> backend
-      backend -- "jdbc" --> postgres
-      ```
+    Sin `.env`, `setup.sh` copia `profiles/development-postgres.env`.
+    `docker compose up -d` sin `--no-build` compila las imágenes a partir del código del repositorio.
 
-      **Configuración**
+    **Servicios**
 
-      Las variables de entorno se definen en el archivo `.env` (si no existe, `./setup.sh` copiará `.env.example`). Variables clave:
+    Los servicios están definidos en el archivo `compose.yaml`:
 
-      - `COMPOSE_PROFILES`: perfiles activos (`postgres`/`oracle`). Por defecto: `postgres`.
-      - `DATABASE`, `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
-      - `FORCE_USE_OF_PROXY`: fuerza el uso del proxy (`false` por defecto).
+    - `front`: servidor web *nginx* en el puerto 9000. Publica el visor (`/viewer/`) y el administrador (`/admin/`) y enruta `/backend/` al `backend` y `/middleware/` al `proxy`.
+    - `backend`: API de autenticación, autorización, configuración y administración (puerto 9001).
+    - `proxy`: API de proxy-middleware, que se comunica con el `backend` (puerto 9002).
+    - `postgres`: base de datos PostgreSQL 16 en el volumen `pgdata` (puerto 9003, perfil `postgres`).
+    - `oracle`: base de datos Oracle 23 Free (puerto 9004, perfil `oracle`).
+    - `example`: base de datos PostgreSQL de ejemplo (puerto 9005, perfil `demo`).
+    - `mbtiles`: servicio de exportación de teselas para la aplicación móvil de edición (perfil `mbtiles`, sin puerto publicado).
 
-      **Desinstalación**
+    ```mermaid
+    block-beta
+    columns 5
 
-      Para detener y eliminar todos los servicios, volúmenes y redes definidos en el archivo `docker-compose.yml`, usa:
+    space:2
+    front["<b>front</b><br>nginx<br>localhost:9000"]
+    space:2
 
-      ```bash
-      docker compose down -v
-      ```
+    space:5
+
+    postgres[("<b>postgres</b><br>PostgreSQL 16<br>SITMUN database")]
+    space:1
+    backend["<b>backend</b><br>Spring Boot<br>SITMUN backend"]
+    space:1
+    proxy["<b>proxy</b><br>Spring Boot<br>SITMUN proxy-middleware"]
+
+    front -- "/middleware" --> proxy
+    front -- "/backend" --> backend
+    proxy -- "/api/config/proxy" --> backend
+    backend -- "jdbc" --> postgres
+    ```
+
+    **Configuración**
+
+    Las variables de entorno se definen en el archivo `.env`. Variables clave:
+
+    - `COMPOSE_PROFILES`: `postgres` u `oracle`. Añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
+    - `DATABASE_TYPE`, `DATABASE_URL`, `DATABASE`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
+    - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`, `PUBLIC_BASE_PATH`: dirección pública de la instalación.
+    - `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET`, `SITMUN_MBTILES_JOB_HANDLE_SECRET`: secretos obligatorios (los genera `setup.sh`).
+    - `FORCE_USE_OF_PROXY`: fuerza el uso del proxy (`false` por defecto).
+
+    La lista completa, la conexión a una base de datos externa, las copias de seguridad y la publicación bajo una ruta
+    están en [DEPLOYMENT.md](https://github.com/sitmun/sitmun/blob/main/DEPLOYMENT.md).
+    La actualización desde 1.2.8 o 1.2.9 está en
+    [docs/upgrade](https://github.com/sitmun/sitmun/tree/main/docs/upgrade).
+
+    **Desinstalación**
+
+    Para detener y eliminar todos los servicios, volúmenes y redes definidos en `compose.yaml`, usa:
+
+    ```bash
+    docker compose down -v
+    ```
+
+    Añade `-p sitmun-showcase` después de `docker compose` si instalaste el *showcase*.
 
 === "Fuente"
 
-    !!! info "En desarrollo"
-        Esta sección está siendo actualizada.
-        Las instrucciones de instalación son un ejemplo de como serán en un futuro.
-        
+    Todos los componentes se compilan desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
+    Cada componente tiene su propio README con todos los detalles.
+
+    ```bash
+    git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
+    cd sitmun
+    ```
 
     === "Backend"
 
-        Una vez completada la instalación de los prerrequisitos y la configuración, puedes proceder con la compilación del **backend** siguiendo estos pasos:
+        1. Compila con Gradle desde la raíz del repositorio:
 
-        1. Descarga el proyecto <https://github.com/sitmun/sitmun-backend-core> en tu equipo.
-        2. Crea un proyecto nuevo a partir de las plantillas de la carpeta `deploy` y añádelo a `settings.gradle`.
-        3. Configura el fichero `application.yml` del nuevo proyecto.
-        4. Ejecutar el siguiente comando desde la raíz del proyecto en una terminal.
-           ```bash
-           ./gradlew clean :[proyecto]:build
-           ```
-           Este comando genera el fichero JAR del **proxy** en la ruta
-           ```
-           .[proyecto]/build/libs/[proyecto]-${version}.jar
-           ```
+            ```bash
+            ./gradlew :sitmun-backend:build -x test
+            ```
 
-        Los sistemas operativos en los que se pueden desplegar el **backend** son:
+            El JAR ejecutable se genera en `sitmun-backend/build/libs/sitmun-backend-<versión>.jar`
+            (no uses el JAR `-plain`). Con `-Ppackaging=war` se genera un WAR.
 
-        - Linux: como servicio *init.d*, como servicio *systemd* o mediante un script de arranque.
-        - Windows: puede ejecutarse como un servicio Windows usando la herramienta *WinSW* o mediante un script de arranque.
+        2. Ejecútalo indicando el perfil Spring de la base de datos (`postgres`, `oracle` u `oracle-11`)
+           y la conexión a la base de datos:
+
+            ```bash
+            java -jar sitmun-backend/build/libs/sitmun-backend-1.3.0.jar --spring.profiles.active=postgres
+            ```
+
+        La configuración (base de datos, secretos, LDAP, OIDC…) se detalla en
+        [sitmun-backend/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-backend/README.md).
+
+        Los sistemas operativos en los que se puede desplegar el **backend** son:
+
+        - Linux: como servicio *systemd* o mediante un script de arranque.
+        - Windows: como servicio Windows usando la herramienta *WinSW* o mediante un script de arranque.
 
     === "Proxy"
 
-         Una vez completada la instalación de los prerrequisitos y la configuración, puedes proceder con la compilación del **proxy** siguiendo estos pasos:
-
-         1. Descarga el proyecto <https://github.com/sitmun/sitmun-proxy-middleware> en tu equipo.
-         2. Abre el proyecto descargado y modifica del fichero `application.yml` las propiedades `security.authentication.middleware.secret` y `sitmun.config.url`.
-            `security.authentication.middleware.secret` debe contener el token que se ha configurado en el **backend** para que el **proxy** pueda autenticarse.
-            `sitmun.config.url` debe contener la URI de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** del **backend**.
-            Si el **proxy** y el **backend** son servicios internos de la misma red, se recomienda usar el nombre interno o la
-            dirección IP interna del **backend**.
-         3. Ejecutar el siguiente comando desde la raíz del proyecto en una terminal.
+        1. Compila con Gradle desde la raíz del repositorio:
 
             ```bash
-            ./gradlew clean build
+            ./gradlew :sitmun-proxy:build -x test
             ```
 
-            Este comando genera el fichero JAR del **proxy** en la ruta `./build/libs/` con el nombre `sitmun-proxy-middleware-[version].jar`.
+            El JAR ejecutable se genera en `sitmun-proxy/build/libs/sitmun-proxy-<versión>.jar`.
 
-         Los sistemas operativos en los que se pueden desplegar el **proxy** son:
+        2. Configura las variables de entorno:
 
-         - Linux: como servicio *init.d*, como servicio *systemd* o mediante un script de arranque.
-         - Windows: puede ejecutarse como un servicio Windows usando la herramienta *WinSW*  o mediante un script de arranque.
+            - `SITMUN_BACKEND_CONFIG_URL`: URL de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**
+              del backend, por ejemplo `http://backend:8080/api/config/proxy`.
+              Si el **proxy** y el **backend** están en la misma red, usa el nombre o la dirección IP interna del **backend**.
+            - `SITMUN_BACKEND_CONFIG_SECRET`: el mismo secreto que el backend tiene en `SITMUN_PROXY_MIDDLEWARE_SECRET`.
 
-         El **proxy middleware** puede ser desplegado usando Docker.
-         En la raíz del proyecto se encuentra la carpeta `docker`,
-         en la cual se puede encontrar el fichero `docker-compose.yml` y el fichero `Dockerfile`.
+        3. Ejecútalo:
 
-         Si se quiere desplegar únicamente el proxy, se puede hacer construyendo y arrancando la imagen del `Dockerfile`.
+            ```bash
+            java -jar sitmun-proxy/build/libs/sitmun-proxy-1.3.0.jar --spring.profiles.active=prod
+            ```
 
-         ```bash
-         docker build -t sitmun/proxy-middleware .
-         docker run -p 8080:8080 sitmun/proxy-middleware
-         ```
-
-         Como se ha comentado anteriormente,
-         el proxy depende de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** y,
-         por lo tanto, es importante tener correctamente configurada la URL a la API en el fichero de configuración
-         (`sitmun.config.url`).
-
-         Es posible desplegar el **proxy middleware** en local sin necesidad de Docker mediante JVM ejecutando el siguiente
-         comando en la ubicación del fichero JAR generado al construir el proxy.
-
-         ```bash
-         java -jar sitmun-proxy-middleware-[version].jar
-         ```
+        La imagen Docker se construye desde la raíz con `docker/proxy/Dockerfile`.
+        Más detalles en [sitmun-proxy/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-proxy/README.md).
 
     === "Visor de mapas"
 
-         Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **visor de mapas** siguiendo estos pasos:
+        1. Instala las dependencias desde la raíz del repositorio (necesitas Node.js y pnpm, ver [Requisitos](requisitos.md)):
 
-         1. Descarga el proyecto <https://github.com/sitmun/sitmun-viewer-app> en tu equipo.
-         2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte a la URI donde está desplegado el **backend**.
-         3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
-
-            ```shell
-            npm ci
-            npm build -- --configuration=<conf> --baseHref=<baseHref>
+            ```bash
+            pnpm ci
             ```
 
-            Donde `<conf>` es la configuración y `<baseHref>` es la URI donde se va a desplegar.
-            Este comando compilará el **visor de mapas** para el entorno de producción y
-            generará los archivos en la carpeta `dist/sitmun-viewer-app`.
+        2. Revisa `apiUrl` en `sitmun-viewer/src/environments/environment.prod.ts`. Por defecto es `/backend`.
 
-         Para desplegar el visor de mapas en un servidor web, copia la carpeta `sitmun-viewer-app` a tu servidor web.
+        3. Compila:
 
-         Configura tu servidor para redirigir las solicitudes de archivos no encontrados a `index.html`
-         Es fundamental configurar correctamente esta redirección para el correcto funcionamiento del visor de mapas.
+            ```bash
+            cd sitmun-viewer
+            pnpm run build -- --configuration=production --base-href=/viewer/
+            ```
+
+            Los archivos se generan en `sitmun-viewer/dist/viewer-app`.
+
+        Copia el contenido de esa carpeta a tu servidor web y
+        configura el servidor para redirigir las solicitudes de archivos no encontrados a `index.html`.
 
         !!! warning "No olvides configurar la redirección a `index.html` en tu servidor"
             Si no se configura correctamente la redirección, es posible que la navegación dentro del visor de mapas
@@ -211,30 +253,35 @@
             al introducir una URI directamente en la barra de direcciones o simplemente al refrescar la página,
             se produzca un error 404. Esto ocurre porque estas peticiones son manejadas directamente por el navegador
             y no por enrutador de Angular que gestiona la navegación dentro del visor de mapas.
-            Ver [Routed apps must fall back to index.html](https://angular.io/guide/deployment#fallback) en la documentación
-            oficial de Angular para más información.
+            Ver [Routed apps must fall back to index.html](https://angular.dev/tools/cli/deployment#server-configuration)
+            en la documentación oficial de Angular para más información.
+
+        Más detalles en [sitmun-viewer/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-viewer/README.md).
 
     === "Administrador"
 
-         Una vez completada la instalación de los prerrequisitos puedes proceder con la compilación del **administrador** siguiendo estos pasos:
+        1. Instala las dependencias desde la raíz del repositorio:
 
-         1. Descarga el proyecto <https://github.com/sitmun/sitmun-admin-app> en tu equipo.
-         2. Abre el proyecto descargado y modifica el parámetro `apiUrl` en el archivo `environments.ts` para que apunte
-            a la URI donde está desplegado el **backend**.
-         3. Desde la consola de comandos, navega hasta el directorio raíz del proyecto y ejecuta el comando:
-
-            ```shell
-            npm ci
-            npm build -- --configuration=<conf> --baseHref=<baseHref>
+            ```bash
+            pnpm ci
             ```
 
-            Donde `<conf>` es la configuración y `<baseHref>` es la URI donde se va a desplegar.
-            Este comando compilará el **administrador** para el entorno de producción y
-            generará los archivos en la carpeta `dist/sitmun-admin-app`.
+        2. Revisa `apiBaseURL` en `sitmun-admin/src/environments/environment.prod.ts`. Por defecto es `/backend`.
 
-         Para desplegar el **administrador** en un servidor web, copia la carpeta `sitmun-admin-app` a tu servidor web.
+        3. Compila:
 
-    
+            ```bash
+            cd sitmun-admin
+            pnpm run build -- --configuration=production --base-href=/admin/
+            ```
+
+            Los archivos se generan en `sitmun-admin/dist/admin-app`.
+
+        Copia el contenido de esa carpeta a tu servidor web.
+        Más detalles en [sitmun-admin/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-admin/README.md).
+
+[api-de-configuracion-y-autorizacion]: ../../que-es-sitmun/plataforma/arquitectura/api.md#api-de-configuracion-y-autorizacion
+
 ---
 
 Siguiente paso: [Primer proyecto](../guias/primer-proyecto/index.md)

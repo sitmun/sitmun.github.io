@@ -3,11 +3,11 @@
 <table>
     <tr>
         <td><strong>Última modificación</strong></td>
-        <td><strong>Junio 2025</strong></td>
+        <td><strong>Noviembre 2026</strong></td>
     </tr>
     <tr>
-        <td><strong>Próxima modificación</strong></td>
-        <td><strong>Diciembre 2025</strong></td>
+        <td><strong>Versión publicada</strong></td>
+        <td><strong><a href="https://github.com/sitmun/sitmun/releases/tag/v1.3.0">SITMUN 1.3.0</a> (noviembre 2026)</strong></td>
     </tr>
 </table>
 
@@ -24,118 +24,42 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 ## Proyectos en desarrollo
 
-+-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
-| Proyecto - Funcionalidad    | Descripción                                                                 | Estado                           |
-+=============================+=============================================================================+==================================+
-| Aplicación SITMUN para      | Este proyecto busca dotar a la plataforma SITMUN de una herramienta         | En desarrollo                    |
-| dispositivos móviles        | para dispositivos móviles (Android) que permita la edición offline          | (inicio noviembre 2024)          |
-| de edición gráfica y        | de objetos geográficos y alfanuméricos, basada en servicios web estándard,  |                                  |
-| alfanumérica.               | con control de acceso de usuario, definición de permisos, que pueda ser     |                                  |
-| **APP SITMUN Edición**      | administrada desde el Administrador SITMUN 3, como un cliente más.          |                                  |
-|                             | [Ver detalles aquí.](propuestas/app-turismo.md)                             |                                  |
-|                             |                                                                             |                                  |
-+-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
-| Aplicación SITMUN para      | Este proyecto busca dotar a la plataforma SITMUN de la capacidad de         | En desarrollo                    |
-| dispositivos móviles        | disponer de una aplicación turística para dispositivos móviles (Android e   | (inicio noviembre 2024)          |
-| orientada al turismo        | iOS) común para todos los territorios que usen SITMUN como plataforma       |                                  |
-| **APP Turismo**             | y cuyo contenido y funcionalidad pueda gestionarse desde el administrador   |                                  |
-|                             | SITMUN 3, como un cliente más.                                              |                                  |
-|                             | [Ver detalles aquí.](propuestas/app-turismo.md)                             |                                  |
-+-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
-| Mejora de la **página de**  | Mejorar la interficie de la ventana de login a los clientes SITMUN          | En desarrollo                    |
-| **acceso** a la plataforma  | disponibles para el usuario así como el dashboard para la selección de      | Análisis previo y propuesta      |
-| SITMUN                      | aplicación, territorio y configuración de opciones y datos de usuario.      | técnica de implementación.       |
-|                             | [Ver detalles](propuestas/mejora-ui-login-dashboard-cliente.md)             |                                  |
-|                             |                                                                             |                                  |
-+-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
-| **Creación dinámica**       | Posibilidad de generar un informe (report) de forma dinámica desde un       | En desarrollo                    |
-| **de informes**             | el cliente SITMUN, que haya sido previamente configurado en el              | Análisis previo y propuesta      |
-|                             | administrador SITMUN 3. Un informe se configura en SITMUN como una tarea    | técnica de implementación.       |
-|                             | que integra el resultado de otras tareas.                                   |                                  |
-|                             | [Ver detalles aquí](propuestas/informe.md)                                  |                                  |
-|                             |                                                                             |                                  |
-+-----------------------------+-----------------------------------------------------------------------------+----------------------------------+
-
-
-## Proyectos prioritarios
-
-+--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
-| Proyecto - Funcionalidad             | Descripción                                                                       | Prioridad         |
-+======================================+===================================================================================+===================+
-| **Edición gráfica y alfanumérica**   | Integrar en el cliente SITMUN 3 API SITNA la herramienta de edición               | Alta              |
-|                                      | disponible en el API SITNA.  [API SITNA](https://github.com/IGN-CNIG/API-CNIG)    |                   |
-+--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
-| **Más info**                         | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
-|                                      | ejecutar tareas más info definidas como tal en el administrador SITMUN 3.         |                   |
-|                                      | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                |                   |
-|                                      | [Ver detalles aquí.](propuestas/mas-info-avanzado.md)                             |                   |
-+--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
-| **Localizadores**                    | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
-|                                      | ejecutar localizadores definidos como tareas en el administrador SITMUN 3.        |                   |
-+--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
-| **Consultas**                        | Implementar en el cliente SITMUN 3 API SITNA la capacidad de interpretar y        | Alta              |
-|                                      | ejecutar consultas definidas como tareas en el administrador SITMUN 3.            |                   |
-|                                      | Asimilando el funcionamiento al de los actuales clientes SITMUN 2.                |                   |
-+--------------------------------------+-----------------------------------------------------------------------------------+-------------------+
+| Proyecto - Funcionalidad | Descripción | Estado |
+| --- | --- | --- |
+| Mejora de la **página de acceso** a la plataforma SITMUN | Mejorar la interfaz de la ventana de login a los clientes SITMUN disponibles para el usuario así como el dashboard para la selección de aplicación, territorio y configuración de opciones y datos de usuario. [Ver detalles](propuestas/mejora-ui-login-dashboard-cliente.md) | Parcialmente disponible: dashboard, perfil de usuario, sugerencias, cambio de idioma y cierre de sesión. Pendiente: noticias y avisos para los usuarios. |
+| **Creación dinámica de informes** | Posibilidad de generar un informe (report) de forma dinámica desde el cliente SITMUN, que haya sido previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas. [Ver detalles](propuestas/informe.md) | Parcialmente disponible como tarea de **exportación documental** (PDF a partir de plantillas). |
 
 ## Cola de proyectos (sala de espera)
 
-+------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| Proyecto - Funcionalidad                       | Descripción                                                                 | Prioridad         |
-+================================================+=============================================================================+===================+
-| **Creación de un cliente SITMUN - API**        | Creación de un cliente SITMUN3 basado en el                                 | Media             |
-| **CNIG**                                       | [API CNIG](https://github.com/IGN-CNIG/API-CNIG)                            |                   |
-+------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-| **Creación de temáticos**                      | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario       | Baja              |
-|                                                | modificar la simbología de una capa en función del valor de sus atributos.  |                   |
-+------------------------------------------------+-----------------------------------------------------------------------------+-------------------+
-
+| Proyecto - Funcionalidad | Descripción | Prioridad |
+| --- | --- | --- |
+| **Creación de un cliente SITMUN - API CNIG** | Creación de un cliente SITMUN 3 basado en el [API CNIG](https://github.com/IGN-CNIG/API-CNIG) | Media |
+| **Creación de temáticos** | Dotar al cliente SITMUN 3 de una funcionalidad que permita al usuario modificar la simbología de una capa en función del valor de sus atributos. | Baja |
 
 ## Proyectos finalizados
 
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| Proyecto - Funcionalidad                       | Descripción                                                                                     |
-+================================================+=================================================================================================+
-| Publicación                                    | Publicación de la primera versión estable de SITMUN 3 y la                                      |
-| **SITMUN3 v1.0.0**                             | organización del repositorio de Github y la creación de un stack                                |
-|                                                | que facilite la instalación y creación de un entorno de desarrollo.                             |
-|                                                |                                                                                                 |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Múltiples árboles de capas**                 | Extender la funcionalidad de API SITNA para poder vincular más de un árbol a un cliente         |
-|                                                | SITMUN                                                                                          |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Comparación de mapas de fondo**              | Extender la funcionalidad de API SITNA para poder implementar dos mapas de fondo en la          |
-|                                                | tabla de contenidos y una barra de transparencia entre ellos.                                   |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Arbol de capas**                             | Extender la funcionalidad de API SITNA para permitir la configuración de una estructura         |
-|                                                | de árbol de capas definida desde el administrador, a partir de la atomización de servicios      |
-|                                                | OGC y la configuración de las distintas capas que los conforman en nodos y subnodos.            |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Autorización por token en el cliente**       | Permitir la autenticación por token en el cliente SITMUN 3 API SITNA.                           |
-|                                                |                                                                                                 |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Actualización versión Angular**              | Actualización del administrador SITMUN a la última versión de Ángular y refactorización         |
-|                                                | del código.                                                                                     |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Creación de página web del proyecto**        | Creación de una página web de difusión del proyecto y actualización de la imagen corporativa    |
-|  (e imagen corporativa)                        |                                                                                                 |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Creación de página de documentación**        | Creación de una página web de documentación del proyecto SITMUN 3 que facilite                  |
-|                                                | el seguimiento del proyecto, la comprensión tecnológica de la plataforma y facilite el          |
-|                                                | el uso y la participación en los desarrollos (contibuciones de código)                          |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Desarrollo cliente visualizador SITMUN 3**   | Creación de un cliente SITMUN3 basado en el API SITNA que se configure de forma dinámica        |
-| (**Integración  API SITNA**)                   | a partir de la respuesta JSON que proporciona la API Rest del backoffice de SITMUN              |
-|                                                |                                                                                                 |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Desarrollo del Administrador SITMUN 3**      | Desarrollo de una herramienta de administración SITMUN que permita la configuración de          |
-|                                                | múltiples visualizadores de mapas SITMUN a partir de la definición de contenidos y la           |
-|                                                | gestión de permisos de usuario                                                                  |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Desarrollo del nivel intermedio SITMUN 3**   | Desarrollo de las API de Configuración y Autorización, la API de Proxy,                         |
-| (Backoffice y Proxy middleware)                | la API de Administración y la API de Autenticación                                              |
-|                                                |                                                                                                 |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| **Diseño de base de datos SITMUN 3**           | Revisión e internacionalización de la base de datos de SITMUN 3                                 |
-|                                                |                                                                                                 |
-+------------------------------------------------+-------------------------------------------------------------------------------------------------+
+Todas las funcionalidades de esta tabla están disponibles en la versión 1.3.0.
+
+| Proyecto - Funcionalidad | Descripción |
+| --- | --- |
+| **Repositorio único y despliegue con imágenes publicadas** | Todos los componentes en [sitmun/sitmun](https://github.com/sitmun/sitmun), imágenes Docker publicadas en `ghcr.io/sitmun`, asistente de primer arranque y actualización desde 1.2.8/1.2.9. |
+| **APP SITMUN Edición** | Aplicación para dispositivos móviles (Android) que permite la edición *offline* de objetos geográficos y alfanuméricos, basada en servicios web estándar, con control de acceso de usuario y permisos, administrada desde el Administrador SITMUN 3 como un cliente más. Carpeta `sitmun-mobile/sitmun-edition`. |
+| **APP Turismo** | Aplicación turística para dispositivos móviles común para todos los territorios que usen SITMUN, cuyo contenido y funcionalidad se gestiona desde el administrador SITMUN 3 como un cliente más. Disponible para Android. Carpeta `sitmun-mobile/sitmun-touristic`. [Ver detalles](propuestas/app-turismo.md) |
+| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) integrada en el visor (tarea de edición y control `sitna.WFSEdit`). |
+| **Más info y más info avanzado** | El visor interpreta y ejecuta tareas *más info* y *más info avanzado* definidas en el administrador, con plantillas de visualización. [Ver detalles](propuestas/mas-info-avanzado.md) |
+| **Localizadores** | El visor interpreta y ejecuta localizadores definidos como tareas en el administrador. |
+| **Consultas** | El visor ejecuta consultas (SQL, Web API, enlaces) definidas como tareas en el administrador. |
+| **Autenticación LDAP y OpenID Connect** | Inicio de sesión con LDAP o con proveedores OIDC además de usuarios de la base de datos. |
+| **Monitorización de servicios** | Comprobación periódica del estado de los servicios y estadísticas de uso en el administrador. |
+| Publicación **SITMUN3 v1.0.0** | Publicación de la primera versión estable de SITMUN 3 y la organización del repositorio de GitHub y la creación de un stack que facilite la instalación y creación de un entorno de desarrollo. |
+| **Múltiples árboles de capas** | Extender la funcionalidad de API SITNA para poder vincular más de un árbol a un cliente SITMUN. |
+| **Comparación de mapas de fondo** | Extender la funcionalidad de API SITNA para poder implementar dos mapas de fondo en la tabla de contenidos y una barra de transparencia entre ellos. |
+| **Árbol de capas** | Extender la funcionalidad de API SITNA para permitir la configuración de una estructura de árbol de capas definida desde el administrador, a partir de la atomización de servicios OGC y la configuración de las distintas capas que los conforman en nodos y subnodos. |
+| **Autorización por token en el cliente** | Permitir la autenticación por token en el cliente SITMUN 3 API SITNA. |
+| **Actualización versión Angular** | Actualización del administrador SITMUN a la última versión de Angular y refactorización del código. |
+| **Creación de página web del proyecto** (e imagen corporativa) | Creación de una página web de difusión del proyecto y actualización de la imagen corporativa. |
+| **Creación de página de documentación** | Creación de una página web de documentación del proyecto SITMUN 3 que facilite el seguimiento del proyecto, la comprensión tecnológica de la plataforma y facilite el uso y la participación en los desarrollos (contribuciones de código). |
+| **Desarrollo cliente visualizador SITMUN 3** (**Integración API SITNA**) | Creación de un cliente SITMUN 3 basado en el API SITNA que se configure de forma dinámica a partir de la respuesta JSON que proporciona la API REST del backoffice de SITMUN. |
+| **Desarrollo del Administrador SITMUN 3** | Desarrollo de una herramienta de administración SITMUN que permita la configuración de múltiples visualizadores de mapas SITMUN a partir de la definición de contenidos y la gestión de permisos de usuario. |
+| **Desarrollo del nivel intermedio SITMUN 3** (Backoffice y Proxy middleware) | Desarrollo de las API de Configuración y Autorización, la API de Proxy, la API de Administración y la API de Autenticación. |
+| **Diseño de base de datos SITMUN 3** | Revisión e internacionalización de la base de datos de SITMUN 3. |

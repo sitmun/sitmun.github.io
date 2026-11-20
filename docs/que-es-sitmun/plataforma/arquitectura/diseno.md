@@ -7,9 +7,10 @@ Tras la identificación, este servicio devuelve un token de acceso [JSON web tok
 que permite al usuario acceder a los servicios de la plataforma.
 SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
 criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
-También está soportada la autenticación a través de un servidor LDAP.
-Hay que señalar que está planteado soportar la autenticación de usuarios a través
-de [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory) y de certificados digitales.
+También está soportada la autenticación a través de un servidor LDAP
+(que puede ser [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory))
+y de proveedores OpenID Connect (OIDC).
+Está planteado soportar la autenticación con certificados digitales.
 
 Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]**.
 
@@ -88,17 +89,20 @@ ya sea geográfica o no.
 El proxy inverso es capaz de manejar peticiones a diversos tipos de servicios, incluyendo:
 
 - Servicios [OGC Web Map Service (WMS)](https://www.ogc.org/standard/wms/),
-  que ofrecen mapas en formato imagen usando peticiones HTTP GET.
+  que ofrecen mapas en formato imagen.
 - Servicios [OGC Web Map Tile Service (WMTS)](https://www.ogc.org/standard/wmts/),
-  que proporcionan mapas divididos en teselas (*tiles*) usando peticiones HTTP GET (codificación KVP).
+  que proporcionan mapas divididos en teselas (*tiles*).
 - Servicios [OGC Web Feature Service (WFS)](https://www.ogc.org/standard/wfs/),
-  que permiten el acceso a datos geoespaciales vectoriales usando peticiones HTTP GET (codificación KVP).
+  que permiten el acceso a datos geoespaciales vectoriales.
+- Web API usadas por las tareas de consulta.
 - Bases de datos relacionales que dispongan de un controlador (*driver*)
-  [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity).
-  Las respuestas de las bases de datos se devuelven en formato JSON usando peticiones HTTP GET.
+  [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity) incluido en el proxy.
+  Las respuestas de las bases de datos se devuelven en formato JSON.
 
-Para acceder a través del **proxy**, todas las peticiones deben incluir un token de acceso JWT,
-obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]**, la cual identifica al usuario.
+Las peticiones pueden usar los métodos HTTP GET o POST.
+
+Para acceder a través del **proxy**, todas las peticiones deben incluir un token de acceso JWT de corta duración,
+obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]** (`POST /api/authenticate/proxy`), que identifica al usuario.
 La única excepción es el usuario denominado `público`, cuya autenticación es automática.
 Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata del usuario  `público`.
 Además, todas las peticiones enviadas a través del **proxy** deben incluir
@@ -175,7 +179,9 @@ Lo que permite identificar:
 - `type`: tipo de servicio que se solicita.
 - `typeId`: identificador del servicio que se solicita.
 - `keys`: parámetros adicionales que se envían al servicio.
-- `token`: token de autenticación JWT.
+- `token`: token de autenticación JWT, en la cabecera `Authorization`.
+
+Para una capa concreta de un servicio se usa la forma `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`.
 
 Por ejemplo, la siguiente petición correspondería con la petición de acceso a un servicio de mapas remoto:
 
@@ -191,6 +197,13 @@ Authorization: Bearer SOME-TOKEN
 
 La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la
 **[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
+
+```http
+POST /api/config/proxy
+X-SITMUN-Proxy-Key: {secreto compartido entre proxy y backend}
+Authorization: Bearer SOME-TOKEN
+Content-Type: application/json
+```
 
 ```json
 {
@@ -210,8 +223,7 @@ La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la
     "BBOX": "405913.2514230,4593667.251697,411183.7485769,4599953.748302",
     "WIDTH": "498",
     "HEIGHT": "594"
-  },
-  "id_token": "SOME-TOKEN"
+  }
 }
 ```
 

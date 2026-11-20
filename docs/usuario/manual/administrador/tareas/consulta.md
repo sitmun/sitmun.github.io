@@ -82,6 +82,14 @@ La sintaxis para utilizar variables de sistema es ligeramente diferente a la de 
 #{APP_ID}
 ```
 
+!!! warning "Reglas de las consultas SQL"
+    - La consulta debe ser una única sentencia `SELECT`: no se admiten `WITH`, `;` ni comentarios al final.
+    - Los parámetros `${…}` y las variables de sistema `#{…}` se sustituyen como **valores tipados**, nunca como texto.
+      Por eso solo pueden ocupar el lugar de un valor completo: no sirven para nombres de tabla o de columna,
+      ni pueden ir dentro de una cadena más larga (por ejemplo `'%${nombre}%'`).
+    - Todos los parámetros usados deben estar definidos en la pestaña **Parámetros**, y todos los definidos deben usarse.
+    - El botón **Probar** ejecuta la consulta guardada y muestra la SQL resultante y los valores enlazados.
+
 Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla.
 
 ### Consulta Web API (Web API query)
@@ -90,6 +98,11 @@ Por último, es necesario **asignar los roles y territorios** a la consulta SQL 
     Este apartado todavía no está documentado.
 
 ### Consulta Web API sin proxy (Web API query (No Proxy))
+
+!!! info "En preparación"
+    Este apartado todavía no está documentado.
+
+### Consulta de recurso (resource-query)
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.

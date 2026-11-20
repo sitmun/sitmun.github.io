@@ -1,5 +1,8 @@
 # Informe
 
+!!! info "Estado (noviembre 2026): parcialmente implementado"
+    La tarea de **exportación documental** genera documentos PDF a partir de plantillas de visualización.
+
 !!! info "Aspectos generales"
 
     **Estimación horas de desarrollo:** ?? horas

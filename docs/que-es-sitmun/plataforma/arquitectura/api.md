@@ -12,11 +12,19 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 
 - **Proporcionar token de acceso [JSON web token](https://jwt.io/) (JWT)**
   que permite al usuario acceder a los servicios de la plataforma.
+  En el visor y el administrador el token se guarda en una cookie *HttpOnly*
+  (`viewer_access_token` o `admin_access_token`) que se renueva con `POST /api/authenticate/refresh`
+  y se borra con `POST /api/authenticate/logout`.
+  La aplicación móvil de edición usa `POST /api/authenticate/mobile`, que devuelve el token en el cuerpo de la respuesta.
+  Para llamar al proxy, el cliente pide un token de corta duración con `POST /api/authenticate/proxy`.
 
 - **Autenticación local**. SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
   criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
 
-- **Autenticación LDAP**. Está soportada la autenticación a través de un servidor LDAP.
+- **Autenticación LDAP**. Está soportada la autenticación a través de un servidor LDAP (perfil Spring `ldap`).
+
+- **Autenticación OpenID Connect (OIDC)**. Está soportada la autenticación con uno o varios proveedores OIDC (perfil Spring `oidc`).
+  El cliente consulta los métodos activos en `GET /api/auth/enabled-methods`.
 
 - **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de email.
 
@@ -30,13 +38,14 @@ Esta API se ha creado para que los **visores de mapas** y el **proxy** puedan co
 
 La API de Configuración y Autorización se compone de dos tipos de endpoints:
 
-- **Configuración y Autorización de Visor de mapas**.
-  La petición puede autenticarse usando un esquema de autenticación por portador (Bearer authentication)
-  usando un token que se ha obtenido previamente mediante la API de Autenticación.
+- **Configuración y Autorización de Visor de mapas** (`/api/config/client/…`).
+  La petición se autentica con la cookie de sesión obtenida previamente mediante la API de Autenticación
+  (la aplicación móvil de edición usa un token *Bearer*).
   Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
   *usuario público*.
-- **Configuración y Autorización de Proxy**.
+- **Configuración y Autorización de Proxy** (`POST /api/config/proxy`).
   La petición debe autenticarse usando una API key enviada mediante la cabecera denominada `X-SITMUN-Proxy-Key`.
+  El token del usuario, si lo hay, se reenvía en la cabecera `Authorization: Bearer`.
   El uso de una API key específica para el endpoint **Configuración y Autorización de Proxy** es una decisión de seguridad.
   Evita que a un cliente malicioso le pueda bastar el uso del token obtenido de la API de Autenticación
   para obtener secretos vía el endpoint **Configuración y Autorización de Proxy**.
@@ -53,14 +62,16 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
   basados en el identificador del usuario, el identificador de la aplicación, y los identificadores del territorio.
   Estos parámetros de filtrado se añaden a la petición que se realiza al servicio o base de datos final por parte del
   proxy. Estos parámetros se gestionan mediante la [API de Administración][api-de-administracion] indicando como
-  valor una de las siguientes variables: `$USER_ID`, `$APP_ID`, `$TERR_ID` y `$TERR_COD`.
+  valor una variable de sistema con la sintaxis `#{NOMBRE}`, por ejemplo `#{USER_ID}`, `#{APP_ID}`, `#{TERR_ID}` o `#{TERR_COD}`.
+  La lista completa está en el [Anexo I: variables de sistema](../../../usuario/manual/administrador/variables-sistema.md).
 
 ## API de Proxy {#api-de-proxy}
 
 La API de Proxy (Proxy Middleware) permite acceder a los visores de mapas a servicios remotos y bases de datos.
 
 Los **visores de mapas** pueden autenticarse usando un esquema de autenticación por portador (Bearer authentication)
-usando un token que se ha obtenido previamente mediante la [API de Autenticación][api-de-autenticacion].
+usando un token de corta duración que se ha obtenido previamente mediante la [API de Autenticación][api-de-autenticacion]
+(`POST /api/authenticate/proxy`).
 Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
 *usuario público*.
 
@@ -77,18 +88,27 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 
 ### Servicios soportados
 
+Las peticiones tienen la forma `/proxy/{appId}/{terId}/{type}/{typeId}` (o `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`
+para una capa concreta) y pueden usar los métodos HTTP GET o POST.
+
 - **Servicios [OGC Web Map Service (WMS)](https://www.ogc.org/standard/wms/)**,
-  que ofrecen mapas en formato imagen usando peticiones HTTP GET.
+  que ofrecen mapas en formato imagen.
 
 - **Servicios [OGC Web Map Tile Service (WMTS)](https://www.ogc.org/standard/wmts/)**,
-  que proporcionan mapas divididos en teselas (*tiles*) usando peticiones HTTP GET (codificación KVP).
+  que proporcionan mapas divididos en teselas (*tiles*).
 
 - **Servicios [OGC Web Feature Service (WFS)](https://www.ogc.org/standard/wfs/)**,
-  que permiten el acceso a datos geoespaciales vectoriales usando peticiones HTTP GET (codificación KVP).
+  que permiten el acceso a datos geoespaciales vectoriales.
 
-- **Bases de datos relacionales que dispongan de un controlador (*driver*)
-  [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity)**.
-  Las respuestas de las bases de datos se devuelven en formato JSON usando peticiones HTTP GET.
+- **Web API** usadas por las tareas de consulta de tipo *Web API*.
+
+- **Bases de datos relacionales** accesibles con un controlador (*driver*)
+  [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity)
+  incluido en el proxy (PostgreSQL, Oracle, Microsoft SQL Server y H2).
+  Las respuestas de las bases de datos se devuelven en formato JSON.
+
+- **Exportación MBTiles** (opcional): trabajos de generación de paquetes de teselas para la aplicación móvil de edición,
+  delegados al servicio `mbtiles`.
 
 ### Modificadores generales
 
@@ -98,15 +118,20 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 
 - **Autenticación de acceso básica (Servicios)**: Modificador encargado de incluir en la cabecera de la petición HTTP un usuario y contraseña si fuese necesario ([RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617)).
 
+- **API key (Servicios)**: Modificador encargado de añadir una clave de acceso en una cabecera, un parámetro de la consulta o una cookie.
+
 - **Selección (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
 
 - **Filtrado (JDBC)**: Modificador encargado de incluir filtros en la consulta.
+  Los parámetros (`${nombre}`) y las variables de sistema (`#{NOMBRE}`) se envían como valores tipados
+  y nunca se concatenan en el texto SQL.
 
 ## API de Administración {#api-de-administracion}
 
 La API de Administración expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
 de **SITMUN 3** por parte de la **aplicación de administración**.
-La **aplicación de administración** debe autenticarse con un JSON Web Token obtenido de la [API de Autenticación][api-de-autenticacion].
+La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion].
+La documentación interactiva de todos los endpoints está en Swagger UI (`/swagger-ui/index.html` en el backend).
 
 ### Funcionalidades {#api-de-administracion-funcionalidades}
 
@@ -125,6 +150,12 @@ La **aplicación de administración** debe autenticarse con un JSON Web Token ob
 - **Extracción de capacidades**. Herramientas para extraer capacidades de servicios OGC.
 
 - **Extracción de tipos de entidad**. Herramientas para extraer información de tipos de entidad.
+
+- **Primer arranque**. `GET /api/setup/status` y `POST /api/setup/first-run` crean la contraseña del administrador y fijan el idioma por defecto en una instalación nueva.
+
+- **Idiomas y traducciones**. Cambio del idioma por defecto con vista previa e importación y exportación en CSV de las traducciones de literales.
+
+- **Monitorización de servicios**. Comprobación periódica de los servicios y estadísticas de uso.
 
 [api-de-autenticacion]: #api-de-autenticacion
 [api-de-configuracion-y-autorizacion]: #api-de-configuracion-y-autorizacion

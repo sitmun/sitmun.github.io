@@ -2,6 +2,11 @@
 
 Esta sección proporciona soluciones a los problemas más comunes que pueden surgir durante la instalación, configuración y uso de SITMUN 3.
 
+!!! note "Comandos de Docker Compose"
+    Ejecuta los comandos `docker compose` desde la carpeta del repositorio.
+    Si instalaste el *showcase*, añade `-p sitmun-showcase` después de `docker compose`.
+    En PowerShell usa `curl.exe` en lugar de `curl`.
+
 ## Problemas de instalación
 
 ### Docker no se inicia
@@ -37,7 +42,9 @@ sudo systemctl restart docker
 lsof -i :9000  # macOS/Linux
 netstat -ano | findstr :9000  # Windows
 
-# Cambiar puerto en docker-compose.yml
+# Cambiar el puerto publicado del front en .env (por defecto 9000):
+#   LOCAL_PORT=8080
+# Los puertos 9001-9005 se publican directamente en compose.yaml
 # O detener el proceso que usa el puerto
 ```
 
@@ -70,16 +77,16 @@ docker system prune -a
 **Soluciones:**
 ```bash
 # Verificar que PostgreSQL esté ejecutándose
-docker ps | grep postgres
+docker compose ps postgres
 
 # Verificar logs del contenedor
-docker logs sitmun-application-stack-postgres-1
+docker compose logs postgres
 
 # Reiniciar el contenedor de PostgreSQL
-docker restart sitmun-application-stack-postgres-1
+docker compose restart postgres
 
 # Verificar conectividad
-docker exec -it sitmun-application-stack-postgres-1 psql -U sitmun3 -d sitmun3
+docker compose exec postgres psql -U sitmun3 -d sitmun3
 ```
 
 ### Errores de migración de base de datos
@@ -91,10 +98,10 @@ docker exec -it sitmun-application-stack-postgres-1 psql -U sitmun3 -d sitmun3
 **Soluciones:**
 ```bash
 # Limpiar base de datos y volver a migrar
-docker exec -it sitmun-application-stack-postgres-1 psql -U sitmun3 -d sitmun3 -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+docker compose exec postgres psql -U sitmun3 -d sitmun3 -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
 
 # Reiniciar el backend para ejecutar migraciones
-docker restart sitmun-application-stack-backend-1
+docker compose restart backend
 ```
 
 ## Problemas de autenticación
@@ -111,10 +118,12 @@ docker restart sitmun-application-stack-backend-1
 curl http://localhost:9001/api/dashboard/health
 
 # Verificar logs del backend
-docker logs sitmun-application-stack-backend-1
+docker compose logs backend
 
-# Usar credenciales por defecto
-# Usuario: admin, Contraseña: admin
+# En una base de datos de desarrollo: usuario admin, contraseña admin
+# En producción, la contraseña de admin se crea en la primera visita a /admin/
+# (o con SITMUN_BOOTSTRAP_ADMIN_PASSWORD en .env antes de arrancar)
+curl http://localhost:9001/api/setup/status
 ```
 
 ### Token JWT inválido
@@ -146,10 +155,10 @@ docker logs sitmun-application-stack-backend-1
 curl http://localhost:9000
 
 # Verificar logs del frontend
-docker logs sitmun-application-stack-front-1
+docker compose logs front
 
 # Verificar configuración de nginx
-docker exec -it sitmun-application-stack-front-1 cat /etc/nginx/conf.d/default.conf
+docker compose exec front cat /etc/nginx/conf.d/default.conf
 ```
 
 ### Problemas de CORS
@@ -179,11 +188,12 @@ docker exec -it sitmun-application-stack-front-1 cat /etc/nginx/conf.d/default.c
 ```bash
 # Verificar red de Docker
 docker network ls
-docker network inspect sitmun-application-stack_default
+# El nombre del proyecto es el de la carpeta del repositorio (p. ej. sitmun)
+# o el indicado con -p (p. ej. sitmun-showcase)
+docker network inspect sitmun_default
 
 # Verificar conectividad entre contenedores
-docker exec -it sitmun-application-stack-backend-1 ping postgres
-docker exec -it sitmun-application-stack-backend-1 ping proxy
+docker compose exec backend curl -s http://proxy:8080/actuator/health
 ```
 
 ### Problemas de DNS
@@ -195,11 +205,11 @@ docker exec -it sitmun-application-stack-backend-1 ping proxy
 **Soluciones:**
 ```bash
 # Verificar resolución DNS dentro de contenedores
-docker exec -it sitmun-application-stack-backend-1 nslookup postgres
+docker compose exec backend getent hosts postgres
 
 # Reiniciar red de Docker
 docker network prune
-docker compose up
+docker compose up -d
 ```
 
 ## Problemas de rendimiento
@@ -228,12 +238,13 @@ docker stats
 
 **Soluciones:**
 ```bash
-# Aumentar heap size de Java
-# Configurar variables de entorno:
-# JAVA_OPTS="-Xmx2g -Xms1g"
+# Las imágenes de backend y proxy usan por defecto
+# JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75" (75 % de la memoria del contenedor).
+# Para cambiarlo, añade JAVA_TOOL_OPTIONS al servicio en compose.yaml,
+# por ejemplo JAVA_TOOL_OPTIONS="-Xmx2g -Xms1g"
 
 # Monitorear uso de memoria
-docker exec -it sitmun-application-stack-backend-1 jstat -gc 1
+docker stats
 ```
 
 ## Logs y debugging
@@ -257,13 +268,13 @@ docker compose logs -f backend
 
 ```bash
 # Acceder a contenedor para debugging
-docker exec -it sitmun-application-stack-backend-1 bash
+docker compose exec backend bash
 
 # Verificar configuración de Spring
-docker exec -it sitmun-application-stack-backend-1 env | grep SPRING
+docker compose exec backend env | grep SPRING
 
 # Verificar conectividad de base de datos
-docker exec -it sitmun-application-stack-backend-1 curl http://localhost:8080/api/dashboard/health
+docker compose exec backend curl http://localhost:8080/api/dashboard/health
 ```
 
 ## Recuperación de datos
@@ -272,20 +283,21 @@ docker exec -it sitmun-application-stack-backend-1 curl http://localhost:8080/ap
 
 ```bash
 # Crear backup
-docker exec -it sitmun-application-stack-postgres-1 pg_dump -U sitmun3 sitmun3 > backup.sql
+docker compose exec -T postgres pg_dump -U sitmun3 sitmun3 > backup.sql
 
 # Restaurar backup
-docker exec -i sitmun-application-stack-postgres-1 psql -U sitmun3 sitmun3 < backup.sql
+docker compose exec -T postgres psql -U sitmun3 sitmun3 < backup.sql
 ```
 
 ### Restaurar configuración
 
 ```bash
-# Backup de volúmenes
-docker run --rm -v sitmun-application-stack_pgdata:/data -v $(pwd):/backup alpine tar czf /backup/pgdata-backup.tar.gz -C /data .
+# Backup de volúmenes (con los servicios parados: docker compose stop)
+# El volumen se llama <proyecto>_pgdata; compruébalo con: docker volume ls
+docker run --rm -v sitmun_pgdata:/data -v $(pwd):/backup alpine tar czf /backup/pgdata-backup.tar.gz -C /data .
 
 # Restaurar volúmenes
-docker run --rm -v sitmun-application-stack_pgdata:/data -v $(pwd):/backup alpine tar xzf /backup/pgdata-backup.tar.gz -C /data
+docker run --rm -v sitmun_pgdata:/data -v $(pwd):/backup alpine tar xzf /backup/pgdata-backup.tar.gz -C /data
 ```
 
 ## Contacto y soporte

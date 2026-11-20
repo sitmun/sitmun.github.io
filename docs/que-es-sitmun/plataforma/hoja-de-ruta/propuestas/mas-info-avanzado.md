@@ -1,5 +1,10 @@
 # Más info avanzado
 
+!!! success "Estado (noviembre 2026): implementado"
+    Disponible como tarea de **más información avanzada** en el administrador y en el visor. Ver [Tarea de más información avanzada](../../../../usuario/manual/administrador/tareas/mas-informacion-avanzada.md).
+    El formato de cada resultado se define con [plantillas](../../../../usuario/manual/administrador/tareas/plantillas.md) (`{{campo}}`, `data-sitmun-each`) en lugar de los marcadores `@@CODIGOTAREA_NOMBRECAMPO@@` de esta propuesta.
+    Las tablas de estado de más abajo reflejan la situación cuando se redactó la propuesta.
+
 !!! info "Aspectos generales"
 
     **Estimación horas de desarrollo:** 200 horas
