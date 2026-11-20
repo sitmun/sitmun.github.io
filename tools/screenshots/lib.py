@@ -40,6 +40,10 @@ class Ctx:
 
     # --- navigation -----------------------------------------------------------
     def admin(self, route: str) -> None:
+        if self.page.url.endswith(f"#/{route}"):
+            # Same address: the hash router would not reload the form.
+            self.page.goto(f"{self.base}/admin/#/dashboard")
+            self.page.wait_for_timeout(400)
         self.page.goto(f"{self.base}/admin/#/{route}")
         self.page.wait_for_timeout(400)
         # Leaving a form with unsaved changes asks for confirmation.
