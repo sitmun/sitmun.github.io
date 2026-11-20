@@ -24,10 +24,10 @@ Se busca además ampliar la funcionalidad actual.
 
 En las imágenes siguientes se puede ver la actual ventana de login y selección de aplicación del actual cliente SITMUN 3.
 
-![MejoraGUI_contexto1](https://github.com/sitmun/sitmun.github.io/assets/26217441/72462a93-2403-44a8-b8df-99ecbf22130f)
+[![MejoraGUI_contexto1](mejora-ui-1.webp)](mejora-ui-1.webp)
 
 En la imagen siguiente se puede ver el dashboard inicial:
-![MejoraGUI_contexto2](https://github.com/sitmun/sitmun.github.io/assets/26217441/89168d4b-6873-4a60-81da-2123a337fe41)
+[![MejoraGUI_contexto2](mejora-ui-2.webp)](mejora-ui-2.webp)
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 
@@ -53,7 +53,7 @@ la empresa contractante deberá desarrollar esta idea y plantear una o varias pr
 En la propuesta de diseño se pondrá énfasis en crear una imagen moderna,
 clara y funcional para el usuario y que sea responsiva.
 
-![Sitmun dashboard user_conceptExample](https://github.com/sitmun/sitmun.github.io/assets/26217441/5a05eb9a-afe9-427a-b642-b12b04f12c2e)
+[![Sitmun dashboard user_conceptExample](mejora-ui-3.webp)](mejora-ui-3.webp)
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
 
