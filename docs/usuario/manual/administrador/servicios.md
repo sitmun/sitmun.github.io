@@ -20,7 +20,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 - **Bloqueado**: si está activado, bloquea un servicio y todas sus capas, que ya no son visibles en el visor SITMUN.
 - **Tipo de servicio\***: es posible añadir servicios de tipo Web Map Service (WMS), Web Feature Service (WFS) o Web Map Tile Service (WMTS).
 - **Endpoint del servicio\***: será la URL de conexión del servicio cartográfico.
-- **Metadatos**: se puede añadir, de manera opcional, un enlace a los metadatos correspondientes a dicho servicio.
+- **URL del metadato asociada**: se puede añadir, de manera opcional, un enlace a los metadatos correspondientes a dicho servicio.
 
 Los campos marcados con un asterisco son obligatorios para poder crear un servicio.
 

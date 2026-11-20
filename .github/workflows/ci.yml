@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0  # check_old_urls.py reads the whole master history
       - name: Setup Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
@@ -60,6 +62,15 @@ jobs:
       # succeeds with an error in place of the diagram. Fail instead.
       - name: Check that every PlantUML diagram rendered
         run: python .github/scripts/check_diagrams.py docs _site
+      # Every page ever published from master must still resolve (page or redirect).
+      - name: Check that old page URLs still resolve
+        run: python .github/scripts/check_old_urls.py _site origin/master
+      # Readers' browsers must make no third-party requests.
+      - name: Check that pages load no resources from other hosts
+        run: python .github/scripts/check_external_resources.py _site sitmun.github.io
+      # Bold UI labels must exist in the documented SITMUN version (or be allowlisted).
+      - name: Check UI labels against the documented SITMUN version
+        run: python .github/scripts/check_ui_labels.py docs/usuario
       # --strict checks links written in the Markdown sources; lychee also checks the
       # generated HTML (theme and template links, such as the announcement bar).
       # External links are checked weekly by links.yml so a flaky site can't block a deploy.

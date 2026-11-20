@@ -194,6 +194,18 @@ info = "octicons/browser-16"
 "usuario/primeros-pasos/solucion-problemas.md" = "usuario/instalacion/solucion-problemas.md"
 "usuario/guias/personalizacion.md" = "usuario/guias/primer-proyecto/index.md"
 "red-sitmun/contacto.md" = "que-es-sitmun/red-sitmun/contacto.md"
+# Older pages (2023-2025), found by .github/scripts/check_old_urls.py.
+"api/autenticacion.md" = "que-es-sitmun/plataforma/arquitectura/api.md"
+"api/referencia.md" = "que-es-sitmun/plataforma/arquitectura/api.md"
+"reference.md" = "que-es-sitmun/plataforma/arquitectura/api.md"
+"archive.md" = "que-es-sitmun/plataforma/arquitectura/index.md"
+"archivo.md" = "que-es-sitmun/plataforma/arquitectura/index.md"
+"arquitectura/_sources/index.md" = "que-es-sitmun/plataforma/arquitectura/index.md"
+"contacto.md" = "que-es-sitmun/red-sitmun/contacto.md"
+"demo.md" = "usuario/instalacion/instalacion.md"
+"desarrollo.md" = "desarrollador/contribuir.md"
+"features.md" = "que-es-sitmun/plataforma/index.md"
+"getting-started.md" = "que-es-sitmun/plataforma/index.md"
 
 [project.markdown_extensions.abbr]
 

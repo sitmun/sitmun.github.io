@@ -1,0 +1,3 @@
+# Closed sitmun/sitmun issues whose docs notes stay until a release ships the fix.
+# Remove a line when the note is updated after that release.
+352  # search box; fixed on dev after v1.3.0, the note says "corregido para la siguiente versión"
