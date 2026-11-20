@@ -6,13 +6,43 @@ A continuación se describen los pasos para configurar correctamente un MIA. A d
 
 En resumen, la tarea MIA se compone de los siguientes elementos, según dos posibles configuraciones:
 
-![Esquema de un MIA con consultas](../img/mia-esquema-consultas.webp){ loading=lazy }
+```mermaid
+flowchart TB
+    sitna["<b>MoreInfoAdvanced</b><br>(API SITNA)"]
+    subgraph mia ["Más información avanzada"]
+        direction LR
+        q1["<b>Tarea de consulta 1</b><br>parámetros 1"]
+        qn["<b>Tarea de consulta N</b><br>parámetros N"]
+    end
+    db[("Base de datos")]
+    sitna -- "parámetros 1…N" --> mia
+    mia <-- "consultas" --> db
+```
 
 *En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N consultas. La tarea MIA puede recibir parámetros y mapearlos hacia las consultas. En este caso no se define ninguna plantilla de visualización y los resultados se muestran con una plantilla básica en formato de tabla.*
 
 Una segunda configuración sería la siguiente:
 
-![Esquema de un MIA con plantillas](../img/mia-esquema-plantillas.webp){ loading=lazy }
+```mermaid
+flowchart TB
+    sitna["<b>MoreInfoAdvanced</b><br>(API SITNA)"]
+    subgraph mia ["Más información avanzada"]
+        direction LR
+        subgraph pn ["Plantilla N · parámetros 1…N"]
+            direction TB
+            pnq1["Tarea de consulta 1"]
+            pnqn["Tarea de consulta N"]
+        end
+        subgraph p1 ["Plantilla 1 · parámetros 1…N"]
+            direction TB
+            p1q1["Tarea de consulta 1"]
+            p1qn["Tarea de consulta N"]
+        end
+    end
+    db[("Base de datos")]
+    sitna -- "parámetros 1…N" --> mia
+    mia <-- "consultas" --> db
+```
 
 *En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y mapearlos hacia las plantillas, y las plantillas, mapearlos hacia las consultas.*
 
