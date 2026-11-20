@@ -1,7 +1,9 @@
 # Fixes Markdown style on pull requests instead of failing them.
-# markdownlint-cli2 --fix applies the rules in .markdownlint-cli2.yaml and the
-# result is pushed back to the PR branch. Issues it cannot fix are reported as
-# annotations; this workflow never fails.
+# markdownlint-cli2 --fix applies the rules in .markdownlint-cli2.yaml. The
+# fixed tree is built with `zensical build --strict` before anything is pushed,
+# because a push made with GITHUB_TOKEN does not start ci.yml for that commit.
+# Issues the fixer cannot fix are reported as annotations; this workflow never
+# fails a pull request.
 name: Markdown lint (auto-fix)
 
 on:
@@ -29,21 +31,54 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.head_ref }}
+          # The token is used only by the push step below.
+          persist-credentials: false
       - name: Fix Markdown
         uses: DavidAnson/markdownlint-cli2-action@v25
         continue-on-error: true
         with:
           fix: true
-      # A push made with GITHUB_TOKEN does not start new workflow runs, so this
-      # cannot loop. Pull requests from forks only get the annotations.
-      - name: Push the fixes to the PR branch
-        if: github.event.pull_request.head.repo.full_name == github.repository
+      - name: Check for fixes
+        id: changes
         run: |
           if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Nothing to fix."
-            exit 0
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat
           fi
+      - name: Setup Python
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: '.python-version'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      # The fixed tree must still build, since CI will not run on the fix commit.
+      - name: Build the fixed site
+        id: build
+        if: steps.changes.outputs.changed == 'true'
+        continue-on-error: true
+        run: |
+          pip install -r requirements.txt
+          zensical build --strict --clean --config-file ./zensical.toml
+          python .github/scripts/check_diagrams.py docs _site
+      - name: Report fixes that break the build
+        if: steps.changes.outputs.changed == 'true' && steps.build.outcome != 'success'
+        run: |
+          echo "::warning::markdownlint fixes were not pushed because the fixed site does not build. Run 'npx markdownlint-cli2@0.24.0 --fix' locally and check the result."
+      # Pull requests from forks only get the annotations.
+      - name: Push the fixes to the PR branch
+        if: >-
+          steps.changes.outputs.changed == 'true' &&
+          steps.build.outcome == 'success' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "style: apply markdownlint fixes"
-          git push
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${HEAD_REF}"

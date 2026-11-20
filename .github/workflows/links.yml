@@ -26,6 +26,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Build site
         run: zensical build --strict --clean --config-file ./zensical.toml
+      - name: Check that every PlantUML diagram rendered
+        run: python .github/scripts/check_diagrams.py docs _site
       - name: Check all links in the built site
         uses: lycheeverse/lychee-action@v2
         with:

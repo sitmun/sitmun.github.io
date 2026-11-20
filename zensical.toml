@@ -248,7 +248,9 @@ custom_checkbox = true
 
 # Third-party Python-Markdown extensions (installed from requirements.txt).
 [project.markdown_extensions.plantuml_markdown]
-server = "http://www.plantuml.com/plantuml"
+# Diagrams are rendered at build time by this server, over HTTPS. CI fails the
+# build if any diagram did not render (see .github/workflows/ci.yml).
+server = "https://www.plantuml.com/plantuml"
 format = "svg"
 
 [project.markdown_extensions.markdown_grid_tables]
