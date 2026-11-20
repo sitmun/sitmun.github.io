@@ -1,15 +1,19 @@
+---
+description: "Tareas básicas de herramientas en SITMUN 3: dibujar, medir, descargar, imprimir, compartir y buscar."
+---
+
 # Herramientas
 
 Tareas básicas con herramientas de trabajo sobre el mapa: dibujar, medir, descargar, imprimir, compartir y buscar.
 
-## Attribution
+## Atribución (Attribution) { #attribution }
 
 - Control API SITNA: `sitna.attribution`
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## Download
+## Descarga (Download) { #download }
 
 Permite descargar información de las capas de SITMUN. La descarga puede realizarse como una imagen del mapa que se está consultando o como una capa vectorial en el formato deseado (GML, GeoJSON, KML, SHP, GeoPackage o DXF).
 
@@ -19,7 +23,7 @@ Para poder descargar la capa en formato vectorial, el servicio que proporciona l
 
 ![Herramienta de descarga del visor](../../img/basicas-download.webp){ loading=lazy }
 
-## Draw, Measure and Modify
+## Dibujar, Medir y Modificar (Draw, Measure and Modify) { #draw-measure-and-modify }
 
 Permite utilizar las siguientes herramientas:
 
@@ -32,12 +36,12 @@ Permite utilizar las siguientes herramientas:
 
 ![Herramienta de dibujo y medición del visor](../../img/basicas-draw-measure.webp){ loading=lazy }
 
-## Loading Indicator
+## Indicador de carga (Loading Indicator) { #loading-indicator }
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## Measure
+## Medir (Measure) { #measure }
 
 Se trata de una herramienta de medición sencilla que permite medir distancias o áreas. Para tareas de medición más complejas existe la herramienta [Draw, Measure and Modify](#draw-measure-and-modify), con más opciones.
 
@@ -45,13 +49,13 @@ Se trata de una herramienta de medición sencilla que permite medir distancias o
 
 ![Herramienta de medición del visor](../../img/basicas-measure.webp){ loading=lazy }
 
-## Offline Map Maker
+## Creador de mapas sin conexión (Offline Map Maker) { #offline-map-maker }
 
 Permite crear, del lado del cliente, mapas que estarán disponibles sin conexión.
 
 - Control API SITNA: `sitna.offlineMapMaker`
 
-## Print Map
+## Imprimir mapa (Print Map) { #print-map }
 
 Permite configurar la impresión de un mapa. Se pueden seleccionar parámetros básicos como la orientación y el tamaño, e incrustar un código QR que permite visualizar el mapa impreso.
 
@@ -63,7 +67,7 @@ Mediante este cuadro de diálogo se configura la impresión y se activa la vista
 
 ![Vista previa de impresión con código QR](../../img/basicas-print-vista.webp){ loading=lazy }
 
-## Search
+## Buscar (Search) { #search }
 
 Permite visualizar la función de búsqueda general en el mapa. Para que este control funcione correctamente (es decir, con un catálogo toponímico asociado al territorio), se debe configurar un servicio WFS del que obtener los datos de toponimia que alimentarán el buscador.
 
@@ -77,7 +81,7 @@ Permite visualizar la función de búsqueda general en el mapa. Para que este co
     En la versión 1.3.0 el buscador no devuelve resultados y muestra `[[searchPlaceholder]]`
     ([sitmun/sitmun#352](https://github.com/sitmun/sitmun/issues/352), corregido para la siguiente versión).
 
-## Share
+## Compartir (Share) { #share }
 
 La opción Share permite compartir un determinado mapa (entendiendo mapa como un conjunto de capas seleccionado y visible a una determinada escala).
 
@@ -87,12 +91,12 @@ Se ofrecen múltiples formas de compartir el mapa: enlace URL, imagen, código Q
 
 ![Herramienta Compartir del visor](../../img/basicas-share.webp){ loading=lazy }
 
-## WFS Query
+## Consulta WFS (WFS Query) { #wfs-query }
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## WFSEdit
+## Edición WFS (WFSEdit) { #wfsedit }
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.

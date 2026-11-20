@@ -1,3 +1,7 @@
+---
+description: "Diseño de los servicios de SITMUN 3: autenticación, configuración y autorización, y proxy."
+---
+
 # Diseño
 
 ## Servicio de Autenticación
@@ -16,9 +20,11 @@ Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]*
 
 ### Comportamiento esperado
 
-El **Servicio de Autenticación** puede funcionar de dos formas distintas tras recibir la petición de un usuario.
+El **Servicio de Autenticación** comprueba primero la contraseña guardada en SITMUN. Si se ha configurado un LDAP
+externo y esa comprobación falla, la comprueba también en el LDAP; en ese caso el usuario tiene que existir en SITMUN.
+Con un LDAP configurado se aceptan, por tanto, las dos contraseñas.
 
-```plantuml alt="Diagrama de secuencia: el visor envía usuario y contraseña al Servicio de Autenticación, que los comprueba en la base de datos de SITMUN o, si está configurado, en un LDAP externo y después en SITMUN, y devuelve un token de acceso si el usuario es válido."
+```plantuml alt="Diagrama de secuencia: el visor envía usuario y contraseña al Servicio de Autenticación, que los comprueba en la base de datos de SITMUN y, si falla y hay un LDAP configurado, en el LDAP externo, comprobando que el usuario existe en SITMUN; si alguna comprobación es correcta devuelve un token de acceso."
 @startuml
 title
     Secuencias de autenticación básicas
@@ -30,29 +36,23 @@ participant "LDAP externo" as LDAP
 
 Client->>Auth: Petición
 
-alt no hay un LDAP externo
+autonumber
+Auth->>DB: Comprueba usuario y contraseña
+autonumber stop
+DB-->>Auth: Válido o no válido en SITMUN
 
-    autonumber
-    Auth->>DB: Comprueba usuario y contraseña
-    autonumber stop
-    DB-->>Auth: Usuario válido o no válido en SITMUN
-
-else
-
+opt si no es válido y hay un LDAP externo
     autonumber resume
     Auth->>LDAP: Comprueba usuario y contraseña
     autonumber stop
-    LDAP-->>Auth: Usuario válido en LDAP
-
-    alt si el usuario es válido en LDAP
-        autonumber resume
-        Auth->>DB: Comprueba usuario
-        autonumber stop
-        DB-->>Auth: Usuario válido o no válido en SITMUN
-    end
-
+    LDAP-->>Auth: Válido o no válido en LDAP
+    autonumber resume
+    Auth->>DB: Comprueba que el usuario existe
+    autonumber stop
+    DB-->>Auth: Existe o no existe en SITMUN
 end
-alt si el usuario es válido en SITMUN
+
+alt si alguna comprobación es válida
     autonumber resume
     Auth->>Auth: Genera token de acceso
     autonumber stop
@@ -61,15 +61,13 @@ Auth-->>Client: Respuesta
 @enduml
 ```
 
-El comportamiento espera es el siguiente:
+El comportamiento esperado es el siguiente:
 
-1. Si no se configura el uso de un LDAP externo, el **Servicio de Autenticación** comprueba si el usuario y la
-   contraseña son válidos en SITMUN y pasa al punto ④.
-2. Si se configura el uso de un LDAP externo, el **Servicio de Autenticación** comprueba si el usuario y la contraseña
-   son válidos en el LDAP externo.
-3. Si el usuario es válido, el **Servicio de Autenticación** comprueba si el usuario es válido en SITMUN.
-4. Si el usuario es válido en SITMUN, el **Servicio de Autenticación** genera un token de acceso que es devuelto al
-   cliente.
+1. El **Servicio de Autenticación** comprueba si el usuario y la contraseña son válidos en SITMUN. Si lo son, pasa
+   al punto ④.
+2. Si no lo son y se ha configurado un LDAP externo, comprueba el usuario y la contraseña en el LDAP.
+3. Si son válidos en el LDAP, comprueba que el usuario existe en SITMUN.
+4. Si alguna comprobación es válida, genera un token de acceso que se devuelve al cliente.
 
 ## Servicio de Configuración y Autorización
 

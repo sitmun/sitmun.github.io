@@ -386,19 +386,21 @@ AuthTokenFilter-> Database: ¿Detalles usuario?
 Database -->> AuthTokenFilter: roles
 note right
   Si no se encuentra 401 Unauthorized
-  Los roles pueden ser USER y/o ADMIN
+  Los roles pueden ser USER, ADMIN, PUBLIC
+  (usuario público) y MOBILE_EDITION
 end note
 AuthTokenFilter -> SecurityContext: set(Autenticación(usuario, roles))
 SecurityContext -->> AuthTokenFilter
 AuthTokenFilter -->> AuthenticationEntryPoint
 AuthenticationEntryPoint -> SecurityContext: contexto seguridad?
 SecurityContext -->> AuthenticationEntryPoint: contexto actual
-AuthenticationEntryPoint -> AuthenticationEntryPoint: verificar contexto\nactual tiene rol USER
+AuthenticationEntryPoint -> AuthenticationEntryPoint: verificar contexto\nactual tiene rol USER,\nPUBLIC o MOBILE_EDITION
 note right
-  método asociado a "/api/config/client/profile/{appId}/{terId}" 
-  solo puede ser accedido con el rol USER
-  por la configuración de seguridad
-  Si no se verifica 401 Unauthorized
+  método asociado a "/api/config/client/profile/{appId}/{terId}"
+  solo puede ser accedido con los roles USER,
+  PUBLIC o MOBILE_EDITION por la configuración
+  de seguridad. Sin token se usa el usuario
+  público (rol PUBLIC).
 end note
 AuthenticationEntryPoint -> ConfigurationAPI: getProfile(appId, terId)
 note right
@@ -579,7 +581,8 @@ else No hay configuración reusable en la cache
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
   note right
     Decodificamos configProxyRequest.type
-    en este caso es "cartography"
+    en este caso es "WMS" (el tipo del servicio:
+    WMS, WMTS o WFS)
   end note
   ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
   note right
@@ -713,8 +716,8 @@ JWTUtils -->> ConfigurationAPI: "username"
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
 note right
   Decodificamos configProxyRequest.type
-  en este caso es "task:{taskType}"
-  y taskType es el "id" de pregunta a base de datos
+  en este caso es "SQL" (el ámbito de la tarea:
+  SQL, API o URL) y el id es el de la tarea
 end note
 ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
 note right
@@ -846,10 +849,10 @@ componentes de Spring Framework configurados por el paquete `security` para
 autenticar un usuario cuando solicita un token JWT de autenticación.  
 - Los controladores de la **API de Configuración y Autorización** solo podrán
 ser accedidos por usuarios a los se haya determinado que tengan el rol
-`USER` (clientes **SITMUN 3**) o el rol `PROXY` (proxy). Es misión del paquete
+`USER`, `PUBLIC` (usuario público) o `MOBILE_EDITION` (clientes **SITMUN 3**) o el rol `PROXY` (proxy). Es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para
-el rol `USER`, API key para el rol `PROXY`) determinar si están autenticadas
+los clientes, con el usuario público cuando no hay token; API key para el rol `PROXY`) determinar si están autenticadas
 y asignar la identidad y el rol correspondiente.
 - Los controladores de la **API de Administración** (tanto los definidos
 explícitamente como los generados dinámicamente por **Spring Data REST**)

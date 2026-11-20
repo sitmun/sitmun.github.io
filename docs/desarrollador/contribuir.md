@@ -28,7 +28,7 @@ En general haremos siempre énfasis en la automatización de todo lo que sea aut
 
 - En especial, no se puede trabajar en este proyecto sin tener claro que la automatización de pruebas es una buena práctica inexcusable en el desarrollo de software.
 - La construcción y despliegue automáticos, al menos en servidores de pruebas y/o preproducción, también serán el requisito por defecto, salvo muy buena razón en contra. Ahora mismo la construcción y pruebas automáticas se hacen en [GitHub Actions](https://docs.github.com/en/actions). Esto puede evolucionar con el tiempo.
-- La construcción automática se hace con [Gradle](https://gradle.org) para los componentes Java y con [pnpm](https://pnpm.io) para las aplicaciones Angular e Ionic, desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun). Las órdenes de construcción, pruebas y comprobaciones están en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md) y en los flujos de GitHub Actions del repositorio.
+- La construcción automática se hace con [Gradle](https://gradle.org) para los componentes Java y con [pnpm](https://pnpm.io) para las aplicaciones Angular e Ionic, desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun). Las órdenes de construcción, pruebas y comprobaciones están en los [flujos de GitHub Actions](https://github.com/sitmun/sitmun/tree/main/.github/workflows) del repositorio.
 - Los secretos (contraseñas o tokens) se gestionan adecuadamente usando [GitHub secrets](https://docs.github.com/es/actions/security-guides/encrypted-secrets). No hay, ni debe haber, ninguna contraseña o token en ninguna parte de ningún repositorio.
 - Seguiremos [semantic versioning 2.0.0](https://semver.org) cuando haya que dar identificadores de versión públicos a algo.
 
@@ -38,7 +38,7 @@ El desarrollo de los servicios de backend (backend, proxy y MBTiles) se hace en 
 El desarrollo de las aplicaciones de frontend se hace con TypeScript y [Angular 22](https://angular.dev):
 tanto el Administrador como el Visor de mapas están desarrollados en Angular 22,
 y las aplicaciones móviles en [Ionic 8](https://ionicframework.com) y [Capacitor 8](https://capacitorjs.com) sobre Angular 22.
-Las versiones exactas de todas las herramientas están en el [README](https://github.com/sitmun/sitmun#toolchain) del repositorio.
+Las versiones de Java, Node y pnpm están en el [README](https://github.com/sitmun/sitmun#toolchain) del repositorio; las de las bibliotecas, en [`gradle/libs.versions.toml`](https://github.com/sitmun/sitmun/blob/main/gradle/libs.versions.toml) (Java) y en el catálogo de [`pnpm-workspace.yaml`](https://github.com/sitmun/sitmun/blob/main/pnpm-workspace.yaml) (frontend).
 
 ## Consideraciones metodológicas
 

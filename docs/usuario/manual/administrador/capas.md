@@ -1,3 +1,7 @@
+---
+description: "Capas en el administrador de SITMUN 3: alta de capas de un servicio y sus opciones de visualización, consulta y permisos."
+---
+
 # Capas
 
 Las capas provienen de los servicios que se hayan definido previamente.
@@ -12,9 +16,9 @@ Se puede crear una capa nueva manualmente. Eso ofrece la posibilidad de configur
 
 Es indispensable indicar como parámetros mínimos:
 
-- **Nombre de la capa**: nombre identificativo del elemento.
+- **Nombre**: nombre identificativo del elemento.
 - **Servicio**: servicio del que proviene.
-- **Capa/s**: nombre de una o varias capas separadas por comas. Es importante tener en cuenta que el nombre o código de la capa debe estar escrito exactamente igual que como viene en el servicio.
+- **Capa o capas del servicio utilizadas**: nombre de una o varias capas separadas por comas. Es importante tener en cuenta que el nombre o código de la capa debe estar escrito exactamente igual que como viene en el servicio.
 
 Complementariamente, se pueden detallar otros parámetros para definir su comportamiento:
 

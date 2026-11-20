@@ -1,8 +1,12 @@
+---
+description: "Tareas básicas de navegación en SITMUN 3: zoom, pantalla completa, vista 3D, escala y mapa de situación."
+---
+
 # Navegación y vista
 
 Tareas básicas para moverse por el mapa y cambiar cómo se ve.
 
-## 3D View
+## Vista 3D (3D View) { #3d-view }
 
 Permite cambiar de una visualización 2D a una visualización 3D, siempre que la capa de fondo disponga de la configuración necesaria para permitir la representación tridimensional de la cartografía.
 
@@ -10,7 +14,7 @@ Permite cambiar de una visualización 2D a una visualización 3D, siempre que la
 
 ![Botón 3D del visor](../../img/basicas-3d.webp){ loading=lazy }
 
-## Full screen
+## Pantalla completa (Full Screen) { #full-screen }
 
 Permite activar la visualización en pantalla completa.
 
@@ -18,12 +22,12 @@ Permite activar la visualización en pantalla completa.
 
 ![Botón de pantalla completa del visor](../../img/basicas-full-screen.webp){ loading=lazy }
 
-## Geolocation
+## Geolocalización (Geolocation) { #geolocation }
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## Navigation Bar
+## Barra de navegación (Navigation Bar) { #navigation-bar }
 
 Son los elementos que permiten realizar las operaciones de acercar y alejar, así como volver a la escala original.
 
@@ -31,7 +35,7 @@ Son los elementos que permiten realizar las operaciones de acercar y alejar, as�
 
 ![Barra de navegación del visor](../../img/basicas-navigation-bar.webp){ loading=lazy }
 
-## Overview Map
+## Mapa de situación (Overview Map) { #overview-map }
 
 Permite visualizar el mapa de situación. Se ubica en el icono inferior derecho.
 
@@ -39,7 +43,7 @@ Permite visualizar el mapa de situación. Se ubica en el icono inferior derecho.
 
 ![Mapa de situación del visor](../../img/basicas-overview-map.webp){ loading=lazy }
 
-## Scale
+## Escala (Scale) { #scale }
 
 Permite visualizar la escala del mapa. Se muestra en la parte inferior derecha.
 
@@ -47,7 +51,7 @@ Permite visualizar la escala del mapa. Se muestra en la parte inferior derecha.
 
 ![Escala numérica del visor](../../img/basicas-scale.webp){ loading=lazy }
 
-## Scale Bar
+## Barra de escala (Scale Bar) { #scale-bar }
 
 Permite visualizar la escala en formato de barra. Se muestra en la esquina inferior derecha del mapa, en el mismo lugar que el control Scale, así que conviene no activar los dos en la misma aplicación (véase la nota siguiente).
 
@@ -56,15 +60,15 @@ Permite visualizar la escala en formato de barra. Se muestra en la esquina infer
 ![Barra de escala del visor](../../img/basicas-scale-bar.webp){ loading=lazy }
 
 !!! warning "SITMUN 1.3.0"
-    Si la aplicación tiene también la tarea **Scale**, la escala tapa la barra de escala
+    Si la aplicación tiene también la tarea **Escala** (Scale), la escala tapa la barra de escala
     ([sitmun/sitmun#374](https://github.com/sitmun/sitmun/issues/374)).
 
-## Scale Selector
+## Selector de escala (Scale Selector) { #scale-selector }
 
 !!! info "En preparación"
     Este apartado todavía no está documentado.
 
-## Street View
+## Vista de calle (Street View) { #street-view }
 
 Permite visualizar la información de Street View de un determinado punto del mapa. Se activa arrastrando el icono hasta el mapa y se vinculará con el punto de Street View más cercano.
 

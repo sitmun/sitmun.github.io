@@ -1,3 +1,7 @@
+---
+description: "Paso 1 de la guía: crear en SITMUN 3 el territorio y el rol, y asignarlos al usuario público."
+---
+
 # Paso 1: territorio, rol y usuario público
 
 Este paso va primero porque casi todo lo demás (capas, mapas de fondo, árboles, tareas) se enlaza a un rol y a un territorio. El usuario `public` ya existe: solo hay que crear el territorio y el rol y asignárselos.
@@ -5,7 +9,7 @@ Este paso va primero porque casi todo lo demás (capas, mapas de fondo, árboles
 **1.1 Territorio** (menú **Territorios** → **Nuevo**)
 
 - **Nombre**, **Código** y **Tipo** son obligatorios. Los tipos (Ayuntamiento, Diputación, Comarca...) ya existen; si falta alguno, se crea en **Sistema** → **Tipos de territorio**.
-- Desactiva **Territorio bloqueado**. Un territorio nuevo aparece bloqueado por defecto.
+- Desactiva **Territorio bloqueado**. Un territorio nuevo aparece bloqueado por defecto. En SITMUN 1.3.0 la opción todavía no tiene efecto ([sitmun/sitmun#376](https://github.com/sitmun/sitmun/issues/376)), pero desactivarla deja el territorio bien configurado.
 - Rellena la **Extensión** (min X, max X, min Y, max Y; las cuatro juntas), el **CRS** (por ejemplo `EPSG:25831`) y, si quieres, el **Punto central** y el **Nivel de Zoom por defecto**. Estos valores mandan sobre los de la aplicación.
 
 ![Formulario de nuevo territorio](img/paso-1-territorio.webp){ loading=lazy }
