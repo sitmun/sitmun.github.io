@@ -8,6 +8,8 @@ El administrador no tiene ningún botón para abrir el visor. Hay que abrirlo ap
 Las imágenes publicadas, los perfiles de producción y el *showcase* usan direcciones con `#/`.
 Solo una instalación de desarrollo (perfiles `development-*.env`) las usa sin `#/`, por ejemplo `/viewer/public/dashboard`.
 
+![Lista de aplicaciones del visor](../../manual/administrador/img/general-visor-castellano.webp){ loading=lazy }
+
 **Lista de comprobación**
 
 - [ ] La aplicación aparece en la lista del visor.
@@ -17,5 +19,7 @@ Solo una instalación de desarrollo (perfiles `development-*.env`) las usa sin `
 - [ ] Las capas marcadas con **Cargar por defecto** aparecen encendidas.
 - [ ] Al hacer clic en el mapa sobre una capa consultable aparece su información.
 - [ ] Están las herramientas del [paso 6](paso-6-herramientas.md).
+
+![Mapa de una aplicación en el visor](img/paso-8-visor.webp){ loading=lazy }
 
 Después de cambiar algo en el administrador, vuelve a cargar el visor. Si no ves el cambio, prueba en una ventana privada: el navegador puede tener guardada la configuración antigua.

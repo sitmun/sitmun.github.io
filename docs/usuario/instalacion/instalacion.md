@@ -76,6 +76,10 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     o define `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, si quieres, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
     Quita esas variables de `.env` cuando `GET /api/dashboard/health` responda `UP`.
 
+    ![Primer acceso: idioma por defecto](img/primer-acceso-idioma.webp){ loading=lazy }
+
+    ![Primer acceso: contraseña del usuario admin](img/primer-acceso-contrasena.webp){ loading=lazy }
+
     En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
 
     **Probar SITMUN (showcase)**

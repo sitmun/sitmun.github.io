@@ -30,7 +30,7 @@ Permite utilizar las siguientes herramientas:
 
 - Control API SITNA: `sitna.drawMeasureModify`
 
-![Herramienta de dibujo y medición del visor](../../img/basicas-draw-measure.webp){ width="460" loading=lazy }
+![Herramienta de dibujo y medición del visor](../../img/basicas-draw-measure.webp){ loading=lazy }
 
 ## Loading Indicator
 
@@ -43,7 +43,7 @@ Se trata de una herramienta de medición sencilla que permite medir distancias o
 
 - Control API SITNA: `sitna.measure`
 
-![Herramienta de medición del visor](../../img/basicas-measure.webp){ width="532" loading=lazy }
+![Herramienta de medición del visor](../../img/basicas-measure.webp){ loading=lazy }
 
 ## Offline Map Maker
 
@@ -57,7 +57,7 @@ Permite configurar la impresión de un mapa. Se pueden seleccionar parámetros b
 
 - Control API SITNA: `sitna.printMap`
 
-![Cuadro de diálogo de impresión](../../img/basicas-print-dialogo.webp){ width="276" loading=lazy }
+![Cuadro de diálogo de impresión](../../img/basicas-print-dialogo.webp){ loading=lazy }
 
 Mediante este cuadro de diálogo se configura la impresión y se activa la vista siguiente, donde podemos acabar de situar el mapa deseado e imprimir cuando sea correcto.
 
@@ -70,6 +70,10 @@ Permite visualizar la función de búsqueda general en el mapa. Para que este co
 - Control API SITNA: `sitna.search`
 
 ![Buscador del visor](../../img/basicas-search.webp){ width="464" loading=lazy }
+
+!!! warning "SITMUN 1.3.0"
+    En la versión 1.3.0 el buscador no devuelve resultados y muestra `[[searchPlaceholder]]`
+    ([sitmun/sitmun#352](https://github.com/sitmun/sitmun/issues/352), corregido para la siguiente versión).
 
 ## Share
 

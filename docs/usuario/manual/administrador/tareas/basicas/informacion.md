@@ -38,7 +38,7 @@ Acceda al menú de [árboles](../../arboles.md) y localice el nodo donde se encu
 
 Una vez configuradas la capa y el árbol, al hacer clic sobre un elemento de la capa en cuestión, se visualizará la información GetFeatureInfo (GFI) del elemento o de los elementos seleccionados.
 
-![Información GFI de un elemento en el visor](../../img/basicas-feature-info-resultado.webp){ width="484" loading=lazy }
+![Información GFI de un elemento en el visor](../../img/basicas-feature-info-resultado.webp){ loading=lazy }
 
 ## More Info Advanced
 

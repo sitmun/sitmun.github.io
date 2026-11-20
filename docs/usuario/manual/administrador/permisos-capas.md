@@ -19,6 +19,6 @@ Una vez creado el grupo de permisos de capas, ya existe en la plataforma, por lo
 
 Desde el botón **+** de la derecha aparece un listado de los permisos sobre las capas disponibles. Se debe seleccionar el grupo y añadirlo a la lista con el símbolo **+**.
 
-![Añadir permisos a una capa](img/permisos-anadir.webp){ width="393" loading=lazy }
+![Añadir permisos a una capa](img/permisos-anadir.webp){ loading=lazy }
 
-Aparece el símbolo naranja a la derecha, como pendiente de guardar.
+La fila nueva aparece en estado **Pendiente crear** hasta que se guarda la capa.

@@ -8,7 +8,7 @@ Permite cambiar de una visualización 2D a una visualización 3D, siempre que la
 
 - Control API SITNA: `sitna.threed`
 
-![Botón 3D del visor](../../img/basicas-3d.webp){ width="220" loading=lazy }
+![Botón 3D del visor](../../img/basicas-3d.webp){ loading=lazy }
 
 ## Full screen
 
@@ -16,7 +16,7 @@ Permite activar la visualización en pantalla completa.
 
 - Control API SITNA: `sitna.fullScreen`
 
-![Botón de pantalla completa del visor](../../img/basicas-full-screen.webp){ width="220" loading=lazy }
+![Botón de pantalla completa del visor](../../img/basicas-full-screen.webp){ loading=lazy }
 
 ## Geolocation
 
@@ -29,7 +29,7 @@ Son los elementos que permiten realizar las operaciones de acercar y alejar, as�
 
 - Control API SITNA: `sitna.navBar`
 
-![Barra de navegación del visor](../../img/basicas-navigation-bar.webp){ width="297" loading=lazy }
+![Barra de navegación del visor](../../img/basicas-navigation-bar.webp){ loading=lazy }
 
 ## Overview Map
 
@@ -45,7 +45,7 @@ Permite visualizar la escala del mapa. Se muestra en la parte inferior derecha.
 
 - Control API SITNA: `sitna.scale`
 
-![Escala numérica del visor](../../img/basicas-scale.webp){ width="291" loading=lazy }
+![Escala numérica del visor](../../img/basicas-scale.webp){ loading=lazy }
 
 ## Scale Bar
 
@@ -53,7 +53,11 @@ Permite visualizar la escala en formato de barra. Este control no puede estar ac
 
 - Control API SITNA: `sitna.scaleBar`
 
-![Barra de escala del visor](../../img/basicas-scale-bar.webp){ width="189" loading=lazy }
+![Barra de escala del visor](../../img/basicas-scale-bar.webp){ loading=lazy }
+
+!!! warning "SITMUN 1.3.0"
+    Si la aplicación tiene también la tarea **Scale**, la escala tapa la barra de escala
+    ([sitmun/sitmun#374](https://github.com/sitmun/sitmun/issues/374)).
 
 ## Scale Selector
 

@@ -9,6 +9,8 @@ Un grupo de capas es la manera de dar capas a un rol. Sin grupo, ningún rol tie
 3. Pestaña **Roles**: añade el rol del [paso 1](paso-1-territorio-rol-usuario.md).
 4. **Guarda**.
 
+![Formulario de grupo de capas](../../manual/administrador/img/permisos-formulario.webp){ loading=lazy }
+
 Otros tipos de grupo: **Mapa de situación** (el mapa pequeño de referencia en la esquina, que se elige en la aplicación) e **Informe**.
 
 **4.2 Capa de fondo** (menú **Capas de fondo** → **Nuevo**)
@@ -18,6 +20,8 @@ Otros tipos de grupo: **Mapa de situación** (el mapa pequeño de referencia en 
 3. Pestaña **Capas**: añade la capa o capas que forman el mapa de fondo.
 4. Pestaña **Roles**: añade el rol del [paso 1](paso-1-territorio-rol-usuario.md).
 5. **Guarda**. El administrador crea automáticamente un grupo de tipo **Mapa de fondo** con el mismo nombre; no hace falta crearlo a mano.
+
+![Formulario de capa de fondo con la opción Activo](../../manual/administrador/img/capas-fondo-formulario.webp){ loading=lazy }
 
 !!! tip "El nombre que ve el usuario es el de la capa"
     En el selector de mapas de fondo del visor aparece el **nombre de la capa** del [paso 3](paso-3-capas.md), no el de la capa de fondo.

@@ -39,7 +39,7 @@ Hay que diferenciar dos aspectos de la gestión del multiidioma en SITMUN:
 
 Para gestionar los **textos de contenido**, en cualquier formulario de la aplicación de administración que admita texto aparece el siguiente símbolo:
 
-![Símbolo de traducciones](img/general-icono-traducciones.webp){ width="69" loading=lazy }
+![Símbolo de traducciones](img/general-icono-traducciones.webp){ loading=lazy }
 
 Al pulsar sobre este símbolo se despliega otro formulario que permite añadir los textos equivalentes al texto que se ha creado en los diferentes idiomas definidos.
 
@@ -47,7 +47,7 @@ Al pulsar sobre este símbolo se despliega otro formulario que permite añadir l
 
 Cuando el usuario público seleccione un idioma en concreto en el visor, se buscará el texto equivalente en el idioma seleccionado para mostrarlo traducido, tal y como se muestra en las capturas de pantalla para el catalán y el español.
 
-![Lista de aplicaciones del visor en catalán](img/general-visor-catalan.webp){ width="520" loading=lazy }
+![Lista de aplicaciones del visor en catalán](img/general-visor-catalan.webp){ loading=lazy }
 
 ![Lista de aplicaciones del visor en español](img/general-visor-castellano.webp){ loading=lazy }
 

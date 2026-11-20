@@ -6,6 +6,8 @@ El administrador se abre en `http://<servidor>/admin/` (en una instalación loca
 2. Escribe **Usuario** y **Contraseña** y pulsa **Iniciar sesión**. En una instalación de producción nueva, la primera visita pide crear la contraseña del usuario `admin` y elegir el idioma por defecto (ver [Instalación](../../instalacion/instalacion.md)). En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
 3. Solo pueden entrar los usuarios con la opción **Usuario administrador de SITMUN** activada.
 
+![Pantalla de inicio de sesión del administrador](img/primera-entrada-login.webp){ loading=lazy }
+
 **El menú lateral** está agrupado en el orden de trabajo de esta guía:
 
 | Grupo | Entradas |
@@ -16,6 +18,8 @@ El administrador se abre en `http://<servidor>/admin/` (en una instalación loca
 | 4 | Grupo de tareas, Tarea (con 9 tipos de tarea) |
 | 5 | Aplicación |
 | 6 | Sistema (solo para el usuario `admin`): Controles de interfaz de tarea, Idiomas, Traducciones de literales, Tipos de territorio, Tipos de tareas, Valores de listas de códigos, Parámetros de configuración |
+
+![Cuadro de mando y menú lateral del administrador](img/primera-entrada-cuadro-mando.webp){ loading=lazy }
 
 **Cómo funcionan las pantallas.** Cada entrada del menú abre una **lista**. El botón **Nuevo** abre un formulario vacío; al hacer clic en una fila se abre su formulario.
 

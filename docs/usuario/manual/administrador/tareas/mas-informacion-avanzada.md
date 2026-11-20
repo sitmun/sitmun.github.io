@@ -28,17 +28,17 @@ Debe tenerse en cuenta que esta capa deberá tener activada la función de visua
 
 ![Información general de una tarea MIA](../img/mia-general.webp){ loading=lazy }
 
-*En este ejemplo, el MIA se activará al hacer clic sobre un elemento de la capa CAE1M – Illes urbanes, ya que es la cartografía seleccionada.*
+*En este ejemplo, el MIA se activará al hacer clic sobre un monumento de la capa «Monumentos de la Menorca Talayótica (UNESCO)», ya que es la cartografía seleccionada.*
 
-Como siempre, será necesario asignar roles y territorios a esta tarea MIA según convenga.
+Como siempre, será necesario asignar roles y territorios a esta tarea MIA según convenga. Las tareas que incluya el MIA (consultas y plantillas) también deben tener el rol y el territorio de la aplicación; si no, el visor muestra «No data» en su lugar.
 
 ### Paso 2: preparar las fuentes de información
 
-El siguiente paso es preparar las fuentes de información de lo que queremos visualizar en el MIA. Por ejemplo, si queremos visualizar el planeamiento urbanístico vinculado a la manzana urbana en la que se ha hecho clic, necesitaremos una tarea de consulta que haga esta consulta en la base de datos y devuelva unos resultados.
+El siguiente paso es preparar las fuentes de información de lo que queremos visualizar en el MIA. Por ejemplo, si queremos visualizar la ficha del monumento en el que se ha hecho clic, necesitaremos una tarea de consulta que la obtenga de la base de datos.
 
 Para definir estas consultas utilizaremos la [tarea de consulta](consulta.md) descrita anteriormente.
 
-En nuestro ejemplo supondremos que disponemos de una consulta con el nombre «Planeamiento urbanístico por manzana urbana», que tiene como parámetro el ID de la manzana urbana y devuelve el planeamiento urbanístico que la afecta.
+En nuestro ejemplo usamos la consulta «Patrimonio UNESCO por identificador» del apartado [Consulta](consulta.md), que tiene como parámetro el identificador del bien (`ID`) y devuelve su nombre, su tipo y su web.
 
 ### Paso 3: vincular la fuente de información al MIA
 
@@ -48,19 +48,22 @@ Para vincular esta consulta al MIA utilizaremos el campo **Añadir tarea** y sel
 
 Ahora hay que gestionar los parámetros. Nuestro objetivo es el siguiente:
 
-1. Obtener el ID de la manzana urbana en la que ha hecho clic el usuario. Esta información la proporciona el control de la API SITNA a través de GFI (GetFeatureInfo). Una forma de saber qué campos del GFI están disponibles es desactivar las tareas de información avanzada y dejar solo la tarea básica Feature Info; así se muestra el siguiente cuadro con los campos que provienen del GFI:
+1. Obtener el identificador del monumento en el que ha hecho clic el usuario. Esta información la proporciona el control de la API SITNA a través de GFI (GetFeatureInfo). Una forma de saber qué campos del GFI están disponibles es desactivar las tareas de información avanzada y dejar solo la tarea básica Feature Info; así se muestra el siguiente cuadro con los campos que provienen del GFI:
 
-    ![Campos disponibles en el GFI](../img/mia-campos-gfi.webp){ width="339" loading=lazy }
+    ![Campos disponibles en el GFI](../img/mia-campos-gfi.webp){ loading=lazy }
 
-    En este caso, los campos disponibles provenientes del GFI son `MUN_INE`, `TIPUS_ILLA` e `ID`.
+    En este caso, el campo que identifica el monumento es `gid`, el mismo valor que la consulta espera en `ID`.
 
 2. Una vez que sabemos qué campos del GFI podemos utilizar, es el momento de crear un parámetro que vincule uno de estos campos con un parámetro del MIA. Esto lo haremos mediante la pestaña **Parámetros** del menú superior.
 
-    Hay dos campos que rellenar: en **Parámetro de tarea de consulta** pondremos el nombre que queramos y en **Campo**, el nombre del campo del GFI que queremos utilizar.
+    Hay dos campos que rellenar: en **Parámetro de tarea de consulta** pondremos el nombre que queramos (en el ejemplo, «Identificador») y en **Campo**, el nombre del campo del GFI que queremos utilizar (`gid`).
 
     ![Parámetros de la tarea MIA](../img/mia-parametros.webp){ loading=lazy }
 
-3. Ahora será necesario mapear el parámetro que acabamos de crear hacia la consulta que lo necesita. Esto lo haremos con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que mapear dos campos: **Parámetro MIA**, que es el nombre que hemos puesto al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el nombre del parámetro que hemos definido en la consulta.
+3. **Guarde la tarea MIA.** En SITMUN 1.3.0 el mapeo solo ofrece los parámetros del MIA ya guardados
+    ([sitmun/sitmun#373](https://github.com/sitmun/sitmun/issues/373)).
+
+4. Ahora será necesario mapear el parámetro que acabamos de crear hacia la consulta que lo necesita. Esto lo haremos con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que mapear dos campos: **Parámetro MIA**, que es el nombre que hemos puesto al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el parámetro que hemos definido en la consulta (aparece con su etiqueta, «Identificador del bien»).
 
     ![Mapeo de parámetros](../img/mia-mapeo.webp){ loading=lazy }
 
@@ -88,11 +91,11 @@ Para visualizar los resultados de las consultas preparadas en el paso 2, prepara
 
 ### Paso 4: equivalencias de parámetros para utilizar en el MIA
 
-Por último, es necesario establecer la equivalencia entre los parámetros definidos en el MIA y los parámetros definidos en la plantilla. Esto lo haremos con el mapeo de parámetros, tal y como muestra la captura de pantalla:
+Por último, es necesario establecer la equivalencia entre los parámetros definidos en el MIA y los parámetros definidos en la plantilla (en el ejemplo, «Identificador» → `ID`). Esto lo haremos con el mapeo de parámetros, tal y como muestra la captura de pantalla:
 
 ![Mapeo de parámetros hacia una plantilla](../img/mia-mapeo-plantilla.webp){ loading=lazy }
 
-Si vamos al visor y hacemos la consulta del MIA en la capa de manzanas urbanas (que es la cartografía que hemos vinculado a este MIA), podemos ver el resultado:
+Si vamos al visor y hacemos clic en un monumento de la capa vinculada a este MIA, podemos ver el resultado:
 
 ![Resultado del MIA con plantilla](../img/mia-resultado-plantilla.webp){ loading=lazy }
 

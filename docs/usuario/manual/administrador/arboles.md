@@ -26,7 +26,7 @@ Para empezar es necesario crear una carpeta, ya que toda la información tiene q
 
 Para que cada nuevo elemento se cargue en la estructura, se debe guardar previamente la carpeta.
 
-![Guardar la carpeta](img/arboles-guardar-carpeta.webp){ width="352" loading=lazy }
+![Guardar la carpeta](img/arboles-guardar-carpeta.webp){ loading=lazy }
 
 Dentro de las carpetas se pueden crear otras subcarpetas o directamente capas de información cartográfica.
 
@@ -34,7 +34,7 @@ Dentro de las carpetas se pueden crear otras subcarpetas o directamente capas de
 
 Al crear una capa de información, lo más importante es indicar la capa, de entre las ya incluidas en la plataforma. La caja de texto para indicar la capa de cartografía ofrece un desplegable con opciones.
 
-![Selección de la capa de un nodo](img/arboles-nodo-cartografia.webp){ width="483" loading=lazy }
+![Selección de la capa de un nodo](img/arboles-nodo-cartografia.webp){ loading=lazy }
 
 ### Acceso
 
