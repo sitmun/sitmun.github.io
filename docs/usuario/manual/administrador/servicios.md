@@ -54,10 +54,11 @@ En este punto aún no tenemos ninguna capa añadida a SITMUN, solo el listado de
 
 Del listado podemos seleccionar las capas que deseemos incorporar a SITMUN y pulsar el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
 
-!!! warning "Registre las capas que quiera crear"
-    En un servicio que todavía no se ha guardado, las capas obtenidas aparecen con el punto naranja
-    **Pendiente crear**, pero en SITMUN 1.3.0 solo se crean al guardar las que se registran con
-    **Registrar** ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
+!!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
+    En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto
+    naranja **Pendiente crear** en lugar del amarillo **Capa no registrada**
+    ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
+    Como en cualquier servicio, al guardar solo se crean las capas registradas con **Registrar**.
 
 ![Selección de capas del servicio](img/servicios-seleccionar-capas.webp){ loading=lazy }
 
