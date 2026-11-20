@@ -7,22 +7,14 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 # Only the packages the site uses directly. Their own dependencies
-# (requests, urllib3, certifi, jinja2, pyyaml...) come from poetry.lock.
+# (Markdown, pymdown-extensions, Pygments, Jinja2, PyYAML...) come from poetry.lock.
 python = ">=3.11.5,<4.0"
-markdown = "^3.11.3"
-markdown-grid-tables = "^0.6.0"
-# MkDocs 2.0 drops the plugin system that Material and every plugin below use.
-mkdocs = ">=1.6.1,<2.0"
-mkdocs-autorefs = "^1.4.5"
-mkdocs-material = "^9.8.2"
-mkdocs-print-site-plugin = "^2.9"
-# 1.2.3 is published by the ProperDocs fork and pulls in the `properdocs`
-# package; stay on 1.2.2 until moving to ProperDocs is a deliberate choice.
-mkdocs-redirects = "1.2.2"
-mkdocs-render-swagger-plugin = "^0.1.2"
+# Zensical builds the site from mkdocs.yml; search, autorefs and redirects
+# are built in.
+zensical = "^0.1.2"
+# Python-Markdown extensions enabled in mkdocs.yml
 plantuml-markdown = "^3.11.6"
-pygments = "^2.21.0"
-pymdown-extensions = "^13.1"
+markdown-grid-tables = "^0.6.0"
 
 [build-system]
 requires = ["poetry-core"]
