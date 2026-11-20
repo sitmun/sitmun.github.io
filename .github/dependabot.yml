@@ -1,0 +1,17 @@
+# Keeps the GitHub Actions in .github/workflows up to date. The actions are
+# pinned to full commit SHAs with the release as a comment
+# (uses: owner/action@<sha> # vX.Y.Z); Dependabot updates both.
+# Python dependencies are not listed here: requirements.txt is generated from
+# poetry.lock and CI checks that the two match (requirements-sync.yml).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: ci
