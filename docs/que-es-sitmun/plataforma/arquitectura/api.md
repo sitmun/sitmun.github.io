@@ -21,7 +21,7 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
   y se borra con `POST /api/authenticate/logout`.
   La cabecera `X-SITMUN-Client` indica qué cookie usar: el administrador envía `X-SITMUN-Client: admin` en todas sus
   llamadas, también en `refresh` y `logout`. Sin la cabecera se lee la cookie del visor (`viewer_access_token`), así que
-  una llamada con la cookie `admin_access_token` y sin la cabecera responde 401.
+  una llamada a la API de administración con la cookie `admin_access_token` y sin la cabecera responde 401.
   La aplicación móvil de edición usa `POST /api/authenticate/mobile`, que devuelve el token en el cuerpo de la respuesta.
   Solo funciona si el usuario tiene acceso al menos a una aplicación de tipo «Edition application» (código `ED`); si no,
   responde 403.
