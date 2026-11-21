@@ -20,6 +20,7 @@ nav = [
     { "La red SITMUN" = [
       "que-es-sitmun/red-sitmun/index.md",
       { "Órganos de la Red" = "que-es-sitmun/red-sitmun/contacto.md" },
+      { "Identidad corporativa" = "que-es-sitmun/red-sitmun/identidad-corporativa.md" },
     ] },
     { "Plataforma SITMUN" = [
       "que-es-sitmun/plataforma/index.md",
@@ -118,7 +119,7 @@ custom_dir = "overrides"
 variant = "classic"
 # Fonts are self-hosted (docs/css/fonts.css); nothing is loaded from Google Fonts.
 font = false
-# Logo and favicon are copies of the SITMUN isotype from sitmun/community.
+# Logo and favicon are copies of the SITMUN isotype (originals in docs/que-es-sitmun/red-sitmun/identidad/).
 logo = "assets/images/sitmun-isotipo-28.png"
 favicon = "assets/images/sitmun-isotipo-28.png"
 features = [

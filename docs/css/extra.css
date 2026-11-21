@@ -133,3 +133,10 @@
   border: 1px solid var(--sitmun-screenshot-border);
   border-radius: 4px;
 }
+
+/* Logo and isotype previews on the corporate identity page: the same thin
+   frame as screenshots, so a version with a white background is visible. */
+.md-typeset img.marca {
+  box-sizing: border-box;
+  border: 1px solid var(--sitmun-screenshot-border);
+}
