@@ -47,7 +47,7 @@ sudo systemctl restart docker
 
 **Síntomas:**
 
-- Error: "Port 9000 is already in use".
+- Error: «Port 9000 is already in use».
 - Los servicios no pueden iniciarse.
 
 **Soluciones:**
@@ -77,7 +77,7 @@ netstat -ano | findstr :9000  # Windows
 **Síntomas:**
 
 - Los contenedores se detienen inesperadamente o la aplicación se cuelga.
-- Errores de "Out of memory".
+- Errores de «Out of memory».
 
 **Soluciones:**
 
@@ -100,7 +100,7 @@ docker stats
 
 **Síntomas:**
 
-- Error: "Connection refused".
+- Error: «Connection refused».
 - El backend no puede conectarse a la base de datos.
 
 **Soluciones:**
@@ -123,7 +123,7 @@ docker compose exec postgres psql -U sitmun3 -d sitmun3
 
 **Síntomas:**
 
-- Error: "Liquibase migration failed".
+- Error: «Liquibase migration failed».
 - Las tablas no se crean correctamente.
 
 **Soluciones:**
@@ -173,16 +173,16 @@ curl http://localhost:9001/api/setup/status
 
 **Síntomas:**
 
-- Error: "Invalid JWT token" o 401 en peticiones que antes funcionaban.
+- Error: «Invalid JWT token» o 401 en peticiones que antes funcionaban.
 - La sesión se cierra inesperadamente.
 
 **Soluciones:**
 
-- Las sesiones se firman con `SITMUN_USER_SECRET`. Si el secreto cambia (por ejemplo, al regenerar `.env`), todas las sesiones dejan de ser válidas: basta con volver a iniciar sesión. El primer intento con la cookie antigua puede responder 401 y borrarla; el segundo funciona.
+- Las sesiones se firman con `SITMUN_USER_SECRET`. Si el secreto cambia (por ejemplo, al regenerar `.env`), todas las sesiones dejan de ser válidas. La primera petición con la cookie antigua responde 401 y la borra; después, basta con volver a iniciar sesión.
 - Si el navegador conserva una sesión antigua, se borran las cookies del sitio o se prueba en una ventana privada.
 - En el visor, un usuario cuyo puesto en el territorio ha caducado (**Fecha de baja**) pierde la sesión al renovarla: ver [Usuarios](../manual/administrador/usuarios.md).
 
-## Problemas del front { #problemas-de-frontend }
+## Problemas del contenedor `front` { #problemas-de-frontend }
 
 ### El visor o el administrador no cargan { #aplicaciones-no-cargan }
 
@@ -201,14 +201,14 @@ curl -L http://localhost:9000/viewer/
 docker compose logs front
 ```
 
-- La imagen publicada del front solo funciona en la ruta `/`. Si `PUBLIC_BASE_PATH` es otra ruta, hay que construir `front` desde el repositorio (ver [Instalación](instalacion.md)).
+- La imagen publicada de `front` solo funciona en la ruta `/`. Si `PUBLIC_BASE_PATH` es otra ruta, hay que construir `front` desde el repositorio (ver [Instalación](instalacion.md)).
 - En la consola del navegador (herramientas de desarrollo, pestaña *Red*) se ve qué recurso falla y a qué dirección se ha pedido.
 
 ### Errores de CORS { #problemas-de-cors }
 
 **Síntomas:**
 
-- Error: "CORS policy" en la consola del navegador.
+- Error: «CORS policy» en la consola del navegador.
 - Peticiones bloqueadas desde el navegador.
 
 **Soluciones:**

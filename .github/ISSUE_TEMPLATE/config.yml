@@ -2,4 +2,4 @@ blank_issues_enabled: true
 contact_links:
   - name: Errores y preguntas sobre el software SITMUN
     url: https://github.com/sitmun/sitmun/issues
-    about: Los errores de la plataforma (administrador, visor, backend, proxy) se notifican en sitmun/sitmun.
+    about: Los errores de la plataforma (backend, proxy, administrador, visor, MBTiles, aplicaciones móviles y bibliotecas comunes) se notifican en sitmun/sitmun.

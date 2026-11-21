@@ -17,7 +17,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: más información avanzada
 
     **Prioridad:** ALTA
 
-    **Persona o entidad de referéncia o contacto:** Consell Insular de Menorca
+    **Persona o entidad de referencia o contacto:** Consell Insular de Menorca
 
 ## Objetivo
 
@@ -30,16 +30,16 @@ El contenido de la ventana debe poder integrar la respuesta de una o varias cons
 
 El actual cliente SITMUN 3, al hacer clic en el área de mapa sobre un objeto de una capa determinada, presenta el resultado de la petición GetFeatureInfo sobre al servicio WMS correspondiente.
 
-[![Resultado de GetFeatureInfo en el cliente SITMUN 3 al hacer clic en un objeto del mapa](mas-info-avanzado-1.webp)](mas-info-avanzado-1.webp)
+[![Resultado de GetFeatureInfo en el cliente SITMUN 3 al hacer clic en un objeto del mapa](mas-info-avanzado-1.webp){ .captura }](mas-info-avanzado-1.webp)
 
 Con la funcionalidad 'Más info avanzado' se busca enriquecer esta ventana de respuesta con datos que provengan de otras peticiones a otros servicios o conexiones a base de datos.
 
 Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso del [visualizador de medio natural del Consell Insular de Menorca](https://ide.cime.es/sitmun/ambiental.jsp). En la ventana siguiente podemos observar el detalle de la ventana con distintas pestañas, cada una de ellas se corresponde con el resultado de una tarea de tipo consulta configurada en el administrador SITMUN 2.
 
-![Más información avanzada en el visor de medio natural de Menorca de SITMUN 2](mas-info-avanzado-2.webp)
+![Más información avanzada en el visor de medio natural de Menorca de SITMUN 2](mas-info-avanzado-2.webp){ .captura }
 
-Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUn 2.
-![Configuración de una tarea de tipo consulta en SITMUN 2](mas-info-avanzado-3.webp)
+Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUN 2.
+![Configuración de una tarea de tipo consulta en SITMUN 2](mas-info-avanzado-3.webp){ .captura }
 
 ## Requerimientos funcionales
 
@@ -51,28 +51,28 @@ Se prevé la siguiente lógica funcional:
 
     - Una primera tarea que consiste en consulta que devuelve toda la información relativa a una ruta turística:
   
-      ![Consulta que devuelve la información de una ruta turística](mas-info-avanzado-4.webp)
+      ![Consulta que devuelve la información de una ruta turística](mas-info-avanzado-4.webp){ .captura }
 
     - Una segunda consulta que devuelve todas las fotografías de una ruta en concreto:
   
-      ![Consulta que devuelve las fotografías de una ruta](mas-info-avanzado-5.webp)
+      ![Consulta que devuelve las fotografías de una ruta](mas-info-avanzado-5.webp){ .captura }
 
-2. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurarà en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
+2. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurará en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
 
     - Establecer la relación con las distintas tareas hijas que forman parte del más info avanzado. Una tarea hija, a su vez, debe poder formar parte de varias tareas padre.
     - Establecer el tipo de más info avanzado, para establecer cómo se presentarán en la ventana las distintas tareas hijo (en tabs, en scroll…)
 
-      ![Configuración de las tareas hijas y del tipo de presentación de una más información avanzada](mas-info-avanzado-6.webp)
+      ![Configuración de las tareas hijas y del tipo de presentación de una más información avanzada](mas-info-avanzado-6.webp){ .captura }
 
-    - Establecer para cada tarea hija el código HTML con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galeria de fotos, etc.). A este código se añadirán marcas especiales con el nombre de los campos de la subconsulta que serán sustituidas en el cliente (API SITNA) por el valor de los mismos.
-    Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, dónde los valores `@@CODIGOTAREA_NOMBRECAMPO@@` deben de ser sustituidos por el valor del campo correspondiente a la consulta 289.
+    - Establecer para cada tarea hija el código HTML con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galería de fotos, etc.). A este código se añadirán marcas especiales con el nombre de los campos de la subconsulta que serán sustituidas en el cliente (API SITNA) por el valor de los mismos.
+    Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, donde los valores `@@CODIGOTAREA_NOMBRECAMPO@@` deben de ser sustituidos por el valor del campo correspondiente a la consulta 289.
 
-        ![Código HTML de presentación de una tarea hija con marcadores de campo](mas-info-avanzado-7.webp)
+        ![Código HTML de presentación de una tarea hija con marcadores de campo](mas-info-avanzado-7.webp){ .captura }
 
     - Definir qué capa o capas tienen asociada esta funcionalidad.
     - Definir qué territorios y roles de usuario tienen asociada esta funcionalidad.
 
-3. Configurada correctamente la tarea, la API de Configuración y Autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que esté logeado). Así mismo, la API deberá retornar la información necesaria y suficiente para que el cliente (API SITNA u otros) puedan renderizar la información consultada de forma adecuada.
+3. Configurada correctamente la tarea, la API de Configuración y Autorización deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que esté conectado). Así mismo, la API deberá retornar la información necesaria y suficiente para que el cliente (API SITNA u otros) puedan renderizar la información consultada de forma adecuada.
 
 4. El Cliente SITMUN - API SITNA deberá configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un elemento de dicha capa, en caso de que la capa tenga asociada una tarea de esta índole.
 
@@ -83,7 +83,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 ### Cliente Administrador
 
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
-| Funcionalidad                                                                                   | [Commit messages](https://gitmoji.dev/)     | Issues relacionadas |
+| Funcionalidad                                                                                   | Estado                                      | Issues relacionadas |
 +=================================================================================================+=============================================+=====================+
 | Posibilidad de configurar tareas SITMUN de consultas a base de datos                            | Existente no testeada                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
@@ -91,7 +91,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
 | Creación de tipo de tareas padre que permitan seleccionar tareas hijo con una vinculación N a M | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
-| Asignación de parámetros específicos a tareas padre Tab scroll                                  | Nueva                                       |                     |
+| Asignación de parámetros específicos a tareas padre (en pestañas o con desplazamiento)          | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
 | Asignación de una respuesta avanzada a una capa existente                                       | Nueva                                       |                     |
 +-------------------------------------------------------------------------------------------------+---------------------------------------------+---------------------+
@@ -101,14 +101,14 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+
-| Parsear json de la API de Configuración y representar los datos                                   | Existente no testeada   |                     |
+| Parsear json de la API de Configuración y representar los datos                                 | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 ### API de Autenticación {#roadmap-mas-info-api-de-autenticacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Administración {#roadmap-mas-info-api-de-administracion}
 
@@ -122,12 +122,12 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 
 ### API de Configuración y Autorización {#roadmap-mas-info-api-de-configuracion-y-autorizacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Proxy {#roadmap-mas-info-api-de-proxy}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### Esquema de base de datos
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.

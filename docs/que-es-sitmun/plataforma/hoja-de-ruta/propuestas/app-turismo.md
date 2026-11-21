@@ -34,7 +34,7 @@ para poder gestionar los contenidos (y funcionalidades) de aplicaciones para dis
 
 El siguiente ejemplo ilustra la idea de funcionalidad que se requiere.
 
-![Ejemplo de la funcionalidad propuesta para la aplicación turística](app-turismo-1.webp)
+![Ejemplo de la funcionalidad propuesta para la aplicación turística](app-turismo-1.webp){ .captura }
 
 En la imagen de la izquierda se puede ver el menú principal de una APP, mientras en la imagen de la derecha se
 representa cómo se podría configurar este menú en el administrador SITMUN.
@@ -92,24 +92,24 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 ### Cliente visualizador (API SITNA)
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Autenticación {#roadmap-app-turismo-api-de-autenticacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Administración {#roadmap-app-turismo-api-de-administracion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Configuración y Autorización {#roadmap-app-turismo-api-de-configuracion-y-autorizacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Proxy {#roadmap-app-turismo-api-de-proxy}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### Esquema de base de datos
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.

@@ -8,7 +8,7 @@ description: "Glosario de los términos de SITMUN 3 que usa la guía del primer 
 | --- | --- |
 | Cartografía | Otro nombre de la capa. En el administrador aparece en el **Tipo** «Grupo de cartografía» y en el campo **Cartografía** de los nodos del árbol. |
 | CRS | Sistema de coordenadas del mapa, escrito como `EPSG:` + número (por ejemplo `EPSG:25831`, UTM 31N). |
-| Extensión | El rectángulo de coordenadas (min X, min Y, max X, max Y) que el mapa muestra al abrirse. |
+| Extensión | El rectángulo de coordenadas (min X, max X, min Y, max Y) que el mapa muestra al abrirse. |
 | GetCapabilities | La petición que devuelve la descripción de un servicio y la lista de sus capas. |
 | GetFeatureInfo | La petición que devuelve los datos de un punto cuando el usuario hace clic en el mapa. |
 | Grupo de permisos | Conjunto de capas al que se asignan roles (menú **Permisos sobre las capas**). |

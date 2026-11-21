@@ -20,6 +20,6 @@ El árbol es lo que el usuario ve en el panel de capas: carpetas que contienen c
 
 ![Nodo de capa del árbol con la capa elegida en Cartografía](../../manual/administrador/img/arboles-nodo-cartografia.webp){ loading=lazy }
 
-**Atajo:** el botón **Cargar desde servicio** de la estructura crea las carpetas y las capas a partir de la organización del servicio WMS. En la versión 1.3.0 los nodos de capa que crea no quedan enlazados a las capas de SITMUN: después de guardar, elige la capa en **Cartografía** en cada uno. Si el servicio no organiza sus capas en carpetas, el botón no crea ninguna y deja los nodos de capa en el primer nivel, donde solo puede haber carpetas: añade una carpeta y mueve los nodos dentro.
+**Atajo**: el botón **Cargar desde servicio** de la estructura crea las carpetas y las capas a partir de la organización del servicio WMS, pero solo para las capas que ya registraste en el [paso 3](paso-3-capas.md): las que no están registradas se omiten sin aviso. En la versión 1.3.0 los nodos de capa que crea no quedan enlazados a las capas de SITMUN: después de guardar, elige la capa en **Cartografía** en cada uno. Si el servicio no organiza sus capas en carpetas, el botón no crea ninguna y deja los nodos de capa en el primer nivel, donde solo puede haber carpetas: añade una carpeta y mueve los nodos dentro.
 
 El árbol se enlaza a la aplicación en el [paso 7](paso-7-aplicacion.md).

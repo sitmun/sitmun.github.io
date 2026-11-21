@@ -1,6 +1,8 @@
-# SITMUN Documentation
+# SITMUN: documentación técnica
 
-Este repositorio contiene la documentación del proyecto SITMUN.
+Este repositorio contiene la web de documentación de SITMUN, publicada en <https://sitmun.github.io>.
+El contenido tiene la licencia [EUPL 1.2](LICENSE). Los errores o discrepancias se notifican con la
+[plantilla de incidencias](https://github.com/sitmun/sitmun.github.io/issues/new/choose) de este repositorio.
 
 ## Construir la web
 

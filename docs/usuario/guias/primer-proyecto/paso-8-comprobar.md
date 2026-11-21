@@ -4,10 +4,10 @@ description: "Paso 8 de la guía: abrir el visor de SITMUN 3 y comprobar con una
 
 # Paso 8: comprobar el resultado en el visor
 
-El administrador no tiene ningún botón para abrir el visor. Hay que abrirlo aparte, en otra pestaña del navegador.
+El administrador no tiene ningún botón para abrir el visor. Ábrelo aparte, en otra pestaña del navegador.
 
-- **Lista de aplicaciones:** `http://<servidor>/viewer/#/public/dashboard`. La aplicación nueva tiene que aparecer en la lista.
-- **Directo al mapa:** `.../viewer/#/public/map/<id aplicación>/<id territorio>`. Los identificadores (id) aparecen en las listas del administrador.
+- **Lista de aplicaciones**: `http://<servidor>/viewer/#/public/dashboard`. La aplicación nueva tiene que aparecer en la lista.
+- **Directo al mapa**: `.../viewer/#/public/map/<id aplicación>/<id territorio>`. Los identificadores (id) aparecen en las listas del administrador.
 
 Las imágenes publicadas, los perfiles de producción y el *showcase* usan direcciones con `#/`.
 Solo una instalación de desarrollo (perfiles `development-*.env`) las usa sin `#/`, por ejemplo `/viewer/public/dashboard`.

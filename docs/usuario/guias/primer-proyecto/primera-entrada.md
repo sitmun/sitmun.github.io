@@ -27,7 +27,7 @@ El administrador se abre en `http://<servidor>/admin/` (en una instalación loca
 
 **Cómo funcionan las pantallas.** Cada entrada del menú abre una **lista**. El botón **Nuevo** abre un formulario vacío; al hacer clic en una fila se abre su formulario.
 
-- La primera pestaña del formulario siempre es **Información general**. Las demás pestañas enlazan ese elemento con otros (capas, roles, territorios...).
+- La primera pestaña del formulario siempre es **Información general**. Las demás pestañas enlazan ese elemento con otros (capas, roles, territorios…).
 - En las pestañas de relación se usan los botones **Añadir** y **Eliminar**.
 - No se guarda nada hasta que pulsas **Guarda**. Esto incluye los cambios de todas las pestañas.
 - **Duplicar** crea una copia, útil para partir de un elemento que ya funciona.

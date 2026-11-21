@@ -51,10 +51,18 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
         En un servidor, antes de arrancar, se indica en `.env` la dirección por la que se accederá a SITMUN:
         `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME` y `PUBLIC_PORT` (por ejemplo `https`, `sitmun.ejemplo.org` y `443`).
-        El front de Docker solo sirve HTTP en el puerto 9000, así que con `https` y `443` hace falta delante un proxy
+        El contenedor `front` solo sirve HTTP en el puerto 9000, así que con `https` y `443` hace falta delante un proxy
         inverso con el certificado TLS que reenvíe las peticiones al puerto 9000.
-        Con los valores del perfil (`http`, `localhost`, `9000`), el front redirige a `localhost` y las direcciones
+        Con los valores del perfil (`http`, `localhost`, `9000`), el contenedor `front` redirige a `localhost` y las direcciones
         del proxy apuntan a `localhost`, así que solo funcionan desde la propia máquina.
+
+        En un servidor, también antes del primer arranque:
+
+        - se define en `.env` una contraseña propia para la base de datos, `DATABASE_PASSWORD`. Sin ella, Compose usa
+          `sitmun3`, y el volumen de la base de datos conserva la contraseña con la que se creó la primera vez;
+        - se cierran al exterior, con el cortafuegos, los puertos 9001 a 9005 (backend, proxy y bases de datos):
+          Compose los publica, pero solo el 9000 tiene que ser accesible. La base de datos Oracle tiene además fija
+          la contraseña de `SYS` (`password`).
 
         `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
         `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
@@ -85,7 +93,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     o definir `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, opcionalmente, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
     La contraseña debe tener entre 8 y 50 caracteres y no puede coincidir con el nombre de usuario (`admin`, sin distinguir mayúsculas): si no cumple, el backend solo lo anota
     en su registro y la primera visita sigue pidiendo crearla.
-    Esas variables se quitan de `.env` cuando `GET /api/setup/status` (puerto 9001) responde `"firstRun": false`.
+    Esas variables se quitan de `.env` cuando `GET /api/setup/status` responde `"firstRun": false` (en el puerto 9001 o,
+    a través del contenedor `front`, en `/backend/api/setup/status`).
 
     ![Primer acceso: idioma por defecto](img/primer-acceso-idioma.webp){ loading=lazy }
 
@@ -171,7 +180,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     - `COMPOSE_PROFILES`: `postgres` u `oracle`. Se añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
     - `DATABASE_TYPE`, `DATABASE_URL`, `DATABASE`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
     - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`: dirección pública de la instalación.
-    - `PUBLIC_BASE_PATH`: ruta pública (`/` por defecto). La imagen publicada del front solo funciona en `/`: para publicar
+    - `PUBLIC_BASE_PATH`: ruta pública (`/` por defecto). La imagen publicada de `front` solo funciona en `/`: para publicar
       SITMUN bajo una ruta (por ejemplo `/sitmun3/`) hay que construir `front` desde el repositorio con `PUBLIC_BASE_PATH`
       y `LOCAL_BASE_PATH`, como explica DEPLOYMENT.md (*Path prefix*).
     - `SPRING_PROFILES_ACTIVE`: perfiles del backend. Se añade `mail` (por ejemplo `prod,postgres,mail`) para que funcione

@@ -27,12 +27,12 @@ Una **aplicación** es el proyecto que ve el usuario en el visor. No contiene la
 | Grupo de permisos | Permisos sobre las capas | Un conjunto de capas que se da a uno o varios roles. Su **Tipo** habitual es «Grupo de cartografía». |
 | Mapa de fondo | Capas de fondo | La imagen base del mapa que el usuario elige en el selector de mapas de fondo. En la aplicación, la pestaña se llama **Mapas de fondo**. |
 | Árbol | Árboles | La lista de carpetas y capas que el usuario ve en el panel de capas. |
-| Tarea | Tarea | Una función que se configura en el administrador. Las tareas básicas son las herramientas del visor (buscador, impresión, medición, leyenda...); otras son consultas, plantillas o localizadores. |
-| Territorio | Territorios | La zona geográfica donde se usa la aplicación (municipio, comarca...). |
+| Tarea | Tarea | Una función que se configura en el administrador. Las tareas básicas son las herramientas del visor (buscador, impresión, medición, leyenda…); otras son consultas, plantillas o localizadores. |
+| Territorio | Territorios | La zona geográfica donde se usa la aplicación (municipio, comarca…). |
 | Rol | Rol | Un conjunto de permisos. Decide quién ve qué. |
 | Usuario | Usuario | Una persona que entra en el visor o en el administrador. El usuario `public` representa a los visitantes sin sesión. |
 
-**La idea clave:** un usuario solo ve algo si le llega a través de un **rol** y, en el caso de capas y tareas, si además está disponible en su **territorio**. Si falta una de estas dos conexiones, el elemento no aparece en el visor y, salvo con los mapas de fondo, no se muestra ningún error.
+**La idea clave**: un usuario solo ve algo si le llega a través de un **rol** y, en el caso de capas y tareas, si además está disponible en su **territorio**. Si falta una de estas dos conexiones, el elemento no aparece en el visor y, salvo con los mapas de fondo, no se muestra ningún error.
 
 ```mermaid
 flowchart TB

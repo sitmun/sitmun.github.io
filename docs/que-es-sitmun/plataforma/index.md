@@ -33,10 +33,10 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
   y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: una de edición de datos sin conexión y una turística.
 - **Nivel de lógica de negocio**: desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
   tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
-  El acceso a la lógica de negocio de los **visores de mapas** se realiza a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy-middleware**).
+  El acceso a la lógica de negocio de los **visores de mapas** se realiza sobre todo a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy-middleware**); además, el visor usa la API de Autenticación y algunos endpoints de la API de Administración (ver [Arquitectura](arquitectura/index.md)).
   El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]** (parte de **SITMUN Backend**).
   En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
-- **Nivel de datos**: puede estar en cualquier base de datos relacional, aunque actualmente se utilizan **Oracle** y **PostgreSQL**.
+- **Nivel de datos**: la base de datos de SITMUN puede ser **PostgreSQL** (12 o posterior) u **Oracle** (11g o posterior); las pruebas usan además H2.
   El modelo de datos está documentado en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
 
 La siguiente figura recoge el modelo descrito:
@@ -72,7 +72,7 @@ block-beta
   db2[("Cualquier<br>base de datos")]
 
   admin -- "Autenticación <br> + Administración" --> backend
-  viewer -- "Autenticación <br> + Autorización <br> + Configuración" --> backend
+  viewer -- "Autenticación <br> + Autorización <br> + Configuración <br> + algunos endpoints <br> de administración" --> backend
   viewer -- "OGC API<br>+ Web API" --> proxy
   proxy -- "Autorización <br> + Configuración" --> backend
   backend --> db1
