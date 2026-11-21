@@ -97,12 +97,12 @@ El proxy inverso es capaz de manejar peticiones a diversos tipos de servicios, i
   [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity) incluido en el proxy.
   Las respuestas de las bases de datos se devuelven en formato JSON.
 
-Las peticiones pueden usar los métodos HTTP GET o POST; las POST solo con un cuerpo XML (por ejemplo, una petición WFS).
+Las peticiones pueden usar los métodos HTTP GET o POST; las POST a los servicios, solo con un cuerpo XML (por ejemplo, una petición WFS). Las de la exportación MBTiles llevan un cuerpo JSON.
 
 Para acceder a través del **proxy**, todas las peticiones deben incluir un token de acceso JWT de corta duración,
 obtenido previamente a través de la **[API de Autenticación][api-de-autenticacion]** (`POST /api/authenticate/proxy`), que identifica al usuario.
 La única excepción es el usuario denominado `público`, cuya autenticación es automática.
-Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata del usuario  `público`.
+Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata del usuario público (`public`).
 Además, todas las peticiones enviadas a través del **proxy** deben incluir
 un identificador de territorio y un identificador de aplicación.
 

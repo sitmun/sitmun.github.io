@@ -2,7 +2,7 @@
 description: "Órganos de gobierno de la Red SITMUN: cómo se eligen y quién los forma."
 ---
 
-# Órganos de gobierno de la RED SITMUN
+# Órganos de gobierno de la Red SITMUN
 
 Los órganos de la Red SITMUN los establece el protocolo de colaboración de la Red y se escogen anualmente por votación en la asamblea de socios de la Red SITMUN.
 

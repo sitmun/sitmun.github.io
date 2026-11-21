@@ -17,9 +17,9 @@ extra_javascript = ["js/checklists.js", "js/mermaid-local.js"]
 nav = [
   { "Inicio" = "index.md" },
   { "¿Qué es SITMUN?" = [
-    { "La red SITMUN" = [
+    { "La Red SITMUN" = [
       "que-es-sitmun/red-sitmun/index.md",
-      { "Órganos de la Red" = "que-es-sitmun/red-sitmun/contacto.md" },
+      { "Órganos de gobierno" = "que-es-sitmun/red-sitmun/contacto.md" },
       { "Identidad corporativa" = "que-es-sitmun/red-sitmun/identidad-corporativa.md" },
     ] },
     { "Plataforma SITMUN" = [

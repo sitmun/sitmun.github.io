@@ -16,7 +16,7 @@ El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones espe
 
 También se debe indicar un **punto de contacto**, que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
-También se puede especificar la **institución responsable**, así como la URL de la imagen que se utilizará como logotipo. En la versión actual no es posible añadir una imagen directamente a través de la aplicación de administración de SITMUN: esta imagen se deberá subir externamente, mediante FTP o un sistema similar, a un servidor web desde el que se pueda acceder a ella por su URL.
+También se puede especificar la **institución responsable**, así como la URL de la imagen del logotipo. En la versión actual la aplicación de administración no permite subir esa imagen: hay que publicarla antes, por FTP o un sistema similar, en un servidor web desde el que sea accesible por su URL.
 
 Finalmente, existe la posibilidad de indicar que una aplicación es **privada** (solo accesible cuando se accede con un usuario registrado) y también la posibilidad de poner la aplicación en **modo de mantenimiento**, que impedirá que los usuarios puedan acceder a ella. En ese caso, los usuarios verán la siguiente pantalla:
 
@@ -24,7 +24,7 @@ Finalmente, existe la posibilidad de indicar que una aplicación es **privada** 
 
 Cabe señalar que, en función del tipo de aplicación seleccionado, se requerirá información adicional. En el caso de la aplicación interna, se deberá facilitar el **título** de la aplicación (nombre con el que el usuario la va a identificar).
 
-También se puede personalizar el estilo de la aplicación indicándolo en el campo **Estilo de mapa utilizado**. Si se deja en blanco, la aplicación utilizará los estilos CSS definidos en la carpeta por defecto (carpeta `sitmun-base`, ubicada en la ruta `sitmun-viewer/src/assets/map-styles/` del repositorio), pero se puede crear otra carpeta con los mismos estilos CSS y personalizarlos para cumplir con los estilos corporativos de cada institución. En ese caso, se deberá facilitar el nombre del nuevo directorio donde se encuentran estos estilos.
+También se puede personalizar el estilo de la aplicación indicándolo en el campo **Estilo de mapa utilizado**. Si se deja en blanco, la aplicación utilizará los estilos CSS definidos en la carpeta por defecto (carpeta `sitmun-base`, ubicada en la ruta `sitmun-viewer/src/assets/map-styles/` del repositorio), pero se puede crear otra carpeta con los mismos estilos CSS y personalizarlos para cumplir con los estilos corporativos de cada institución. En ese caso, el campo lleva el nombre de la nueva carpeta.
 
 También se puede especificar un CRS concreto con el que trabajará la aplicación.
 

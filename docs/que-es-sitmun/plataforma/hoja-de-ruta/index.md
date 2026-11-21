@@ -42,7 +42,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 ## Proyectos finalizados
 
-Todas las funcionalidades de esta tabla están disponibles en la versión 1.3.0.
+Todas las funcionalidades de esta tabla están disponibles en la versión 1.3.0, salvo la edición en el visor (ver su fila).
 
 Algunas todavía no tienen su página en el manual del administrador: la tarea de edición, la de *más información* y la exportación documental (ver [Tareas](../../../usuario/manual/administrador/tareas/index.md)).
 
@@ -51,13 +51,13 @@ Algunas todavía no tienen su página en el manual del administrador: la tarea d
 | **Repositorio único y despliegue con imágenes publicadas** | Todos los componentes en [sitmun/sitmun](https://github.com/sitmun/sitmun), imágenes Docker publicadas en `ghcr.io/sitmun`, asistente de primer arranque y actualización desde 1.2.8/1.2.9. |
 | **APP SITMUN Edición** | Aplicación para dispositivos móviles (Android) que permite la edición *offline* de objetos geográficos y alfanuméricos, basada en servicios web estándar, con control de acceso de usuario y permisos, administrada desde el Administrador SITMUN 3 como un cliente más. Carpeta `sitmun-mobile/sitmun-edition`. |
 | **APP Turismo** | Aplicación turística para dispositivos móviles común para todos los territorios que usen SITMUN, cuyo contenido y funcionalidad se gestiona desde el administrador SITMUN 3 como un cliente más. Disponible para Android. Carpeta `sitmun-mobile/sitmun-touristic`. [Ver detalles](propuestas/app-turismo.md) |
-| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) integrada en el visor: la tarea básica [Edición WFS](../../../usuario/manual/administrador/tareas/basicas/herramientas.md#wfsedit) (control `sitna.WFSEdit`). La tarea de edición es para la aplicación móvil de edición. |
+| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) que corresponde a la tarea básica [Edición WFS](../../../usuario/manual/administrador/tareas/basicas/herramientas.md#wfsedit) (control `sitna.WFSEdit`). El visor 1.3.0 desactiva ese control en su configuración, así que no edita. La edición está en la aplicación móvil de edición, con la tarea de edición. |
 | **Más info y más info avanzado** | El visor interpreta y ejecuta tareas *más info* y *más info avanzado* definidas en el administrador, con plantillas de visualización. [Ver detalles](propuestas/mas-info-avanzado.md) |
 | **Localizadores** | El visor interpreta y ejecuta localizadores definidos como tareas en el administrador. |
 | **Consultas** | El visor ejecuta consultas (SQL, Web API, enlaces) definidas como tareas en el administrador. |
 | **Autenticación LDAP y OpenID Connect** | Inicio de sesión con LDAP o con proveedores OIDC además de usuarios de la base de datos. |
 | **Monitorización de servicios** | Comprobación periódica del estado de los servicios y estadísticas de uso en el administrador. |
-| Publicación **SITMUN3 v1.0.0** | Publicación de la primera versión estable de SITMUN 3 y la organización del repositorio de GitHub y la creación de un stack que facilite la instalación y creación de un entorno de desarrollo. |
+| Publicación de **SITMUN 3 1.0.0** | Publicación de la primera versión estable de SITMUN 3 y la organización del repositorio de GitHub y la creación de un stack que facilite la instalación y creación de un entorno de desarrollo. |
 | **Múltiples árboles de capas** | Extender la funcionalidad de API SITNA para poder vincular más de un árbol a un cliente SITMUN. |
 | **Comparación de mapas de fondo** | Extender la funcionalidad de API SITNA para poder implementar dos mapas de fondo en la tabla de contenidos y una barra de transparencia entre ellos. |
 | **Árbol de capas** | Extender la funcionalidad de API SITNA para permitir la configuración de una estructura de árbol de capas definida desde el administrador, a partir de la atomización de servicios OGC y la configuración de las distintas capas que los conforman en nodos y subnodos. |

@@ -88,19 +88,19 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 
 ### Aspectos globales
 
-- **Gestión de servicios transparente**: Las peticiones a los servicios externos y consultas a bases de datos son
+- **Gestión de servicios transparente**: las peticiones a los servicios externos y consultas a bases de datos son
   realizadas a través del proxy sin que el usuario conozca los datos que componen la solicitud al servicio o conexión
   a base de datos.
 
-- **Adaptación transparente**. Las peticiones se adaptan en función de la aplicación, el territorio y el usuario.
+- **Adaptación transparente**: las peticiones se adaptan en función de la aplicación, el territorio y el usuario.
 
-- **Modificación de peticiones**: Posibilidad de manipular la petición de varias formas para que se adapte a la
+- **Modificación de peticiones**: posibilidad de manipular la petición de varias formas para que se adapte a la
   configuración obtenida de la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
 
 ### Servicios soportados
 
 Las peticiones tienen la forma `/proxy/{appId}/{terId}/{type}/{typeId}` (o `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`
-para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticiones POST deben llevar un cuerpo XML (por ejemplo, una petición WFS), y con otro tipo de contenido el proxy responde 415.
+para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticiones POST a los servicios deben llevar un cuerpo XML (por ejemplo, una petición WFS), y con otro tipo de contenido el proxy responde 415. La exportación MBTiles es la excepción: sus peticiones POST (`/proxy/{appId}/{terId}/mbtiles` y `/proxy/{appId}/{terId}/mbtiles/estimate`) llevan un cuerpo JSON.
 
 - **Servicios [OGC Web Map Service (WMS)](https://www.ogc.org/standard/wms/)**,
   que ofrecen mapas en formato imagen.
@@ -123,17 +123,17 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 
 ### Modificadores generales
 
-- **Parámetros (Servicios)**: Modificador encargado de añadir a la petición los parámetros proporcionados por el visor y
+- **Parámetros (Servicios)**: modificador encargado de añadir a la petición los parámetros proporcionados por el visor y
   la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. La [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   puede haber añadido parámetros a la petición que el visor no ha proporcionado (por ejemplo, parámetros de filtrado).
 
-- **Autenticación de acceso básica (Servicios)**: Modificador encargado de incluir en la cabecera de la petición HTTP un usuario y contraseña si fuese necesario ([RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617)).
+- **Autenticación de acceso básica (Servicios)**: modificador encargado de incluir en la cabecera de la petición HTTP un usuario y contraseña si fuese necesario ([RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617)).
 
-- **API key (consultas Web API)**: Modificador encargado de añadir una clave de acceso en una cabecera o en un parámetro de la consulta. Los servicios OGC (WMS, WFS, WMTS) solo admiten autenticación HTTP básica.
+- **API key (consultas Web API)**: modificador encargado de añadir una clave de acceso en una cabecera o en un parámetro de la consulta. Los servicios OGC (WMS, WFS, WMTS) solo admiten autenticación HTTP básica.
 
-- **Selección (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
+- **Selección (JDBC)**: modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
 
-- **Filtrado (JDBC)**: Modificador encargado de incluir filtros en la consulta.
+- **Filtrado (JDBC)**: modificador encargado de incluir filtros en la consulta.
   Los parámetros (`${nombre}`) y las variables de sistema (`#{NOMBRE}`) se envían como valores tipados
   y nunca se concatenan en el texto SQL.
 
@@ -141,6 +141,10 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 
 La API de Administración expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
 de **SITMUN 3** por parte de la **aplicación de administración**.
+El visor usa además algunos de sus endpoints: `GET /api/languages` y `GET /api/configuration-parameters`,
+abiertos sin sesión, para los idiomas y los parámetros de configuración, y `POST /api/tasks/template/more-info-advanced/render`
+y `POST /api/tasks/template/export`, abiertos a los roles `USER`, `ADMIN` y `PUBLIC`, para mostrar y exportar las plantillas
+de las tareas de *más información avanzada*.
 La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion]
 y envía la cabecera `X-SITMUN-Client: admin` en cada llamada.
 La documentación interactiva de todos los endpoints está en Swagger UI (`/swagger-ui/index.html` en el backend).

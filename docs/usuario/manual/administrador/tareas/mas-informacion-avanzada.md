@@ -50,7 +50,7 @@ flowchart TB
 
 *En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y asociarlos con los de las plantillas, y las plantillas, asociarlos con los de las consultas.*
 
-Además de consultas y plantillas, un MIA puede tener como tarea hija una **exportación documental**. En ese caso, la ventana de la MIA en el visor muestra el botón **Exportar PDF**, que genera un PDF de la plantilla.
+Además de consultas y plantillas, un MIA puede tener como tarea hija una **exportación documental**. En ese caso, la ventana del MIA en el visor muestra el botón **Exportar PDF**, que genera un PDF de la plantilla.
 
 ## MIA sin plantillas de visualización
 
@@ -96,7 +96,7 @@ Ahora hay que gestionar los parámetros. El objetivo es el siguiente:
 
     ![Parámetros de la tarea MIA](../img/mia-parametros.webp){ loading=lazy }
 
-3. **Se guarda la tarea MIA.** En SITMUN 1.3.0 el mapeo solo ofrece los parámetros del MIA ya guardados
+3. Antes de seguir, **se guarda la tarea MIA**. En SITMUN 1.3.0 el mapeo solo ofrece los parámetros del MIA ya guardados
     ([sitmun/sitmun#373](https://github.com/sitmun/sitmun/issues/373)).
 
 4. Ahora es necesario asociar el parámetro que se acaba de crear con el de la consulta que lo necesita. Esto se hace con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que asociar dos campos: **Parámetro MIA**, que es el nombre dado al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el parámetro definido en la consulta (aparece con su etiqueta, «Identificador del bien»).

@@ -8,7 +8,7 @@ El territorio es el elemento para definir las características de un territorio,
 
 Con la combinación de los tres elementos, territorios, [roles](roles.md) y [usuarios](usuarios.md), se configuran los accesos y permisos a las [aplicaciones](aplicacion.md), [tareas](tareas/index.md) e información del mapa ([capas](capas.md), [capas de fondo](capas-de-fondo.md), etc.).
 
-Para definir un territorio se deben definir los parámetros mínimos:
+Un territorio necesita como mínimo estos parámetros:
 
 - **Nombre**: nombre del territorio que permita identificar el elemento; se mostrará en las aplicaciones.
 - **Código**: código único oficial del territorio.

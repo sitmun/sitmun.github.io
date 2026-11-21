@@ -46,7 +46,8 @@ Antes de comenzar, es necesario:
     - Para instalar el backend o el proxy como servicio de Windows: [WinSW](https://github.com/winsw/winsw) 2.12.0 o posterior,
       con .NET Framework 2.0, 4.0 o 4.6.1 (WinSW ofrece un ejecutable para cada uno).
     - Se recomienda usar un proxy inverso delante del backend y del proxy (por ejemplo, IIS Microsoft)
-      que sea capaz de proporcionar encabezados HTTP Forward (X-Forward u otros similares).
+      que envíe las cabeceras `X-Forwarded-Proto`, `X-Forwarded-Host`, `X-Forwarded-Port` y `X-Forwarded-Prefix`
+      (ver *Publicar en un servidor web* en [Instalación](instalacion.md)).
 
 === "Linux/Mac"
 
@@ -60,7 +61,8 @@ Antes de comenzar, es necesario:
     - Acceso a una base de datos soportada (PostgreSQL u Oracle) para el backend, con una base de datos vacía y su usuario
       ya creados (ver [Instalación](instalacion.md)).
     - Se recomienda usar un proxy inverso delante del backend y del proxy (por ejemplo, nginx)
-      que sea capaz de proporcionar encabezados HTTP Forward (X-Forward u otros similares).
+      que envíe las cabeceras `X-Forwarded-Proto`, `X-Forwarded-Host`, `X-Forwarded-Port` y `X-Forwarded-Prefix`
+      (ver *Publicar en un servidor web* en [Instalación](instalacion.md)).
 
 ---
 

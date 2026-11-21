@@ -49,7 +49,7 @@ Cuando la fuente de datos funciona correctamente, pueden añadirse más fuentes 
 
 A continuación se accede a la pestaña **Plantilla**, donde puede elaborarse el código HTML que permitirá visualizar el conjunto de datos. En la plantilla puede definirse el código HTML que mejor se adapte a los requisitos de diseño de la aplicación. No obstante, para poder mostrar los datos generados por las fuentes de información, es necesario respetar una determinada nomenclatura:
 
-- Para recorrer todos los resultados devueltos por una fuente de datos, deberá utilizarse una estructura de tipo tabla de la siguiente forma:
+- Para recorrer todos los resultados devueltos por una fuente de datos, se usa una estructura de tipo tabla de la siguiente forma:
 
     ```html
     <table data-sitmun-each="patrimonio.rows">
@@ -58,7 +58,7 @@ A continuación se accede a la pestaña **Plantilla**, donde puede elaborarse el
 
     donde `patrimonio` es el nombre de referencia asignado a la fuente de datos y deberá adaptarse al valor correspondiente en cada caso.
 
-- Para mostrar un campo concreto, se utilizará la siguiente notación:
+- Para mostrar un campo concreto, se usa la siguiente notación:
 
     ```text
     {{alias_consulta}}
@@ -106,7 +106,7 @@ El editor también permite:
 - marcar un bloque como cabecera o pie de página del PDF, normal o a sangre, para la [exportación documental](mas-informacion-avanzada.md);
 - insertar un PDF en la plantilla.
 
-Por seguridad, la plantilla no admite las etiquetas `<script>` ni `<style>` (usa estilos en el atributo `style`), ni atributos JavaScript como `onclick` o direcciones `javascript:`.
+Por seguridad, el editor de plantillas rechaza las etiquetas `<script>` y `<style>` (los estilos van en el atributo `style`), los atributos JavaScript como `onclick` y las direcciones `javascript:`. La comprobación la hace el editor, no el servidor; además, el visor limpia el HTML de la plantilla antes de mostrarlo.
 
 Para facilitar el diseño de la plantilla, se dispone tanto de un editor visual como de un editor HTML.
 
@@ -126,6 +126,6 @@ El parámetro que se defina en la plantilla debe tener el mismo nombre que el pa
 
 *Definición del parámetro de la plantilla con el mismo nombre que el parámetro de la fuente de datos.*
 
-Por último, como en cualquier tarea, asigne **roles y territorios** a la plantilla en sus pestañas. Una vez alcanzado este punto, la plantilla ya estará preparada para ser utilizada por otras tareas como marco de visualización de datos.
+Por último, como en cualquier tarea, se asignan **roles y territorios** a la plantilla en sus pestañas. Una vez alcanzado este punto, la plantilla ya estará preparada para ser utilizada por otras tareas como marco de visualización de datos.
 
-Para ver un ejemplo de utilización, puede consultar el apartado [Tarea de más información avanzada: MIA con plantillas de visualización](mas-informacion-avanzada.md#mia-con-plantillas-de-visualizacion).
+Hay un ejemplo de uso en el apartado [Tarea de más información avanzada: MIA con plantillas de visualización](mas-informacion-avanzada.md#mia-con-plantillas-de-visualizacion).

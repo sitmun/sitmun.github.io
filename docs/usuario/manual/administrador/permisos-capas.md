@@ -6,10 +6,10 @@ description: "Permisos sobre las capas en SITMUN 3: grupos de permisos que dan a
 
 En el menú **Permisos sobre las capas** se crean grupos de permisos: conjuntos de capas a los que se asignan roles.
 
-Primero se debe crear el grupo, donde se debe indicar el nombre y el tipo de grupo de permisos:
+Primero se crea el grupo, con su nombre y su tipo:
 
 - **Nombre\***: puede ser cualquier nombre que permita reconocer el grupo de permisos.
-- **Tipo\***: puede ser Grupo de cartografía, Informe o Mapa de situación, según el uso que se le quiera dar al grupo de permisos. Existe un cuarto tipo, Mapa de fondo, que crea automáticamente cada [capa de fondo](capas-de-fondo.md); no hace falta crearlo a mano.
+- **Tipo\***: puede ser Grupo de cartografía, Informe o Mapa de situación, según el uso que se le quiera dar al grupo de permisos. Existe un cuarto tipo, Mapa de fondo, que se crea automáticamente con cada mapa de fondo (menú [Capas de fondo](capas-de-fondo.md)); no hace falta crearlo a mano.
 
 ![Formulario de un grupo de permisos](img/permisos-formulario.webp){ loading=lazy }
 

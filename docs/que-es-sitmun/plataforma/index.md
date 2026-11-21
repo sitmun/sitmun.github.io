@@ -2,9 +2,10 @@
 description: "Qué es SITMUN 3: visores de mapas, aplicación de administración, backend, proxy y base de datos de la plataforma."
 ---
 
-# LA PLATAFORMA SITMUN 3
+# La plataforma SITMUN 3
 
 **SITMUN 3** es una plataforma que permite la creación y gestión de aplicaciones personalizadas en el ámbito de los [Sistemas de Información Geográfica](https://es.wikipedia.org/wiki/Sistema_de_informaci%C3%B3n_geogr%C3%A1fica) (SIG).
+La versión publicada es la [1.3.0](https://github.com/sitmun/sitmun/releases/tag/v1.3.0) (noviembre de 2026).
 Está diseñada específicamente para satisfacer las necesidades de información territorial de las administraciones locales y supramunicipales.
 
 **SITMUN 3** ha sido desarrollado con la visión de proporcionar una herramienta de gestión de información territorial a los municipios, gestionada desde una entidad supramunicipal.
@@ -26,16 +27,16 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
 
 **SITMUN 3** tiene una arquitectura de 3 niveles:
 
-- **Nivel cliente**: Actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun/tree/main/sitmun-admin)** para los administradores,
+- **Nivel cliente**: actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun/tree/main/sitmun-admin)** para los administradores,
   un **[visor de mapas](https://github.com/sitmun/sitmun/tree/main/sitmun-viewer)** basado en la [API SITNA](https://github.com/sitna/api-sitna)
   que es utilizado por los diferentes tipos de usuarios finales, tanto al público en general como a especialistas de los ayuntamientos, entre otros,
   y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: una de edición de datos sin conexión y una turística.
-- **Nivel de lógica de negocio**: Desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
+- **Nivel de lógica de negocio**: desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
   tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
   El acceso a la lógica de negocio de los **visores de mapas** se realiza a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy-middleware**).
   El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]** (parte de **SITMUN Backend**).
   En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
-- **Nivel de datos**: Puede estar en cualquier base de datos relacional, aunque actualmente se utilizan **Oracle** y **PostgreSQL**.
+- **Nivel de datos**: puede estar en cualquier base de datos relacional, aunque actualmente se utilizan **Oracle** y **PostgreSQL**.
   El modelo de datos está documentado en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
 
 La siguiente figura recoge el modelo descrito:
@@ -93,4 +94,4 @@ block-beta
 
 ---
 
-Para instalar SITMUN, empieza por los [Requisitos](../../usuario/instalacion/requisitos.md).
+La instalación de SITMUN empieza por los [Requisitos](../../usuario/instalacion/requisitos.md).

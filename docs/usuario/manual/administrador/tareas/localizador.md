@@ -12,12 +12,12 @@ Para crear un nuevo localizador, en primer lugar se deben definir los elementos 
 
 ![Información general de una tarea de localizador](../img/localizador-general.webp){ loading=lazy }
 
-La configuración de los elementos del localizador se debe empezar vinculando la consulta previamente creada en el apartado de consultas. Esta consulta debe devolver como mínimo los parámetros de localización X e Y, o longitud y latitud, que servirán para localizar un punto en el mapa. Complementariamente, puede devolver otros parámetros identificativos que los usuarios puedan interpretar más fácilmente.
+La configuración del localizador empieza por vincular la consulta creada antes en el apartado de consultas. Esta consulta debe devolver como mínimo los parámetros de localización X e Y, o longitud y latitud, que servirán para localizar un punto en el mapa. Complementariamente, puede devolver otros parámetros identificativos que los usuarios puedan interpretar más fácilmente.
 
 !!! warning "La consulta debe tener un parámetro `text`"
     El visor envía el texto que escribe el usuario en un parámetro llamado `text`, y una consulta que no lo declare
     responde con un error. En la pestaña **Parámetros** de la consulta se define un parámetro con el nombre `text`
-    y úselo en la sentencia SQL. Como los parámetros se enlazan como valores completos, no pueden ir dentro de una cadena
+    que se usa en la sentencia SQL. Como los parámetros se enlazan como valores completos, no pueden ir dentro de una cadena
     (`'%${text}%'`); para buscar un texto dentro de un campo se usa una función, por ejemplo:
 
     ```sql

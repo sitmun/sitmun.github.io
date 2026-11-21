@@ -94,19 +94,19 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de autenticación {#roadmap-app-turismo-api-de-autenticacion}
+### API de Autenticación {#roadmap-app-turismo-api-de-autenticacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de administración {#roadmap-app-turismo-api-de-administracion}
+### API de Administración {#roadmap-app-turismo-api-de-administracion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API configuración y autorización {#roadmap-app-turismo-api-de-configuracion-y-autorizacion}
+### API de Configuración y Autorización {#roadmap-app-turismo-api-de-configuracion-y-autorizacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de proxy {#roadmap-app-turismo-api-de-proxy}
+### API de Proxy {#roadmap-app-turismo-api-de-proxy}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 

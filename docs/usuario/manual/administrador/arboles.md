@@ -46,7 +46,7 @@ Cada nodo tiene además estas opciones:
 - **Cargar por defecto**: la capa aparece encendida al abrir el mapa.
 - **Modo selección única** (en carpetas): solo una capa de la carpeta puede estar encendida a la vez.
 
-El árbol también puede tener una **Imagen**, la dirección de una imagen que lo representa.
+El árbol también puede tener una **Imagen** que lo representa: se sube un archivo o se indica su dirección (URL).
 
 ### Acceso
 
