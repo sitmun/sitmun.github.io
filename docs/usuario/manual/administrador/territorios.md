@@ -16,7 +16,7 @@ Un territorio necesita como mínimo estos parámetros:
 
 La presentación inicial con la que se abre un visor en este territorio se define con estos campos:
 
-- **Extensión** (campos *min X*, *max X*, *min Y* y *max Y*): los límites del territorio; las cuatro coordenadas se indican juntas. Es necesaria: sin extensión, el visor no abre el mapa y muestra «No se ha definido una extensión inicial válida para este mapa».
+- **Extensión** (campos *min X*, *max X*, *min Y* y *max Y*): los límites del territorio; las cuatro coordenadas se indican juntas. Es necesaria: si no hay ninguna extensión inicial, el visor no abre el mapa y muestra «No se ha definido una extensión inicial válida para este mapa».
 - **Punto central** (X e Y): opcional. Desplaza la vista inicial para centrarla en ese punto, que no tiene por qué ser el centro de la extensión. Sin extensión no tiene efecto.
 
 Estos dos elementos van asociados a:
@@ -24,7 +24,7 @@ Estos dos elementos van asociados a:
 - **CRS**: el sistema de referencia en el que se expresan las coordenadas anteriores (por ejemplo, EPSG:4326).
 - **Nivel de Zoom por defecto**: el nivel de zoom con el que se abre el mapa.
 
-El CRS del territorio, si está definido, sustituye al de la aplicación. La aplicación no tiene campos de extensión ni de zoom: los del territorio son los únicos.
+El CRS del territorio, si está definido, sustituye al de la aplicación. El formulario de la aplicación no tiene campos de extensión ni de zoom; sin embargo, la relación entre una aplicación y un territorio puede guardar su propia extensión inicial, que sustituye a la del territorio. En la versión 1.3.0 el administrador no muestra ese campo: solo puede venir de los datos cargados en la base de datos.
 
 Complementariamente, existe la opción de definir también otros parámetros de configuración:
 

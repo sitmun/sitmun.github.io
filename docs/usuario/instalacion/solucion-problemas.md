@@ -178,7 +178,7 @@ curl http://localhost:9001/api/setup/status
 
 **Soluciones:**
 
-- Las sesiones se firman con `SITMUN_USER_SECRET`. Si el secreto cambia (por ejemplo, al regenerar `.env`), todas las sesiones dejan de ser válidas: basta con volver a iniciar sesión. La primera petición con la cookie antigua responde 401 y la borra; después, basta con iniciar sesión de nuevo.
+- Las sesiones se firman con `SITMUN_USER_SECRET`. Si el secreto cambia (por ejemplo, al regenerar `.env`), todas las sesiones dejan de ser válidas. La primera petición con la cookie antigua responde 401 y la borra; después, basta con volver a iniciar sesión.
 - Si el navegador conserva una sesión antigua, se borran las cookies del sitio o se prueba en una ventana privada.
 - En el visor, un usuario cuyo puesto en el territorio ha caducado (**Fecha de baja**) pierde la sesión al renovarla: ver [Usuarios](../manual/administrador/usuarios.md).
 

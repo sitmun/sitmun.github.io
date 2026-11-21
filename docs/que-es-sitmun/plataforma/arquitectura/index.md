@@ -304,7 +304,7 @@ Client->>SAC: Configuración del visor de mapas con el token JWT\ny los identifi
 autonumber stop
 SAC-->>Client: Configuración
 autonumber resume
-Client->>SP: Petición WMS usando token JWT\ne identificadores territorio y aplicación
+Client->>SP: Petición WMS con el token JWT\ny los identificadores de territorio y aplicación
 SP->>SAC: Comprobación de la autorización\ny petición de la configuración
 autonumber stop
 SAC-->>SP: Autorización y configuración

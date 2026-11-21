@@ -16,7 +16,7 @@ Es muy importante activar la opción **Activo** para que esté disponible en las
 
 En la pestaña **Capas** se indican las capas que forman este mapa de fondo.
 
-El campo **Imagen** es la dirección (URL) de la miniatura que muestra el selector de mapas de fondo del visor. Si falta o no es accesible, el mapa de fondo aparece sin miniatura.
+El campo **Imagen** es la dirección (URL) de la miniatura que muestra el selector de mapas de fondo del visor. Si falta, el visor muestra una miniatura genérica; si la dirección no es accesible, el mapa de fondo aparece sin miniatura.
 
 !!! example "Ejemplo: OpenStreetMap como mapa de fondo"
     La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) explica paso a paso cómo configurar un mapa de fondo concreto.

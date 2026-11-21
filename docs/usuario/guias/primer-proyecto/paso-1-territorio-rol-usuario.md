@@ -4,7 +4,7 @@ description: "Paso 1 de la guía: crear en SITMUN 3 el territorio y el rol, y as
 
 # Paso 1: territorio, rol y usuario público
 
-Este paso va primero porque casi todo lo demás (capas, mapas de fondo, árboles, tareas) se enlaza a un rol y a un territorio. El usuario `public` ya existe: solo hay que crear el territorio y el rol y asignárselos.
+Este paso va primero porque casi todo lo demás (capas, mapas de fondo, árboles, tareas) se enlaza a un rol y a un territorio. El usuario `public` ya existe: solo tienes que crear el territorio y el rol y asignárselos.
 
 **1.1 Territorio** (menú **Territorios** → **Nuevo**)
 

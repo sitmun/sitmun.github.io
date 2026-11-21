@@ -108,7 +108,7 @@ nav = [
 # Current SITMUN version, shown in the announcement bar (overrides/main.html).
 [project.extra]
 sitmun_version = "1.3.0"
-# No "Made with Zensical" line: the footer shows only the copyright text below (in Spanish).
+# No "Made with Zensical" line: the footer shows only the Spanish copyright text (project.copyright, above).
 generator = false
 
 # With --strict, the build fails on links to missing pages or anchors.

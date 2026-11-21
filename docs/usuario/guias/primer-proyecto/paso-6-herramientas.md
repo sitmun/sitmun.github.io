@@ -4,7 +4,7 @@ description: "Paso 6 de la guía: dar acceso al rol y al territorio a las herram
 
 # Paso 6: configurar las herramientas (tareas)
 
-Cada herramienta del visor es una **tarea básica** enlazada a un control del visor. La instalación ya trae una tarea para cada control, dentro del grupo **Básico**. Normalmente no hace falta crear ninguna: solo hay que darlas al rol y al territorio.
+Cada herramienta del visor es una **tarea básica** enlazada a un control del visor. La instalación ya trae una tarea para cada control, dentro del grupo **Básico**. Normalmente no hace falta crear ninguna: solo tienes que darlas al rol y al territorio.
 
 (menú **Tarea** → **Tarea básica** → abre cada tarea que quieras)
 

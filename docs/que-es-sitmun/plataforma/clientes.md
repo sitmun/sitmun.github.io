@@ -64,7 +64,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Si el usuario ha iniciado sesión,
   la petición incluye la cookie de sesión obtenida de la [API de Autenticación][api-de-autenticacion].
   En caso de ser un visor público, la petición no incluirá un token.
-  A partir de los datos de configuración (gestionados por la **aplicación de administrador**),
+  A partir de los datos de configuración (gestionados por la **aplicación de administración**),
   el visor se configura para cada usuario, con los territorios y aplicaciones (capas y funcionalidades)
   a las que tiene acceso.
 

@@ -7,7 +7,7 @@ description: "Documentación técnica de SITMUN 3, la plataforma abierta de info
 ![Logotipo de SITMUN](assets/images/sitmun-logo-horizontal.webp)
 
 La [Red SITMUN](https://sitmun.org), una red europea, tiene como objetivo, entre otros, el desarrollo y mantenimiento de la plataforma [SITMUN](https://github.com/sitmun).
-Es una plataforma de código abierto, con licencia [EUPL v1.2](https://eur-lex.europa.eu/eli/dec_impl/2017/863/oj), que permite a las organizaciones supramunicipales participantes ofrecer a los municipios que coordinan las aplicaciones de gestión territorial que estos municipios necesitan para su día a día.
+La plataforma, de código libre y con licencia [EUPL v1.2](https://eur-lex.europa.eu/eli/dec_impl/2017/863/oj), permite a las organizaciones supramunicipales participantes ofrecer a los municipios que coordinan las aplicaciones de gestión territorial que estos municipios necesitan para su día a día.
 El despliegue, mantenimiento y actualización de estas aplicaciones está centralizado por la organización supramunicipal, de manera que los recursos de los municipios pueden focalizarse en prestar servicios a sus ciudadanos.
 
 **SITMUN 3** es la generación actual de la plataforma, y su versión publicada es la [1.3.0](https://github.com/sitmun/sitmun/releases/tag/v1.3.0).
