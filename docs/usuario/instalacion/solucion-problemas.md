@@ -71,6 +71,8 @@ netstat -ano | findstr :9000  # Windows
 
 ### Problemas de memoria
 
+<a id="problemas-de-memoria_1"></a>
+
 **Síntomas:**
 
 - Los contenedores se detienen inesperadamente o la aplicación se cuelga.
@@ -258,7 +260,7 @@ docker network prune
 docker compose up -d --pull always --no-build
 ```
 
-## Problemas de rendimiento { #problemas-de-memoria_1 }
+## Problemas de rendimiento
 
 ### Aplicación lenta
 
