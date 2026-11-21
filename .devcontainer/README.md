@@ -12,10 +12,11 @@ Este codespace arranca SITMUN 1.3.0 con las imágenes publicadas, sin compilar n
 - Cuando termina, abre la pestaña «Puertos» y usa la dirección del puerto 9000:
   - `/admin/` es el administrador. En la primera visita se eligen el idioma y la contraseña del usuario `admin`.
   - `/viewer/` es el visor.
-- Los datos viven solo en este codespace. Para empezar de cero (variante `demo`; cambia las variables para las otras, ver `devcontainer.json`):
+- Los datos viven solo en este codespace. SITMUN está en `/workspaces/sitmun`; el proyecto de Docker Compose se llama
+  `sitmun-showcase` en las variantes `demo` y `osm` y `sitmun` en `vacia`. Para empezar de cero, por ejemplo en `demo`:
 
   ```bash
-  cd ~/sitmun && docker compose -p sitmun down -v && rm -f .scenario-applied
+  cd /workspaces/sitmun && docker compose -p sitmun-showcase down -v && rm -f .scenario-applied
   SITMUN_PROFILE=showcase SITMUN_EXTRA=demo bash /workspaces/sitmun.github.io/.devcontainer/start-sitmun.sh
   ```
 

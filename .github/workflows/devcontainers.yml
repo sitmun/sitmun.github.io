@@ -48,4 +48,4 @@ jobs:
         run: bash .devcontainer/check-sitmun.sh ${{ matrix.variant }}
       - name: Backend logs on failure
         if: failure()
-        run: cd ~/sitmun && docker compose -p sitmun logs --tail 200 backend
+        run: cd ~/sitmun && docker compose -p "$(cat .sitmun-project)" logs --tail 200 backend

@@ -4,7 +4,9 @@
   "name": "SITMUN 1.3.0: guía OpenStreetMap",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    // Allows gh codespace ssh and gh codespace logs, to see what the start script did.
+    "ghcr.io/devcontainers/features/sshd:1": {}
   },
   // Backend, proxy, front y las bases de datos PostgreSQL.
   "hostRequirements": {

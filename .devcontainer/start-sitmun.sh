@@ -7,8 +7,10 @@
 #   SITMUN_SCENARIO  optional SQL file applied to the SITMUN database once it is up
 #   SITMUN_VERSION   default 1.3.0
 #   SITMUN_PORT      published front port, default 9000
-#   SITMUN_PROJECT   compose project name, default sitmun
-#   SITMUN_DIR       where sitmun/sitmun is cloned, default ~/sitmun
+#   SITMUN_PROJECT   compose project name; default sitmun-showcase for the showcase
+#                    profile (as in the installation page), sitmun otherwise
+#   SITMUN_DIR       where sitmun/sitmun is cloned; default /workspaces/sitmun in a
+#                    codespace (kept when the container is rebuilt), ~/sitmun elsewhere
 #
 # In a codespace the public address is the forwarded HTTPS address of the front
 # port; elsewhere it is http://localhost:<port>. SITMUN builds the admin, API and
@@ -20,8 +22,10 @@ EXTRA="${SITMUN_EXTRA:-}"
 SCENARIO="${SITMUN_SCENARIO:-}"
 VERSION="${SITMUN_VERSION:-1.3.0}"
 PORT="${SITMUN_PORT:-9000}"
-PROJECT="${SITMUN_PROJECT:-sitmun}"
-DIR="${SITMUN_DIR:-$HOME/sitmun}"
+if [ "$PROFILE" = showcase ]; then DEFAULT_PROJECT=sitmun-showcase; else DEFAULT_PROJECT=sitmun; fi
+PROJECT="${SITMUN_PROJECT:-$DEFAULT_PROJECT}"
+if [ -d /workspaces ]; then DEFAULT_DIR=/workspaces/sitmun; else DEFAULT_DIR="$HOME/sitmun"; fi
+DIR="${SITMUN_DIR:-$DEFAULT_DIR}"
 if [ -n "$SCENARIO" ]; then
   SCENARIO="$(cd "$(dirname "$SCENARIO")" && pwd)/$(basename "$SCENARIO")"
 fi
@@ -30,6 +34,7 @@ if [ ! -d "$DIR/.git" ]; then
   git -c advice.detachedHead=false clone --quiet --depth 1 --branch "v$VERSION" https://github.com/sitmun/sitmun.git "$DIR"
 fi
 cd "$DIR"
+echo "$PROJECT" > .sitmun-project
 
 if [ ! -f .env ]; then
   cp "profiles/$PROFILE.env" .env
