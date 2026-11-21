@@ -1,0 +1,4 @@
+# Pages under docs/ that were published once and are deliberately not redirected.
+# A redirect implies the old context still applies; these pages only pointed to
+# things that no longer exist. Format: path relative to docs/  # reason
+demo.md  # "Pruebas y preproducción": links to the retired demo admin and viewer apps

@@ -65,6 +65,9 @@ jobs:
       # Every page ever published from master must still resolve (page or redirect).
       - name: Check that old page URLs still resolve
         run: python .github/scripts/check_old_urls.py _site origin/master
+      # A link inside the site must not land on a redirect stub: the linking text may be stale.
+      - name: Check that no page links to a redirect stub
+        run: python .github/scripts/check_redirect_links.py _site
       # Readers' browsers must make no third-party requests.
       - name: Check that pages load no resources from other hosts
         run: python .github/scripts/check_external_resources.py _site sitmun.github.io
