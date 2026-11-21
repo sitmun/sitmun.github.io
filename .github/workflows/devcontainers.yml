@@ -42,6 +42,10 @@ jobs:
       - name: The variant's postStartCommand matches this job
         run: |
           grep -F '"postStartCommand": "${{ matrix.env }} bash .devcontainer/start-sitmun.sh"' .devcontainer/${{ matrix.variant }}/devcontainer.json
+      # Build the dev container image as Codespaces does: a base image or feature that no
+      # longer installs puts every codespace into recovery mode, without running SITMUN.
+      - name: Build the dev container
+        run: npx --yes @devcontainers/cli@0.83.3 build --workspace-folder . --config .devcontainer/${{ matrix.variant }}/devcontainer.json
       - name: Start SITMUN as the codespace does
         run: env ${{ matrix.env }} bash .devcontainer/start-sitmun.sh
       - name: Check what the variant promises
