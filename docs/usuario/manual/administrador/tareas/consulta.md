@@ -75,7 +75,7 @@ Ahora el parámetro ya está definido, pero aún es necesario indicar cómo util
 ${nombre_parametro}
 ```
 
-Veámoslo con un ejemplo:
+Por ejemplo:
 
 ![Consulta SQL con un parámetro](../img/consulta-sql-parametro.webp){ loading=lazy }
 

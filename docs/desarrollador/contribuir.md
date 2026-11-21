@@ -30,7 +30,7 @@ En general, se pone siempre énfasis en la automatización de todo lo que sea au
 - La construcción y despliegue automáticos, al menos en servidores de pruebas o de preproducción, también serán el requisito por defecto, salvo muy buena razón en contra. Ahora mismo la construcción y pruebas automáticas se hacen en [GitHub Actions](https://docs.github.com/en/actions). Esto puede evolucionar con el tiempo.
 - La construcción automática se hace con [Gradle](https://gradle.org) para los componentes Java y con [pnpm](https://pnpm.io) para las aplicaciones Angular e Ionic, desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun). Las órdenes de construcción, pruebas y comprobaciones están en los [flujos de GitHub Actions](https://github.com/sitmun/sitmun/tree/main/.github/workflows) del repositorio, y las de las pruebas de extremo a extremo, en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md).
 - Los secretos (contraseñas o tokens) se gestionan adecuadamente usando [GitHub secrets](https://docs.github.com/es/actions/security-guides/encrypted-secrets). No hay, ni debe haber, ninguna contraseña o token en ninguna parte de ningún repositorio.
-- Seguiremos [semantic versioning 2.0.0](https://semver.org) cuando haya que dar identificadores de versión públicos a algo.
+- Se sigue [semantic versioning 2.0.0](https://semver.org) para los identificadores de versión públicos.
 
 ## Consideraciones técnicas
 

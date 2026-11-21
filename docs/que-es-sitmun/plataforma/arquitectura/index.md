@@ -567,7 +567,7 @@ end note
   JsonWebTokenService -->> ConfigurationAPI: "username"
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
   note right
-    Decodificamos configProxyRequest.type
+    Se decodifica configProxyRequest.type
     en este caso es "WMS" (el tipo del servicio:
     WMS, WMTS o WFS)
   end note
@@ -703,7 +703,7 @@ ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecer
 JsonWebTokenService -->> ConfigurationAPI: "username"
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
 note right
-  Decodificamos configProxyRequest.type
+  Se decodifica configProxyRequest.type
   en este caso es "SQL" (el ámbito de la tarea:
   SQL o API) y el id es el de la tarea
 end note

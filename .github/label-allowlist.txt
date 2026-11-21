@@ -6,7 +6,7 @@
 1.3 Usuario público
 4.1 Grupo de permisos para las capas de trabajo
 4.2 Mapa de fondo
-A partir de aquí empezamos a crear el visor público.
+A partir de aquí empiezas a crear el visor público.
 Atajo:
 Base de datos SITMUN.
 Consultar los issues

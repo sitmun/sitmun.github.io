@@ -82,7 +82,7 @@ Para vincular esta consulta al MIA se utiliza el campo **Añadir tarea** y se se
 
 ![Añadir una tarea al MIA](../img/mia-anadir-tarea.webp){ loading=lazy }
 
-Ahora hay que gestionar los parámetros. Nuestro objetivo es el siguiente:
+Ahora hay que gestionar los parámetros. El objetivo es el siguiente:
 
 1. Obtener el identificador del monumento en el que ha hecho clic el usuario. Esta información la proporciona el control de la API SITNA a través de GFI (GetFeatureInfo). Una forma de saber qué campos del GFI están disponibles es desactivar las tareas de información avanzada y dejar solo la tarea básica Feature Info; así se muestra el siguiente cuadro con los campos que provienen del GFI:
 
