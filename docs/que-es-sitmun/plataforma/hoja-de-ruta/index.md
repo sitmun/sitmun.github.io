@@ -2,7 +2,7 @@
 description: "Hoja de ruta de SITMUN 3: proyectos en desarrollo, en cola y finalizados."
 ---
 
-# Proyectos
+# Hoja de ruta
 
 <table>
     <tr>

@@ -12,13 +12,13 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Elegir cómo instalar**
 
-    | Uso (versión) | Perfil | Datos |
+    | Uso (versión) | Perfil | Base de datos |
     | --- | --- | --- |
-    | Probar SITMUN (*showcase*) (`v1.3.0`) | `showcase.env` | Tres aplicaciones de demostración |
-    | Producción con PostgreSQL (`v1.3.0`) | `postgres.env` | Sin datos de ejemplo |
-    | Producción con Oracle (`v1.3.0`) | `oracle.env` | Sin datos de ejemplo |
-    | Desarrollo con PostgreSQL (`dev`) | `development-postgres.env` | Datos de ejemplo |
-    | Desarrollo con Oracle (`dev`) | `development-oracle.env` | Datos de ejemplo |
+    | *Showcase* (`v1.3.0`) | `showcase.env` | Tres aplicaciones de ejemplo |
+    | Producción, PostgreSQL (`v1.3.0`) | `postgres.env` | Vacía |
+    | Producción, Oracle (`v1.3.0`) | `oracle.env` | Vacía |
+    | Desarrollo, PostgreSQL (`dev`) | `development-postgres.env` | Datos de ejemplo |
+    | Desarrollo, Oracle (`dev`) | `development-oracle.env` | Datos de ejemplo |
 
     Los perfiles están en la carpeta `profiles/` del repositorio. La versión, entre paréntesis, es la etiqueta o la rama que se descarga.
 

@@ -97,3 +97,5 @@ En concreto, la pestaña **Monitorización** permite mantener un seguimiento per
 La pestaña **Uso** muestra estadísticas de uso del servicio. Solo se cuentan las peticiones que pasan por el proxy de SITMUN y las **Cargas de visor**: si el servicio no usa el proxy, el visor lo llama directamente y esas peticiones aparecen como «No medido».
 
 ![Pestaña Uso](img/servicios-uso.webp){ loading=lazy }
+
+*Estas dos capturas son de otro servicio de la instalación de demostración, «IDE Menorca - Ordenación del territorio», que ya tiene historial de comprobaciones y de uso.*
