@@ -69,7 +69,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 
 !!! warning "Escribe los nombres exactamente así"
     `matrixSet` distingue mayúsculas y minúsculas, igual que el nombre de la capa `osm` del paso 2. Si falta o está mal escrito,
-    no se abre el mapa de ninguna de las aplicaciones que tengan este mapa de fondo: el visor se queda en «Creando mapa...»
+    no se abre el mapa de ninguna de las aplicaciones que tengan este mapa de fondo: el visor muestra «Creando mapa...» y, a los 30 segundos, «Error al inicializar el mapa»
     ([sitmun/sitmun#380](https://github.com/sitmun/sitmun/issues/380)). Comprueba el mapa en el visor justo después de configurarlo.
 
 ## Paso 2. Crear la capa
@@ -115,8 +115,8 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
 
 !!! warning "OpenStreetMap no puede ser el primer mapa de fondo"
     El visor abre el mapa con el primer mapa de fondo. Si la aplicación no usa EPSG:3857 y OpenStreetMap queda el primero, aparece
-    «Error al inicializar el mapa». Al añadirlo desde la pestaña **Aplicaciones** queda con el mismo orden que los demás, así que
-    revisa el orden en **Aplicación** → **Mapas de fondo** y deja primero un mapa de fondo de la aplicación.
+    «Error al inicializar el mapa». Al añadirlo desde la pestaña **Aplicaciones** recibe el orden 0, el mismo que el primer mapa de fondo, así que
+    revisa el orden (en esa pestaña o en **Aplicación** → **Mapas de fondo**) y deja primero un mapa de fondo de la aplicación.
 
 ## Paso 4. Comprobarlo en el visor
 
@@ -137,7 +137,7 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
 | Qué pasa | Qué revisar |
 | --- | --- |
 | OpenStreetMap no aparece en la lista de mapas de fondo | El mapa de fondo está **Activo** y tiene la aplicación (paso 3). La capa está marcada como disponible y tiene el **territorio** (paso 2). El mapa de fondo tiene el **rol** del usuario (paso 3). |
-| El mapa no se abre: se queda en «Creando mapa...» o aparece «Error al inicializar el mapa» | El parámetro `matrixSet` del servicio (paso 1). El campo **Capa o capas del servicio utilizadas** de la capa es `osm`, en minúsculas (paso 2). OpenStreetMap no es el primer mapa de fondo de la aplicación (paso 3). |
+| El mapa no se abre: «Creando mapa...» y, a los 30 segundos, «Error al inicializar el mapa» | El parámetro `matrixSet` del servicio (paso 1). El campo **Capa o capas del servicio utilizadas** de la capa es `osm`, en minúsculas (paso 2). OpenStreetMap no es el primer mapa de fondo de la aplicación (paso 3). |
 | Aparece con otro nombre | El nombre que se muestra es el de la **capa** (paso 2). |
 | Aparece sin miniatura | La dirección del campo **Imagen** del mapa de fondo (paso 3). |
 | El **Endpoint del servicio** no abre el archivo XML | La dirección del visor. Prueba primero la dirección del visor sola. |
