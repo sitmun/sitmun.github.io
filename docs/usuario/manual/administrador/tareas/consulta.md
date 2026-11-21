@@ -82,7 +82,7 @@ Veámoslo con un ejemplo:
 !!! note "Nota"
     Si el nombre del parámetro utilizado en la consulta SQL no coincide con el nombre definido en la configuración del parámetro, la opción de guardar la tarea se deshabilitará. Las demás reglas de la consulta (por ejemplo, un parámetro declarado que no se usa, varias sentencias separadas por `;` o un parámetro dentro de una cadena) bloquean el botón **Probar** con un aviso, y el backend rechaza la tarea al guardarla.
 
-Además de los parámetros definidos por el usuario, también es posible utilizar en la consulta las variables de sistema, que son constantes proporcionadas por la aplicación. Para conocer qué variables de sistema están disponibles, consulte el [Anexo I: Variables de sistema](../variables-sistema.md).
+Además de los parámetros definidos por el usuario, también es posible utilizar en la consulta las variables de sistema, que son constantes proporcionadas por la aplicación. Las variables de sistema disponibles están en el [Anexo I: Variables de sistema](../variables-sistema.md).
 
 La sintaxis para utilizar variables de sistema es ligeramente diferente a la de los parámetros de consulta:
 

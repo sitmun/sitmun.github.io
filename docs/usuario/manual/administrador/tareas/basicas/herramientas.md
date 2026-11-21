@@ -85,7 +85,7 @@ Permite visualizar la función de búsqueda general en el mapa. Para que este co
 
 La opción Share permite compartir un determinado mapa (entendiendo mapa como un conjunto de capas seleccionado y visible a una determinada escala).
 
-Se ofrecen varias formas de compartir el mapa: enlace, código HTML para insertarlo en otra web, correo electrónico, código QR, redes sociales y marcadores. Para obtener una imagen del mapa, utilice la tarea **Descarga**.
+Se ofrecen varias formas de compartir el mapa: enlace, código HTML para insertarlo en otra web, correo electrónico, código QR, redes sociales y marcadores. Para obtener una imagen del mapa se usa la tarea **Descarga**.
 
 - Control API SITNA: `sitna.share`
 

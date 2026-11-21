@@ -179,7 +179,7 @@ curl http://localhost:9001/api/setup/status
 - Si el navegador conserva una sesión antigua, se borran las cookies del sitio o se prueba en una ventana privada.
 - En el visor, un usuario cuyo puesto en el territorio ha caducado (**Fecha de baja**) pierde la sesión al renovarla: ver [Usuarios](../manual/administrador/usuarios.md).
 
-## Problemas del front
+## Problemas del front { #problemas-de-frontend }
 
 ### El visor o el administrador no cargan { #aplicaciones-no-cargan }
 
@@ -218,7 +218,7 @@ navegador: se activa **Usar proxy SITMUN** en el servicio.
 
 ## Problemas de red
 
-### Los servicios no se comunican
+### Los servicios no se comunican { #servicios-no-se-comunican }
 
 **Síntomas:**
 
@@ -258,7 +258,7 @@ docker network prune
 docker compose up -d --pull always --no-build
 ```
 
-## Problemas de rendimiento
+## Problemas de rendimiento { #problemas-de-memoria_1 }
 
 ### Aplicación lenta
 
@@ -275,7 +275,7 @@ docker compose up -d --pull always --no-build
 
 ## Registros y depuración { #logs-y-debugging }
 
-### Ver los registros de los servicios
+### Ver los registros de los servicios { #ver-logs-de-servicios }
 
 ```bash
 # Registros de todos los servicios

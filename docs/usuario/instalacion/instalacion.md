@@ -274,7 +274,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
         Para que el backend arranque con el sistema:
 
-        - En Linux, como servicio *systemd*. Por ejemplo, con las variables anteriores en `/etc/sitmun/backend.env`
+        - En Linux, como servicio *systemd*. Por ejemplo, con las variables anteriores en `/etc/sitmun/backend.env` (con los valores ya generados: systemd no ejecuta `$(openssl …)`)
           (una por línea, sin `export`) y el repositorio en `/opt/sitmun`, el archivo
           `/etc/systemd/system/sitmun-backend.service`:
 
