@@ -116,8 +116,8 @@
 
 /* Screenshots: a thin frame so a white application screen doesn't blend into
    the white page. Only images from the img/ folders under docs/usuario (all
-   screenshots); logos (assets/images), diagrams and the 2023 roadmap images
-   keep no frame.
+   screenshots), plus the 2023 roadmap screenshots, marked with the class
+   "captura"; logos (assets/images) and diagrams keep no frame.
    Accessibility: the border is #858585, 3.69:1 against the white page and the
    white edges of the screenshots, above the 3:1 that WCAG 2.2 SC 1.4.11
    (non-text contrast) asks for graphical boundaries. It is a real
@@ -128,7 +128,8 @@
 [data-md-color-scheme="slate"] {
   --sitmun-screenshot-border: #8f95a3;
 }
-.md-typeset img[src*="img/"] {
+.md-typeset img[src*="img/"],
+.md-typeset img.captura {
   box-sizing: border-box;
   border: 1px solid var(--sitmun-screenshot-border);
   border-radius: 4px;

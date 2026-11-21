@@ -7,12 +7,12 @@
 4.1 Grupo de permisos para las capas de trabajo
 4.2 Mapa de fondo
 A partir de aquí empiezas a crear el visor público.
-Atajo:
+Atajo
 Base de datos SITMUN.
 Consultar los issues
 Contactar al equipo
 Cómo funcionan las pantallas.
-Directo al mapa:
+Directo al mapa
 Dos comprobaciones obligatorias para cada capa:
 EPSG:3857
 El menú lateral
@@ -21,8 +21,8 @@ Entorno de desarrollo
 Escala mínima y máxima
 se guarda la tarea MIA
 Herramientas mínimas para un primer proyecto:
-La idea clave:
-Lista de aplicaciones:
+La idea clave
+Lista de aplicaciones
 Lista de comprobación
 Necesitarás:
 Node.js

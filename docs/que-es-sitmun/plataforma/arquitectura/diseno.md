@@ -37,24 +37,24 @@ participant "LDAP externo" as LDAP
 Client->>Auth: Petición
 
 autonumber
-Auth->>DB: Comprueba usuario y contraseña
+Auth->>DB: Comprobación de usuario y contraseña
 autonumber stop
 DB-->>Auth: Válido o no válido en SITMUN
 
 opt si no es válido y hay un LDAP externo
     autonumber resume
-    Auth->>LDAP: Comprueba usuario y contraseña
+    Auth->>LDAP: Comprobación de usuario y contraseña
     autonumber stop
     LDAP-->>Auth: Válido o no válido en LDAP
     autonumber resume
-    Auth->>DB: Comprueba que el usuario existe
+    Auth->>DB: Comprobación de que el usuario existe
     autonumber stop
     DB-->>Auth: Existe o no existe en SITMUN
 end
 
 alt si alguna comprobación es válida
     autonumber resume
-    Auth->>Auth: Genera token de acceso
+    Auth->>Auth: Generación del token de acceso
     autonumber stop
 end
 Auth-->>Client: Respuesta
@@ -143,7 +143,7 @@ Backend-->>Proxy: Configuración
 Proxy->>Remoto: Petición
 Remoto-->>Proxy: Respuesta
 alt hay que transformar la respuesta
-    Proxy->>Proxy: Transforma la respuesta
+    Proxy->>Proxy: Transformación de la respuesta
 end
 Proxy-->>Client: Respuesta
 @enduml
@@ -184,7 +184,7 @@ Para una capa concreta de un servicio se usa la forma `/proxy/{appId}/{terId}/{t
 Por ejemplo, la siguiente petición correspondería con la petición de acceso a un servicio de mapas remoto:
 
 ```http
-GET /proxy/1/34/wms/1?SERVICE=WMS&REQUEST=GetMap
+GET /proxy/1/34/WMS/1?SERVICE=WMS&REQUEST=GetMap
     &LAYERS=SITMUN
     &FORMAT=image/png
     &TRANSPARENT=true&VERSION=1.1.1&SRS=EPSG:25831

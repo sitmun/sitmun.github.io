@@ -1,8 +1,12 @@
 {#- Spanish 404 page; the theme's built-in one is in English. -#}
 {% extends "main.html" %}
 
+{% block htmltitle %}
+  <title>Página no encontrada - {{ config.site_name }}</title>
+{% endblock %}
+
 {% block content %}
-  <h1>404 - Página no encontrada</h1>
+  <h1>Página no encontrada (404)</h1>
   <p>
     La página solicitada no existe o se ha trasladado.
     Desde la <a href="{{ config.site_url }}">página de inicio</a> o con el buscador se puede llegar al contenido.

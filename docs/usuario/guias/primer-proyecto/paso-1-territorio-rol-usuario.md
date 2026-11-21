@@ -8,9 +8,9 @@ Este paso va primero porque casi todo lo demás (capas, mapas de fondo, árboles
 
 **1.1 Territorio** (menú **Territorios** → **Nuevo**)
 
-- **Nombre**, **Código** y **Tipo** son obligatorios. Los tipos (Ayuntamiento, Diputación, Comarca...) ya existen; si falta alguno, se crea en **Sistema** → **Tipos de territorio**.
+- **Nombre**, **Código** y **Tipo** son obligatorios. Los tipos (Ayuntamiento, Diputación, Comarca…) ya existen; si falta alguno, lo creas en **Sistema** → **Tipos de territorio**.
 - Desactiva **Territorio bloqueado**. Un territorio nuevo aparece bloqueado por defecto. En SITMUN 1.3.0 la opción todavía no tiene efecto ([sitmun/sitmun#376](https://github.com/sitmun/sitmun/issues/376)), pero desactivarla deja el territorio bien configurado.
-- Rellena la **Extensión** (min X, max X, min Y, max Y; las cuatro juntas), el **CRS** (por ejemplo `EPSG:25831`) y, si quieres, el **Punto central** y el **Nivel de Zoom por defecto**. Estos valores mandan sobre los de la aplicación.
+- Rellena la **Extensión** (min X, max X, min Y, max Y; las cuatro juntas), el **CRS** (por ejemplo `EPSG:25831`) y, si quieres, el **Punto central** y el **Nivel de Zoom por defecto**. Sin extensión, el visor no abre el mapa. El CRS del territorio manda sobre el de la aplicación.
 
 ![Formulario de nuevo territorio](img/paso-1-territorio.webp){ loading=lazy }
 

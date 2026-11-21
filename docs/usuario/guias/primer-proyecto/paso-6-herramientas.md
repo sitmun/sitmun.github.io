@@ -29,4 +29,4 @@ Si falta el rol o el territorio, la herramienta no aparece en el visor.
 
 La lista de tareas básicas del administrador muestra el nombre de la tarea, no el código del control: busca por el nombre.
 
-Otras tareas habituales: «Buscar» (`sitna.search`) e «Imprimir mapa» (`sitna.printMap`). Los demás tipos de tarea del menú (consulta, localizador, edición...) son para herramientas más avanzadas y quedan fuera de esta guía.
+Otras tareas habituales: «Buscar» (`sitna.search`) e «Imprimir mapa» (`sitna.printMap`). Los demás tipos de tarea del menú (consulta, localizador, edición…) son para herramientas más avanzadas y quedan fuera de esta guía.

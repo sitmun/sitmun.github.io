@@ -12,7 +12,7 @@ Antes de comenzar, es necesario:
 
 === "Docker"
 
-    - Memoria suficiente para cinco contenedores: backend y proxy (Java), front, y una o dos bases de datos. La versión 1.3.0
+    - Memoria suficiente para cinco contenedores: backend y proxy (Java), `front` (nginx), y una o dos bases de datos. La versión 1.3.0
       no publica un mínimo; las imágenes del backend y del proxy usan como máximo el 75 % de la memoria del contenedor.
     - Soporte de virtualización (Hyper-V, KVM, WSL2, etc.).
     - Una versión reciente de [Docker CE](https://docs.docker.com/engine/install/) y [Docker Compose](https://docs.docker.com/compose/install/), o de [Docker Desktop](https://www.docker.com/products/docker-desktop/).

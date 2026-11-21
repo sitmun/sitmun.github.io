@@ -16,7 +16,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: mejora del inicio de sesi�
 
     **Prioridad:** ALTA
     
-    **Persona o entidad de referéncia o contacto:** Consell Insular de Menorca
+    **Persona o entidad de referencia o contacto:** Consell Insular de Menorca
 
 ## Objetivo
 
@@ -28,10 +28,10 @@ Se busca además ampliar la funcionalidad actual.
 
 En las imágenes siguientes se puede ver la actual ventana de login y selección de aplicación del actual cliente SITMUN 3.
 
-[![Ventana de inicio de sesión y selección de aplicación del cliente SITMUN 3 en 2023](mejora-ui-1.webp)](mejora-ui-1.webp)
+[![Ventana de inicio de sesión y selección de aplicación del cliente SITMUN 3 en 2023](mejora-ui-1.webp){ .captura }](mejora-ui-1.webp)
 
 En la imagen siguiente se puede ver el dashboard inicial:
-[![Panel inicial del cliente SITMUN 3 en 2023](mejora-ui-2.webp)](mejora-ui-2.webp)
+[![Panel inicial del cliente SITMUN 3 en 2023](mejora-ui-2.webp){ .captura }](mejora-ui-2.webp)
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 
@@ -57,7 +57,7 @@ la empresa contractante deberá desarrollar esta idea y plantear una o varias pr
 En la propuesta de diseño se pondrá énfasis en crear una imagen moderna,
 clara y funcional para el usuario y que sea responsiva.
 
-[![Maqueta de 2023 del panel de usuario: lista de territorios y aplicaciones disponibles en un territorio](mejora-ui-3.webp)](mejora-ui-3.webp)
+[![Maqueta de 2023 del panel de usuario: lista de territorios y aplicaciones disponibles en un territorio](mejora-ui-3.webp){ .captura }](mejora-ui-3.webp)
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
 
@@ -103,7 +103,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 ### API de Autenticación {#roadmap-mejora-ui-api-de-autenticacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Administración {#roadmap-mejora-ui-api-de-administracion}
 
@@ -125,7 +125,7 @@ No se prevén modificaciones de este componente durante el desarrollo de esta fu
 
 ### API de Proxy {#roadmap-mejora-ui-api-de-proxy}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### Esquema de base de datos
 

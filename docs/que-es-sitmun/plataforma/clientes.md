@@ -20,7 +20,7 @@ Las aplicaciones móviles no se publican con la instalación: se compilan desde 
 cada una) y se conectan al backend de una instalación.
 
 - **Aplicación de edición**: solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
-  tiene acceso. Sin ninguna, el inicio de sesión responde 403. Usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
+  tiene acceso. Sin ninguna, el inicio de sesión responde 403. Esta aplicación usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
 - **Aplicación turística**: solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
   Las instalaciones a las que se puede conectar se indican antes de compilarla, en los archivos
   `src/environments/environment*.ts`: en `instancesUrl`, la dirección de un servicio de instancias, o, si se deja vacío,
@@ -58,37 +58,38 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   El botón de cierre de sesión borra el token de la aplicación, en caso de existir,
   seguido de la funcionalidad de configuración del cliente (en este caso, sin token).
 
-- **Multilingüe**: visualizadores multilingües (que puedan hacer solicitudes localizadas).
+- **Multilingüe**: visores multilingües (que puedan hacer peticiones localizadas).
 
-- **Configuración de los clientes**: el cliente se configura mediante una solicitud a
+- **Configuración de los clientes**: el cliente se configura mediante una petición a
   la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Si el usuario ha iniciado sesión,
-  la solicitud incluye la cookie de sesión obtenida de la [API de Autenticación][api-de-autenticacion].
-  En caso de ser un visualizador público, la solicitud no incluirá un token.
+  la petición incluye la cookie de sesión obtenida de la [API de Autenticación][api-de-autenticacion].
+  En caso de ser un visor público, la petición no incluirá un token.
   A partir de los datos de configuración (gestionados por la **aplicación de administrador**),
   el visor se configura para cada usuario, con los territorios y aplicaciones (capas y funcionalidades)
   a las que tiene acceso.
 
-- **Solicitudes a servicios remotos**: las solicitudes a algunos servicios remotos se realizan a través de
-  la [API de Proxy][api-de-proxy]. Las solicitudes deben ir acompañadas de un token JWT,
+- **Peticiones a servicios remotos**: las peticiones a algunos servicios remotos se realizan a través de
+  la [API de Proxy][api-de-proxy]. Las peticiones deben ir acompañadas de un token JWT,
   obtenido previamente de la [API de Autenticación][api-de-autenticacion], que identifica al usuario.
   La única excepción es el caso del usuario *público*, donde la autenticación es automática.
   Es decir, si no tiene una credencial, se asume que es el usuario *público*.
-  Todas las solicitudes enviadas a través de la [API de Proxy][api-de-proxy] deben incluir, además,
+  Todas las peticiones enviadas a través de la [API de Proxy][api-de-proxy] deben incluir, además,
   un identificador de territorio y un identificador de aplicación.
 
 - **Secuencia de inicio**: el cliente solicitará a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
-  una configuración básica (idiomas, territorios, aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar.
+  una configuración básica (territorios y aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar; los idiomas
+  los obtiene de la API de Administración (`GET /api/languages`).
   El usuario podrá autenticarse frente a la [API de Autenticación][api-de-autenticacion],
   lo que restringirá los territorios y aplicaciones disponibles. Una vez seleccionado el idioma, territorio y aplicación,
   se iniciará la configuración del cliente frente a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
   La secuencia anterior se puede modificar en función de los parámetros pasados en la petición.
-  Se puede restringir a una aplicación y territorio específicos e indicar que debe comenzar como visualizador público.
-  Si se indica que debe comenzar como visualizador público, solo se pedirá al usuario que seleccione el idioma antes de
+  Se puede restringir a una aplicación y territorio específicos e indicar que debe comenzar como visor público.
+  Si se indica que debe comenzar como visor público, solo se pedirá al usuario que seleccione el idioma antes de
   pasar a la configuración del cliente.
 
 ### Funcionalidades básicas de navegación
 
-- **Zoom con desplazamiento**: zoom dinámico con desplazamiento del ratón. Doble clic en el mapa para hacer Zoom-in.
+- **Zoom con desplazamiento**: zoom dinámico con desplazamiento del ratón. Doble clic en el mapa para acercarse.
 
 - **Pan**: arrastrar el mapa con el ratón.
 
@@ -106,11 +107,11 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Árbol de capas**: árbol de capas configurable para cada cliente a partir de la combinación de capas de diferentes servicios.
 
-- **Clasificación de capas**: opción para que el usuario pueda elegir entre diferentes árboles de capas previamente configuradas por el administrador.
+- **Clasificación de capas**: opción para que el usuario pueda elegir entre diferentes árboles de capas previamente configurados por el administrador.
 
 - **Transparencia**: control de la transparencia de las capas.
 
-- **Capas externas**: incorporación de capas externas (WMS, WFS, ATOM, GEOJSON, KML, SHP, ...).
+- **Capas externas**: incorporación de capas externas (WMS, WFS, Atom, GeoJSON, KML, SHP…).
 
 - **Metadatos**: botón con enlace a ficha de metadatos simplificados (extraídos dinámicamente del archivo XML de metadatos)
   con la opción de abrir en segunda instancia el XML completo de los metadatos.
@@ -120,7 +121,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Descarga**: enlace para descargar la capa (solo visible en caso de ser una capa descargable) y archivos relacionados
   (configurados en el administrador).
 
-- **Búsqueda de capas**: opción de buscar capas por nombre y descripción, en función del idioma del visualizador.
+- **Búsqueda de capas**: opción de buscar capas por nombre y descripción, en función del idioma del visor.
   Integrado con el buscador genérico.
 
 - **Mapa de fondo**: selección del mapa de fondo.
@@ -150,7 +151,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Portapapeles**: copia fácil del mapa, la leyenda o el gráfico (uno o varios) al portapapeles.
 
-- **Pantalla completa**: posibilidad de poner el visualizador en modo de pantalla completa.
+- **Pantalla completa**: posibilidad de poner el visor en modo de pantalla completa.
 
 ### Información
 
@@ -184,9 +185,9 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 ### Otras herramientas
 
-- **Streetview**: herramienta para agregar Street View al mapa.
+- **Street View**: herramienta para agregar Street View al mapa.
 
-## Aplicación de Administración
+## Aplicación de administración
 
 Ver el [Manual del administrador](../../usuario/manual/administrador/index.md).
 

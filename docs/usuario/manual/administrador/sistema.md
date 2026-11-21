@@ -37,7 +37,13 @@ Las traducciones se pueden exportar e importar en formato CSV.
 
 ## Tipos de territorio
 
-Permite definir y mantener las diferentes tipologías de territorio, así como la jerarquía entre ellas.
+Permite definir y mantener las diferentes tipologías de territorio, así como la jerarquía entre ellas. Cada tipo tiene tres opciones:
+
+- **Oficial**: el tipo corresponde a una división administrativa oficial.
+- **Tipo superior**: sus territorios no tienen padres, y su ficha no muestra la pestaña **Territorios padres**.
+- **Tipo inferior**: sus territorios no tienen hijos, y su ficha no muestra la pestaña **Territorios hijos**.
+
+A un territorio que ya tiene padres no se le puede asignar un tipo superior, ni uno inferior si tiene hijos.
 
 ## Tipos de tareas
 

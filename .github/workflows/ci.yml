@@ -54,7 +54,14 @@ jobs:
       - name: Install Zensical and other requirements
         run: pip install -r requirements.txt
       - name: Build site (site_dir in zensical.toml is _site)
-        run: zensical build --strict --clean --config-file ./zensical.toml
+        # --strict does not fail on a malformed grid table (it renders as raw text), so fail on that message.
+        run: |
+          zensical build --strict --clean --config-file ./zensical.toml 2>&1 | tee build.log
+          test "${PIPESTATUS[0]}" -eq 0
+          if grep -q "Error rendering grid table" build.log; then
+            echo "::error::A grid table does not render; check the row widths against its borders."
+            exit 1
+          fi
       # Zensical writes the redirect pages from a built-in English template.
       - name: Translate the redirect pages into Spanish
         run: python .github/scripts/localize_redirects.py zensical.toml _site

@@ -41,7 +41,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     En una instalación local la dirección es
     `http://localhost:9000/viewer/assets/js/api-sitna/wmts/osm/1.0.0/WMTSCapabilities.xml`.
 
-## Paso 1. Crear el servicio
+## Paso 1: crear el servicio
 
 1. En el menú, abre **Servicio** y crea uno nuevo.
 2. Rellena los datos principales:
@@ -72,7 +72,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     no se abre el mapa de ninguna de las aplicaciones que tengan este mapa de fondo: el visor muestra «Creando mapa...» y, a los 30 segundos, «Error al inicializar el mapa»
     ([sitmun/sitmun#380](https://github.com/sitmun/sitmun/issues/380)). Comprueba el mapa en el visor justo después de configurarlo.
 
-## Paso 2. Crear la capa
+## Paso 2: crear la capa
 
 1. En el menú, abre **Capas** y crea una nueva.
 2. Rellena los datos:
@@ -92,7 +92,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 !!! tip "El nombre de la capa es el que ven los usuarios"
     En la lista de mapas de fondo del visor aparece el **nombre de la capa**, no el del mapa de fondo. Elige un nombre claro para los usuarios, por ejemplo `OpenStreetMap`.
 
-## Paso 3. Crear el mapa de fondo
+## Paso 3: crear el mapa de fondo
 
 1. En el menú, abre **Capas de fondo** y crea una nueva.
 2. Rellena los datos:
@@ -118,14 +118,14 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
     «Error al inicializar el mapa». Al añadirlo desde la pestaña **Aplicaciones** recibe el orden 0, el mismo que el primer mapa de fondo, así que
     revisa el orden (en esa pestaña o en **Aplicación** → **Mapas de fondo**) y deja primero un mapa de fondo de la aplicación.
 
-## Paso 4. Comprobarlo en el visor
+## Paso 4: comprobarlo en el visor
 
 1. Abre la aplicación en el visor. Si ya estaba abierta, recárgala.
 2. Abre el panel de capas y despliega **Mapas de fondo**. Debe aparecer **OpenStreetMap** con su miniatura.
 
     ![OpenStreetMap en el selector de mapas de fondo del visor](img/osm-visor-fondos.webp){ loading=lazy }
 
-3. Haz clic en **OpenStreetMap**. Si la aplicación no usa EPSG:3857, aparece el aviso *Mapa de fondo no compatible*: elige **EPSG:3857**.
+3. Haz clic en **OpenStreetMap**. Si la aplicación no usa EPSG:3857, aparece el aviso «Mapa de fondo no compatible»: elige **EPSG:3857**.
 
     ![Aviso Mapa de fondo no compatible con la opción EPSG:3857](img/osm-visor-aviso.webp){ loading=lazy }
 

@@ -6,6 +6,15 @@
 -#}
 {% extends "base.html" %}
 
+{#- Home page: Zensical 0.1.2 leaves page.is_homepage empty, so the home is the page with an empty URL. -#}
+{% block htmltitle %}
+  {% if page and not page.url %}
+    <title>{{ config.site_name }}: documentación técnica</title>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
 {% block announce %}
   Versión actual: <strong>SITMUN {{ config.extra.sitmun_version }}</strong>
   ·

@@ -23,7 +23,7 @@ El backend sustituye cada variable con datos del usuario, el territorio y la apl
 | `#{PROYECCION}` | Sistema de referencia de la aplicación. |
 | `#{EXTENSION_MAX_X0}`, `#{EXTENSION_MAX_Y0}`, `#{EXTENSION_MAX_X1}`, `#{EXTENSION_MAX_Y1}` | Extensión del territorio: X e Y mínimas y máximas. |
 | `#{DATE}` | Fecha y hora de la petición (`dd/MM/yyyy HH:mm:ss`). |
-| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición: el parámetro `lang` de la petición; si no lo tiene, la cabecera `Accept-Language` del navegador, y si tampoco, el idioma por defecto. |
+| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición: el parámetro `lang` de la petición; si no lo tiene, la cabecera `Accept-Language` del navegador, y si tampoco, el idioma del servidor (en la imagen Docker, inglés) antes que el idioma por defecto de SITMUN. El visor siempre envía `lang`, así que esto solo afecta a las llamadas directas a la API. |
 
 Los nombres duplicados (por ejemplo `#{USUARIO}` y `#{USER_NAME}`) se mantienen por compatibilidad con SITMUN 2.
 

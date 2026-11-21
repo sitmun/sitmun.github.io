@@ -25,7 +25,7 @@ La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué ro
 1. **Roles**: añade el rol del [paso 1](paso-1-territorio-rol-usuario.md). Es el enlace más importante: sin rol, nadie entra en la aplicación.
 2. **Mapas de fondo**: añade los mapas de fondo del [paso 4](paso-4-grupos-y-fondos.md) y ordénalos. El primero es el que aparece al abrir el mapa.
 3. **Árboles**: añade el árbol del [paso 5](paso-5-arbol.md).
-4. **Encabezado** (opcional): qué botones aparecen arriba (logotipo, cambio de territorio, idioma, salir...).
+4. **Encabezado** (opcional): qué botones aparecen arriba (logotipo, cambio de territorio, idioma, salir…).
 5. **Guarda**.
 
 ![Pestaña Mapas de fondo de una aplicación](img/paso-7-aplicacion-fondos.webp){ loading=lazy }

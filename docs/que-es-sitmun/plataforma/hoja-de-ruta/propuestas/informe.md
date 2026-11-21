@@ -15,7 +15,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: tarea de informe (exportac
 
     **Prioridad:** BAJA
 
-    **Persona o entidad de referéncia o contacto:** Agueda Isern, Consell Insular de Mallorca
+    **Persona o entidad de referencia o contacto:** Agueda Isern, Consell Insular de Mallorca
 
 ## Objetivo
 
@@ -34,16 +34,16 @@ Actualmente, los informes pueden generarse a partir de un localizador o dentro d
 En la ventana siguiente podemos observar el detalle de la ventana con distintas pestañas, cada una de ellas se
 corresponde con el resultado de una tarea de tipo consulta configurada en el administrador SITMUN 2.
 
-![Ventana de información de SITMUN 2 con una pestaña por cada tarea de consulta](informe-1.webp)
+![Ventana de información de SITMUN 2 con una pestaña por cada tarea de consulta](informe-1.webp){ .captura }
 
 Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUN 2.
 
-[![Configuración de una tarea de tipo consulta en el administrador de SITMUN 2](informe-2.webp)](informe-2.webp)
+[![Configuración de una tarea de tipo consulta en el administrador de SITMUN 2](informe-2.webp){ .captura }](informe-2.webp)
 
 El informe en el SITMUN 2 que funciona a partir de un localizador se genera a partir de una plantilla fija,
 un mapa (a través de un grupo de capas) y una serie de consultas:
 
-![Informe de SITMUN 2 generado desde un localizador con una plantilla fija, un mapa y varias consultas](informe-3.webp)
+![Informe de SITMUN 2 generado desde un localizador con una plantilla fija, un mapa y varias consultas](informe-3.webp){ .captura }
 
 Actual ventana de ejemplo de configuración de una tarea tipo informe en el SITMUN 2.
 Para generar el informe en el cliente se introduce una referencia catastral, se selecciona el objeto encontrado
@@ -103,20 +103,20 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 
 ### API de Autenticación {#roadmap-informe-api-de-autenticacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Administración {#roadmap-informe-api-de-administracion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Configuración y Autorización {#roadmap-informe-api-de-configuracion-y-autorizacion}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### API de Proxy {#roadmap-informe-api-de-proxy}
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
 ### Esquema de base de datos
 
-No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
+No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.

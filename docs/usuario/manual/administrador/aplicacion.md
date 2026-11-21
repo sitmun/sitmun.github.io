@@ -6,7 +6,7 @@ description: "Aplicaciones en el administrador de SITMUN 3: configurar el visor 
 
 La aplicación es el elemento principal para configurar el visor de SITMUN. Todos los elementos anteriores (capas, árboles, tareas, etc.) quedarán integrados en una aplicación. Cuando el usuario accede a SITMUN, visualiza un panel con todas las aplicaciones disponibles, ya sean las públicas o aquellas para las que tiene permisos con su rol.
 
-Para configurar una aplicación se rellenan los datos de información general, encabezado, parámetros, roles, mapas de fondo y árboles.
+Para configurar una aplicación se rellenan los datos de información general, encabezado, parámetros, roles, mapas de fondo y árboles, cada uno en su pestaña.
 
 ## Información general
 
@@ -14,7 +14,7 @@ En este apartado se facilitan los datos generales de la aplicación, como el nom
 
 El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
-También se debe indicar un **punto de contacto**, que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
+También se puede indicar un **punto de contacto** (el formulario no lo exige), que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
 También se puede especificar la **institución responsable**, así como la URL de la imagen del logotipo. En la versión actual la aplicación de administración no permite subir esa imagen: hay que publicarla antes, por FTP o un sistema similar, en un servidor web desde el que sea accesible por su URL.
 
@@ -65,3 +65,7 @@ Los mapas de fondo pueden ser cualquiera de los que se hayan definido como tales
 ![Selector de mapas de fondo del visor](img/aplicacion-selector-fondos.webp){ loading=lazy }
 
 *Ejemplo del selector de mapas de fondo en el visor.*
+
+## Árboles
+
+En la pestaña **Árboles** se añaden los [árboles](arboles.md) que mostrará la aplicación, con su **Nombre**, **Tipo** y **Orden**. Sin un árbol, el visor no muestra el panel de capas disponibles.

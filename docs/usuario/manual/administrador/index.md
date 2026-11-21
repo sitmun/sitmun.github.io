@@ -48,7 +48,7 @@ El objetivo de este manual es explicar la parte de SITMUN admin, y va dirigido a
 
 ## Multiidioma
 
-Una característica general de SITMUN es que es multiidioma, permitiendo gestionar el proyecto en 6 idiomas: inglés, francés, español, catalán, occitano (aranés) y portugués. Los cinco primeros son los idiomas oficiales de las administraciones impulsoras del proyecto SITMUN.
+Una característica general de SITMUN es que es multiidioma, permitiendo gestionar el proyecto en 6 idiomas: inglés, francés, castellano, catalán, occitano (aranés) y portugués. Los cinco primeros son los idiomas oficiales de las administraciones impulsoras del proyecto SITMUN.
 
 Hay que diferenciar dos aspectos de la gestión del multiidioma en SITMUN:
 
@@ -63,11 +63,11 @@ Al pulsar sobre este símbolo se despliega otro formulario que permite añadir l
 
 ![Formulario de traducciones](img/general-formulario-traducciones.webp){ loading=lazy }
 
-Cuando el usuario público seleccione un idioma en concreto en el visor, se buscará el texto equivalente en el idioma seleccionado para mostrarlo traducido, tal y como se muestra en las capturas de pantalla para el catalán y el español.
+Cuando el usuario público seleccione un idioma en concreto en el visor, se buscará el texto equivalente en el idioma seleccionado para mostrarlo traducido, tal y como se muestra en las capturas de pantalla para el catalán y el castellano.
 
 ![Lista de aplicaciones del visor en catalán](img/general-visor-catalan.webp){ loading=lazy }
 
-![Lista de aplicaciones del visor en español](img/general-visor-castellano.webp){ loading=lazy }
+![Lista de aplicaciones del visor en castellano](img/general-visor-castellano.webp){ loading=lazy }
 
 En el caso de que un texto no figure traducido en el idioma seleccionado, se proporcionará el texto en el idioma por defecto, que se elige en el primer arranque de la instalación y se puede cambiar en [Sistema → Idiomas](sistema.md#idiomas).
 

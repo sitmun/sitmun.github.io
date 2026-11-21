@@ -35,9 +35,9 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 - **Autenticación OpenID Connect (OIDC)**. Está soportada la autenticación con uno o varios proveedores OIDC (perfil Spring `oidc`).
   El cliente consulta los métodos activos en `GET /api/auth/enabled-methods`.
 
-- **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de email.
+- **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de correo electrónico.
 
-- **Recuperación de contraseña**. Sistema de recuperación de contraseña por email con tokens seguros.
+- **Recuperación de contraseña**. Sistema de recuperación de contraseña por correo electrónico con tokens seguros.
   Solo está disponible con el perfil `mail` del backend y un servidor de correo configurado
   (ver [Instalación](../../../usuario/instalacion/instalacion.md)); sin él, `POST /api/password-reset/request` responde 404.
 
