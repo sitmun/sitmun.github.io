@@ -14,6 +14,19 @@ description: "Clientes de SITMUN 3: visor de mapas web y embebible, aplicación 
 | Aplicación móvil de edición (Android) | `sitmun-mobile/sitmun-edition` | — |
 | Aplicación móvil turística (Android) | `sitmun-mobile/sitmun-touristic` | — |
 
+### Aplicaciones móviles
+
+Las aplicaciones móviles no se publican con la instalación: se compilan desde su carpeta del repositorio (ver el README de
+cada una) y se conectan al backend de una instalación.
+
+- **Aplicación de edición**: solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
+  tiene acceso. Sin ninguna, el inicio de sesión responde 403. Usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
+- **Aplicación turística**: solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
+  Las instalaciones a las que se puede conectar se indican antes de compilarla, en los archivos
+  `src/environments/environment*.ts`: en `instancesUrl`, la dirección de un servicio de instancias, o, si se deja vacío,
+  directamente en `instancesData`. En los dos casos es un JSON en el que cada instancia tiene `name` (el texto del selector)
+  y `urlBackend` (la dirección del backend, por ejemplo `https://ejemplo.org/backend`).
+
 La mayor parte de las herramientas del visor provienen de la [API SITNA](https://github.com/sitna/api-sitna)
 y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
 

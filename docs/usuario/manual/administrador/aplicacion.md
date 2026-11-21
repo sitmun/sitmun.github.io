@@ -12,7 +12,7 @@ Para configurar una aplicación deberemos rellenar los datos de información gen
 
 En este apartado facilitaremos los datos generales de la aplicación, como el nombre y la descripción.
 
-El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la aplicación turística, pero para configurar un visor estándar debemos seleccionar el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
+El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar debemos seleccionar el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
 También se debe indicar un **punto de contacto**, que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
@@ -36,7 +36,15 @@ Por último, podemos definir cuál va a ser el comportamiento de la aplicación 
 
 En el apartado **Encabezado** podemos definir aspectos relacionados con la visualización de la aplicación.
 
-Se ofrecen diversas opciones de activación y desactivación para personalizar dicho aspecto.
+Se ofrecen diversas opciones de activación y desactivación para personalizar dicho aspecto:
+
+- **Mostrar el logotipo de Sitmun** y **Mostrar logotipo** (el de la institución).
+- **Mostrar el botón del menú de inicio**.
+- **Mostrar el botón de cambio de territorio**.
+- **Mostrar el botón de cambio de idioma**.
+- **Mostrar el botón de perfil**: da acceso a la página **Mi perfil** del visor, donde el usuario registrado puede cambiar su
+  contraseña, su correo electrónico principal y sus datos en cada territorio.
+- **Mostrar el botón de desconexión**.
 
 ## Parámetros
 
@@ -44,7 +52,7 @@ Como la mayoría de los elementos de SITMUN, las aplicaciones permiten crear par
 
 ## Roles
 
-Podemos asignar a la aplicación los roles que tendrán acceso a ella. Cabe mencionar que, si no se asigna ningún rol, la aplicación no será accesible: sin asignación de roles, ningún usuario (ni siquiera el usuario público) podrá visualizar la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, crea un rol, asígnalo al usuario `public` en su territorio (pestaña **Roles por territorio** del usuario) y añade ese rol a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
+Podemos asignar a la aplicación los roles que tendrán acceso a ella. Cabe mencionar que, si no se asigna ningún rol, la aplicación no será accesible: sin asignación de roles, ningún usuario (ni siquiera el usuario público) podrá visualizar la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, cree un rol, asígnelo al usuario `public` en su territorio (pestaña **Roles por territorio** del usuario) y añada ese rol a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
 
 ## Mapas de fondo
 

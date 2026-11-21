@@ -50,6 +50,8 @@ flowchart TB
 
 *En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y mapearlos hacia las plantillas, y las plantillas, mapearlos hacia las consultas.*
 
+Además de consultas y plantillas, una MIA puede tener como tarea hija una **exportación documental**. En ese caso, la ventana de la MIA en el visor muestra el botón **Exportar PDF**, que genera un PDF de la plantilla.
+
 ## MIA sin plantillas de visualización
 
 ### Paso 1: información general

@@ -17,9 +17,13 @@ Las tareas se clasifican en [grupos de tareas](../grupos-de-tareas.md). Los tipo
 - [Tarea de más información avanzada](mas-informacion-avanzada.md): amplía la información de un elemento seleccionado en el mapa.
 
 Estos tipos de tarea también existen en SITMUN 1.3.0 y aparecen en el menú **Tarea** del administrador,
-pero su documentación todavía no está escrita:
+pero su documentación todavía no está escrita. Lo esencial de cada una:
 
-- **Tarea de imagen de mapa**.
-- **Exportación documental**: genera documentos PDF a partir de [plantillas](plantillas.md).
-- **Tarea de edición**: edición de datos, en base de datos o en servicios WFS (también la usa la aplicación móvil de edición).
-- **Tarea de más información**.
+- **Tarea de imagen de mapa**: genera una imagen del mapa para usarla en [plantillas](plantillas.md); el visor no la muestra directamente.
+- **Exportación documental**: genera documentos PDF a partir de [plantillas](plantillas.md). Se configuran el motor, la salida,
+  el tamaño y la orientación de la página. En el visor se usa como tarea hija de una
+  [tarea de más información avanzada](mas-informacion-avanzada.md), que muestra el botón para exportar el PDF.
+- **Tarea de edición**: edición de datos, en base de datos o en servicios WFS. En la versión 1.3.0 solo la usa la aplicación
+  móvil de edición; el visor web no la muestra.
+- **Tarea de más información**: necesita una capa, una tarea de consulta y la correspondencia entre los parámetros de la
+  consulta y los campos de la capa. El resultado aparece dentro de la ventana de información (GetFeatureInfo) de esa capa.

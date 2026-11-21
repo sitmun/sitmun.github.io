@@ -34,16 +34,16 @@ Actualmente, los informes pueden generarse a partir de un localizador o dentro d
 En la ventana siguiente podemos observar el detalle de la ventana con distintas pestañas, cada una de ellas se
 corresponde con el resultado de una tarea de tipo consulta configurada en el administrador SITMUN 2.
 
-![INFORME-1](informe-1.webp)
+![Ventana de información de SITMUN 2 con una pestaña por cada tarea de consulta](informe-1.webp)
 
 Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUN 2.
 
-[![INFORME-2](informe-2.webp)](informe-2.webp)
+[![Configuración de una tarea de tipo consulta en el administrador de SITMUN 2](informe-2.webp)](informe-2.webp)
 
 El informe en el SITMUN 2 que funciona a partir de un localizador se genera a partir de una plantilla fija,
 un mapa (a través de un grupo de capas) y una serie de consultas:
 
-![INFORME-3](informe-3.webp)
+![Informe de SITMUN 2 generado desde un localizador con una plantilla fija, un mapa y varias consultas](informe-3.webp)
 
 Actual ventana de ejemplo de configuración de una tarea tipo informe en el SITMUN 2.
 Para generar el informe en el cliente se introduce una referencia catastral, se selecciona el objeto encontrado

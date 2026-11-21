@@ -12,6 +12,14 @@ function initChecklists() {
   var boxes = document.querySelectorAll(".md-typeset .task-list-item input[type=checkbox]");
   boxes.forEach(function (box, i) {
     box.disabled = false;
+    // El texto del paso queda fuera de la etiqueta de la casilla: se lo damos como nombre accesible.
+    var item = box.closest(".task-list-item");
+    if (item && !box.hasAttribute("aria-label")) {
+      var text = Array.prototype.filter.call(item.childNodes, function (node) {
+        return !(node.nodeType === 1 && (node.matches("label.task-list-control") || node.matches("ul, ol")));
+      }).map(function (node) { return node.textContent; }).join("").replace(/\s+/g, " ").trim();
+      if (text) box.setAttribute("aria-label", text);
+    }
     if (Object.prototype.hasOwnProperty.call(saved, i)) {
       box.checked = saved[i];
     }

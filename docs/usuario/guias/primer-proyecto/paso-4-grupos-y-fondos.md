@@ -1,19 +1,19 @@
 ---
-description: "Paso 4 de la guía: crear en SITMUN 3 el grupo de capas que da acceso al rol y las capas de fondo."
+description: "Paso 4 de la guía: crear en SITMUN 3 el grupo de permisos que da acceso al rol y las capas de fondo."
 ---
 
-# Paso 4: grupos de capas y capas de fondo
+# Paso 4: grupos de permisos y capas de fondo
 
-Un grupo de capas es la manera de dar capas a un rol. Sin grupo, ningún rol tiene acceso a las capas del [paso 3](paso-3-capas.md).
+Un grupo de permisos es la manera de dar capas a un rol. Sin grupo, ningún rol tiene acceso a las capas del [paso 3](paso-3-capas.md).
 
-**4.1 Grupo de capas de trabajo** (menú **Permisos sobre las capas** → **Nuevo**)
+**4.1 Grupo de permisos para las capas de trabajo** (menú **Permisos sobre las capas** → **Nuevo**)
 
 1. **Nombre**, y **Tipo** = **Grupo de cartografía**.
 2. Pestaña **Capas**: añade las capas de trabajo.
 3. Pestaña **Roles**: añade el rol del [paso 1](paso-1-territorio-rol-usuario.md).
 4. **Guarda**.
 
-![Formulario de grupo de capas](../../manual/administrador/img/permisos-formulario.webp){ loading=lazy }
+![Formulario de grupo de permisos](../../manual/administrador/img/permisos-formulario.webp){ loading=lazy }
 
 Otros tipos de grupo: **Mapa de situación** (el mapa pequeño de referencia en la esquina, que se elige en la aplicación) e **Informe**.
 
@@ -31,7 +31,7 @@ Otros tipos de grupo: **Mapa de situación** (el mapa pequeño de referencia en 
     En el selector de mapas de fondo del visor aparece el **nombre de la capa** del [paso 3](paso-3-capas.md), no el de la capa de fondo.
     Pon a esa capa un nombre claro para los usuarios.
 
-Recuerda: las capas del mapa de fondo también tienen que tener el territorio en su pestaña **Territorios** ([paso 3](paso-3-capas.md)). Crea tantas capas de fondo como quieras ofrecer (por ejemplo, ortofoto y topográfico).
+Recuerda: las capas que forman el mapa de fondo también tienen que tener el territorio en su pestaña **Territorios** ([paso 3](paso-3-capas.md)). Crea tantas capas de fondo como quieras ofrecer (por ejemplo, ortofoto y topográfico).
 
 !!! example "Extra: OpenStreetMap como mapa de fondo"
     Si quieres ofrecer el mapa de OpenStreetMap, sigue la guía [Añadir OpenStreetMap como mapa de fondo](../mapa-fondo-openstreetmap.md).

@@ -34,7 +34,7 @@ para poder gestionar los contenidos (y funcionalidades) de aplicaciones para dis
 
 El siguiente ejemplo ilustra la idea de funcionalidad que se requiere.
 
-![APP-TURISMO-1](app-turismo-1.webp)
+![Ejemplo de la funcionalidad propuesta para la aplicación turística](app-turismo-1.webp)
 
 En la imagen de la izquierda se puede ver el menú principal de una APP, mientras en la imagen de la derecha se
 representa cómo se podría configurar este menú en el administrador SITMUN.

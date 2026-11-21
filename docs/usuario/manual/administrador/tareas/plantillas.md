@@ -86,6 +86,28 @@ El siguiente ejemplo muestra una tabla sencilla con todos los resultados de la f
 </table>
 ```
 
+### Marcadores disponibles
+
+El formulario de la plantilla resume los marcadores que se pueden usar. Cada fuente de información tiene una **Referencia** (por ejemplo `patrimonio`):
+
+| Marcador | Contenido |
+| --- | --- |
+| `{{referencia.campo}}` | Un campo de la respuesta de la fuente. |
+| `{{referencia.$param}}` | Un parámetro enviado a la fuente (por ejemplo `{{patrimonio.$id}}`). |
+| `{{referencia.url}}` | La dirección de una fuente de tipo URL o Recurso. |
+| `{{referencia.html}}` | El HTML de una plantilla anidada. |
+| `{{#APP_NAME}}` | Una [variable de sistema](../variables-sistema.md), escrita con `{{#…}}` en lugar de `#{…}`. |
+
+Dentro de una tabla con `data-sitmun-each`, los campos de cada fila se escriben sin la referencia, como `{{nombre}}` en el ejemplo anterior.
+
+El editor también permite:
+
+- envolver un texto en etiquetas `<t>` para que se traduzca según el idioma del visor (no se pueden anidar);
+- marcar un bloque como cabecera o pie de página del PDF, normal o a sangre, para la [exportación documental](mas-informacion-avanzada.md);
+- insertar un PDF en la plantilla.
+
+Por seguridad, la plantilla no admite las etiquetas `<script>` ni `<style>` (usa estilos en el atributo `style`), ni atributos JavaScript como `onclick` o direcciones `javascript:`.
+
 Para facilitar el diseño de la plantilla, se dispone tanto de un editor visual como de un editor HTML.
 
 ![Editor visual de la plantilla](../img/plantilla-editor-visual.webp){ loading=lazy }

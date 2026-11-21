@@ -28,10 +28,10 @@ Se busca además ampliar la funcionalidad actual.
 
 En las imágenes siguientes se puede ver la actual ventana de login y selección de aplicación del actual cliente SITMUN 3.
 
-[![MejoraGUI_contexto1](mejora-ui-1.webp)](mejora-ui-1.webp)
+[![Ventana de inicio de sesión y selección de aplicación del cliente SITMUN 3 en 2023](mejora-ui-1.webp)](mejora-ui-1.webp)
 
 En la imagen siguiente se puede ver el dashboard inicial:
-[![MejoraGUI_contexto2](mejora-ui-2.webp)](mejora-ui-2.webp)
+[![Panel inicial del cliente SITMUN 3 en 2023](mejora-ui-2.webp)](mejora-ui-2.webp)
 
 Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalidad que se ofrece al usuario.
 

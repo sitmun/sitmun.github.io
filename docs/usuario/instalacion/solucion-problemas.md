@@ -59,7 +59,9 @@ netstat -ano | findstr :9000  # Windows
 # aparece en las direcciones que genera SITMUN (por ejemplo, la del proxy):
 #   LOCAL_PORT=8080
 #   PUBLIC_PORT=8080
-# y vuelve a arrancar: docker compose up -d
+# y vuelve a arrancar: docker compose up -d --pull always --no-build
+# (si has construido front localmente para publicar bajo una ruta, no uses --pull always:
+#  docker compose pull --policy always backend proxy && docker compose up -d --no-build)
 # Los puertos 9001-9005 se publican directamente en compose.yaml
 # O detener el proceso que usa el puerto
 ```
@@ -251,7 +253,9 @@ docker compose exec backend getent hosts postgres
 
 # Reiniciar red de Docker
 docker network prune
-docker compose up -d
+# Con front construido localmente (publicación bajo una ruta), sin --pull always:
+# docker compose pull --policy always backend proxy && docker compose up -d --no-build
+docker compose up -d --pull always --no-build
 ```
 
 ## Problemas de rendimiento
