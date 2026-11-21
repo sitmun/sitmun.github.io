@@ -9,11 +9,11 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
 - **Aplicaciones web de usuario final.**
   La aplicación “básica” es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
   En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.
-  P. ej., una aplicación puede ser el visor de mapas básico. Y si te identificas como usuario “público” del territorio “Municipio X” esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
+  P. ej., una aplicación puede ser el visor de mapas básico. Y para el usuario “público” del territorio “Municipio X”, esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
   Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración. Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
 - **Aplicación web de administración.**
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
-  P. ej., podemos añadir un nuevo servicio de mapas públicamente accesible que acabamos de encontrar al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
+  P. ej., se puede añadir un nuevo servicio de mapas públicamente accesible recién encontrado al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
   Esta aplicación lee y modifica los datos en la BD de **SITMUN 3** a través de una API REST.
 - **Componentes adicionales.** Se usan en varias aplicaciones, (tanto en la de administración como en las de usuario final):
     - **Proxy**: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).
@@ -29,7 +29,7 @@ Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poc
 - La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.
     - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
 
-Esto conviene tenerlo en cuenta cuando estemos dimensionando el hardware que necesitamos para el despliegue, y cómo lo vamos a repartir.
+Esto conviene tenerlo en cuenta al dimensionar el hardware necesario para el despliegue y al decidir cómo repartirlo.
 
 **SITMUN 3** tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular 22 (y las aplicaciones móviles con Ionic y Capacitor), Spring Boot 4.1 con Java 17 se usa en el tier web, y una base de datos relacional (PostgreSQL 12 o superior, Oracle 11g o superior, o H2 para pruebas) en el tier de datos.
 Todo el código está en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun); las versiones exactas están en su README.
@@ -339,29 +339,27 @@ En esta sección se documentan algunas de las interacciones más relevantes del 
 
 actor Usuario
 participant "Visor de mapas" as Client
-participant "Authentication\nEntry Point\n(Spring Security)" as AuthenticationEntryPoint
-participant "Filtro token\nautenticación" as AuthTokenFilter
+participant "Cadena de filtros\n(Spring Security)" as FilterChain
+participant "JsonWebTokenFilter" as JsonWebTokenFilter
 participant "API de\nautenticación" as AuthenticationAPI <<@RestController>>
 participant "API de\nconfiguración\ny autorización" as ConfigurationAPI <<@RestController>>
-participant "Utilidades\nJWT" as JWTUtils
+participant "JsonWebTokenService" as JsonWebTokenService
 participant "Authentication\nManager\n(Spring Security)" as AuthenticationManager
 participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 
 Usuario ->> Client: Login
 Client -> AuthenticationAPI: Login (POST /api/authenticate,\n/api/authenticate/admin para el administrador)
-AuthenticationAPI -> AuthenticationEntryPoint
-AuthenticationEntryPoint -> AuthenticationAPI: Login(usuario, password)
+AuthenticationAPI -> FilterChain
+FilterChain -> AuthenticationAPI: Login(usuario, password)
 AuthenticationAPI-> AuthenticationManager: Obtener Autenticación
 AuthenticationManager -> Database: ¿Existe y pwd OK?
 Database-->> AuthenticationManager: Sí
 AuthenticationManager -->> AuthenticationAPI: Autenticación(usuario)
-AuthenticationAPI -> SecurityContext: set(Autenticación)
-SecurityContext -->> AuthenticationAPI
-AuthenticationAPI -> JWTUtils: Generar Token JWT(usuario)
-JWTUtils -->> AuthenticationAPI: Token JWT
-AuthenticationAPI -->> AuthenticationEntryPoint: Token JWT
-AuthenticationEntryPoint -->> AuthenticationAPI: Token JWT
+AuthenticationAPI -> JsonWebTokenService: Generar Token JWT(usuario)
+JsonWebTokenService -->> AuthenticationAPI: Token JWT
+AuthenticationAPI -->> FilterChain: Token JWT
+FilterChain -->> AuthenticationAPI: Token JWT
 AuthenticationAPI -->> Client: Token JWT
 note right
 200 Ok
@@ -376,14 +374,14 @@ note right
  Cookie: viewer_access_token={tokenJWT}
 end note
 
-ConfigurationAPI -> AuthenticationEntryPoint
-AuthenticationEntryPoint -> AuthTokenFilter: Filtra petición\n(lee el token de la cookie)
-AuthTokenFilter -> JWTUtils: Validar token JWT
-JWTUtils -->> AuthTokenFilter: Token OK
-AuthTokenFilter -> JWTUtils: Extraer usuario del token JWT
-JWTUtils -->> AuthTokenFilter: usuario
-AuthTokenFilter-> Database: ¿Detalles usuario?
-Database -->> AuthTokenFilter: roles
+ConfigurationAPI -> FilterChain
+FilterChain -> JsonWebTokenFilter: Filtra petición\n(lee el token de la cookie)
+JsonWebTokenFilter -> JsonWebTokenService: Validar token JWT
+JsonWebTokenService -->> JsonWebTokenFilter: Token OK
+JsonWebTokenFilter -> JsonWebTokenService: Extraer usuario del token JWT
+JsonWebTokenService -->> JsonWebTokenFilter: usuario
+JsonWebTokenFilter-> Database: ¿Detalles usuario?
+Database -->> JsonWebTokenFilter: roles
 note right
   Si no se encuentra 401 Unauthorized
   Los roles pueden ser USER y/o ADMIN.
@@ -391,12 +389,12 @@ note right
   MOBILE_EDITION (token de la app de edición)
   los asignan otros filtros
 end note
-AuthTokenFilter -> SecurityContext: set(Autenticación(usuario, roles))
-SecurityContext -->> AuthTokenFilter
-AuthTokenFilter -->> AuthenticationEntryPoint
-AuthenticationEntryPoint -> SecurityContext: contexto seguridad?
-SecurityContext -->> AuthenticationEntryPoint: contexto actual
-AuthenticationEntryPoint -> AuthenticationEntryPoint: verificar contexto\nactual tiene rol USER,\nPUBLIC o MOBILE_EDITION
+JsonWebTokenFilter -> SecurityContext: set(Autenticación(usuario, roles))
+SecurityContext -->> JsonWebTokenFilter
+JsonWebTokenFilter -->> FilterChain
+FilterChain -> SecurityContext: contexto seguridad?
+SecurityContext -->> FilterChain: contexto actual
+FilterChain -> FilterChain: verificar contexto\nactual tiene rol USER,\nPUBLIC o MOBILE_EDITION
 note right
   método asociado a "/api/config/client/profile/{appId}/{terId}"
   solo puede ser accedido con los roles USER,
@@ -404,13 +402,13 @@ note right
   de seguridad. Sin token se usa el usuario
   público (rol PUBLIC).
 end note
-AuthenticationEntryPoint -> ConfigurationAPI: getProfile(appId, terId)
+FilterChain -> ConfigurationAPI: getProfile(appId, terId)
 note right
   appId y terId son variables de la ruta.
   Sin cookie, se usa el usuario público.
 end note
 ConfigurationAPI -> SecurityContext: ¿Usuario autenticado?
-SecurityContext -->> ConfigurationAPI: "username"\n(fijado por AuthTokenFilter)
+SecurityContext -->> ConfigurationAPI: "username"\n(fijado por JsonWebTokenFilter)
 ConfigurationAPI -> Database: Recuperar configuración según\nqué hay que configurar
 note right
   buscamos información para 
@@ -422,12 +420,12 @@ note right
   para que pueda seleccionar el territorio. 
   No hay acceso a información de tareas o capas.
   
-  Si no hay aplicación, nos está pidiendo todas las aplicaciones
+  Si no hay aplicación, se piden todas las aplicaciones
   para el territorio indicado.
   No hay acceso a información de tareas o capas.
 
 
-  Si no hay territorio y ni aplicación, nos pide saber todas 
+  Si no hay territorio ni aplicación, se piden todas 
   las aplicaciones y territorios que puede combinar
   No hay acceso a información de tareas o capas.
 
@@ -439,9 +437,7 @@ note right
   dadas sus restricciones para la aplicación y territorio
   y el resto de restricciones
 end note
-ConfigurationAPI -->> AuthenticationEntryPoint: Configuración\npedida (JSON)
-AuthenticationEntryPoint -->> AuthenticationAPI: Configuración\npedida (JSON)
-AuthenticationAPI -->> Client: Configuración\npedida (JSON)
+ConfigurationAPI -->> Client: Configuración\npedida (JSON)
 Client -> Client: Configurar visor\n(Config JSON)
 Client -->> Usuario: Visor listo para usar
 
@@ -457,10 +453,10 @@ actor Usuario
 participant "Visor de mapas" as Client
 participant "Proxy" as Proxy <<@RestController>>
 participant "Configuration API" as ConfigurationAPI <<@RestController>>
-participant "Authentication\nEntry Point\n(Spring Security)" as AuthenticationEntryPoint
-participant "Filtro \nmiddleware" as MiddlewareFilter
+participant "Cadena de filtros\n(Spring Security)" as FilterChain
+participant "ProxyTokenFilter" as ProxyTokenFilter
 'participant "API de\nconfiguración\ny autorización" as ConfigurationAPI
-participant "Utilidades\nJWT" as JWTUtils
+participant "JsonWebTokenService" as JsonWebTokenService
 participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 participant "WMS Público" as PublicWMS
@@ -521,7 +517,7 @@ note right
 end note
 Client ->> Proxy: GetMap
 note right
- GET /proxy/{appId}/{terId}/{type}/{typeId}?{mapParams}
+ GET /proxy/{appId}/{terId}/{type}/{typeId}/{cartographyId}?{mapParams}
  Authorization: Bearer {proxyToken}
  (token de corta duración obtenido con
  POST /api/authenticate/proxy)
@@ -536,6 +532,7 @@ end note
   {
     "type" : "{type}",
     "typeId" : {typeId},
+    "cartographyId" : {cartographyId},
     "terId" : {terId},
     "appId" : {appId},
     "method" : "GET",
@@ -544,33 +541,36 @@ end note
     }
   }
   end note
-  ConfigurationAPI ->> AuthenticationEntryPoint: 
-  AuthenticationEntryPoint ->> MiddlewareFilter: Filtra petición
-  MiddlewareFilter ->> MiddlewareFilter: MiddlewareKey\nconocida?
+  ConfigurationAPI ->> FilterChain: 
+  FilterChain ->> ProxyTokenFilter: Filtra petición
+  ProxyTokenFilter ->> ProxyTokenFilter: ¿X-SITMUN-Proxy-Key\ncorrecta?
   note right
-    Si no se verifica 401 Unauthorized
+    Si es correcta, la petición se autentica como
+    proxy (rol PROXY). Si no, sigue anónima y la
+    regla de seguridad del paso siguiente responde
+    401 Unauthorized.
   end note
-  MiddlewareFilter ->> SecurityContext: set(Autenticación("proxy", [PROXY]))
-  MiddlewareFilter -->> AuthenticationEntryPoint
-  AuthenticationEntryPoint ->> SecurityContext: contexto seguridad?
-  SecurityContext -->> AuthenticationEntryPoint: contexto actual
-  AuthenticationEntryPoint ->> AuthenticationEntryPoint: verificar contexto\nactual tiene rol PROXY
+  ProxyTokenFilter ->> SecurityContext: set(Autenticación("proxy", [PROXY]))
+  ProxyTokenFilter -->> FilterChain
+  FilterChain ->> SecurityContext: contexto seguridad?
+  SecurityContext -->> FilterChain: contexto actual
+  FilterChain ->> FilterChain: verificar contexto\nactual tiene rol PROXY
   note right
     método asociado a "/api/config/proxy" 
     solo puede ser accedido con el rol PROXY
     por la configuración de seguridad
     Si no se verifica 401 Unauthorized
   end note
-  AuthenticationEntryPoint ->> ConfigurationAPI: getServiceConfiguration(ConfigProxyRequestDto)
+  FilterChain ->> ConfigurationAPI: getServiceConfiguration(ConfigProxyRequestDto)
   note right
     ConfigProxyRequestDto: appId, terId, type, typeId,
     cartographyId, method, parameters, requestBody.
     El token del usuario llega en la cabecera Authorization.
   end note
-  ConfigurationAPI ->> JWTUtils: Validar token JWT
-  JWTUtils -->> ConfigurationAPI: Token OK
-  ConfigurationAPI ->> JWTUtils: Extraer "username" del token\n(cabecera Authorization)
-  JWTUtils -->> ConfigurationAPI: "username"
+  ConfigurationAPI ->> JsonWebTokenService: Validar token JWT
+  JsonWebTokenService -->> ConfigurationAPI: Token OK
+  ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecera Authorization)
+  JsonWebTokenService -->> ConfigurationAPI: "username"
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
   note right
     Decodificamos configProxyRequest.type
@@ -585,12 +585,14 @@ end note
     Application = configProxyRequest.appId
     Service = configProxyRequest.typeId
     Cartography = configProxyRequest.cartographyId
+    Si el usuario no tiene acceso a este recurso
+    en la aplicación y el territorio: 403 Forbidden
   end note
   Database -->> ConfigurationAPI: Configuración\nsin\nrefinar
   ConfigurationAPI ->> ConfigurationAPI: Refinar\nconfiguración según\nqué hay que configurar
-  'ConfigurationAPI -->> AuthenticationEntryPoint: Configuración\npedida (JSON)
+  'ConfigurationAPI -->> FilterChain: Configuración\npedida (JSON)
   
-  'AuthenticationEntryPoint -->> ConfigurationAPI: Configuración\npedida (JSON)
+  'FilterChain -->> ConfigurationAPI: Configuración\npedida (JSON)
   ConfigurationAPI -->> Proxy: Configuración (JSON)
 
   note right
@@ -633,10 +635,10 @@ actor Usuario
 participant "Visor de mapas" as Client
 participant "Proxy" as Proxy
 participant "Backend" as Backend
-participant "Authentication\nEntry Point\n(Spring Security)" as AuthenticationEntryPoint
-participant "Filtro \nmiddleware" as MiddlewareFilter
+participant "Cadena de filtros\n(Spring Security)" as FilterChain
+participant "ProxyTokenFilter" as ProxyTokenFilter
 participant "API de\nconfiguración\ny autorización" as ConfigurationAPI
-participant "Utilidades\nJWT" as JWTUtils
+participant "JsonWebTokenService" as JsonWebTokenService
 participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 participant "BD Protegida" as ProtectedDatabase
@@ -675,33 +677,36 @@ note right
  }
 end note
 
-Backend ->> AuthenticationEntryPoint: 
-AuthenticationEntryPoint ->> MiddlewareFilter: Filtra petición
-MiddlewareFilter ->> MiddlewareFilter: MiddlewareKey\nconocida?
+Backend ->> FilterChain: 
+FilterChain ->> ProxyTokenFilter: Filtra petición
+ProxyTokenFilter ->> ProxyTokenFilter: ¿X-SITMUN-Proxy-Key\ncorrecta?
 note right
-  Si no se verifica 401 Unauthorized
+  Si es correcta, la petición se autentica como
+  proxy (rol PROXY). Si no, sigue anónima y la
+  regla de seguridad del paso siguiente responde
+  401 Unauthorized.
 end note
-MiddlewareFilter ->> SecurityContext: set(Autenticación("proxy", [PROXY]))
-MiddlewareFilter -->> AuthenticationEntryPoint
-AuthenticationEntryPoint ->> SecurityContext: contexto seguridad?
-SecurityContext -->> AuthenticationEntryPoint: contexto actual
-AuthenticationEntryPoint ->> AuthenticationEntryPoint: verificar contexto\nactual tiene rol PROXY
+ProxyTokenFilter ->> SecurityContext: set(Autenticación("proxy", [PROXY]))
+ProxyTokenFilter -->> FilterChain
+FilterChain ->> SecurityContext: contexto seguridad?
+SecurityContext -->> FilterChain: contexto actual
+FilterChain ->> FilterChain: verificar contexto\nactual tiene rol PROXY
 note right
   método asociado a "/api/config/proxy" 
   solo puede ser accedido con el rol PROXY
   por la configuración de seguridad
   Si no se verifica 401 Unauthorized
 end note
-AuthenticationEntryPoint ->> ConfigurationAPI: getServiceConfiguration(ConfigProxyRequestDto)
+FilterChain ->> ConfigurationAPI: getServiceConfiguration(ConfigProxyRequestDto)
 note right
   ConfigProxyRequestDto: appId, terId, type, typeId,
   cartographyId, method, parameters, requestBody.
   El token del usuario llega en la cabecera Authorization.
 end note
-ConfigurationAPI ->> JWTUtils: Validar token JWT
-JWTUtils -->> ConfigurationAPI: Token OK
-ConfigurationAPI ->> JWTUtils: Extraer "username" del token\n(cabecera Authorization)
-JWTUtils -->> ConfigurationAPI: "username"
+ConfigurationAPI ->> JsonWebTokenService: Validar token JWT
+JsonWebTokenService -->> ConfigurationAPI: Token OK
+ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecera Authorization)
+JsonWebTokenService -->> ConfigurationAPI: "username"
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
 note right
   Decodificamos configProxyRequest.type
@@ -715,10 +720,12 @@ note right
   Territory = configProxyRequest.terId
   Application = configProxyRequest.appId
   Task = configProxyRequest.typeId
+  Si el usuario no tiene acceso a este recurso
+  en la aplicación y el territorio: 403 Forbidden
 end note
 Database -->> ConfigurationAPI: Configuración\nsin\nrefinar
 ConfigurationAPI ->> ConfigurationAPI: Refinar\nconfiguración según\nqué hay que configurar
-ConfigurationAPI -->> AuthenticationEntryPoint: Configuración\npedida (JSON)
+ConfigurationAPI -->> FilterChain: Configuración\npedida (JSON)
 note right
   {
       "type": "SQL",
@@ -736,7 +743,7 @@ note right
   Los parámetros se envían como valores tipados (sqlType de JDBC)
   y nunca se concatenan en el texto SQL.
 end note
-AuthenticationEntryPoint -->> Backend: Configuración\npedida (JSON)
+FilterChain -->> Backend: Configuración\npedida (JSON)
 Backend -->> Proxy: Configuración\npedida (JSON)
 Proxy ->> Proxy: Interpreta la respuesta\ncomo una pregunta\na base de datos
 Proxy ->> ProtectedDatabase: Connect and Query (sqlinfo)
@@ -858,7 +865,9 @@ Como se puede deducir de las explicaciones anteriores:
 - La **API de Administración** expone vía una API Web mecanismos para modificar el estado de los objetos de dominio definidos en `domain` por parte de los administradores.
 - La **API de Configuración y Autorización** expone vía una API Web mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio definidos en `domain` en función de la identidad y rol del que solicita la información.
 
-```plantuml alt="Diagrama de paquetes de org.sitmun: administration (config, controller, service), authentication (controller, dto), authorization (client, proxy, access), domain e infrastructure (persistence, security, variables, web)."
+El diagrama muestra los paquetes principales; cada uno tiene además otros subpaquetes (por ejemplo `dto`, `event` o `mapper`).
+
+```plantuml alt="Diagrama de los paquetes principales de org.sitmun: administration (config, controller, service), authentication (controller, dto), authorization (client, proxy, access), domain e infrastructure (persistence, security, variables, web). No muestra todos los subpaquetes."
 @startuml Refactor
 skinparam linetype ortho
 package org.sitmun {

@@ -6,11 +6,11 @@ description: "Aplicaciones en el administrador de SITMUN 3: configurar el visor 
 
 La aplicación es el elemento principal para configurar el visor de SITMUN. Todos los elementos anteriores (capas, árboles, tareas, etc.) quedarán integrados en una aplicación. Cuando el usuario accede a SITMUN, visualiza un panel con todas las aplicaciones disponibles, ya sean las públicas o aquellas para las que tiene permisos con su rol.
 
-Para configurar una aplicación deberemos rellenar los datos de información general, encabezado, parámetros, roles, mapas de fondo y árboles.
+Para configurar una aplicación se rellenan los datos de información general, encabezado, parámetros, roles, mapas de fondo y árboles.
 
 ## Información general
 
-En este apartado facilitaremos los datos generales de la aplicación, como el nombre y la descripción.
+En este apartado se facilitan los datos generales de la aplicación, como el nombre y la descripción.
 
 El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar debemos seleccionar el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
@@ -30,21 +30,23 @@ También se puede especificar un CRS concreto con el que trabajará la aplicaci�
 
 También se permite seleccionar el **mapa de situación** que se desea utilizar en esta aplicación. La lista de mapas de situación se obtiene de todos aquellos grupos que se han etiquetado como mapas de situación en el apartado [Permisos sobre las capas](permisos-capas.md).
 
-Por último, podemos definir cuál va a ser el comportamiento de la aplicación con los territorios hijos del territorio de referencia de dicha aplicación.
+Por último, se puede definir cuál va a ser el comportamiento de la aplicación con los territorios hijos del territorio de referencia de dicha aplicación.
 
 ## Encabezado
 
-En el apartado **Encabezado** podemos definir aspectos relacionados con la visualización de la aplicación.
+En el apartado **Encabezado** se definen aspectos relacionados con la visualización de la aplicación.
 
 Se ofrecen diversas opciones de activación y desactivación para personalizar dicho aspecto:
 
-- **Mostrar el logotipo de Sitmun** y **Mostrar logotipo** (el de la institución).
+- **Mostrar el logotipo de Sitmun**.
 - **Mostrar el botón del menú de inicio**.
 - **Mostrar el botón de cambio de territorio**.
 - **Mostrar el botón de cambio de idioma**.
 - **Mostrar el botón de perfil**: da acceso a la página **Mi perfil** del visor, donde el usuario registrado puede cambiar su
   contraseña, su correo electrónico principal y sus datos en cada territorio.
 - **Mostrar el botón de desconexión**.
+
+En la misma pestaña se pueden añadir logotipos, por ejemplo el de la institución. Cada logotipo es una fila con **Nombre**, **Url** (la dirección de la imagen), **Posición** (**Izquierda** o **Derecha** del encabezado) y **Mostrar**.
 
 ## Parámetros
 

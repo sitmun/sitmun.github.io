@@ -19,7 +19,7 @@ Solo una instalación de desarrollo (perfiles `development-*.env`) las usa sin `
 - [ ] La aplicación aparece en la lista del visor.
 - [ ] El mapa se abre centrado en el territorio.
 - [ ] Se ve el primer mapa de fondo, y el selector de mapas de fondo muestra el resto.
-- [ ] El panel de capas muestra el árbol con las carpetas y las capas.
+- [ ] El panel de capas muestra el árbol con las capas (y las carpetas, si hay más de una de primer nivel).
 - [ ] Las capas marcadas con **Cargar por defecto** aparecen encendidas.
 - [ ] Al hacer clic en el mapa sobre una capa consultable aparece su información.
 - [ ] Están las herramientas del [paso 6](paso-6-herramientas.md).

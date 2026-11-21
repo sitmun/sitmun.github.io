@@ -12,13 +12,15 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Elegir cómo instalar**
 
-    | Uso | Rama o etiqueta | Perfil (`profiles/*.env`) | Datos |
-    | --- | --- | --- | --- |
-    | Probar SITMUN (*showcase*) | `v1.3.0` | `showcase.env` | Tres aplicaciones de demostración |
-    | Producción con PostgreSQL | `v1.3.0` | `postgres.env` | Sin datos de ejemplo |
-    | Producción con Oracle | `v1.3.0` | `oracle.env` | Sin datos de ejemplo |
-    | Desarrollo con PostgreSQL | `dev` | `development-postgres.env` | Datos de ejemplo |
-    | Desarrollo con Oracle | `dev` | `development-oracle.env` | Datos de ejemplo |
+    | Uso (versión) | Perfil | Datos |
+    | --- | --- | --- |
+    | Probar SITMUN (*showcase*) (`v1.3.0`) | `showcase.env` | Tres aplicaciones de demostración |
+    | Producción con PostgreSQL (`v1.3.0`) | `postgres.env` | Sin datos de ejemplo |
+    | Producción con Oracle (`v1.3.0`) | `oracle.env` | Sin datos de ejemplo |
+    | Desarrollo con PostgreSQL (`dev`) | `development-postgres.env` | Datos de ejemplo |
+    | Desarrollo con Oracle (`dev`) | `development-oracle.env` | Datos de ejemplo |
+
+    Los perfiles están en la carpeta `profiles/` del repositorio. La versión, entre paréntesis, es la etiqueta o la rama que se descarga.
 
     **Pasos de instalación (producción)**
 
@@ -200,7 +202,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     Los comandos de esta sección son para una consola *bash* (Linux, macOS, o en Windows Git Bash o WSL). En la consola de
     Windows (`cmd`) no funcionan `export`, `envsubst`, `$(...)` ni `openssl`; para compilar el visor con
     `cmd` usa `pnpm run build:win` en lugar de `pnpm run build`.
-    Las pruebas de la versión 1.3.0 se ejecutan con PostgreSQL 12 y 16 y con Oracle 11g y 21c.
+    Las pruebas de la versión 1.3.0 se ejecutan con PostgreSQL 12 y 16 y con Oracle 11g y 19c (en las pruebas, 19c se sustituye por 21c). La instalación con Docker usa PostgreSQL 16 u Oracle 23 Free.
 
     ```bash
     git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
@@ -280,7 +282,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             - `SITMUN_BACKEND_CONFIG_SECRET` debe ser idéntico al secreto del backend y tener al menos 32 caracteres.
 
             El backend y el proxy usan por defecto el puerto 8080. Si están en la misma máquina, arranca el proxy
-            en otro puerto (aquí 8082, el mismo que `SITMUN_PROXY_MIDDLEWARE_URL` del backend).
+            en otro puerto (por ejemplo 8082, el mismo que `SITMUN_PROXY_MIDDLEWARE_URL` del backend).
             Cuando arranque, `http://localhost:8082/actuator/health` responde `UP`.
 
         La imagen Docker se construye desde la raíz con `docker/proxy/Dockerfile`.
@@ -300,7 +302,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             ```bash
             cd sitmun-viewer
-            export PUBLIC_BASE_PATH=/ APP_VERSION=1.3.0 FRONT_ENV=production BUILD_TIMESTAMP=
+            export PUBLIC_BASE_PATH=/ APP_VERSION=1.3.0 FRONT_ENV=Production BUILD_TIMESTAMP=
             envsubst '$PUBLIC_BASE_PATH' < ../docker/front/viewer/index.html.template > src/index.html
             envsubst '$BUILD_TIMESTAMP,$APP_VERSION,$FRONT_ENV,$PUBLIC_BASE_PATH' \
               < ../docker/front/viewer/environment.prod.ts.template > src/environments/environment.prod.ts
@@ -331,7 +333,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             ```bash
             cd sitmun-admin
-            export PUBLIC_BASE_PATH=/ APP_VERSION=1.3.0 FRONT_ENV=production BUILD_TIMESTAMP=
+            export PUBLIC_BASE_PATH=/ APP_VERSION=1.3.0 FRONT_ENV=Production BUILD_TIMESTAMP=
             envsubst '$BUILD_TIMESTAMP,$APP_VERSION,$FRONT_ENV,$PUBLIC_BASE_PATH' \
               < ../docker/front/admin/environment.prod.ts.template > src/environments/environment.prod.ts
             pnpm run build --configuration=production --base-href=${PUBLIC_BASE_PATH}admin/

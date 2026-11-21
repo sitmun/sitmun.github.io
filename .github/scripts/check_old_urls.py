@@ -5,7 +5,10 @@ as a page, and so was every .html file (the 2023 Sphinx pages). Each one must
 still exist in the built site, as a page or a redirect (redirect_maps in
 zensical.toml, or a static redirect page under docs/), so old links and
 bookmarks keep working. Pages from before the site was built from docs/ (2021)
-are out of scope. Needs the full git history (actions/checkout with
+are out of scope. Pages listed in .github/retired-pages.txt are deliberately
+not redirected: their content (for example links to the old demo apps) no
+longer has a current equivalent, and a redirect would send readers to a page
+that does not answer what they came for. Needs the full git history (actions/checkout with
 fetch-depth: 0).
 
 Usage: python .github/scripts/check_old_urls.py [site_dir] [branch]
@@ -20,6 +23,9 @@ branch = sys.argv[2] if len(sys.argv) > 2 else "origin/master"
 # Files under docs/ that were part of a bundled app or theme templates, not pages.
 IGNORE_PREFIXES = ("viewer-app/", "admin-app/")
 IGNORE_PARTS = ("/_static/",)
+RETIRED = {line.split("#")[0].strip() for line in
+           pathlib.Path(".github/retired-pages.txt").read_text(encoding="utf-8").splitlines()
+           if line.split("#")[0].strip()}
 
 
 def git(*args: str) -> str:
@@ -35,7 +41,7 @@ for commit in git("rev-list", "--first-parent", branch).split():
 missing = []
 checked = 0
 for page in sorted(paths):
-    if page.startswith(IGNORE_PREFIXES) or any(part in "/" + page for part in IGNORE_PARTS):
+    if page.startswith(IGNORE_PREFIXES) or any(part in "/" + page for part in IGNORE_PARTS) or page in RETIRED:
         continue
     if page.endswith(".html"):
         target = site / page
@@ -51,6 +57,6 @@ for page in sorted(paths):
 
 for page in missing:
     print(f"::error::{page} was published from {branch} and no longer resolves; "
-          "add it to redirect_maps in zensical.toml")
+          "add it to redirect_maps in zensical.toml, or to .github/retired-pages.txt with the reason")
 print(f"{checked} published pages checked, {len(missing)} missing")
 sys.exit(1 if missing else 0)

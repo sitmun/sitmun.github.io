@@ -8,7 +8,7 @@ En el menú **Permisos sobre las capas** se crean grupos de permisos: conjuntos 
 
 Primero se debe crear el grupo, donde se debe indicar el nombre y el tipo de grupo de permisos:
 
-- **Nombre\***: puede ser cualquier nombre que nos permita reconocer el grupo de permisos.
+- **Nombre\***: puede ser cualquier nombre que permita reconocer el grupo de permisos.
 - **Tipo\***: puede ser Grupo de cartografía, Informe o Mapa de situación, según el uso que se le quiera dar al grupo de permisos. Existe un cuarto tipo, Mapa de fondo, que crea automáticamente cada [capa de fondo](capas-de-fondo.md); no hace falta crearlo a mano.
 
 ![Formulario de un grupo de permisos](img/permisos-formulario.webp){ loading=lazy }

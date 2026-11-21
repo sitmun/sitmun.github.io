@@ -8,7 +8,7 @@ Tareas básicas para moverse por el mapa y cambiar cómo se ve.
 
 ## Vista 3D (3D View) { #3d-view }
 
-Permite cambiar de una visualización 2D a una visualización 3D, siempre que la capa de fondo disponga de la configuración necesaria para permitir la representación tridimensional de la cartografía.
+Permite cambiar de una visualización 2D a una visualización 3D, siempre que el mapa de fondo disponga de la configuración necesaria para permitir la representación tridimensional de la cartografía.
 
 - Control API SITNA: `sitna.threed`
 

@@ -47,7 +47,7 @@ Cuando la fuente de datos funciona correctamente, pueden añadirse más fuentes 
 
 ## Plantilla
 
-A continuación accedemos a la pestaña **Plantilla**, donde puede elaborarse el código HTML que permitirá visualizar el conjunto de datos. En la plantilla puede definirse el código HTML que mejor se adapte a los requisitos de diseño de la aplicación. No obstante, para poder mostrar los datos generados por las fuentes de información, es necesario respetar una determinada nomenclatura:
+A continuación se accede a la pestaña **Plantilla**, donde puede elaborarse el código HTML que permitirá visualizar el conjunto de datos. En la plantilla puede definirse el código HTML que mejor se adapte a los requisitos de diseño de la aplicación. No obstante, para poder mostrar los datos generados por las fuentes de información, es necesario respetar una determinada nomenclatura:
 
 - Para recorrer todos los resultados devueltos por una fuente de datos, deberá utilizarse una estructura de tipo tabla de la siguiente forma:
 
@@ -93,7 +93,7 @@ El formulario de la plantilla resume los marcadores que se pueden usar. Cada fue
 | Marcador | Contenido |
 | --- | --- |
 | `{{referencia.campo}}` | Un campo de la respuesta de la fuente. |
-| `{{referencia.$param}}` | Un parámetro enviado a la fuente (por ejemplo `{{patrimonio.$id}}`). |
+| `{{referencia.$param}}` | Un parámetro enviado a la fuente, con su nombre exacto (por ejemplo `{{patrimonio.$ID}}` para el parámetro `ID`; `{{patrimonio.$id}}` no funciona). |
 | `{{referencia.url}}` | La dirección de una fuente de tipo URL o Recurso. |
 | `{{referencia.html}}` | El HTML de una plantilla anidada. |
 | `{{#APP_NAME}}` | Una [variable de sistema](../variables-sistema.md), escrita con `{{#…}}` en lugar de `#{…}`. |
@@ -116,9 +116,9 @@ Para facilitar el diseño de la plantilla, se dispone tanto de un editor visual 
 
 ## Parámetros
 
-Hasta ahora hemos definido la información general, las fuentes de información y la plantilla de visualización. Solo queda definir la gestión de los parámetros, en caso de que la plantilla los requiera.
+Hasta ahora se han definido la información general, las fuentes de información y la plantilla de visualización. Solo queda definir la gestión de los parámetros, en caso de que la plantilla los requiera.
 
-En el ejemplo necesitamos el identificador del bien; por lo tanto, es necesario definir dicho parámetro. Para ello utilizaremos la pestaña **Parámetros**.
+En el ejemplo se necesita el identificador del bien; por lo tanto, es necesario definir dicho parámetro. Para ello se utiliza la pestaña **Parámetros**.
 
 El parámetro que se defina en la plantilla debe tener el mismo nombre que el parámetro asociado a la fuente de datos. En nuestro caso, la fuente de datos es una consulta que dispone de un parámetro denominado `ID`; por consiguiente, en la plantilla también deberá definirse un parámetro con el nombre `ID` (con un valor de prueba, `1`, que se usa al probar la plantilla).
 

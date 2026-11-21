@@ -24,7 +24,7 @@ Se trabaja en abierto sobre GitHub, bajo el paraguas de la [organización SITMUN
 
 ## Automatización de procesos
 
-En general haremos siempre énfasis en la automatización de todo lo que sea automatizable en este proyecto.
+En general, se pone siempre énfasis en la automatización de todo lo que sea automatizable en este proyecto.
 
 - En especial, no se puede trabajar en este proyecto sin tener claro que la automatización de pruebas es una buena práctica inexcusable en el desarrollo de software.
 - La construcción y despliegue automáticos, al menos en servidores de pruebas y/o preproducción, también serán el requisito por defecto, salvo muy buena razón en contra. Ahora mismo la construcción y pruebas automáticas se hacen en [GitHub Actions](https://docs.github.com/en/actions). Esto puede evolucionar con el tiempo.

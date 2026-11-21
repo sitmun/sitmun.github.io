@@ -10,7 +10,7 @@ Las opciones de sistema permiten ajustar algunos parámetros generales de SITMUN
 
 El visor de SITMUN se basa, en su parte de frontend, en la API SITNA promovida por el Gobierno de Navarra. Esta API ofrece un conjunto de controles para realizar diversas acciones con el visor.
 
-En este apartado podemos gestionar de manera rápida la relación entre dichos controles de la API SITNA y la tarea de SITMUN que hace uso de ellos.
+En este apartado se gestiona de manera rápida la relación entre dichos controles de la API SITNA y la tarea de SITMUN que hace uso de ellos.
 
 ## Idiomas
 
@@ -18,7 +18,14 @@ Permite gestionar los idiomas disponibles en SITMUN. Añadir un idioma no signif
 
 Desde aquí también se cambia el **idioma por defecto** de SITMUN: al marcar otro idioma como idioma por defecto, el administrador muestra una vista previa de los textos afectados antes de aplicar el cambio.
 
-Este idioma se refiere al idioma de los contenidos de SITMUN (lo que el usuario o el administrador pueden añadir), no al idioma de los propios mensajes de la aplicación, que se deberían gestionar de manera diferente en el caso de añadir un nuevo idioma.
+El idioma por defecto es el idioma de los contenidos de SITMUN (lo que el administrador escribe) y también el idioma con el que el visor muestra su interfaz la primera vez, sea cual sea el idioma del navegador. Después, cada usuario puede cambiarlo con el selector de idioma del visor, que muestra los idiomas activos.
+
+Cada idioma tiene además:
+
+- **Activo**: si está desactivado, el idioma no aparece en los menús ni en los formularios de traducción, y no puede ser el idioma por defecto.
+- **Orden**: el orden de los idiomas en los selectores; se cambia con el campo **Orden** del formulario de cada idioma.
+
+Añadir un idioma no traduce los mensajes propios del visor y del administrador: solo están disponibles en los idiomas que incluye cada versión de SITMUN.
 
 ## Traducciones de literales
 
@@ -45,4 +52,5 @@ En general, las listas de valores que se utilizan en SITMUN provienen de un conj
 Permite editar y añadir parámetros de configuración general de SITMUN, por ejemplo:
 
 - `language.default`: indica el idioma por defecto de SITMUN. Es de solo lectura: se cambia desde [Idiomas](#idiomas).
-- `srs.default.identifier`: indica el sistema de referencia que se utilizará por defecto.
+- `proxy`: dirección pública del proxy (por ejemplo `https://ejemplo.org/middleware`). Si existe, tiene prioridad sobre la variable `SITMUN_PROXY_MIDDLEWARE_URL` del backend en las direcciones de las capas y los servicios que reciben los visores. Las tareas de consulta, de localizador y de más información siguen usando `SITMUN_PROXY_MIDDLEWARE_URL`, así que conviene que las dos tengan el mismo valor.
+- `srs.default.identifier`: aparece en las instalaciones de ejemplo, pero en la versión 1.3.0 ningún componente lo usa. El sistema de referencia se define en cada [aplicación](aplicacion.md).

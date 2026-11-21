@@ -23,7 +23,7 @@ Una **aplicación** es el proyecto que ve el usuario en el visor. No contiene la
 | Concepto | Menú del administrador | Qué es |
 | --- | --- | --- |
 | Servicio | Servicio | Un servidor de mapas externo (WMS, WMTS, WFS) y su URL. |
-| Capa | Capas | Una o varias capas de un servicio, con nombre, escalas y transparencia. En SITMUN también se llama «cartografía». |
+| Capa | Capas | Una o varias capas de un servicio, con nombre, escalas y transparencia. En SITMUN también se llama «Cartografía». |
 | Grupo de permisos | Permisos sobre las capas | Un conjunto de capas que se da a uno o varios roles. Su **Tipo** habitual es «Grupo de cartografía». |
 | Capa de fondo | Capas de fondo | Un mapa de fondo que el usuario elige en el selector de mapas de fondo. En la aplicación, la pestaña se llama **Mapas de fondo**. |
 | Árbol | Árboles | La lista de carpetas y capas que el usuario ve en el panel de capas. |

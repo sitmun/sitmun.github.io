@@ -63,7 +63,7 @@ Permite configurar la impresión de un mapa. Se pueden seleccionar parámetros b
 
 ![Cuadro de diálogo de impresión](../../img/basicas-print-dialogo.webp){ loading=lazy }
 
-Mediante este cuadro de diálogo se configura la impresión y se activa la vista siguiente, donde podemos acabar de situar el mapa deseado e imprimir cuando sea correcto.
+Mediante este cuadro de diálogo se configura la impresión y se activa la vista siguiente, donde se acaba de situar el mapa deseado e imprimir cuando sea correcto.
 
 ![Vista previa de impresión con código QR](../../img/basicas-print-vista.webp){ loading=lazy }
 

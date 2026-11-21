@@ -8,7 +8,7 @@ La funcionalidad principal de SITMUN es la visualización de cartografía median
 
 En este apartado se pueden configurar los servicios cartográficos que proporcionan la información que se puede visualizar en el visor de SITMUN.
 
-Para añadir un nuevo servicio cartográfico lo podemos hacer mediante el formulario siguiente, indicando los datos específicos del servicio, tal y como se muestra en la captura de pantalla.
+Para añadir un nuevo servicio cartográfico se usa el formulario siguiente, indicando los datos específicos del servicio, tal y como se muestra en la captura de pantalla.
 
 ## Información general
 
@@ -16,7 +16,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 
 ![Formulario de nuevo servicio](img/servicios-formulario.webp){ loading=lazy }
 
-- **Título del servicio\*** y **Descripción del servicio**: pueden ser cualquier texto que nos permita reconocer el servicio añadido. Se recomienda disponer de algún criterio de taxonomía para poder nombrar todos los elementos de SITMUN y luego facilitar su identificación.
+- **Título del servicio\*** y **Descripción del servicio**: pueden ser cualquier texto que permita reconocer el servicio añadido. Se recomienda disponer de algún criterio de taxonomía para poder nombrar todos los elementos de SITMUN y luego facilitar su identificación.
 - **Bloqueado**: si está activado, bloquea un servicio y todas sus capas, que ya no son visibles en el visor SITMUN.
 - **Tipo de servicio\***: es posible añadir servicios de tipo Web Map Service (WMS), Web Feature Service (WFS) o Web Map Tile Service (WMTS).
 - **Endpoint del servicio\***: será la URL de conexión del servicio cartográfico.
@@ -38,15 +38,15 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para la conexión a servicios con autenticación debemos utilizar el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica** (usuario y contraseña). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
+Para la conexión a servicios con autenticación se utiliza el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica** (usuario y contraseña). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
 
-Al seleccionar la opción de autenticación deberemos facilitar el usuario y la contraseña de conexión al servicio.
+Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
 
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 
 ## Capas
 
-Una vez configurado el servicio podemos gestionar las capas que dicho servicio proporciona.
+Una vez configurado el servicio se pueden gestionar las capas que dicho servicio proporciona.
 
 La pestaña **Capas** aparecerá vacía en el momento de crear el servicio. Las capas se pueden configurar automáticamente o también existe la opción de definirlas manualmente, lo que ofrece otras posibilidades de configuración. Esta segunda opción se detalla en el apartado [Capas](capas.md).
 
@@ -54,9 +54,9 @@ Para cargar las capas automáticamente se utiliza el botón **Actualizar capas d
 
 ![Capas ofrecidas por el servicio](img/servicios-obtener-capas.webp){ loading=lazy }
 
-En este punto aún no tenemos ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, **Capa no registrada**.
+En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, **Capa no registrada**.
 
-Del listado podemos seleccionar las capas que deseemos incorporar a SITMUN y pulsar el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
+Del listado se seleccionan las capas que se deseen incorporar a SITMUN y pulsar el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
 
 !!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
     En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto
@@ -70,7 +70,7 @@ Del listado podemos seleccionar las capas que deseemos incorporar a SITMUN y pul
 
 *Seleccionamos las capas deseadas, pulsamos **Registrar** y finalizamos guardando el servicio.*
 
-Una vez guardado, si volvemos a la pestaña **Capas** veremos que esas capas ya aparecen como registradas. Posteriormente deberemos configurarlas con las opciones descritas en el apartado [Capas](capas.md) de este manual, pero el primer paso es registrarlas en SITMUN.
+Una vez guardado, al volver a la pestaña **Capas** esas capas ya aparecen como registradas. Posteriormente se deben configurar con las opciones descritas en el apartado [Capas](capas.md) de este manual, pero el primer paso es registrarlas en SITMUN.
 
 ![Capas registradas en el servicio](img/servicios-capas-registradas.webp){ loading=lazy }
 
