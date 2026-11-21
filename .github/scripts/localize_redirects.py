@@ -27,7 +27,9 @@ MESSAGE = re.compile(
 done = 0
 for page in site.rglob("*.html"):
     html = page.read_text(encoding="utf-8")
-    if 'http-equiv="refresh"' not in html:
+    # Zensical's redirect pages carry this script; static redirect pages under
+    # docs/ (copied as they are) don't, and are not counted.
+    if 'http-equiv="refresh"' not in html or "var anchor=window.location.hash" not in html:
         continue
     if 'lang="es"' in html and "nueva ubicación" in html:  # already translated
         done += 1
