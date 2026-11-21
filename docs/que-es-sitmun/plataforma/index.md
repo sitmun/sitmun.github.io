@@ -33,7 +33,7 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
   y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: una de edición de datos sin conexión y una turística.
 - **Nivel de lógica de negocio**: desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
   tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
-  El acceso a la lógica de negocio de los **visores de mapas** se realiza sobre todo a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy-middleware**); además, el visor usa la API de Autenticación y algunos endpoints de la API de Administración (ver [Arquitectura](arquitectura/index.md)).
+  El acceso a la lógica de negocio de los **visores de mapas** se realiza sobre todo a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy Middleware**); además, el visor usa la API de Autenticación y algunos endpoints de la API de Administración (ver [Arquitectura](arquitectura/index.md)).
   El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]** (parte de **SITMUN Backend**).
   En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
 - **Nivel de datos**: la base de datos de SITMUN puede ser **PostgreSQL** (12 o posterior) u **Oracle** (11g o posterior); las pruebas usan además H2.
@@ -60,7 +60,7 @@ block-beta
     columns 3
     backend["SITMUN<br>Backend"]
     space
-    proxy["SITMUN<br>proxy-middleware"]
+    proxy["SITMUN<br>Proxy Middleware"]
   end
   space
   db3["Servicio web<br>restringido"]

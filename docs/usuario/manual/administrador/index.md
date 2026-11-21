@@ -17,18 +17,18 @@ El código fuente del proyecto se puede encontrar en el [repositorio de GitHub d
 Sin entrar en detalles técnicos que no son objeto de este manual, sí que es conveniente describir los principales elementos que configuran SITMUN 3:
 
 - **SITMUN Viewer (visor).** Es la aplicación que verán los usuarios de SITMUN y donde se pueden consultar los datos cartográficos y ejecutar las funcionalidades de SITMUN.
-- **SITMUN admin.** Es la aplicación de administración que utilizarán los usuarios administradores para configurar el visor y añadir y mantener los datos cartográficos de SITMUN.
-- **SITMUN backend.** Es la parte de la aplicación que se encarga de la lógica de la aplicación y de gestionar las consultas a la base de datos. Esta parte de la aplicación se ejecuta en el servidor donde se aloje la instalación de SITMUN y no es visible ni para el usuario público ni para el administrador. La gestiona el responsable de sistemas de SITMUN.
-- **SITMUN proxy-middleware.** Es una parte de la aplicación que tiene como fin gestionar peticiones al backend que requieren una capa extra de seguridad, como por ejemplo las conexiones a servicios cartográficos con autenticación.
+- **SITMUN Admin (aplicación de administración).** Es la aplicación que utilizarán los usuarios administradores para configurar el visor y añadir y mantener los datos cartográficos de SITMUN.
+- **SITMUN Backend.** Es la parte de la aplicación que se encarga de la lógica de la aplicación y de gestionar las consultas a la base de datos. Esta parte de la aplicación se ejecuta en el servidor donde se aloje la instalación de SITMUN y no es visible ni para el usuario público ni para el administrador. La gestiona el responsable de sistemas de SITMUN.
+- **SITMUN Proxy Middleware.** Es una parte de la aplicación que tiene como fin gestionar peticiones al backend que requieren una capa extra de seguridad, como por ejemplo las conexiones a servicios cartográficos con autenticación.
 - **Base de datos SITMUN.** Es la base de datos donde SITMUN guarda toda la información referente a servicios, capas, usuarios, roles, tareas, aplicaciones, etc. El proyecto contiene modelos de base de datos en Oracle y PostgreSQL, pero también permite utilizar bases de datos externas a la propia aplicación.
 
 ```mermaid
 flowchart TB
-    admin["<b>SITMUN admin</b><br>/admin"]
-    viewer["<b>SITMUN viewer</b><br>/viewer"]
+    admin["<b>SITMUN Admin</b><br>administración, /admin"]
+    viewer["<b>SITMUN Viewer</b><br>visor, /viewer"]
     front["<b>Servidor web</b><br>nginx"]
-    backend["<b>SITMUN backend</b>"]
-    proxy["<b>SITMUN proxy-middleware</b>"]
+    backend["<b>SITMUN Backend</b>"]
+    proxy["<b>SITMUN Proxy Middleware</b>"]
     db[("<b>Base de datos SITMUN</b><br>PostgreSQL u Oracle")]
     ext["<b>Servicios cartográficos<br>y bases de datos externas</b>"]
 

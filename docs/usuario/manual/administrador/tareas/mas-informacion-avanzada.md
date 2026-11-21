@@ -50,13 +50,15 @@ flowchart TB
 
 *En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y asociarlos con los de las plantillas, y las plantillas, asociarlos con los de las consultas.*
 
-Además de consultas y plantillas, un MIA puede tener como tarea hija una **exportación documental**. En ese caso, la ventana del MIA en el visor muestra el botón **Exportar PDF**, que genera un PDF de la plantilla.
+Las tareas hijas de un MIA solo pueden ser consultas y plantillas. La **exportación documental** no es una tarea hija: es una tarea propia que se asigna, como cualquier otra, a roles y territorios. Si la aplicación la recibe, el visor añade el menú **Exportar** a los resultados de las plantillas en la ventana de los MIA, con una entrada por cada tarea de exportación (con su nombre, por ejemplo «Exportar PDF A4 vertical»), que genera un PDF de la plantilla. Un MIA cuyas tareas hijas son solo consultas no tiene ese menú.
 
 ## MIA sin plantillas de visualización
 
 ### Paso 1: información general
 
 El primer paso es la configuración general de la tarea MIA. El nombre puede ser cualquier texto, y el grupo de tareas también, según el criterio del administrador para organizar las tareas.
+
+El **Modo de visualización** (obligatorio) decide cómo muestra el visor los resultados de las tareas hijas: **Pestañas** (por defecto), una pestaña por resultado, o **Scroll**, uno debajo de otro.
 
 La tarea MIA irá vinculada a una cartografía (cuadro **Cartografía utilizada**), que será donde se activará cuando el usuario haga clic en algún elemento de esa cartografía. Por tanto, en ese cuadro se añade la capa en la que se quiere que se active el MIA.
 

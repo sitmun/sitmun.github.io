@@ -54,7 +54,7 @@ Como la mayoría de los elementos de SITMUN, las aplicaciones permiten crear par
 
 ## Roles
 
-A la aplicación se le asignan los roles que tendrán acceso a ella. Cabe mencionar que, si no se asigna ningún rol, la aplicación no será accesible: sin asignación de roles, ningún usuario (ni siquiera el usuario público) podrá visualizar la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, se crea un rol, se asigna al usuario `public` en su territorio (pestaña **Roles por territorio** del usuario) y se añade a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
+A la aplicación se le asignan los roles que tendrán acceso a ella. Sin ningún rol asignado, ningún usuario (ni siquiera el usuario público) puede ver la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, se crea un rol, se asigna al usuario `public` en su territorio (pestaña **Roles por Territorio** del usuario) y se añade a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
 
 ## Mapas de fondo
 

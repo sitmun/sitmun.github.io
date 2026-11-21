@@ -41,9 +41,9 @@ Publicar en un servidor web
 Revisar la documentación
 SITMUN 3
 SITMUN Viewer (visor).
-SITMUN admin.
-SITMUN backend.
-SITMUN proxy-middleware.
+SITMUN Admin (aplicación de administración).
+SITMUN Backend.
+SITMUN Proxy Middleware.
 Si el mapa de fondo es WMTS
 Sin esta tarea no se ve el árbol.
 Soluciones:
@@ -64,3 +64,5 @@ textos de aplicación
 textos de contenido
 tipo de aplicación
 valores tipados
+Si la aplicación es privada
+Actualizar desde 1.2.x

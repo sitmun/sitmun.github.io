@@ -65,9 +65,21 @@ netstat -ano | findstr :9000  # Windows
 # y se vuelve a arrancar: docker compose up -d --pull always --no-build
 # (si front se ha construido localmente para publicar bajo una ruta, sin --pull always:
 #  docker compose pull --policy always backend proxy && docker compose up -d --no-build)
-# Los puertos 9001-9005 se publican directamente en compose.yaml.
 # Otra opción: detener el proceso que usa el puerto.
 ```
+
+Los puertos 9001 a 9005 están fijos en `compose.yaml`. Para cambiarlos, o para publicarlos solo en `127.0.0.1`, se crea
+un `compose.override.yaml` junto a `compose.yaml` con la etiqueta `!override`; sin ella, Compose añade el puerto nuevo
+al antiguo en lugar de sustituirlo:
+
+```yaml
+services:
+  backend:
+    ports: !override
+      - "127.0.0.1:9001:8080"
+```
+
+Si cambia el puerto del backend, cambian también las direcciones de comprobación (`/api/dashboard/health`) y de Swagger.
 
 ### Problemas de memoria
 
@@ -101,6 +113,7 @@ docker stats
 **Síntomas:**
 
 - Error: «Connection refused».
+- Error: «password authentication failed for user "sitmun3"», después de cambiar `DATABASE_PASSWORD`.
 - El backend no puede conectarse a la base de datos.
 
 **Soluciones:**
@@ -118,6 +131,17 @@ docker compose restart postgres
 # Comprobar la conexión
 docker compose exec postgres psql -U sitmun3 -d sitmun3
 ```
+
+La base de datos conserva la contraseña con la que se creó. Si `DATABASE_PASSWORD` ha cambiado después, se cambia también
+en la base de datos (sin perder datos) y se vuelve a crear el contenedor del backend, para que lea el `.env` nuevo
+(`restart` no lo vuelve a leer):
+
+```bash
+docker compose exec postgres psql -U sitmun3 -d sitmun3 -c "ALTER USER sitmun3 PASSWORD '<nueva contraseña>'"
+docker compose up -d backend
+```
+
+En Oracle, `ALTER USER sitmun3 IDENTIFIED BY "<nueva contraseña>"`.
 
 ### Errores de migración de base de datos
 
@@ -182,6 +206,8 @@ curl http://localhost:9001/api/setup/status
 - Si el navegador conserva una sesión antigua, se borran las cookies del sitio o se prueba en una ventana privada.
 - En el visor, un usuario cuyo puesto en el territorio ha caducado (**Fecha de baja**) pierde la sesión al renovarla: ver [Usuarios](../manual/administrador/usuarios.md).
 
+<a id="problemas-del-front"></a>
+
 ## Problemas del contenedor `front` { #problemas-de-frontend }
 
 ### El visor o el administrador no cargan { #aplicaciones-no-cargan }
@@ -220,6 +246,8 @@ puerto) y se vuelve a arrancar. Si el error aparece con un servicio externo, el 
 navegador: se activa **Usar proxy SITMUN** en el servicio.
 
 ## Problemas de red
+
+<a id="los-servicios-no-se-comunican"></a>
 
 ### Los servicios no se comunican { #servicios-no-se-comunican }
 
@@ -279,6 +307,8 @@ docker compose up -d --pull always --no-build
 
 ## Registros y depuración { #logs-y-debugging }
 
+<a id="ver-los-registros-de-los-servicios"></a>
+
 ### Ver los registros de los servicios { #ver-logs-de-servicios }
 
 ```bash
@@ -293,6 +323,12 @@ docker compose logs front
 # Seguir los registros en tiempo real
 docker compose logs -f backend
 ```
+
+El backend y el proxy escriben su registro en la salida estándar. El nivel se cambia en `.env` con `LOGGING_LEVEL_ROOT`
+y `LOGGING_LEVEL_ORG_SITMUN`, y se aplica con `docker compose up -d backend proxy`. Los perfiles de producción
+(`profiles/postgres.env` y `profiles/oracle.env`) los ponen en `WARN` e `INFO`; sin ellos, Compose usa `INFO` y `DEBUG`.
+Los registros de nginx del contenedor `front` no salen en `docker compose logs front`: van al archivo `logs/front/nginx`,
+que nada rota, así que conviene vaciarlo o rotarlo de vez en cuando.
 
 ### Depuración avanzada { #debugging-avanzado }
 
@@ -324,6 +360,10 @@ docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U sitmun3 sitmun3 < bac
 docker compose start backend proxy
 ```
 
+Los comandos usan el usuario y la base de datos por defecto (`sitmun3`); si se cambiaron `DATABASE_USERNAME` o `DATABASE`,
+se usan esos valores. Además de la base de datos, conviene guardar `.env`, que tiene los secretos, y los archivos de
+configuración propios, como `application-mail.yml`.
+
 Con `ON_ERROR_STOP` el comando se detiene y devuelve un error si algo falla. Una copia hecha sin `--clean` solo se
 puede restaurar en una base de datos vacía: antes se ejecuta el `DROP SCHEMA` de
 [Errores de migración](#errores-de-migracion-de-base-de-datos), sin reiniciar el backend.
@@ -354,6 +394,9 @@ Si los problemas persisten:
 1. Se revisan las [incidencias abiertas](https://github.com/sitmun/sitmun/issues) del repositorio de SITMUN, por si ya están descritas.
 2. Si no, se abre una [nueva incidencia](https://github.com/sitmun/sitmun/issues/new) con la información de abajo.
 3. Para otras consultas, ver los [órganos de gobierno de la Red SITMUN](../../que-es-sitmun/red-sitmun/contacto.md).
+
+Una vulnerabilidad de seguridad no se notifica en una incidencia pública, sino de forma privada, como indica la
+[política de seguridad](https://github.com/sitmun/sitmun/security/policy).
 
 !!! tip "Información útil para una incidencia"
     - Versión de SITMUN, de Docker y de Docker Compose.

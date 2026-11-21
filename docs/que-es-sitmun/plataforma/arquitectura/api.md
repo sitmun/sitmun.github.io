@@ -55,9 +55,9 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
   Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
   *usuario público*.
 - **Configuración y Autorización de Proxy** (`POST /api/config/proxy`).
-  La petición debe autenticarse usando una API key enviada mediante la cabecera denominada `X-SITMUN-Proxy-Key`.
+  La petición debe autenticarse usando una clave de API (*API key*) enviada mediante la cabecera denominada `X-SITMUN-Proxy-Key`.
   El token del usuario, si lo hay, se reenvía en la cabecera `Authorization: Bearer`.
-  El uso de una API key específica para el endpoint **Configuración y Autorización de Proxy** es una decisión de seguridad.
+  El uso de una clave de API específica para el endpoint **Configuración y Autorización de Proxy** es una decisión de seguridad.
   Evita que a un cliente malicioso le pueda bastar el uso del token obtenido de la API de Autenticación
   para obtener secretos vía el endpoint **Configuración y Autorización de Proxy**.
 
@@ -74,7 +74,7 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
   Estos parámetros de filtrado se añaden a la petición que se realiza al servicio o base de datos final por parte del
   proxy. Estos parámetros se gestionan mediante la [API de Administración][api-de-administracion] indicando como
   valor una variable de sistema con la sintaxis `#{NOMBRE}`, por ejemplo `#{USER_ID}`, `#{APP_ID}`, `#{TERR_ID}` o `#{TERR_COD}`.
-  La lista completa está en el [Anexo I: variables de sistema](../../../usuario/manual/administrador/variables-sistema.md).
+  La lista completa está en la página [Variables de sistema](../../../usuario/manual/administrador/variables-sistema.md).
 
 ## API de Proxy {#api-de-proxy}
 
@@ -129,7 +129,7 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 
 - **Autenticación de acceso básica (Servicios)**: modificador encargado de incluir en la cabecera de la petición HTTP un usuario y contraseña si fuese necesario ([RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617)).
 
-- **API key (consultas Web API)**: modificador encargado de añadir una clave de acceso en una cabecera o en un parámetro de la consulta. Los servicios OGC (WMS, WFS, WMTS) solo admiten autenticación HTTP básica.
+- **Clave de API (consultas Web API)**: modificador encargado de añadir una clave de acceso en una cabecera o en un parámetro de la consulta. Los servicios OGC (WMS, WFS, WMTS) solo admiten autenticación HTTP básica.
 
 - **Selección (JDBC)**: modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
 
@@ -142,7 +142,8 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 La API de Administración expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
 de **SITMUN 3** por parte de la **aplicación de administración**.
 El visor usa además algunos de sus endpoints: `GET /api/languages` y `GET /api/configuration-parameters`,
-abiertos sin sesión, para los idiomas y los parámetros de configuración, y `POST /api/tasks/template/more-info-advanced/render`
+abiertos sin sesión, para los idiomas y los parámetros de configuración; `GET` y `POST /api/account`, para el rol `USER`,
+para los datos y el perfil del usuario identificado; y `POST /api/tasks/template/more-info-advanced/render`
 y `POST /api/tasks/template/export`, abiertos a los roles `USER`, `ADMIN` y `PUBLIC`, para mostrar y exportar las plantillas
 de las tareas de *más información avanzada*.
 La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion]

@@ -2,7 +2,7 @@
 description: "Paso 7 de la guía: crear la aplicación de SITMUN 3 y enlazarle roles, mapas de fondo y árboles."
 ---
 
-# Paso 7: crear la aplicación y juntarlo todo
+# Paso 7: crear la aplicación
 
 La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué roles forman el visor.
 
@@ -12,7 +12,7 @@ La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué ro
 
 - **Nombre** (obligatorio) y **Descripción**.
 - **Tipo** = **Aplicación interna** (el visor de SITMUN). **Aplicación externa** solo guarda un enlace a otra web.
-- **Título**: el texto de la cabecera del visor.
+- **Título**: el nombre que ve el usuario en la lista de aplicaciones del visor. El mapa no lo muestra.
 - **Estilo de mapa utilizado**: déjalo en blanco o pon `sitmun-base`.
 - **CRS por defecto de la aplicación**: por ejemplo `EPSG:25831`. Si el territorio tiene CRS propio, manda el del territorio.
 - **Mapa de situación**: opcional, un grupo de tipo **Mapa de situación** ([paso 4](paso-4-grupos-y-fondos.md)). Si no eliges ninguno, se usa el primer mapa de fondo.

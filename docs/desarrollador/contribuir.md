@@ -67,7 +67,7 @@ Desde la versión 1.3.0 todo el código de SITMUN está en un único repositorio
 | App móvil de edición | `sitmun-mobile/sitmun-edition` | Ionic 8, Angular 22, Capacitor 8 |
 | App turística | `sitmun-mobile/sitmun-touristic` | Ionic 8, Angular 22, Capacitor 8 |
 | Backend | `sitmun-backend` | Spring Boot 4.1, Java 17 |
-| Proxy middleware | `sitmun-proxy` | Spring Boot 4.1, Java 17 |
+| Proxy Middleware | `sitmun-proxy` | Spring Boot 4.1, Java 17 |
 | MBTiles | `sitmun-addons/sitmun-mbtiles` | Spring Boot 4.1, Java 17 |
 | Bibliotecas comunes | `sitmun-common` | Java 17 |
 | Despliegue con Docker | `compose.yaml`, `docker/`, `profiles/` | Docker Compose |

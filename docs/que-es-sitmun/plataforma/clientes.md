@@ -173,7 +173,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Compartir**: posibilidad de compartir el mapa de diferentes maneras:
 
     - A través de un enlace.
-    - A través de un IFRAME configurable con las capas activas en el momento de generar el IFRAME y
+    - A través de un `iframe` configurable con las capas activas en el momento de generar el `iframe` y
       en el que se pueda hacer `GetFeatureInfo` de las capas y algunas herramientas básicas (cambiar el fondo del mapa).
     - Enlace a redes sociales.
     - Generar código QR.

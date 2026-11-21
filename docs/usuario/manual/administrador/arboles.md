@@ -34,7 +34,7 @@ Para que cada nuevo elemento se cargue en la estructura, se debe guardar previam
 
 Dentro de las carpetas se pueden crear otras subcarpetas o directamente capas de información cartográfica.
 
-El botón **Cargar desde servicio** crea los nodos a partir de un servicio WMS, pero solo para las capas de ese servicio que ya están registradas como capas de SITMUN; las demás se omiten sin aviso. En la versión 1.3.0 los nodos creados no quedan enlazados a su capa: después de guardar, se elige la capa en **Cartografía** en cada uno.
+El botón **Cargar desde servicio** crea los nodos a partir de un servicio WMS, pero solo para las capas de ese servicio que ya están registradas como capas de SITMUN; las demás se omiten sin aviso, aunque las carpetas se crean igualmente, vacías si hace falta. En la versión 1.3.0 los nodos creados no quedan enlazados a su capa: después de guardar, se elige la capa en **Cartografía** en cada uno.
 
 ![Botones para añadir una capa o una subcarpeta](img/arboles-anadir-elementos.webp){ loading=lazy }
 
