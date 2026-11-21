@@ -11,7 +11,7 @@ En esta página están el logotipo y el isotipo en sus distintas versiones, list
 ## Color y tipografías
 
 - **Color corporativo**: naranja PANTONE 1375 C, CMYK 0, 51, 100, 0, RGB 255, 147, 0 (`#FF9300`).
-- **Tipografías**: Bariol, la del logotipo, y Source Sans Pro, de licencia libre, para los textos.
+- **Tipografías**: Bariol, la del logotipo, y Source Sans Pro, tipografía abierta y de libre acceso, para los textos.
 
 Las normas de uso (área de protección, tamaños mínimos, fondos y usos incorrectos) están en el manual.
 
