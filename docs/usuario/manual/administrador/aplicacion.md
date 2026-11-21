@@ -38,13 +38,15 @@ En el apartado **Encabezado** podemos definir aspectos relacionados con la visua
 
 Se ofrecen diversas opciones de activación y desactivación para personalizar dicho aspecto:
 
-- **Mostrar el logotipo de Sitmun** y **Mostrar logotipo** (el de la institución).
+- **Mostrar el logotipo de Sitmun**.
 - **Mostrar el botón del menú de inicio**.
 - **Mostrar el botón de cambio de territorio**.
 - **Mostrar el botón de cambio de idioma**.
 - **Mostrar el botón de perfil**: da acceso a la página **Mi perfil** del visor, donde el usuario registrado puede cambiar su
   contraseña, su correo electrónico principal y sus datos en cada territorio.
 - **Mostrar el botón de desconexión**.
+
+En la misma pestaña se pueden añadir logotipos, por ejemplo el de la institución. Cada logotipo es una fila con **Nombre**, **Url** (la dirección de la imagen), **Posición** (**Izquierda** o **Derecha** del encabezado) y **Mostrar**.
 
 ## Parámetros
 

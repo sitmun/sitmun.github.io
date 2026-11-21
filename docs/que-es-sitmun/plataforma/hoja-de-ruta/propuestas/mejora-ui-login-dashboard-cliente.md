@@ -57,7 +57,7 @@ la empresa contractante deberá desarrollar esta idea y plantear una o varias pr
 En la propuesta de diseño se pondrá énfasis en crear una imagen moderna,
 clara y funcional para el usuario y que sea responsiva.
 
-[![Sitmun dashboard user_conceptExample](mejora-ui-3.webp)](mejora-ui-3.webp)
+[![Maqueta de 2023 del panel de usuario: lista de territorios y aplicaciones disponibles en un territorio](mejora-ui-3.webp)](mejora-ui-3.webp)
 
 Se identifican los siguientes requerimientos funcionales a desarrollar para cada uno de los componentes de la arquitectura de SITMUN.
 

@@ -93,7 +93,7 @@ El formulario de la plantilla resume los marcadores que se pueden usar. Cada fue
 | Marcador | Contenido |
 | --- | --- |
 | `{{referencia.campo}}` | Un campo de la respuesta de la fuente. |
-| `{{referencia.$param}}` | Un parámetro enviado a la fuente (por ejemplo `{{patrimonio.$id}}`). |
+| `{{referencia.$param}}` | Un parámetro enviado a la fuente, con su nombre exacto (por ejemplo `{{patrimonio.$ID}}` para el parámetro `ID`; `{{patrimonio.$id}}` no funciona). |
 | `{{referencia.url}}` | La dirección de una fuente de tipo URL o Recurso. |
 | `{{referencia.html}}` | El HTML de una plantilla anidada. |
 | `{{#APP_NAME}}` | Una [variable de sistema](../variables-sistema.md), escrita con `{{#…}}` en lugar de `#{…}`. |
