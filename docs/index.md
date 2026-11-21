@@ -28,4 +28,4 @@ Por dónde empezar, según lo que se necesite:
 
     SITMUN es un proyecto en continuo desarrollo y la documentación se actualiza para ir reflejando los cambios más
     importantes. Pueden existir algunas discrepancias entre la documentación y las últimas versiones del software.
-    Las discrepancias que se detecten se pueden notificar en <https://github.com/sitmun/community/issues/new>.
+    Las discrepancias que se detecten se pueden notificar en <https://github.com/sitmun/sitmun.github.io/issues/new>.

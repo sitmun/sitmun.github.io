@@ -20,6 +20,7 @@ nav = [
     { "La red SITMUN" = [
       "que-es-sitmun/red-sitmun/index.md",
       { "Órganos de la Red" = "que-es-sitmun/red-sitmun/contacto.md" },
+      { "Identidad corporativa" = "que-es-sitmun/red-sitmun/identidad-corporativa.md" },
     ] },
     { "Plataforma SITMUN" = [
       "que-es-sitmun/plataforma/index.md",
