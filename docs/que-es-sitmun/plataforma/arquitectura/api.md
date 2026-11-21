@@ -92,7 +92,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
   realizadas a través del proxy sin que el usuario conozca los datos que componen la solicitud al servicio o conexión
   a base de datos.
 
-- **Adaptación transparente**. Las peticiones se adaptan en función de la aplicación, el territorio y el usuario.
+- **Adaptación transparente**: las peticiones se adaptan en función de la aplicación, el territorio y el usuario.
 
 - **Modificación de peticiones**: posibilidad de manipular la petición de varias formas para que se adapte a la
   configuración obtenida de la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
@@ -141,9 +141,10 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 
 La API de Administración expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
 de **SITMUN 3** por parte de la **aplicación de administración**.
-El visor usa además dos de sus endpoints, `POST /api/tasks/template/more-info-advanced/render` y
-`POST /api/tasks/template/export`, para mostrar y exportar las plantillas de las tareas de *más información avanzada*;
-están abiertos a los roles `USER`, `ADMIN` y `PUBLIC`.
+El visor usa además algunos de sus endpoints: `GET /api/languages` y `GET /api/configuration-parameters`,
+abiertos sin sesión, para los idiomas y los parámetros de configuración, y `POST /api/tasks/template/more-info-advanced/render`
+y `POST /api/tasks/template/export`, abiertos a los roles `USER`, `ADMIN` y `PUBLIC`, para mostrar y exportar las plantillas
+de las tareas de *más información avanzada*.
 La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion]
 y envía la cabecera `X-SITMUN-Client: admin` en cada llamada.
 La documentación interactiva de todos los endpoints está en Swagger UI (`/swagger-ui/index.html` en el backend).

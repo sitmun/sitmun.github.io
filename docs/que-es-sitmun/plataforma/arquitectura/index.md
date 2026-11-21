@@ -10,7 +10,7 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
   La aplicación «básica» es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
   En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.
   P. ej., una aplicación puede ser el visor de mapas básico. Y para el usuario «público» del territorio «Municipio X», esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
-  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración; el visor solo llama a esta última para las plantillas de las tareas de *más información avanzada* (MIA). Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
+  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración; el visor usa de esta última solo unos pocos endpoints: los idiomas y los parámetros de configuración, y las plantillas de las tareas de *más información avanzada* (MIA). Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
 - **Aplicación web de administración.**
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
   P. ej., se puede añadir un nuevo servicio de mapas públicamente accesible recién encontrado al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
@@ -27,7 +27,7 @@ Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poc
 
 - Con la API de Autenticación al principio, para identificar al usuario, y después cada pocos minutos, para renovar la sesión y el token de corta duración del proxy.
 - Con la API de Configuración y Autorización en el arranque.
-- El visor, además, con dos endpoints de la API de Administración cuando el usuario abre una tarea MIA con plantilla: `POST /api/tasks/template/more-info-advanced/render` y `POST /api/tasks/template/export`.
+- El visor, además, con unos pocos endpoints de la API de Administración: `GET /api/languages` y `GET /api/configuration-parameters` (idiomas y parámetros de configuración, abiertos sin sesión) y, cuando el usuario abre una tarea MIA con plantilla, `POST /api/tasks/template/more-info-advanced/render` y `POST /api/tasks/template/export`.
 - La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.
     - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
 
@@ -849,8 +849,9 @@ y asignar la identidad y el rol correspondiente.
 - Los controladores de la **API de Administración** (tanto los definidos
 explícitamente como los generados dinámicamente por **Spring Data REST**)
 solo podrán ser accedidos por usuarios a los que se haya determinado que
-tengan el rol `ADMIN`. Las excepciones son `POST /api/tasks/template/more-info-advanced/render` y
-`POST /api/tasks/template/export`, que usa el visor y están abiertos también a los roles `USER` y `PUBLIC`. Como en el caso anterior, es misión del paquete
+tengan el rol `ADMIN`. Las excepciones son los endpoints que usa el visor: `GET /api/languages` y
+`GET /api/configuration-parameters`, abiertos sin sesión, y `POST /api/tasks/template/more-info-advanced/render` y
+`POST /api/tasks/template/export`, abiertos también a los roles `USER` y `PUBLIC`. Como en el caso anterior, es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para el
 rol `ADMIN`) determinar si están autenticadas y asignar la identidad y el rol

@@ -83,7 +83,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     La primera visita a `/admin/` pide crear su contraseña y elegir el idioma por defecto.
     Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que conviene hacerla enseguida,
     o definir `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, opcionalmente, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
-    La contraseña debe tener entre 8 y 50 caracteres y no puede ser `admin`: si no cumple, el backend solo lo anota
+    La contraseña debe tener entre 8 y 50 caracteres y no puede coincidir con el nombre de usuario (`admin`, sin distinguir mayúsculas): si no cumple, el backend solo lo anota
     en su registro y la primera visita sigue pidiendo crearla.
     Esas variables se quitan de `.env` cuando `GET /api/setup/status` (puerto 9001) responde `"firstRun": false`.
 
@@ -230,15 +230,15 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             psql -U postgres -c "CREATE DATABASE sitmun3 OWNER sitmun3"
             ```
 
-           En Oracle, un usuario (esquema) con los privilegios `CREATE SESSION` y `CREATE TABLE` y cuota en su tablespace;
-           sin cuota, Liquibase falla con `ORA-01950`. Por ejemplo, como administrador de la base de datos:
+            En Oracle, un usuario (esquema) con los privilegios `CREATE SESSION` y `CREATE TABLE` y cuota en su tablespace;
+            sin cuota, Liquibase falla con `ORA-01950`. Por ejemplo, como administrador de la base de datos:
 
             ```sql
             CREATE USER sitmun3 IDENTIFIED BY "<contraseña>" QUOTA UNLIMITED ON USERS;
             GRANT CREATE SESSION, CREATE TABLE TO sitmun3;
             ```
 
-           Al arrancar, el backend crea las tablas con Liquibase.
+            Al arrancar, el backend crea las tablas con Liquibase.
 
         2. Se compila con Gradle desde la raíz del repositorio:
 
@@ -305,8 +305,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             WantedBy=multi-user.target
             ```
 
-          `User=sitmun` es un usuario del sistema sin privilegios (por ejemplo, `useradd --system sitmun`); sin esa línea,
-          el servicio se ejecuta como `root`. Después, `systemctl enable --now sitmun-backend`. El proxy se instala igual, con su propio archivo.
+            `User=sitmun` es un usuario del sistema sin privilegios (por ejemplo, `useradd --system sitmun`); sin esa línea,
+            el servicio se ejecuta como `root`. Después, `systemctl enable --now sitmun-backend`. El proxy se instala igual, con su propio archivo.
         - En Windows, como servicio con [WinSW](https://github.com/winsw/winsw): su archivo XML ejecuta el mismo
           comando `java -jar …` con las mismas variables de entorno (ver la documentación de WinSW).
 

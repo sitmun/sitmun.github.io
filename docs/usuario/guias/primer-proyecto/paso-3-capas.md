@@ -20,8 +20,8 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
     Al guardar solo se crean las que registras con **Registrar**.
 
 !!! warning "SITMUN 1.3.0: capas WMS con varios estilos"
-    Si una capa del servidor ofrece más de un estilo, al guardar aparece «Múltiples Errores», un error por cada estilo
-    de más ([sitmun/sitmun#384](https://github.com/sitmun/sitmun/issues/384)). Las capas se crean igualmente,
+    Si una capa del servidor ofrece más de un estilo, al guardar aparece un error por cada estilo de más
+    («Múltiples Errores» si hay más de uno; [sitmun/sitmun#384](https://github.com/sitmun/sitmun/issues/384)). Las capas se crean igualmente,
     pero cada una guarda un solo estilo y los demás se pierden. La capa se puede usar con ese estilo.
 
 **Opción B: a mano** (menú **Capas** → **Nuevo**)

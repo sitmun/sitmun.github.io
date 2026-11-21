@@ -106,7 +106,7 @@ El editor también permite:
 - marcar un bloque como cabecera o pie de página del PDF, normal o a sangre, para la [exportación documental](mas-informacion-avanzada.md);
 - insertar un PDF en la plantilla.
 
-Por seguridad, el editor de plantillas rechaza las etiquetas `<script>` y `<style>` (los estilos van en el atributo `style`), los atributos JavaScript como `onclick` y las direcciones `javascript:`. La comprobación la hace el editor, no el servidor.
+Por seguridad, el editor de plantillas rechaza las etiquetas `<script>` y `<style>` (los estilos van en el atributo `style`), los atributos JavaScript como `onclick` y las direcciones `javascript:`. La comprobación la hace el editor, no el servidor; además, el visor limpia el HTML de la plantilla antes de mostrarlo.
 
 Para facilitar el diseño de la plantilla, se dispone tanto de un editor visual como de un editor HTML.
 
