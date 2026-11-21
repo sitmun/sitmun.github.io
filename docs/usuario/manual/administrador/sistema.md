@@ -23,7 +23,7 @@ El idioma por defecto es el idioma de los contenidos de SITMUN (lo que el admini
 Cada idioma tiene además:
 
 - **Activo**: si está desactivado, el idioma no aparece en los menús ni en los formularios de traducción, y no puede ser el idioma por defecto.
-- **Orden**: el orden de los idiomas en los selectores; se cambia arrastrando los idiomas en la lista.
+- **Orden**: el orden de los idiomas en los selectores; se cambia con el campo **Orden** del formulario de cada idioma.
 
 Añadir un idioma no traduce los mensajes propios del visor y del administrador: solo están disponibles en los idiomas que incluye cada versión de SITMUN.
 
@@ -52,5 +52,5 @@ En general, las listas de valores que se utilizan en SITMUN provienen de un conj
 Permite editar y añadir parámetros de configuración general de SITMUN, por ejemplo:
 
 - `language.default`: indica el idioma por defecto de SITMUN. Es de solo lectura: se cambia desde [Idiomas](#idiomas).
-- `proxy`: dirección pública del proxy (por ejemplo `https://ejemplo.org/middleware`). Si existe, tiene prioridad sobre la variable `SITMUN_PROXY_MIDDLEWARE_URL` del backend.
+- `proxy`: dirección pública del proxy (por ejemplo `https://ejemplo.org/middleware`). Si existe, tiene prioridad sobre la variable `SITMUN_PROXY_MIDDLEWARE_URL` del backend en las direcciones de las capas y los servicios que reciben los visores. Las tareas de consulta, de localizador y de más información siguen usando `SITMUN_PROXY_MIDDLEWARE_URL`, así que conviene que las dos tengan el mismo valor.
 - `srs.default.identifier`: aparece en las instalaciones de ejemplo, pero en la versión 1.3.0 ningún componente lo usa. El sistema de referencia se define en cada [aplicación](aplicacion.md).

@@ -9,15 +9,20 @@ Usage: python .github/scripts/check_redirect_links.py [site_dir]
 """
 import html.parser
 import pathlib
+import re
 import sys
 import urllib.parse
 
 site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
 STUB_MARK = "var anchor=window.location.hash"
+REFRESH = re.compile(r'<meta[^>]+http-equiv=["\']?refresh', re.I)
 
 
 def is_stub(path: pathlib.Path) -> bool:
-    return STUB_MARK in path.read_text(encoding="utf-8", errors="ignore")
+    # Zensical's redirect_maps stubs, and the static redirect pages under docs/
+    # (the old Sphinx addresses), which use a meta refresh.
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    return STUB_MARK in text or bool(REFRESH.search(text))
 
 
 class Links(html.parser.HTMLParser):
@@ -43,7 +48,9 @@ for page in sorted(site.rglob("*.html")):
         url = urllib.parse.urlsplit(href)
         if url.scheme or url.netloc or not url.path:
             continue
-        target = (page.parent / urllib.parse.unquote(url.path)).resolve()
+        path = urllib.parse.unquote(url.path)
+        base = site if path.startswith("/") else page.parent
+        target = (base / path.lstrip("/")).resolve()
         if target.is_dir() or url.path.endswith("/"):
             target = target / "index.html"
         if target in stubs:
