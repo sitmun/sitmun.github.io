@@ -14,13 +14,13 @@ En primer lugar se debe definir la **Información general**, indicando el nombre
 
 ## Fuentes
 
-A continuación definiremos las **Fuentes** de información de esta plantilla, es decir, los orígenes de los que se obtendrán los datos. Las fuentes de información pueden ser tareas de tipo [consulta](consulta.md) u otras plantillas.
+A continuación se definen las **Fuentes** de información de esta plantilla, es decir, los orígenes de los que se obtendrán los datos. Las fuentes de información pueden ser tareas de tipo [consulta](consulta.md) u otras plantillas.
 
-Como ejemplo práctico configuraremos una fuente de tipo tarea de consulta, ya que es uno de los casos más habituales.
+Como ejemplo práctico se configura una fuente de tipo tarea de consulta, ya que es uno de los casos más habituales.
 
-Usaremos la consulta SQL del apartado [Consulta](consulta.md), «Patrimonio UNESCO por identificador», que devuelve el nombre, el tipo y la web de un bien del patrimonio mundial a partir de su identificador (parámetro `ID`).
+Se usa la consulta SQL del apartado [Consulta](consulta.md), «Patrimonio UNESCO por identificador», que devuelve el nombre, el tipo y la web de un bien del patrimonio mundial a partir de su identificador (parámetro `ID`).
 
-En el apartado **Fuentes** seleccionaremos dicha consulta. Una vez seleccionada, observaremos que es posible modificar la etiqueta que permitirá referenciar el resultado de la consulta; en el ejemplo la cambiamos a `patrimonio`. Además, podremos ejecutarla para verificar que genera el resultado esperado.
+En el apartado **Fuentes** se selecciona dicha consulta. Una vez seleccionada, es posible modificar la etiqueta que permitirá referenciar el resultado de la consulta; en el ejemplo se cambia a `patrimonio`. Además, se puede ejecutar para verificar que genera el resultado esperado.
 
 ![Seleccionar la consulta](../img/plantilla-seleccionar-consulta.webp){ loading=lazy }
 

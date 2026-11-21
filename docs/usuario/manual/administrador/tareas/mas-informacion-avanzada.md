@@ -70,7 +70,7 @@ Como siempre, será necesario asignar roles y territorios a esta tarea MIA segú
 
 ### Paso 2: preparar las fuentes de información
 
-El siguiente paso es preparar las fuentes de información de lo que se quiere visualizar en el MIA. Por ejemplo, si se quiere visualizar la ficha del monumento en el que se ha hecho clic, necesitaremos una tarea de consulta que la obtenga de la base de datos.
+El siguiente paso es preparar las fuentes de información de lo que se quiere visualizar en el MIA. Por ejemplo, si se quiere visualizar la ficha del monumento en el que se ha hecho clic, se necesita una tarea de consulta que la obtenga de la base de datos.
 
 Para definir estas consultas se utiliza la [tarea de consulta](consulta.md) descrita anteriormente.
 

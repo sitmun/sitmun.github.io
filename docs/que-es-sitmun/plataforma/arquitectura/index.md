@@ -413,7 +413,7 @@ ConfigurationAPI -> SecurityContext: ¿Usuario autenticado?
 SecurityContext -->> ConfigurationAPI: "username"\n(fijado por JsonWebTokenFilter)
 ConfigurationAPI -> Database: Recuperar configuración según\nqué hay que configurar
 note right
-  buscamos información para 
+  se busca información para 
   User = username
   Territory = terId
   Application = appId
@@ -573,7 +573,7 @@ end note
   end note
   ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
   note right
-    buscamos información para 
+    se busca información para 
     User = username
     Territory = configProxyRequest.terId
     Application = configProxyRequest.appId
@@ -709,7 +709,7 @@ note right
 end note
 ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
 note right
-  buscamos información para 
+  se busca información para 
   User = username
   Territory = configProxyRequest.terId
   Application = configProxyRequest.appId

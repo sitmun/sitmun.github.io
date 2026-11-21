@@ -70,7 +70,7 @@ Del listado se seleccionan las capas que se deseen incorporar a SITMUN y se puls
 
 ![Capas seleccionadas pendientes de guardar](img/servicios-capas-pendientes.webp){ loading=lazy }
 
-*Seleccionamos las capas deseadas, pulsamos **Registrar** y finalizamos guardando el servicio.*
+*Se seleccionan las capas deseadas, se pulsa **Registrar** y se guarda el servicio.*
 
 Una vez guardado, al volver a la pestaña **Capas** esas capas ya aparecen como registradas. Posteriormente se deben configurar con las opciones descritas en el apartado [Capas](capas.md) de este manual, pero el primer paso es registrarlas en SITMUN.
 
