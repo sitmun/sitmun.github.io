@@ -11,7 +11,11 @@ python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/zensical serve        # vista previa en http://localhost:8000
 .venv/bin/zensical build --strict
+.venv/bin/python .github/scripts/localize_redirects.py zensical.toml _site
 ```
+
+El último paso traduce al castellano las páginas de redirección que genera Zensical (sin él, salen en inglés).
+Lo ejecuta también el despliegue, así que la web publicada coincide con `_site` después de ese paso.
 
 `requirements.txt` se genera desde `poetry.lock` con `poetry export -f requirements.txt --output requirements.txt`.
 

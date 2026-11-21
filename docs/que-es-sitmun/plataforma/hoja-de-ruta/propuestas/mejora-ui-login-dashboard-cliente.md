@@ -41,7 +41,7 @@ Se prevé la siguiente lógica funcional:
 
 1. Acceso a SITMUN. Desde la ventana de login se permite entrar en el espacio de usuario, que ofrece acceso a las distintas combinaciones de aplicación y territorio sobre las que un usuario tiene permisos. Así mismo, y de forma diferenciada en la interficie de usuario, se ofrece acceso a las aplicaciones públicas. La ventana de acceso incorpora, además del espacio de usuario/password una opción de acceso 'público' permite el acceso a un espacio público que únicamente ofrece el listado de aplicaciones / territorio que son de carácter público.
 
-2. Una vez logeado al espacio de usuario se ofrecerá al usuario de forma clara el listado de territorios y de aplicaciones. El listado de territorios se ofrece como una lista de todos los territorios a los que el usuario tiene acceso con una opción 'todos' por defecto que no realiza filtro sobre las aplicaciones. En caso de que un usuario tenga acceso a muchos territorios y este hecho dificulte presentar las opciones sin filtrar por volumen, aparecerá un aviso a la pantalla principal pidiendo al usuario que seleccione un territorio de la lista.  El listado de aplicaciones se presenta como un conjunto de elementos con características (imagen, descripción, territorio i último acceso). La ventana de usuario ofrece la siguiente funcionalidad:
+2. Una vez logeado al espacio de usuario se ofrecerá al usuario de forma clara el listado de territorios y de aplicaciones. El listado de territorios se ofrece como una lista de todos los territorios a los que el usuario tiene acceso con una opción 'todos' por defecto que no realiza filtro sobre las aplicaciones. En caso de que un usuario tenga acceso a muchos territorios y este hecho dificulte presentar las opciones sin filtrar por volumen, aparecerá un aviso a la pantalla principal pidiendo al usuario que seleccione un territorio de la lista. El listado de aplicaciones se presenta como un conjunto de elementos con características (imagen, descripción, territorio i último acceso). La ventana de usuario ofrece la siguiente funcionalidad:
 
     - Opción de consultar los datos de usuario en el SITMUN (territorio, rol, caducidad…) y gestionar determinados datos de usuario (cambiar el correo electrónico, el teléfono y la contraseña)
     - Informar de forma clara de: fecha del último acceso a SITMUN, fecha de último acceso para cada aplicación, fecha de caducidad de los permisos para cada aplicación/territorio,
@@ -101,11 +101,11 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 | visor (p.e. barra transparente y boton pequeño en margen superior derecho).                      |                         |                     |
 +--------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API de autenticación {#roadmap-mejora-ui-api-de-autenticacion}
+### API de Autenticación {#roadmap-mejora-ui-api-de-autenticacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de administración {#roadmap-mejora-ui-api-de-administracion}
+### API de Administración {#roadmap-mejora-ui-api-de-administracion}
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -119,11 +119,11 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 | de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API configuración y autorización {#roadmap-mejora-ui-api-de-configuracion-y-autorizacion}
+### API de Configuración y Autorización {#roadmap-mejora-ui-api-de-configuracion-y-autorizacion}
 
 No se prevén modificaciones de este componente durante el desarrollo de esta funcionalidad.
 
-### API de proxy {#roadmap-mejora-ui-api-de-proxy}
+### API de Proxy {#roadmap-mejora-ui-api-de-proxy}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 

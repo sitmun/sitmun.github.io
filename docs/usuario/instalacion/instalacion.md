@@ -51,6 +51,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
         En un servidor, antes de arrancar, se indica en `.env` la dirección por la que se accederá a SITMUN:
         `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME` y `PUBLIC_PORT` (por ejemplo `https`, `sitmun.ejemplo.org` y `443`).
+        El front de Docker solo sirve HTTP en el puerto 9000, así que con `https` y `443` hace falta delante un proxy
+        inverso con el certificado TLS que reenvíe las peticiones al puerto 9000.
         Con los valores del perfil (`http`, `localhost`, `9000`), el front redirige a `localhost` y las direcciones
         del proxy apuntan a `localhost`, así que solo funcionan desde la propia máquina.
 
@@ -81,7 +83,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     La primera visita a `/admin/` pide crear su contraseña y elegir el idioma por defecto.
     Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que conviene hacerla enseguida,
     o definir `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, opcionalmente, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
-    Esas variables se quitan de `.env` cuando `GET /api/dashboard/health` responde `UP`.
+    La contraseña debe tener entre 8 y 50 caracteres y no puede ser `admin`: si no cumple, el backend solo lo anota
+    en su registro y la primera visita sigue pidiendo crearla.
+    Esas variables se quitan de `.env` cuando `GET /api/setup/status` (puerto 9001) responde `"firstRun": false`.
 
     ![Primer acceso: idioma por defecto](img/primer-acceso-idioma.webp){ loading=lazy }
 
@@ -226,7 +230,14 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             psql -U postgres -c "CREATE DATABASE sitmun3 OWNER sitmun3"
             ```
 
-           En Oracle, un usuario (esquema) con permisos para crear tablas, secuencias y vistas.
+           En Oracle, un usuario (esquema) con los privilegios `CREATE SESSION` y `CREATE TABLE` y cuota en su tablespace;
+           sin cuota, Liquibase falla con `ORA-01950`. Por ejemplo, como administrador de la base de datos:
+
+            ```sql
+            CREATE USER sitmun3 IDENTIFIED BY "<contraseña>" QUOTA UNLIMITED ON USERS;
+            GRANT CREATE SESSION, CREATE TABLE TO sitmun3;
+            ```
+
            Al arrancar, el backend crea las tablas con Liquibase.
 
         2. Se compila con Gradle desde la raíz del repositorio:
@@ -284,6 +295,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             After=network.target
 
             [Service]
+            User=sitmun
             WorkingDirectory=/opt/sitmun
             EnvironmentFile=/etc/sitmun/backend.env
             ExecStart=/usr/bin/java -jar sitmun-backend/build/libs/sitmun-backend-1.3.0.jar --spring.profiles.active=prod,postgres --spring.config.additional-location=file:profiles/postgres/
@@ -293,7 +305,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             WantedBy=multi-user.target
             ```
 
-          y después `systemctl enable --now sitmun-backend`. El proxy se instala igual, con su propio archivo.
+          `User=sitmun` es un usuario del sistema sin privilegios (por ejemplo, `useradd --system sitmun`); sin esa línea,
+          el servicio se ejecuta como `root`. Después, `systemctl enable --now sitmun-backend`. El proxy se instala igual, con su propio archivo.
         - En Windows, como servicio con [WinSW](https://github.com/winsw/winsw): su archivo XML ejecuta el mismo
           comando `java -jar …` con las mismas variables de entorno (ver la documentación de WinSW).
 
@@ -391,7 +404,10 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     - servir `dist/viewer-app` en `/viewer/` y `dist/admin-app` en `/admin/`, devolviendo el `index.html` de cada uno
       cuando el archivo pedido no existe;
     - reenviar `/backend/` al backend (`http://localhost:8080/`) y, si el proxy se publica en `/middleware/`, reenviar
-      esa ruta al proxy (`http://localhost:8082/`), quitando el prefijo en ambos casos.
+      esa ruta al proxy (`http://localhost:8082/`), quitando el prefijo en ambos casos;
+    - enviar al backend y al proxy las cabeceras `X-Forwarded-Proto`, `X-Forwarded-Host`, `X-Forwarded-Port` y
+      `X-Forwarded-Prefix` (`/backend` o `/middleware`) con la dirección pública. Sin ellas, detrás de HTTPS
+      la cookie de sesión pierde el atributo `Secure`.
 
     La configuración que usa la imagen Docker es un ejemplo completo:
     [docker/front/config/default.conf.template](https://github.com/sitmun/sitmun/blob/main/docker/front/config/default.conf.template).

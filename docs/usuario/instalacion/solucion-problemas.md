@@ -71,6 +71,7 @@ netstat -ano | findstr :9000  # Windows
 
 ### Problemas de memoria
 
+<!-- Ancla de la antigua subsección sobre la memoria de Java, que ahora forma parte de esta sección: los enlaces antiguos llegan aquí. -->
 <a id="problemas-de-memoria_1"></a>
 
 **Síntomas:**
@@ -177,7 +178,7 @@ curl http://localhost:9001/api/setup/status
 
 **Soluciones:**
 
-- Las sesiones se firman con `SITMUN_USER_SECRET`. Si el secreto cambia (por ejemplo, al regenerar `.env`), todas las sesiones dejan de ser válidas: basta con volver a iniciar sesión.
+- Las sesiones se firman con `SITMUN_USER_SECRET`. Si el secreto cambia (por ejemplo, al regenerar `.env`), todas las sesiones dejan de ser válidas: basta con volver a iniciar sesión. El primer intento con la cookie antigua puede responder 401 y borrarla; el segundo funciona.
 - Si el navegador conserva una sesión antigua, se borran las cookies del sitio o se prueba en una ventana privada.
 - En el visor, un usuario cuyo puesto en el territorio ha caducado (**Fecha de baja**) pierde la sesión al renovarla: ver [Usuarios](../manual/administrador/usuarios.md).
 
@@ -253,7 +254,8 @@ docker compose exec backend curl -s http://proxy:8080/actuator/health
 # Comprobar la resolución de nombres dentro de los contenedores
 docker compose exec backend getent hosts postgres
 
-# Reiniciar la red de Docker
+# Reiniciar la red de Docker: prune no borra las redes en uso, así que primero se paran los contenedores
+docker compose down
 docker network prune
 # Con front construido localmente (publicación bajo una ruta), sin --pull always:
 # docker compose pull --policy always backend proxy && docker compose up -d --no-build
@@ -351,7 +353,7 @@ Si los problemas persisten:
 
 1. Se revisan las [incidencias abiertas](https://github.com/sitmun/sitmun/issues) del repositorio de SITMUN, por si ya están descritas.
 2. Si no, se abre una [nueva incidencia](https://github.com/sitmun/sitmun/issues/new) con la información de abajo.
-3. Para otras consultas, ver los [contactos de la red SITMUN](../../que-es-sitmun/red-sitmun/contacto.md).
+3. Para otras consultas, ver los [órganos de gobierno de la Red SITMUN](../../que-es-sitmun/red-sitmun/contacto.md).
 
 !!! tip "Información útil para una incidencia"
     - Versión de SITMUN, de Docker y de Docker Compose.

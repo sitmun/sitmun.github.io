@@ -11,7 +11,7 @@ Para crear o editar una consulta se dispone del siguiente formulario, con los ca
 ![Formulario de nueva tarea de consulta](../img/consulta-formulario.webp){ loading=lazy }
 
 - **Nombre**: nombre que identificará la tarea. No tiene ninguna otra utilidad aparte de la propia identificación del elemento.
-- **Tipo**: se debe seleccionar un tipo de consulta. El desplegable muestra los nombres en inglés (`SQL Query`, `Web API Query`, `Cartography Query`…), que se indican entre paréntesis en los apartados siguientes. El tipo no se puede cambiar después de crear la tarea. En función del tipo de consulta elegido, será necesario configurar la consulta de manera diferente. Más adelante se explica cómo definir cada tipo de consulta.
+- **Tipo**: se debe seleccionar un tipo de consulta. El desplegable muestra el nombre de cada tipo en el idioma de la interfaz («Consulta SQL», «Consulta Web API», «Consulta cartográfica»…); los apartados siguientes indican entre paréntesis el nombre en inglés. El tipo no se puede cambiar después de crear la tarea. En función del tipo de consulta elegido, será necesario configurar la consulta de manera diferente. Más adelante se explica cómo definir cada tipo de consulta.
 - **Grupo de tareas**: permite seleccionar un [grupo de tareas](../grupos-de-tareas.md) en el que clasificar la tarea que se está creando. Este grupo tiene únicamente una finalidad organizativa para ordenar las tareas creadas y no tiene ninguna implicación en su funcionamiento.
 
 ## Tipos de consulta

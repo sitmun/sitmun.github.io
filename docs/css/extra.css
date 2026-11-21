@@ -118,9 +118,9 @@
    the white page. Only images from the img/ folders under docs/usuario (all
    screenshots); logos (assets/images), diagrams and the 2023 roadmap images
    keep no frame.
-   Accessibility: the border is #858585, 3.69:1 against the white page and
-   3.38:1 against the admin's light grey (#f5f5f5), above the 3:1 that WCAG 2.2
-   SC 1.4.11 (non-text contrast) asks for graphical boundaries. It is a real
+   Accessibility: the border is #858585, 3.69:1 against the white page and the
+   white edges of the screenshots, above the 3:1 that WCAG 2.2 SC 1.4.11
+   (non-text contrast) asks for graphical boundaries. It is a real
    border, not a shadow, so it stays visible in Windows forced-colors mode. */
 :root {
   --sitmun-screenshot-border: #858585;

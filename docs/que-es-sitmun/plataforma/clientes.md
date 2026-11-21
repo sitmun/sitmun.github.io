@@ -39,28 +39,28 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 ### Aspectos globales
 
-- **Responsivo**: Para entorno web y dispositivos móviles.
+- **Responsivo**: para entorno web y dispositivos móviles.
 
-- **Compatibilidad**: Compatible con los navegadores más comunes.
+- **Compatibilidad**: compatible con los navegadores más comunes.
 
-- **Autenticación**: El cliente estará diseñado para utilizar solo HTTP sobre TLS (HTTPS).
+- **Autenticación**: el cliente estará diseñado para utilizar solo HTTP sobre TLS (HTTPS).
   En caso de ser un visor público, el usuario ingresará directamente sin inicio de sesión.
   El cliente debe permitir la autenticación del usuario frente a la [API de Autenticación][api-de-autenticacion].
   La API responderá con un token JSON Web Token (JWT) en una cookie de sesión, que se utilizará para interactuar con la
   [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Para la [API de Proxy][api-de-proxy]
   el cliente pide un token de corta duración.
 
-- **Inicio de sesión**: Botón de inicio de sesión.
+- **Inicio de sesión**: botón de inicio de sesión.
   El botón de inicio de sesión inicia el proceso descrito en la funcionalidad de autenticación, seguido,
   en caso de éxito, por la funcionalidad de configuración del cliente.
 
-- **Cierre de sesión**: Botón de cierre de sesión.
+- **Cierre de sesión**: botón de cierre de sesión.
   El botón de cierre de sesión borra el token de la aplicación, en caso de existir,
   seguido de la funcionalidad de configuración del cliente (en este caso, sin token).
 
-- **Multilingüe**: Visualizadores multilingües (que puedan hacer solicitudes localizadas).
+- **Multilingüe**: visualizadores multilingües (que puedan hacer solicitudes localizadas).
 
-- **Configuración de los clientes**: El cliente se configura mediante una solicitud a
+- **Configuración de los clientes**: el cliente se configura mediante una solicitud a
   la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Si el usuario ha iniciado sesión,
   la solicitud incluye la cookie de sesión obtenida de la [API de Autenticación][api-de-autenticacion].
   En caso de ser un visualizador público, la solicitud no incluirá un token.
@@ -68,7 +68,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   el visor se configura para cada usuario, con los territorios y aplicaciones (capas y funcionalidades)
   a las que tiene acceso.
 
-- **Solicitudes a servicios remotos**: Las solicitudes a algunos servicios remotos se realizan a través de
+- **Solicitudes a servicios remotos**: las solicitudes a algunos servicios remotos se realizan a través de
   la [API de Proxy][api-de-proxy]. Las solicitudes deben ir acompañadas de un token JWT,
   obtenido previamente de la [API de Autenticación][api-de-autenticacion], que identifica al usuario.
   La única excepción es el caso del usuario *público*, donde la autenticación es automática.
@@ -88,53 +88,53 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 ### Funcionalidades básicas de navegación
 
-- **Zoom con desplazamiento**: Zoom dinámico con desplazamiento del ratón. Doble clic en el mapa para hacer Zoom-in.
+- **Zoom con desplazamiento**: zoom dinámico con desplazamiento del ratón. Doble clic en el mapa para hacer Zoom-in.
 
-- **Pan**: Arrastrar el mapa con el ratón.
+- **Pan**: arrastrar el mapa con el ratón.
 
-- **Barra de zoom**: Barra deslizante vertical.
+- **Barra de zoom**: barra deslizante vertical.
 
-- **Control de escala**: Selector automático de nivel de escala.
+- **Control de escala**: selector automático de nivel de escala.
 
-- **Zoom a ventana**: Zoom a ventana (acceso rápido vía mayúsculas más ratón).
+- **Zoom a ventana**: zoom a ventana (acceso rápido vía mayúsculas más ratón).
 
-- **Zoom de extensión**: Botón de Zoom de extensión.
+- **Zoom de extensión**: botón de Zoom de extensión.
 
 ### Funcionalidad de gestión de capas
 
-- **Orden de capas**: Posibilidad de modificar el orden de visualización de las capas.
+- **Orden de capas**: posibilidad de modificar el orden de visualización de las capas.
 
-- **Árbol de capas**: Árbol de capas configurable para cada cliente a partir de la combinación de capas de diferentes servicios.
+- **Árbol de capas**: árbol de capas configurable para cada cliente a partir de la combinación de capas de diferentes servicios.
 
-- **Clasificación de capas**: Opción para que el usuario pueda elegir entre diferentes árboles de capas previamente configuradas por el administrador.
+- **Clasificación de capas**: opción para que el usuario pueda elegir entre diferentes árboles de capas previamente configuradas por el administrador.
 
-- **Transparencia**: Control de la transparencia de las capas.
+- **Transparencia**: control de la transparencia de las capas.
 
-- **Capas externas**: Incorporación de capas externas (WMS, WFS, ATOM, GEOJSON, KML, SHP, ...).
+- **Capas externas**: incorporación de capas externas (WMS, WFS, ATOM, GEOJSON, KML, SHP, ...).
 
-- **Metadatos**: Botón con enlace a ficha de metadatos simplificados (extraídos dinámicamente del archivo XML de metadatos)
+- **Metadatos**: botón con enlace a ficha de metadatos simplificados (extraídos dinámicamente del archivo XML de metadatos)
   con la opción de abrir en segunda instancia el XML completo de los metadatos.
 
-- **Leyenda**: Consulta de la leyenda de la capa.
+- **Leyenda**: consulta de la leyenda de la capa.
 
-- **Descarga**: Enlace para descargar la capa (solo visible en caso de ser una capa descargable) y archivos relacionados
+- **Descarga**: enlace para descargar la capa (solo visible en caso de ser una capa descargable) y archivos relacionados
   (configurados en el administrador).
 
-- **Búsqueda de capas**: Opción de buscar capas por nombre y descripción, en función del idioma del visualizador.
+- **Búsqueda de capas**: opción de buscar capas por nombre y descripción, en función del idioma del visualizador.
   Integrado con el buscador genérico.
 
-- **Mapa de fondo**: Selección del mapa de fondo.
+- **Mapa de fondo**: selección del mapa de fondo.
 
-- **Grupos de capas**: Diferenciar entre capas y grupos de capas y permitir interactuar (visualizar, descargar, metadatos, etc.)
+- **Grupos de capas**: diferenciar entre capas y grupos de capas y permitir interactuar (visualizar, descargar, metadatos, etc.)
   con ambos elementos de la misma manera tanto para capas como para grupos.
 
-- **Capas activas**: Ventana donde se presenten todas las capas activas, tanto las activadas desde el árbol como las cargadas de manera externa.
+- **Capas activas**: ventana donde se presenten todas las capas activas, tanto las activadas desde el árbol como las cargadas de manera externa.
 
 ### Herramientas básicas
 
-- **Imprimir**: Impresión configurable del mapa, la leyenda, el gráfico, el título, el norte, logotipos, etc.
+- **Imprimir**: impresión configurable del mapa, la leyenda, el gráfico, el título, el norte, logotipos, etc.
 
-- **Medición y dibujo**: Integración de herramientas de medición de áreas, distancias y coordenadas de un punto con las
+- **Medición y dibujo**: integración de herramientas de medición de áreas, distancias y coordenadas de un punto con las
   de dibujo de elementos sobre el mapa.
 
     - Modificar la simbología del elemento dibujado.
@@ -144,17 +144,17 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
     - Generar enlace para compartir el mapa con los elementos dibujados.
     - Posibilidad de añadir textos sobre el mapa.
 
-- **Obtener posición**: En caso de estar disponible en el dispositivo, botón para obtener la posición del usuario.
+- **Obtener posición**: en caso de estar disponible en el dispositivo, botón para obtener la posición del usuario.
 
-- **Leyenda**: Ventana que muestra la leyenda construida de manera dinámica para todas las capas activas.
+- **Leyenda**: ventana que muestra la leyenda construida de manera dinámica para todas las capas activas.
 
-- **Portapapeles**: Copia fácil del mapa, la leyenda o el gráfico (uno o varios) al portapapeles.
+- **Portapapeles**: copia fácil del mapa, la leyenda o el gráfico (uno o varios) al portapapeles.
 
-- **Pantalla completa**: Posibilidad de poner el visualizador en modo de pantalla completa.
+- **Pantalla completa**: posibilidad de poner el visualizador en modo de pantalla completa.
 
 ### Información
 
-- **Información**: Botón para solicitar información alfanumérica de los elementos gráficos de las capas activas
+- **Información**: botón para solicitar información alfanumérica de los elementos gráficos de las capas activas
   (información y más información actual). Formatea la tabla de respuesta por defecto con una apariencia atractiva,
   clara y amigable para el usuario, y presentar imágenes y enlaces por defecto.
   Hay opción de organizar la información en pestañas.
@@ -164,12 +164,12 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 ### Buscadores, consultas y selección espacial
 
-- **Buscador básico**: Búsqueda de topónimos básica integrada con el buscador de capas.
+- **Buscador básico**: búsqueda de topónimos básica integrada con el buscador de capas.
   Muestra candidatos a partir del tercer carácter y diferencia en la lista entre topónimos y capas.
 
 ### Herramientas avanzadas
 
-- **Compartir**: Posibilidad de compartir el mapa de diferentes maneras:
+- **Compartir**: posibilidad de compartir el mapa de diferentes maneras:
 
     - A través de un enlace.
     - A través de un IFRAME configurable con las capas activas en el momento de generar el IFRAME y
@@ -177,14 +177,14 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
     - Enlace a redes sociales.
     - Generar código QR.
 
-- **WMC**: Posibilidad de guardar el WMC (vinculado a la funcionalidad anterior).
+- **WMC**: posibilidad de guardar el WMC (vinculado a la funcionalidad anterior).
 
-- **Operaciones espaciales**: Posibilidad de realizar operaciones espaciales entre capas como la intersección espacial
+- **Operaciones espaciales**: posibilidad de realizar operaciones espaciales entre capas como la intersección espacial
   aplicando un buffer.
 
 ### Otras herramientas
 
-- **Streetview**: Herramienta para agregar Street View al mapa.
+- **Streetview**: herramienta para agregar Street View al mapa.
 
 ## Aplicación de Administración
 

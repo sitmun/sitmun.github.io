@@ -25,7 +25,7 @@ Complementariamente, se pueden detallar otros parámetros para definir su compor
 - **Escala mínima y máxima** de visualización.
 - **Transparencia**.
 - Acceso a los **metadatos**.
-- **Orden** de carga predeterminado.
+- **Orden**: orden de dibujo de la capa en el mapa.
 - **Tipo de leyenda**: cómo obtiene el visor la leyenda de la capa.
 - **URL del dataset de la capa**: enlace opcional al conjunto de datos de la capa; se muestra en la ventana de información de la capa.
 - **Capa disponible para su uso por parte de los clientes**: activarla para que esté abierta al acceso. Si se deja desactivada, la capa estará en estado oculto.

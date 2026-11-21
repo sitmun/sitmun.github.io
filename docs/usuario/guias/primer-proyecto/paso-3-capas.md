@@ -9,7 +9,7 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
 **Opción A: desde el servicio (WMS)**
 
 1. Abre el servicio del [paso 2](paso-2-servicios.md) y ve a la pestaña **Capas**.
-2. Pulsa **Actualizar capas del servicio** (en un servicio que aún no has guardado, **Obtener capas del servicio**). Aparece la lista de capas que ofrece el servidor, cada una con un punto de color que indica su estado.
+2. Pulsa **Actualizar capas del servicio** (en un servicio que aún no has guardado, **Obtener capas del servicio**). El administrador avisa antes con el mensaje «Peligro», el mismo del [paso 2](paso-2-servicios.md); acéptalo. Aparece la lista de capas que ofrece el servidor, cada una con un punto de color que indica su estado.
 3. Selecciona las que quieras, pulsa **Registrar** (su punto pasa a naranja, «Pendiente registrar») y después **Guarda**. Se crea una capa de SITMUN por cada una, ya disponible para los clientes. La consulta de información (GetFeatureInfo) queda desactivada: si quieres que una capa se pueda consultar, ábrela en el menú **Capas** y activa la opción de consulta («La capa o capas del servicio pueden ser consultadas…»).
 
     ![Capas del servicio seleccionadas para registrar](../../manual/administrador/img/servicios-seleccionar-capas.webp){ loading=lazy }
@@ -18,6 +18,11 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
     En un servicio que aún no has guardado, las capas obtenidas aparecen por error como «Pendiente crear»
     en lugar de «Capa no registrada» ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
     Al guardar solo se crean las que registras con **Registrar**.
+
+!!! warning "SITMUN 1.3.0: capas WMS con varios estilos"
+    Si una capa del servidor ofrece más de un estilo, al guardar aparece «Múltiples Errores», un error por cada estilo
+    de más ([sitmun/sitmun#384](https://github.com/sitmun/sitmun/issues/384)). Las capas se crean igualmente,
+    pero cada una guarda un solo estilo y los demás se pierden. La capa se puede usar con ese estilo.
 
 **Opción B: a mano** (menú **Capas** → **Nuevo**)
 

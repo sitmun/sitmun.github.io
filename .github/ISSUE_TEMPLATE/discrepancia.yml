@@ -1,0 +1,26 @@
+name: Error o discrepancia en la documentación
+description: Una página dice algo que no coincide con SITMUN 1.3.0, tiene un error o le falta información.
+labels: ["documentation"]
+body:
+  - type: input
+    id: pagina
+    attributes:
+      label: Página
+      description: Dirección de la página en sitmun.github.io.
+      placeholder: https://sitmun.github.io/usuario/...
+    validations:
+      required: true
+  - type: textarea
+    id: dice
+    attributes:
+      label: Qué dice la página
+      description: El texto o la captura que no es correcto.
+    validations:
+      required: true
+  - type: textarea
+    id: deberia
+    attributes:
+      label: Qué ocurre en realidad
+      description: Lo que se ve en SITMUN, con la versión (por ejemplo, 1.3.0) y cómo se ha comprobado.
+    validations:
+      required: true

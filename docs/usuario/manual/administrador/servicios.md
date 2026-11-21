@@ -38,7 +38,7 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para la conexión a servicios con autenticación se utiliza el desplegable **Método de autenticación** y se selecciona **Autenticación HTTP básica** (usuario y contraseña). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
+Para un servicio con autenticación, en el desplegable **Método de autenticación** se elige **Autenticación HTTP básica** (usuario y contraseña). La opción **Usar proxy SITMUN** se activa entonces sola y no se puede desactivar mientras haya autenticación: las conexiones con autenticación pasan por el proxy de SITMUN para proteger los datos.
 
 Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
 
@@ -52,13 +52,13 @@ La pestaña **Capas** aparecerá vacía en el momento de crear el servicio. Las 
 
 La carga automática solo funciona en los servicios WMS. En un servicio WFS la pestaña se llama **Tipos de entidad** y tiene el botón **Obtener tipos de entidad del servicio**, pero en la versión 1.3.0 no funciona: el backend solo admite WMS y responde con un error aunque la URL sea correcta ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). En los servicios WFS y WMTS las capas se crean a mano en el menú [Capas](capas.md).
 
-Para cargar las capas automáticamente se utiliza el botón **Actualizar capas del servicio** (en un servicio que todavía no se ha guardado se llama **Obtener capas del servicio**). Al pulsarlo se listan todas las capas que proporciona el servicio:
+El botón **Actualizar capas del servicio** carga las capas automáticamente (en un servicio que todavía no está guardado, se llama **Obtener capas del servicio**). Tras aceptar el aviso «Peligro», aparece la lista de todas las capas que proporciona el servicio:
 
 ![Capas ofrecidas por el servicio](img/servicios-obtener-capas.webp){ loading=lazy }
 
 En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, **Capa no registrada**.
 
-Del listado se seleccionan las capas que se deseen incorporar a SITMUN y se pulsa el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
+Del listado se eligen las capas que se quieren incorporar a SITMUN y se pulsa **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no forman parte de SITMUN. Las capas se crean al guardar el servicio.
 
 !!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
     En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto

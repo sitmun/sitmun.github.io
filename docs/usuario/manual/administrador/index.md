@@ -6,7 +6,7 @@ description: "Manual del administrador de SITMUN 3: cómo configurar servicios, 
 
 Este manual es una guía para los usuarios administradores de SITMUN, en su versión 3.
 
-SITMUN 3 nace de una profunda actualización técnica y conceptual de la versión SITMUN 2 con el fin de poner la aplicación al día a nivel de estándares tecnológicos y, también, para incrementar y mejorar las funcionalidades incorporadas, tanto a nivel administrador como a nivel usuario.
+SITMUN 3 nace de una profunda actualización técnica y conceptual de la versión SITMUN 2 con el fin de poner al día sus estándares tecnológicos y, también, para incrementar y mejorar sus funcionalidades, tanto para el administrador como para el usuario.
 
 SITMUN 3 ya está disponible bajo una versión de código libre, concretamente bajo la **licencia EUPL v1.2**. Esto facilita que el proyecto pueda ser utilizado por otras administraciones locales y, también, que dichas administraciones puedan contribuir activamente al avance del proyecto SITMUN.
 
@@ -71,4 +71,4 @@ Cuando el usuario público seleccione un idioma en concreto en el visor, se busc
 
 En el caso de que un texto no figure traducido en el idioma seleccionado, se proporcionará el texto en el idioma por defecto, que se elige en el primer arranque de la instalación y se puede cambiar en [Sistema → Idiomas](sistema.md#idiomas).
 
-Los **textos de aplicación**, por norma general, se deben modificar internamente a nivel de programación. Algunos de ellos se pueden traducir desde la aplicación de administración, en el apartado [Traducciones de literales](sistema.md#traducciones-de-literales).
+Los **textos de aplicación**, por norma general, se deben modificar en el código. Algunos de ellos se pueden traducir desde la aplicación de administración, en el apartado [Traducciones de literales](sistema.md#traducciones-de-literales).

@@ -59,7 +59,7 @@ Para definir un More Info Advanced (MIA), además de asignar a esta tarea los pe
 
 ## Información múltiple de entidades (Multi Feature Info) { #multi-feature-info }
 
-Permite obtener información más detallada de un elemento de tipo punto, línea o polígono, siempre y cuando la capa sobre la que se hace clic sea de tipo WFS.
+Permite seleccionar varias entidades a la vez, con un punto, una línea o un polígono, y obtener su información. La selección con un punto consulta las capas WMS con GetFeatureInfo; la selección con una línea o un polígono necesita que el servidor de la capa WMS la publique también como WFS.
 
 - Control API SITNA: `sitna.multiFeatureInfo`
 

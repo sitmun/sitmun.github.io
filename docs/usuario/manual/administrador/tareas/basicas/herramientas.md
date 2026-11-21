@@ -53,6 +53,10 @@ Se trata de una herramienta de medición sencilla que permite medir distancias o
 
 Permite crear, del lado del cliente, mapas que estarán disponibles sin conexión.
 
+!!! warning "Desactivada en el visor 1.3.0"
+    El visor de la versión 1.3.0 desactiva este control en su configuración (`disabledControls` de
+    `app-config.json`), así que la tarea no aparece en el visor aunque se asigne a una aplicación.
+
 - Control API SITNA: `sitna.offlineMapMaker`
 
 ## Imprimir mapa (Print Map) { #print-map }
@@ -98,5 +102,8 @@ Se ofrecen varias formas de compartir el mapa: enlace, código HTML para inserta
 
 ## Edición WFS (WFSEdit) { #wfsedit }
 
-!!! info "En preparación"
-    Este apartado todavía no está documentado.
+- Control API SITNA: `sitna.WFSEdit`
+
+!!! warning "Desactivada en el visor 1.3.0"
+    El visor de la versión 1.3.0 desactiva este control en su configuración (`disabledControls` de
+    `app-config.json`), así que la tarea no aparece en el visor aunque se asigne a una aplicación.

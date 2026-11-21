@@ -72,7 +72,7 @@ Se prevé la siguiente lógica funcional:
     - Definir qué capa o capas tienen asociada esta funcionalidad.
     - Definir qué territorios y roles de usuario tienen asociada esta funcionalidad.
 
-3. Configurada correctamente la tarea, la API de configuración y autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que esté logeado). Así mismo, la API deberá retornar la información necesaria y suficiente para que el cliente (API SITNA u otros) puedan renderizar la información consultada de forma adecuada.
+3. Configurada correctamente la tarea, la API de Configuración y Autorización_ deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que esté logeado). Así mismo, la API deberá retornar la información necesaria y suficiente para que el cliente (API SITNA u otros) puedan renderizar la información consultada de forma adecuada.
 
 4. El Cliente SITMUN - API SITNA deberá configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un elemento de dicha capa, en caso de que la capa tenga asociada una tarea de esta índole.
 
@@ -101,16 +101,16 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+
-| Parsear json del API de configuración y representar los datos                                   | Existente no testeada   |                     |
+| Parsear json de la API de Configuración y representar los datos                                   | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API de autenticación {#roadmap-mas-info-api-de-autenticacion}
+### API de Autenticación {#roadmap-mas-info-api-de-autenticacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de administración {#roadmap-mas-info-api-de-administracion}
+### API de Administración {#roadmap-mas-info-api-de-administracion}
 
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
@@ -120,11 +120,11 @@ No se prevén modificaciones dea este componente durante el desarrollo de esta f
 | Posibilidad de configurar tareas SITMUN de consulta a servicios web                             | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
-### API configuración y autorización {#roadmap-mas-info-api-de-configuracion-y-autorizacion}
+### API de Configuración y Autorización {#roadmap-mas-info-api-de-configuracion-y-autorizacion}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 
-### API de proxy {#roadmap-mas-info-api-de-proxy}
+### API de Proxy {#roadmap-mas-info-api-de-proxy}
 
 No se prevén modificaciones dea este componente durante el desarrollo de esta funcionalidad.
 

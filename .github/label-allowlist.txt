@@ -19,7 +19,7 @@ El menú lateral
 Elegir cómo instalar
 Entorno de desarrollo
 Escala mínima y máxima
-Se guarda la tarea MIA.
+se guarda la tarea MIA
 Herramientas mínimas para un primer proyecto:
 La idea clave:
 Lista de aplicaciones:

@@ -7,10 +7,10 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
 **SITMUN 3** es un sistema de código libre para poner en marcha sistemas de información territoriales donde múltiples usuarios puedan acceder a distintas aplicaciones según sus necesidades. Esto incluye:
 
 - **Aplicaciones web de usuario final.**
-  La aplicación “básica” es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
+  La aplicación «básica» es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
   En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.
-  P. ej., una aplicación puede ser el visor de mapas básico. Y para el usuario “público” del territorio “Municipio X”, esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
-  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración. Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
+  P. ej., una aplicación puede ser el visor de mapas básico. Y para el usuario «público» del territorio «Municipio X», esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a BD privadas.
+  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la BD de SITMUN y no es la misma que usa la aplicación web de administración; el visor solo llama a esta última para las plantillas de las tareas de *más información avanzada* (MIA). Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
 - **Aplicación web de administración.**
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
   P. ej., se puede añadir un nuevo servicio de mapas públicamente accesible recién encontrado al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
@@ -26,7 +26,8 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
 Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poco con las API y componentes de **SITMUN 3**:
 
 - Con la API de Autenticación al principio, para identificar al usuario, y después cada pocos minutos, para renovar la sesión y el token de corta duración del proxy.
-- Con la API de configuración solo en el arranque.
+- Con la API de Configuración y Autorización en el arranque.
+- El visor, además, con dos endpoints de la API de Administración cuando el usuario abre una tarea MIA con plantilla: `POST /api/tasks/template/more-info-advanced/render` y `POST /api/tasks/template/export`.
 - La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.
     - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
 
@@ -251,7 +252,7 @@ note bottom of apiconfautoriz
 
   Por seguridad, la petición debe incluir
   un secreto conocido solo por el 
-  **proxy "middleware"** y el 
+  **proxy "middleware"** y la
   **API de Configuración y Autorización**
   (cabecera `X-SITMUN-Proxy-Key`)
   para asegurar que proviene de un proxy
@@ -268,6 +269,7 @@ visor -right-> publicwms
 visor -down-> apiautentic
 visor -down-> proxymiddleware
 visor -down-> apiconfautoriz
+visor .down.> apibackendcore : plantillas MIA
 proxymiddleware -down-> privatewms
 proxymiddleware -down-> territdb
 proxymiddleware -left-> apiconfautoriz
@@ -303,7 +305,7 @@ autonumber stop
 SAC-->>Client: Configuración
 autonumber resume
 Client->>SP: Petición WMS usando token JWT\ne identificadores territorio y aplicación
-SP->>SAC: Comprueba autorización\ny dame configuración
+SP->>SAC: Comprueba autorización\ny pide la configuración
 autonumber stop
 SAC-->>SP: Autorización y configuración
 autonumber resume
@@ -322,12 +324,12 @@ SP-->Client: Respuesta
    A esta petición el visor le ha añadido el token JWT, el identificador de territorio y el identificador de aplicación.
 3. El usuario interactúa con el visor y, por ejemplo, hace visible una capa que corresponde a un
    servicio WMS restringido por territorio o realiza una búsqueda entre los datos alfanuméricos del
-   padrón municipal de habitantes de un municipio. Esta petición ocurrirá a través del [Servicio de proxy][servicio-de-proxy].
+   padrón municipal de habitantes de un municipio. Esta petición ocurrirá a través del [Servicio de Proxy][servicio-de-proxy].
    A esta petición el visor le ha añadido el token JWT, el identificador de territorio y el identificador de aplicación.
-4. Con esta información, el [Servicio de proxy][servicio-de-proxy] interactúa con el [Servicio de Configuración y Autorización][servicio-de-configuracion-y-autorizacion]
+4. Con esta información, el [Servicio de Proxy][servicio-de-proxy] interactúa con el [Servicio de Configuración y Autorización][servicio-de-configuracion-y-autorizacion]
    para determinar si puede hacer la petición y, si puede hacerla, cómo debe interrogar este servicio restringido.
    En este caso, por ejemplo, qué parámetros adicionales hay que añadir a la petición para limitar la respuesta a un territorio concreto.
-5. Después, el [Servicio de proxy][servicio-de-proxy] hace la petición al servicio WMS restringido con estos parámetros adicionales y
+5. Después, el [Servicio de Proxy][servicio-de-proxy] hace la petición al servicio WMS restringido con estos parámetros adicionales y
    devuelve la respuesta al visor tras aplicar alguna transformación si fuera necesaria.
 
 ## Diagramas de secuencia
@@ -458,7 +460,7 @@ participant "WMS Privado" as PrivateWMS
 
 
 
-ref over Usuario, Client, Database : Proceso de login y config. inicial
+ref over Usuario, Client, Database : Proceso de login y configuración inicial
 note over Client, ConfigurationAPI
 La info de config. devuelta incluye, para WMS públicos (y similares)
 su URL pública, y para los WMS privados (y similares) una URL única 
@@ -484,7 +486,7 @@ note right
   El token será ignorado en un WMS público, pero para evitar problemas
   el token no tiene que ir siempre. 
   Se puede añadir solo si las peticiones están dirigidas al proxy
-  Esta información puede ser proporcionada por el API de configuración
+  Esta información puede ser proporcionada por la API de Configuración
   mediante un valor booleano asociado a la URL. 
 end note
 
@@ -637,7 +639,7 @@ participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 participant "BD Protegida" as ProtectedDatabase
 
-ref over Usuario, Database : Proceso de login y config. inicial
+ref over Usuario, Database : Proceso de login y configuración inicial
 
 Usuario ->> Client: Información privada
 Client ->> Proxy: DoTask
@@ -816,21 +818,21 @@ En general, cada API que en despliegue quede expuesta de manera separada, es dec
 Cada uno de estos paquetes puede contener:
 
 - Paquete `controller`: contiene los controladores (clases anotadas con `@Controller`) y otras cosas necesarias para implementar ese endpoint HTTP.
-- Paquete `service`: contiene los servicios de aplicación específicos del API (clases anotadas con `@Service`) y clases asociadas. Estos servicios se invocan sobre todo desde los controladores del paquete `controller` (algunos, como el de las cookies de sesión, también desde los filtros de seguridad).
+- Paquete `service`: contiene los servicios de aplicación específicos de la API (clases anotadas con `@Service`) y clases asociadas. Estos servicios se invocan sobre todo desde los controladores del paquete `controller` (algunos, como el de las cookies de sesión, también desde los filtros de seguridad).
 - Paquete `config`: contiene la configuración específica de los componentes del endpoint definidos en los paquetes `controller` y `service`. Normalmente, son clases anotadas con `@Configuration` y parte de la configuración puede estar referida a clases de infraestructura (de biblioteca) de Spring Framework.
 
 Además, hay dos paquetes adicionales:
 
 - Paquete `domain` que contiene las clases y los tipos del modelo de **SITMUN 3**. Es decir, el modelo que permite definir aplicaciones **SITMUN 3**, los territorios en
 los que están disponibles, a qué servicios territorios y bases de datos pueden
-acceder y qué usuarios pueden utilizarlas.  Los paquetes que contienen las clases de dominio están anidados, de tal forma que las clases de dominio dependientes de otra aparecen en un paquete anidado en el paquete que contiene la clase principal. Las entidades de `domain` se exponen a través de la **API de Administración** usando el framework **Spring Data REST**.
+acceder y qué usuarios pueden utilizarlas. Los paquetes que contienen las clases de dominio están anidados, de tal forma que las clases de dominio dependientes de otra aparecen en un paquete anidado en el paquete que contiene la clase principal. Las entidades de `domain` se exponen a través de la **API de Administración** usando el framework **Spring Data REST**.
 - Paquete `infrastructure` que describe los componentes de infraestructura (persistencia, seguridad, web).
 
 El paquete `infrastructure` contiene:
 
 - Paquete `persistence`: configuración de la persistencia (`config`), dialectos de Hibernate para Oracle (`dialect`), excepciones (`exception`), tipos y conversores que usan las entidades (`type`) y validadores (`validation`).
   Las entidades del modelo, con sus repositorios (interfaces anotadas con `@Repository`) y proyecciones, están en los paquetes de `domain`.
-- Paquete `security` que contiene la configuración del framework de seguridad `Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad a nivel de la aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PUBLIC`, `MOBILE_EDITION` y `PROXY`. Además, este paquete asegura que todos los accesos anónimos sean identificados como un acceso con usuario *público*.
+- Paquete `security` que contiene la configuración del framework de seguridad `Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad en la aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PUBLIC`, `MOBILE_EDITION` y `PROXY`. Además, este paquete asegura que todos los accesos anónimos sean identificados como un acceso con usuario *público*.
 
 La relación de las API públicas con el paquete `security` es la siguiente:
 
@@ -847,7 +849,8 @@ y asignar la identidad y el rol correspondiente.
 - Los controladores de la **API de Administración** (tanto los definidos
 explícitamente como los generados dinámicamente por **Spring Data REST**)
 solo podrán ser accedidos por usuarios a los que se haya determinado que
-tengan el rol `ADMIN`. Como en el caso anterior, es misión del paquete
+tengan el rol `ADMIN`. Las excepciones son `POST /api/tasks/template/more-info-advanced/render` y
+`POST /api/tasks/template/export`, que usa el visor y están abiertos también a los roles `USER` y `PUBLIC`. Como en el caso anterior, es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para el
 rol `ADMIN`) determinar si están autenticadas y asignar la identidad y el rol
