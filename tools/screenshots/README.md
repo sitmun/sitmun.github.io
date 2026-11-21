@@ -47,7 +47,10 @@ and those two images keep their previous version.
 
 To run it next to another SITMUN stack, use another project name
 (`docker compose -p sitmun-shots ...`) and a `compose.override.yaml` that
-publishes other ports.
+publishes other ports. Then set `PUBLIC_PORT` in `.env` to the port you publish
+the front on (the admin builds its API address from it), and pass the same
+address as `--base`. If they don't match, the script stops before taking any
+image.
 
 ## Run
 

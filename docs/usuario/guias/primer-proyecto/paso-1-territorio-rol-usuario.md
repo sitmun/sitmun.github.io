@@ -23,7 +23,7 @@ Este paso va primero porque casi todo lo demás (capas, mapas de fondo, árboles
 **1.3 Usuario público** (menú **Usuario**)
 
 - Abre el usuario `public` (ya existe, no hay que crearlo), ve a la pestaña **Roles por Territorio**, pulsa **Añadir** y elige el rol del paso 1.2 y tu territorio.
-- La columna **Rol territorial** hace que el rol valga también para los territorios hijos (por ejemplo, los municipios de una isla). Déjala desactivada si no lo necesitas.
+- La columna **Rol territorial** permite que el rol valga también para los territorios hijos (por ejemplo, los municipios de una isla). Solo funciona junto con las opciones **Garantizar acceso al territorio de la asignación** y **Garantizar acceso a territorios hijo** de la aplicación ([paso 7](paso-7-aplicacion.md)): si la activas y la aplicación no tiene ninguna, la aplicación no aparece. Déjala desactivada si no lo necesitas.
 
 ![Formulario del usuario public](img/paso-1-usuario-public.webp){ loading=lazy }
 

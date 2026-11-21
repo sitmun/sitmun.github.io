@@ -18,8 +18,6 @@ Las tareas básicas son parametrizables.
 
 Los parámetros que pueden añadirse a estas tareas son aquellos admitidos por los controles de la API SITNA.
 
-En la descripción de cada tarea básica se muestran ejemplos de posibles parámetros que pueden contener estas tareas.
-
 ## Tareas básicas incluidas
 
 Las tareas básicas que incluye SITMUN se describen agrupadas en cuatro páginas. Cada una aparece con el nombre que muestra el administrador en castellano y, entre paréntesis, su nombre en inglés:

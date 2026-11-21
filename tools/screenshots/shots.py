@@ -45,13 +45,24 @@ def main() -> int:
         page = context.new_page()
         ctx = Ctx(page, args.base, password, set(args.only))
         failed = []
+
         try:
             if not ctx.only or "before_login" in ctx.only:
                 steps.before_login(ctx)
             login_admin(page, args.base, password)
+            # The backend builds the links in its answers from PUBLIC_* in the
+            # showcase's .env, and the admin follows them. If they point elsewhere
+            # (PUBLIC_PORT not set to the published port), every step would save
+            # wrong screens, so stop before taking any image.
+            answer = page.request.get(f"{args.base.rstrip('/')}/backend/api/services?size=1",
+                                      headers={"x-sitmun-client": "admin"}).json()
+            link = answer.get("_links", {}).get("self", {}).get("href", "")
+            if not link.startswith(args.base.rstrip("/") + "/"):
+                raise RuntimeError(f"the backend links to {link.split('/backend/')[0]}, not to {args.base}; "
+                                   "set PUBLIC_PORT (and PUBLIC_HOSTNAME) in the showcase's .env to match --base")
         except Exception as exc:
             failed.append("login")
-            print(f"Could not sign in to the admin at {args.base} (address or password?): {exc}")
+            print(f"Could not start at {args.base} (address, password or showcase settings): {exc}")
             page.screenshot(path="/tmp/shot-fail-login.png")
         for name, step in SHOTS.items():
             if failed == ["login"] or (ctx.only and name not in ctx.only):

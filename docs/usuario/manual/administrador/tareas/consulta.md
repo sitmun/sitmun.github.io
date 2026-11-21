@@ -1,5 +1,5 @@
 ---
-description: "Tareas de consulta en SITMUN 3: consultas SQL sobre una conexión, con parámetros y variables de sistema."
+description: "Tareas de consulta en SITMUN 3: tipos de consulta, y consultas SQL con parámetros y variables de sistema."
 ---
 
 # Tareas de consulta
@@ -96,7 +96,7 @@ La sintaxis para utilizar variables de sistema es ligeramente diferente a la de 
     - Todos los parámetros usados deben estar definidos en la pestaña **Parámetros**, y todos los definidos deben usarse.
     - El botón **Probar** ejecuta la consulta guardada y muestra la SQL resultante y los valores enlazados.
 
-Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla. Esto también se aplica cuando la consulta se usa dentro de una [tarea MIA](mas-informacion-avanzada.md): si no tiene el rol y el territorio de la aplicación, el visor muestra «Sin datos» en su lugar.
+Por último, es necesario **asignar los roles y territorios** a la consulta SQL para determinar qué usuarios tendrán visibilidad sobre ella y podrán utilizarla. Esto también se aplica cuando la consulta se usa en una [tarea MIA](mas-informacion-avanzada.md) o en una [plantilla](plantillas.md): si no tiene el rol y el territorio de la aplicación, el visor muestra «Sin datos» en su lugar (si está incluida directamente en el MIA) o la plantilla sin sus datos.
 
 ### Consulta Web API (Web API query)
 

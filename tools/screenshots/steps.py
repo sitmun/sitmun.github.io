@@ -54,6 +54,7 @@ def before_login(c: Ctx) -> None:
 CONNECTION = "Base de datos de ejemplo"
 QUERY = "Patrimonio UNESCO por identificador"
 LOCATOR = "Localizar patrimonio UNESCO"
+SEARCH_QUERY = "Buscar patrimonio UNESCO por nombre"
 
 
 def fill(c: Ctx, control: str, value: str) -> None:
@@ -332,21 +333,26 @@ MIA_ROLE = "Camí de cavalls - públic"
 MIA_TERRITORY = "Menorca"
 
 
+def add_in_tab(c: Ctx, tab: str, name: str) -> None:
+    """Open a relation tab, and add the row called `name` from its "+" dialog."""
+    c.tab(tab)
+    c.page.wait_for_timeout(600)
+    tool(c, "add_circle_outline").click()
+    c.settle(600)
+    dialog = c.page.locator("mat-dialog-container")
+    box = dialog.locator("input:not([type=checkbox])").first
+    box.click()
+    box.press_sequentially(name, delay=20)
+    c.page.wait_for_timeout(800)
+    dialog.locator("[role=row]").filter(has_text=name).first.locator("input[type=checkbox]").check()
+    dialog.locator("button:has(mat-icon:text-is('add_circle_outline'))").click()
+    c.settle(600)
+
+
 def grant(c: Ctx, role: str = MIA_ROLE, territory: str = MIA_TERRITORY) -> None:
     """Add a role and a territory on the Roles and Territorios tabs of a task."""
-    for tab, name in (("Roles", role), ("Territorios", territory)):
-        c.tab(tab)
-        c.page.wait_for_timeout(600)
-        tool(c, "add_circle_outline").click()
-        c.settle(600)
-        dialog = c.page.locator("mat-dialog-container")
-        box = dialog.locator("input:not([type=checkbox])").first
-        box.click()
-        box.press_sequentially(name, delay=20)
-        c.page.wait_for_timeout(800)
-        dialog.locator("[role=row]").filter(has_text=name).first.locator("input[type=checkbox]").check()
-        dialog.locator("button:has(mat-icon:text-is('add_circle_outline'))").click()
-        c.settle(600)
+    add_in_tab(c, "Roles", role)
+    add_in_tab(c, "Territorios", territory)
 
 
 # --- Consulta SQL ------------------------------------------------------------------
@@ -421,6 +427,36 @@ def conexiones_pestana_tareas(c: Ctx) -> None:
     c.save("conexiones-pestana-tareas", c.content)
 
 
+# The viewer's locator always sends the typed text as a "text" parameter, so its
+# query must declare one. Parameters are bound as whole values (not inside a
+# string), hence strpos() instead of LIKE '%...%'.
+SEARCH_SQL = ("SELECT nom_cast AS nombre, etrs89x, etrs89y\nFROM dbo.pa007his_unesco\n"
+              "WHERE strpos(lower(nom_cast), lower(${text})) > 0")
+
+
+@shot
+def consulta_busqueda(c: Ctx) -> None:
+    """The search query the locator uses (no images)."""
+    p = c.page
+    c.admin("taskQuery/-1/5")
+    fill(c, "name", SEARCH_QUERY)
+    choose(c, "scope", "SQL Query")
+    choose(c, "taskGroupId", "Básico")
+    choose(c, "connectionId", CONNECTION)
+    set_sql(c, SEARCH_SQL)
+    c.tab("Parámetros")
+    p.wait_for_timeout(600)
+    tool(c, "add_circle_outline").click()
+    c.settle(600)
+    dialog = p.locator("mat-dialog-container")
+    dialog.locator("[formcontrolname=name]").fill("text")
+    dialog.locator("[formcontrolname=label]").fill("Texto buscado")
+    dialog.locator("button:has(mat-icon:text-is('add_circle_outline'))").click()
+    c.settle(600)
+    grant(c)
+    save_form(c)
+
+
 # --- Localizador ---------------------------------------------------------------------
 
 @shot
@@ -431,20 +467,21 @@ def localizador(c: Ctx) -> None:
     choose(c, "taskGroupId", "Básico")
     query = p.locator("mat-sidenav-content input[aria-autocomplete]").first
     query.click()
-    query.press_sequentially(QUERY[:10], delay=30)
-    p.get_by_role("option", name=QUERY).first.click()
+    query.press_sequentially(SEARCH_QUERY[:10], delay=30)
+    p.get_by_role("option", name=SEARCH_QUERY).first.click()
     p.wait_for_timeout(500)
     c.save("localizador-general", c.content)
 
     c.tab("Configuración del geocodificador")
     p.wait_for_timeout(600)
-    fill(c, "geocoderLabelField", "nombre")
-    fill(c, "geocoderSrs", "EPSG:4326")
-    fill(c, "geocoderLatField", "etrs89y")
-    fill(c, "geocoderLonField", "etrs89x")
+    type_in(c, "geocoderLabelField", "nombre")
+    type_in(c, "geocoderSrs", "EPSG:4326")
+    type_in(c, "geocoderLatField", "etrs89y")
+    type_in(c, "geocoderLonField", "etrs89x")
     c.highlight(*[p.locator(f"mat-form-field:has([formcontrolname={name}])") for name in
                   ("geocoderLabelField", "geocoderSrs", "geocoderLatField", "geocoderLonField")])
     c.save("localizador-configuracion", c.content)
+    grant(c)
     save_form(c)
 
 
@@ -846,6 +883,26 @@ def visor_mia(c: Ctx) -> None:
 
 
 @shot
+def visor_localizador(c: Ctx) -> None:
+    """The locator in the viewer: search "Torre" and go to the first result."""
+    p = c.page
+    c.map(MIA_APP, MIA_APP_TERRITORY)
+    p.mouse.click(40, 148)  # tools button
+    p.wait_for_timeout(1500)
+    locator = tool_panel(c, "tc-ctl-loc")
+    locator.locator("select.tc-ctl-loc-select").select_option(label=LOCATOR)
+    p.wait_for_timeout(800)
+    box = locator.locator("input.tc-ctl-loc-input")
+    box.click()
+    box.press_sequentially("Torre", delay=80)
+    locator.locator("ul.tc-ctl-loc-results li").first.wait_for(timeout=30000)
+    locator.locator("ul.tc-ctl-loc-results li").first.click()
+    p.wait_for_timeout(5000)
+    c.mark(locator)
+    c.save("localizador-visor", clip={"x": 0, "y": 64, "width": 1440, "height": 700})
+
+
+@shot
 def mia_plantilla(c: Ctx) -> None:
     """Replace the MIA's query with the template that formats its result."""
     p = c.page
@@ -956,3 +1013,86 @@ def guia_primer_proyecto(c: Ctx) -> None:
 
     c.map(SDI_APP, SDI_TERRITORY)
     c.save("paso-8-visor", folder=GUIDE_IMG)
+
+
+# --- Guía: OpenStreetMap como mapa de fondo -----------------------------------------------
+
+OSM = "OpenStreetMap"
+OSM_IMG = GUIDE_IMG.parent.parent / "img"  # docs/usuario/guias/img
+
+
+@shot
+def guia_osm(c: Ctx) -> None:
+    """Follow the OpenStreetMap guide on the Camí de Cavalls app, and show the result."""
+    p = c.page
+    viewer = f"{c.base}/viewer"
+    # The showcase already offers its own OpenStreetMap background; take it out of
+    # this app so the viewer shows only the one the guide creates.
+    c.admin(f"application/{MIA_APP}/applicationForm")
+    c.tab("Mapas de fondo")
+    p.wait_for_timeout(1500)
+    p.locator("mat-sidenav-content [role=row]").filter(has_text=OSM).first.locator("input[type=checkbox]").check()
+    tool(c, "delete").click()
+    confirm_dialog(c)
+    save_form(c)
+
+    c.admin("service/-1/serviceForm")
+    fill(c, "name", OSM)
+    choose(c, "type", "WMTS")
+    type_in(c, "serviceURL", f"{viewer}/assets/js/api-sitna/wmts/osm/1.0.0/WMTSCapabilities.xml")
+    p.mouse.move(5, 900)
+    c.save("osm-servicio", c.content, folder=OSM_IMG)
+    c.tab("Parámetros de configuración")
+    p.wait_for_timeout(600)
+    for name, value in (("matrixSet", "WorldWebMercatorQuad"), ("format", "image/png")):
+        tool(c, "add_circle_outline").click()
+        c.settle(600)
+        dialog = p.locator("mat-dialog-container")
+        dialog.locator("[formcontrolname=name]").fill(name)
+        dialog.locator("[formcontrolname=value]").fill(value)
+        dialog.locator("button:has(mat-icon:text-is('add_circle_outline'))").click()
+        c.settle(600)
+    p.mouse.move(5, 900)
+    c.save("osm-parametros", c.content, folder=OSM_IMG)
+    save_form(c)
+
+    c.admin("layers/-1/layersForm")
+    fill(c, "name", OSM)
+    toggle = p.locator("mat-slide-toggle[formcontrolname=availableForClients]")
+    if toggle.locator("button").get_attribute("aria-checked") != "true":
+        toggle.locator("button").click()
+    choose(c, "serviceId", OSM)
+    type_in(c, "joinedLayers", "osm")
+    p.mouse.move(5, 900)
+    c.save("osm-capa", c.content, folder=OSM_IMG)
+    add_in_tab(c, "Territorios", MIA_TERRITORY)
+    save_form(c)
+
+    c.admin("backgroundLayers/-1/backgroundLayersForm")
+    fill(c, "name", OSM)
+    fill(c, "image", f"{viewer}/assets/js/api-sitna/css/img/thumb-osm.png")
+    active = p.locator("mat-slide-toggle[formcontrolname=active]")
+    if active.locator("button").get_attribute("aria-checked") != "true":
+        active.locator("button").click()
+    p.mouse.move(5, 900)
+    p.evaluate("() => document.querySelectorAll('.mat-mdc-tooltip-panel, .mdc-tooltip')"
+               ".forEach(e => e.style.visibility = 'hidden')")
+    c.save("osm-capa-fondo", c.content, folder=OSM_IMG)
+    add_in_tab(c, "Capas", OSM)
+    add_in_tab(c, "Roles", MIA_ROLE)
+    add_in_tab(c, "Aplicaciones", "Camí de Cavalls")
+    save_form(c)
+
+    c.map(MIA_APP, MIA_APP_TERRITORY)
+    p.locator("h1.tc-panel-tab[title='Capas']").click()
+    p.wait_for_timeout(1500)
+    open_section(c, "tc-ctl-bms")
+    item = p.locator(".tc-right-panel .tc-ctl-bms li").filter(has_text=OSM).first
+    c.mark(item)
+    c.save("osm-visor-fondos", clip=RIGHT_PANEL, folder=OSM_IMG)
+    item.click()
+    p.wait_for_timeout(2500)
+    warning = p.get_by_text("Mapa de fondo no compatible").first.locator(
+        "xpath=ancestor::*[contains(concat(' ', @class, ' '), ' tc-modal-window ')"
+        " or contains(concat(' ', @class, ' '), ' tc-modal ')][1]")
+    c.save("osm-visor-aviso", warning, pad=8, folder=OSM_IMG)

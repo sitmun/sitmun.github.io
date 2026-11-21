@@ -14,13 +14,25 @@ Para crear un nuevo localizador, en primer lugar se deben definir los elementos 
 
 La configuración de los elementos del localizador se debe empezar vinculando la consulta previamente creada en el apartado de consultas. Esta consulta debe devolver como mínimo los parámetros de localización X e Y, o longitud y latitud, que servirán para localizar un punto en el mapa. Complementariamente, puede devolver otros parámetros identificativos que los usuarios puedan interpretar más fácilmente.
 
+!!! warning "La consulta debe tener un parámetro `text`"
+    El visor envía el texto que escribe el usuario en un parámetro llamado `text`, y una consulta que no lo declare
+    responde con un error. Defina en la pestaña **Parámetros** de la consulta un parámetro con el nombre `text`
+    y úselo en la sentencia SQL. Como los parámetros se enlazan como valores completos, no pueden ir dentro de una cadena
+    (`'%${text}%'`); para buscar un texto dentro de un campo, use una función, por ejemplo:
+
+    ```sql
+    SELECT nom_cast AS nombre, etrs89x, etrs89y
+    FROM dbo.pa007his_unesco
+    WHERE strpos(lower(nom_cast), lower(${text})) > 0
+    ```
+
 En la pestaña **Configuración del geocodificador** se detalla cómo se quiere trabajar con estos elementos, indicando:
 
 - **Campo de etiqueta**: campo devuelto por la consulta con un valor identificativo fácil de interpretar por el usuario. Por ejemplo: ID, nombre o referencia catastral.
 - **Sistema de referencia**: sistema de referencia con código EPSG. Por ejemplo, EPSG:25831.
 - **Campo de latitud** y **Campo de longitud**: coordenadas Y y X de cada resultado. Son opcionales: en su lugar se puede indicar un **Campo de geometría** con una geometría GeoJSON.
 
-En el ejemplo, la consulta «Patrimonio UNESCO por identificador» devuelve `nombre` (campo de etiqueta) y las coordenadas `etrs89y` y `etrs89x`, en `EPSG:4326`.
+En el ejemplo, la consulta «Buscar patrimonio UNESCO por nombre» (la sentencia de arriba) devuelve `nombre` (campo de etiqueta) y las coordenadas `etrs89y` y `etrs89x`, en `EPSG:4326`.
 
 ![Configuración del geocodificador de una tarea de localizador](../img/localizador-configuracion.webp){ loading=lazy }
 
@@ -30,4 +42,8 @@ Complementariamente se pueden activar las opciones de:
 - Activar parámetros del servicio.
 - Añadir otros parámetros a considerar.
 
-Además, están las pestañas **Roles** y **Territorios**, donde asignar los accesos que se deseen (ver [Roles](../roles.md) y [Territorios](../territorios.md)).
+Además, están las pestañas **Roles** y **Territorios**, donde asignar los accesos que se deseen (ver [Roles](../roles.md) y [Territorios](../territorios.md)). El acceso se comprueba con los roles y territorios del localizador; la consulta enlazada no los necesita.
+
+En el visor, el localizador aparece en el panel de herramientas. El usuario elige el localizador, escribe el texto y, al pulsar un resultado, el mapa se centra en él:
+
+![Localizador en el visor](../img/localizador-visor.webp){ loading=lazy }

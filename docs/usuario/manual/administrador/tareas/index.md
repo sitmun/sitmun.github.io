@@ -1,5 +1,5 @@
 ---
-description: "Tareas de SITMUN 3: tipos de tarea del administrador y cómo se asignan a roles y territorios."
+description: "Tareas de SITMUN 3: qué son y qué tipos de tarea ofrece el administrador."
 ---
 
 # Tareas
