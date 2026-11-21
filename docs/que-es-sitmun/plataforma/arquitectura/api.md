@@ -100,7 +100,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 ### Servicios soportados
 
 Las peticiones tienen la forma `/proxy/{appId}/{terId}/{type}/{typeId}` (o `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`
-para una capa concreta) y pueden usar los métodos HTTP GET o POST.
+para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticiones POST deben llevar un cuerpo XML (por ejemplo, una petición WFS), y con otro tipo de contenido el proxy responde 415.
 
 - **Servicios [OGC Web Map Service (WMS)](https://www.ogc.org/standard/wms/)**,
   que ofrecen mapas en formato imagen.
@@ -129,7 +129,7 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST.
 
 - **Autenticación de acceso básica (Servicios)**: Modificador encargado de incluir en la cabecera de la petición HTTP un usuario y contraseña si fuese necesario ([RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617)).
 
-- **API key (Servicios)**: Modificador encargado de añadir una clave de acceso en una cabecera, un parámetro de la consulta o una cookie.
+- **API key (consultas Web API)**: Modificador encargado de añadir una clave de acceso en una cabecera o en un parámetro de la consulta. Los servicios OGC (WMS, WFS, WMTS) solo admiten autenticación HTTP básica.
 
 - **Selección (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
 

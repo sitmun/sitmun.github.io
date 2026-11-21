@@ -17,16 +17,16 @@ o haya expresado por cualquier otro medio su voluntad de conceder una licencia c
 
 En la presente licencia, se entenderá por:  
 
-- «licencia»:la presente licencia,  
-- «obra original»:la obra o el programa de ordenador distribuido o comunicado por el licenciante con arreglo a la presente licencia en forma de código fuente o, en su caso, de código ejecutable,  
-- «obras derivadas»:las obras o programas de ordenador que pudiera crear el licenciatario sobre la base de la obra original o de alguna de las modificaciones de esta. La presente licencia no define el grado de modificación o dependencia de la obra original necesario para clasificar una obra como derivada; dicho grado se determinará de acuerdo con la legislación sobre derechos de autor aplicable con arreglo al artículo 15,  
-- «obra»:la obra original o sus obras derivadas,  
-- «código fuente»:la forma de la obra legible por seres humanos que pueda ser estudiada y modificada más fácilmente,  
-- «código ejecutable»:cualquier código, en general compilado, destinado a ser interpretado como programa por un ordenador,  
-- «licenciante»:la persona física o jurídica que distribuye o comunica la obra con arreglo a la licencia,  
-- «colaborador»:la persona física o jurídica que modifica la obra con arreglo a la licencia o contribuye de cualquier otra manera a crear una obra derivada,  
-- «licenciatario»:la persona física o jurídica que hace un uso cualquiera de la obra en las condiciones fijadas en la licencia,  
-- «distribución» o «comunicación»:cualquier acto de venta, donación, préstamo, alquiler, distribución, comunicación, transmisión o cualquier otro acto de puesta a disposición, en línea o fuera de línea, de copias de la obra o de acceso a sus funcionalidades esenciales a otra persona física o jurídica.
+- «licencia»: la presente licencia,  
+- «obra original»: la obra o el programa de ordenador distribuido o comunicado por el licenciante con arreglo a la presente licencia en forma de código fuente o, en su caso, de código ejecutable,  
+- «obras derivadas»: las obras o programas de ordenador que pudiera crear el licenciatario sobre la base de la obra original o de alguna de las modificaciones de esta. La presente licencia no define el grado de modificación o dependencia de la obra original necesario para clasificar una obra como derivada; dicho grado se determinará de acuerdo con la legislación sobre derechos de autor aplicable con arreglo al artículo 15,  
+- «obra»: la obra original o sus obras derivadas,  
+- «código fuente»: la forma de la obra legible por seres humanos que pueda ser estudiada y modificada más fácilmente,  
+- «código ejecutable»: cualquier código, en general compilado, destinado a ser interpretado como programa por un ordenador,  
+- «licenciante»: la persona física o jurídica que distribuye o comunica la obra con arreglo a la licencia,  
+- «colaborador»: la persona física o jurídica que modifica la obra con arreglo a la licencia o contribuye de cualquier otra manera a crear una obra derivada,  
+- «licenciatario»: la persona física o jurídica que hace un uso cualquiera de la obra en las condiciones fijadas en la licencia,  
+- «distribución» o «comunicación»: cualquier acto de venta, donación, préstamo, alquiler, distribución, comunicación, transmisión o cualquier otro acto de puesta a disposición, en línea o fuera de línea, de copias de la obra o de acceso a sus funcionalidades esenciales a otra persona física o jurídica.
 
 ## 2.Ámbito de los derechos otorgados por la Licencia
 
@@ -56,11 +56,11 @@ La cesión de los derechos en virtud de la presente licencia queda supeditada a 
 
 - Derecho de atribución: El licenciatario deberá mantener íntegramente todas las advertencias y menciones a los derechos de autor, patentes o marcas registradas, así como las que se refieran a la licencia y a la exención de responsabilidad. El licenciatario deberá adjuntar copias de dichas advertencias y menciones y de la licencia con cada copia de la obra que distribuya o comunique. El licenciatario se responsabilizará de que cualquier obra derivada incluya una advertencia bien destacada declarando que se ha modificado la obra, y la fecha de modificación.
 
-- Cláusula de «copyleft»: Si el licenciatario distribuyera o comunicara copias de la obra original o de obras derivadas basadas en la obra original, dicha distribución o comunicación deberá hacerse en las condiciones fijadas en la presente licencia o una versión posterior de la presente licencia, salvo si la obra original se distribuye expresamente solo bajo la presente versión de la licencia (por ejemplo, comunicando «EUPL v. 1.2 solamente». El licenciatario (ahora en su calidad de licenciante) no podrá ofrecer ni imponer condiciones adicionales sobre la obra o las obras derivadas que modifiquen o limiten las condiciones de la licencia.
+- Cláusula de «copyleft»: Si el licenciatario distribuyera o comunicara copias de la obra original o de obras derivadas basadas en la obra original, dicha distribución o comunicación deberá hacerse en las condiciones fijadas en la presente licencia o una versión posterior de la presente licencia, salvo si la obra original se distribuye expresamente solo bajo la presente versión de la licencia (por ejemplo, comunicando «EUPL v. 1.2 solamente»). El licenciatario (ahora en su calidad de licenciante) no podrá ofrecer ni imponer condiciones adicionales sobre la obra o las obras derivadas que modifiquen o limiten las condiciones de la licencia.
 
 - Cláusula de compatibilidad: Si el licenciatario distribuyera o comunicara obras derivadas o copias de estas últimas basadas a su vez en la obra y en otra obra licenciada bajo una licencia compatible, la distribución o comunicación podrán efectuarse con arreglo a las condiciones de dicha licencia compatible. A efectos de la presente cláusula, se entenderá por «licencia compatible» cualquiera de las licencias enumeradas en el apéndice adjunto a la presente licencia. En caso de que las obligaciones del licenciatario con arreglo a la licencia compatible estén en colisión con las derivadas de la presente licencia, prevalecerán las obligaciones de la licencia compatible.
 
--Suministro del código fuente: Cuando distribuya o comunique copias de la obra, el licenciatario deberá facilitar una copia del código fuente legible automáticamente o indicar un repositorio en que se pueda acceder al código fuente fácilmente y de manera gratuita durante el período en que siga distribuyendo o comunicando la obra.
+- Suministro del código fuente: Cuando distribuya o comunique copias de la obra, el licenciatario deberá facilitar una copia del código fuente legible automáticamente o indicar un repositorio en que se pueda acceder al código fuente fácilmente y de manera gratuita durante el período en que siga distribuyendo o comunicando la obra.
 
 - Salvaguardia de otros derechos: La presente licencia no faculta para utilizar los nombres comerciales, marcas de producto o de servicio o nombres del licenciante, excepto cuando ello, realizado en la medida de lo razonable y conforme a los usos habituales, sea necesario para indicar el origen de la obra y reproducir el contenido de la mención a los derechos de autor.
 
