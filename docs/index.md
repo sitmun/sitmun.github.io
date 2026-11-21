@@ -12,6 +12,11 @@ El despliegue, mantenimiento y actualización de estas aplicaciones está centra
 
 Esta web tiene como objetivo poner la documentación técnica de la plataforma **SITMUN 3** a disposición de quienes participen en su desarrollo, en su implantación o en el desarrollo de aplicaciones que la utilicen.
 
+!!! tip "Pruébalo sin instalar nada"
+    Abre la instalación de demostración de SITMUN 1.3.0 en GitHub Codespaces: el administrador y el visor, con tres aplicaciones de ejemplo, en tu navegador. Necesitas una cuenta de GitHub; el arranque tarda unos minutos y el codespace consume horas de tu cuota de Codespaces mientras está encendido.
+
+    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fdemo%2Fdevcontainer.json){ .md-button .md-button--primary }
+
 ## Secciones de esta web
 
 Elige por dónde empezar según lo que necesites:

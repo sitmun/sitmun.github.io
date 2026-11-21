@@ -12,6 +12,11 @@ SITMUN 3 ya está disponible bajo una versión de código libre, concretamente b
 
 El código fuente del proyecto se puede encontrar en el [repositorio de GitHub de SITMUN](https://github.com/sitmun/).
 
+!!! tip "Explorar las pantallas de este manual"
+    Abre la instalación de demostración de SITMUN 1.3.0 en GitHub Codespaces: tiene servicios, capas, árboles, tareas y aplicaciones de ejemplo para recorrer el administrador. Necesitas una cuenta de GitHub; el arranque tarda unos minutos y el codespace consume horas de tu cuota de Codespaces mientras está encendido.
+
+    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fdemo%2Fdevcontainer.json){ .md-button .md-button--primary }
+
 ## Arquitectura básica de SITMUN 3
 
 Sin entrar en detalles técnicos que no son objeto de este manual, sí que es conveniente describir los principales elementos que configuran SITMUN 3:

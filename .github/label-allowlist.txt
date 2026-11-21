@@ -35,7 +35,7 @@ Paso 1: activar la visualización de datos alfanuméricos de la capa
 Paso 2: activar la visualización de información en el árbol
 Pasos de instalación (producción)
 Primer acceso al administrador
-Probar SITMUN (showcase)
+Probar SITMUN: instalación de demostración (*showcase*)
 Proporcionar logs
 Publicar en un servidor web
 Revisar la documentación

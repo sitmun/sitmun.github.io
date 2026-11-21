@@ -1,0 +1,51 @@
+name: Codespaces variants
+
+# Each "Abrir en GitHub Codespaces" button opens one dev container variant in
+# .devcontainer/. This job starts each variant's SITMUN with the same script the
+# codespace runs and checks it serves what its page promises, so a SITMUN release
+# or a script change that breaks a button is caught before a reader hits it.
+# The forwarded HTTPS address of a real codespace can't be reproduced here.
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - ".devcontainer/**"
+      - ".github/workflows/devcontainers.yml"
+  push:
+    branches: [master]
+    paths:
+      - ".devcontainer/**"
+      - ".github/workflows/devcontainers.yml"
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  variant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - variant: demo
+            env: SITMUN_PROFILE=showcase SITMUN_EXTRA=demo
+          - variant: vacia
+            env: SITMUN_PROFILE=postgres
+          - variant: osm
+            env: SITMUN_PROFILE=showcase SITMUN_EXTRA=demo SITMUN_SCENARIO=.devcontainer/osm/escenario.sql
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: The variant's postStartCommand matches this job
+        run: |
+          grep -F '"postStartCommand": "${{ matrix.env }} bash .devcontainer/start-sitmun.sh"' .devcontainer/${{ matrix.variant }}/devcontainer.json
+      - name: Start SITMUN as the codespace does
+        run: env ${{ matrix.env }} bash .devcontainer/start-sitmun.sh
+      - name: Check what the variant promises
+        run: bash .devcontainer/check-sitmun.sh ${{ matrix.variant }}
+      - name: Backend logs on failure
+        if: failure()
+        run: cd ~/sitmun && docker compose -p sitmun logs --tail 200 backend

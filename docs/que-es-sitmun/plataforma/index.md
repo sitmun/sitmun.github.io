@@ -93,4 +93,9 @@ block-beta
 
 ---
 
+!!! tip "Ver SITMUN en marcha"
+    Abre la instalación de demostración de SITMUN 1.3.0 en GitHub Codespaces, con tres aplicaciones de ejemplo. Necesitas una cuenta de GitHub; el arranque tarda unos minutos y el codespace consume horas de tu cuota de Codespaces mientras está encendido.
+
+    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fdemo%2Fdevcontainer.json){ .md-button .md-button--primary }
+
 Para instalar SITMUN, empieza por los [Requisitos](../../usuario/instalacion/requisitos.md).

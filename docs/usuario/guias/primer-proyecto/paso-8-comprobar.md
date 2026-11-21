@@ -9,7 +9,7 @@ El administrador no tiene ningún botón para abrir el visor. Hay que abrirlo ap
 - **Lista de aplicaciones:** `http://<servidor>/viewer/#/public/dashboard`. La aplicación nueva tiene que aparecer en la lista.
 - **Directo al mapa:** `.../viewer/#/public/map/<id aplicación>/<id territorio>`. Los identificadores (id) aparecen en las listas del administrador.
 
-Las imágenes publicadas, los perfiles de producción y el *showcase* usan direcciones con `#/`.
+Las imágenes publicadas, los perfiles de producción y la instalación de demostración usan direcciones con `#/`.
 Solo una instalación de desarrollo (perfiles `development-*.env`) las usa sin `#/`, por ejemplo `/viewer/public/dashboard`.
 
 ![Lista de aplicaciones del visor](../../manual/administrador/img/general-visor-castellano.webp){ loading=lazy }

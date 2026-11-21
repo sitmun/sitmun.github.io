@@ -1,0 +1,27 @@
+{
+  // Instalación de demostración de SITMUN 1.3.0 sin su mapa de fondo OpenStreetMap, para seguir la guía «Añadir OpenStreetMap como mapa de fondo».
+  // Abierto desde el botón «Abrir en GitHub Codespaces» de sitmun.github.io.
+  "name": "SITMUN 1.3.0: guía OpenStreetMap",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  // Backend, proxy, front y las bases de datos PostgreSQL.
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "forwardPorts": [9000],
+  "portsAttributes": {
+    "9000": {
+      "label": "SITMUN (administrador y visor)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "SITMUN_PROFILE=showcase SITMUN_EXTRA=demo SITMUN_SCENARIO=.devcontainer/osm/escenario.sql bash .devcontainer/start-sitmun.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": [".devcontainer/README.md"]
+    }
+  }
+}

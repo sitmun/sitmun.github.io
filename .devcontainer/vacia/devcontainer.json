@@ -1,0 +1,27 @@
+{
+  // Instalación vacía de SITMUN 1.3.0, para seguir la guía «Primer proyecto» desde el principio.
+  // Abierto desde el botón «Abrir en GitHub Codespaces» de sitmun.github.io.
+  "name": "SITMUN 1.3.0: instalación vacía",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  // Backend, proxy, front y las bases de datos PostgreSQL.
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "forwardPorts": [9000],
+  "portsAttributes": {
+    "9000": {
+      "label": "SITMUN (administrador y visor)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "SITMUN_PROFILE=postgres bash .devcontainer/start-sitmun.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": [".devcontainer/README.md"]
+    }
+  }
+}

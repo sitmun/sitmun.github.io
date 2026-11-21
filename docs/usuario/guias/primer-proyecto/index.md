@@ -16,6 +16,11 @@ Esta guía es para quien entra por primera vez en el administrador. No hace falt
 
 La guía sigue ocho pasos en orden: cada uno depende de los anteriores.
 
+!!! tip "Practica esta guía sin instalar nada"
+    Abre una instalación vacía de SITMUN 1.3.0 en GitHub Codespaces, igual que una instalación nueva: en la primera visita al administrador eliges la contraseña de `admin` y empiezas por la [primera entrada](primera-entrada.md). Necesitas una cuenta de GitHub; el arranque tarda unos minutos y el codespace consume horas de tu cuota de Codespaces mientras está encendido.
+
+    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fvacia%2Fdevcontainer.json){ .md-button .md-button--primary }
+
 ## Conceptos básicos
 
 Una **aplicación** es el proyecto que ve el usuario en el visor. No contiene las capas directamente: las toma de piezas que se crean por separado y que se enlazan entre sí.

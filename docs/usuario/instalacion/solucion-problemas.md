@@ -8,7 +8,7 @@ Esta sección proporciona soluciones a los problemas más comunes que pueden sur
 
 !!! note "Comandos de Docker Compose"
     Ejecuta los comandos `docker compose` desde la carpeta del repositorio.
-    Si instalaste el *showcase*, añade `-p sitmun-showcase` después de `docker compose`.
+    Si arrancaste la instalación de demostración, añade `-p sitmun-showcase` después de `docker compose`.
     En PowerShell usa `curl.exe` en lugar de `curl`.
 
 ## Problemas de instalación

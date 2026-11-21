@@ -12,6 +12,7 @@ description: "Glosario de los términos de SITMUN 3 que usa la guía del primer 
 | GetCapabilities | La petición que devuelve la descripción de un servicio y la lista de sus capas. |
 | GetFeatureInfo | La petición que devuelve los datos de un punto cuando el usuario hace clic en el mapa. |
 | Grupo de permisos | Conjunto de capas al que se asignan roles (menú **Permisos sobre las capas**). |
+| Instalación de demostración | Instalación de SITMUN con datos de ejemplo (tres aplicaciones), que se arranca con el perfil `showcase`. |
 | Mapa de fondo | La imagen base del mapa que el usuario elige en el selector de mapas de fondo. Se configura en el menú **Capas de fondo**. |
 | Proxy | Servidor intermediario de SITMUN. El visor pasa por él para llegar a servicios protegidos. |
 | Rol territorial | Opción de una asignación de usuario: el rol puede valer también para los territorios hijos. Necesita que la aplicación tenga activada **Garantizar acceso al territorio de la asignación** ([paso 7](paso-7-aplicacion.md)); en la versión 1.3.0 **Garantizar acceso a territorios hijo** por sí sola no basta (ver [sitmun/sitmun#379](https://github.com/sitmun/sitmun/issues/379)). |

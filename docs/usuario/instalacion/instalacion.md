@@ -1,5 +1,5 @@
 ---
-description: "Cómo instalar SITMUN 1.3.0 con Docker (producción, showcase o desarrollo) o compilar cada componente desde el código fuente."
+description: "Cómo instalar SITMUN 1.3.0 con Docker (producción, demostración o desarrollo) o compilar cada componente desde el código fuente."
 ---
 
 # Instalación
@@ -14,7 +14,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     | Uso | Rama o etiqueta | Perfil (`profiles/*.env`) | Datos |
     | --- | --- | --- | --- |
-    | Probar SITMUN (*showcase*) | `v1.3.0` | `showcase.env` | Tres aplicaciones de demostración |
+    | Instalación de demostración | `v1.3.0` | `showcase.env` | Tres aplicaciones de demostración |
     | Producción con PostgreSQL | `v1.3.0` | `postgres.env` | Sin datos de ejemplo |
     | Producción con Oracle | `v1.3.0` | `oracle.env` | Sin datos de ejemplo |
     | Desarrollo con PostgreSQL | `dev` | `development-postgres.env` | Datos de ejemplo |
@@ -70,7 +70,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Primer acceso al administrador**
 
-    En una base de datos de producción (y en el *showcase*) el usuario `admin` no tiene contraseña.
+    En una base de datos de producción (y en la instalación de demostración) el usuario `admin` no tiene contraseña.
     La primera visita a `/admin/` pide crear su contraseña y elegir el idioma por defecto.
     Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que hazla enseguida,
     o define `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, si quieres, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
@@ -82,15 +82,12 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
 
-    **Probar SITMUN (showcase)**
+    **Probar SITMUN: instalación de demostración (*showcase*)**
 
-    Sin instalar nada: abre el *showcase* en GitHub Codespaces. El codespace descarga las imágenes publicadas de SITMUN 1.3.0
-    y lo arranca con los datos de ejemplo; tarda unos minutos y consume horas de tu cuota de Codespaces mientras está encendido.
+    !!! tip "Sin instalar nada"
+        Abre la instalación de demostración en GitHub Codespaces: descarga las imágenes publicadas de SITMUN 1.3.0 y la arranca con los datos de ejemplo. Cuando termina, la pestaña «Puertos» del codespace muestra la dirección del puerto 9000: `/admin/` es el administrador (en la primera visita se elige la contraseña de `admin`) y `/viewer/` el visor. Necesitas una cuenta de GitHub; el arranque tarda unos minutos y el codespace consume horas de tu cuota de Codespaces mientras está encendido.
 
-    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fshowcase%2Fdevcontainer.json){ .md-button .md-button--primary }
-
-    Cuando termina, la pestaña «Puertos» del codespace muestra la dirección del puerto 9000: `/admin/` es el administrador
-    (en la primera visita se elige la contraseña de `admin`) y `/viewer/` el visor.
+        [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fdemo%2Fdevcontainer.json){ .md-button .md-button--primary }
 
     En tu equipo:
 
@@ -200,7 +197,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     docker compose down -v
     ```
 
-    Añade `-p sitmun-showcase` después de `docker compose` si instalaste el *showcase*.
+    Añade `-p sitmun-showcase` después de `docker compose` si arrancaste la instalación de demostración.
 
 === "Fuente"
 

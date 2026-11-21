@@ -18,10 +18,15 @@ Al terminar, los usuarios del visor verán **OpenStreetMap** en la lista de mapa
 
 ## Antes de empezar
 
-!!! note "En el *showcase*"
-    El *showcase* ya trae un mapa de fondo «OpenStreetMap» en sus aplicaciones. Si sigues esta guía en él,
-    quita antes ese mapa de fondo de la aplicación (menú **Aplicación**, pestaña **Mapas de fondo**) para no ver dos con
-    el mismo nombre. Las capturas de esta guía se hicieron así, en la aplicación «Camí de Cavalls».
+!!! tip "Practica esta guía sin instalar nada"
+    Abre en GitHub Codespaces la instalación de demostración de SITMUN 1.3.0 preparada para esta guía: sin su mapa de fondo «OpenStreetMap», como en las capturas, que se hicieron en la aplicación «Camí de Cavalls». Necesitas una cuenta de GitHub; el arranque tarda unos minutos y el codespace consume horas de tu cuota de Codespaces mientras está encendido.
+
+    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fosm%2Fdevcontainer.json){ .md-button .md-button--primary }
+
+!!! note "En la instalación de demostración"
+    La instalación de demostración ya trae un mapa de fondo «OpenStreetMap» en sus aplicaciones. Si sigues esta guía en una
+    instalación propia de demostración, quita antes ese mapa de fondo de la aplicación (menú **Aplicación**, pestaña
+    **Mapas de fondo**) para no ver dos con el mismo nombre. El botón anterior ya lo hace.
 
 Necesitas:
 
