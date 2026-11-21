@@ -20,7 +20,7 @@ Al crear un árbol nuevo hay que indicar el tipo deseado en la primera pestaña,
 
 Un árbol de este tipo sirve para crear contenido de datos geográficos para una aplicación de tipo visor cartográfico.
 
-### Estructura del árbol
+### Estructura del árbol { #estructura-del-arbol }
 
 El diseño del contenido se define en la segunda pestaña, **Estructura del árbol**. En ella se pueden generar múltiples carpetas y subcarpetas, que pueden contener diferentes capas de contenido cartográfico.
 
@@ -42,7 +42,9 @@ Al crear una capa de información, lo más importante es indicar la capa, de ent
 
 ![Selección de la capa de un nodo](img/arboles-nodo-cartografia.webp){ loading=lazy }
 
-Cada nodo tiene además estas opciones:
+El campo **Nombre** del nodo es obligatorio y es el texto que el visor muestra en el árbol (o su traducción al idioma del visor), en lugar del nombre de la capa. Elegir la capa en **Cartografía** no lo rellena: sin **Nombre**, el nodo no se puede guardar. Para cambiar cómo se llama una capa en el árbol del visor, se cambia el **Nombre** de su nodo.
+
+Cada nodo tiene además estas opciones, dentro del panel plegado **Opciones de visualización**:
 
 - **Visible**: el nodo aparece en el árbol del visor.
 - **Cargar por defecto**: la capa aparece encendida al abrir el mapa.

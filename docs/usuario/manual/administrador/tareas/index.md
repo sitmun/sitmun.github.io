@@ -22,8 +22,8 @@ pero su documentación todavía no está escrita. Lo esencial de cada una:
 - **Tarea de imagen de mapa**: genera una imagen del mapa para usarla en [plantillas](plantillas.md); el visor no la muestra directamente.
 - **Exportación documental**: genera documentos PDF a partir de [plantillas](plantillas.md). Se configuran el motor, la salida,
   el tamaño y la orientación de la página. No es una tarea hija: se asigna a roles y territorios
-  como cualquier tarea, y entonces el visor añade el menú para exportar el PDF a los resultados de plantillas en las ventanas de [más información avanzada](mas-informacion-avanzada.md).
+  como cualquier tarea. Cuando un usuario tiene acceso a ella, el visor muestra el menú **Exportar** en los resultados de plantillas de las ventanas de [más información avanzada](mas-informacion-avanzada.md).
 - **Tarea de edición**: edición de datos, en base de datos o en servicios WFS. En la versión 1.3.0 solo la usa la aplicación
-  móvil de edición; el visor web no la muestra.
+  móvil SITMUN Mobile Editor; el visor web no la muestra.
 - **Tarea de más información**: necesita una capa, una tarea de consulta y la correspondencia entre los parámetros de la
   consulta y los campos de la capa. El resultado aparece dentro de la ventana de información (GetFeatureInfo) de esa capa.

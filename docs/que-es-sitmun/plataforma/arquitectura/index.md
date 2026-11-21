@@ -10,13 +10,16 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
   La aplicación «básica» es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
   En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.
   Por ejemplo, una aplicación puede ser el visor de mapas básico. Y para el usuario «público» del territorio «Municipio X», esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a bases de datos privadas.
-  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la base de datos de SITMUN y no es la misma que usa la aplicación web de administración; el visor usa de esta última solo unos pocos endpoints: los idiomas y los parámetros de configuración, la cuenta del usuario identificado, y las plantillas de las tareas de *más información avanzada* (MIA). Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
-- **Aplicación web de administración.**
+  Estas aplicaciones obtienen su configuración de una API REST cada vez que arrancan.
+  La configuración depende del usuario, el rol y el territorio identificados, y puede haber cambiado desde la vez anterior.
+  Esta API accede a la base de datos de SITMUN y no es la misma que usa la aplicación de administración; el visor usa de esta última solo unos pocos endpoints: los idiomas y los parámetros de configuración, la cuenta del usuario identificado y las plantillas de las tareas de *más información avanzada* (MIA).
+  Las aplicaciones aplican la configuración obtenida antes de que los usuarios empiecen a trabajar.
+- **Aplicación de administración.**
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
   Por ejemplo, se puede añadir un nuevo servicio de mapas públicamente accesible recién encontrado al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
   Esta aplicación lee y modifica los datos en la base de datos de **SITMUN 3** a través de una API REST.
 - **Componentes adicionales.** Se usan en varias aplicaciones:
-    - **Proxy**: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).
+    - **SITMUN Proxy Middleware**: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).
     Es un proxy inverso y, por tanto, el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.
     Lo usan el visor y las aplicaciones móviles; la aplicación de administración no.
     - **API de Autenticación** (la usan el visor, la aplicación de administración y la aplicación móvil de edición; la aplicación turística no la usa, porque funciona siempre como el usuario público): permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones: usuario y contraseña guardados en la base de datos de SITMUN, servicios LDAP (incluido Microsoft Active Directory) y proveedores OpenID Connect (OIDC).
@@ -38,7 +41,7 @@ Todo el código está en el repositorio [sitmun/sitmun](https://github.com/sitmu
 
 ## Principales componentes
 
-```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de Autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el Proxy Middleware da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
+```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de Autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el proxy da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
 @startuml
 !include <logos/angular>
 !include <logos/github>
@@ -142,7 +145,7 @@ component proxymiddleware [
 
   --
 
-  **Proxy "Middleware"**
+  **SITMUN Proxy Middleware**
 ]
 
 rectangle appmovil [
@@ -245,14 +248,14 @@ note bottom of apiconfautoriz
   Sin **token JWT**, devuelve la
   configuración del usuario público.
 
-  Uso desde el **proxy «middleware»**: con
+  Uso desde el **proxy**: con
   un **token JWT**, autoriza
   (o no) a realizar ciertas peticiones a
   ciertos servicios y BD privados.
 
   Por seguridad, la petición debe incluir
   un secreto conocido solo por el
-  **proxy «middleware»** y la
+  **proxy** y la
   **API de Configuración y Autorización**
   (cabecera `X-SITMUN-Proxy-Key`)
   para asegurar que proviene de un proxy
@@ -382,18 +385,21 @@ end note
 
 ConfigurationAPI -> FilterChain
 FilterChain -> JsonWebTokenFilter: Filtrado de la petición\n(lee el token de la cookie)
-JsonWebTokenFilter -> JsonWebTokenService: Validación del token JWT
-JsonWebTokenService -->> JsonWebTokenFilter: Token OK
 JsonWebTokenFilter -> JsonWebTokenService: Extracción del usuario del token JWT
 JsonWebTokenService -->> JsonWebTokenFilter: usuario
 JsonWebTokenFilter-> Database: ¿Detalles usuario?
-Database -->> JsonWebTokenFilter: roles
+Database -->> JsonWebTokenFilter: roles y último cambio de contraseña
 note right
   Si no se encuentra el usuario, 401 Unauthorized
   Los roles pueden ser USER, o USER y ADMIN.
   PUBLIC (usuario público, sin token) y
-  MOBILE_EDITION (token de la app de edición)
+  MOBILE_EDITION (token de la aplicación de edición)
   los asignan otros filtros
+end note
+JsonWebTokenFilter -> JsonWebTokenService: Validación del token JWT
+JsonWebTokenService -->> JsonWebTokenFilter: Token válido
+note right
+  Si el token no es válido, 401 Unauthorized
 end note
 JsonWebTokenFilter -> SecurityContext: set(Autenticación(usuario, roles))
 SecurityContext -->> JsonWebTokenFilter
@@ -402,7 +408,7 @@ FilterChain -> SecurityContext: contexto seguridad?
 SecurityContext -->> FilterChain: contexto actual
 FilterChain -> FilterChain: verificar contexto\nactual tiene rol USER,\nPUBLIC o MOBILE_EDITION
 note right
-  método asociado a "/api/config/client/profile/{appId}/{terId}"
+  método asociado a /api/config/client/profile/{appId}/{terId}
   solo puede ser accedido con los roles USER,
   PUBLIC o MOBILE_EDITION por la configuración
   de seguridad. Sin token se usa el usuario
@@ -414,7 +420,7 @@ note right
   Sin cookie, se usa el usuario público.
 end note
 ConfigurationAPI -> SecurityContext: ¿Usuario autenticado?
-SecurityContext -->> ConfigurationAPI: "username"\n(fijado por JsonWebTokenFilter)
+SecurityContext -->> ConfigurationAPI: username\n(fijado por JsonWebTokenFilter)
 ConfigurationAPI -> Database: Recuperar configuración según\nqué hay que configurar
 note right
   se busca información para
@@ -444,6 +450,13 @@ Client -->> Usuario: Visor listo para usar
 
 ### Uso del proxy para acceder a un WMS privado
 
+!!! warning "Problema conocido en la versión 1.3.0"
+    En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
+    Por eso, un usuario con un cambio de contraseña registrado (por ejemplo, `admin` después de su primer cambio de contraseña, o cualquier usuario tras recuperar la contraseña) recibe 401 en todas las capas y tareas privadas que pasan por el proxy.
+    No se puede evitar con la configuración. El usuario público y los servicios públicos no se ven afectados.
+    Este problema afecta igual a los WMS privados y a las consultas a bases de datos de la intranet descritas a continuación.
+    Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+
 ```plantuml alt="Diagrama de secuencia del acceso a un WMS privado: el visor pide el mapa al proxy con su token; el proxy pide la configuración al backend con su clave de proxy, el backend valida el token y devuelve la URL y los parámetros del servicio, y el proxy hace la petición al WMS y devuelve la imagen."
 @startuml
 
@@ -466,7 +479,7 @@ ref over Usuario, Client, Database : Proceso de inicio de sesión y configuraci�
 note over Client, ConfigurationAPI
 La info de config. devuelta incluye, para WMS públicos (y similares)
 su URL pública, y para los WMS privados (y similares) una URL única
-para cada servicio que pasa por el **Proxy Middleware**, pero
+para cada servicio que pasa por el **proxy**, pero
 que para el cliente es una URL de un WMS normal.
 end note
 
@@ -482,14 +495,13 @@ note right
     }),
   }),
 
-  No debe añadir los parámetros 'terrId' y 'appId'
-  ya que pueden no estar soportados por el servicio remoto.
-  Tampoco debe añadir en la cabecera el TokenJWT
-  El token será ignorado en un WMS público, pero para evitar problemas
-  el token no tiene que ir siempre.
-  Se puede añadir solo si las peticiones están dirigidas al proxy
-  Esta información puede ser proporcionada por la API de Configuración
-  mediante un valor booleano asociado a la URL.
+  No debe añadir los parámetros terId y appId,
+  porque el servicio remoto puede no admitirlos.
+  Tampoco debe enviar el token JWT en la cabecera:
+  un WMS público lo ignora, pero no hace falta enviarlo.
+  Solo se envía en las peticiones dirigidas al proxy.
+  La API de Configuración puede indicarlo
+  con un valor booleano asociado a la URL.
 end note
 
 Client ->> PublicWMS: GetMap
@@ -513,7 +525,8 @@ note right
     }),
   })
 
-  Además debe añadir en la cabecera el token JWT porque una bandera se lo ha indicado.
+  Además debe enviar el token JWT en la cabecera, porque un indicador
+  de la configuración se lo ha señalado.
 end note
 Client ->> Proxy: GetMap
 note right
@@ -556,7 +569,7 @@ end note
   SecurityContext -->> FilterChain: contexto actual
   FilterChain ->> FilterChain: verificar contexto\nactual tiene rol PROXY
   note right
-    método asociado a "/api/config/proxy"
+    método asociado a /api/config/proxy
     solo puede ser accedido con el rol PROXY
     por la configuración de seguridad
     Si no se verifica 401 Unauthorized
@@ -567,10 +580,12 @@ end note
     cartographyId, method, parameters, requestBody.
     El token del usuario llega en la cabecera Authorization.
   end note
+  ConfigurationAPI ->> JsonWebTokenService: Extracción de username del token\n(cabecera Authorization)
+  JsonWebTokenService -->> ConfigurationAPI: username
+  ConfigurationAPI ->> Database: ¿Último cambio de contraseña?
+  Database -->> ConfigurationAPI: fecha
   ConfigurationAPI ->> JsonWebTokenService: Validación del token JWT
-  JsonWebTokenService -->> ConfigurationAPI: Token OK
-  ConfigurationAPI ->> JsonWebTokenService: Extracción de "username" del token\n(cabecera Authorization)
-  JsonWebTokenService -->> ConfigurationAPI: "username"
+  JsonWebTokenService -->> ConfigurationAPI: Token válido
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar
   note right
     Se decodifica configProxyRequest.type
@@ -603,20 +618,31 @@ end note
           "type": "OgcWmsPayload",
           "uri": "http://geoserveis.icgc.cat/map/bases/service",
           "method": "GET",
-          "parameters": { "LAYERS": "topogris", "COD_INE": "08630" },
+          "parameters": {
+            "SERVICE": "WMS",
+            "REQUEST": "GetMap",
+            "LAYERS": "capa1,capa2,capa3",
+            "FORMAT": "image/png",
+            "BBOX": "…",
+            "WIDTH": "…",
+            "HEIGHT": "…",
+            "COD_INE": "08630"
+          },
           "vary": [ "BBOX" ]
         }
     }
 
-    "parameters" son los parámetros que el proxy añade a la petición
-    o sustituye en ella.
+    "parameters" es el conjunto completo de parámetros que el proxy
+    envía al servicio: los de la petición del visor más los fijos
+    que añade el backend (aquí, COD_INE). LAYERS repite las capas
+    pedidas; el backend no lo reescribe.
     "exp" y "vary" forman parte de la respuesta, pero el proxy
     de la versión 1.3.0 no los usa: no guarda la configuración
     y la pide al backend en cada petición.
 
   end note
 
-Proxy ->> Proxy: Interpretación de la respuesta\ncomo una pregunta\na un WMS OGC
+Proxy ->> Proxy: Construcción de la petición\nal WMS con la configuración
 Proxy ->> PrivateWMS: GetMap
 PrivateWMS -->> Proxy: Imagen de mapa pedida
 Proxy -->> Client: Imagen de mapa pedida
@@ -692,7 +718,7 @@ FilterChain ->> SecurityContext: contexto seguridad?
 SecurityContext -->> FilterChain: contexto actual
 FilterChain ->> FilterChain: verificar contexto\nactual tiene rol PROXY
 note right
-  método asociado a "/api/config/proxy"
+  método asociado a /api/config/proxy
   solo puede ser accedido con el rol PROXY
   por la configuración de seguridad
   Si no se verifica 401 Unauthorized
@@ -703,10 +729,12 @@ note right
   cartographyId, method, parameters, requestBody.
   El token del usuario llega en la cabecera Authorization.
 end note
+ConfigurationAPI ->> JsonWebTokenService: Extracción de username del token\n(cabecera Authorization)
+JsonWebTokenService -->> ConfigurationAPI: username
+ConfigurationAPI ->> Database: ¿Último cambio de contraseña?
+Database -->> ConfigurationAPI: fecha
 ConfigurationAPI ->> JsonWebTokenService: Validación del token JWT
-JsonWebTokenService -->> ConfigurationAPI: Token OK
-ConfigurationAPI ->> JsonWebTokenService: Extracción de "username" del token\n(cabecera Authorization)
-JsonWebTokenService -->> ConfigurationAPI: "username"
+JsonWebTokenService -->> ConfigurationAPI: Token válido
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar
 note right
   Se decodifica configProxyRequest.type
@@ -745,7 +773,7 @@ note right
 end note
 FilterChain -->> Backend: Configuración\npedida (JSON)
 Backend -->> Proxy: Configuración\npedida (JSON)
-Proxy ->> Proxy: Interpretación de la respuesta\ncomo una pregunta\na base de datos
+Proxy ->> Proxy: Construcción de la consulta\na la base de datos\ncon la configuración
 Proxy ->> ProtectedDatabase: Conexión y consulta (sqlinfo)
 ProtectedDatabase -->> Proxy: Resultset
 Proxy ->> Proxy: JSON = Resultset2JSON
@@ -811,7 +839,7 @@ El módulo `sitmun-backend` contiene el modelo de datos de **SITMUN 3**, la API 
 la API de Configuración y Autorización, la API de Administración y la política de seguridad.
 Todos sus paquetes cuelgan de `org.sitmun`.
 
-### Paquetes (Arquitectura por Capas)
+### Paquetes (arquitectura por capas)
 
 En general, cada API que en despliegue quede expuesta de manera separada, es decir, con su propio endpoint HTTP, tiene un paquete.
 
@@ -863,9 +891,9 @@ correspondiente.
 
 Como se puede deducir de las explicaciones anteriores:
 
-- La **API de Autenticación** expone vía una API Web mecanismos para interactuar con el sistema de seguridad de la aplicación definido en `security`.
-- La **API de Administración** expone vía una API Web mecanismos para modificar el estado de los objetos de dominio definidos en `domain` por parte de los administradores.
-- La **API de Configuración y Autorización** expone vía una API Web mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio definidos en `domain` en función de la identidad y rol del que solicita la información.
+- La **API de Autenticación** ofrece, mediante una API web, mecanismos para interactuar con el sistema de seguridad de la aplicación definido en `security`.
+- La **API de Administración** ofrece, mediante una API web, mecanismos para modificar el estado de los objetos de dominio definidos en `domain` por parte de los administradores.
+- La **API de Configuración y Autorización** ofrece, mediante una API web, mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio definidos en `domain` en función de la identidad y rol del que solicita la información.
 
 El diagrama muestra los paquetes principales; cada uno tiene además otros subpaquetes (por ejemplo `dto`, `event` o `mapper`).
 

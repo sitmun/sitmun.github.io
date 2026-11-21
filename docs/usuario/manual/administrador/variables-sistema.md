@@ -23,7 +23,7 @@ El backend sustituye cada variable con datos del usuario, el territorio y la apl
 | `#{PROYECCION}` | Sistema de referencia de la aplicación. |
 | `#{EXTENSION_MAX_X0}`, `#{EXTENSION_MAX_Y0}`, `#{EXTENSION_MAX_X1}`, `#{EXTENSION_MAX_Y1}` | Extensión del territorio: X e Y mínimas y máximas. |
 | `#{DATE}` | Fecha y hora de la petición (`dd/MM/yyyy HH:mm:ss`), siempre en UTC. |
-| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición: el parámetro `lang` de la petición; si no lo tiene, el último `lang` usado en la misma sesión; y si tampoco, el idioma del servidor (en la imagen Docker, inglés). La cabecera `Accept-Language` del navegador no cuenta, y un valor de `lang` que no es un idioma de SITMUN se usa tal cual. El visor siempre envía `lang` en sus propias peticiones a la API. En cambio, las consultas y servicios que pasan por el proxy se resuelven sin `lang`, así que en ellos `#{LANG}` es siempre el idioma del servidor. |
+| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición (ver [Idioma de la petición](#idioma-de-la-peticion)). |
 
 Los nombres duplicados (por ejemplo `#{USUARIO}` y `#{USER_NAME}`) se mantienen por compatibilidad con SITMUN 2.
 
@@ -31,3 +31,13 @@ Los nombres duplicados (por ejemplo `#{USUARIO}` y `#{USER_NAME}`) se mantienen 
     Como es una lista, en una consulta SQL solo puede ir dentro de `IN (...)`, por ejemplo
     `WHERE codigo_ine IN (#{MUN_INES})`. En cualquier otro sitio, la prueba de la consulta se bloquea con el aviso
     «MUN_INES solo puede ir dentro de IN (...)».
+
+## Idioma de la petición { #idioma-de-la-peticion }
+
+El valor de `#{LANG}` y `#{LANGUAGE}` se elige en este orden:
+
+1. El parámetro `lang` de la petición.
+2. Si la petición no lo tiene, el último `lang` usado en la misma sesión.
+3. Si tampoco hay ninguno, el idioma del servidor (en la imagen Docker, inglés).
+
+La cabecera `Accept-Language` del navegador no cuenta. Un valor de `lang` que no es un idioma de SITMUN se usa tal cual. El visor siempre envía `lang` en sus propias peticiones a la API. En cambio, las consultas y los servicios que pasan por SITMUN Proxy Middleware se resuelven sin `lang`: en ellos, `#{LANG}` es siempre el idioma del servidor.

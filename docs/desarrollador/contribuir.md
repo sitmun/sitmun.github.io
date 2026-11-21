@@ -64,10 +64,10 @@ Desde la versión 1.3.0 todo el código de SITMUN está en un único repositorio
 | --- | --- | --- |
 | Administrador | `sitmun-admin` | Angular 22 |
 | Visor de mapas | `sitmun-viewer` | Angular 22, API SITNA |
-| App móvil de edición | `sitmun-mobile/sitmun-edition` | Ionic 8, Angular 22, Capacitor 8 |
-| App turística | `sitmun-mobile/sitmun-touristic` | Ionic 8, Angular 22, Capacitor 8 |
+| Aplicación móvil de edición (SITMUN Mobile Editor) | `sitmun-mobile/sitmun-edition` | Ionic 8, Angular 22, Capacitor 8 |
+| Aplicación turística (SITMUN Touristic) | `sitmun-mobile/sitmun-touristic` | Ionic 8, Angular 22, Capacitor 8 |
 | Backend | `sitmun-backend` | Spring Boot 4.1, Java 17 |
-| Proxy Middleware | `sitmun-proxy` | Spring Boot 4.1, Java 17 |
+| SITMUN Proxy Middleware | `sitmun-proxy` | Spring Boot 4.1, Java 17 |
 | MBTiles | `sitmun-addons/sitmun-mbtiles` | Spring Boot 4.1, Java 17 |
 | Bibliotecas comunes | `sitmun-common` | Java 17 |
 | Despliegue con Docker | `compose.yaml`, `docker/`, `profiles/` | Docker Compose |
@@ -79,3 +79,4 @@ Están archivados: siguen públicos, solo de lectura, y no reciben cambios.
 Las versiones publicadas de los repositorios web y de servicios se conservan en el repositorio único como etiquetas `legacy/<repositorio>/…`.
 
 Las normas de contribución están en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md).
+Las vulnerabilidades de seguridad no se comunican en una incidencia pública: se informan de forma privada con la opción «Report a vulnerability» de la pestaña «Security» de [sitmun/sitmun](https://github.com/sitmun/sitmun), según la [política de seguridad](https://github.com/sitmun/.github/blob/main/SECURITY.md).

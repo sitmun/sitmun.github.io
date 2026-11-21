@@ -12,7 +12,7 @@ Para configurar una aplicación se rellenan los datos de información general, e
 
 En este apartado se facilitan los datos generales de la aplicación, como el nombre y la descripción.
 
-El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
+El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil SITMUN Mobile Editor (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
 También se puede indicar un **punto de contacto** (el formulario no lo exige), que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
@@ -50,7 +50,9 @@ En la misma pestaña se pueden añadir logotipos, por ejemplo el de la instituci
 
 ## Parámetros
 
-Como la mayoría de los elementos de SITMUN, las aplicaciones permiten crear parámetros para añadir más personalización.
+La pestaña **Parámetros** guarda pares de nombre y valor. Cada fila tiene **Nombre**, **Valor** y **Tipo**, con tres tipos posibles: «Parámetro de aplicación móvil», «Parámetro de nomenclátor» y «Plantilla de impresión».
+
+En la versión 1.3.0 SITMUN guarda estos parámetros, pero ningún componente los usa: ni el visor, ni el proxy, ni las aplicaciones móviles. Añadirlos no cambia nada en la aplicación.
 
 ## Roles
 

@@ -80,7 +80,7 @@ La aplicación incluye mapas de fondo y árboles; los mapas de fondo, los grupos
 - [Paso 4: grupos de permisos y mapas de fondo](paso-4-grupos-y-fondos.md)
 - [Paso 5: construir el árbol de capas](paso-5-arbol.md)
 - [Paso 6: configurar las herramientas (tareas)](paso-6-herramientas.md)
-- [Paso 7: crear la aplicación y juntarlo todo](paso-7-aplicacion.md)
+- [Paso 7: crear la aplicación](paso-7-aplicacion.md)
 - [Paso 8: comprobar el resultado en el visor](paso-8-comprobar.md)
 - [Problemas frecuentes](problemas-frecuentes.md)
 - [Glosario](glosario.md)

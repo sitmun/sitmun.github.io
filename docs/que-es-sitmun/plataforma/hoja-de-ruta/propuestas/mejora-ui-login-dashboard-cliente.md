@@ -98,7 +98,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +--------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Diferenciar estilos de ventanas login, dashboard y cliente visualizador y simplificar al         | Nueva                   |                     |
 | máximo el diseño de la barra para el cliente para interferir al mínimo en el diseño del          |                         |                     |
-| visor (p.e. barra transparente y boton pequeño en margen superior derecho).                      |                         |                     |
+| visor (p.e. barra transparente y botón pequeño en margen superior derecho).                      |                         |                     |
 +--------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
 ### API de Autenticación {#roadmap-mejora-ui-api-de-autenticacion}
@@ -112,10 +112,10 @@ No se prevén modificaciones de este componente durante el desarrollo de esta fu
 +=================================================================================================+=========================+=====================+
 | Incorporar los parámetros necesarios para configurar el listado de aplicaciones (descripción,   | Nueva                   |                     |
 | imagen, título, fecha de caducidad, fecha último acceso) accesibles para el usuario en la       |                         |                     |
-| aplicación de Administdración SITMUN 3                                                          |                         |                     |
+| aplicación de Administración SITMUN 3                                                           |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Incorporar los parámetros necesarios para configurar en el dashboard las comunicaciones y       | Nueva                   |                     |
-| notícias (título, descripcion, enlaces, imagen) para cada usuario desde la aplicación           |                         |                     |
+| noticias (título, descripción, enlaces, imagen) para cada usuario desde la aplicación           |                         |                     |
 | de administración SITMUN 3                                                                      |                         |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 
