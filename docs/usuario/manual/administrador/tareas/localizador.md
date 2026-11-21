@@ -42,7 +42,7 @@ Complementariamente se pueden activar las opciones de:
 - Activar parámetros del servicio.
 - Añadir otros parámetros a considerar.
 
-Además, están las pestañas **Roles** y **Territorios**, donde asignar los accesos que se deseen (ver [Roles](../roles.md) y [Territorios](../territorios.md)). La consulta que usa el localizador también necesita el rol y el territorio de la aplicación.
+Además, están las pestañas **Roles** y **Territorios**, donde asignar los accesos que se deseen (ver [Roles](../roles.md) y [Territorios](../territorios.md)). El acceso se comprueba con los roles y territorios del localizador; la consulta enlazada no los necesita.
 
 En el visor, el localizador aparece en el panel de herramientas. El usuario elige el localizador, escribe el texto y, al pulsar un resultado, el mapa se centra en él:
 

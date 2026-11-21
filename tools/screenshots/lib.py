@@ -42,8 +42,11 @@ class Ctx:
     def admin(self, route: str) -> None:
         if self.page.url.endswith(f"#/{route}"):
             # Same address: the hash router would not reload the form.
-            self.page.goto(f"{self.base}/admin/#/dashboard")
-            self.page.wait_for_timeout(400)
+            self._leave_to("dashboard")
+        self._leave_to(route)
+        self.settle()
+
+    def _leave_to(self, route: str) -> None:
         self.page.goto(f"{self.base}/admin/#/{route}")
         self.page.wait_for_timeout(400)
         # Leaving a form with unsaved changes asks for confirmation.
@@ -52,7 +55,7 @@ class Ctx:
             dialog.locator("button").last.click()
             self.page.wait_for_timeout(400)
             self.page.goto(f"{self.base}/admin/#/{route}")
-        self.settle()
+            self.page.wait_for_timeout(400)
 
     def viewer(self, route: str, language: str = "es") -> None:
         """Open a viewer page in the given language (the viewer keeps it in localStorage)."""

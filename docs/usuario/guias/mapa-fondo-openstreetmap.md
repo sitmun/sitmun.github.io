@@ -117,9 +117,11 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
 2. Abre el panel de capas y despliega **Mapas de fondo**. Debe aparecer **OpenStreetMap** con su miniatura.
 
     ![OpenStreetMap en el selector de mapas de fondo del visor](img/osm-visor-fondos.webp){ loading=lazy }
+
 3. Haz clic en **OpenStreetMap**. Si la aplicación no usa EPSG:3857, aparece el aviso *Mapa de fondo no compatible*: elige **EPSG:3857**.
 
     ![Aviso Mapa de fondo no compatible con la opción EPSG:3857](img/osm-visor-aviso.webp){ loading=lazy }
+
 4. Acerca el mapa hasta nivel de calle para comprobar que se ve con detalle.
 5. Vuelve a un mapa de fondo de la aplicación para comprobar que el mapa recupera su sistema de referencia.
 
