@@ -123,7 +123,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Búsqueda de capas**: Opción de buscar capas por nombre y descripción, en función del idioma del visualizador.
   Integrado con el buscador genérico.
 
-- **Mapa base**: Selección del mapa base.
+- **Mapa de fondo**: Selección del mapa de fondo.
 
 - **Grupos de capas**: Diferenciar entre capas y grupos de capas y permitir interactuar (visualizar, descargar, metadatos, etc.)
   con ambos elementos de la misma manera tanto para capas como para grupos.
