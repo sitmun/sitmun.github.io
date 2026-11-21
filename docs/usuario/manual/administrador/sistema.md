@@ -10,7 +10,7 @@ Las opciones de sistema permiten ajustar algunos parámetros generales de SITMUN
 
 El visor de SITMUN se basa, en su parte de frontend, en la API SITNA promovida por el Gobierno de Navarra. Esta API ofrece un conjunto de controles para realizar diversas acciones con el visor.
 
-En este apartado podemos gestionar de manera rápida la relación entre dichos controles de la API SITNA y la tarea de SITMUN que hace uso de ellos.
+En este apartado se gestiona de manera rápida la relación entre dichos controles de la API SITNA y la tarea de SITMUN que hace uso de ellos.
 
 ## Idiomas
 

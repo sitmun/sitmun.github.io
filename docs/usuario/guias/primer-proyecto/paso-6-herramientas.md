@@ -18,12 +18,15 @@ Si falta el rol o el territorio, la herramienta no aparece en el visor.
 
 **Herramientas mínimas para un primer proyecto:**
 
-| Control | Para qué sirve |
+| Tarea (control) | Para qué sirve |
 | --- | --- |
-| `sitna.layerCatalog` | Panel con el árbol de capas. **Sin esta tarea no se ve el árbol.** |
-| `sitna.basemapSelector` | Selector de mapas de fondo. |
-| `sitna.workLayerManager` | Lista de las capas encendidas. |
-| `sitna.featureInfo` | Información de un punto al hacer clic en él. |
-| `sitna.overviewMap` | Mapa de situación. |
+| Catálogo de capas (`sitna.layerCatalog`) | El árbol de capas («Capas disponibles»). **Sin esta tarea no se ve el árbol.** |
+| Selector de mapa base (`sitna.basemapSelector`) | Selector de mapas de fondo. |
+| Gestor de capas de trabajo (`sitna.workLayerManager`) | Lista de las capas encendidas. |
+| Información de entidad (`sitna.featureInfo`) | Información de un punto al hacer clic en él. |
+| Mapa de situación (`sitna.overviewMap`) | Mapa de situación. |
+| Barra de navegación (`sitna.navBar`) | Botones de zoom. Sin ella, el mapa no tiene controles de zoom. |
 
-Otros controles habituales: `sitna.search` (buscador) y `sitna.printMap` (impresión). Los demás tipos de tarea del menú (consulta, localizador, edición...) son para herramientas más avanzadas y quedan fuera de esta guía.
+La lista de tareas básicas del administrador muestra el nombre de la tarea, no el código del control: busca por el nombre.
+
+Otras tareas habituales: «Buscar» (`sitna.search`) e «Imprimir mapa» (`sitna.printMap`). Los demás tipos de tarea del menú (consulta, localizador, edición...) son para herramientas más avanzadas y quedan fuera de esta guía.
