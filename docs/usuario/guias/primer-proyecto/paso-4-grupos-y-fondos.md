@@ -31,7 +31,7 @@ Otros tipos de grupo: **Mapa de situación** (el mapa pequeño de referencia en 
     En el selector de mapas de fondo del visor aparece el **nombre de la capa** del [paso 3](paso-3-capas.md), no el de la capa de fondo.
     Pon a esa capa un nombre claro para los usuarios.
 
-Recuerda: las capas del mapa de fondo también tienen que tener el territorio en su pestaña **Territorios** ([paso 3](paso-3-capas.md)). Crea tantas capas de fondo como quieras ofrecer (por ejemplo, ortofoto y topográfico).
+Recuerda: las capas que forman el mapa de fondo también tienen que tener el territorio en su pestaña **Territorios** ([paso 3](paso-3-capas.md)). Crea tantas capas de fondo como quieras ofrecer (por ejemplo, ortofoto y topográfico).
 
 !!! example "Extra: OpenStreetMap como mapa de fondo"
     Si quieres ofrecer el mapa de OpenStreetMap, sigue la guía [Añadir OpenStreetMap como mapa de fondo](../mapa-fondo-openstreetmap.md).

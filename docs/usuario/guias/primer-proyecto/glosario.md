@@ -11,7 +11,7 @@ description: "Glosario de los términos de SITMUN 3 que usa la guía del primer 
 | GetCapabilities | La petición que devuelve la descripción de un servicio y la lista de sus capas. |
 | GetFeatureInfo | La petición que devuelve los datos de un punto cuando el usuario hace clic en el mapa. |
 | Proxy | Servidor intermediario de SITMUN. El visor pasa por él para llegar a servicios protegidos. |
-| Rol territorial | Opción de una asignación de usuario: el rol puede valer también para los territorios hijos. Necesita que la aplicación tenga activada **Garantizar acceso al territorio de la asignación** o **Garantizar acceso a territorios hijo** ([paso 7](paso-7-aplicacion.md)); sin ninguna de las dos, la aplicación no aparece. |
+| Rol territorial | Opción de una asignación de usuario: el rol puede valer también para los territorios hijos. Necesita que la aplicación tenga activada **Garantizar acceso al territorio de la asignación** ([paso 7](paso-7-aplicacion.md)); en la versión 1.3.0 **Garantizar acceso a territorios hijo** por sí sola no basta (ver [sitmun/sitmun#379](https://github.com/sitmun/sitmun/issues/379)). |
 | Usuario `public` | Usuario que representa a cualquier visitante sin sesión. |
 | WFS | Servicio que da los datos (geometría y atributos), no imágenes. |
 | WMS | Servicio que da imágenes de mapa a demanda. |

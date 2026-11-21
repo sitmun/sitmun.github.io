@@ -19,7 +19,11 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
   En el visor y el administrador el token se guarda en una cookie *HttpOnly*
   (`viewer_access_token` o `admin_access_token`) que se renueva con `POST /api/authenticate/refresh`
   y se borra con `POST /api/authenticate/logout`.
+  La cabecera `X-SITMUN-Client` indica qué cookie usar: el administrador envía `X-SITMUN-Client: admin` en todas sus
+  llamadas, también en `refresh` y `logout`; sin ella, la API de administración responde 401.
   La aplicación móvil de edición usa `POST /api/authenticate/mobile`, que devuelve el token en el cuerpo de la respuesta.
+  Solo funciona si el usuario tiene acceso al menos a una aplicación de tipo «Edition application» (código `ED`); si no,
+  responde 403.
   Para llamar al proxy, el cliente pide un token de corta duración con `POST /api/authenticate/proxy`.
 
 - **Autenticación local**. SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
@@ -33,6 +37,8 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 - **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de email.
 
 - **Recuperación de contraseña**. Sistema de recuperación de contraseña por email con tokens seguros.
+  Solo está disponible con el perfil `mail` del backend y un servidor de correo configurado
+  (ver [Instalación](../../../usuario/instalacion/instalacion.md)); sin él, `POST /api/password-reset/request` responde 404.
 
 ## API de Configuración y Autorización {#api-de-configuracion-y-autorizacion}
 
@@ -134,7 +140,8 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST.
 
 La API de Administración expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
 de **SITMUN 3** por parte de la **aplicación de administración**.
-La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion].
+La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion]
+y envía la cabecera `X-SITMUN-Client: admin` en cada llamada.
 La documentación interactiva de todos los endpoints está en Swagger UI (`/swagger-ui/index.html` en el backend).
 
 ### Funcionalidades {#api-de-administracion-funcionalidades}

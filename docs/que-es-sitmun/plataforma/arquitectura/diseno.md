@@ -259,7 +259,8 @@ La petición a realizar por el proxy debe:
 - Ser a la URI indicada en el campo `uri` de la respuesta.
 - Con el método HTTP indicado en el campo `method` de la respuesta.
 - Con los campos y valores indicados en el campo `parameters` de la respuesta.
-- Con los campos y valores indicados en el campo `vary` de la petición del **visor de mapas**.
+
+Los campos `exp` y `vary` de la respuesta no los usa el proxy de la versión 1.3.0: pide la configuración al backend en cada petición.
 
 Es decir:
 

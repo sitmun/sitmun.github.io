@@ -409,10 +409,8 @@ note right
   appId y terId son variables de la ruta.
   Sin cookie, se usa el usuario público.
 end note
-ConfigurationAPI -> JWTUtils: Validar token JWT
-JWTUtils -->> ConfigurationAPI: Token OK
-ConfigurationAPI -> JWTUtils: Extraer "username" del token\n(cabecera Authorization)
-JWTUtils -->> ConfigurationAPI: "username"
+ConfigurationAPI -> SecurityContext: ¿Usuario autenticado?
+SecurityContext -->> ConfigurationAPI: "username"\n(fijado por AuthTokenFilter)
 ConfigurationAPI -> Database: Recuperar configuración según\nqué hay que configurar
 note right
   buscamos información para 
@@ -452,7 +450,7 @@ Client -->> Usuario: Visor listo para usar
 
 ### Uso del proxy para acceder a un WMS privado
 
-```plantuml alt="Diagrama de secuencia del acceso a un WMS privado: el visor pide el mapa al proxy con su token; si no hay una configuración válida en caché, el proxy la pide al backend con su clave de proxy, el backend valida el token y devuelve la URL y los parámetros del servicio, y el proxy hace la petición al WMS y devuelve la imagen."
+```plantuml alt="Diagrama de secuencia del acceso a un WMS privado: el visor pide el mapa al proxy con su token; el proxy pide la configuración al backend con su clave de proxy, el backend valida el token y devuelve la URL y los parámetros del servicio, y el proxy hace la petición al WMS y devuelve la imagen."
 @startuml
 
 actor Usuario
@@ -529,13 +527,6 @@ note right
  POST /api/authenticate/proxy)
 end note
 
-Proxy -> Proxy: Configuración en cache?
-
-alt Hay una configuración válida reusable en la cache
-  Proxy -> Proxy: Configuración (JSON) = Sacar de cache()
-
-else No hay configuración reusable en la cache
-
   Proxy ->> ConfigurationAPI: GetConfiguration
   note right
   POST /api/config/proxy
@@ -592,7 +583,8 @@ else No hay configuración reusable en la cache
     User = username
     Territory = configProxyRequest.terId
     Application = configProxyRequest.appId
-    Cartography = configProxyRequest.typeId
+    Service = configProxyRequest.typeId
+    Cartography = configProxyRequest.cartographyId
   end note
   Database -->> ConfigurationAPI: Configuración\nsin\nrefinar
   ConfigurationAPI ->> ConfigurationAPI: Refinar\nconfiguración según\nqué hay que configurar
@@ -616,14 +608,11 @@ else No hay configuración reusable en la cache
 
     "parameters" son los parámetros que el proxy añade a la petición
     o sustituye en ella.
-    "exp" es el momento hasta el que el proxy puede reutilizar
-    (cachear) esta configuración.
-    "vary" indica al proxy que puede usar esta respuesta cacheada
-    si el único cambio es en el parámetro BBOX
+    "exp" y "vary" forman parte de la respuesta, pero el proxy
+    de la versión 1.3.0 no los usa: no guarda la configuración
+    y la pide al backend en cada petición.
 
   end note
-
-end
 
 Proxy ->> Proxy: Interpreta la respuesta\ncomo una pregunta\na un WMS OGC
 Proxy ->> PrivateWMS: GetMap
@@ -663,12 +652,10 @@ note right
  (token de corta duración obtenido con
  POST /api/authenticate/proxy)
 end note
-Proxy ->> Proxy: Comprueba cache
-note right
- Se comprueba primero que no hay en la cache
- una respuesta anterior del backend que sea 
- válida y que se pueda usar para configurar
- la petición
+note over Proxy
+ El proxy no guarda configuraciones:
+ pide la configuración al backend
+ en cada petición
 end note
 Proxy ->> Backend: GetConfiguration
 note right
@@ -719,7 +706,7 @@ ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar
 note right
   Decodificamos configProxyRequest.type
   en este caso es "SQL" (el ámbito de la tarea:
-  SQL, API o URL) y el id es el de la tarea
+  SQL o API) y el id es el de la tarea
 end note
 ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
 note right

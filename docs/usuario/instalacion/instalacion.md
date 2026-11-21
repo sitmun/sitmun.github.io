@@ -159,7 +159,14 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     - `COMPOSE_PROFILES`: `postgres` u `oracle`. Añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
     - `DATABASE_TYPE`, `DATABASE_URL`, `DATABASE`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
-    - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`, `PUBLIC_BASE_PATH`: dirección pública de la instalación.
+    - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`: dirección pública de la instalación.
+    - `PUBLIC_BASE_PATH`: ruta pública (`/` por defecto). La imagen publicada del front solo funciona en `/`: para publicar
+      SITMUN bajo una ruta (por ejemplo `/sitmun3/`) hay que construir `front` desde el repositorio con `PUBLIC_BASE_PATH`
+      y `LOCAL_BASE_PATH`, como explica DEPLOYMENT.md (*Path prefix*).
+    - `SPRING_PROFILES_ACTIVE`: perfiles del backend. Añade `mail` (por ejemplo `prod,postgres,mail`) para que funcione
+      la recuperación de contraseña del visor; sin él, «¿Contraseña olvidada?» acaba en error. El servidor de correo se configura
+      con las propiedades `spring.mail.*` y `sitmun.recover-password.mail.from` en un archivo `application-mail.yml` dentro de
+      la carpeta de configuración del perfil (por ejemplo `profiles/postgres/`). Los usuarios necesitan un correo electrónico.
     - `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET`, `SITMUN_MBTILES_JOB_HANDLE_SECRET`: secretos obligatorios (los genera `setup.sh`).
     - `FORCE_USE_OF_PROXY`: fuerza el uso del proxy (`false` por defecto).
 
@@ -189,6 +196,11 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     Todos los componentes se compilan desde la raíz del repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
     Cada componente tiene su propio README con todos los detalles.
+
+    Los comandos de esta sección son para una consola *bash* (Linux, macOS, o en Windows Git Bash o WSL). En la consola de
+    Windows (`cmd`) no funcionan `export`, `envsubst`, `$(...)` ni `openssl`; para compilar el visor con
+    `cmd` usa `pnpm run build:win` en lugar de `pnpm run build`.
+    Las pruebas de la versión 1.3.0 se ejecutan con PostgreSQL 12 y 16 y con Oracle 11g y 21c.
 
     ```bash
     git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
@@ -288,13 +300,17 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             ```bash
             cd sitmun-viewer
-            export PUBLIC_BASE_PATH=/
+            export PUBLIC_BASE_PATH=/ APP_VERSION=1.3.0 FRONT_ENV=production BUILD_TIMESTAMP=
             envsubst '$PUBLIC_BASE_PATH' < ../docker/front/viewer/index.html.template > src/index.html
+            envsubst '$BUILD_TIMESTAMP,$APP_VERSION,$FRONT_ENV,$PUBLIC_BASE_PATH' \
+              < ../docker/front/viewer/environment.prod.ts.template > src/environments/environment.prod.ts
             pnpm run build --configuration=production --base-href=${PUBLIC_BASE_PATH}viewer/
             ```
 
             `envsubst` forma parte de GNU gettext. Sin `PUBLIC_BASE_PATH` el visor compila, pero
             se queda en blanco: busca sus módulos en la raíz del servidor en lugar de en `/viewer/`.
+            El segundo `envsubst` genera la configuración que usa la imagen Docker: la dirección del backend
+            (`${PUBLIC_BASE_PATH}backend`) y las mismas opciones, por ejemplo sin el acceso con DNIe.
 
             Los archivos se generan en `sitmun-viewer/dist/viewer-app`.
             Esta compilación usa direcciones con `#`, por ejemplo `/viewer/#/public/dashboard`.
@@ -311,11 +327,14 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             pnpm ci
             ```
 
-        2. Compila:
+        2. Compila. Igual que en el visor, el segundo comando genera la configuración que usa la imagen Docker:
 
             ```bash
             cd sitmun-admin
-            pnpm run build --configuration=production --base-href=/admin/
+            export PUBLIC_BASE_PATH=/ APP_VERSION=1.3.0 FRONT_ENV=production BUILD_TIMESTAMP=
+            envsubst '$BUILD_TIMESTAMP,$APP_VERSION,$FRONT_ENV,$PUBLIC_BASE_PATH' \
+              < ../docker/front/admin/environment.prod.ts.template > src/environments/environment.prod.ts
+            pnpm run build --configuration=production --base-href=${PUBLIC_BASE_PATH}admin/
             ```
 
             Los archivos se generan en `sitmun-admin/dist/admin-app`.

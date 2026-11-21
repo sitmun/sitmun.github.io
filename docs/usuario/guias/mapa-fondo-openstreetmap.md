@@ -9,7 +9,7 @@ Esta guía explica cómo ofrecer el mapa de [OpenStreetMap](https://www.openstre
 Al terminar, los usuarios del visor verán **OpenStreetMap** en la lista de mapas de fondo de la aplicación.
 
 !!! info "Cambio de sistema de referencia"
-    Los mapas de OpenStreetMap solo existen en el sistema de referencia **EPSG:3857** (Web Mercator). Si la aplicación usa otro (por ejemplo, EPSG:25831), al elegir OpenStreetMap el visor muestra el aviso *Mapa de fondo no compatible* y propone cambiar el sistema de referencia del mapa. El usuario elige **EPSG:3857** y el mapa se muestra. Al volver a un mapa de fondo de la aplicación, el visor recupera su sistema de referencia original.
+    Los mapas de OpenStreetMap solo existen en el sistema de referencia **EPSG:3857** (Web Mercator). Si la aplicación usa otro (por ejemplo, EPSG:25831), al elegir OpenStreetMap el visor muestra el aviso *Mapa de fondo no compatible* y propone cambiar el sistema de referencia del mapa. El usuario elige **EPSG:3857** y el mapa se muestra. El mapa sigue en EPSG:3857 al volver a otro mapa de fondo, si ese mapa de fondo admite EPSG:3857.
 
 ??? info "Cómo funciona (detalle técnico)"
     SITMUN admite servicios WMS, WMTS y WFS. OpenStreetMap publica su mapa en otro formato (teselas XYZ), que SITMUN no admite directamente.
@@ -68,7 +68,9 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 4. Guarda el servicio.
 
 !!! warning "Escribe los nombres exactamente así"
-    `matrixSet` y `format` distinguen mayúsculas y minúsculas. Si están mal escritos, el visor no dibuja el mapa.
+    `matrixSet` distingue mayúsculas y minúsculas, igual que el nombre de la capa `osm` del paso 2. Si falta o está mal escrito,
+    no se abre el mapa de ninguna de las aplicaciones que tengan este mapa de fondo: el visor se queda en «Creando mapa...»
+    ([sitmun/sitmun#380](https://github.com/sitmun/sitmun/issues/380)). Comprueba el mapa en el visor justo después de configurarlo.
 
 ## Paso 2. Crear la capa
 
@@ -111,6 +113,11 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 
 El orden de los mapas de fondo de cada aplicación se cambia en la propia aplicación: menú **Aplicación**, pestaña **Mapas de fondo**.
 
+!!! warning "OpenStreetMap no puede ser el primer mapa de fondo"
+    El visor abre el mapa con el primer mapa de fondo. Si la aplicación no usa EPSG:3857 y OpenStreetMap queda el primero, aparece
+    «Error al inicializar el mapa». Al añadirlo desde la pestaña **Aplicaciones** queda con el mismo orden que los demás, así que
+    revisa el orden en **Aplicación** → **Mapas de fondo** y deja primero un mapa de fondo de la aplicación.
+
 ## Paso 4. Comprobarlo en el visor
 
 1. Abre la aplicación en el visor. Si ya estaba abierta, recárgala.
@@ -123,14 +130,14 @@ El orden de los mapas de fondo de cada aplicación se cambia en la propia aplica
     ![Aviso Mapa de fondo no compatible con la opción EPSG:3857](img/osm-visor-aviso.webp){ loading=lazy }
 
 4. Acerca el mapa hasta nivel de calle para comprobar que se ve con detalle.
-5. Vuelve a un mapa de fondo de la aplicación para comprobar que el mapa recupera su sistema de referencia.
+5. Vuelve a un mapa de fondo de la aplicación. Si ese mapa de fondo admite EPSG:3857, el mapa se queda en EPSG:3857; si no, el visor vuelve a mostrar el aviso para cambiar de sistema de referencia.
 
 ## Si no se ve
 
 | Qué pasa | Qué revisar |
 | --- | --- |
 | OpenStreetMap no aparece en la lista de mapas de fondo | El mapa de fondo está **Activo** y tiene la aplicación (paso 3). La capa está marcada como disponible y tiene el **territorio** (paso 2). El mapa de fondo tiene el **rol** del usuario (paso 3). |
-| Aparece en la lista, pero el mapa queda en blanco | Los parámetros `matrixSet` y `format` del servicio (paso 1). El campo **Capa o capas del servicio utilizadas** de la capa es `osm`, en minúsculas (paso 2). |
+| El mapa no se abre: se queda en «Creando mapa...» o aparece «Error al inicializar el mapa» | El parámetro `matrixSet` del servicio (paso 1). El campo **Capa o capas del servicio utilizadas** de la capa es `osm`, en minúsculas (paso 2). OpenStreetMap no es el primer mapa de fondo de la aplicación (paso 3). |
 | Aparece con otro nombre | El nombre que se muestra es el de la **capa** (paso 2). |
 | Aparece sin miniatura | La dirección del campo **Imagen** del mapa de fondo (paso 3). |
 | El **Endpoint del servicio** no abre el archivo XML | La dirección del visor. Prueba primero la dirección del visor sola. |
