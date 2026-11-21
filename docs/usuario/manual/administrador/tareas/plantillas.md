@@ -27,7 +27,7 @@ En el apartado **Fuentes** seleccionaremos dicha consulta. Una vez seleccionada,
 !!! note "Nota"
     En SITMUN 1.3.0 la lista **Añadir tarea** repite cada tarea con varios tipos
     ([sitmun/sitmun#372](https://github.com/sitmun/sitmun/issues/372)).
-    Elija la entrada cuyo tipo coincide con el de la tarea, por ejemplo «Consulta SQL».
+    Se elige la entrada cuyo tipo coincide con el de la tarea, por ejemplo «Consulta SQL».
 
 *1. Seleccionar la consulta.*
 
@@ -120,7 +120,7 @@ Hasta ahora se han definido la información general, las fuentes de información
 
 En el ejemplo se necesita el identificador del bien; por lo tanto, es necesario definir dicho parámetro. Para ello se utiliza la pestaña **Parámetros**.
 
-El parámetro que se defina en la plantilla debe tener el mismo nombre que el parámetro asociado a la fuente de datos. En nuestro caso, la fuente de datos es una consulta que dispone de un parámetro denominado `ID`; por consiguiente, en la plantilla también deberá definirse un parámetro con el nombre `ID` (con un valor de prueba, `1`, que se usa al probar la plantilla).
+El parámetro que se defina en la plantilla debe tener el mismo nombre que el parámetro asociado a la fuente de datos. En el ejemplo, la fuente de datos es una consulta que dispone de un parámetro denominado `ID`; por consiguiente, en la plantilla también deberá definirse un parámetro con el nombre `ID` (con un valor de prueba, `1`, que se usa al probar la plantilla).
 
 ![Parámetros de la plantilla](../img/plantilla-parametros.webp){ loading=lazy }
 

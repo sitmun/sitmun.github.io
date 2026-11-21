@@ -19,7 +19,7 @@ Para crear una nueva conexión se rellenan los campos indicados en el formulario
     jdbc:oracle:thin:@HOST:PORT:DBNAME
     ```
 
-    Donde `HOST` es la URL del host donde se encuentra la base de datos, `PORT` el puerto de escucha de la base de datos y `DBNAME` el nombre de la instancia de base de datos a la cual nos queremos conectar.
+    Donde `HOST` es la URL del host donde se encuentra la base de datos, `PORT` el puerto de escucha de la base de datos y `DBNAME` el nombre de la instancia de base de datos a la que se conecta.
 
 Una vez rellenados los datos se puede probar la conexión, con el fin de comprobar que los datos introducidos son correctos y que se puede establecer conexión con la base de datos.
 

@@ -25,7 +25,7 @@ Una **aplicación** es el proyecto que ve el usuario en el visor. No contiene la
 | Servicio | Servicio | Un servidor de mapas externo (WMS, WMTS, WFS) y su URL. |
 | Capa | Capas | Una o varias capas de un servicio, con nombre, escalas y transparencia. En SITMUN también se llama «Cartografía». |
 | Grupo de permisos | Permisos sobre las capas | Un conjunto de capas que se da a uno o varios roles. Su **Tipo** habitual es «Grupo de cartografía». |
-| Capa de fondo | Capas de fondo | Un mapa de fondo que el usuario elige en el selector de mapas de fondo. En la aplicación, la pestaña se llama **Mapas de fondo**. |
+| Mapa de fondo | Capas de fondo | La imagen base del mapa que el usuario elige en el selector de mapas de fondo. En la aplicación, la pestaña se llama **Mapas de fondo**. |
 | Árbol | Árboles | La lista de carpetas y capas que el usuario ve en el panel de capas. |
 | Tarea | Tarea | Una función que se configura en el administrador. Las tareas básicas son las herramientas del visor (buscador, impresión, medición, leyenda...); otras son consultas, plantillas o localizadores. |
 | Territorio | Territorios | La zona geográfica donde se usa la aplicación (municipio, comarca...). |
@@ -41,7 +41,7 @@ flowchart TB
   T["Territorio"]
   ARB["Árbol"]
   APP["Aplicación"]
-  FON["Capa de fondo"]
+  FON["Mapa de fondo"]
   GRP["Grupo de permisos"]
   TAR["Tarea (herramienta)"]
   CAP["Capas"]
@@ -77,7 +77,7 @@ La aplicación incluye mapas de fondo y árboles; los mapas de fondo, los grupos
 - [Paso 1: territorio, rol y usuario público](paso-1-territorio-rol-usuario.md)
 - [Paso 2: dar de alta los servicios](paso-2-servicios.md)
 - [Paso 3: crear las capas](paso-3-capas.md)
-- [Paso 4: grupos de permisos y capas de fondo](paso-4-grupos-y-fondos.md)
+- [Paso 4: grupos de permisos y mapas de fondo](paso-4-grupos-y-fondos.md)
 - [Paso 5: construir el árbol de capas](paso-5-arbol.md)
 - [Paso 6: configurar las herramientas (tareas)](paso-6-herramientas.md)
 - [Paso 7: crear la aplicación y juntarlo todo](paso-7-aplicacion.md)

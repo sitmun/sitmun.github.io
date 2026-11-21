@@ -16,9 +16,9 @@ La configuración de los elementos del localizador se debe empezar vinculando la
 
 !!! warning "La consulta debe tener un parámetro `text`"
     El visor envía el texto que escribe el usuario en un parámetro llamado `text`, y una consulta que no lo declare
-    responde con un error. Defina en la pestaña **Parámetros** de la consulta un parámetro con el nombre `text`
+    responde con un error. En la pestaña **Parámetros** de la consulta se define un parámetro con el nombre `text`
     y úselo en la sentencia SQL. Como los parámetros se enlazan como valores completos, no pueden ir dentro de una cadena
-    (`'%${text}%'`); para buscar un texto dentro de un campo, use una función, por ejemplo:
+    (`'%${text}%'`); para buscar un texto dentro de un campo se usa una función, por ejemplo:
 
     ```sql
     SELECT nom_cast AS nombre, etrs89x, etrs89y

@@ -21,7 +21,7 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
   y se borra con `POST /api/authenticate/logout`.
   La cabecera `X-SITMUN-Client` indica qué cookie usar: el administrador envía `X-SITMUN-Client: admin` en todas sus
   llamadas, también en `refresh` y `logout`. Sin la cabecera se lee la cookie del visor (`viewer_access_token`), así que
-  una llamada a la API de administración con la cookie `admin_access_token` y sin la cabecera responde 401.
+  una llamada a la API de Administración con la cookie `admin_access_token` y sin la cabecera responde 401.
   La aplicación móvil de edición usa `POST /api/authenticate/mobile`, que devuelve el token en el cuerpo de la respuesta.
   Solo funciona si el usuario tiene acceso al menos a una aplicación de tipo «Edition application» (código `ED`); si no,
   responde 403.
@@ -95,7 +95,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 - **Adaptación transparente**. Las peticiones se adaptan en función de la aplicación, el territorio y el usuario.
 
 - **Modificación de peticiones**: Posibilidad de manipular la petición de varias formas para que se adapte a la
-  configuración obtenida de la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
+  configuración obtenida de la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
 
 ### Servicios soportados
 
@@ -124,14 +124,14 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 ### Modificadores generales
 
 - **Parámetros (Servicios)**: Modificador encargado de añadir a la petición los parámetros proporcionados por el visor y
-  la [API de configuración y autorización][api-de-configuracion-y-autorizacion]. La [API de configuración y autorización][api-de-configuracion-y-autorizacion]
+  la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. La [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   puede haber añadido parámetros a la petición que el visor no ha proporcionado (por ejemplo, parámetros de filtrado).
 
 - **Autenticación de acceso básica (Servicios)**: Modificador encargado de incluir en la cabecera de la petición HTTP un usuario y contraseña si fuese necesario ([RFC 7617](https://datatracker.ietf.org/doc/html/rfc7617)).
 
 - **API key (consultas Web API)**: Modificador encargado de añadir una clave de acceso en una cabecera o en un parámetro de la consulta. Los servicios OGC (WMS, WFS, WMTS) solo admiten autenticación HTTP básica.
 
-- **Selección (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
+- **Selección (JDBC)**: Modificador encargado de crear la conexión con base de datos con los datos proporcionados por la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
 
 - **Filtrado (JDBC)**: Modificador encargado de incluir filtros en la consulta.
   Los parámetros (`${nombre}`) y las variables de sistema (`#{NOMBRE}`) se envían como valores tipados

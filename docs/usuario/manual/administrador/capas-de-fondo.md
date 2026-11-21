@@ -10,11 +10,11 @@ Se pueden configurar varias capas de información y asignarles roles y aplicacio
 
 Existe la posibilidad de activar o desactivar su disponibilidad en las aplicaciones asociadas.
 
-![Formulario de una capa de fondo](img/capas-fondo-formulario.webp){ loading=lazy }
+![Formulario de un mapa de fondo](img/capas-fondo-formulario.webp){ loading=lazy }
 
 Es muy importante activar la opción **Activo** para que esté disponible en las aplicaciones deseadas.
 
-En la pestaña **Capas** se debe indicar la capa o las capas que se desee que formen este mapa de fondo.
+En la pestaña **Capas** se indican las capas que forman este mapa de fondo.
 
 !!! example "Ejemplo: OpenStreetMap como mapa de fondo"
     La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) explica paso a paso cómo configurar un mapa de fondo concreto.

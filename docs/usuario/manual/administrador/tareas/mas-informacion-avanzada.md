@@ -23,7 +23,7 @@ flowchart TB
     mia <-- "consultas" --> db
 ```
 
-*En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N consultas. La tarea MIA puede recibir parámetros y mapearlos hacia las consultas. En este caso no se define ninguna plantilla de visualización y los resultados se muestran con una plantilla básica en formato de tabla.*
+*En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N consultas. La tarea MIA puede recibir parámetros y asociarlos con los de las consultas. En este caso no se define ninguna plantilla de visualización y los resultados se muestran con una plantilla básica en formato de tabla.*
 
 Una segunda configuración sería la siguiente:
 
@@ -48,9 +48,9 @@ flowchart TB
     mia <-- "consultas" --> db
 ```
 
-*En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y mapearlos hacia las plantillas, y las plantillas, mapearlos hacia las consultas.*
+*En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y asociarlos con los de las plantillas, y las plantillas, asociarlos con los de las consultas.*
 
-Además de consultas y plantillas, una MIA puede tener como tarea hija una **exportación documental**. En ese caso, la ventana de la MIA en el visor muestra el botón **Exportar PDF**, que genera un PDF de la plantilla.
+Además de consultas y plantillas, un MIA puede tener como tarea hija una **exportación documental**. En ese caso, la ventana de la MIA en el visor muestra el botón **Exportar PDF**, que genera un PDF de la plantilla.
 
 ## MIA sin plantillas de visualización
 
@@ -58,9 +58,9 @@ Además de consultas y plantillas, una MIA puede tener como tarea hija una **exp
 
 El primer paso es la configuración general de la tarea MIA. El nombre puede ser cualquier texto, y el grupo de tareas también, según el criterio del administrador para organizar las tareas.
 
-La tarea MIA irá vinculada a una cartografía (cuadro **Cartografía utilizada**), que será donde se activará cuando el usuario haga clic en algún elemento de esa cartografía. Por tanto, en el apartado de cartografía añadiremos la capa donde queremos que se active el MIA.
+La tarea MIA irá vinculada a una cartografía (cuadro **Cartografía utilizada**), que será donde se activará cuando el usuario haga clic en algún elemento de esa cartografía. Por tanto, en ese cuadro se añade la capa en la que se quiere que se active el MIA.
 
-Debe tenerse en cuenta que esta capa deberá tener activada la función de visualización de información alfanumérica, y el nodo del árbol deberá tener activada la opción **Consultable** de las opciones de visualización. Podemos ver cómo dar estos dos pasos en la información de la tarea básica [Feature Info](basicas/informacion.md#feature-info).
+Esta capa debe tener activada la función de visualización de información alfanumérica, y el nodo del árbol, la opción **Consultable** de las opciones de visualización. Cómo dar estos dos pasos se explica en la información de la tarea básica [Feature Info](basicas/informacion.md#feature-info).
 
 ![Información general de una tarea MIA](../img/mia-general.webp){ loading=lazy }
 
@@ -74,7 +74,7 @@ El siguiente paso es preparar las fuentes de información de lo que se quiere vi
 
 Para definir estas consultas se utiliza la [tarea de consulta](consulta.md) descrita anteriormente.
 
-En nuestro ejemplo usamos la consulta «Patrimonio UNESCO por identificador» del apartado [Consulta](consulta.md), que tiene como parámetro el identificador del bien (`ID`) y devuelve su nombre, su tipo y su web.
+En el ejemplo se usa la consulta «Patrimonio UNESCO por identificador» del apartado [Consulta](consulta.md), que tiene como parámetro el identificador del bien (`ID`) y devuelve su nombre, su tipo y su web.
 
 ### Paso 3: vincular la fuente de información al MIA
 
@@ -90,16 +90,16 @@ Ahora hay que gestionar los parámetros. Nuestro objetivo es el siguiente:
 
     En este caso, el campo que identifica el monumento es `gid`, el mismo valor que la consulta espera en `ID`.
 
-2. Una vez que se sabe qué campos del GFI se pueden utilizar, es el momento de crear un parámetro que vincule uno de estos campos con un parámetro del MIA. Esto lo haremos mediante la pestaña **Parámetros** del menú superior.
+2. Una vez que se sabe qué campos del GFI se pueden utilizar, es el momento de crear un parámetro que vincule uno de estos campos con un parámetro del MIA. Esto se hace mediante la pestaña **Parámetros** del menú superior.
 
-    Hay dos campos que rellenar: en **Parámetro de tarea de consulta** se pone el nombre que se quiera (en el ejemplo, «Identificador») y en **Campo**, el nombre del campo del GFI que queremos utilizar (`gid`).
+    Hay dos campos que rellenar: en **Parámetro de tarea de consulta** se pone un nombre (en el ejemplo, «Identificador») y en **Campo**, el nombre del campo del GFI que se va a utilizar (`gid`).
 
     ![Parámetros de la tarea MIA](../img/mia-parametros.webp){ loading=lazy }
 
-3. **Guarde la tarea MIA.** En SITMUN 1.3.0 el mapeo solo ofrece los parámetros del MIA ya guardados
+3. **Se guarda la tarea MIA.** En SITMUN 1.3.0 el mapeo solo ofrece los parámetros del MIA ya guardados
     ([sitmun/sitmun#373](https://github.com/sitmun/sitmun/issues/373)).
 
-4. Ahora será necesario mapear el parámetro que se acaba de crear hacia la consulta que lo necesita. Esto se hace con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que mapear dos campos: **Parámetro MIA**, que es el nombre que hemos puesto al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el parámetro que hemos definido en la consulta (aparece con su etiqueta, «Identificador del bien»).
+4. Ahora es necesario asociar el parámetro que se acaba de crear con el de la consulta que lo necesita. Esto se hace con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que asociar dos campos: **Parámetro MIA**, que es el nombre dado al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el parámetro definido en la consulta (aparece con su etiqueta, «Identificador del bien»).
 
     ![Mapeo de parámetros](../img/mia-mapeo.webp){ loading=lazy }
 
@@ -123,11 +123,11 @@ Este paso también será igual que en el caso anterior: se debe disponer de una 
 
 ### Paso 3: preparar una plantilla de visualización
 
-Para visualizar los resultados de las consultas preparadas en el paso 2, prepararemos plantillas de visualización. Para ver cómo crearlas, consulte el apartado [Plantillas](plantillas.md).
+Para visualizar los resultados de las consultas preparadas en el paso 2 se preparan plantillas de visualización. Cómo crearlas se explica en el apartado [Plantillas](plantillas.md).
 
 ### Paso 4: equivalencias de parámetros para utilizar en el MIA
 
-Por último, es necesario establecer la equivalencia entre los parámetros definidos en el MIA y los parámetros definidos en la plantilla (en el ejemplo, «Identificador» → `ID`). Esto lo haremos con el mapeo de parámetros, tal y como muestra la captura de pantalla:
+Por último, es necesario establecer la equivalencia entre los parámetros definidos en el MIA y los parámetros definidos en la plantilla (en el ejemplo, «Identificador» → `ID`). Esto se hace con el mapeo de parámetros, tal y como muestra la captura de pantalla:
 
 ![Mapeo de parámetros hacia una plantilla](../img/mia-mapeo-plantilla.webp){ loading=lazy }
 

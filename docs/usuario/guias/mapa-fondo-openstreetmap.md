@@ -1,5 +1,5 @@
 ---
-description: "Guía para ofrecer OpenStreetMap como mapa de fondo en una aplicación de SITMUN 3: servicio WMTS, capa, capa de fondo y aplicación."
+description: "Guía para ofrecer OpenStreetMap como mapa de fondo en una aplicación de SITMUN 3: servicio WMTS, capa, mapa de fondo y aplicación."
 ---
 
 # Añadir OpenStreetMap como mapa de fondo
@@ -104,7 +104,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | **Imagen** | Miniatura que verán los usuarios. El visor incluye una: `<dirección del visor>/assets/js/api-sitna/css/img/thumb-osm.png` |
     | **Activo** | Activado |
 
-    ![Capa de fondo OpenStreetMap activa](img/osm-capa-fondo.webp){ loading=lazy }
+    ![Mapa de fondo OpenStreetMap activo](img/osm-capa-fondo.webp){ loading=lazy }
 
 3. En la pestaña **Capas**, añade la capa creada en el paso 2.
 4. En la pestaña **Roles**, añade los roles que deben ver el mapa. Si la aplicación es pública, incluye también el rol que tenga asignado el usuario `public` (ver [Paso 1](primer-proyecto/paso-1-territorio-rol-usuario.md)).

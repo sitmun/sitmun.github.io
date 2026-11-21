@@ -10,7 +10,7 @@ Tareas básicas para elegir el mapa de fondo y gestionar las capas del mapa.
 
 Permite seleccionar el mapa de fondo que se desea utilizar entre los disponibles. «Selector de mapa base» es el nombre de la tarea; en el visor se llama selector de mapas de fondo.
 
-Este control únicamente permite seleccionar entre los mapas de fondo disponibles. Si se desea configurar una capa para que actúe como mapa de fondo, consulte el apartado [Capas de fondo](../../capas-de-fondo.md).
+Este control únicamente permite seleccionar entre los mapas de fondo disponibles. Cómo configurar una capa para que actúe como mapa de fondo se explica en el apartado [Capas de fondo](../../capas-de-fondo.md).
 
 - Control API SITNA: `sitna.basemapSelector`
 

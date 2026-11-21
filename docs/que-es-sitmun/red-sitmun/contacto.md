@@ -8,7 +8,7 @@ Los órganos de la Red SITMUN los establece el protocolo de colaboración de la 
 
 ## Presidencia
 
-Consell Insular de Menorca (contacto: <ricard.cots@cime.es> ).
+Consell Insular de Menorca (contacto: <ricard.cots@cime.es>).
 
 ## Secretariado
 

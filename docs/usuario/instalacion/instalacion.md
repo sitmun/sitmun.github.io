@@ -131,8 +131,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     Los servicios están definidos en el archivo `compose.yaml`:
 
     - `front`: servidor web *nginx* en el puerto 9000. Publica el visor (`/viewer/`) y el administrador (`/admin/`) y enruta `/backend/` al `backend` y `/middleware/` al `proxy`.
-    - `backend`: API de autenticación, autorización, configuración y administración (puerto 9001).
-    - `proxy`: API de proxy-middleware, que se comunica con el `backend` (puerto 9002).
+    - `backend`: API de Autenticación, autorización, configuración y administración (puerto 9001).
+    - `proxy`: API de Proxy-middleware, que se comunica con el `backend` (puerto 9002).
     - `postgres`: base de datos PostgreSQL 16 en el volumen `pgdata` (puerto 9003, perfil `postgres`).
     - `oracle`: base de datos Oracle 23 Free (puerto 9004, perfil `oracle`).
     - `example`: base de datos PostgreSQL de ejemplo (puerto 9005, perfil `demo`).

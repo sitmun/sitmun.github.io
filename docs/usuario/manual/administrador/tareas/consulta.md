@@ -40,7 +40,7 @@ Para definir una consulta SQL es necesario seleccionar previamente la conexión 
 
 *Ejemplo de conexión y de consulta SQL.*
 
-Para obtener información sobre cómo crear conexiones, consulte el apartado [Conexiones](../conexiones.md).
+Cómo crear conexiones se explica en el apartado [Conexiones](../conexiones.md).
 
 Los resultados de una consulta SQL tienen límites: como máximo 1000 filas (las siguientes se descartan) y 60 segundos de ejecución. Se pueden cambiar en el backend con las propiedades `sitmun.jdbc.max-rows` y `sitmun.jdbc.query-timeout-seconds`.
 
@@ -48,11 +48,11 @@ Para realizar una consulta SQL, se recomienda probar primero la consulta directa
 
 #### Parámetros en las consultas SQL
 
-Las consultas SQL admiten parámetros. Por ejemplo, en la consulta que se muestra en la captura de pantalla, es posible que se desee generar la consulta a partir de un identificador que no sea fijo, sino de un parámetro que se quiera pasar a la consulta.
+Las consultas SQL admiten parámetros. Por ejemplo, en la consulta que se muestra en la captura de pantalla, puede interesar generar la consulta a partir de un identificador que no sea fijo, sino de un parámetro que se quiera pasar a la consulta.
 
-Para crear un parámetro en una consulta, debe procederse de la siguiente manera.
+Para crear un parámetro en una consulta, se procede de la siguiente manera:
 
-En primer lugar, cree el nuevo parámetro desde la pestaña **Parámetros** del formulario y, mediante el icono **+**, añada un nuevo parámetro:
+En primer lugar, en la pestaña **Parámetros** del formulario se añade un nuevo parámetro con el icono **+**:
 
 ![Pestaña Parámetros de una tarea de consulta](../img/consulta-pestana-parametros.webp){ loading=lazy }
 
@@ -64,7 +64,7 @@ Al crear un nuevo parámetro aparecerá el siguiente formulario:
 - **Etiqueta**: es el nombre que se utilizará para identificar el parámetro cuando se requiera en otras configuraciones (por ejemplo, en el mapeo de parámetros de una [tarea MIA](mas-informacion-avanzada.md)).
 - **Valor**: valor por defecto, si así se desea. Es posible dejarlo en blanco si no se quiere proporcionar ningún valor por defecto.
 - **Tipo de dato**: tipo del valor (`string`, `integer`, `number`, `date`, `timestamp` o `boolean`). El valor se enlaza a la consulta con este tipo.
-- **Opcional**: márquelo solo si la consulta puede ejecutarse sin este parámetro. En nuestro ejemplo no se marca, ya que la consulta no podría ejecutarse correctamente sin él.
+- **Opcional**: se marca solo si la consulta puede ejecutarse sin este parámetro. En el ejemplo no se marca, ya que la consulta no podría ejecutarse correctamente sin él.
 - **Proporcionado (solo backend)**: el valor no lo envía el cliente, sino que lo aporta el propio backend.
 
 En el ejemplo, el parámetro se llama `ID`, con la etiqueta «Identificador del bien» y el tipo `integer`.
