@@ -24,7 +24,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 
 Los campos marcados con un asterisco son obligatorios para poder crear un servicio.
 
-Un aspecto que puede resultar de interés es que, en el momento de añadir un endpoint para un servicio WMS, aparece el botón **Obtener detalles del servicio**. Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
+Un aspecto que puede resultar de interés es que, en el momento de añadir un endpoint para un servicio WMS, aparece el botón **Obtener detalles del servicio**. El botón también aparece en los servicios WFS, pero en la versión 1.3.0 solo funciona con WMS ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
 
 Además, tiene la virtud de poder probar la comunicación con el servicio y comprobar que ha sido posible realizar la conexión a dicho servicio.
 
@@ -50,7 +50,7 @@ Una vez configurado el servicio se pueden gestionar las capas que dicho servicio
 
 La pestaña **Capas** aparecerá vacía en el momento de crear el servicio. Las capas se pueden configurar automáticamente o también existe la opción de definirlas manualmente, lo que ofrece otras posibilidades de configuración. Esta segunda opción se detalla en el apartado [Capas](capas.md).
 
-La carga automática solo existe para los servicios WMS y WFS. En un servicio WFS la pestaña se llama **Tipos de entidad** y el botón **Obtener tipos de entidad del servicio**. En un servicio WMTS las capas se crean a mano en el menú [Capas](capas.md).
+La carga automática solo funciona en los servicios WMS. En un servicio WFS la pestaña se llama **Tipos de entidad** y tiene el botón **Obtener tipos de entidad del servicio**, pero en la versión 1.3.0 no funciona: el backend solo admite WMS y responde con un error aunque la URL sea correcta ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). En los servicios WFS y WMTS las capas se crean a mano en el menú [Capas](capas.md).
 
 Para cargar las capas automáticamente se utiliza el botón **Actualizar capas del servicio** (en un servicio que todavía no se ha guardado se llama **Obtener capas del servicio**). Al pulsarlo se listan todas las capas que proporciona el servicio:
 
