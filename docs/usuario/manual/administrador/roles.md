@@ -16,6 +16,6 @@ Opcionalmente, una **Descripción** (hasta 500 caracteres) explica para qué sir
 
 En otras pestañas se detallan las relaciones de acceso con los otros elementos existentes en la plataforma:
 
-- **Usuarios por territorio**: definir la relación con los otros componentes que permitirán el acceso a este rol.
+- **Usuarios por Territorio**: definir la relación con los otros componentes que permitirán el acceso a este rol.
 - **Tiene acceso a Tareas**: tareas a las que tendrá acceso este rol.
 - **Tiene acceso a Aplicaciones**: aplicaciones a las que este rol tiene acceso.

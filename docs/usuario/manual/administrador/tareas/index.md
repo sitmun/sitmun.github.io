@@ -21,8 +21,8 @@ pero su documentación todavía no está escrita. Lo esencial de cada una:
 
 - **Tarea de imagen de mapa**: genera una imagen del mapa para usarla en [plantillas](plantillas.md); el visor no la muestra directamente.
 - **Exportación documental**: genera documentos PDF a partir de [plantillas](plantillas.md). Se configuran el motor, la salida,
-  el tamaño y la orientación de la página. En el visor se usa como tarea hija de una
-  [tarea de más información avanzada](mas-informacion-avanzada.md), que muestra el botón para exportar el PDF.
+  el tamaño y la orientación de la página. No es una tarea hija: se asigna a roles y territorios
+  como cualquier tarea, y entonces las ventanas de [más información avanzada](mas-informacion-avanzada.md) del visor muestran el botón para exportar el PDF.
 - **Tarea de edición**: edición de datos, en base de datos o en servicios WFS. En la versión 1.3.0 solo la usa la aplicación
   móvil de edición; el visor web no la muestra.
 - **Tarea de más información**: necesita una capa, una tarea de consulta y la correspondencia entre los parámetros de la

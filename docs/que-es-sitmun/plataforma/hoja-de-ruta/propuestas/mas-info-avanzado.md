@@ -57,7 +57,7 @@ Se prevé la siguiente lógica funcional:
   
       ![Consulta que devuelve las fotografías de una ruta](mas-info-avanzado-5.webp){ .captura }
 
-2. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurará en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
+2. Una vez definidas estas tareas, que se denominan tareas hijas, se configurará en el administrador SITMUN la tarea padre **más info avanzado**. En la ventana de configuración de dicha tarea se podrá:
 
     - Establecer la relación con las distintas tareas hijas que forman parte del más info avanzado. Una tarea hija, a su vez, debe poder formar parte de varias tareas padre.
     - Establecer el tipo de más info avanzado, para establecer cómo se presentarán en la ventana las distintas tareas hijo (en tabs, en scroll…)
@@ -65,14 +65,14 @@ Se prevé la siguiente lógica funcional:
       ![Configuración de las tareas hijas y del tipo de presentación de una más información avanzada](mas-info-avanzado-6.webp){ .captura }
 
     - Establecer para cada tarea hija el código HTML con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galería de fotos, etc.). A este código se añadirán marcas especiales con el nombre de los campos de la subconsulta que serán sustituidas en el cliente (API SITNA) por el valor de los mismos.
-    Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, donde los valores `@@CODIGOTAREA_NOMBRECAMPO@@` deben de ser sustituidos por el valor del campo correspondiente a la consulta 289.
+    Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, donde los valores `@@CODIGOTAREA_NOMBRECAMPO@@` deben ser sustituidos por el valor del campo correspondiente a la consulta 289.
 
         ![Código HTML de presentación de una tarea hija con marcadores de campo](mas-info-avanzado-7.webp){ .captura }
 
     - Definir qué capa o capas tienen asociada esta funcionalidad.
     - Definir qué territorios y roles de usuario tienen asociada esta funcionalidad.
 
-3. Configurada correctamente la tarea, la API de Configuración y Autorización deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que esté conectado). Así mismo, la API deberá retornar la información necesaria y suficiente para que el cliente (API SITNA u otros) puedan renderizar la información consultada de forma adecuada.
+3. Configurada correctamente la tarea, la API de Configuración y Autorización deberá incorporar los valores necesarios para permitir al cliente SITMUN 3 - SITNA (1) detectar qué capas tienen un *más info avanzado* definido (para el rol y territorio que esté conectado). Asimismo, la API deberá devolver la información necesaria y suficiente para que el cliente (API SITNA u otros) puedan renderizar la información consultada de forma adecuada.
 
 4. El Cliente SITMUN - API SITNA deberá configurar correctamente la ventana de info cuando se realice un clic sobre el mapa a un elemento de dicha capa, en caso de que la capa tenga asociada una tarea de esta índole.
 
@@ -101,7 +101,7 @@ Se identifican los siguientes requerimientos funcionales a desarrollar para cada
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Funcionalidad                                                                                   | Estado                  | Issues relacionadas |
 +=================================================================================================+=========================+=====================+
-| Parsear json de la API de Configuración y representar los datos                                 | Existente no testeada   |                     |
+| Interpretar el JSON de la API de Configuración y representar los datos                          | Existente no testeada   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+
 | Gestionar y renderizar la configuración de la respuesta avanzada para una capa concreta         | Nueva                   |                     |
 +-------------------------------------------------------------------------------------------------+-------------------------+---------------------+

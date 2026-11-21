@@ -31,7 +31,7 @@ tareas al propio administrador y otros textos e imágenes que pueden ser fijos p
 Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso de los visores de urbanismo del
 Consell de Mallorca, en el geoportal IDELMA.
 Actualmente, los informes pueden generarse a partir de un localizador o dentro de información avanzada de una consulta.
-En la ventana siguiente podemos observar el detalle de la ventana con distintas pestañas, cada una de ellas se
+En la ventana siguiente se puede observar el detalle de la ventana con distintas pestañas, cada una de ellas se
 corresponde con el resultado de una tarea de tipo consulta configurada en el administrador SITMUN 2.
 
 ![Ventana de información de SITMUN 2 con una pestaña por cada tarea de consulta](informe-1.webp){ .captura }
@@ -73,7 +73,7 @@ Por ejemplo, en el caso del visor urbanístico anterior, se establecen varias co
 - Una tercera consulta que devuelve la referencia catastral y dirección de la parcela seleccionada
 - Una imagen de la fachada del edificio o una imagen de una tabla de un texto
 
-1. Una vez definidas estas tareas, que llamaremos tareas hijas, se configuraran en el administrador SITMUN la tarea
+1. Una vez definidas estas tareas, que se denominan tareas hijas, se configuraran en el administrador SITMUN la tarea
     padre informe. En la ventana de configuración de dicha tarea se podrá:
     - Configurar la plantilla del informe
     - Establecer el mapa, así como la escala, que aparecerá en el informe

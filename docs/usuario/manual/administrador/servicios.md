@@ -24,7 +24,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 
 Los campos marcados con un asterisco son obligatorios para poder crear un servicio.
 
-Un aspecto que puede resultar de interés es que, en el momento de añadir un endpoint para un servicio WMS, aparece el botón **Obtener detalles del servicio**. El botón también aparece en los servicios WFS, pero en la versión 1.3.0 solo funciona con WMS ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
+Un aspecto que puede resultar de interés es que, en el momento de añadir la dirección de un servicio WMS, aparece el botón **Obtener detalles del servicio**. El botón también aparece en los servicios WFS, pero en la versión 1.3.0 solo funciona con WMS ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
 
 Además, tiene la virtud de poder probar la comunicación con el servicio y comprobar que ha sido posible realizar la conexión a dicho servicio.
 
@@ -84,7 +84,7 @@ Se puede quitar una capa ya registrada seleccionándola de la lista y pulsando e
 
 ## Parámetros de configuración
 
-La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) tiene un ejemplo completo.
+La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. Su valor es uno de los `TileMatrixSet` que anuncia el GetCapabilities del servicio (`?SERVICE=WMTS&REQUEST=GetCapabilities`), y el nombre técnico de cada capa es su `ows:Identifier`; las capas WMTS se crean a mano. La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) tiene un ejemplo completo.
 
 ## Monitorización y uso
 

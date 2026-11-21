@@ -40,8 +40,8 @@ Complementariamente, existe la opción de definir también otros parámetros de 
 
 En otras pestañas se detallan las relaciones con los otros elementos existentes en la plataforma:
 
-- **Usuarios con rol**: definir la relación con los otros componentes que permitirán el acceso a este territorio. En esta relación se puede detallar si se desea transmitir los permisos entre las relaciones jerárquicas creadas entre padres e hijos.
-- **Territorios padres**: indicar los territorios de un nivel superior al que se está definiendo. La pestaña no aparece si el tipo del territorio está marcado como **Tipo superior**.
-- **Territorios hijos**: indicar los territorios de un nivel inferior al que se está definiendo. La pestaña no aparece si el tipo está marcado como **Tipo inferior**.
+- **Usuarios con rol**: los usuarios y roles que tienen acceso a este territorio. En esta relación se puede detallar si se desea transmitir los permisos entre las relaciones jerárquicas creadas entre padres e hijos.
+- **Territorios padres**: los territorios de un nivel superior al que se está definiendo. La pestaña no aparece si el tipo del territorio está marcado como **Tipo superior**.
+- **Territorios hijos**: los territorios de un nivel inferior al que se está definiendo. La pestaña no aparece si el tipo está marcado como **Tipo inferior**.
 - **Cartografía**: capas de información a las que tendrá acceso este territorio.
 - **Tareas**: tareas a las que tendrá acceso este territorio.

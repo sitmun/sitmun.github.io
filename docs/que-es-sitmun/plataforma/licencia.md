@@ -13,6 +13,8 @@ La presente Licencia Pública de la Unión Europea (EUPL, por su sigla en inglé
 
 o haya expresado por cualquier otro medio su voluntad de conceder una licencia con arreglo a la EUPL.
 
+<a id="1definiciones"></a>
+
 ## 1. Definiciones
 
 En la presente licencia, se entenderá por:
@@ -28,6 +30,8 @@ En la presente licencia, se entenderá por:
 - «licenciatario»: la persona física o jurídica que hace un uso cualquiera de la obra en las condiciones fijadas en la licencia,
 - «distribución» o «comunicación»: cualquier acto de venta, donación, préstamo, alquiler, distribución, comunicación, transmisión o cualquier otro acto de puesta a disposición, en línea o fuera de línea, de copias de la obra o de acceso a sus funcionalidades esenciales a otra persona física o jurídica.
 
+<a id="2ambito-de-los-derechos-otorgados-por-la-licencia"></a>
+
 ## 2. Ámbito de los derechos otorgados por la Licencia
 
 El licenciante concede al licenciatario una licencia de ámbito mundial, a título gratuito, no exclusiva y que el licenciatario puede subcontratar mientras sigan vigentes los derechos de autor sobre la obra original, y lo autoriza a:
@@ -42,13 +46,19 @@ El licenciante concede al licenciatario una licencia de ámbito mundial, a títu
 
 Dichos derechos se podrán ejercer a través de cualquier medio, soporte y formato, conocido en el presente o que pueda inventarse en el futuro, en la medida en que así lo permita la legislación aplicable. En los países cuyo ordenamiento contemple los derechos morales, el licenciante renunciará al ejercicio de los mismos en la medida en que lo permita la legislación, a fin de hacer efectiva la licencia de los derechos patrimoniales anteriormente enumerados. El licenciante cede al licenciatario, libre de cánones, los derechos de uso no exclusivos sobre cualquier patente de que sea titular, en la medida necesaria para que el licenciatario haga uso de los derechos sobre la obra otorgados por la presente licencia.
 
+<a id="3comunicacion-del-codigo-fuente"></a>
+
 ## 3. Comunicación del código fuente
 
 El licenciante podrá suministrar la obra en forma de código fuente o código ejecutable. Si la suministrara en forma de código ejecutable, deberá facilitar además una copia legible automáticamente del código fuente de la obra junto con cada copia de la obra que distribuya, o bien indicar, en una advertencia inserta a continuación de la mención a los derechos de autor adjunta a la obra, un repositorio en el que se pueda acceder al código fuente fácilmente y de manera gratuita durante el período en que el licenciante siga distribuyendo o comunicando la obra.
 
+<a id="4limitaciones-a-los-derechos-de-autor"></a>
+
 ## 4. Limitaciones a los derechos de autor
 
 En ningún caso podrá interpretarse la presente licencia de modo que prive al licenciatario de los beneficios de los que pudiera disfrutar como consecuencia de las excepciones o limitaciones a los derechos exclusivos de los titulares de los derechos de la obra, de la extinción de dichos derechos o de cualquier otra limitación aplicable.
+
+<a id="5obligaciones-del-licenciatario"></a>
 
 ## 5. Obligaciones del licenciatario
 
@@ -64,37 +74,55 @@ La cesión de los derechos en virtud de la presente licencia queda supeditada a 
 
 - Salvaguardia de otros derechos: La presente licencia no faculta para utilizar los nombres comerciales, marcas de producto o de servicio o nombres del licenciante, excepto cuando ello, realizado en la medida de lo razonable y conforme a los usos habituales, sea necesario para indicar el origen de la obra y reproducir el contenido de la mención a los derechos de autor.
 
+<a id="6secuencia-de-autoria"></a>
+
 ## 6. Secuencia de autoría
 
 El licenciante original garantiza ser titular originario de los derechos de autor sobre la obra original objeto de la presente licencia o haberlos adquirido mediante la licencia correspondiente y estar facultado para otorgar licencias sobre tales derechos. Cada colaborador garantiza ser titular de los derechos de autor sobre las modificaciones que aporta a la obra o haberlos adquirido mediante la correspondiente licencia y estar facultado para otorgar licencias sobre tales derechos. Cada vez que el licenciatario acepta la licencia, el licenciante original y los colaboradores posteriores le otorgan una licencia sobre sus propias contribuciones a la obra en las condiciones fijadas en la presente licencia.
+
+<a id="7exclusion-de-garantia"></a>
 
 ## 7. Exclusión de garantía
 
 La obra se encuentra en proceso de elaboración, siendo objeto de continuas mejoras por parte de numerosos colaboradores. No es una obra acabada y, por tanto, puede contener defectos o fallos inherentes a este tipo de desarrollo. Por este motivo, la obra, en virtud de la licencia, se suministra «tal cual», sin garantías de ningún tipo, en particular, en una enumeración no exhaustiva, en cuanto a su comercialización, adecuación a un propósito determinado, ausencia de defectos o errores, exactitud y ausencia de infracción de los derechos de propiedad intelectual distintos de los derechos de autor según se afirma en el artículo 6 de la presente licencia. Esta exclusión de garantía forma parte esencial de la licencia y es condición para la cesión de cualquier derecho con respecto a la obra.
 
+<a id="8exclusion-de-responsabilidad"></a>
+
 ## 8. Exclusión de responsabilidad
 
 Excepto en casos de dolo o de daños ocasionados directamente a personas físicas, el licenciante no será responsable de los daños y perjuicios de cualquier clase, directos o indirectos, materiales o morales, que pudieran derivarse de la licencia o del uso de la obra, en particular, en una enumeración no exhaustiva, de los daños y perjuicios por pérdida de buena reputación, paro técnico, avería o mal funcionamiento de equipos informáticos, pérdida de datos o cualquier perjuicio comercial, incluso si el licenciante conocía la posibilidad de dichos daños. No obstante, el licenciante será responsable, de acuerdo con las normas legales que regulen la responsabilidad por los daños causados por productos, en la medida en que dichas normas sean aplicables a la obra.
+
+<a id="9acuerdos-adicionales"></a>
 
 ## 9. Acuerdos adicionales
 
 Al distribuir la obra, el licenciatario podrá suscribir un acuerdo adicional que defina obligaciones o servicios compatibles con la presente licencia. No obstante, al aceptar tales obligaciones, el licenciatario actuará únicamente en nombre propio y bajo su exclusiva responsabilidad, y nunca en nombre del licenciante original ni de ningún otro colaborador, y ello a condición de que acceda a indemnizar, defender y amparar a todo colaborador frente a cualquier responsabilidad en que este pudiera incurrir y frente a las reclamaciones que pudieran presentarse contra él por haber aceptado el licenciatario la mencionada garantía o responsabilidad adicional.
 
+<a id="10aceptacion-de-la-licencia"></a>
+
 ## 10. Aceptación de la licencia
 
 Lo dispuesto en la presente licencia puede aceptarse haciendo clic en el icono «Aceptar» situado en la parte inferior de la ventana en que aparece el texto de la presente licencia o manifestando el consentimiento de cualquier otra forma similar, de conformidad con lo previsto en la legislación aplicable. Haciendo clic en dicho icono, se expresa la aceptación inequívoca e irrevocable de la presente licencia y de todo su contenido. Asimismo, el licenciatario acepta irrevocablemente la presente licencia y todas sus condiciones por el mero hecho de ejercer cualquiera de los derechos que le otorga el artículo 2 de la presente licencia, tales como el uso de la obra, la creación de una obra derivada o la distribución o comunicación de la obra o de copias de la misma.
+
+<a id="11informacion-al-publico"></a>
 
 ## 11. Información al público
 
 En caso de que el licenciatario proceda a la distribución o comunicación de la obra por medios electrónicos (por ejemplo, ofreciendo la descarga de la obra a distancia), el canal o medio de distribución (por ejemplo, un sitio web) deberá facilitar al público, como mínimo, la información exigida por la legislación aplicable acerca del licenciante, la licencia y la manera en que el licenciatario puede acceder a dichos datos, aceptarlos, conservarlos y reproducirlos.
 
+<a id="12extincion-de-la-licencia"></a>
+
 ## 12. Extinción de la licencia
 
 La licencia y los derechos otorgados a su amparo se extinguirán automáticamente si el licenciatario incumple alguna de las condiciones de la licencia. Tal extinción no supondrá, sin embargo, la de las licencias de que disfruten las personas que hayan recibido la obra del licenciatario en virtud de la licencia, siempre que dichas personas sigan cumpliendo plenamente las condiciones de la licencia.
 
+<a id="13varios"></a>
+
 ## 13. Varios
 
 No obstante lo dispuesto en el artículo 9, la licencia representará la totalidad del acuerdo entre las partes en cuanto a la obra. La eventual invalidez o ineficacia de alguna disposición de la presente licencia con arreglo a la legislación vigente no afectará a la validez o eficacia general de la licencia. En tales casos, la disposición se interpretará o reformulará según proceda para hacerla válida y eficaz. La Comisión Europea podrá publicar otras versiones lingüísticas o nuevas versiones de la presente licencia o versiones actualizadas del apéndice en la medida en que resulte necesario y razonable y sin reducir el ámbito de los derechos concedidos por la licencia. Las nuevas versiones de la licencia se publicarán con un número de versión único. Todas las versiones lingüísticas de la presente licencia aprobadas por la Comisión Europea tienen idéntico valor. Las partes pueden utilizar la versión lingüística de su preferencia.
+
+<a id="14tribunales-competentes"></a>
 
 ## 14. Tribunales competentes
 
@@ -102,6 +130,8 @@ Sin perjuicio de lo dispuesto en un acuerdo específico entre las partes,
 
 - los litigios relativos a la interpretación de la presente licencia que se planteen entre las instituciones, órganos y organismos de la Unión Europea, en calidad de licenciante, y un licenciatario, se someterán a la jurisdicción del Tribunal de Justicia de la Unión Europea, con arreglo al artículo 272 del Tratado de Funcionamiento de la Unión Europea;
 - los litigios relativos la interpretación de la presente licencia que se planteen entre otras partes se someterán a la jurisdicción exclusiva del tribunal que sea competente en el lugar en que resida o ejerza su actividad principal el licenciante.
+
+<a id="15legislacion-aplicable"></a>
 
 ## 15. Legislación aplicable
 

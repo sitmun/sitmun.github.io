@@ -10,7 +10,7 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
   La aplicación «básica» es un visor de mapas web, pero hay otras y pueden tomar formas muy distintas si es necesario.
   En general, estas aplicaciones deben ser configuradas para resultar útiles. Esta configuración incluye indicar las herramientas específicas que van a ofrecer a sus usuarios, así como los servicios, capas o bases de datos accesibles; también incluye restricciones de acceso, basadas en usuarios, roles y territorios concretos.
   Por ejemplo, una aplicación puede ser el visor de mapas básico. Y para el usuario «público» del territorio «Municipio X», esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a bases de datos privadas.
-  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la base de datos de SITMUN y no es la misma que usa la aplicación web de administración; el visor usa de esta última solo unos pocos endpoints: los idiomas y los parámetros de configuración, y las plantillas de las tareas de *más información avanzada* (MIA). Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
+  Estas aplicaciones obtienen su configuración cada vez que arrancan (porque depende del usuario, rol y territorio que se haya identificado, y porque puede haber cambiado desde la vez anterior) de una API REST. Esta API accede a la base de datos de SITMUN y no es la misma que usa la aplicación web de administración; el visor usa de esta última solo unos pocos endpoints: los idiomas y los parámetros de configuración, la cuenta del usuario identificado, y las plantillas de las tareas de *más información avanzada* (MIA). Y finalmente aplican la configuración obtenida antes de permitir a los usuarios ponerse a trabajar.
 - **Aplicación web de administración.**
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
   Por ejemplo, se puede añadir un nuevo servicio de mapas públicamente accesible recién encontrado al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
@@ -38,7 +38,7 @@ Todo el código está en el repositorio [sitmun/sitmun](https://github.com/sitmu
 
 ## Principales componentes
 
-```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de Autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el proxy middleware da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
+```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de Autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el Proxy Middleware da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
 @startuml
 !include <logos/angular>
 !include <logos/github>
@@ -85,7 +85,7 @@ note bottom of configdb
   Esto incluye autorizaciones de acceso a
   servicios y BD privados, y la información
   necesaria para conectarse a esas (URI,
-  puerto, esquema de BD, credenciales...)
+  puerto, esquema de BD, credenciales…)
   así como las consultas concretas
   (parametrizadas) que se pueden hacer.
 end note
@@ -102,7 +102,7 @@ rectangle visor [
 ]
 
 component publicwms #PapayaWhip [
-  <$lock_unprotected{scale=0.5}> <$globe_internet{scale=0.5}> OGC WMS / WFS / ...
+  <$lock_unprotected{scale=0.5}> <$globe_internet{scale=0.5}> OGC WMS / WFS / …
 
   --
 
@@ -112,7 +112,7 @@ component publicwms #PapayaWhip [
 ]
 
 component privatewms #PapayaWhip [
-  <$lock_protected{scale=0.5}> <$globe_internet{scale=0.5}> OGC WMS / WFS / ...
+  <$lock_protected{scale=0.5}> <$globe_internet{scale=0.5}> OGC WMS / WFS / …
 
   --
 
@@ -166,7 +166,7 @@ note right of proxymiddleware
   usuarios/territorios/aplicaciones
   autorizados a servicios y BD
   no públicos (intranet, protegidos
-  con contraseña...).
+  con contraseña…).
 
   Para ello solicita permiso a la
   **API de Configuración y Autorización**
@@ -336,6 +336,8 @@ SP-->Client: Respuesta
 
 En esta sección se documentan algunas de las interacciones más relevantes del sistema en forma de diagramas de secuencia.
 
+<a id="login"></a>
+
 ### Inicio de sesión
 
 ```plantuml alt="Diagrama de secuencia del inicio de sesión: el visor envía las credenciales a la API de Autenticación, Spring Security las comprueba en la base de datos y se devuelve el token JWT en una cookie; después el visor pide su perfil a la API de Configuración y Autorización, que valida el token y devuelve la configuración del usuario, territorio y aplicación."
@@ -352,24 +354,24 @@ participant "Authentication\nManager\n(Spring Security)" as AuthenticationManage
 participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 
-Usuario ->> Client: Login
-Client -> AuthenticationAPI: Login (POST /api/authenticate,\n/api/authenticate/admin para el administrador)
+Usuario ->> Client: Inicio de sesión
+Client -> AuthenticationAPI: Inicio de sesión (POST /api/authenticate,\n/api/authenticate/admin para el administrador)
 AuthenticationAPI -> FilterChain
-FilterChain -> AuthenticationAPI: Login(usuario, password)
-AuthenticationAPI-> AuthenticationManager: Obtener Autenticación
-AuthenticationManager -> Database: ¿Existe y pwd OK?
+FilterChain -> AuthenticationAPI: Inicio de sesión (usuario, contraseña)
+AuthenticationAPI-> AuthenticationManager: Obtención de la autenticación
+AuthenticationManager -> Database: ¿Existe y la contraseña es correcta?
 Database-->> AuthenticationManager: Sí
 AuthenticationManager -->> AuthenticationAPI: Autenticación(usuario)
-AuthenticationAPI -> JsonWebTokenService: Generar Token JWT(usuario)
+AuthenticationAPI -> JsonWebTokenService: Generación del token JWT (usuario)
 JsonWebTokenService -->> AuthenticationAPI: Token JWT
 AuthenticationAPI -->> FilterChain: Token JWT
 FilterChain -->> AuthenticationAPI: Token JWT
 AuthenticationAPI -->> Client: Token JWT
 note right
-200 Ok
+200 OK
 Set-Cookie: viewer_access_token={tokenJWT}; HttpOnly
 (admin_access_token en el administrador;
-la app móvil de edición usa /api/authenticate/mobile
+la aplicación móvil de edición usa /api/authenticate/mobile
 y recibe el token en el cuerpo de la respuesta)
 end note
 Client -> ConfigurationAPI: Obtener configuración
@@ -379,15 +381,15 @@ note right
 end note
 
 ConfigurationAPI -> FilterChain
-FilterChain -> JsonWebTokenFilter: Filtra petición\n(lee el token de la cookie)
-JsonWebTokenFilter -> JsonWebTokenService: Validar token JWT
+FilterChain -> JsonWebTokenFilter: Filtrado de la petición\n(lee el token de la cookie)
+JsonWebTokenFilter -> JsonWebTokenService: Validación del token JWT
 JsonWebTokenService -->> JsonWebTokenFilter: Token OK
-JsonWebTokenFilter -> JsonWebTokenService: Extraer usuario del token JWT
+JsonWebTokenFilter -> JsonWebTokenService: Extracción del usuario del token JWT
 JsonWebTokenService -->> JsonWebTokenFilter: usuario
 JsonWebTokenFilter-> Database: ¿Detalles usuario?
 Database -->> JsonWebTokenFilter: roles
 note right
-  Si no se encuentra 401 Unauthorized
+  Si no se encuentra el usuario, 401 Unauthorized
   Los roles pueden ser USER, o USER y ADMIN.
   PUBLIC (usuario público, sin token) y
   MOBILE_EDITION (token de la app de edición)
@@ -434,7 +436,7 @@ note right
   y el resto de restricciones
 end note
 ConfigurationAPI -->> Client: Configuración\npedida (JSON)
-Client -> Client: Configurar visor\n(Config JSON)
+Client -> Client: Configuración del visor\n(JSON de configuración)
 Client -->> Usuario: Visor listo para usar
 
 @enduml
@@ -460,17 +462,17 @@ participant "WMS Privado" as PrivateWMS
 
 
 
-ref over Usuario, Client, Database : Proceso de login y configuración inicial
+ref over Usuario, Client, Database : Proceso de inicio de sesión y configuración inicial
 note over Client, ConfigurationAPI
 La info de config. devuelta incluye, para WMS públicos (y similares)
 su URL pública, y para los WMS privados (y similares) una URL única
-para cada servicio que pasa por el **proxy middleware**, pero
+para cada servicio que pasa por el **Proxy Middleware**, pero
 que para el cliente es una URL de un WMS normal.
 end note
 
 
 Usuario ->> Client: Refresca mapa
-Client ->> Client: Carga una capa de un WMS público
+Client ->> Client: Carga de una capa de un WMS público
 note right
  new ImageLayer({
     source: new ImageWMS({
@@ -493,23 +495,25 @@ end note
 Client ->> PublicWMS: GetMap
 
 PublicWMS -->> Client: Imagen de mapa pedida
-Client ->> Client: Carga una capa de un WMS restringido
+Client ->> Client: Carga de una capa de un WMS restringido
 note right
  Por la configuración previamente recibida ya sabe que
  https://<servidor>/middleware/proxy/7/5/WMS/12/23 es el endpoint de la capa 23
  del servicio WMS 12 para una aplicación (7) y territorio (5).
- Debe además usar LAYERS=default para obtenerla.
+ En LAYERS debe pedir las capas del servicio que forman esa capa
+ de SITMUN: todas en GetMap (en GetFeatureInfo y DescribeLayer puede
+ pedir solo algunas). Con otro valor, el proxy responde 403.
 
  Este podría ser el código
  new ImageLayer({
     source: new ImageWMS({
       url: 'https://<servidor>/middleware/proxy/7/5/WMS/12/23',
-      params: {'LAYERS': 'default},
+      params: {'LAYERS': 'capa1,capa2,capa3'},
       serverType: 'geoserver',
     }),
   })
 
-  Además debe añadir en la cabecera el TokenJWT porque una bandera se lo ha indicado.
+  Además debe añadir en la cabecera el token JWT porque una bandera se lo ha indicado.
 end note
 Client ->> Proxy: GetMap
 note right
@@ -538,7 +542,7 @@ end note
   }
   end note
   ConfigurationAPI ->> FilterChain:
-  FilterChain ->> ProxyTokenFilter: Filtra petición
+  FilterChain ->> ProxyTokenFilter: Filtrado de la petición
   ProxyTokenFilter ->> ProxyTokenFilter: ¿X-SITMUN-Proxy-Key\ncorrecta?
   note right
     Si es correcta, la petición se autentica como
@@ -563,7 +567,7 @@ end note
     cartographyId, method, parameters, requestBody.
     El token del usuario llega en la cabecera Authorization.
   end note
-  ConfigurationAPI ->> JsonWebTokenService: Validar token JWT
+  ConfigurationAPI ->> JsonWebTokenService: Validación del token JWT
   JsonWebTokenService -->> ConfigurationAPI: Token OK
   ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecera Authorization)
   JsonWebTokenService -->> ConfigurationAPI: "username"
@@ -612,7 +616,7 @@ end note
 
   end note
 
-Proxy ->> Proxy: Interpreta la respuesta\ncomo una pregunta\na un WMS OGC
+Proxy ->> Proxy: Interpretación de la respuesta\ncomo una pregunta\na un WMS OGC
 Proxy ->> PrivateWMS: GetMap
 PrivateWMS -->> Proxy: Imagen de mapa pedida
 Proxy -->> Client: Imagen de mapa pedida
@@ -639,7 +643,7 @@ participant "Security Context\n(Spring Security)" as SecurityContext
 database "BD SITMUN 3" as Database
 participant "BD Protegida" as ProtectedDatabase
 
-ref over Usuario, Database : Proceso de login y configuración inicial
+ref over Usuario, Database : Proceso de inicio de sesión y configuración inicial
 
 Usuario ->> Client: Información privada
 Client ->> Proxy: DoTask
@@ -674,7 +678,7 @@ note right
 end note
 
 Backend ->> FilterChain:
-FilterChain ->> ProxyTokenFilter: Filtra petición
+FilterChain ->> ProxyTokenFilter: Filtrado de la petición
 ProxyTokenFilter ->> ProxyTokenFilter: ¿X-SITMUN-Proxy-Key\ncorrecta?
 note right
   Si es correcta, la petición se autentica como
@@ -699,7 +703,7 @@ note right
   cartographyId, method, parameters, requestBody.
   El token del usuario llega en la cabecera Authorization.
 end note
-ConfigurationAPI ->> JsonWebTokenService: Validar token JWT
+ConfigurationAPI ->> JsonWebTokenService: Validación del token JWT
 JsonWebTokenService -->> ConfigurationAPI: Token OK
 ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecera Authorization)
 JsonWebTokenService -->> ConfigurationAPI: "username"
@@ -741,10 +745,10 @@ note right
 end note
 FilterChain -->> Backend: Configuración\npedida (JSON)
 Backend -->> Proxy: Configuración\npedida (JSON)
-Proxy ->> Proxy: Interpreta la respuesta\ncomo una pregunta\na base de datos
-Proxy ->> ProtectedDatabase: Connect and Query (sqlinfo)
+Proxy ->> Proxy: Interpretación de la respuesta\ncomo una pregunta\na base de datos
+Proxy ->> ProtectedDatabase: Conexión y consulta (sqlinfo)
 ProtectedDatabase -->> Proxy: Resultset
-Proxy ->> Proxy: JSON = Resulset2JSON
+Proxy ->> Proxy: JSON = Resultset2JSON
 Proxy -->> Client: JSON
 Client -->> Usuario: respuesta
 
@@ -844,14 +848,14 @@ ser accedidos por usuarios a los que se haya determinado que tengan el rol
 `USER`, `PUBLIC` (usuario público) o `MOBILE_EDITION` (aplicación móvil de edición) o el rol `PROXY` (proxy). Es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para
-los clientes, con el usuario público cuando no hay token; API key para el rol `PROXY`) determinar si están autenticadas
+los clientes, con el usuario público cuando no hay token; clave de API para el rol `PROXY`) determinar si están autenticadas
 y asignar la identidad y el rol correspondiente.
 - Los controladores de la **API de Administración** (tanto los definidos
 explícitamente como los generados dinámicamente por **Spring Data REST**)
 solo podrán ser accedidos por usuarios a los que se haya determinado que
 tengan el rol `ADMIN`. Las excepciones son los endpoints que usa el visor: `GET /api/languages` y
-`GET /api/configuration-parameters`, abiertos sin sesión, y `POST /api/tasks/template/more-info-advanced/render` y
-`POST /api/tasks/template/export`, abiertos también a los roles `USER` y `PUBLIC`. Como en el caso anterior, es misión del paquete
+`GET /api/configuration-parameters`, abiertos sin sesión; `GET` y `POST /api/account`, para el rol `USER`; y
+`POST /api/tasks/template/more-info-advanced/render` y `POST /api/tasks/template/export`, abiertos también a los roles `USER` y `PUBLIC`. Como en el caso anterior, es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para el
 rol `ADMIN`) determinar si están autenticadas y asignar la identidad y el rol

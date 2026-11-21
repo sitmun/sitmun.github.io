@@ -59,10 +59,14 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         En un servidor, también antes del primer arranque:
 
         - se define en `.env` una contraseña propia para la base de datos, `DATABASE_PASSWORD`. Sin ella, Compose usa
-          `sitmun3`, y el volumen de la base de datos conserva la contraseña con la que se creó la primera vez;
-        - se cierran al exterior, con el cortafuegos, los puertos 9001 a 9005 (backend, proxy y bases de datos):
-          Compose los publica, pero solo el 9000 tiene que ser accesible. La base de datos Oracle tiene además fija
-          la contraseña de `SYS` (`password`).
+          `sitmun3`, y el volumen de la base de datos conserva la contraseña con la que se creó la primera vez (para
+          cambiarla después, ver [Conexión a PostgreSQL falla](solucion-problemas.md#conexion-a-postgresql-falla)).
+          Un `$` en la contraseña se escribe `$$`, porque Compose interpreta `$` como el inicio de una variable;
+        - se cierran al exterior los puertos 9001 a 9005 (backend, proxy y bases de datos): Compose los publica, pero solo
+          el 9000 tiene que ser accesible. En Linux, Docker publica los puertos por delante de ufw y firewalld, así que
+          la regla del cortafuegos va en la cadena `DOCKER-USER`; otra opción es publicarlos solo en `127.0.0.1` con un
+          `compose.override.yaml` (ver [Puerto ya en uso](solucion-problemas.md#puerto-ya-en-uso)). La base de datos Oracle
+          tiene además fija la contraseña de `SYS` y `SYSTEM` (`password`).
 
         `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
         `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
@@ -145,7 +149,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     - `front`: servidor web *nginx* en el puerto 9000. Publica el visor (`/viewer/`) y el administrador (`/admin/`) y enruta `/backend/` al `backend` y `/middleware/` al `proxy`.
     - `backend`: API de Autenticación, autorización, configuración y administración (puerto 9001).
-    - `proxy`: API de Proxy-middleware, que se comunica con el `backend` (puerto 9002).
+    - `proxy`: SITMUN Proxy Middleware (la API de Proxy), que se comunica con el `backend` (puerto 9002).
     - `postgres`: base de datos PostgreSQL 16 en el volumen `pgdata` (puerto 9003, perfil `postgres`).
     - `oracle`: base de datos Oracle 23 Free (puerto 9004, perfil `oracle`).
     - `example`: base de datos PostgreSQL de ejemplo (puerto 9005, perfil `demo`).
@@ -163,9 +167,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     postgres[("<b>postgres</b><br>PostgreSQL 16<br>SITMUN database")]
     space:1
-    backend["<b>backend</b><br>Spring Boot<br>SITMUN backend"]
+    backend["<b>backend</b><br>Spring Boot<br>SITMUN Backend"]
     space:1
-    proxy["<b>proxy</b><br>Spring Boot<br>SITMUN proxy-middleware"]
+    proxy["<b>proxy</b><br>Spring Boot<br>SITMUN Proxy Middleware"]
 
     front -- "/middleware" --> proxy
     front -- "/backend" --> backend
@@ -180,6 +184,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     - `COMPOSE_PROFILES`: `postgres` u `oracle`. Se añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
     - `DATABASE_TYPE`, `DATABASE_URL`, `DATABASE`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
     - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`: dirección pública de la instalación.
+    - `LOCAL_PORT`: puerto de la máquina en el que se publica el contenedor `front` (9000 por defecto).
     - `PUBLIC_BASE_PATH`: ruta pública (`/` por defecto). La imagen publicada de `front` solo funciona en `/`: para publicar
       SITMUN bajo una ruta (por ejemplo `/sitmun3/`) hay que construir `front` desde el repositorio con `PUBLIC_BASE_PATH`
       y `LOCAL_BASE_PATH`, como explica DEPLOYMENT.md (*Path prefix*).
@@ -192,7 +197,21 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     La lista completa, la conexión a una base de datos externa, las copias de seguridad y la publicación bajo una ruta
     están en [DEPLOYMENT.md](https://github.com/sitmun/sitmun/blob/main/DEPLOYMENT.md).
-    La actualización desde 1.2.8 o 1.2.9 está en
+
+    **Actualizar desde 1.2.x**
+
+    Se actualiza directamente desde 1.2.8 o 1.2.9; una versión anterior se actualiza antes a 1.2.8. Los pasos:
+
+    1. Se hace una [copia de seguridad de la base de datos](solucion-problemas.md#backup-de-base-de-datos).
+    2. Se pone en `.env` `SITMUN_UPGRADE_DEFAULT_LANGUAGE` con el idioma en el que está escrito el texto de la base de datos
+        (por ejemplo `es`). El parámetro `language.default` de la tabla `STM_CONF` tiene que tener el mismo valor. Si falta
+        alguno de los dos, si no coinciden o si ese idioma no está en `STM_LANGUAGE`, la actualización se detiene sin cambiar nada.
+    3. Desde 1.2.8, las filas de `STM_LOG` que apuntan a elementos borrados también la detienen: la guía de actualización
+        da la consulta para encontrarlas.
+    4. Se arranca la versión 1.3.0: `docker compose up -d --pull always --no-build`.
+
+    En Oracle 11 o 21 (19c no se ha probado), una base de datos que se actualizó a 1.2.9 se quedó a medias, porque un cambio
+    de 1.2.9 usa sintaxis de Oracle 23; se actualiza como una base de datos 1.2.8. Los detalles de cada caso están en
     [docs/upgrade](https://github.com/sitmun/sitmun/tree/main/docs/upgrade).
 
     **Parar y desinstalar**

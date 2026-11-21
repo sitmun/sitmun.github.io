@@ -17,6 +17,6 @@ Un servicio es la dirección de un servidor de mapas. Crea uno por cada servidor
 
 ![Servicio WMS con los datos obtenidos del servidor](../../manual/administrador/img/servicios-obtener-detalles.webp){ loading=lazy }
 
-**Si el mapa de fondo es WMTS**, ve a la pestaña **Parámetros de configuración** y añade `matrixSet` y, si quieres fijar el formato de imagen, `format` (por ejemplo `image/png`). Sin `matrixSet` no se abre el mapa de la aplicación ([sitmun/sitmun#380](https://github.com/sitmun/sitmun/issues/380)).
+**Si el mapa de fondo es WMTS**, ve a la pestaña **Parámetros de configuración** y añade `matrixSet` y, si quieres fijar el formato de imagen, `format` (por ejemplo `image/png`). Un servicio WMTS no tiene el botón **Obtener detalles del servicio**: los valores los sacas tú de su descripción, abriendo en el navegador la URL con `?SERVICE=WMTS&REQUEST=GetCapabilities`. El valor de `matrixSet` es uno de los `TileMatrixSet` del servicio que use el sistema de referencia de la aplicación (por ejemplo `EPSG:25831` o `EPSG:3857`), y el nombre técnico de cada capa, para el [paso 3](paso-3-capas.md) (opción B), es su `ows:Identifier`. Sin `matrixSet` no se abre el mapa de la aplicación ([sitmun/sitmun#380](https://github.com/sitmun/sitmun/issues/380)).
 
 La pestaña **Monitorización** tiene un botón **Probar acceso** para comprobar que el servidor responde.

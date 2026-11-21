@@ -2,7 +2,7 @@
 description: "Variables de sistema de SITMUN 3 que se pueden usar en consultas, plantillas y otras tareas."
 ---
 
-# Anexo I: variables de sistema
+# Variables de sistema
 
 Con el fin de poder interactuar con la propia aplicación de SITMUN, se ofrecen algunas variables de sistema que pueden utilizarse en la aplicación de administración de SITMUN, por ejemplo en las [consultas SQL](tareas/consulta.md#parametros-en-las-consultas-sql).
 
@@ -22,8 +22,8 @@ El backend sustituye cada variable con datos del usuario, el territorio y la apl
 | `#{APP_NAME}` | Nombre de la aplicación. |
 | `#{PROYECCION}` | Sistema de referencia de la aplicación. |
 | `#{EXTENSION_MAX_X0}`, `#{EXTENSION_MAX_Y0}`, `#{EXTENSION_MAX_X1}`, `#{EXTENSION_MAX_Y1}` | Extensión del territorio: X e Y mínimas y máximas. |
-| `#{DATE}` | Fecha y hora de la petición (`dd/MM/yyyy HH:mm:ss`). |
-| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición: el parámetro `lang` de la petición; si no lo tiene, la cabecera `Accept-Language` del navegador, y si tampoco, el idioma del servidor (en la imagen Docker, inglés) antes que el idioma por defecto de SITMUN. El visor siempre envía `lang` en sus propias peticiones a la API. En cambio, las consultas y servicios que pasan por el proxy se resuelven sin `lang` ni `Accept-Language`, así que en ellos `#{LANG}` es siempre el idioma del servidor. |
+| `#{DATE}` | Fecha y hora de la petición (`dd/MM/yyyy HH:mm:ss`), en la zona horaria del servidor: en la imagen Docker, UTC. |
+| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición: el parámetro `lang` de la petición; si no lo tiene, el último `lang` usado en la misma sesión; y si tampoco, el idioma del servidor (en la imagen Docker, inglés). La cabecera `Accept-Language` del navegador no cuenta, y un valor de `lang` que no es un idioma de SITMUN se usa tal cual. El visor siempre envía `lang` en sus propias peticiones a la API. En cambio, las consultas y servicios que pasan por el proxy se resuelven sin `lang`, así que en ellos `#{LANG}` es siempre el idioma del servidor. |
 
 Los nombres duplicados (por ejemplo `#{USUARIO}` y `#{USER_NAME}`) se mantienen por compatibilidad con SITMUN 2.
 

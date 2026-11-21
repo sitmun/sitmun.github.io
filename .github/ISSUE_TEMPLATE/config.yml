@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Errores y preguntas sobre el software SITMUN
+  - name: Errores y preguntas sobre la plataforma SITMUN
     url: https://github.com/sitmun/sitmun/issues
     about: Los errores de la plataforma (backend, proxy, administrador, visor, MBTiles, aplicaciones móviles y bibliotecas comunes) se notifican en sitmun/sitmun.
+  - name: Vulnerabilidades de seguridad
+    url: https://github.com/sitmun/sitmun.github.io/security/advisories/new
+    about: Las vulnerabilidades se notifican de forma privada, nunca en una incidencia pública (ver la política de seguridad de SITMUN).

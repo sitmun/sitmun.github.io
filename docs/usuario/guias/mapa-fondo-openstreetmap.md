@@ -148,4 +148,4 @@ Las teselas se descargan de los servidores de la Fundación OpenStreetMap. Su us
 
 - El mapa debe citar a OpenStreetMap: *© colaboradores de OpenStreetMap*.
 - El servicio es gratuito y no tiene garantía de disponibilidad.
-- No se permiten descargas masivas de teselas. No uses este mapa de fondo con herramientas de mapas sin conexión.
+- No hagas descargas masivas de teselas ni uses este mapa de fondo con herramientas de mapas sin conexión.

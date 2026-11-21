@@ -2,7 +2,9 @@
 description: "Diseño de los servicios de SITMUN 3: autenticación, configuración y autorización, y proxy."
 ---
 
-# Diseño
+# Diseño de los servicios
+
+Cada servicio expone la API del mismo nombre: el Servicio de Autenticación, la [API de Autenticación](api.md#api-de-autenticacion); el de Configuración y Autorización, la API de Configuración y Autorización; y el Servicio de Proxy, la API de Proxy.
 
 ## Servicio de Autenticación
 
@@ -167,7 +169,7 @@ Las peticiones a la **API de Proxy** tienen la siguiente forma:
 
 ```http
 GET /proxy/{appId}/{terId}/{type}/{typeId}?{keys*}
-Authorization: Bearer {JWT token}
+Authorization: Bearer {token JWT}
 ```
 
 Lo que permite identificar:
