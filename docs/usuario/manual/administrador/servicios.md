@@ -24,7 +24,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 
 Los campos marcados con un asterisco son obligatorios para poder crear un servicio.
 
-Un aspecto que puede resultar de interés es que, en el momento de añadir un endpoint para un servicio WMS, aparece el botón **Obtener detalles del servicio**. Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
+Un aspecto que puede resultar de interés es que, en el momento de añadir un endpoint para un servicio WMS, aparece el botón **Obtener detalles del servicio**. El botón también aparece en los servicios WFS, pero en la versión 1.3.0 solo funciona con WMS ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
 
 Además, tiene la virtud de poder probar la comunicación con el servicio y comprobar que ha sido posible realizar la conexión a dicho servicio.
 
@@ -38,7 +38,7 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para la conexión a servicios con autenticación se utiliza el desplegable **Método de autenticación** y seleccionar **Autenticación HTTP básica** (usuario y contraseña). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
+Para la conexión a servicios con autenticación se utiliza el desplegable **Método de autenticación** y se selecciona **Autenticación HTTP básica** (usuario y contraseña). Al hacerlo, la opción **Usar proxy SITMUN** se activa automáticamente y no se puede desactivar mientras haya autenticación, ya que las conexiones con autenticación se redireccionan mediante el proxy de SITMUN para mayor seguridad de los datos.
 
 Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
 
@@ -50,13 +50,15 @@ Una vez configurado el servicio se pueden gestionar las capas que dicho servicio
 
 La pestaña **Capas** aparecerá vacía en el momento de crear el servicio. Las capas se pueden configurar automáticamente o también existe la opción de definirlas manualmente, lo que ofrece otras posibilidades de configuración. Esta segunda opción se detalla en el apartado [Capas](capas.md).
 
+La carga automática solo funciona en los servicios WMS. En un servicio WFS la pestaña se llama **Tipos de entidad** y tiene el botón **Obtener tipos de entidad del servicio**, pero en la versión 1.3.0 no funciona: el backend solo admite WMS y responde con un error aunque la URL sea correcta ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). En los servicios WFS y WMTS las capas se crean a mano en el menú [Capas](capas.md).
+
 Para cargar las capas automáticamente se utiliza el botón **Actualizar capas del servicio** (en un servicio que todavía no se ha guardado se llama **Obtener capas del servicio**). Al pulsarlo se listan todas las capas que proporciona el servicio:
 
 ![Capas ofrecidas por el servicio](img/servicios-obtener-capas.webp){ loading=lazy }
 
 En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, **Capa no registrada**.
 
-Del listado se seleccionan las capas que se deseen incorporar a SITMUN y pulsar el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
+Del listado se seleccionan las capas que se deseen incorporar a SITMUN y se pulsa el botón **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no se han incorporado a SITMUN. Es necesario guardar el servicio para que se creen.
 
 !!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
     En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto
@@ -68,17 +70,21 @@ Del listado se seleccionan las capas que se deseen incorporar a SITMUN y pulsar 
 
 ![Capas seleccionadas pendientes de guardar](img/servicios-capas-pendientes.webp){ loading=lazy }
 
-*Seleccionamos las capas deseadas, pulsamos **Registrar** y finalizamos guardando el servicio.*
+*Se seleccionan las capas deseadas, se pulsa **Registrar** y se guarda el servicio.*
 
 Una vez guardado, al volver a la pestaña **Capas** esas capas ya aparecen como registradas. Posteriormente se deben configurar con las opciones descritas en el apartado [Capas](capas.md) de este manual, pero el primer paso es registrarlas en SITMUN.
 
 ![Capas registradas en el servicio](img/servicios-capas-registradas.webp){ loading=lazy }
 
-Podemos quitar una capa ya registrada seleccionándola de la lista y pulsando el icono de la papelera. La capa queda marcada con un punto rojo, **Pendiente eliminar**, y al guardar se materializa el cambio.
+Se puede quitar una capa ya registrada seleccionándola de la lista y pulsando el icono de la papelera. La capa queda marcada con un punto rojo, **Pendiente eliminar**, y al guardar se materializa el cambio.
 
 ![Capa marcada para quitar](img/servicios-quitar-capa.webp){ loading=lazy }
 
 ![Capas registradas tras quitar una](img/servicios-capas-registradas-2.webp){ loading=lazy }
+
+## Parámetros de configuración
+
+La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) tiene un ejemplo completo.
 
 ## Monitorización y uso
 
@@ -88,6 +94,8 @@ En concreto, la pestaña **Monitorización** permite mantener un seguimiento per
 
 ![Pestaña Monitorización](img/servicios-monitorizacion.webp){ loading=lazy }
 
-La pestaña **Uso** permite mantener estadísticas del uso de dicho servicio.
+La pestaña **Uso** muestra estadísticas de uso del servicio. Solo se cuentan las peticiones que pasan por el proxy de SITMUN y las **Cargas de visor**: si el servicio no usa el proxy, el visor lo llama directamente y esas peticiones aparecen como «No medido».
 
 ![Pestaña Uso](img/servicios-uso.webp){ loading=lazy }
+
+*Estas dos capturas son de otro servicio de la instalación de demostración, «IDE Menorca - Ordenación del territorio», que ya tiene historial de comprobaciones y de uso.*

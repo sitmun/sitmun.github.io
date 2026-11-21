@@ -16,13 +16,13 @@ Para definir un territorio se deben definir los parámetros mínimos:
 
 Aunque no sean requisito indispensable, también es de gran importancia detallar la presentación inicial con la que se abrirá una aplicación de tipo visor con este territorio. Para ello se debe definir la ubicación del territorio con una de las dos opciones disponibles:
 
-- **Extensión** (campos *min X*, *max X*, *min Y* y *max Y*): definir la extensión, con las cuatro coordenadas, que deben definirse juntas (minX, maxX, minY, maxY).
-- **Punto central** (X e Y): se pueden definir las coordenadas de un punto concreto en el que se quiera centrar la vista inicial del visor, dando la opción de que este no sea el punto central de los límites del territorio.
+- **Extensión** (campos *min X*, *max X*, *min Y* y *max Y*): los límites del territorio; las cuatro coordenadas se indican juntas.
+- **Punto central** (X e Y): las coordenadas del punto en el que se centra la vista inicial del visor, que no tiene por qué ser el centro de los límites del territorio.
 
 Estos dos elementos van asociados a:
 
-- **CRS**: definir el sistema de referencia en el que se expresan las coordenadas anteriores (por ejemplo, EPSG:4326).
-- **Nivel de Zoom por defecto**: puede detallarse la escala del nivel de zoom.
+- **CRS**: el sistema de referencia en el que se expresan las coordenadas anteriores (por ejemplo, EPSG:4326).
+- **Nivel de Zoom por defecto**: el nivel de zoom con el que se abre el mapa.
 
 La extensión, el CRS y el nivel de zoom inicial, si están definidos, anulan los valores de la aplicación.
 
@@ -30,7 +30,7 @@ Complementariamente, existe la opción de definir también otros parámetros de 
 
 - **Descripción**
 - **Dirección**
-- **Territorio bloqueado**: según su descripción, un territorio bloqueado no aparece en las listas de territorios de los clientes ni da acceso a la configuración del visor para ese territorio. Un territorio nuevo se crea bloqueado por defecto; desactívelo para los territorios que deban usarse.
+- **Territorio bloqueado**: según su descripción, un territorio bloqueado no aparece en las listas de territorios de los clientes ni da acceso a la configuración del visor para ese territorio. Un territorio nuevo se crea bloqueado por defecto; la opción se desactiva en los territorios que deban usarse.
 
     !!! warning "SITMUN 1.3.0"
         En la versión 1.3.0 esta opción no tiene efecto: un territorio bloqueado sigue apareciendo y el visor sigue recibiendo su configuración

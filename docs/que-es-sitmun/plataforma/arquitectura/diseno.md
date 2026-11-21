@@ -97,10 +97,10 @@ El proxy inverso es capaz de manejar peticiones a diversos tipos de servicios, i
   [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity) incluido en el proxy.
   Las respuestas de las bases de datos se devuelven en formato JSON.
 
-Las peticiones pueden usar los métodos HTTP GET o POST.
+Las peticiones pueden usar los métodos HTTP GET o POST; las POST solo con un cuerpo XML (por ejemplo, una petición WFS).
 
 Para acceder a través del **proxy**, todas las peticiones deben incluir un token de acceso JWT de corta duración,
-obtenido previamente a través de la **[API de autenticación][api-de-autenticacion]** (`POST /api/authenticate/proxy`), que identifica al usuario.
+obtenido previamente a través de la **[API de Autenticación][api-de-autenticacion]** (`POST /api/authenticate/proxy`), que identifica al usuario.
 La única excepción es el usuario denominado `público`, cuya autenticación es automática.
 Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata del usuario  `público`.
 Además, todas las peticiones enviadas a través del **proxy** deben incluir
@@ -108,7 +108,7 @@ un identificador de territorio y un identificador de aplicación.
 
 El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado
 para los servicios y datos subyacentes.
-Para realizar esta tarea, el **proxy** utiliza la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**,
+Para realizar esta tarea, el **proxy** utiliza la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**,
 que proporciona al **proxy** la información necesaria para construir las solicitudes a los servicios y adaptar las
 respuestas recibidas.
 
@@ -152,9 +152,9 @@ Proxy-->>Client: Respuesta
 El comportamiento esperado es el siguiente:
 
 1. El **visor de mapas** hace una petición que es servida por el **proxy**.
-2. El **proxy** realiza una petición a la **[API de configuración y autorización][api-de-configuracion-y-autorizacion]**
+2. El **proxy** realiza una petición a la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**
    en el **backend** para obtener la configuración.
-3. La **[API de configuración y autorización][api-de-configuracion-y-autorizacion]** proporciona la configuración de la
+3. La **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** proporciona la configuración de la
    petición al servicio remoto al **proxy**.
 4. El **proxy** compone una petición adecuada al servicio remoto y la envía.
 5. El **servicio remoto** devuelve una respuesta.
@@ -194,7 +194,7 @@ Authorization: Bearer SOME-TOKEN
 ```
 
 La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la
-**[API de configuración y autorización][api-de-configuracion-y-autorizacion]** sería:
+**[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** sería:
 
 ```http
 POST /api/config/proxy

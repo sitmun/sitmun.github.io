@@ -519,7 +519,7 @@ def plantillas(c: Ctx) -> None:
     sources = body.locator("mat-card").first
     add = body.locator("input").first
     add.click()
-    add.press_sequentially(QUERY[:10], delay=30)
+    add.press_sequentially(QUERY, delay=30)
     p.wait_for_timeout(1200)
     c.save("plantilla-seleccionar-consulta", c.content)
     p.get_by_role("option").filter(has_text=QUERY).filter(has_text="Consulta SQL").last.click()

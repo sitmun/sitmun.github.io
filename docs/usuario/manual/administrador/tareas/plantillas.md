@@ -8,26 +8,26 @@ Las plantillas tienen la finalidad de proporcionar una visualización más amiga
 
 ## Información general
 
-En primer lugar se debe definir la **Información general**, indicando el nombre y el grupo de tareas en el que se almacenará la plantilla. El nombre puede tener cualquier valor descriptivo, mientras que el grupo de tareas puede corresponder, por ejemplo, a un grupo denominado «Plantillas de visualización».
+En primer lugar se debe definir la **Información general**, indicando el nombre, el **Título** que muestra el visor y el grupo de tareas en el que se almacenará la plantilla. El nombre puede tener cualquier valor descriptivo, mientras que el grupo de tareas puede corresponder, por ejemplo, a un grupo denominado «Plantillas de visualización».
 
 ![Información general de una plantilla](../img/plantilla-general.webp){ loading=lazy }
 
 ## Fuentes
 
-A continuación definiremos las **Fuentes** de información de esta plantilla, es decir, los orígenes de los que se obtendrán los datos. Las fuentes de información pueden ser tareas de tipo [consulta](consulta.md) u otras plantillas.
+A continuación se definen las **Fuentes** de información de esta plantilla, es decir, los orígenes de los que se obtendrán los datos. Las fuentes de información pueden ser tareas de tipo [consulta](consulta.md) u otras plantillas.
 
-Como ejemplo práctico configuraremos una fuente de tipo tarea de consulta, ya que es uno de los casos más habituales.
+Como ejemplo práctico se configura una fuente de tipo tarea de consulta, ya que es uno de los casos más habituales.
 
-Usaremos la consulta SQL del apartado [Consulta](consulta.md), «Patrimonio UNESCO por identificador», que devuelve el nombre, el tipo y la web de un bien del patrimonio mundial a partir de su identificador (parámetro `ID`).
+Se usa la consulta SQL del apartado [Consulta](consulta.md), «Patrimonio UNESCO por identificador», que devuelve el nombre, el tipo y la web de un bien del patrimonio mundial a partir de su identificador (parámetro `ID`).
 
-En el apartado **Fuentes** seleccionaremos dicha consulta. Una vez seleccionada, observaremos que es posible modificar la etiqueta que permitirá referenciar el resultado de la consulta; en el ejemplo la cambiamos a `patrimonio`. Además, podremos ejecutarla para verificar que genera el resultado esperado.
+En el apartado **Fuentes** se selecciona dicha consulta. Una vez seleccionada, es posible modificar la etiqueta que permitirá referenciar el resultado de la consulta; en el ejemplo se cambia a `patrimonio`. Además, se puede ejecutar para verificar que genera el resultado esperado.
 
 ![Seleccionar la consulta](../img/plantilla-seleccionar-consulta.webp){ loading=lazy }
 
 !!! note "Nota"
     En SITMUN 1.3.0 la lista **Añadir tarea** repite cada tarea con varios tipos
     ([sitmun/sitmun#372](https://github.com/sitmun/sitmun/issues/372)).
-    Elija la entrada cuyo tipo coincide con el de la tarea, por ejemplo «Consulta SQL».
+    Se elige la entrada cuyo tipo coincide con el de la tarea, por ejemplo «Consulta SQL».
 
 *1. Seleccionar la consulta.*
 
@@ -64,7 +64,7 @@ A continuación se accede a la pestaña **Plantilla**, donde puede elaborarse el
     {{alias_consulta}}
     ```
 
-    donde `alias_consulta` es el alias que se ha asignado a cada campo en la consulta SQL.
+    donde `alias_consulta` es el alias que se ha asignado a cada campo en la consulta SQL. Esta forma corta solo funciona dentro de una tabla con `data-sitmun-each`; fuera de ella se escribe con la referencia de la fuente, por ejemplo `{{patrimonio.nombre}}`.
 
 El siguiente ejemplo muestra una tabla sencilla con todos los resultados de la fuente `patrimonio`:
 
@@ -120,7 +120,7 @@ Hasta ahora se han definido la información general, las fuentes de información
 
 En el ejemplo se necesita el identificador del bien; por lo tanto, es necesario definir dicho parámetro. Para ello se utiliza la pestaña **Parámetros**.
 
-El parámetro que se defina en la plantilla debe tener el mismo nombre que el parámetro asociado a la fuente de datos. En nuestro caso, la fuente de datos es una consulta que dispone de un parámetro denominado `ID`; por consiguiente, en la plantilla también deberá definirse un parámetro con el nombre `ID` (con un valor de prueba, `1`, que se usa al probar la plantilla).
+El parámetro que se defina en la plantilla debe tener el mismo nombre que el parámetro asociado a la fuente de datos. En el ejemplo, la fuente de datos es una consulta que dispone de un parámetro denominado `ID`; por consiguiente, en la plantilla también deberá definirse un parámetro con el nombre `ID` (con un valor de prueba, `1`, que se usa al probar la plantilla).
 
 ![Parámetros de la plantilla](../img/plantilla-parametros.webp){ loading=lazy }
 

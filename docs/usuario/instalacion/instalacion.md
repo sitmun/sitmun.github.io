@@ -12,26 +12,26 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Elegir cómo instalar**
 
-    | Uso (versión) | Perfil | Datos |
+    | Uso (versión) | Perfil | Base de datos |
     | --- | --- | --- |
-    | Probar SITMUN (*showcase*) (`v1.3.0`) | `showcase.env` | Tres aplicaciones de demostración |
-    | Producción con PostgreSQL (`v1.3.0`) | `postgres.env` | Sin datos de ejemplo |
-    | Producción con Oracle (`v1.3.0`) | `oracle.env` | Sin datos de ejemplo |
-    | Desarrollo con PostgreSQL (`dev`) | `development-postgres.env` | Datos de ejemplo |
-    | Desarrollo con Oracle (`dev`) | `development-oracle.env` | Datos de ejemplo |
+    | *Showcase* (`v1.3.0`) | `showcase.env` | Tres aplicaciones de ejemplo |
+    | Producción, PostgreSQL (`v1.3.0`) | `postgres.env` | Vacía |
+    | Producción, Oracle (`v1.3.0`) | `oracle.env` | Vacía |
+    | Desarrollo, PostgreSQL (`dev`) | `development-postgres.env` | Datos de ejemplo |
+    | Desarrollo, Oracle (`dev`) | `development-oracle.env` | Datos de ejemplo |
 
     Los perfiles están en la carpeta `profiles/` del repositorio. La versión, entre paréntesis, es la etiqueta o la rama que se descarga.
 
     **Pasos de instalación (producción)**
 
-    1. Clona la versión publicada y entra en el directorio:
+    1. Se clona la versión publicada y se entra en el directorio:
 
         ```bash
         git clone --branch v1.3.0 https://github.com/sitmun/sitmun.git
         cd sitmun
         ```
 
-    2. Copia el perfil a `.env` y genera los secretos:
+    2. Se copia el perfil a `.env` y se generan los secretos:
 
         - Linux/macOS:
 
@@ -47,36 +47,41 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             .\setup.ps1
             ```
 
-        Para Oracle, copia `profiles/oracle.env` en lugar de `profiles/postgres.env`.
+        Para Oracle se copia `profiles/oracle.env` en lugar de `profiles/postgres.env`.
+
+        En un servidor, antes de arrancar, se indica en `.env` la dirección por la que se accederá a SITMUN:
+        `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME` y `PUBLIC_PORT` (por ejemplo `https`, `sitmun.ejemplo.org` y `443`).
+        Con los valores del perfil (`http`, `localhost`, `9000`), el front redirige a `localhost` y las direcciones
+        del proxy apuntan a `localhost`, así que solo funcionan desde la propia máquina.
 
         `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
         `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
         Docker Compose no arranca si falta alguno.
 
-    3. Arranca la plataforma con las imágenes publicadas:
+    3. Se arranca la plataforma con las imágenes publicadas:
 
         ```bash
         docker compose up -d --pull always --no-build
         ```
 
-    4. Espera a que el backend responda con `"status":"UP"` (la primera vez tarda un par de minutos, mientras crea la base de datos):
+    4. Se espera a que el backend responda con `"status":"UP"`. La primera vez tarda unos minutos, mientras crea la base de datos (con Oracle, algo más: la base de datos tarda en arrancar):
 
         ```bash
         curl http://localhost:9001/api/dashboard/health
         ```
 
-        En PowerShell usa `curl.exe` en lugar de `curl`.
+        En PowerShell se usa `curl.exe` en lugar de `curl`.
 
-    5. Abre el administrador en <http://localhost:9000/admin/> y el visor en <http://localhost:9000/viewer/>.
+    5. El administrador está en <http://localhost:9000/admin/> y el visor en <http://localhost:9000/viewer/> (o en la dirección pública configurada).
        La documentación de la API (Swagger UI) está en <http://localhost:9001/swagger-ui/index.html>.
 
     **Primer acceso al administrador**
 
     En una base de datos de producción (y en el *showcase*) el usuario `admin` no tiene contraseña.
     La primera visita a `/admin/` pide crear su contraseña y elegir el idioma por defecto.
-    Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que hazla enseguida,
-    o define `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, si quieres, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
-    Quita esas variables de `.env` cuando `GET /api/dashboard/health` responda `UP`.
+    Cualquiera que llegue al puerto 9000 puede hacer esa primera visita, así que conviene hacerla enseguida,
+    o definir `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, opcionalmente, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
+    Esas variables se quitan de `.env` cuando `GET /api/dashboard/health` responde `UP`.
 
     ![Primer acceso: idioma por defecto](img/primer-acceso-idioma.webp){ loading=lazy }
 
@@ -117,7 +122,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     docker compose up -d
     ```
 
-    En Windows, usa `.\setup.ps1` en lugar de `./setup.sh`.
+    En Windows se usa `.\setup.ps1` en lugar de `./setup.sh`.
     Sin `.env`, `setup.sh` (o `setup.ps1`) copia `profiles/development-postgres.env`.
     `docker compose up -d` sin `--no-build` compila las imágenes a partir del código del repositorio.
 
@@ -126,8 +131,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     Los servicios están definidos en el archivo `compose.yaml`:
 
     - `front`: servidor web *nginx* en el puerto 9000. Publica el visor (`/viewer/`) y el administrador (`/admin/`) y enruta `/backend/` al `backend` y `/middleware/` al `proxy`.
-    - `backend`: API de autenticación, autorización, configuración y administración (puerto 9001).
-    - `proxy`: API de proxy-middleware, que se comunica con el `backend` (puerto 9002).
+    - `backend`: API de Autenticación, autorización, configuración y administración (puerto 9001).
+    - `proxy`: API de Proxy-middleware, que se comunica con el `backend` (puerto 9002).
     - `postgres`: base de datos PostgreSQL 16 en el volumen `pgdata` (puerto 9003, perfil `postgres`).
     - `oracle`: base de datos Oracle 23 Free (puerto 9004, perfil `oracle`).
     - `example`: base de datos PostgreSQL de ejemplo (puerto 9005, perfil `demo`).
@@ -159,13 +164,13 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     Las variables de entorno se definen en el archivo `.env`. Variables clave:
 
-    - `COMPOSE_PROFILES`: `postgres` u `oracle`. Añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
+    - `COMPOSE_PROFILES`: `postgres` u `oracle`. Se añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
     - `DATABASE_TYPE`, `DATABASE_URL`, `DATABASE`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
     - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`: dirección pública de la instalación.
     - `PUBLIC_BASE_PATH`: ruta pública (`/` por defecto). La imagen publicada del front solo funciona en `/`: para publicar
       SITMUN bajo una ruta (por ejemplo `/sitmun3/`) hay que construir `front` desde el repositorio con `PUBLIC_BASE_PATH`
       y `LOCAL_BASE_PATH`, como explica DEPLOYMENT.md (*Path prefix*).
-    - `SPRING_PROFILES_ACTIVE`: perfiles del backend. Añade `mail` (por ejemplo `prod,postgres,mail`) para que funcione
+    - `SPRING_PROFILES_ACTIVE`: perfiles del backend. Se añade `mail` (por ejemplo `prod,postgres,mail`) para que funcione
       la recuperación de contraseña del visor; sin él, «¿Contraseña olvidada?» acaba en error. El servidor de correo se configura
       con las propiedades `spring.mail.*` y `sitmun.recover-password.mail.from` en un archivo `application-mail.yml` dentro de
       la carpeta de configuración del perfil (por ejemplo `profiles/postgres/`). Los usuarios necesitan un correo electrónico.
@@ -185,14 +190,16 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     docker compose down
     ```
 
-    Para eliminarlo todo, **incluida la base de datos** (no se puede deshacer; haz antes una
-    [copia de seguridad](solucion-problemas.md#backup-de-base-de-datos) si la necesitas):
+    Para eliminar los contenedores, **incluida la base de datos** (no se puede deshacer; conviene hacer antes una
+    [copia de seguridad](solucion-problemas.md#backup-de-base-de-datos) si se necesita):
 
     ```bash
     docker compose down -v
     ```
 
-    Añade `-p sitmun-showcase` después de `docker compose` si instalaste el *showcase*.
+    Si se arrancó el *showcase*, se añade `-p sitmun-showcase` después de `docker compose`.
+    Las imágenes descargadas, el archivo `.env` (con los secretos) y la carpeta `logs/` no se borran:
+    se eliminan con `docker image rm` y borrando la carpeta del repositorio.
 
 === "Fuente"
 
@@ -201,7 +208,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     Los comandos de esta sección son para una consola *bash* (Linux, macOS, o en Windows Git Bash o WSL). En la consola de
     Windows (`cmd`) no funcionan `export`, `envsubst`, `$(...)` ni `openssl`; para compilar el visor con
-    `cmd` usa `pnpm run build:win` en lugar de `pnpm run build`.
+    `cmd` se usa `pnpm run build:win` en lugar de `pnpm run build`.
     Las pruebas de la versión 1.3.0 se ejecutan con PostgreSQL 12 y 16 y con Oracle 11g y 19c (en las pruebas, 19c se sustituye por 21c). La instalación con Docker usa PostgreSQL 16 u Oracle 23 Free.
 
     ```bash
@@ -211,16 +218,27 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     === "Backend"
 
-        1. Compila con Gradle desde la raíz del repositorio:
+        1. Antes del primer arranque, la base de datos tiene que existir y estar vacía, con un usuario propietario.
+           En PostgreSQL, por ejemplo:
+
+            ```bash
+            psql -U postgres -c "CREATE USER sitmun3 WITH PASSWORD '<contraseña>'"
+            psql -U postgres -c "CREATE DATABASE sitmun3 OWNER sitmun3"
+            ```
+
+           En Oracle, un usuario (esquema) con permisos para crear tablas, secuencias y vistas.
+           Al arrancar, el backend crea las tablas con Liquibase.
+
+        2. Se compila con Gradle desde la raíz del repositorio:
 
             ```bash
             ./gradlew :sitmun-backend:build -x test
             ```
 
             El JAR ejecutable se genera en `sitmun-backend/build/libs/sitmun-backend-<versión>.jar`
-            (no uses el JAR `-plain`). Con `-Ppackaging=war` se genera un WAR.
+            (no el JAR `-plain`). Con `-Ppackaging=war` se genera un WAR.
 
-        2. Ejecútalo desde la raíz del repositorio. El JAR no incluye la configuración de cada base de datos:
+        3. Se ejecuta desde la raíz del repositorio. El JAR no incluye la configuración de cada base de datos:
            está en `profiles/postgres/` (o `profiles/oracle/`) y se carga con `--spring.config.additional-location`.
            La conexión, el *changelog* de Liquibase y los dos secretos se pasan como variables de entorno
            (son los mismos valores que usa `profiles/postgres.env` con Docker):
@@ -244,9 +262,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
               para las capas y tareas que pasan por el proxy (por ejemplo `https://ejemplo.org/middleware`
               si un servidor web lo publica en esa ruta). El ejemplo apunta al proxy del paso siguiente,
               arrancado en el puerto 8082.
-            - Guarda los dos secretos: `SITMUN_PROXY_MIDDLEWARE_SECRET` debe ser el mismo que use el **proxy**
+            - Los dos secretos se deben guardar: `SITMUN_PROXY_MIDDLEWARE_SECRET` debe ser el mismo que use el **proxy**
               (`SITMUN_BACKEND_CONFIG_SECRET`), y si cambia `SITMUN_USER_SECRET` se invalidan las sesiones.
-            - Para Oracle usa el perfil `prod,oracle` (u `oracle-11` para Oracle 11g), la carpeta `profiles/oracle/`,
+            - Para Oracle se usa el perfil `prod,oracle` (u `oracle-11` para Oracle 11g), la carpeta `profiles/oracle/`,
               su `liquibase/master.xml` y una URL `jdbc:oracle:thin:@//<servidor>:1521/<servicio>`.
             - Cuando arranque, `http://localhost:8080/api/dashboard/health` responde `UP`.
               En una base de datos nueva, la primera visita al administrador pide crear la contraseña de `admin`.
@@ -254,14 +272,34 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         La configuración (base de datos, secretos, LDAP, OIDC…) se detalla en
         [sitmun-backend/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-backend/README.md).
 
-        Los sistemas operativos en los que se puede desplegar el **backend** son:
+        Para que el backend arranque con el sistema:
 
-        - Linux: como servicio *systemd* o mediante un script de arranque.
-        - Windows: como servicio Windows usando la herramienta *WinSW* o mediante un script de arranque.
+        - En Linux, como servicio *systemd*. Por ejemplo, con las variables anteriores en `/etc/sitmun/backend.env`
+          (una por línea, sin `export` y con los valores ya generados, porque systemd no ejecuta `$(openssl …)`) y el repositorio en `/opt/sitmun`, el archivo
+          `/etc/systemd/system/sitmun-backend.service`:
+
+            ```ini
+            [Unit]
+            Description=SITMUN backend
+            After=network.target
+
+            [Service]
+            WorkingDirectory=/opt/sitmun
+            EnvironmentFile=/etc/sitmun/backend.env
+            ExecStart=/usr/bin/java -jar sitmun-backend/build/libs/sitmun-backend-1.3.0.jar --spring.profiles.active=prod,postgres --spring.config.additional-location=file:profiles/postgres/
+            Restart=on-failure
+
+            [Install]
+            WantedBy=multi-user.target
+            ```
+
+          y después `systemctl enable --now sitmun-backend`. El proxy se instala igual, con su propio archivo.
+        - En Windows, como servicio con [WinSW](https://github.com/winsw/winsw): su archivo XML ejecuta el mismo
+          comando `java -jar …` con las mismas variables de entorno (ver la documentación de WinSW).
 
     === "Proxy"
 
-        1. Compila con Gradle desde la raíz del repositorio:
+        1. Se compila con Gradle desde la raíz del repositorio:
 
             ```bash
             ./gradlew :sitmun-proxy:build -x test
@@ -269,7 +307,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             El JAR ejecutable se genera en `sitmun-proxy/build/libs/sitmun-proxy-<versión>.jar`.
 
-        2. Ejecútalo desde la raíz del repositorio:
+        2. Se ejecuta desde la raíz del repositorio:
 
             ```bash
             export SITMUN_BACKEND_CONFIG_URL=http://localhost:8080/api/config/proxy
@@ -278,10 +316,10 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             ```
 
             - `SITMUN_BACKEND_CONFIG_URL` es la URL de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**
-              del backend. Si el **proxy** y el **backend** están en máquinas distintas, usa el nombre o la dirección IP interna del **backend**.
+              del backend. Si el **proxy** y el **backend** están en máquinas distintas, se usa el nombre o la dirección IP interna del **backend**.
             - `SITMUN_BACKEND_CONFIG_SECRET` debe ser idéntico al secreto del backend y tener al menos 32 caracteres.
 
-            El backend y el proxy usan por defecto el puerto 8080. Si están en la misma máquina, arranca el proxy
+            El backend y el proxy usan por defecto el puerto 8080. Si están en la misma máquina, el proxy se arranca
             en otro puerto (por ejemplo 8082, el mismo que `SITMUN_PROXY_MIDDLEWARE_URL` del backend).
             Cuando arranque, `http://localhost:8082/actuator/health` responde `UP`.
 
@@ -290,13 +328,13 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     === "Visor de mapas"
 
-        1. Instala las dependencias desde la raíz del repositorio (necesitas Node.js y pnpm, ver [Requisitos](requisitos.md)):
+        1. Se instalan las dependencias desde la raíz del repositorio (con Node.js y pnpm, ver [Requisitos](requisitos.md)):
 
             ```bash
             pnpm ci
             ```
 
-        2. Compila. `PUBLIC_BASE_PATH` es la ruta pública bajo la que se publica SITMUN (`/` si el visor queda en `/viewer/`).
+        2. Se compila. `PUBLIC_BASE_PATH` es la ruta pública bajo la que se publica SITMUN (`/` si el visor queda en `/viewer/`).
            El visor la necesita para cargar sus módulos y registrar su *service worker* desde `/viewer/`,
            igual que hace la imagen Docker:
 
@@ -317,19 +355,20 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
             Los archivos se generan en `sitmun-viewer/dist/viewer-app`.
             Esta compilación usa direcciones con `#`, por ejemplo `/viewer/#/public/dashboard`.
 
-        Copia el contenido de esa carpeta a `/viewer/` en tu servidor web (ver más abajo, *Publicar en un servidor web*).
+        El contenido de esa carpeta se copia a `/viewer/` en el servidor web (ver más abajo, *Publicar en un servidor web*).
+        Para compilar después el administrador, se vuelve antes a la raíz del repositorio (`cd ..`).
 
         Más detalles en [sitmun-viewer/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-viewer/README.md).
 
     === "Administrador"
 
-        1. Instala las dependencias desde la raíz del repositorio:
+        1. Se instalan las dependencias desde la raíz del repositorio:
 
             ```bash
             pnpm ci
             ```
 
-        2. Compila. Igual que en el visor, el segundo comando genera la configuración que usa la imagen Docker:
+        2. Se compila. Igual que en el visor, el segundo comando genera la configuración que usa la imagen Docker:
 
             ```bash
             cd sitmun-admin
@@ -341,7 +380,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
             Los archivos se generan en `sitmun-admin/dist/admin-app`.
 
-        Copia el contenido de esa carpeta a `/admin/` en tu servidor web (ver *Publicar en un servidor web*).
+        El contenido de esa carpeta se copia a `/admin/` en el servidor web (ver *Publicar en un servidor web*).
         Más detalles en [sitmun-admin/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-admin/README.md).
 
     **Publicar en un servidor web**
@@ -351,7 +390,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     - servir `dist/viewer-app` en `/viewer/` y `dist/admin-app` en `/admin/`, devolviendo el `index.html` de cada uno
       cuando el archivo pedido no existe;
-    - reenviar `/backend/` al backend (`http://localhost:8080/`) y, si publicas el proxy en `/middleware/`, reenviar
+    - reenviar `/backend/` al backend (`http://localhost:8080/`) y, si el proxy se publica en `/middleware/`, reenviar
       esa ruta al proxy (`http://localhost:8082/`), quitando el prefijo en ambos casos.
 
     La configuración que usa la imagen Docker es un ejemplo completo:
@@ -359,4 +398,4 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
 ---
 
-Con SITMUN instalado, crea tu primer visor con la guía [Primer proyecto](../guias/primer-proyecto/index.md). Si algo no arranca, consulta [Solución de problemas](solucion-problemas.md).
+Con SITMUN instalado, la guía [Primer proyecto](../guias/primer-proyecto/index.md) explica cómo crear el primer visor. Si algo no arranca, ver [Solución de problemas](solucion-problemas.md).

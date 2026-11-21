@@ -45,9 +45,9 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Autenticación**: El cliente estará diseñado para utilizar solo HTTP sobre TLS (HTTPS).
   En caso de ser un visor público, el usuario ingresará directamente sin inicio de sesión.
-  El cliente debe permitir la autenticación del usuario frente a la [API de autenticación][api-de-autenticacion].
+  El cliente debe permitir la autenticación del usuario frente a la [API de Autenticación][api-de-autenticacion].
   La API responderá con un token JSON Web Token (JWT) en una cookie de sesión, que se utilizará para interactuar con la
-  [API de configuración y autorización][api-de-configuracion-y-autorizacion]. Para la [API de Proxy][api-de-proxy]
+  [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Para la [API de Proxy][api-de-proxy]
   el cliente pide un token de corta duración.
 
 - **Inicio de sesión**: Botón de inicio de sesión.
@@ -61,8 +61,8 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Multilingüe**: Visualizadores multilingües (que puedan hacer solicitudes localizadas).
 
 - **Configuración de los clientes**: El cliente se configura mediante una solicitud a
-  la [API de configuración y autorización][api-de-configuracion-y-autorizacion]. Si el usuario ha iniciado sesión,
-  la solicitud incluye la cookie de sesión obtenida de la [API de autenticación][api-de-autenticacion].
+  la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Si el usuario ha iniciado sesión,
+  la solicitud incluye la cookie de sesión obtenida de la [API de Autenticación][api-de-autenticacion].
   En caso de ser un visualizador público, la solicitud no incluirá un token.
   A partir de los datos de configuración (gestionados por la **aplicación de administrador**),
   el visor se configura para cada usuario, con los territorios y aplicaciones (capas y funcionalidades)
@@ -70,17 +70,17 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Solicitudes a servicios remotos**: Las solicitudes a algunos servicios remotos se realizan a través de
   la [API de Proxy][api-de-proxy]. Las solicitudes deben ir acompañadas de un token JWT,
-  obtenido previamente de la [API de autenticación][api-de-autenticacion], que identifica al usuario.
+  obtenido previamente de la [API de Autenticación][api-de-autenticacion], que identifica al usuario.
   La única excepción es el caso del usuario *público*, donde la autenticación es automática.
   Es decir, si no tiene una credencial, se asume que es el usuario *público*.
   Todas las solicitudes enviadas a través de la [API de Proxy][api-de-proxy] deben incluir, además,
   un identificador de territorio y un identificador de aplicación.
 
-- **Secuencia de inicio**: el cliente solicitará a la [API de configuración y autorización][api-de-configuracion-y-autorizacion]
+- **Secuencia de inicio**: el cliente solicitará a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   una configuración básica (idiomas, territorios, aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar.
-  El usuario podrá autenticarse frente a la [API de autenticación][api-de-autenticacion],
+  El usuario podrá autenticarse frente a la [API de Autenticación][api-de-autenticacion],
   lo que restringirá los territorios y aplicaciones disponibles. Una vez seleccionado el idioma, territorio y aplicación,
-  se iniciará la configuración del cliente frente a la [API de configuración y autorización][api-de-configuracion-y-autorizacion].
+  se iniciará la configuración del cliente frente a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
   La secuencia anterior se puede modificar en función de los parámetros pasados en la petición.
   Se puede restringir a una aplicación y territorio específicos e indicar que debe comenzar como visualizador público.
   Si se indica que debe comenzar como visualizador público, solo se pedirá al usuario que seleccione el idioma antes de
@@ -148,7 +148,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Leyenda**: Ventana que muestra la leyenda construida de manera dinámica para todas las capas activas.
 
-- **Portapapeles**: Copia fácil del mapa y/o la leyenda y/o el gráfico al portapapeles.
+- **Portapapeles**: Copia fácil del mapa, la leyenda o el gráfico (uno o varios) al portapapeles.
 
 - **Pantalla completa**: Posibilidad de poner el visualizador en modo de pantalla completa.
 

@@ -2,7 +2,7 @@
 description: "Hoja de ruta de SITMUN 3: proyectos en desarrollo, en cola y finalizados."
 ---
 
-# Proyectos
+# Hoja de ruta
 
 <table>
     <tr>
@@ -51,7 +51,7 @@ Algunas todavía no tienen su página en el manual del administrador: la tarea d
 | **Repositorio único y despliegue con imágenes publicadas** | Todos los componentes en [sitmun/sitmun](https://github.com/sitmun/sitmun), imágenes Docker publicadas en `ghcr.io/sitmun`, asistente de primer arranque y actualización desde 1.2.8/1.2.9. |
 | **APP SITMUN Edición** | Aplicación para dispositivos móviles (Android) que permite la edición *offline* de objetos geográficos y alfanuméricos, basada en servicios web estándar, con control de acceso de usuario y permisos, administrada desde el Administrador SITMUN 3 como un cliente más. Carpeta `sitmun-mobile/sitmun-edition`. |
 | **APP Turismo** | Aplicación turística para dispositivos móviles común para todos los territorios que usen SITMUN, cuyo contenido y funcionalidad se gestiona desde el administrador SITMUN 3 como un cliente más. Disponible para Android. Carpeta `sitmun-mobile/sitmun-touristic`. [Ver detalles](propuestas/app-turismo.md) |
-| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) integrada en el visor (tarea de edición y control `sitna.WFSEdit`). |
+| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) integrada en el visor: la tarea básica [Edición WFS](../../../usuario/manual/administrador/tareas/basicas/herramientas.md#wfsedit) (control `sitna.WFSEdit`). La tarea de edición es para la aplicación móvil de edición. |
 | **Más info y más info avanzado** | El visor interpreta y ejecuta tareas *más info* y *más info avanzado* definidas en el administrador, con plantillas de visualización. [Ver detalles](propuestas/mas-info-avanzado.md) |
 | **Localizadores** | El visor interpreta y ejecuta localizadores definidos como tareas en el administrador. |
 | **Consultas** | El visor ejecuta consultas (SQL, Web API, enlaces) definidas como tareas en el administrador. |

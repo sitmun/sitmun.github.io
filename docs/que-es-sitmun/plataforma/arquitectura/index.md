@@ -15,28 +15,29 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
   P. ej., se puede añadir un nuevo servicio de mapas públicamente accesible recién encontrado al visor de mapas básico para usuarios públicos de cualquier territorio. La próxima vez que un usuario público acceda verá que hay una capa más que la vez anterior.
   Esta aplicación lee y modifica los datos en la BD de **SITMUN 3** a través de una API REST.
-- **Componentes adicionales.** Se usan en varias aplicaciones, (tanto en la de administración como en las de usuario final):
+- **Componentes adicionales.** Se usan en varias aplicaciones:
     - **Proxy**: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).
     Es un proxy inverso y, por tanto, el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.
-    - **API de autenticación**: permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones: usuario y contraseña guardados en la base de datos de SITMUN, servicios LDAP (incluido Microsoft Active Directory) y proveedores OpenID Connect (OIDC).
+    Lo usan el visor y las aplicaciones móviles; la aplicación de administración no.
+    - **API de Autenticación** (la usan todas las aplicaciones, también la de administración): permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones: usuario y contraseña guardados en la base de datos de SITMUN, servicios LDAP (incluido Microsoft Active Directory) y proveedores OpenID Connect (OIDC).
 
 **SITMUN 3** no tiene un conjunto de datos o servicios geográficos/territoriales predefinidos. Cada despliegue de **SITMUN 3** se hace para una organización concreta, normalmente supramunicipal, y esta organización debe decidir qué aplicaciones quiere ofrecer a sus usuarios, típicamente personal técnico de los municipios, y qué servicios y datos geográficos/territoriales van a estar accesibles en estas aplicaciones. Estos servicios y bases de datos los tendrá que tener en sus propios sistemas, o bien tendrán que estar en algún sitio al que puedan acceder.
 
 Las aplicaciones de usuario final de **SITMUN 3** interactúan relativamente poco con las API y componentes de **SITMUN 3**:
 
-- Con la API de autenticación solo al principio, para identificar al usuario.
+- Con la API de Autenticación al principio, para identificar al usuario, y después cada pocos minutos, para renovar la sesión y el token de corta duración del proxy.
 - Con la API de configuración solo en el arranque.
 - La mayor parte de las peticiones las van a hacer contra servicios de mapas y bases de datos.
     - Las que sean intranet, protegidas etc. irán a través del **proxy**, las demás serán directas.
 
 Esto conviene tenerlo en cuenta al dimensionar el hardware necesario para el despliegue y al decidir cómo repartirlo.
 
-**SITMUN 3** tiene una arquitectura de 3-tiers. Las aplicaciones web se desarrollan con Angular 22 (y las aplicaciones móviles con Ionic y Capacitor), Spring Boot 4.1 con Java 17 se usa en el tier web, y una base de datos relacional (PostgreSQL 12 o superior, Oracle 11g o superior, o H2 para pruebas) en el tier de datos.
+**SITMUN 3** tiene una arquitectura de tres capas. Las aplicaciones web se desarrollan con Angular 22 (y las aplicaciones móviles con Ionic y Capacitor), Spring Boot 4.1 con Java 17 se usa en la capa web, y una base de datos relacional (PostgreSQL 12 o superior, Oracle 11g o superior, o H2 para pruebas) en la capa de datos.
 Todo el código está en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun); las versiones exactas están en su README.
 
 ## Principales componentes
 
-```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el proxy middleware da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
+```plantuml alt="Diagrama de componentes: el administrador usa la aplicación de administración y los usuarios el visor de mapas y las aplicaciones móviles; estas llaman a las API de Autenticación, administración y configuración y autorización del backend, que guarda la configuración en la base de datos de SITMUN; el proxy middleware da acceso a servicios web y bases de datos privados tras pedir autorización al backend, y usa el servicio MBTiles para la aplicación de edición; los servicios públicos se consultan directamente."
 @startuml
 !include <logos/angular>
 !include <logos/github>
@@ -128,7 +129,7 @@ database territdb #PapayaWhip [
   
   Datos territoriales, geográficos,
   administración pública, etc. 
-  Son los datos que consultan y/o modifican
+  Son los datos que consultan o modifican
   algunas aplicaciones de SITMUN 3.
   
   En intranet. No accesibles públicamente.
@@ -251,7 +252,7 @@ note bottom of apiconfautoriz
   Por seguridad, la petición debe incluir
   un secreto conocido solo por el 
   **proxy "middleware"** y el 
-  **API de configuración y autorización**
+  **API de Configuración y Autorización**
   (cabecera `X-SITMUN-Proxy-Key`)
   para asegurar que proviene de un proxy
   conocido.
@@ -261,6 +262,7 @@ end note
 "Usuario SITMUN 3" -down-> visor
 Administrador -down-> appadmin
 appadmin -down-> apibackendcore
+appadmin -down-> apiautentic
 backendcore -down-> configdb
 visor -right-> publicwms
 visor -down-> apiautentic
@@ -280,7 +282,7 @@ proxymiddleware -down-> mbtiles
 
 Un escenario típico de uso que ejemplifica la interacción de estos componentes sería:
 
-```plantuml alt="Diagrama de secuencia del escenario típico: el visor se autentica y obtiene un token JWT, pide su configuración con el token y los identificadores de territorio y aplicación, y hace las peticiones WMS a través del proxy, que comprueba la autorización con la API de configuración y autorización antes de llamar al WMS restringido."
+```plantuml alt="Diagrama de secuencia del escenario típico: el visor se autentica y obtiene un token JWT, pide su configuración con el token y los identificadores de territorio y aplicación, y hace las peticiones WMS a través del proxy, que comprueba la autorización con la API de Configuración y Autorización antes de llamar al WMS restringido."
 @startuml
 title
     Escenario típico de uso
@@ -334,7 +336,7 @@ En esta sección se documentan algunas de las interacciones más relevantes del 
 
 ### Login
 
-```plantuml alt="Diagrama de secuencia del inicio de sesión: el visor envía las credenciales a la API de autenticación, Spring Security las comprueba en la base de datos y se devuelve el token JWT en una cookie; después el visor pide su perfil a la API de configuración y autorización, que valida el token y devuelve la configuración del usuario, territorio y aplicación."
+```plantuml alt="Diagrama de secuencia del inicio de sesión: el visor envía las credenciales a la API de Autenticación, Spring Security las comprueba en la base de datos y se devuelve el token JWT en una cookie; después el visor pide su perfil a la API de Configuración y Autorización, que valida el token y devuelve la configuración del usuario, territorio y aplicación."
 @startuml
 
 actor Usuario
@@ -384,7 +386,7 @@ JsonWebTokenFilter-> Database: ¿Detalles usuario?
 Database -->> JsonWebTokenFilter: roles
 note right
   Si no se encuentra 401 Unauthorized
-  Los roles pueden ser USER y/o ADMIN.
+  Los roles pueden ser USER, o USER y ADMIN.
   PUBLIC (usuario público, sin token) y
   MOBILE_EDITION (token de la app de edición)
   los asignan otros filtros
@@ -411,24 +413,16 @@ ConfigurationAPI -> SecurityContext: ¿Usuario autenticado?
 SecurityContext -->> ConfigurationAPI: "username"\n(fijado por JsonWebTokenFilter)
 ConfigurationAPI -> Database: Recuperar configuración según\nqué hay que configurar
 note right
-  buscamos información para 
+  se busca información para 
   User = username
   Territory = terId
   Application = appId
 
-  Si no hay territorio, estamos configurando la aplicación 
-  para que pueda seleccionar el territorio. 
-  No hay acceso a información de tareas o capas.
-  
-  Si no hay aplicación, se piden todas las aplicaciones
-  para el territorio indicado.
-  No hay acceso a información de tareas o capas.
-
-
-  Si no hay territorio ni aplicación, se piden todas 
-  las aplicaciones y territorios que puede combinar
-  No hay acceso a información de tareas o capas.
-
+  appId y terId siempre están en la ruta. La lista de aplicaciones
+  y territorios disponibles se pide con otros endpoints:
+  /api/config/client/application,
+  /api/config/client/application/{appId}/territories y
+  /api/config/client/territory/{terId}/applications.
 end note
 Database -->> ConfigurationAPI: Configuración\nsin\nrefinar
 ConfigurationAPI -> ConfigurationAPI: Refinar\nconfiguración 
@@ -573,13 +567,13 @@ end note
   JsonWebTokenService -->> ConfigurationAPI: "username"
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
   note right
-    Decodificamos configProxyRequest.type
+    Se decodifica configProxyRequest.type
     en este caso es "WMS" (el tipo del servicio:
     WMS, WMTS o WFS)
   end note
   ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
   note right
-    buscamos información para 
+    se busca información para 
     User = username
     Territory = configProxyRequest.terId
     Application = configProxyRequest.appId
@@ -709,13 +703,13 @@ ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecer
 JsonWebTokenService -->> ConfigurationAPI: "username"
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar 
 note right
-  Decodificamos configProxyRequest.type
+  Se decodifica configProxyRequest.type
   en este caso es "SQL" (el ámbito de la tarea:
   SQL o API) y el id es el de la tarea
 end note
 ConfigurationAPI ->> Database: Recuperar configuración según\nqué hay que configurar
 note right
-  buscamos información para 
+  se busca información para 
   User = username
   Territory = configProxyRequest.terId
   Application = configProxyRequest.appId
@@ -783,7 +777,7 @@ package "Angular / Ionic (pnpm)" {
 
 note bottom of backend
   sitmun-backend
-  API de autenticación, configuración
+  API de Autenticación, configuración
   y autorización, y administración
 end note
 note bottom of proxy
@@ -807,8 +801,8 @@ contract ..> upstream
 
 ## Diagrama de paquetes
 
-El módulo `sitmun-backend` contiene el modelo de datos de **SITMUN 3**, la API de autenticación,
-la API de configuración y autorización, la API de administración y la política de seguridad.
+El módulo `sitmun-backend` contiene el modelo de datos de **SITMUN 3**, la API de Autenticación,
+la API de Configuración y Autorización, la API de Administración y la política de seguridad.
 Todos sus paquetes cuelgan de `org.sitmun`.
 
 ### Paquetes (Arquitectura por Capas)
@@ -822,7 +816,7 @@ En general, cada API que en despliegue quede expuesta de manera separada, es dec
 Cada uno de estos paquetes puede contener:
 
 - Paquete `controller`: contiene los controladores (clases anotadas con `@Controller`) y otras cosas necesarias para implementar ese endpoint HTTP.
-- Paquete `service`: contiene los servicios de aplicación específicos del API (clases anotadas con `@Service`) y clases asociadas. Estos servicios solo se invocarán desde los controladores del paquete `controller`.
+- Paquete `service`: contiene los servicios de aplicación específicos del API (clases anotadas con `@Service`) y clases asociadas. Estos servicios se invocan sobre todo desde los controladores del paquete `controller` (algunos, como el de las cookies de sesión, también desde los filtros de seguridad).
 - Paquete `config`: contiene la configuración específica de los componentes del endpoint definidos en los paquetes `controller` y `service`. Normalmente, son clases anotadas con `@Configuration` y parte de la configuración puede estar referida a clases de infraestructura (de biblioteca) de Spring Framework.
 
 Además, hay dos paquetes adicionales:
@@ -836,16 +830,16 @@ El paquete `infrastructure` contiene:
 
 - Paquete `persistence`: configuración de la persistencia (`config`), dialectos de Hibernate para Oracle (`dialect`), excepciones (`exception`), tipos y conversores que usan las entidades (`type`) y validadores (`validation`).
   Las entidades del modelo, con sus repositorios (interfaces anotadas con `@Repository`) y proyecciones, están en los paquetes de `domain`.
-- Paquete `security` que contiene la configuración del framework de seguridad `Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad a nivel de la aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PROXY`. Además, este paquete asegura que todos los accesos anónimos sean identificados como un acceso con usuario *público*.
+- Paquete `security` que contiene la configuración del framework de seguridad `Spring Security`. `Spring Security` proporciona diversas formas de aplicar seguridad a nivel de la aplicación que permite establecer políticas de acceso a controladores, servicios y repositorios en función del rol que se le asigne al usuario en función de sus credenciales: `USER`, `ADMIN`, `PUBLIC`, `MOBILE_EDITION` y `PROXY`. Además, este paquete asegura que todos los accesos anónimos sean identificados como un acceso con usuario *público*.
 
-La relación de las API públicas con el paquete `security`es la siguiente:
+La relación de las API públicas con el paquete `security` es la siguiente:
 
 - La **API de Autenticación** del paquete `authentication` usa servicios y
 componentes de Spring Framework configurados por el paquete `security` para
 autenticar un usuario cuando solicita un token JWT de autenticación.  
 - Los controladores de la **API de Configuración y Autorización** solo podrán
-ser accedidos por usuarios a los se haya determinado que tengan el rol
-`USER`, `PUBLIC` (usuario público) o `MOBILE_EDITION` (clientes **SITMUN 3**) o el rol `PROXY` (proxy). Es misión del paquete
+ser accedidos por usuarios a los que se haya determinado que tengan el rol
+`USER`, `PUBLIC` (usuario público) o `MOBILE_EDITION` (aplicación móvil de edición) o el rol `PROXY` (proxy). Es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para
 los clientes, con el usuario público cuando no hay token; API key para el rol `PROXY`) determinar si están autenticadas

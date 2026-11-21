@@ -5,8 +5,8 @@
 1.2 Rol
 1.3 Usuario público
 4.1 Grupo de permisos para las capas de trabajo
-4.2 Capa de fondo
-A partir de aquí empezamos a crear el visor público.
+4.2 Mapa de fondo
+A partir de aquí empiezas a crear el visor público.
 Atajo:
 Base de datos SITMUN.
 Consultar los issues
@@ -19,7 +19,7 @@ El menú lateral
 Elegir cómo instalar
 Entorno de desarrollo
 Escala mínima y máxima
-Guarde la tarea MIA.
+Se guarda la tarea MIA.
 Herramientas mínimas para un primer proyecto:
 La idea clave:
 Lista de aplicaciones:

@@ -26,7 +26,11 @@ Complementariamente, se pueden detallar otros parámetros para definir su compor
 - **Transparencia**.
 - Acceso a los **metadatos**.
 - **Orden** de carga predeterminado.
+- **Tipo de leyenda**: cómo obtiene el visor la leyenda de la capa.
+- **URL del dataset de la capa**: enlace opcional al conjunto de datos de la capa; se muestra en la ventana de información de la capa.
 - **Capa disponible para su uso por parte de los clientes**: activarla para que esté abierta al acceso. Si se deja desactivada, la capa estará en estado oculto.
+
+La pestaña **Información de la feature** define los campos que muestra el visor al consultar un elemento de la capa.
 
 ## Acceso
 

@@ -40,6 +40,14 @@ Al crear una capa de información, lo más importante es indicar la capa, de ent
 
 ![Selección de la capa de un nodo](img/arboles-nodo-cartografia.webp){ loading=lazy }
 
+Cada nodo tiene además estas opciones:
+
+- **Visible**: el nodo aparece en el árbol del visor.
+- **Cargar por defecto**: la capa aparece encendida al abrir el mapa.
+- **Modo selección única** (en carpetas): solo una capa de la carpeta puede estar encendida a la vez.
+
+El árbol también puede tener una **Imagen**, la dirección de una imagen que lo representa.
+
 ### Acceso
 
 Para que este árbol esté disponible en una aplicación, se puede asignar directamente desde la pestaña **Aplicaciones** (si la aplicación ha sido creada previamente) o bien se puede enlazar en el momento de crear la [aplicación](aplicacion.md).

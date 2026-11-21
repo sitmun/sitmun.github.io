@@ -24,7 +24,7 @@ Si falta el rol o el territorio, la herramienta no aparece en el visor.
 | Selector de mapa base (`sitna.basemapSelector`) | Selector de mapas de fondo. |
 | Gestor de capas de trabajo (`sitna.workLayerManager`) | Lista de las capas encendidas. |
 | Información de entidad (`sitna.featureInfo`) | Información de un punto al hacer clic en él. |
-| Mapa de situación (`sitna.overviewMap`) | Mapa de situación. |
+| Mapa de situación (`sitna.overviewMap`) | Mapa pequeño que muestra la zona visible dentro de un área mayor. |
 | Barra de navegación (`sitna.navBar`) | Botones de zoom. Sin ella, el mapa no tiene controles de zoom. |
 
 La lista de tareas básicas del administrador muestra el nombre de la tarea, no el código del control: busca por el nombre.

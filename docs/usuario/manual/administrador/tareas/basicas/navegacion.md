@@ -72,6 +72,6 @@ Permite visualizar la escala en formato de barra. Se muestra en la esquina infer
 
 Permite visualizar la información de Street View de un determinado punto del mapa. Se activa arrastrando el icono hasta el mapa y se vinculará con el punto de Street View más cercano.
 
-Es necesario disponer de una clave (*key*) de Google Maps para que esta herramienta funcione correctamente; de lo contrario, las imágenes de Street View se mostrarán con un efecto de negativo fotográfico.
+Es necesario disponer de una clave (*key*) de Google Maps para que esta herramienta funcione correctamente; de lo contrario, las imágenes de Street View se mostrarán con un efecto de negativo fotográfico. La clave se indica en la pestaña **Parámetros** de la tarea, con un parámetro llamado `googleMapsKey` cuyo valor es la clave.
 
 - Control API SITNA: `sitna.streetView`

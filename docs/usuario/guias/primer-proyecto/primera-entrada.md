@@ -36,4 +36,4 @@ El administrador se abre en `http://<servidor>/admin/` (en una instalación loca
     Los botones **Nuevo**, **Añadir**, **Eliminar**, **Duplicar**, **Registrar** y **Guarda** son iconos sin texto.
     Su nombre aparece al pasar el ratón por encima.
 
-**A partir de aquí empezamos a crear el visor público.** Los pasos 1 a 8 lo montan sobre el usuario `public` (ya existe por defecto), un rol nuevo y una aplicación no privada.
+**A partir de aquí empiezas a crear el visor público.** Los pasos 1 a 8 lo montan sobre el usuario `public` (ya existe por defecto), un rol nuevo y una aplicación no privada.

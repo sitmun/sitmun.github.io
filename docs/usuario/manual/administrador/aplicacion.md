@@ -12,7 +12,7 @@ Para configurar una aplicación se rellenan los datos de información general, e
 
 En este apartado se facilitan los datos generales de la aplicación, como el nombre y la descripción.
 
-El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar debemos seleccionar el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
+El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
 También se debe indicar un **punto de contacto**, que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
@@ -38,13 +38,13 @@ En el apartado **Encabezado** se definen aspectos relacionados con la visualizac
 
 Se ofrecen diversas opciones de activación y desactivación para personalizar dicho aspecto:
 
-- **Mostrar el logotipo de Sitmun**.
-- **Mostrar el botón del menú de inicio**.
-- **Mostrar el botón de cambio de territorio**.
-- **Mostrar el botón de cambio de idioma**.
+- **Mostrar el logotipo de Sitmun**
+- **Mostrar el botón del menú de inicio**
+- **Mostrar el botón de cambio de territorio**
+- **Mostrar el botón de cambio de idioma**
 - **Mostrar el botón de perfil**: da acceso a la página **Mi perfil** del visor, donde el usuario registrado puede cambiar su
   contraseña, su correo electrónico principal y sus datos en cada territorio.
-- **Mostrar el botón de desconexión**.
+- **Mostrar el botón de desconexión**
 
 En la misma pestaña se pueden añadir logotipos, por ejemplo el de la institución. Cada logotipo es una fila con **Nombre**, **Url** (la dirección de la imagen), **Posición** (**Izquierda** o **Derecha** del encabezado) y **Mostrar**.
 
@@ -54,11 +54,11 @@ Como la mayoría de los elementos de SITMUN, las aplicaciones permiten crear par
 
 ## Roles
 
-Podemos asignar a la aplicación los roles que tendrán acceso a ella. Cabe mencionar que, si no se asigna ningún rol, la aplicación no será accesible: sin asignación de roles, ningún usuario (ni siquiera el usuario público) podrá visualizar la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, cree un rol, asígnelo al usuario `public` en su territorio (pestaña **Roles por territorio** del usuario) y añada ese rol a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
+A la aplicación se le asignan los roles que tendrán acceso a ella. Cabe mencionar que, si no se asigna ningún rol, la aplicación no será accesible: sin asignación de roles, ningún usuario (ni siquiera el usuario público) podrá visualizar la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, se crea un rol, se asigna al usuario `public` en su territorio (pestaña **Roles por territorio** del usuario) y se añade a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
 
 ## Mapas de fondo
 
-Podemos añadir tantos mapas de fondo como se desee, ya que el usuario podrá seleccionar en el visor el que más le interese.
+Se pueden añadir tantos mapas de fondo como se desee, ya que el usuario podrá seleccionar en el visor el que más le interese.
 
 Los mapas de fondo pueden ser cualquiera de los que se hayan definido como tales en el apartado [Capas de fondo](capas-de-fondo.md).
 

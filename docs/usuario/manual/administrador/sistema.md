@@ -53,4 +53,4 @@ Permite editar y añadir parámetros de configuración general de SITMUN, por ej
 
 - `language.default`: indica el idioma por defecto de SITMUN. Es de solo lectura: se cambia desde [Idiomas](#idiomas).
 - `proxy`: dirección pública del proxy (por ejemplo `https://ejemplo.org/middleware`). Si existe, tiene prioridad sobre la variable `SITMUN_PROXY_MIDDLEWARE_URL` del backend en las direcciones de las capas y los servicios que reciben los visores. Las tareas de consulta, de localizador y de más información siguen usando `SITMUN_PROXY_MIDDLEWARE_URL`, así que conviene que las dos tengan el mismo valor.
-- `srs.default.identifier`: aparece en las instalaciones de ejemplo, pero en la versión 1.3.0 ningún componente lo usa. El sistema de referencia se define en cada [aplicación](aplicacion.md).
+- `srs.default.identifier`, `srs.default.x`, `srs.default.y` y `srs.default.proj4`: vienen en toda instalación nueva, pero en la versión 1.3.0 ningún componente los usa. El sistema de referencia se define en cada [aplicación](aplicacion.md).

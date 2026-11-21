@@ -69,7 +69,7 @@ Mediante este cuadro de diálogo se configura la impresión y se activa la vista
 
 ## Buscar (Search) { #search }
 
-Permite visualizar la función de búsqueda general en el mapa. Para que este control funcione correctamente (es decir, con un catálogo toponímico asociado al territorio), se debe configurar un servicio WFS del que obtener los datos de toponimia que alimentarán el buscador.
+Permite visualizar la función de búsqueda general en el mapa. Para que este control funcione correctamente (es decir, con un catálogo toponímico asociado al territorio), se deben configurar uno o varios servicios WFS de los que obtener los datos de toponimia que alimentarán el buscador. Se indican en la pestaña **Parámetros** de la tarea, con los nombres de las búsquedas del control (`municipality`, `placename`, `council`, `postalAddress`, `urban`…), de tipo objeto: el valor es un JSON con la URL del WFS (`url`), el tipo de entidad (`featureType`) y los campos de búsqueda y de resultado. La tarea «Buscador SITNA - Menorca» de la instalación de demostración sirve de ejemplo.
 
 - Control API SITNA: `sitna.search`
 
@@ -85,7 +85,7 @@ Permite visualizar la función de búsqueda general en el mapa. Para que este co
 
 La opción Share permite compartir un determinado mapa (entendiendo mapa como un conjunto de capas seleccionado y visible a una determinada escala).
 
-Se ofrecen varias formas de compartir el mapa: enlace, código HTML para insertarlo en otra web, correo electrónico, código QR, redes sociales y marcadores. Para obtener una imagen del mapa, utilice la tarea **Descarga**.
+Se ofrecen varias formas de compartir el mapa: enlace, código HTML para insertarlo en otra web, correo electrónico, código QR, redes sociales y marcadores. Para obtener una imagen del mapa se usa la tarea **Descarga**.
 
 - Control API SITNA: `sitna.share`
 

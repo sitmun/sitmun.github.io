@@ -16,9 +16,9 @@ La configuración de los elementos del localizador se debe empezar vinculando la
 
 !!! warning "La consulta debe tener un parámetro `text`"
     El visor envía el texto que escribe el usuario en un parámetro llamado `text`, y una consulta que no lo declare
-    responde con un error. Defina en la pestaña **Parámetros** de la consulta un parámetro con el nombre `text`
+    responde con un error. En la pestaña **Parámetros** de la consulta se define un parámetro con el nombre `text`
     y úselo en la sentencia SQL. Como los parámetros se enlazan como valores completos, no pueden ir dentro de una cadena
-    (`'%${text}%'`); para buscar un texto dentro de un campo, use una función, por ejemplo:
+    (`'%${text}%'`); para buscar un texto dentro de un campo se usa una función, por ejemplo:
 
     ```sql
     SELECT nom_cast AS nombre, etrs89x, etrs89y
@@ -35,6 +35,8 @@ En la pestaña **Configuración del geocodificador** se detalla cómo se quiere 
 En el ejemplo, la consulta «Buscar patrimonio UNESCO por nombre» (la sentencia de arriba) devuelve `nombre` (campo de etiqueta) y las coordenadas `etrs89y` y `etrs89x`, en `EPSG:4326`.
 
 ![Configuración del geocodificador de una tarea de localizador](../img/localizador-configuracion.webp){ loading=lazy }
+
+Si la respuesta JSON de la consulta no es directamente la lista de resultados, **Ruta a los resultados** indica dónde está esa lista (por ejemplo `features` en un GeoJSON). Vacío significa la raíz de la respuesta.
 
 Complementariamente se pueden activar las opciones de:
 

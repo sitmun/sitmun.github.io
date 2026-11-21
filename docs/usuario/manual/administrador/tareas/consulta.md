@@ -11,7 +11,7 @@ Para crear o editar una consulta se dispone del siguiente formulario, con los ca
 ![Formulario de nueva tarea de consulta](../img/consulta-formulario.webp){ loading=lazy }
 
 - **Nombre**: nombre que identificará la tarea. No tiene ninguna otra utilidad aparte de la propia identificación del elemento.
-- **Tipo**: se debe seleccionar un tipo de consulta. En función del tipo de consulta elegido, será necesario configurar la consulta de manera diferente. Más adelante se explica cómo definir cada tipo de consulta.
+- **Tipo**: se debe seleccionar un tipo de consulta. El desplegable muestra los nombres en inglés (`SQL Query`, `Web API Query`, `Cartography Query`…), que se indican entre paréntesis en los apartados siguientes. El tipo no se puede cambiar después de crear la tarea. En función del tipo de consulta elegido, será necesario configurar la consulta de manera diferente. Más adelante se explica cómo definir cada tipo de consulta.
 - **Grupo de tareas**: permite seleccionar un [grupo de tareas](../grupos-de-tareas.md) en el que clasificar la tarea que se está creando. Este grupo tiene únicamente una finalidad organizativa para ordenar las tareas creadas y no tiene ninguna implicación en su funcionamiento.
 
 ## Tipos de consulta
@@ -40,17 +40,19 @@ Para definir una consulta SQL es necesario seleccionar previamente la conexión 
 
 *Ejemplo de conexión y de consulta SQL.*
 
-Para obtener información sobre cómo crear conexiones, consulte el apartado [Conexiones](../conexiones.md).
+Cómo crear conexiones se explica en el apartado [Conexiones](../conexiones.md).
+
+Los resultados de una consulta SQL tienen límites: como máximo 1000 filas (las siguientes se descartan) y 60 segundos de ejecución. Se pueden cambiar en el backend con las propiedades `sitmun.jdbc.max-rows` y `sitmun.jdbc.query-timeout-seconds`.
 
 Para realizar una consulta SQL, se recomienda probar primero la consulta directamente en la base de datos (si se dispone de acceso a ella) para comprobar que devuelve resultados. Posteriormente, la sentencia SQL puede copiarse en la tarea de SITMUN 3.
 
 #### Parámetros en las consultas SQL
 
-Las consultas SQL admiten parámetros. Por ejemplo, en la consulta que se muestra en la captura de pantalla, es posible que se desee generar la consulta a partir de un identificador que no sea fijo, sino de un parámetro que se quiera pasar a la consulta.
+Las consultas SQL admiten parámetros. Por ejemplo, en la consulta que se muestra en la captura de pantalla, puede interesar generar la consulta a partir de un identificador que no sea fijo, sino de un parámetro que se quiera pasar a la consulta.
 
-Para crear un parámetro en una consulta, debe procederse de la siguiente manera.
+Para crear un parámetro en una consulta, se procede de la siguiente manera:
 
-En primer lugar, cree el nuevo parámetro desde la pestaña **Parámetros** del formulario y, mediante el icono **+**, añada un nuevo parámetro:
+En primer lugar, en la pestaña **Parámetros** del formulario se añade un nuevo parámetro con el icono **+**:
 
 ![Pestaña Parámetros de una tarea de consulta](../img/consulta-pestana-parametros.webp){ loading=lazy }
 
@@ -62,7 +64,7 @@ Al crear un nuevo parámetro aparecerá el siguiente formulario:
 - **Etiqueta**: es el nombre que se utilizará para identificar el parámetro cuando se requiera en otras configuraciones (por ejemplo, en el mapeo de parámetros de una [tarea MIA](mas-informacion-avanzada.md)).
 - **Valor**: valor por defecto, si así se desea. Es posible dejarlo en blanco si no se quiere proporcionar ningún valor por defecto.
 - **Tipo de dato**: tipo del valor (`string`, `integer`, `number`, `date`, `timestamp` o `boolean`). El valor se enlaza a la consulta con este tipo.
-- **Opcional**: márquelo solo si la consulta puede ejecutarse sin este parámetro. En nuestro ejemplo no se marca, ya que la consulta no podría ejecutarse correctamente sin él.
+- **Opcional**: se marca solo si la consulta puede ejecutarse sin este parámetro. En el ejemplo no se marca, ya que la consulta no podría ejecutarse correctamente sin él.
 - **Proporcionado (solo backend)**: el valor no lo envía el cliente, sino que lo aporta el propio backend.
 
 En el ejemplo, el parámetro se llama `ID`, con la etiqueta «Identificador del bien» y el tipo `integer`.
@@ -73,14 +75,14 @@ Ahora el parámetro ya está definido, pero aún es necesario indicar cómo util
 ${nombre_parametro}
 ```
 
-Veámoslo con un ejemplo:
+Por ejemplo:
 
 ![Consulta SQL con un parámetro](../img/consulta-sql-parametro.webp){ loading=lazy }
 
 !!! note "Nota"
-    Si el nombre del parámetro utilizado en la consulta SQL no coincide con el nombre definido en la configuración del parámetro, la opción de guardar la tarea se deshabilitará.
+    Si el nombre del parámetro utilizado en la consulta SQL no coincide con el nombre definido en la configuración del parámetro, la opción de guardar la tarea se deshabilitará. Las demás reglas de la consulta (por ejemplo, un parámetro declarado que no se usa, varias sentencias separadas por `;` o un parámetro dentro de una cadena) bloquean el botón **Probar** con un aviso, y el backend rechaza la tarea al guardarla.
 
-Además de los parámetros definidos por el usuario, también es posible utilizar en la consulta las variables de sistema, que son constantes proporcionadas por la aplicación. Para conocer qué variables de sistema están disponibles, consulte el [Anexo I: Variables de sistema](../variables-sistema.md).
+Además de los parámetros definidos por el usuario, también es posible utilizar en la consulta las variables de sistema, que son constantes proporcionadas por la aplicación. Las variables de sistema disponibles están en el [Anexo I: Variables de sistema](../variables-sistema.md).
 
 La sintaxis para utilizar variables de sistema es ligeramente diferente a la de los parámetros de consulta:
 

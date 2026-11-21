@@ -30,13 +30,13 @@ Además de tener esta tarea básica asignada a los roles y territorios correspon
 
 **Paso 1: activar la visualización de datos alfanuméricos de la capa**
 
-Acceda a la [capa](../../capas.md) en la que desea mostrar información GFI y active la opción *La capa o capas del servicio pueden ser consultadas para la recuperación de información alfanumérica*.
+En la [capa](../../capas.md) en la que se quiere mostrar información GFI se activa la opción *La capa o capas del servicio pueden ser consultadas para la recuperación de información alfanumérica*.
 
 ![Opción de consulta de información alfanumérica de la capa](../../img/basicas-feature-info-capa.webp){ loading=lazy }
 
 **Paso 2: activar la visualización de información en el árbol**
 
-Acceda al menú de [árboles](../../arboles.md) y localice el nodo donde se encuentra la capa para la que desea mostrar la información GFI. Una vez seleccionado el nodo, busque entre las opciones de visualización la opción **Consultable (GetFeatureInfo)** y actívela.
+En el menú de [árboles](../../arboles.md) se localiza el nodo de la capa para la que se quiere mostrar la información GFI y, entre sus opciones de visualización, se activa **Consultable (GetFeatureInfo)**.
 
 ![Opción Consultable del nodo del árbol](../../img/basicas-feature-info-arbol.webp){ loading=lazy }
 

@@ -10,13 +10,13 @@ Las tareas básicas ya vienen integradas por defecto en la instalación base de 
 
 Para que las tareas básicas puedan visualizarse en el visor, es necesario asignar a cada tarea básica un rol y un territorio. La tarea se mostrará en el visor cuando el usuario acceda con permisos que coincidan con los roles y territorios asignados.
 
-Desde el punto de vista del administrador, no es necesario realizar ninguna otra acción sobre estas tareas.
+La mayoría de las tareas básicas no necesitan nada más. Algunas sí necesitan parámetros para funcionar, por ejemplo **Vista de calle** (una clave de Google Maps) o **Buscar** (las fuentes de datos del buscador): se indican en la pestaña **Parámetros** de la tarea, como se explica en cada una.
 
 ## Parámetros
 
 Las tareas básicas son parametrizables.
 
-Los parámetros que pueden añadirse a estas tareas son aquellos admitidos por los controles de la API SITNA.
+Los parámetros que pueden añadirse a estas tareas son aquellos admitidos por los controles de la API SITNA. Se añaden en la pestaña **Parámetros** de la tarea: cada parámetro tiene un nombre (el de la opción del control), un tipo y un valor; en los de tipo objeto o lista, el valor es un JSON.
 
 ## Tareas básicas incluidas
 

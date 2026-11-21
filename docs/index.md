@@ -14,7 +14,7 @@ Esta web tiene como objetivo poner la documentación técnica de la plataforma *
 
 ## Secciones de esta web
 
-Elige por dónde empezar según lo que necesites:
+Por dónde empezar, según lo que se necesite:
 
 - **[¿Qué es SITMUN?](que-es-sitmun/plataforma/index.md)**: qué es la plataforma **SITMUN 3**, qué funcionalidades ofrece,
   su [arquitectura](que-es-sitmun/plataforma/arquitectura/index.md), su [hoja de ruta](que-es-sitmun/plataforma/hoja-de-ruta/index.md),
@@ -28,4 +28,4 @@ Elige por dónde empezar según lo que necesites:
 
     SITMUN es un proyecto en continuo desarrollo y la documentación se actualiza para ir reflejando los cambios más
     importantes. Pueden existir algunas discrepancias entre la documentación y las últimas versiones del software.
-    Si se detecta alguna discrepacia, notifícala en <https://github.com/sitmun/community/issues/new>.
+    Las discrepancias que se detecten se pueden notificar en <https://github.com/sitmun/community/issues/new>.
