@@ -36,6 +36,8 @@ En el ejemplo, la consulta «Buscar patrimonio UNESCO por nombre» (la sentencia
 
 ![Configuración del geocodificador de una tarea de localizador](../img/localizador-configuracion.webp){ loading=lazy }
 
+Si la respuesta JSON de la consulta no es directamente la lista de resultados, **Ruta a los resultados** indica dónde está esa lista (por ejemplo `features` en un GeoJSON). Vacío significa la raíz de la respuesta.
+
 Complementariamente se pueden activar las opciones de:
 
 - Limitar resultados a la extensión del territorio.

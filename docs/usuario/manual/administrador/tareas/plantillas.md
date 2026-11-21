@@ -8,7 +8,7 @@ Las plantillas tienen la finalidad de proporcionar una visualización más amiga
 
 ## Información general
 
-En primer lugar se debe definir la **Información general**, indicando el nombre y el grupo de tareas en el que se almacenará la plantilla. El nombre puede tener cualquier valor descriptivo, mientras que el grupo de tareas puede corresponder, por ejemplo, a un grupo denominado «Plantillas de visualización».
+En primer lugar se debe definir la **Información general**, indicando el nombre, el **Título** que muestra el visor y el grupo de tareas en el que se almacenará la plantilla. El nombre puede tener cualquier valor descriptivo, mientras que el grupo de tareas puede corresponder, por ejemplo, a un grupo denominado «Plantillas de visualización».
 
 ![Información general de una plantilla](../img/plantilla-general.webp){ loading=lazy }
 
@@ -64,7 +64,7 @@ A continuación se accede a la pestaña **Plantilla**, donde puede elaborarse el
     {{alias_consulta}}
     ```
 
-    donde `alias_consulta` es el alias que se ha asignado a cada campo en la consulta SQL.
+    donde `alias_consulta` es el alias que se ha asignado a cada campo en la consulta SQL. Esta forma corta solo funciona dentro de una tabla con `data-sitmun-each`; fuera de ella se escribe con la referencia de la fuente, por ejemplo `{{patrimonio.nombre}}`.
 
 El siguiente ejemplo muestra una tabla sencilla con todos los resultados de la fuente `patrimonio`:
 
