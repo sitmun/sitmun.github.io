@@ -84,6 +84,16 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Probar SITMUN (showcase)**
 
+    Sin instalar nada: abre el *showcase* en GitHub Codespaces. El codespace descarga las imágenes publicadas de SITMUN 1.3.0
+    y lo arranca con los datos de ejemplo; tarda unos minutos y consume horas de tu cuota de Codespaces mientras está encendido.
+
+    [Abrir en GitHub Codespaces](https://codespaces.new/sitmun/sitmun.github.io?quickstart=1&devcontainer_path=.devcontainer%2Fshowcase%2Fdevcontainer.json){ .md-button .md-button--primary }
+
+    Cuando termina, la pestaña «Puertos» del codespace muestra la dirección del puerto 9000: `/admin/` es el administrador
+    (en la primera visita se elige la contraseña de `admin`) y `/viewer/` el visor.
+
+    En tu equipo:
+
     - Linux/macOS:
 
         ```bash

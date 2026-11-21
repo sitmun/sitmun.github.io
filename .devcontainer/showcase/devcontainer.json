@@ -1,0 +1,27 @@
+{
+  // Codespace that runs the SITMUN 1.3.0 showcase from the published images.
+  // Opened from the "Abrir en GitHub Codespaces" button on the installation page.
+  "name": "SITMUN 1.3.0 showcase",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  // Backend, proxy, front and two PostgreSQL databases.
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "forwardPorts": [9000],
+  "portsAttributes": {
+    "9000": {
+      "label": "SITMUN (admin y visor)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "bash .devcontainer/showcase/start.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": [".devcontainer/showcase/README.md"]
+    }
+  }
+}
