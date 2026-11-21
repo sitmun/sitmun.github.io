@@ -374,7 +374,7 @@ Set-Cookie: viewer_access_token={tokenJWT}; HttpOnly
 la aplicación móvil de edición usa /api/authenticate/mobile
 y recibe el token en el cuerpo de la respuesta)
 end note
-Client -> ConfigurationAPI: Obtener configuración
+Client -> ConfigurationAPI: Obtención de la configuración
 note right
  GET /api/config/client/profile/{appId}/{terId}
  Cookie: viewer_access_token={tokenJWT}
@@ -471,7 +471,7 @@ que para el cliente es una URL de un WMS normal.
 end note
 
 
-Usuario ->> Client: Refresca mapa
+Usuario ->> Client: Actualización del mapa
 Client ->> Client: Carga de una capa de un WMS público
 note right
  new ImageLayer({
@@ -569,7 +569,7 @@ end note
   end note
   ConfigurationAPI ->> JsonWebTokenService: Validación del token JWT
   JsonWebTokenService -->> ConfigurationAPI: Token OK
-  ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecera Authorization)
+  ConfigurationAPI ->> JsonWebTokenService: Extracción de "username" del token\n(cabecera Authorization)
   JsonWebTokenService -->> ConfigurationAPI: "username"
   ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar
   note right
@@ -705,7 +705,7 @@ note right
 end note
 ConfigurationAPI ->> JsonWebTokenService: Validación del token JWT
 JsonWebTokenService -->> ConfigurationAPI: Token OK
-ConfigurationAPI ->> JsonWebTokenService: Extraer "username" del token\n(cabecera Authorization)
+ConfigurationAPI ->> JsonWebTokenService: Extracción de "username" del token\n(cabecera Authorization)
 JsonWebTokenService -->> ConfigurationAPI: "username"
 ConfigurationAPI ->> ConfigurationAPI: Identificar qué hay que configurar
 note right

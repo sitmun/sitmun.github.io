@@ -92,7 +92,7 @@ nav = [
           { "Tareas de consulta" = "usuario/manual/administrador/tareas/consulta.md" },
           { "Tarea de localizador" = "usuario/manual/administrador/tareas/localizador.md" },
           { "Plantillas" = "usuario/manual/administrador/tareas/plantillas.md" },
-          { "Más información avanzada" = "usuario/manual/administrador/tareas/mas-informacion-avanzada.md" },
+          { "Tarea de más información avanzada" = "usuario/manual/administrador/tareas/mas-informacion-avanzada.md" },
         ] },
         { "Aplicación" = "usuario/manual/administrador/aplicacion.md" },
         { "Sistema" = "usuario/manual/administrador/sistema.md" },

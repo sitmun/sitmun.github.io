@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/sitmun/sitmun/issues
     about: Los errores de la plataforma (backend, proxy, administrador, visor, MBTiles, aplicaciones móviles y bibliotecas comunes) se notifican en sitmun/sitmun.
   - name: Vulnerabilidades de seguridad
-    url: https://github.com/sitmun/sitmun.github.io/security/advisories/new
-    about: Las vulnerabilidades se notifican de forma privada, nunca en una incidencia pública (ver la política de seguridad de SITMUN).
+    url: https://github.com/sitmun/.github/blob/main/SECURITY.md
+    about: Las vulnerabilidades se notifican de forma privada, nunca en una incidencia pública. La política de seguridad indica dónde, según sea de la plataforma o de esta web.

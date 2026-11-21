@@ -133,11 +133,12 @@ docker compose exec postgres psql -U sitmun3 -d sitmun3
 ```
 
 La base de datos conserva la contraseña con la que se creó. Si `DATABASE_PASSWORD` ha cambiado después, se cambia también
-en la base de datos (sin perder datos) y se reinicia el backend:
+en la base de datos (sin perder datos) y se vuelve a crear el contenedor del backend, para que lea el `.env` nuevo
+(`restart` no lo vuelve a leer):
 
 ```bash
 docker compose exec postgres psql -U sitmun3 -d sitmun3 -c "ALTER USER sitmun3 PASSWORD '<nueva contraseña>'"
-docker compose restart backend
+docker compose up -d backend
 ```
 
 En Oracle, `ALTER USER sitmun3 IDENTIFIED BY "<nueva contraseña>"`.
@@ -205,6 +206,8 @@ curl http://localhost:9001/api/setup/status
 - Si el navegador conserva una sesión antigua, se borran las cookies del sitio o se prueba en una ventana privada.
 - En el visor, un usuario cuyo puesto en el territorio ha caducado (**Fecha de baja**) pierde la sesión al renovarla: ver [Usuarios](../manual/administrador/usuarios.md).
 
+<a id="problemas-del-front"></a>
+
 ## Problemas del contenedor `front` { #problemas-de-frontend }
 
 ### El visor o el administrador no cargan { #aplicaciones-no-cargan }
@@ -243,6 +246,8 @@ puerto) y se vuelve a arrancar. Si el error aparece con un servicio externo, el 
 navegador: se activa **Usar proxy SITMUN** en el servicio.
 
 ## Problemas de red
+
+<a id="los-servicios-no-se-comunican"></a>
 
 ### Los servicios no se comunican { #servicios-no-se-comunican }
 
@@ -302,6 +307,8 @@ docker compose up -d --pull always --no-build
 
 ## Registros y depuración { #logs-y-debugging }
 
+<a id="ver-los-registros-de-los-servicios"></a>
+
 ### Ver los registros de los servicios { #ver-logs-de-servicios }
 
 ```bash
@@ -318,9 +325,10 @@ docker compose logs -f backend
 ```
 
 El backend y el proxy escriben su registro en la salida estándar. El nivel se cambia en `.env` con `LOGGING_LEVEL_ROOT`
-(`INFO` por defecto) y `LOGGING_LEVEL_ORG_SITMUN` (`DEBUG` por defecto en el backend y el proxy), y se aplica con
-`docker compose up -d backend proxy`. El contenedor `front` guarda además los registros de nginx en `logs/front/nginx`,
-que nada rota: conviene vaciarlos o rotarlos de vez en cuando.
+y `LOGGING_LEVEL_ORG_SITMUN`, y se aplica con `docker compose up -d backend proxy`. Los perfiles de producción
+(`profiles/postgres.env` y `profiles/oracle.env`) los ponen en `WARN` e `INFO`; sin ellos, Compose usa `INFO` y `DEBUG`.
+Los registros de nginx del contenedor `front` no salen en `docker compose logs front`: van al archivo `logs/front/nginx`,
+que nada rota, así que conviene vaciarlo o rotarlo de vez en cuando.
 
 ### Depuración avanzada { #debugging-avanzado }
 

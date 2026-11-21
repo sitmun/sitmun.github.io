@@ -20,7 +20,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: mejora del inicio de sesi�
 
 ## Objetivo
 
-Este proyecto busca mejorar el diseño y la funcionalidad de la interficie de acceso y selección de los clientes SITMUN
+Este proyecto busca mejorar el diseño y la funcionalidad de la interfaz de acceso y selección de los clientes SITMUN
 disponibles para un usuario concreto, dotándolas de un diseño más amigable, claro y funcional.
 Se busca además ampliar la funcionalidad actual.
 
@@ -39,7 +39,7 @@ Se hace necesario mejorar el diseño de ambas ventanas y ampliar la funcionalida
 
 Se prevé la siguiente lógica funcional:
 
-1. Acceso a SITMUN. Desde la ventana de inicio de sesión se permite entrar en el espacio de usuario, que ofrece acceso a las distintas combinaciones de aplicación y territorio sobre las que un usuario tiene permisos. Así mismo, y de forma diferenciada en la interficie de usuario, se ofrece acceso a las aplicaciones públicas. La ventana de acceso incorpora, además del espacio de usuario/password una opción de acceso 'público' permite el acceso a un espacio público que únicamente ofrece el listado de aplicaciones / territorio que son de carácter público.
+1. Acceso a SITMUN. Desde la ventana de inicio de sesión se permite entrar en el espacio de usuario, que ofrece acceso a las distintas combinaciones de aplicación y territorio sobre las que un usuario tiene permisos. Asimismo, y de forma diferenciada en la interfaz de usuario, se ofrece acceso a las aplicaciones públicas. La ventana de acceso incorpora, además del espacio de usuario y contraseña una opción de acceso 'público' permite el acceso a un espacio público que únicamente ofrece el listado de aplicaciones / territorio que son de carácter público.
 
 2. Una vez conectado al espacio de usuario se ofrecerá al usuario de forma clara el listado de territorios y de aplicaciones. El listado de territorios se ofrece como una lista de todos los territorios a los que el usuario tiene acceso con una opción 'todos' por defecto que no realiza filtro sobre las aplicaciones. En caso de que un usuario tenga acceso a muchos territorios y este hecho dificulte presentar las opciones sin filtrar por volumen, aparecerá un aviso a la pantalla principal pidiendo al usuario que seleccione un territorio de la lista. El listado de aplicaciones se presenta como un conjunto de elementos con características (imagen, descripción, territorio i último acceso). La ventana de usuario ofrece la siguiente funcionalidad:
 
@@ -51,7 +51,7 @@ Se prevé la siguiente lógica funcional:
     - Cambio de idioma
     - Logout
 
-A continuación se presenta de forma ilustrativa el concepto de interficie.
+A continuación se presenta de forma ilustrativa el concepto de interfaz.
 **Este diseño es solo demostrativo para plasmar la idea inicial de la Red SITMUN**,
 la empresa contractante deberá desarrollar esta idea y plantear una o varias propuestas de GUI.
 En la propuesta de diseño se pondrá énfasis en crear una imagen moderna,

@@ -61,7 +61,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         - se define en `.env` una contraseña propia para la base de datos, `DATABASE_PASSWORD`. Sin ella, Compose usa
           `sitmun3`, y el volumen de la base de datos conserva la contraseña con la que se creó la primera vez (para
           cambiarla después, ver [Conexión a PostgreSQL falla](solucion-problemas.md#conexion-a-postgresql-falla)).
-          Un `$` en la contraseña se escribe `$$`, porque Compose interpreta `$` como el inicio de una variable;
+          Conviene que la contraseña no tenga `$`: Compose lo interpreta como el inicio de una variable y, aunque se
+          escriba `$$`, la comprobación de salud de Oracle lo vuelve a interpretar;
         - se cierran al exterior los puertos 9001 a 9005 (backend, proxy y bases de datos): Compose los publica, pero solo
           el 9000 tiene que ser accesible. En Linux, Docker publica los puertos por delante de ufw y firewalld, así que
           la regla del cortafuegos va en la cadena `DOCKER-USER`; otra opción es publicarlos solo en `127.0.0.1` con un
@@ -200,15 +201,27 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Actualizar desde 1.2.x**
 
-    Se actualiza directamente desde 1.2.8 o 1.2.9; una versión anterior se actualiza antes a 1.2.8. Los pasos:
+    Se actualiza directamente desde 1.2.8 o 1.2.9; una versión anterior se actualiza antes a 1.2.8. La 1.3.0 se instala con el
+    repositorio único `sitmun/sitmun`, que no usa la carpeta ni el volumen de datos de `sitmun-application-stack`. Los pasos:
 
-    1. Se hace una [copia de seguridad de la base de datos](solucion-problemas.md#backup-de-base-de-datos).
-    2. Se pone en `.env` `SITMUN_UPGRADE_DEFAULT_LANGUAGE` con el idioma en el que está escrito el texto de la base de datos
+    1. Se hace una [copia de seguridad de la base de datos](solucion-problemas.md#backup-de-base-de-datos) de la instalación 1.2.x.
+    2. En la carpeta de `sitmun/sitmun`, se copia el `.env` anterior y se ejecuta `setup.sh` (o `setup.ps1`), que añade los
+        secretos que la 1.3.0 exige y el 1.2.x no tenía (`MIDDLEWARE_SECRET`, `SITMUN_MBTILES_JOB_HANDLE_SECRET`). Sin ellos,
+        Compose no arranca.
+    3. Se pone en `.env` `SITMUN_UPGRADE_DEFAULT_LANGUAGE` con el idioma en el que está escrito el texto de la base de datos
         (por ejemplo `es`). El parámetro `language.default` de la tabla `STM_CONF` tiene que tener el mismo valor. Si falta
         alguno de los dos, si no coinciden o si ese idioma no está en `STM_LANGUAGE`, la actualización se detiene sin cambiar nada.
-    3. Desde 1.2.8, las filas de `STM_LOG` que apuntan a elementos borrados también la detienen: la guía de actualización
-        da la consulta para encontrarlas.
-    4. Se arranca la versión 1.3.0: `docker compose up -d --pull always --no-build`.
+    4. Se arranca solo la base de datos (`docker compose up -d postgres`; en Oracle, `oracle` y Data Pump) y se restaura en ella
+        la copia del paso 1, como en
+        [Copia de seguridad de la base de datos](solucion-problemas.md#backup-de-base-de-datos). Si se arranca todo sin
+        restaurar, el backend crea una base de datos nueva y vacía en lugar de actualizar la anterior.
+    5. Se arranca el resto: `docker compose up -d --pull always --no-build`. El backend actualiza la base de datos al arrancar.
+
+    La actualización también se detiene, sin cambiar nada, si desde 1.2.8 hay filas de `STM_LOG` que apuntan a elementos
+    borrados (la guía de actualización da la consulta para encontrarlas) o si dos capas comparten el mismo estilo
+    (`shared geo_styid`). Además, la 1.3.0 comprueba los certificados de los servidores externos: uno con un certificado
+    autofirmado necesita `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`, que Compose 1.3.0 no pasa al backend
+    ([sitmun/sitmun#378](https://github.com/sitmun/sitmun/issues/378)).
 
     En Oracle 11 o 21 (19c no se ha probado), una base de datos que se actualizó a 1.2.9 se quedó a medias, porque un cambio
     de 1.2.9 usa sintaxis de Oracle 23; se actualiza como una base de datos 1.2.8. Los detalles de cada caso están en

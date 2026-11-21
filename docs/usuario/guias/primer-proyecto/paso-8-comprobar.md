@@ -9,10 +9,10 @@ El administrador no tiene ningún botón para abrir el visor. Ábrelo aparte, en
 - **Lista de aplicaciones**: `http://<servidor>/viewer/#/public/dashboard`. La aplicación nueva tiene que aparecer en la lista.
 - **Directo al mapa**: `.../viewer/#/public/map/<id aplicación>/<id territorio>`. Las listas del administrador no muestran los identificadores (id): búscalos en la dirección del formulario de cada elemento, por ejemplo `#/application/2/applicationForm` para la aplicación 2.
 
-**Si la aplicación es privada** (no pública), solo la ven los usuarios con contraseña que tienen uno de sus roles:
+**Si la aplicación es privada** (opción **Aplicación privada** activada en el [paso 7](paso-7-aplicacion.md)), solo la ven los usuarios con contraseña que tienen uno de sus roles:
 
 - Inicia sesión en `http://<servidor>/viewer/#/auth/login` con ese usuario. Después llegas a `.../viewer/#/user/dashboard`.
-- La aplicación aparece en la pestaña «Aplicaciones restringidas».
+- La aplicación aparece en la pestaña **Aplicaciones restringidas**.
 - El rol de ese usuario tiene que estar, como el del usuario público, en los mapas de fondo y grupos de permisos ([paso 4](paso-4-grupos-y-fondos.md)), el árbol ([paso 5](paso-5-arbol.md)) y las tareas ([paso 6](paso-6-herramientas.md)). Si falta en los mapas de fondo, el mapa muestra «No hay capas definidas como base».
 
 Las imágenes publicadas, los perfiles de producción y el *showcase* usan direcciones con `#/`.

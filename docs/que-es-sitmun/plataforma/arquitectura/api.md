@@ -74,7 +74,7 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
   Estos parámetros de filtrado se añaden a la petición que se realiza al servicio o base de datos final por parte del
   proxy. Estos parámetros se gestionan mediante la [API de Administración][api-de-administracion] indicando como
   valor una variable de sistema con la sintaxis `#{NOMBRE}`, por ejemplo `#{USER_ID}`, `#{APP_ID}`, `#{TERR_ID}` o `#{TERR_COD}`.
-  La lista completa está en el [Variables de sistema](../../../usuario/manual/administrador/variables-sistema.md).
+  La lista completa está en la página [Variables de sistema](../../../usuario/manual/administrador/variables-sistema.md).
 
 ## API de Proxy {#api-de-proxy}
 

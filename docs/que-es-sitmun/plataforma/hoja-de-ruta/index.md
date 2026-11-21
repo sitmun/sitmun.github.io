@@ -30,7 +30,7 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 | Proyecto - Funcionalidad | Descripción | Estado |
 | --- | --- | --- |
-| Mejora de la **página de acceso** a la plataforma SITMUN | Mejorar la interfaz de la ventana de inicio de sesión de los clientes SITMUN disponibles para el usuario así como el panel para la selección de aplicación, territorio y configuración de opciones y datos de usuario. [Ver detalles](propuestas/mejora-ui-login-dashboard-cliente.md) | Parcialmente disponible: dashboard, perfil de usuario, sugerencias, cambio de idioma y cierre de sesión. Pendiente: noticias y avisos para los usuarios. |
+| Mejora de la **página de acceso** a la plataforma SITMUN | Mejorar la interfaz de la ventana de inicio de sesión de los clientes SITMUN disponibles para el usuario así como el panel para la selección de aplicación, territorio y configuración de opciones y datos de usuario. [Ver detalles](propuestas/mejora-ui-login-dashboard-cliente.md) | Parcialmente disponible: panel, perfil de usuario, sugerencias, cambio de idioma y cierre de sesión. Pendiente: noticias y avisos para los usuarios. |
 | **Creación dinámica de informes** | Posibilidad de generar un informe (report) de forma dinámica desde el cliente SITMUN, que haya sido previamente configurado en el administrador SITMUN 3. Un informe se configura en SITMUN como una tarea que integra el resultado de otras tareas. [Ver detalles](propuestas/informe.md) | Parcialmente disponible como tarea de **exportación documental** (PDF a partir de plantillas). |
 
 ## Cola de proyectos (sala de espera)
