@@ -1,15 +1,15 @@
 ---
-description: "Permisos sobre las capas en SITMUN 3: grupos de capas que dan acceso a los roles."
+description: "Permisos sobre las capas en SITMUN 3: grupos de permisos que dan acceso a los roles."
 ---
 
 # Permisos sobre las capas
 
-Se generan grupos de capas para darles permisos conjuntamente y asignarles los roles.
+En el menú **Permisos sobre las capas** se crean grupos de permisos: conjuntos de capas a los que se asignan roles.
 
 Primero se debe crear el grupo, donde se debe indicar el nombre y el tipo de grupo de permisos:
 
-- **Nombre\***: puede ser cualquier nombre que nos permita reconocer el grupo de capas y permisos.
-- **Tipo\***: puede ser Grupo de cartografía, Informe o Mapa de situación, según el uso que se le quiera dar al grupo de capas. Existe un cuarto tipo, Mapa de fondo, que crea automáticamente cada [capa de fondo](capas-de-fondo.md); no hace falta crearlo a mano.
+- **Nombre\***: puede ser cualquier nombre que nos permita reconocer el grupo de permisos.
+- **Tipo\***: puede ser Grupo de cartografía, Informe o Mapa de situación, según el uso que se le quiera dar al grupo de permisos. Existe un cuarto tipo, Mapa de fondo, que crea automáticamente cada [capa de fondo](capas-de-fondo.md); no hace falta crearlo a mano.
 
 ![Formulario de un grupo de permisos](img/permisos-formulario.webp){ loading=lazy }
 
@@ -17,7 +17,7 @@ En la pestaña **Capas** se pueden cargar todas las capas ya configuradas en la 
 
 ![Pestaña Capas de un grupo de permisos](img/permisos-pestana-capas.webp){ loading=lazy }
 
-Una vez creado el grupo de permisos de capas, ya existe en la plataforma, por lo que se podrá añadir directamente desde la definición de la capa.
+Una vez creado el grupo de permisos, ya existe en la plataforma, por lo que se podrá añadir directamente desde la definición de la capa.
 
 ![Pestaña Permisos de una capa](img/permisos-desde-capa.webp){ loading=lazy }
 

@@ -30,16 +30,16 @@ El contenido de la ventana debe poder integrar la respuesta de una o varias cons
 
 El actual cliente SITMUN 3, al hacer clic en el área de mapa sobre un objeto de una capa determinada, presenta el resultado de la petición GetFeatureInfo sobre al servicio WMS correspondiente.
 
-[![MASINFOAVANZADO_context1](mas-info-avanzado-1.webp)](mas-info-avanzado-1.webp)
+[![Resultado de GetFeatureInfo en el cliente SITMUN 3 al hacer clic en un objeto del mapa](mas-info-avanzado-1.webp)](mas-info-avanzado-1.webp)
 
 Con la funcionalidad 'Más info avanzado' se busca enriquecer esta ventana de respuesta con datos que provengan de otras peticiones a otros servicios o conexiones a base de datos.
 
 Como ejemplo se puede observar el funcionamiento de SITMUN 2 en el caso del [visualizador de medio natural del Consell Insular de Menorca](https://ide.cime.es/sitmun/ambiental.jsp). En la ventana siguiente podemos observar el detalle de la ventana con distintas pestañas, cada una de ellas se corresponde con el resultado de una tarea de tipo consulta configurada en el administrador SITMUN 2.
 
-![MASINFOAVANZADO_context2](mas-info-avanzado-2.webp)
+![Más información avanzada en el visor de medio natural de Menorca de SITMUN 2](mas-info-avanzado-2.webp)
 
 Actual ventana de ejemplo de configuración de una tarea tipo consulta en SITMUn 2.
-![MASINFOAVANZADO_context3](mas-info-avanzado-3.webp)
+![Configuración de una tarea de tipo consulta en SITMUN 2](mas-info-avanzado-3.webp)
 
 ## Requerimientos funcionales
 
@@ -51,23 +51,23 @@ Se prevé la siguiente lógica funcional:
 
     - Una primera tarea que consiste en consulta que devuelve toda la información relativa a una ruta turística:
   
-      ![MASINFOAVANZADO_context4](mas-info-avanzado-4.webp)
+      ![Consulta que devuelve la información de una ruta turística](mas-info-avanzado-4.webp)
 
     - Una segunda consulta que devuelve todas las fotografías de una ruta en concreto:
   
-      ![MASINFOAVANZADO_context5](mas-info-avanzado-5.webp)
+      ![Consulta que devuelve las fotografías de una ruta](mas-info-avanzado-5.webp)
 
 2. Una vez definidas estas tareas, que llamaremos tareas hijas, se configurarà en el administrador SITMUN la tarea padre **más info avanzado** En la ventana de configuración de dicha tarea se podrá:
 
     - Establecer la relación con las distintas tareas hijas que forman parte del más info avanzado. Una tarea hija, a su vez, debe poder formar parte de varias tareas padre.
     - Establecer el tipo de más info avanzado, para establecer cómo se presentarán en la ventana las distintas tareas hijo (en tabs, en scroll…)
 
-      ![MASINFOAVANZADO_context6](mas-info-avanzado-6.webp)
+      ![Configuración de las tareas hijas y del tipo de presentación de una más información avanzada](mas-info-avanzado-6.webp)
 
     - Establecer para cada tarea hija el código HTML con la configuración o formato de renderizado (para poder definir la tabla, o cómo se muestran las imágenes, o una galeria de fotos, etc.). A este código se añadirán marcas especiales con el nombre de los campos de la subconsulta que serán sustituidas en el cliente (API SITNA) por el valor de los mismos.
     Por ejemplo, a la tarea hija código 289 (primera imagen del visor de medio ambiente) le corresponde este layout, dónde los valores `@@CODIGOTAREA_NOMBRECAMPO@@` deben de ser sustituidos por el valor del campo correspondiente a la consulta 289.
 
-        ![MASINFOAVANZADO_context7](mas-info-avanzado-7.webp)
+        ![Código HTML de presentación de una tarea hija con marcadores de campo](mas-info-avanzado-7.webp)
 
     - Definir qué capa o capas tienen asociada esta funcionalidad.
     - Definir qué territorios y roles de usuario tienen asociada esta funcionalidad.

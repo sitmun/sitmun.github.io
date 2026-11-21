@@ -30,10 +30,10 @@ Complementariamente, existe la opción de definir también otros parámetros de 
 
 - **Descripción**
 - **Dirección**
-- **Territorio bloqueado**: según su descripción, un territorio bloqueado no aparece en las listas de territorios de los clientes ni da acceso a perfiles. Un territorio nuevo se crea bloqueado por defecto; desactívelo para los territorios que deban usarse.
+- **Territorio bloqueado**: según su descripción, un territorio bloqueado no aparece en las listas de territorios de los clientes ni da acceso a la configuración del visor para ese territorio. Un territorio nuevo se crea bloqueado por defecto; desactívelo para los territorios que deban usarse.
 
     !!! warning "SITMUN 1.3.0"
-        En la versión 1.3.0 esta opción no tiene efecto: un territorio bloqueado sigue apareciendo y su perfil sigue disponible
+        En la versión 1.3.0 esta opción no tiene efecto: un territorio bloqueado sigue apareciendo y el visor sigue recibiendo su configuración
         ([sitmun/sitmun#376](https://github.com/sitmun/sitmun/issues/376)).
 - **Logo**
 - **Observaciones**

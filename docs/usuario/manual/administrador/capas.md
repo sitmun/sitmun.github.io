@@ -32,4 +32,4 @@ Complementariamente, se pueden detallar otros parámetros para definir su compor
 
 Dar acceso a las capas requiere atribuirles permisos (roles) y asignarles los territorios en los que las capas se encuentran disponibles.
 
-Los permisos de las capas van asociados a los grupos de capas que se generan en [Permisos sobre las capas](permisos-capas.md).
+Los permisos de las capas van asociados a los grupos de permisos que se generan en [Permisos sobre las capas](permisos-capas.md).

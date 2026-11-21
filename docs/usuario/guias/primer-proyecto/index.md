@@ -24,15 +24,15 @@ Una **aplicación** es el proyecto que ve el usuario en el visor. No contiene la
 | --- | --- | --- |
 | Servicio | Servicio | Un servidor de mapas externo (WMS, WMTS, WFS) y su URL. |
 | Capa | Capas | Una o varias capas de un servicio, con nombre, escalas y transparencia. En SITMUN también se llama «cartografía». |
-| Grupo de capas | Permisos sobre las capas | Un conjunto de capas que se da a uno o varios roles. |
-| Capa de fondo | Capas de fondo | Un mapa base que el usuario elige en el selector de mapas de fondo. |
+| Grupo de permisos | Permisos sobre las capas | Un conjunto de capas que se da a uno o varios roles. Su **Tipo** habitual es «Grupo de cartografía». |
+| Capa de fondo | Capas de fondo | Un mapa de fondo que el usuario elige en el selector de mapas de fondo. En la aplicación, la pestaña se llama **Mapas de fondo**. |
 | Árbol | Árboles | La lista de carpetas y capas que el usuario ve en el panel de capas. |
-| Tarea | Tarea | Una herramienta del visor (buscador, impresión, medición, leyenda...). |
+| Tarea | Tarea | Una función que se configura en el administrador. Las tareas básicas son las herramientas del visor (buscador, impresión, medición, leyenda...); otras son consultas, plantillas o localizadores. |
 | Territorio | Territorios | La zona geográfica donde se usa la aplicación (municipio, comarca...). |
-| Rol | Rol | Un perfil de permisos. Decide quién ve qué. |
+| Rol | Rol | Un conjunto de permisos. Decide quién ve qué. |
 | Usuario | Usuario | Una persona que entra en el visor o en el administrador. El usuario `public` representa a los visitantes sin sesión. |
 
-**La idea clave:** un usuario solo ve algo si le llega a través de un **rol** y, en el caso de capas y tareas, si además está disponible en su **territorio**. Si falta una de estas dos conexiones, el elemento no aparece en el visor y no se muestra ningún error.
+**La idea clave:** un usuario solo ve algo si le llega a través de un **rol** y, en el caso de capas y tareas, si además está disponible en su **territorio**. Si falta una de estas dos conexiones, el elemento no aparece en el visor y, salvo con los mapas de fondo, no se muestra ningún error.
 
 ```mermaid
 flowchart TB
@@ -42,7 +42,7 @@ flowchart TB
   ARB["Árbol"]
   APP["Aplicación"]
   FON["Capa de fondo"]
-  GRP["Grupo de capas"]
+  GRP["Grupo de permisos"]
   TAR["Tarea (herramienta)"]
   CAP["Capas"]
   SER["Servicio"]
@@ -77,7 +77,7 @@ La aplicación incluye mapas de fondo y árboles; los mapas de fondo, los grupos
 - [Paso 1: territorio, rol y usuario público](paso-1-territorio-rol-usuario.md)
 - [Paso 2: dar de alta los servicios](paso-2-servicios.md)
 - [Paso 3: crear las capas](paso-3-capas.md)
-- [Paso 4: grupos de capas y capas de fondo](paso-4-grupos-y-fondos.md)
+- [Paso 4: grupos de permisos y capas de fondo](paso-4-grupos-y-fondos.md)
 - [Paso 5: construir el árbol de capas](paso-5-arbol.md)
 - [Paso 6: configurar las herramientas (tareas)](paso-6-herramientas.md)
 - [Paso 7: crear la aplicación y juntarlo todo](paso-7-aplicacion.md)

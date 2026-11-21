@@ -1,19 +1,19 @@
 ---
-description: "Paso 4 de la guía: crear en SITMUN 3 el grupo de capas que da acceso al rol y las capas de fondo."
+description: "Paso 4 de la guía: crear en SITMUN 3 el grupo de permisos que da acceso al rol y las capas de fondo."
 ---
 
-# Paso 4: grupos de capas y capas de fondo
+# Paso 4: grupos de permisos y capas de fondo
 
-Un grupo de capas es la manera de dar capas a un rol. Sin grupo, ningún rol tiene acceso a las capas del [paso 3](paso-3-capas.md).
+Un grupo de permisos es la manera de dar capas a un rol. Sin grupo, ningún rol tiene acceso a las capas del [paso 3](paso-3-capas.md).
 
-**4.1 Grupo de capas de trabajo** (menú **Permisos sobre las capas** → **Nuevo**)
+**4.1 Grupo de permisos para las capas de trabajo** (menú **Permisos sobre las capas** → **Nuevo**)
 
 1. **Nombre**, y **Tipo** = **Grupo de cartografía**.
 2. Pestaña **Capas**: añade las capas de trabajo.
 3. Pestaña **Roles**: añade el rol del [paso 1](paso-1-territorio-rol-usuario.md).
 4. **Guarda**.
 
-![Formulario de grupo de capas](../../manual/administrador/img/permisos-formulario.webp){ loading=lazy }
+![Formulario de grupo de permisos](../../manual/administrador/img/permisos-formulario.webp){ loading=lazy }
 
 Otros tipos de grupo: **Mapa de situación** (el mapa pequeño de referencia en la esquina, que se elige en la aplicación) e **Informe**.
 
