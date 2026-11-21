@@ -1,43 +1,43 @@
 ---
-description: "Clientes de SITMUN 3: visor de mapas web y embebible, aplicación de administración y aplicaciones móviles de edición y turística."
+description: "Clientes de SITMUN 3: clientes web (visor de mapas), cliente de administración, SITMUN Edition (edición de campo) y APP turística."
 ---
 
 # Clientes
 
+SITMUN 3 ofrece cuatro tipos de clientes, cada uno pensado para un público distinto:
+
+| Tipo | Para quién | Qué permite |
+| --- | --- | --- |
+| [Clientes web](#clientes-web) | Usuarios de SITMUN | Consultar y trabajar con mapas desde el navegador. |
+| [Cliente de administración](#cliente-de-administracion) | Administradores de los visores de cada entidad | Gestionar múltiples aplicaciones, accesos a datos y usuarios. |
+| [SITMUN Edition](#sitmun-edition) | Personal de campo | Editar cartografía online y offline desde un dispositivo Android. |
+| [APP turística](#app-turistica) | Ciudadanía y visitantes | Consultar datos turísticos desde un dispositivo Android. |
+
 ## Clientes disponibles
 
-| Cliente | Carpeta en [sitmun/sitmun](https://github.com/sitmun/sitmun) | Dirección |
-| --- | --- | --- |
-| Visor de mapas web | `sitmun-viewer` | `/viewer/` |
-| Visor embebible (para insertar en otra web con un `iframe`) | `sitmun-viewer` | `/viewer/#/embedded-map/{aplicación}/{territorio}/{idioma}` (sin `#/` en una instalación de desarrollo) |
-| Aplicación de administración | `sitmun-admin` | `/admin/` |
-| Aplicación móvil de edición (Android) | `sitmun-mobile/sitmun-edition` | — |
-| Aplicación móvil turística (Android) | `sitmun-mobile/sitmun-touristic` | — |
+| Cliente | Tipo | Carpeta en [sitmun/sitmun](https://github.com/sitmun/sitmun) | Dirección |
+| --- | --- | --- | --- |
+| Visor de mapas web | Web | `sitmun-viewer` | `/viewer/` |
+| Aplicación de administración | Administración | `sitmun-admin` | `/admin/` |
+| SITMUN Edition (Android) | Móvil de edición | `sitmun-mobile/sitmun-edition` | — |
+| APP turística (Android) | Móvil turística | `sitmun-mobile/sitmun-touristic` | — |
 
-### Aplicaciones móviles
+## Clientes web
 
-Las aplicaciones móviles no se publican con la instalación: se compilan desde su carpeta del repositorio (ver el README de
-cada una) y se conectan al backend de una instalación.
-
-- **Aplicación de edición**: solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
-  tiene acceso. Sin ninguna, el inicio de sesión responde 403. Esta aplicación usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
-- **Aplicación turística**: solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
-  Las instalaciones a las que se puede conectar se indican antes de compilarla, en los archivos
-  `src/environments/environment*.ts`: en `instancesUrl`, la dirección de un servicio de instancias, o, si se deja vacío,
-  directamente en `instancesData`. En los dos casos es un JSON en el que cada instancia tiene `name` (el texto del selector)
-  y `urlBackend` (la dirección del backend, por ejemplo `https://ejemplo.org/backend`).
+Son los clientes que utilizan los usuarios de SITMUN a través del navegador. El **visor de mapas web** es la aplicación
+completa, accesible en `/viewer/`.
 
 La mayor parte de las herramientas del visor provienen de la [API SITNA](https://github.com/sitna/api-sitna)
 y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
 
-## Requisitos de los visores de mapas
+### Requisitos de los visores de mapas
 
 !!! note "Requisitos originales"
     Este apartado recoge los requisitos con los que se diseñó el visor de mapas.
     No todos están disponibles; la lista de herramientas que se pueden activar
     está en [Tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
 
-### Aspectos globales
+#### Aspectos globales
 
 - **Responsivo**: para entorno web y dispositivos móviles.
 
@@ -87,7 +87,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   Si se indica que debe comenzar como visor público, solo se pedirá al usuario que seleccione el idioma antes de
   pasar a la configuración del cliente.
 
-### Funcionalidades básicas de navegación
+#### Funcionalidades básicas de navegación
 
 - **Zoom con desplazamiento**: zoom dinámico con desplazamiento del ratón. Doble clic en el mapa para acercarse.
 
@@ -101,7 +101,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Zoom de extensión**: botón de Zoom de extensión.
 
-### Funcionalidad de gestión de capas
+#### Funcionalidad de gestión de capas
 
 - **Orden de capas**: posibilidad de modificar el orden de visualización de las capas.
 
@@ -131,7 +131,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Capas activas**: ventana donde se presenten todas las capas activas, tanto las activadas desde el árbol como las cargadas de manera externa.
 
-### Herramientas básicas
+#### Herramientas básicas
 
 - **Imprimir**: impresión configurable del mapa, la leyenda, el gráfico, el título, el norte, logotipos, etc.
 
@@ -153,7 +153,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Pantalla completa**: posibilidad de poner el visor en modo de pantalla completa.
 
-### Información
+#### Información
 
 - **Información**: botón para solicitar información alfanumérica de los elementos gráficos de las capas activas
   (información y más información actual). Formatea la tabla de respuesta por defecto con una apariencia atractiva,
@@ -163,12 +163,12 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   más allá de especificar el tipo para cada campo (foto, texto, URL, etc.),
   tal y como permite ahora el acceso al código de cada tarea.
 
-### Buscadores, consultas y selección espacial
+#### Buscadores, consultas y selección espacial
 
 - **Buscador básico**: búsqueda de topónimos básica integrada con el buscador de capas.
   Muestra candidatos a partir del tercer carácter y diferencia en la lista entre topónimos y capas.
 
-### Herramientas avanzadas
+#### Herramientas avanzadas
 
 - **Compartir**: posibilidad de compartir el mapa de diferentes maneras:
 
@@ -183,13 +183,41 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Operaciones espaciales**: posibilidad de realizar operaciones espaciales entre capas como la intersección espacial
   aplicando un buffer.
 
-### Otras herramientas
+#### Otras herramientas
 
 - **Street View**: herramienta para agregar Street View al mapa.
 
-## Aplicación de administración
+## Cliente de administración
+
+Es la aplicación dirigida a los administradores de los visores de cada entidad. Permite gestionar múltiples
+aplicaciones, los accesos a los datos y los usuarios. Está disponible en `/admin/`.
 
 Ver el [Manual del administrador](../../usuario/manual/administrador/index.md).
+
+## SITMUN Edition
+
+Aplicación móvil para editar cartografía en trabajo de campo, tanto con conexión como sin ella (online y offline).
+Es multiusuario y multiproyecto, y solo está disponible para Android. En estos momentos solo permite la edición de puntos.
+
+No se publica con la instalación: se compila desde su carpeta del repositorio (`sitmun-mobile/sitmun-edition`, ver su
+README) y se conecta al backend de una instalación.
+
+- Solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
+  tiene acceso. Sin ninguna, el inicio de sesión responde 403.
+- Usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
+
+## APP turística
+
+Aplicación móvil de difusión de datos turísticos, solo disponible para Android.
+
+No se publica con la instalación: se compila desde su carpeta del repositorio (`sitmun-mobile/sitmun-touristic`, ver su
+README) y se conecta al backend de una instalación.
+
+- Solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
+- Las instalaciones a las que se puede conectar se indican antes de compilarla, en los archivos
+  `src/environments/environment*.ts`: en `instancesUrl`, la dirección de un servicio de instancias, o, si se deja vacío,
+  directamente en `instancesData`. En los dos casos es un JSON en el que cada instancia tiene `name` (el texto del selector)
+  y `urlBackend` (la dirección del backend, por ejemplo `https://ejemplo.org/backend`).
 
 [api-de-autenticacion]: arquitectura/api.md#api-de-autenticacion
 [api-de-configuracion-y-autorizacion]: arquitectura/api.md#api-de-configuracion-y-autorizacion
