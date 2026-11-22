@@ -7,12 +7,12 @@ site_name = "SITMUN"
 # point to this documentation repository (edit_uri).
 repo_url = "https://github.com/sitmun/sitmun"
 repo_name = "sitmun/sitmun"
-edit_uri = "https://github.com/sitmun/sitmun.github.io/edit/master/docs/"
+edit_uri = "https://github.com/sitmun/sitmun.github.io/edit/main/docs/"
 site_url = "https://sitmun.github.io"
 site_description = "Documentación técnica de SITMUN 3: instalación, administración, arquitectura y API de la plataforma de información territorial para administraciones locales."
 site_dir = "_site"
 # Footer text. The documentation is published under the EUPL 1.2 licence (LICENSE).
-copyright = "Documentación de SITMUN, publicada por la Red SITMUN con licencia <a href=\"https://github.com/sitmun/sitmun.github.io/blob/master/LICENSE\">EUPL 1.2</a>."
+copyright = "Documentación de SITMUN, publicada por la Red SITMUN con licencia <a href=\"https://github.com/sitmun/sitmun.github.io/blob/main/LICENSE\">EUPL 1.2</a>."
 extra_css = ["css/fonts.css", "css/extra.css"]
 # js/mermaid-local.js serves Mermaid from this site instead of unpkg.com.
 extra_javascript = ["js/checklists.js", "js/mermaid-local.js"]

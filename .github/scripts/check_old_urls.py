@@ -1,6 +1,6 @@
-"""Fail when a page that was ever published from docs/ on master no longer resolves.
+"""Fail when a page that was ever published from docs/ on main no longer resolves.
 
-Every .md file under docs/ at any first-parent commit of master was published
+Every .md file under docs/ at any first-parent commit of main was published
 as a page, and so was every .html file (the 2023 Sphinx pages). Each one must
 still exist in the built site, as a page or a redirect (redirect_maps in
 zensical.toml, or a static redirect page under docs/), so old links and
@@ -18,7 +18,7 @@ import subprocess
 import sys
 
 site = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
-branch = sys.argv[2] if len(sys.argv) > 2 else "origin/master"
+branch = sys.argv[2] if len(sys.argv) > 2 else "origin/main"
 
 # Files under docs/ that were part of a bundled app or theme templates, not pages.
 IGNORE_PREFIXES = ("viewer-app/", "admin-app/")

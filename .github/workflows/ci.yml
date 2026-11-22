@@ -5,12 +5,12 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - master
+      - main
 
   # Builds (without deploying) pull requests targeting the default branch
   pull_request:
     branches:
-      - master
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,7 +41,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0  # check_old_urls.py reads the whole master history
+          fetch-depth: 0  # check_old_urls.py reads the whole main history
       - name: Setup Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
@@ -69,9 +69,9 @@ jobs:
       # succeeds with an error in place of the diagram. Fail instead.
       - name: Check that every PlantUML diagram rendered
         run: python .github/scripts/check_diagrams.py docs _site
-      # Every page ever published from master must still resolve (page or redirect).
+      # Every page ever published from main must still resolve (page or redirect).
       - name: Check that old page URLs still resolve
-        run: python .github/scripts/check_old_urls.py _site origin/master
+        run: python .github/scripts/check_old_urls.py _site origin/main
       # A link inside the site must not land on a redirect stub: the linking text may be stale.
       - name: Check that no page links to a redirect stub
         run: python .github/scripts/check_redirect_links.py _site
