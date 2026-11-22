@@ -71,9 +71,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
         `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
         `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
-        Docker Compose no arranca si falta alguno. Antes de ejecutar `setup.sh`, el `.env` debe acabar con un salto de línea:
-        si no, el script añade el primer secreto a continuación de la última línea y la estropea. Si no se está seguro, se
-        comprueba después que cada clave está en su propia línea.
+        Docker Compose no arranca si falta alguno. Antes de ejecutar `setup.sh` o `setup.ps1`, el `.env` debe acabar con un
+        salto de línea: si no, el script añade el primer secreto a continuación de la última línea y la estropea. Si no se
+        está seguro, se comprueba después que cada clave está en su propia línea.
 
     3. Se arranca la plataforma con las imágenes publicadas:
 
@@ -148,9 +148,10 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     **Publicar con HTTPS detrás de un proxy inverso**
 
-    El contenedor `front` ya envía al backend y al proxy las cabeceras `X-Forwarded-*` con los valores de
-    `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME` y `PUBLIC_PORT`, y sustituye las que lleguen de fuera. El proxy inverso solo tiene
-    que terminar el TLS y reenviar todas las peticiones al puerto 9000. En `.env`:
+    El contenedor `front` ya envía al backend y al proxy `X-Forwarded-Proto`, `X-Forwarded-Host`, `X-Forwarded-Port` y
+    `X-Forwarded-Prefix` con los valores de `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT` y `PUBLIC_BASE_PATH`, y
+    sustituye esas cuatro si llegan de fuera. El proxy inverso solo tiene que terminar el TLS y reenviar todas las peticiones
+    al puerto 9000. En `.env`:
 
     ```text
     PUBLIC_URL_SCHEME=https
@@ -173,6 +174,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         location / {
             proxy_pass http://127.0.0.1:9000;
             proxy_set_header Host $host;
+            proxy_set_header Forwarded "";
         }
     }
     ```
@@ -218,7 +220,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     - `COMPOSE_PROFILES`: `postgres` u `oracle`. Se añade `,demo` para la base de datos de ejemplo y `,mbtiles` para MBTiles.
     - `DATABASE_TYPE`, `DATABASE_URL`, `DATABASE`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
     - `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME`, `PUBLIC_PORT`: dirección pública de la instalación.
-    - `LOCAL_PORT`: puerto de la máquina en el que se publica el contenedor `front` (9000 por defecto).
+    - `LOCAL_PORT`: puerto de la máquina en el que se publica el contenedor `front` (9000 por defecto); admite también
+      `IP:puerto`, por ejemplo `127.0.0.1:9000` para publicarlo solo en la propia máquina.
     - `PUBLIC_BASE_PATH`: ruta pública (`/` por defecto). La imagen publicada de `front` solo funciona en `/`: para publicar
       SITMUN bajo una ruta (por ejemplo `/sitmun3/`) hay que construir `front` desde el repositorio con `PUBLIC_BASE_PATH`
       y `LOCAL_BASE_PATH`, como explica DEPLOYMENT.md (*Path prefix*).
@@ -227,7 +230,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
       con las propiedades `spring.mail.*` y `sitmun.recover-password.mail.from` en un archivo `application-mail.yml` dentro de
       la carpeta de configuración del perfil (por ejemplo `profiles/postgres/`). Los usuarios necesitan un correo electrónico.
     - `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET`, `SITMUN_MBTILES_JOB_HANDLE_SECRET`: secretos obligatorios (los genera `setup.sh`).
-      `SITMUN_USER_SECRET` y `MIDDLEWARE_SECRET` deben tener al menos 32 caracteres; si no, el backend y el proxy se detienen al arrancar.
+      Los dos deben tener al menos 32 caracteres: si `SITMUN_USER_SECRET` es más corto, el backend se detiene al arrancar;
+      si lo es `MIDDLEWARE_SECRET`, se detienen el backend y el proxy.
     - `FORCE_USE_OF_PROXY`: fuerza el uso del proxy (`false` por defecto).
 
     <a id="cambiar-un-secreto"></a>
@@ -238,7 +242,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     | Variable de `.env` | Servicios | Efecto del cambio |
     | --- | --- | --- |
     | `SITMUN_USER_SECRET` | `backend` | Se cierran las sesiones de todos los usuarios, que tienen que volver a entrar. |
-    | `MIDDLEWARE_SECRET` | `backend` y `proxy` | Tiene que ser igual en los dos: si difieren, el proxy no consigue su configuración. |
+    | `MIDDLEWARE_SECRET` | `backend` y `proxy` | Lo leen los dos de la misma variable: hay que recrear los dos a la vez; si no, el backend rechaza las peticiones del proxy (401). |
     | `SITMUN_MBTILES_JOB_HANDLE_SECRET` | `proxy` | Se pierden las exportaciones de teselas en curso. |
 
     Para cambiarlo, se genera un valor nuevo (por ejemplo `openssl rand -hex 32`), se escribe en `.env` y se vuelven a crear
@@ -254,7 +258,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     repositorio único `sitmun/sitmun`, que no usa la carpeta ni el volumen de datos de `sitmun-application-stack`. Los pasos:
 
     1. Se hace una [copia de seguridad de la base de datos](solucion-problemas.md#backup-de-base-de-datos) de la instalación 1.2.x.
-    2. Se para la instalación 1.2.x, porque publica los mismos puertos (9001 a 9005) que la 1.3.0. En la carpeta antigua:
+    2. Se detiene la instalación 1.2.x, porque publica los mismos puertos (9001 a 9005) que la 1.3.0. En la carpeta antigua:
 
         ```bash
         docker compose down
@@ -264,9 +268,10 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     3. En la carpeta de `sitmun/sitmun`, se copia el `.env` anterior (que debe acabar con un salto de línea) y se ejecuta
         `setup.sh` (o `setup.ps1`), que añade los secretos que la 1.3.0 exige y el 1.2.x no tenía (`MIDDLEWARE_SECRET`,
         `SITMUN_MBTILES_JOB_HANDLE_SECRET`). Sin ellos, Compose no arranca.
-        `setup.sh` no cambia los secretos que ya hay en el `.env`, ni siquiera si están en blanco o son cortos. El backend y
-        el proxy no arrancan si `SITMUN_USER_SECRET` o `MIDDLEWARE_SECRET` tienen menos de 32 caracteres, así que se
-        comprueban en `.env` y, si hace falta, se cambian (ver [Cambiar un secreto](#cambiar-un-secreto)).
+        `setup.sh` no cambia los secretos que ya hay en el `.env`, ni siquiera si están en blanco o son cortos. Si
+        `SITMUN_USER_SECRET` tiene menos de 32 caracteres, el backend se detiene al arrancar; si los tiene
+        `MIDDLEWARE_SECRET`, se detienen el backend y el proxy. Por eso se comprueban en `.env` y, si hace falta, se
+        cambian (ver [Cambiar un secreto](#cambiar-un-secreto)).
     4. Se pone en `.env` `SITMUN_UPGRADE_DEFAULT_LANGUAGE` con el idioma en el que está escrito el texto de la base de datos
         (por ejemplo `es`). El parámetro `language.default` de la tabla `STM_CONF` tiene que tener el mismo valor. Si falta
         alguno de los dos, si no coinciden o si ese idioma no está en `STM_LANGUAGE`, la actualización se detiene sin cambiar nada.
@@ -277,14 +282,15 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     6. Se arranca el resto: `docker compose up -d --pull always --no-build`. El backend actualiza la base de datos al arrancar.
 
     La actualización también se detiene, sin cambiar nada, si la tabla `STM_LOG` tiene filas que apuntan a elementos
-    borrados (la guía de actualización da la consulta para encontrarlas; esto afecta a las bases de datos de 1.2.8 en adelante)
-    o si dos capas comparten el mismo estilo
+    borrados (la guía de actualización da la consulta para encontrarlas; solo se comprueba en una base de datos 1.2.8 o en
+    una Oracle que se quedó a medias en 1.2.9) o si dos capas comparten el mismo estilo
     (`shared geo_styid`). Además, la 1.3.0 comprueba los certificados de los servidores externos: uno con un certificado
     autofirmado necesita `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`, que Compose 1.3.0 no pasa al backend
     ([sitmun/sitmun#378](https://github.com/sitmun/sitmun/issues/378)).
 
     En Oracle 11 o 21 (19c no se ha probado), una base de datos que ya se actualizó a 1.2.9 queda con la actualización
-    incompleta, porque un cambio de 1.2.9 usa sintaxis de Oracle 23. Para actualizarla se sigue el caso de una base de datos 1.2.8. Los detalles de cada caso están en
+    incompleta, porque un cambio de 1.2.9 usa sintaxis de Oracle 23. Para actualizarla se sigue el caso de una base de
+    datos 1.2.8. Los detalles de cada caso están en
     [docs/upgrade](https://github.com/sitmun/sitmun/tree/main/docs/upgrade).
 
     **Parar y desinstalar**
@@ -314,10 +320,11 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
     Se sigue el mismo procedimiento que para una copia de seguridad y su restauración: se hace la
     [copia de la base de datos](solucion-problemas.md#backup-de-base-de-datos) en el servidor antiguo y, en el nuevo, se clona
-    el repositorio, se copia el `.env` del antiguo (así los secretos son los mismos y las sesiones siguen válidas), se arranca
-    solo la base de datos, se restaura la copia y se arranca el resto. Si cambia la dirección, se actualizan
-    `PUBLIC_URL_SCHEME`, `PUBLIC_HOSTNAME` y `PUBLIC_PORT` en el `.env` nuevo, y también los archivos de configuración propios,
-    como `application-mail.yml`.
+    el repositorio en la misma versión (`--branch v1.3.0`), se copian el `.env` (así los secretos son los mismos y las
+    sesiones siguen válidas), el `compose.override.yaml` (si existe) y los archivos propios de `profiles/` (por ejemplo
+    `application-mail.yml`), se arranca solo la base de datos, se restaura la copia y se arranca el resto.
+    Si cambia la dirección, se actualizan `PUBLIC_*` y, si existe, el parámetro `proxy` de Sistema → Parámetros de
+    configuración.
 
 === "Fuente"
 

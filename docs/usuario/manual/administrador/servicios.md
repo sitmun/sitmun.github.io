@@ -42,9 +42,10 @@ Para un servicio con autenticación, en el desplegable **Método de autenticaci�
 
 Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
 
-!!! warning "SITMUN 1.3.0: error 401 en el proxy tras un cambio de contraseña"
-    Un usuario registrado que ha cambiado alguna vez su contraseña (por ejemplo `admin` tras el primer cambio, o cualquier usuario tras restablecerla) recibe un error 401 en todas las capas y tareas que pasan por el proxy.
-    No hay solución en la configuración. El usuario `public` no se ve afectado ([sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387)).
+!!! warning "SITMUN 1.3.0: error 401 en el proxy con algunos usuarios"
+    Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que pasan por el proxy.
+    Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña. Cambiar la contraseña desde el formulario de usuarios no la registra.
+    No hay solución en la configuración. No se ven afectados el usuario `public` ni las capas que el visor carga directamente, sin pasar por el proxy. Con `FORCE_USE_OF_PROXY=true`, todas las capas pasan por el proxy ([sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387)).
 
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 

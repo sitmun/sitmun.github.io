@@ -45,7 +45,7 @@ Se prevé la siguiente lógica funcional:
 
     - Opción de consultar los datos de usuario en el SITMUN (territorio, rol, caducidad…) y gestionar determinados datos de usuario (cambiar el correo electrónico, el teléfono y la contraseña)
     - Informar de forma clara de: fecha del último acceso a SITMUN, fecha de último acceso para cada aplicación, fecha de caducidad de los permisos para cada aplicación/territorio,
-    - Espacio de notícias y comunicados para que el administrador SITMUN pueda enviar mensajes a cada usuario en función de sus permisos de acceso.
+    - Espacio de noticias y comunicados para que el administrador SITMUN pueda enviar mensajes a cada usuario en función de sus permisos de acceso.
     - Acceso diferenciado a las aplicaciones públicas.
     - Buscador de territorios
     - Cambio de idioma

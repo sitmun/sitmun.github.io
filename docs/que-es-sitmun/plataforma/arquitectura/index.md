@@ -451,11 +451,8 @@ Client -->> Usuario: Visor listo para usar
 ### Uso del proxy para acceder a un WMS privado
 
 !!! warning "Problema conocido en la versión 1.3.0"
-    En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
-    Por eso, un usuario con un cambio de contraseña registrado (por ejemplo, `admin` después de su primer cambio de contraseña, o cualquier usuario tras recuperar la contraseña) recibe 401 en todas las capas y tareas privadas que pasan por el proxy.
-    No se puede evitar con la configuración. El usuario público y los servicios públicos no se ven afectados.
-    Este problema afecta igual a los WMS privados y a las consultas a bases de datos de la intranet descritas a continuación.
-    Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+    En la versión 1.3.0, algunos usuarios registrados reciben 401 en las capas y tareas que pasan por el proxy, también en los WMS privados y en las consultas a bases de datos de la intranet descritos a continuación.
+    Los usuarios afectados y el alcance se explican en [la API de Proxy](api.md#problema-token-proxy-1-3-0).
 
 ```plantuml alt="Diagrama de secuencia del acceso a un WMS privado: el visor pide el mapa al proxy con su token; el proxy pide la configuración al backend con su clave de proxy, el backend valida el token y devuelve la URL y los parámetros del servicio, y el proxy hace la petición al WMS y devuelve la imagen."
 @startuml

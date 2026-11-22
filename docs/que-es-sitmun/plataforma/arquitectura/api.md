@@ -30,9 +30,9 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 - **Autenticación local**. SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
   criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
 
-- **Autenticación LDAP**. Admite la autenticación a través de un servidor LDAP (perfil Spring `ldap`).
+- **Autenticación LDAP**. SITMUN admite la autenticación a través de un servidor LDAP (perfil Spring `ldap`).
 
-- **Autenticación OpenID Connect (OIDC)**. Admite la autenticación con uno o varios proveedores OIDC (perfil Spring `oidc`).
+- **Autenticación OpenID Connect (OIDC)**. SITMUN admite la autenticación con uno o varios proveedores OIDC (perfil Spring `oidc`).
   El cliente consulta los métodos activos en `GET /api/auth/enabled-methods`.
 
 - **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de correo electrónico.
@@ -86,10 +86,15 @@ usando un token de corta duración que se ha obtenido previamente mediante la [A
 Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
 *usuario público*.
 
+<a id="problema-token-proxy-1-3-0"></a>
+
 !!! warning "Problema conocido en la versión 1.3.0"
     En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
-    Por eso, un usuario con un cambio de contraseña registrado (por ejemplo, `admin` después de su primer cambio de contraseña, o cualquier usuario tras recuperar la contraseña) recibe 401 en todas las capas y tareas privadas que pasan por el proxy.
-    No se puede evitar con la configuración. El usuario público y los servicios públicos no se ven afectados.
+    Por eso, los usuarios afectados reciben 401 en todas las capas y tareas que pasan por el proxy.
+    Afecta a los usuarios con fecha de último cambio de contraseña registrada: el usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y cualquier usuario que la haya restablecido con la recuperación de contraseña.
+    Cambiar la contraseña desde el formulario de usuarios no la registra.
+    No se puede evitar con la configuración.
+    No se ven afectados el usuario público ni las capas que el visor carga directamente, sin pasar por el proxy. Con `FORCE_USE_OF_PROXY=true`, todas las capas pasan por el proxy.
     Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 ### Aspectos globales

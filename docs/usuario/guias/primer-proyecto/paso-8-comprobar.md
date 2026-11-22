@@ -15,9 +15,10 @@ El administrador no tiene ningún botón para abrir el visor. Ábrelo aparte, en
 - La aplicación aparece en la pestaña **Aplicaciones restringidas**.
 - El rol de ese usuario tiene que estar en los mismos sitios en los que pusiste el rol del usuario `public`: los mapas de fondo y grupos de permisos ([paso 4](paso-4-grupos-y-fondos.md)), el árbol ([paso 5](paso-5-arbol.md)) y las tareas ([paso 6](paso-6-herramientas.md)). Si falta en los mapas de fondo, el mapa muestra «No hay capas definidas como base».
 
-!!! warning "SITMUN 1.3.0: error 401 en el proxy tras un cambio de contraseña"
-    Si el usuario ha cambiado alguna vez su contraseña (por ejemplo `admin` tras el primer cambio, o cualquier usuario tras restablecerla), recibe un error 401 en las capas y tareas que pasan por SITMUN Proxy Middleware (servicios con **Usar proxy SITMUN**, consultas).
-    No hay solución en la configuración. El usuario `public` no se ve afectado ([sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387)).
+!!! warning "SITMUN 1.3.0: error 401 en el proxy con algunos usuarios"
+    Si el usuario con el que entras tiene registrada la fecha del último cambio de contraseña, recibe un error 401 en las capas y tareas que pasan por SITMUN Proxy Middleware (servicios con **Usar proxy SITMUN**, consultas).
+    Le pasa al usuario `admin` si creaste su contraseña en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y a cualquier usuario que la haya restablecido con la recuperación de contraseña. Si cambias la contraseña desde el formulario de usuarios, no se registra.
+    No hay solución en la configuración. No se ven afectados el usuario `public` ni las capas que el visor carga directamente, sin pasar por el proxy. Con `FORCE_USE_OF_PROXY=true`, todas las capas pasan por el proxy ([sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387)).
 
 Las imágenes publicadas, los perfiles de producción y el *showcase* usan direcciones con `#/`.
 Solo una instalación de desarrollo (perfiles `development-*.env`) las usa sin `#/`, por ejemplo `/viewer/public/dashboard`.

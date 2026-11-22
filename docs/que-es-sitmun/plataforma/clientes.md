@@ -19,9 +19,9 @@ description: "Clientes de SITMUN 3: visor de mapas web y embebible, aplicación 
 Las aplicaciones móviles no se publican con la instalación: se compilan desde su carpeta del repositorio (ver el README de
 cada una) y se conectan al backend de una instalación.
 
-- **Aplicación de edición** (*SITMUN Mobile Editor*): solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
+- **Aplicación de edición** (SITMUN Mobile Editor): solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
   tiene acceso. Sin ninguna, el inicio de sesión responde 403. Esta aplicación usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
-- **Aplicación turística** (*SITMUN Touristic*): solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
+- **Aplicación turística** (SITMUN Touristic): solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
   Las instalaciones a las que se puede conectar se indican antes de compilarla, en los archivos
   `src/environments/environment*.ts`: en `instancesUrl`, la dirección de un servicio de instancias, o, si se deja vacío,
   directamente en `instancesData`. En los dos casos es un JSON en el que cada instancia tiene `name` (el texto del selector)
@@ -77,10 +77,8 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   un identificador de territorio y un identificador de aplicación.
 
     !!! warning "Problema conocido en la versión 1.3.0"
-        En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
-        Por eso, un usuario con un cambio de contraseña registrado (por ejemplo, `admin` después de su primer cambio de contraseña, o cualquier usuario tras recuperar la contraseña) recibe 401 en todas las capas y tareas privadas que pasan por el proxy.
-        No se puede evitar con la configuración. El usuario público y los servicios públicos no se ven afectados.
-        Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+        En la versión 1.3.0, algunos usuarios registrados reciben 401 en las capas y tareas que pasan por el proxy.
+        Los usuarios afectados y el alcance se explican en [la API de Proxy](arquitectura/api.md#problema-token-proxy-1-3-0).
 
 - **Secuencia de inicio**: el cliente solicitará a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   una configuración básica (territorios y aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar; los idiomas

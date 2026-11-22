@@ -20,7 +20,7 @@ La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué ro
 
 !!! warning "SITMUN 1.3.0: mapa de situación en blanco con WMTS"
     Si la capa del mapa de situación es WMTS, el mapa de situación sale en blanco ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)).
-    Si tu primer mapa de fondo es WMTS, crea en **Permisos sobre las capas** un grupo de tipo «Mapa de situación» con una sola capa WMS y elígelo aquí, en **Mapa de situación**.
+    Si tu primer mapa de fondo es WMTS, crea en **Permisos sobre las capas** un grupo de tipo **Mapa de situación** con una sola capa WMS y elígelo aquí, en **Mapa de situación**.
 
 ![Información general de una aplicación](img/paso-7-aplicacion.webp){ loading=lazy }
 

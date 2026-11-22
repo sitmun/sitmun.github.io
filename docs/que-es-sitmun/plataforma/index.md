@@ -30,7 +30,7 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
 - **Nivel cliente**: actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun/tree/main/sitmun-admin)** para los administradores,
   un **[visor de mapas](https://github.com/sitmun/sitmun/tree/main/sitmun-viewer)** basado en la [API SITNA](https://github.com/sitna/api-sitna)
   que es utilizado por los diferentes tipos de usuarios finales, tanto al público en general como a especialistas de los ayuntamientos, entre otros,
-  y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: «SITMUN Mobile Editor», de edición de datos sin conexión, y «SITMUN Touristic», turística.
+  y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: SITMUN Mobile Editor, de edición de datos sin conexión, y SITMUN Touristic, la aplicación turística.
 - **Nivel de lógica de negocio**: desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
   tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
   El acceso a la lógica de negocio de los **visores de mapas** se realiza sobre todo a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy Middleware**); además, el visor usa la API de Autenticación y algunos endpoints de la API de Administración (ver [Arquitectura](arquitectura/index.md)).
