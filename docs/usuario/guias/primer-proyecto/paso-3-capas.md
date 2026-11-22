@@ -14,12 +14,12 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
 
     ![Capas del servicio seleccionadas para registrar](../../manual/administrador/img/servicios-seleccionar-capas.webp){ loading=lazy }
 
-!!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
+!!! bug "Error conocido de SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo (sitmun/sitmun#371)"
     En un servicio que aún no has guardado, las capas obtenidas aparecen por error como «Pendiente crear»
     en lugar de «Capa no registrada» ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
     Al guardar solo se crean las que registras con **Registrar**.
 
-!!! warning "SITMUN 1.3.0: capas WMS con varios estilos"
+!!! bug "Error conocido de SITMUN 1.3.0: capas WMS con varios estilos (sitmun/sitmun#384)"
     Si una capa del servidor ofrece más de un estilo, al guardar aparece un error por cada estilo de más
     («Múltiples Errores» si hay más de uno; [sitmun/sitmun#384](https://github.com/sitmun/sitmun/issues/384)). Las capas se crean igualmente,
     pero cada una guarda un solo estilo y los demás se pierden. Puedes usar la capa con ese estilo.

@@ -42,7 +42,7 @@ Para un servicio con autenticación, en el desplegable **Método de autenticaci�
 
 Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
 
-!!! warning "SITMUN 1.3.0: error 401 en el proxy con algunos usuarios"
+!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
     Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que el visor pide a través de SITMUN Proxy Middleware (servicios con **Usar proxy SITMUN**, consultas SQL, de API web y sobre capas, localizadores; no las consultas de API web sin proxy). Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña; cambiar la contraseña desde el formulario de usuarios no registra esa fecha.
     No hay solución en la configuración. No se ven afectados el usuario público ni las capas que el visor carga directamente. Más detalles en [la API de Proxy](../../../que-es-sitmun/plataforma/arquitectura/api.md#problema-token-proxy-1-3-0) y en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
@@ -64,7 +64,7 @@ En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las
 
 Del listado se eligen las capas que se quieren incorporar a SITMUN y se pulsa **Registrar** (símbolo **+**). Su punto pasa a naranja, «Pendiente registrar»: están preparadas, pero todavía no forman parte de SITMUN. Las capas se crean al guardar el servicio.
 
-!!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
+!!! bug "Error conocido de SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo (sitmun/sitmun#371)"
     En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto
     naranja «Pendiente crear» en lugar del amarillo «Capa no registrada»
     ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).

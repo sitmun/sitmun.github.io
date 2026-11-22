@@ -40,7 +40,7 @@ En el menú de [árboles](../../arboles.md) se localiza el nodo de la capa para 
 
 ![Opción Consultable del nodo del árbol](../../img/basicas-feature-info-arbol.webp){ loading=lazy }
 
-!!! warning "SITMUN 1.3.0"
+!!! bug "Error conocido de SITMUN 1.3.0: consulta de capas desactivada (sitmun/sitmun#377)"
     En la versión 1.3.0 el visor no aplica esta opción del nodo: la capa se consulta aunque esté desactivada
     ([sitmun/sitmun#377](https://github.com/sitmun/sitmun/issues/377)). Lo que sí impide la consulta es desactivar
     la opción de la capa del paso 1.

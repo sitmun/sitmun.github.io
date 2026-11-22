@@ -39,6 +39,7 @@ Cada *pull request* a `master` ejecuta en GitHub Actions (`.github/workflows/ci.
 - que ninguna página enlace a una página de redirección (`check_redirect_links.py`);
 - que ninguna página cargue recursos de otros sitios (`check_external_resources.py`);
 - que las etiquetas de la interfaz en negrita existan en SITMUN 1.3.0 (`check_ui_labels.py`, con `.github/label-allowlist.txt`);
+- que cada aviso de un error conocido de SITMUN sea una nota `!!! bug` con el número de su incidencia en el título y un enlace a ella (`check_bug_notes.py`);
 - que los enlaces locales funcionen (`lychee`);
 - que `requirements.txt` coincida con `poetry.lock` (`requirements-sync`).
 

@@ -92,7 +92,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 
 <a id="problema-token-proxy-1-3-0"></a>
 
-!!! warning "Problema conocido en la versión 1.3.0"
+!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
     En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
     Por eso, los usuarios con esa fecha registrada reciben 401 en todas las capas y tareas que el visor pide a través del proxy.
 
@@ -105,11 +105,12 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
       información que usan SQL o una API.
     - **No afectados**: el usuario público y las capas que el visor carga directamente, sin pasar por el proxy.
 
-    No se puede evitar con la configuración.
-    La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0
-    ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)): pasan por el proxy los servicios con «Usar proxy SITMUN»
-    y las tareas que el backend dirige al proxy (las de la lista anterior).
-    Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+    No se puede evitar con la configuración. Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+
+!!! bug "Error conocido de SITMUN 1.3.0: `FORCE_USE_OF_PROXY` sin efecto (sitmun/sitmun#389)"
+    La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0: Compose pasa su valor a una
+    propiedad que el backend no lee. Pasan por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend
+    dirige al proxy (las de la lista anterior). Seguimiento: [sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389).
 
 ### Aspectos globales
 
