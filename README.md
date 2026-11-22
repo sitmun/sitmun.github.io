@@ -30,7 +30,7 @@ La comprobación `requirements-sync` falla si `requirements.txt` no coincide con
 
 ## Comprobaciones
 
-Cada *pull request* a `master` ejecuta en GitHub Actions (`.github/workflows/ci.yml`):
+Cada *pull request* a `main` ejecuta en GitHub Actions (`.github/workflows/ci.yml`):
 
 - que `zensical build --strict` termine sin errores, lo que incluye que se pueda dibujar toda tabla de cuadrícula;
 - que se traduzcan las páginas de redirección (`localize_redirects.py`);
@@ -51,3 +51,29 @@ Cada lunes a las 06:00 UTC, y a mano desde la pestaña *Actions*, se ejecutan ad
 
 - `links.yml` construye la web y comprueba con `lychee` todos los enlaces del resultado, también los externos;
 - `issue-notes.yml` lista las incidencias cerradas que citan las páginas (`check_issue_notes.py`).
+
+## Documentar una nueva versión de SITMUN
+
+La web documenta solo la última versión publicada de SITMUN, la de `sitmun_version` en `zensical.toml`. Ese valor
+alimenta la barra de anuncio (`overrides/main.html`) y `check_ui_labels.py`, que lee las etiquetas de la etiqueta
+`v<versión>` de `sitmun/sitmun`.
+
+1. **Inicio del ciclo.** Cuando se fusiona en `dev` de `sitmun/sitmun` el primer *pull request* posterior a la última
+   versión, se crea la rama `docs/<versión>` (por ejemplo, `docs/1.3.1`) desde `main` y se abre como *pull request* en
+   borrador. Lo que documenta comportamiento aún no publicado va en esa rama; las correcciones de lo publicado van a
+   `main`, que se fusiona en `docs/<versión>` de vez en cuando.
+2. **Pendientes.** Los *pull requests* de `sitmun/sitmun` con la etiqueta `documentation` fusionados en `dev` desde la
+   última versión.
+3. **Notas de errores conocidos.** Cuando se fusiona en `dev` la corrección de una incidencia citada, en `main` se añade
+   su número a `.github/issue-notes-accepted.txt`; en `docs/<versión>` se actualiza o se quita la nota y se borra esa
+   línea.
+4. **Versión.** Se cambian solo las referencias a la versión actual: `sitmun_version`, las etiquetas de imagen, ramas y
+   archivos de `docs/usuario/instalacion/instalacion.md`, `.github/ISSUE_TEMPLATE/discrepancia.yml`, la línea de
+   `check_ui_labels.py` de este archivo y el comentario de `.github/workflows/issue-notes.yml`. Las notas que dicen cómo
+   se comporta «SITMUN X.Y.Z» se cambian solo si la nueva versión cambia ese comportamiento.
+5. **Etiquetas nuevas.** Una etiqueta de la interfaz que solo existe en `dev` hace fallar `check_ui_labels.py` hasta
+   que se cambia `sitmun_version`. Se deja fallar en el borrador, o se añade a `.github/label-allowlist.txt` con un
+   comentario y se quita al cambiar la versión.
+6. **Día de la versión.** Con la etiqueta `v<versión>` ya publicada en `sitmun/sitmun`, se hace el *commit* que cambia la
+   versión, se marca el *pull request* como listo, se espera a que pasen las comprobaciones, se fusiona y se borra la
+   rama.

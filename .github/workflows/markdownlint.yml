@@ -9,7 +9,7 @@ name: Markdown lint (auto-fix)
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - '**.md'
       - '.markdownlint-cli2.yaml'
