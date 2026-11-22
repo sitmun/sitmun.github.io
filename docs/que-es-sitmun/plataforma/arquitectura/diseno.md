@@ -109,7 +109,7 @@ Además, todas las peticiones enviadas a través del **proxy** deben incluir
 un identificador de territorio y un identificador de aplicación.
 
 !!! warning "Problema conocido en la versión 1.3.0"
-    En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` tras el primer acceso y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy.
+    En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` con la contraseña creada en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy.
     Los usuarios afectados y el alcance se explican en [la API de Proxy](api.md#problema-token-proxy-1-3-0).
 
 El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado

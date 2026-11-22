@@ -393,28 +393,36 @@ docker compose start
 Con el perfil `oracle`, la copia es una exportación de Data Pump del esquema de la aplicación (`sitmun3` por defecto, o el
 valor de `DATABASE_USERNAME`). `expdp` e `impdp` están dentro del contenedor `oracle`, que arranca con el usuario `system` y
 la contraseña `password`, y el servicio de la base de datos se llama como `DATABASE` (`sitmun3` por defecto). Los comandos
-siguientes se han probado con la imagen `gvenzl/oracle-free:23-slim`.
+siguientes se han probado con la imagen `gvenzl/oracle-free:23-slim`, también en una base de datos recién creada.
+
+Data Pump escribe en un objeto directorio de Oracle. El primer comando crea la carpeta `/opt/oracle/oradata/dpdump`
+dentro del contenedor y el objeto directorio `SITMUN_DP`, que apunta a ella. Se ejecuta antes de exportar y antes de
+importar, y puede repetirse sin problema.
 
 Para crear la copia y llevarla a un archivo del equipo:
 
 ```bash
+docker compose exec oracle bash -c "mkdir -p /opt/oracle/oradata/dpdump && echo \"CREATE OR REPLACE DIRECTORY SITMUN_DP AS '/opt/oracle/oradata/dpdump';\" | sqlplus -s system/password@//localhost:1521/sitmun3"
 docker compose exec oracle expdp system/password@//localhost:1521/sitmun3 schemas=sitmun3 \
-  directory=DATA_PUMP_DIR dumpfile=sitmun3.dmp logfile=exp.log reuse_dumpfiles=yes
-docker compose exec -T oracle bash -c 'cat /opt/oracle/admin/FREE/dpdump/*/sitmun3.dmp' > sitmun3.dmp
+  directory=SITMUN_DP dumpfile=sitmun3.dmp logfile=exp.log reuse_dumpfiles=yes
+docker compose exec -T oracle cat /opt/oracle/oradata/dpdump/sitmun3.dmp > sitmun3.dmp
 ```
 
-Para restaurarla, se paran el backend y el proxy, se copia el archivo al contenedor, se importa y se vuelven a arrancar:
+Para restaurarla, se paran el backend y el proxy, se crea el objeto directorio, se copia el archivo al contenedor, se
+importa y se vuelven a arrancar:
 
 ```bash
 docker compose stop backend proxy
-docker compose exec -T oracle bash -c 'cat > "$(ls -d /opt/oracle/admin/FREE/dpdump/*/)sitmun3.dmp"' < sitmun3.dmp
+docker compose exec oracle bash -c "mkdir -p /opt/oracle/oradata/dpdump && echo \"CREATE OR REPLACE DIRECTORY SITMUN_DP AS '/opt/oracle/oradata/dpdump';\" | sqlplus -s system/password@//localhost:1521/sitmun3"
+docker compose exec -T oracle bash -c 'cat > /opt/oracle/oradata/dpdump/sitmun3.dmp' < sitmun3.dmp
 docker compose exec oracle impdp system/password@//localhost:1521/sitmun3 schemas=sitmun3 \
-  directory=DATA_PUMP_DIR dumpfile=sitmun3.dmp logfile=imp.log table_exists_action=replace
+  directory=SITMUN_DP dumpfile=sitmun3.dmp logfile=imp.log table_exists_action=replace
 docker compose start backend proxy
 ```
 
 `impdp` termina con un error `ORA-31684` (el usuario `sitmun3` ya existe), que es normal. La importación sustituye las
-tablas que ya existen. Para mover SITMUN a otro servidor, se siguen los mismos pasos en el contenedor `oracle` del servidor nuevo, con la base
+tablas que ya existen. El archivo de la copia queda en el volumen `oradata`, en `/opt/oracle/oradata/dpdump`, y puede
+borrarse después. Para mover SITMUN a otro servidor, se siguen los mismos pasos en el contenedor `oracle` del servidor nuevo, con la base
 de datos vacía.
 Si la instalación usa otro servicio, esquema o versión de Oracle, los parámetros se ajustan según la
 [documentación de Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/23/sutil/oracle-data-pump.html).

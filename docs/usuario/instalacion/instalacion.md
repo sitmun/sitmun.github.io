@@ -190,7 +190,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     - `postgres`: base de datos PostgreSQL 16 en el volumen `pgdata` (puerto 9003, perfil `postgres`).
     - `oracle`: base de datos Oracle 23 Free (puerto 9004, perfil `oracle`).
     - `example`: base de datos PostgreSQL de ejemplo (puerto 9005, perfil `demo`).
-    - `mbtiles`: servicio de exportación de teselas para la aplicación móvil de edición (perfil `mbtiles`, sin puerto publicado).
+    - `mbtiles`: servicio de exportación de teselas para SITMUN Mobile Editor (perfil `mbtiles`, sin puerto publicado).
 
     ```mermaid
     block-beta
@@ -239,8 +239,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
       `restart: always`, se reinician en bucle: el error se ve con `docker compose logs backend` (o `proxy`).
     - `FORCE_USE_OF_PROXY`: no tiene efecto en la 1.3.0. Compose pasa su valor a una propiedad que el backend no lee
       ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)), así que `true` no obliga a usar el proxy. Solo pasan
-      por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend dirige siempre al proxy, como las
-      consultas de API web.
+      por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend dirige al proxy, como las consultas
+      SQL.
 
     ### Servidor de correo { #docker-servidor-de-correo }
 
@@ -250,6 +250,10 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     este exija. Por ejemplo, con autenticación y STARTTLS (puerto 587):
 
     ```yaml
+    sitmun:
+      recover-password:
+        mail:
+          from: sitmun@ejemplo.org
     spring:
       mail:
         host: smtp.ejemplo.org
@@ -262,7 +266,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     ```
 
     Para TLS desde el inicio de la conexión (puerto 465) se usa `mail.smtp.ssl.enable: true` en lugar de
-    `mail.smtp.starttls.enable`. Después se recrea el backend con `docker compose restart backend`.
+    `mail.smtp.starttls.enable`. `sitmun.recover-password.mail.from` es el remitente de los correos de recuperación de
+    contraseña: el valor del JAR, `sitmun-test@localhost`, suele ser rechazado por los servidores reales. Después se reinicia el backend con `docker compose restart backend`.
 
     <a id="cambiar-un-secreto"></a>
 
@@ -351,15 +356,15 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     4. Se descargan las imágenes y se vuelven a crear los contenedores:
 
         ```bash
-        docker compose pull
-        docker compose up -d --no-build
+        docker compose up -d --pull always --no-build
         ```
 
         Si se arrancó el *showcase*, se añade `-p sitmun-showcase` después de `docker compose`.
 
     El backend actualiza la base de datos con Liquibase al arrancar. Si no arranca, el error se ve con
-    `docker compose logs backend`; para volver a la versión anterior se restaura la copia del paso 1 y se repiten los pasos 2 a 4
-    con la etiqueta anterior.
+    `docker compose logs backend`; para volver a la versión anterior, se vuelve a la etiqueta anterior (paso 2), se arranca solo
+    la base de datos, se restaura la copia del paso 1 y se arranca el resto con
+    `docker compose up -d --pull always --no-build`.
 
     ## Parar y desinstalar { #docker-parar-y-desinstalar }
 
@@ -589,7 +594,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         El contenido de esa carpeta se copia a `/admin/` en el servidor web (ver *Publicar en un servidor web*).
         Más detalles en [sitmun-admin/README.md](https://github.com/sitmun/sitmun/blob/main/sitmun-admin/README.md).
 
-    ## Publicar en un servidor web { #fuente-publicar-en-un-servidor-web }
+    ## Publicar en un servidor web (desde el código fuente) { #fuente-publicar-en-un-servidor-web }
 
     El visor y el administrador llaman a la API en `/backend` del mismo servidor, y el visor usa el proxy
     en la dirección `SITMUN_PROXY_MIDDLEWARE_URL` del backend. El servidor web (nginx, Apache, IIS…) debe:

@@ -100,12 +100,15 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
       y cualquier usuario que haya restablecido su contraseña con la recuperación de contraseña.
       Poner o cambiar la contraseña desde el formulario de usuarios no registra la fecha.
     - **Alcance**: las capas de los servicios con «Usar proxy SITMUN» activado (la opción se activa sola en los servicios con
-      autenticación), las consultas SQL y Web API y los localizadores.
+      autenticación) y las tareas que el backend dirige al proxy: las consultas SQL, de API web (salvo las de API web sin
+      proxy, de ámbito `web-api-query-no-proxy`) y sobre capas, la edición de capas, y los localizadores y las tareas de más
+      información que usan SQL o una API.
     - **No afectados**: el usuario público y las capas que el visor carga directamente, sin pasar por el proxy.
 
     No se puede evitar con la configuración.
     La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0
-    ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)): solo pasan por el proxy los servicios con «Usar proxy SITMUN».
+    ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)): pasan por el proxy los servicios con «Usar proxy SITMUN»
+    y las tareas que el backend dirige al proxy (las de la lista anterior).
     Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 ### Aspectos globales

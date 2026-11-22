@@ -17,7 +17,7 @@ Antes de comenzar, es necesario:
     - Soporte de virtualización (Hyper-V, KVM, WSL2, etc.).
     - [Docker CE](https://docs.docker.com/engine/install/) con [Docker Compose](https://docs.docker.com/compose/install/) 2.24.4 o posterior,
       o [Docker Desktop](https://www.docker.com/products/docker-desktop/) con esa versión de Compose. `compose.yaml` usa
-      `depends_on.required` (desde la 2.20.2) y la guía de instalación usa la etiqueta `!override` (desde la 2.24.4).
+      `depends_on.required` (desde la 2.20.2) y [Puerto ya en uso](solucion-problemas.md#puerto-ya-en-uso) usa la etiqueta `!override` (desde la 2.24.4).
       Se comprueba con `docker compose version`.
       *Docker CE* es totalmente de código abierto, mientras que *Docker Desktop* es un producto comercial.
     - Un conocimiento básico de Docker y Docker Compose.
