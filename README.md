@@ -1,6 +1,6 @@
 # SITMUN: documentación técnica
 
-Este repositorio contiene la web de documentación de SITMUN, publicada en <https://sitmun.github.io>.
+Este repositorio contiene la documentación técnica de SITMUN (en castellano), publicada en <https://sitmun.github.io>.
 El contenido tiene la licencia [EUPL 1.2](LICENSE). Los errores o discrepancias se notifican con la
 [plantilla de incidencias](https://github.com/sitmun/sitmun.github.io/issues/new/choose) de este repositorio.
 
@@ -30,7 +30,7 @@ La comprobación `requirements-sync` falla si `requirements.txt` no coincide con
 
 ## Comprobaciones
 
-Cada *pull request* hacia `master` ejecuta en GitHub Actions (`.github/workflows/ci.yml`):
+Cada *pull request* a `master` ejecuta en GitHub Actions (`.github/workflows/ci.yml`):
 
 - `zensical build --strict`, que además falla si alguna tabla de cuadrícula no se puede dibujar;
 - la traducción de las páginas de redirección (`localize_redirects.py`);

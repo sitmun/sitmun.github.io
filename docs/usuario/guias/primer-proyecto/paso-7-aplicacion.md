@@ -15,8 +15,12 @@ La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué ro
 - **Título**: el nombre que ve el usuario en la lista de aplicaciones del visor. El mapa no lo muestra.
 - **Estilo de mapa utilizado**: déjalo en blanco o pon `sitmun-base`.
 - **CRS por defecto de la aplicación**: por ejemplo `EPSG:25831`. Si el territorio tiene CRS propio, manda el del territorio.
-- **Mapa de situación**: opcional, un grupo de tipo **Mapa de situación** ([paso 4](paso-4-grupos-y-fondos.md)). Si no eliges ninguno, se usa el primer mapa de fondo.
+- **Mapa de situación**: opcional, un grupo de tipo **Mapa de situación** ([paso 4](paso-4-grupos-y-fondos.md)). El mapa de situación usa la primera capa de ese grupo. Si no eliges ninguno, usa la primera capa del primer mapa de fondo.
 - **Aplicación privada**: déjala desactivada; si la activas, el usuario `public` no la ve.
+
+!!! warning "SITMUN 1.3.0: mapa de situación en blanco con WMTS"
+    Si la capa del mapa de situación es WMTS, el mapa de situación sale en blanco ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)).
+    Si tu primer mapa de fondo es WMTS, crea en **Permisos sobre las capas** un grupo de tipo **Mapa de situación** con una sola capa WMS y elígelo aquí, en **Mapa de situación**.
 
 ![Información general de una aplicación](img/paso-7-aplicacion.webp){ loading=lazy }
 

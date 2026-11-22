@@ -38,9 +38,14 @@ Hay que tener en cuenta que algunos servicios cartográficos pueden requerir la 
 
 En SITMUN es posible realizar la conexión a servicios que requieren autenticación mediante la parte inferior del apartado **Información general**.
 
-Para un servicio con autenticación, en el desplegable **Método de autenticación** se elige **Autenticación HTTP básica** (usuario y contraseña). La opción **Usar proxy SITMUN** se activa entonces sola y no se puede desactivar mientras haya autenticación: las conexiones con autenticación pasan por el proxy de SITMUN para proteger los datos.
+Para un servicio con autenticación, en el desplegable **Método de autenticación** se elige **Autenticación HTTP básica** (usuario y contraseña). La opción **Usar proxy SITMUN** se activa entonces sola y no se puede desactivar mientras haya autenticación: las conexiones con autenticación pasan por SITMUN Proxy Middleware para proteger los datos.
 
 Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
+
+!!! warning "SITMUN 1.3.0: error 401 en el proxy con algunos usuarios"
+    Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que pasan por el proxy.
+    Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña. Cambiar la contraseña desde el formulario de usuarios no la registra.
+    No hay solución en la configuración. No se ven afectados el usuario `public` ni las capas que el visor carga directamente, sin pasar por el proxy. Con `FORCE_USE_OF_PROXY=true`, todas las capas pasan por el proxy ([sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387)).
 
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 
@@ -56,13 +61,13 @@ El botón **Actualizar capas del servicio** carga las capas automáticamente (en
 
 ![Capas ofrecidas por el servicio](img/servicios-obtener-capas.webp){ loading=lazy }
 
-En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, **Capa no registrada**.
+En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, «Capa no registrada».
 
-Del listado se eligen las capas que se quieren incorporar a SITMUN y se pulsa **Registrar** (símbolo **+**). Su punto pasa a naranja, **Pendiente registrar**: están preparadas, pero todavía no forman parte de SITMUN. Las capas se crean al guardar el servicio.
+Del listado se eligen las capas que se quieren incorporar a SITMUN y se pulsa **Registrar** (símbolo **+**). Su punto pasa a naranja, «Pendiente registrar»: están preparadas, pero todavía no forman parte de SITMUN. Las capas se crean al guardar el servicio.
 
 !!! warning "SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo"
     En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto
-    naranja **Pendiente crear** en lugar del amarillo **Capa no registrada**
+    naranja «Pendiente crear» en lugar del amarillo «Capa no registrada»
     ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
     Como en cualquier servicio, al guardar solo se crean las capas registradas con **Registrar**.
 
@@ -76,7 +81,7 @@ Una vez guardado, al volver a la pestaña **Capas** esas capas ya aparecen como 
 
 ![Capas registradas en el servicio](img/servicios-capas-registradas.webp){ loading=lazy }
 
-Se puede quitar una capa ya registrada seleccionándola de la lista y pulsando el icono de la papelera. La capa queda marcada con un punto rojo, **Pendiente eliminar**, y al guardar se materializa el cambio.
+Se puede quitar una capa ya registrada seleccionándola de la lista y pulsando el icono de la papelera. La capa queda marcada con un punto rojo, «Pendiente eliminar», y al guardar se materializa el cambio.
 
 ![Capa marcada para quitar](img/servicios-quitar-capa.webp){ loading=lazy }
 

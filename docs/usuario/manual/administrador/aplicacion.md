@@ -12,7 +12,7 @@ Para configurar una aplicación se rellenan los datos de información general, e
 
 En este apartado se facilitan los datos generales de la aplicación, como el nombre y la descripción.
 
-El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil de edición (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
+El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil SITMUN Mobile Editor (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
 También se puede indicar un **punto de contacto** (el formulario no lo exige), que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
@@ -29,6 +29,9 @@ También se puede personalizar el estilo de la aplicación indicándolo en el ca
 También se puede especificar un CRS concreto con el que trabajará la aplicación.
 
 También se permite seleccionar el **mapa de situación** que se desea utilizar en esta aplicación. La lista de mapas de situación se obtiene de todos aquellos grupos que se han etiquetado como mapas de situación en el apartado [Permisos sobre las capas](permisos-capas.md).
+
+!!! warning "SITMUN 1.3.0: mapa de situación en blanco con WMTS"
+    Si la capa del mapa de situación es WMTS, sale en blanco ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)). En la aplicación se elige un grupo «Mapa de situación» con una capa WMS.
 
 Por último, se puede definir cuál va a ser el comportamiento de la aplicación con los territorios hijos del territorio de referencia de dicha aplicación.
 
@@ -50,7 +53,9 @@ En la misma pestaña se pueden añadir logotipos, por ejemplo el de la instituci
 
 ## Parámetros
 
-Como la mayoría de los elementos de SITMUN, las aplicaciones permiten crear parámetros para añadir más personalización.
+La pestaña **Parámetros** guarda pares de nombre y valor. Cada fila tiene **Nombre**, **Valor** y **Tipo**, con tres tipos posibles: «Parámetro de aplicación móvil», «Parámetro de nomenclátor» y «Plantilla de impresión».
+
+En la versión 1.3.0 SITMUN guarda estos parámetros, pero ningún componente los usa: ni el visor, ni el proxy, ni las aplicaciones móviles. Añadirlos no cambia nada en la aplicación.
 
 ## Roles
 

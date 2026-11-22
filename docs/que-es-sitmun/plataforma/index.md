@@ -11,11 +11,11 @@ Está diseñada específicamente para satisfacer las necesidades de información
 **SITMUN 3** ha sido desarrollado con la visión de proporcionar una herramienta de gestión de información territorial a los municipios, gestionada desde una entidad supramunicipal.
 Permite la integración de la información territorial con los datos de las corporaciones locales, independientemente del modelo de datos o del sistema de gestión de base de datos utilizado por cada municipio.
 Es importante destacar que **SITMUN 3** agrega una capa de autenticación al acceso a los servicios cuando sea necesario, especialmente en consultas y siempre en los casos de gestión de información.
-Esta medida contribuye a la seguridad y privacidad de los datos, asegurando que solo usuarios autorizados puedan acceder y gestionar la información territorial
+Esta medida contribuye a la seguridad y privacidad de los datos, asegurando que solo usuarios autorizados puedan acceder y gestionar la información territorial.
 
 **SITMUN 3** se presenta al usuario en forma de aplicaciones accesibles a través de **visores de mapas**, que se pueden configurar para que se adapten a las necesidades de cada municipio.
 
-**SITMUN 3** tiene una **aplicación de administración** que configura la información cartográfica, el territorio y las tareas que cada usuario tiene acceso para cada aplicación.
+**SITMUN 3** tiene una **aplicación de administración** que configura la información cartográfica, el territorio y las tareas a las que cada usuario tiene acceso en cada aplicación.
 Estas tareas ofrecen una amplia gama de funcionalidades, como consultas a bases de datos, generación de informes, buscadores, funciones de análisis espacial, entre otras.
 
 **SITMUN 3** dispone de una base de datos para administrar la plataforma.
@@ -30,14 +30,14 @@ Todos los mensajes que se muestran en las aplicaciones de **SITMUN 3** están pa
 - **Nivel cliente**: actualmente, existen una **[aplicación de administración](https://github.com/sitmun/sitmun/tree/main/sitmun-admin)** para los administradores,
   un **[visor de mapas](https://github.com/sitmun/sitmun/tree/main/sitmun-viewer)** basado en la [API SITNA](https://github.com/sitna/api-sitna)
   que es utilizado por los diferentes tipos de usuarios finales, tanto al público en general como a especialistas de los ayuntamientos, entre otros,
-  y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: una de edición de datos sin conexión y una turística.
+  y dos **[aplicaciones móviles](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile)**: SITMUN Mobile Editor, de edición de datos sin conexión, y SITMUN Touristic, la aplicación turística.
 - **Nivel de lógica de negocio**: desarrollado en Java con [Spring Boot](https://spring.io/projects/spring-boot),
   tiene un modelo de entidades de [Spring Data](https://spring.io/projects/spring-data) que refleja el esquema de la base de datos.
   El acceso a la lógica de negocio de los **visores de mapas** se realiza sobre todo a través de la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** (parte del **SITMUN Backend**) y de la **[API de Proxy][api-de-proxy]** (**SITMUN Proxy Middleware**); además, el visor usa la API de Autenticación y algunos endpoints de la API de Administración (ver [Arquitectura](arquitectura/index.md)).
   El acceso a la lógica de negocio de la **aplicación de administración** se realiza a través de la **[API de Administración][api-de-administracion]** (parte de **SITMUN Backend**).
   En ambos casos, los usuarios se autentican mediante la **[API de Autenticación][api-de-autenticacion]**.
 - **Nivel de datos**: la base de datos de SITMUN puede ser **PostgreSQL** (12 o posterior) u **Oracle** (11g o posterior); las pruebas usan además H2.
-  El modelo de datos está documentado en el repositorio [sitmun/sitmun](https://github.com/sitmun/sitmun).
+  El modelo de datos permite definir cartografía, territorios, aplicaciones, tareas, usuarios, roles y permisos.
 
 La siguiente figura recoge el modelo descrito:
 

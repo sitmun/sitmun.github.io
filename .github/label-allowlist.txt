@@ -66,3 +66,6 @@ tipo de aplicación
 valores tipados
 Si la aplicación es privada
 Actualizar desde 1.2.x
+Publicar con HTTPS detrás de un proxy inverso
+Cambiar un secreto
+Mover SITMUN a otro servidor

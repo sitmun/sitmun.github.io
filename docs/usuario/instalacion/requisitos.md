@@ -41,7 +41,7 @@ Antes de comenzar, es necesario:
       Se puede activar con `corepack enable` o instalar siguiendo la guía oficial: https://pnpm.io/installation
     - No hace falta instalar Angular CLI de forma global: los scripts de `pnpm` usan la versión del repositorio (Angular 22).
     - Para compilar las aplicaciones móviles, además: JDK 21 y Android SDK 36.
-    - Acceso a una base de datos soportada (PostgreSQL u Oracle) para el backend, con una base de datos vacía y su usuario
+    - Acceso a una base de datos admitida (PostgreSQL u Oracle) para el backend, con una base de datos vacía y su usuario
       ya creados (ver [Instalación](instalacion.md)).
     - Para instalar el backend o el proxy como servicio de Windows: [WinSW](https://github.com/winsw/winsw) 2.12.0 o posterior,
       con .NET Framework 2.0, 4.0 o 4.6.1 (WinSW ofrece un ejecutable para cada uno).
@@ -58,7 +58,7 @@ Antes de comenzar, es necesario:
       Se puede activar con `corepack enable` o instalar siguiendo la guía oficial: https://pnpm.io/installation
     - No hace falta instalar Angular CLI de forma global: los scripts de `pnpm` usan la versión del repositorio (Angular 22).
     - Para compilar las aplicaciones móviles, además: JDK 21 y Android SDK 36.
-    - Acceso a una base de datos soportada (PostgreSQL u Oracle) para el backend, con una base de datos vacía y su usuario
+    - Acceso a una base de datos admitida (PostgreSQL u Oracle) para el backend, con una base de datos vacía y su usuario
       ya creados (ver [Instalación](instalacion.md)).
     - Se recomienda usar un proxy inverso delante del backend y del proxy (por ejemplo, nginx)
       que envíe las cabeceras `X-Forwarded-Proto`, `X-Forwarded-Host`, `X-Forwarded-Port` y `X-Forwarded-Prefix`

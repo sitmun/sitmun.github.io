@@ -18,7 +18,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: deberia
+    id: ocurre-en-realidad
     attributes:
       label: Qué ocurre en realidad
       description: Lo que se ve en SITMUN, con la versión (por ejemplo, 1.3.0) y cómo se ha comprobado.

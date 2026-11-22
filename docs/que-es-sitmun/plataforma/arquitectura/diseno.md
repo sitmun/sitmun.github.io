@@ -13,12 +13,12 @@ Tras la identificación, este servicio devuelve un token de acceso [JSON web tok
 que permite al usuario acceder a los servicios de la plataforma.
 SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
 criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
-También está soportada la autenticación a través de un servidor LDAP
+También admite la autenticación a través de un servidor LDAP
 (que puede ser [Active Directory (AD)](https://es.wikipedia.org/wiki/Active_Directory))
 y de proveedores OpenID Connect (OIDC).
-Está planteado soportar la autenticación con certificados digitales.
+Está previsto admitir la autenticación con certificados digitales.
 
-Este servicio se expone vía la **[API de Autenticación][api-de-autenticacion]**.
+Este servicio se expone mediante la **[API de Autenticación][api-de-autenticacion]**.
 
 ### Comportamiento esperado
 
@@ -77,12 +77,12 @@ El **Servicio de Configuración y Autorización** se encarga de determinar qué 
 Si la petición no contiene el token de acceso del usuario, se asumirá que es una petición realizada para el
 usuario `público`.
 
-Este servicio se expone vía la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**.
+Este servicio se expone mediante la **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]**.
 
 ## Servicio de Proxy
 
-Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)**
-que actúa como un intermediario entre los clientes de SITMUN y diversas fuentes de datos,
+Un componente clave del sistema es un **[proxy inverso](https://es.wikipedia.org/wiki/Proxy_inverso)**,
+**SITMUN Proxy Middleware**, que actúa como un intermediario entre los clientes de SITMUN y diversas fuentes de datos,
 como servicios web y bases de datos remotas, permitiendo controlar el acceso a la información,
 ya sea geográfica o no.
 
@@ -107,6 +107,10 @@ La única excepción es el usuario denominado `público`, cuya autenticación es
 Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata del usuario público (`public`).
 Además, todas las peticiones enviadas a través del **proxy** deben incluir
 un identificador de territorio y un identificador de aplicación.
+
+!!! warning "Problema conocido en la versión 1.3.0"
+    En la versión 1.3.0, algunos usuarios registrados reciben 401 en las capas y tareas que pasan por el proxy.
+    Los usuarios afectados y el alcance se explican en [la API de Proxy](api.md#problema-token-proxy-1-3-0).
 
 El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado
 para los servicios y datos subyacentes.
@@ -135,7 +139,7 @@ title
 end title
 autonumber
 participant "Visor de mapas" as Client
-participant "SITMUN Proxy" as Proxy
+participant "SITMUN Proxy Middleware" as Proxy
 participant "SITMUN Backend" as Backend
 participant "WMS Restringido" as Remoto
 
@@ -187,13 +191,18 @@ Por ejemplo, la siguiente petición correspondería con la petición de acceso a
 
 ```http
 GET /proxy/1/34/WMS/1?SERVICE=WMS&REQUEST=GetMap
-    &LAYERS=SITMUN
+    &LAYERS=01_NIVJERARQUIC_LN,02_TIPUSLINIA_LN
     &FORMAT=image/png
     &TRANSPARENT=true&VERSION=1.1.1&SRS=EPSG:25831
     &BBOX=405913.25142303,4593667.2516974,411183.74857697,4599953.7483026
     &WIDTH=498&HEIGHT=594
-Authorization: Bearer SOME-TOKEN    
+Authorization: Bearer SOME-TOKEN
 ```
+
+En `LAYERS`, la petición debe llevar las capas del servicio que forman una capa de SITMUN (cartografía) a la que el usuario
+tenga acceso en esa aplicación y territorio. En `GetMap` deben ser exactamente esas capas; en `GetFeatureInfo` y
+`DescribeLayer` se puede pedir solo una parte. Con otro valor, la API de Configuración y Autorización deniega la petición y
+el proxy responde 403. El backend no cambia el valor de `LAYERS`.
 
 La petición que el **proxy** realizaría al endpoint `/api/config/proxy` de la
 **[API de Configuración y Autorización][api-de-configuracion-y-autorizacion]** sería:
@@ -215,12 +224,12 @@ Content-Type: application/json
   "parameters": {
     "SERVICE": "WMS",
     "REQUEST": "GetMap",
-    "LAYERS": "SITMUN",
+    "LAYERS": "01_NIVJERARQUIC_LN,02_TIPUSLINIA_LN",
     "FORMAT": "image/png",
     "TRANSPARENT": "true",
     "VERSION": "1.1.1",
     "SRS": "EPSG:25831",
-    "BBOX": "405913.2514230,4593667.251697,411183.7485769,4599953.748302",
+    "BBOX": "405913.25142303,4593667.2516974,411183.74857697,4599953.7483026",
     "WIDTH": "498",
     "HEIGHT": "594"
   }
@@ -248,7 +257,7 @@ La respuesta podría ser como sigue:
       "TRANSPARENT": "true",
       "VERSION": "1.1.1",
       "SRS": "EPSG:25831",
-      "BBOX": "405913.2514230,4593667.251697,411183.7485769,4599953.748302",
+      "BBOX": "405913.25142303,4593667.2516974,411183.74857697,4599953.7483026",
       "WIDTH": "498",
       "HEIGHT": "594"
     }
@@ -261,6 +270,10 @@ La petición a realizar por el proxy debe:
 - Ser a la URI indicada en el campo `uri` de la respuesta.
 - Con el método HTTP indicado en el campo `method` de la respuesta.
 - Con los campos y valores indicados en el campo `parameters` de la respuesta.
+
+El campo `parameters` contiene todos los parámetros que el proxy envía al servicio: los de la petición del visor más los
+fijos que añada el backend (por ejemplo, un filtro por territorio). En este ejemplo no hay parámetros fijos, así que
+coincide con los de la petición.
 
 Los campos `exp` y `vary` de la respuesta no los usa el proxy de la versión 1.3.0: pide la configuración al backend en cada petición.
 

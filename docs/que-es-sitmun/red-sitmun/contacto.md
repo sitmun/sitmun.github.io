@@ -26,5 +26,5 @@ Diputació de Barcelona (contacto: <saezbj@diba.cat>).
 
 La labor principal de este equipo es mantener una visión global del proyecto y coordinar a las distintas empresas y administraciones involucradas desde el punto de vista técnico. Entre sus tareas están la documentación técnica, la validación de propuestas y entregables, el asesoramiento tecnológico al comité técnico del proyecto, etc.
 
-- Francisco Javier Lopez Pellicer <fjlopez@unizar.es> - Universidad Zaragoza.
-- Rubén Béjar <rbejar@unizar.es> - Universidad Zaragoza.
+- Francisco Javier López Pellicer <fjlopez@unizar.es> - Universidad de Zaragoza.
+- Rubén Béjar <rbejar@unizar.es> - Universidad de Zaragoza.

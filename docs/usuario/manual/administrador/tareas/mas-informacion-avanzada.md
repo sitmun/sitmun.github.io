@@ -50,7 +50,7 @@ flowchart TB
 
 *En esta configuración, la tarea MIA es una extensión de la tarea MoreInfoAdvanced (API SITNA). Se compone de N plantillas de visualización. A su vez, cada plantilla de visualización se compone de N consultas. La tarea MIA puede recibir parámetros y asociarlos con los de las plantillas, y las plantillas, asociarlos con los de las consultas.*
 
-Las tareas hijas de un MIA solo pueden ser consultas y plantillas. La **exportación documental** no es una tarea hija: es una tarea propia que se asigna, como cualquier otra, a roles y territorios. Si la aplicación la recibe, el visor añade el menú **Exportar** a los resultados de las plantillas en la ventana de los MIA, con una entrada por cada tarea de exportación (con su nombre, por ejemplo «Exportar PDF A4 vertical»), que genera un PDF de la plantilla. Un MIA cuyas tareas hijas son solo consultas no tiene ese menú.
+Las tareas hijas de un MIA solo pueden ser consultas y plantillas. La **exportación documental** no es una tarea hija: es una tarea propia que se asigna, como cualquier otra, a roles y territorios. Cuando un usuario tiene acceso a una tarea de exportación, el visor muestra el menú **Exportar** en los resultados de las plantillas de la ventana de los MIA. El menú tiene una entrada por cada tarea de exportación, con su nombre (por ejemplo «Exportar PDF A4 vertical»). Cada entrada crea un PDF de la plantilla. Un MIA cuyas tareas hijas son solo consultas no tiene ese menú.
 
 ## MIA sin plantillas de visualización
 

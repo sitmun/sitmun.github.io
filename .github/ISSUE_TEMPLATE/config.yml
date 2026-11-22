@@ -5,4 +5,4 @@ contact_links:
     about: Los errores de la plataforma (backend, proxy, administrador, visor, MBTiles, aplicaciones móviles y bibliotecas comunes) se notifican en sitmun/sitmun.
   - name: Vulnerabilidades de seguridad
     url: https://github.com/sitmun/.github/blob/main/SECURITY.md
-    about: Las vulnerabilidades se notifican de forma privada, nunca en una incidencia pública. La política de seguridad indica dónde, según sea de la plataforma o de esta web.
+    about: Las vulnerabilidades se notifican de forma privada, nunca en una incidencia pública. La política de seguridad indica dónde notificarlas, tanto para la plataforma como para esta web.

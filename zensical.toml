@@ -27,7 +27,7 @@ nav = [
     { "La plataforma SITMUN 3" = [
       "que-es-sitmun/plataforma/index.md",
       { "Clientes" = "que-es-sitmun/plataforma/clientes.md" },
-      { "Arquitectura" = [
+      { "Arquitectura de SITMUN 3" = [
         "que-es-sitmun/plataforma/arquitectura/index.md",
         { "API" = "que-es-sitmun/plataforma/arquitectura/api.md" },
         { "Diseño de los servicios" = "que-es-sitmun/plataforma/arquitectura/diseno.md" },
@@ -68,7 +68,7 @@ nav = [
       { "Añadir OpenStreetMap como mapa de fondo" = "usuario/guias/mapa-fondo-openstreetmap.md" },
     ] },
     { "Manual de usuario" = [
-      { "Administrador" = [
+      { "Manual del administrador" = [
         "usuario/manual/administrador/index.md",
         { "Conexiones" = "usuario/manual/administrador/conexiones.md" },
         { "Servicios" = "usuario/manual/administrador/servicios.md" },

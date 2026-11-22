@@ -8,7 +8,7 @@ description: "Las API web de SITMUN 3: autenticación, configuración y autoriza
 
 ## API de Autenticación {#api-de-autenticacion}
 
-La API de Autenticación expone vía una API Web mecanismos para interactuar con el sistema de seguridad de SITMUN.
+La API de Autenticación ofrece, mediante una API web, mecanismos para interactuar con el sistema de seguridad de SITMUN.
 Esta API se ha creado para que la **aplicación de administración** y los **visores de mapas** obtengan,
 tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT) necesario para operar con el resto de las API.
 
@@ -30,9 +30,9 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 - **Autenticación local**. SITMUN almacena las contraseñas de los usuarios en la base de datos SITMUN usando un hash
   criptográfico ([bcrypt](https://en.wikipedia.org/wiki/Bcrypt)).
 
-- **Autenticación LDAP**. Está soportada la autenticación a través de un servidor LDAP (perfil Spring `ldap`).
+- **Autenticación LDAP**. SITMUN admite la autenticación a través de un servidor LDAP (perfil Spring `ldap`).
 
-- **Autenticación OpenID Connect (OIDC)**. Está soportada la autenticación con uno o varios proveedores OIDC (perfil Spring `oidc`).
+- **Autenticación OpenID Connect (OIDC)**. SITMUN admite la autenticación con uno o varios proveedores OIDC (perfil Spring `oidc`).
   El cliente consulta los métodos activos en `GET /api/auth/enabled-methods`.
 
 - **Verificación de usuarios**. Endpoints para verificar contraseñas y disponibilidad de correo electrónico.
@@ -43,9 +43,9 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 
 ## API de Configuración y Autorización {#api-de-configuracion-y-autorizacion}
 
-La API de Configuración y Autorización expone vía una API Web mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio
+La API de Configuración y Autorización ofrece, mediante una API web, mecanismos para obtener una configuración derivada del estado actual de los objetos de dominio
 en función de la identidad y rol del que solicita la información.
-Esta API se ha creado para que los **visores de mapas** y el **proxy** puedan configurarse.
+Esta API se ha creado para que los **visores de mapas** y el **proxy** (SITMUN Proxy Middleware) puedan configurarse.
 
 La API de Configuración y Autorización se compone de dos tipos de endpoints:
 
@@ -59,7 +59,7 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
   El token del usuario, si lo hay, se reenvía en la cabecera `Authorization: Bearer`.
   El uso de una clave de API específica para el endpoint **Configuración y Autorización de Proxy** es una decisión de seguridad.
   Evita que a un cliente malicioso le pueda bastar el uso del token obtenido de la API de Autenticación
-  para obtener secretos vía el endpoint **Configuración y Autorización de Proxy**.
+  para obtener secretos mediante el endpoint **Configuración y Autorización de Proxy**.
 
 ### Funcionalidades {#api-de-configuracion-y-autorizacion-funcionalidades}
 
@@ -78,13 +78,24 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
 
 ## API de Proxy {#api-de-proxy}
 
-La API de Proxy (Proxy Middleware) permite acceder a los visores de mapas a servicios remotos y bases de datos.
+La API de Proxy (**SITMUN Proxy Middleware**) permite a los visores de mapas acceder a servicios remotos y bases de datos.
 
 Los **visores de mapas** pueden autenticarse usando un esquema de autenticación por portador (Bearer authentication)
 usando un token de corta duración que se ha obtenido previamente mediante la [API de Autenticación][api-de-autenticacion]
 (`POST /api/authenticate/proxy`).
 Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
 *usuario público*.
+
+<a id="problema-token-proxy-1-3-0"></a>
+
+!!! warning "Problema conocido en la versión 1.3.0"
+    En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
+    Por eso, los usuarios afectados reciben 401 en todas las capas y tareas que pasan por el proxy.
+    Afecta a los usuarios con fecha de último cambio de contraseña registrada: el usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y cualquier usuario que la haya restablecido con la recuperación de contraseña.
+    Cambiar la contraseña desde el formulario de usuarios no la registra.
+    No se puede evitar con la configuración.
+    No se ven afectados el usuario público ni las capas que el visor carga directamente, sin pasar por el proxy. Con `FORCE_USE_OF_PROXY=true`, todas las capas pasan por el proxy.
+    Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 ### Aspectos globales
 
@@ -97,7 +108,9 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 - **Modificación de peticiones**: posibilidad de manipular la petición de varias formas para que se adapte a la
   configuración obtenida de la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion].
 
-### Servicios soportados
+<a id="servicios-soportados"></a>
+
+### Servicios compatibles
 
 Las peticiones tienen la forma `/proxy/{appId}/{terId}/{type}/{typeId}` (o `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`
 para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticiones POST a los servicios deben llevar un cuerpo XML (por ejemplo, una petición WFS), y con otro tipo de contenido el proxy responde 415. La exportación MBTiles es la excepción: sus peticiones POST (`/proxy/{appId}/{terId}/mbtiles` y `/proxy/{appId}/{terId}/mbtiles/estimate`) llevan un cuerpo JSON.
@@ -139,7 +152,7 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
 
 ## API de Administración {#api-de-administracion}
 
-La API de Administración expone vía una API Web mecanismos para modificar el estado de los objetos de dominio
+La API de Administración ofrece, mediante una API web, mecanismos para modificar el estado de los objetos de dominio
 de **SITMUN 3** por parte de la **aplicación de administración**.
 El visor usa además algunos de sus endpoints: `GET /api/languages` y `GET /api/configuration-parameters`,
 abiertos sin sesión, para los idiomas y los parámetros de configuración; `GET` y `POST /api/account`, para el rol `USER`,

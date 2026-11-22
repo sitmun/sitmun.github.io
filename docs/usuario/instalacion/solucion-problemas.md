@@ -253,7 +253,7 @@ navegador: se activa **Usar proxy SITMUN** en el servicio.
 
 **Síntomas:**
 
-- Error: "Connection refused".
+- Error: «Connection refused».
 - Tiempos de espera agotados en peticiones internas.
 
 **Soluciones:**
@@ -273,7 +273,7 @@ docker compose exec backend curl -s http://proxy:8080/actuator/health
 
 **Síntomas:**
 
-- Error: "Name resolution failed".
+- Error: «Name resolution failed».
 - Los servicios no se encuentran por su nombre.
 
 **Soluciones:**
@@ -327,8 +327,8 @@ docker compose logs -f backend
 El backend y el proxy escriben su registro en la salida estándar. El nivel se cambia en `.env` con `LOGGING_LEVEL_ROOT`
 y `LOGGING_LEVEL_ORG_SITMUN`, y se aplica con `docker compose up -d backend proxy`. Los perfiles de producción
 (`profiles/postgres.env` y `profiles/oracle.env`) los ponen en `WARN` e `INFO`; sin ellos, Compose usa `INFO` y `DEBUG`.
-Los registros de nginx del contenedor `front` no salen en `docker compose logs front`: van al archivo `logs/front/nginx`,
-que nada rota, así que conviene vaciarlo o rotarlo de vez en cuando.
+Los registros de nginx del contenedor `front` no salen en `docker compose logs front`: van a la carpeta `logs/front/nginx`,
+que contiene `access.log` y `error.log`. Nada los rota, así que conviene vaciarlos o rotarlos de vez en cuando.
 
 ### Depuración avanzada { #debugging-avanzado }
 
@@ -392,7 +392,7 @@ docker compose start
 Si los problemas persisten:
 
 1. Se revisan las [incidencias abiertas](https://github.com/sitmun/sitmun/issues) del repositorio de SITMUN, por si ya están descritas.
-2. Si no, se abre una [nueva incidencia](https://github.com/sitmun/sitmun/issues/new) con la información de abajo.
+2. Si no, se abre una [nueva incidencia](https://github.com/sitmun/sitmun/issues/new/choose) con la información de abajo.
 3. Para otras consultas, ver los [órganos de gobierno de la Red SITMUN](../../que-es-sitmun/red-sitmun/contacto.md).
 
 Una vulnerabilidad de seguridad no se notifica en una incidencia pública, sino de forma privada, como indica la
