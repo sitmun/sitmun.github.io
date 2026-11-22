@@ -141,3 +141,10 @@
   box-sizing: border-box;
   border: 1px solid var(--sitmun-screenshot-border);
 }
+
+/* Código en tablas: el tema lo parte en cualquier letra (word-break: break-word).
+   Así solo se parte si no cabe en la celda, y la tabla se ensancha antes de partirlo. */
+.md-typeset table:not([class]) code {
+  word-break: normal;
+  overflow-wrap: break-word;
+}

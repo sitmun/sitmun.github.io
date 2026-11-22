@@ -9,7 +9,7 @@ Esta guía explica cómo ofrecer el mapa de [OpenStreetMap](https://www.openstre
 Al terminar, los usuarios del visor verán **OpenStreetMap** en la lista de mapas de fondo de la aplicación.
 
 !!! info "Cambio de sistema de referencia"
-    Los mapas de OpenStreetMap solo existen en el sistema de referencia **EPSG:3857** (Web Mercator). Si la aplicación usa otro (por ejemplo, EPSG:25831), al elegir OpenStreetMap el visor muestra el aviso *Mapa de fondo no compatible* y propone cambiar el sistema de referencia del mapa. El usuario elige **EPSG:3857** y el mapa se muestra. El mapa sigue en EPSG:3857 al volver a otro mapa de fondo, si ese mapa de fondo admite EPSG:3857.
+    Los mapas de OpenStreetMap solo existen en el sistema de referencia **EPSG:3857** (Web Mercator). Si la aplicación usa otro (por ejemplo, EPSG:25831), al elegir OpenStreetMap el visor muestra el aviso «Mapa de fondo no compatible» y propone cambiar el sistema de referencia del mapa. El usuario elige **EPSG:3857** y el mapa se muestra. El mapa sigue en EPSG:3857 al volver a otro mapa de fondo, si ese mapa de fondo admite EPSG:3857.
 
 ??? info "Cómo funciona (detalle técnico)"
     SITMUN admite servicios WMS, WMTS y WFS. OpenStreetMap publica su mapa en otro formato (teselas XYZ), que SITMUN no admite directamente.
@@ -81,7 +81,7 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
     | --- | --- |
     | **Nombre** | `OpenStreetMap` |
     | **Capa disponible para su uso por parte de los clientes** | Activado |
-    | **Servicio** (*Selecciona un servicio*) | El servicio creado en el paso 1 |
+    | **Servicio** («Selecciona un servicio») | El servicio creado en el paso 1 |
     | **Capa o capas del servicio utilizadas** | `osm` |
 
     ![Capa OpenStreetMap del servicio](img/osm-capa.webp){ loading=lazy }

@@ -12,7 +12,7 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
   Por ejemplo, una aplicación puede ser el visor de mapas básico. Y para el usuario «público» del territorio «Municipio X», esa configuración describe cómo en el árbol de capas del mapa tienen que aparecer ciertos servicios web de mapas, y no otros, y no debe aparecer ninguna herramienta que permita modificar datos o acceder a bases de datos privadas.
   Estas aplicaciones obtienen su configuración de una API REST cada vez que arrancan.
   La configuración depende del usuario, el rol y el territorio identificados, y puede haber cambiado desde la vez anterior.
-  Esta API accede a la base de datos de SITMUN y no es la misma que usa la aplicación de administración; el visor usa de esta última solo unos pocos endpoints: los idiomas y los parámetros de configuración, la cuenta del usuario identificado y las plantillas de las tareas de *más información avanzada* (MIA).
+  Esta API accede a la base de datos de SITMUN y no es la misma que usa la aplicación de administración; el visor usa de la API de Administración solo unos pocos endpoints: los idiomas y los parámetros de configuración, la cuenta del usuario identificado y las plantillas de las tareas de *más información avanzada* (MIA).
   Las aplicaciones aplican la configuración obtenida antes de que los usuarios empiecen a trabajar.
 - **Aplicación de administración.**
   Esta aplicación es para que los administradores de las organizaciones que instalan **SITMUN 3** configuren las aplicaciones que quieran ofrecer a sus usuarios.
@@ -22,7 +22,7 @@ description: "Arquitectura de SITMUN 3: componentes, escenario típico de uso, d
     - **SITMUN Proxy Middleware**: es un proxy inverso para que se pueda dar acceso a servicios y bases de datos protegidos (bien sea porque están en una Intranet, y los usuarios están fuera de ella, o bien porque requieren credenciales de acceso y los usuarios no las deben conocer, o bien porque quiere modificarse la información que ofrecen antes de devolverla a la aplicación cliente, por ejemplo, enmascarando parte de una imagen con un mapa).
     Es un proxy inverso y, por tanto, el cliente no puede elegir usarlo o no, y esencialmente le resulta transparente.
     Lo usan el visor y las aplicaciones móviles; la aplicación de administración no.
-    - **API de Autenticación** (la usan el visor, la aplicación de administración y la aplicación móvil de edición; la aplicación turística no la usa, porque funciona siempre como el usuario público): permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones: usuario y contraseña guardados en la base de datos de SITMUN, servicios LDAP (incluido Microsoft Active Directory) y proveedores OpenID Connect (OIDC).
+    - **API de Autenticación** (la usan el visor, la aplicación de administración y SITMUN Mobile Editor; SITMUN Touristic no la usa, porque funciona siempre como el usuario público): permite a los usuarios y administradores identificarse utilizando distintos mecanismos que puedan estar disponibles en las distintas organizaciones: usuario y contraseña guardados en la base de datos de SITMUN, servicios LDAP (incluido Microsoft Active Directory) y proveedores OpenID Connect (OIDC).
 
 **SITMUN 3** no tiene un conjunto de datos o servicios geográficos/territoriales predefinidos. Cada despliegue de **SITMUN 3** se hace para una organización concreta, normalmente supramunicipal, y esta organización debe decidir qué aplicaciones quiere ofrecer a sus usuarios, típicamente personal técnico de los municipios, y qué servicios y datos geográficos/territoriales van a estar accesibles en estas aplicaciones. Estos servicios y bases de datos los tendrá que tener en sus propios sistemas, o bien tendrán que estar en algún sitio al que puedan acceder.
 
@@ -239,7 +239,7 @@ note bottom of apiconfautoriz
   para un **token JWT**
   la información necesaria
   para configurar ese visor.
-  P.ej., qué capas deben aparecer en
+  P. ej., qué capas deben aparecer en
   el árbol, qué herramientas deben estar
   habilitadas, etc.
 
@@ -374,7 +374,7 @@ note right
 200 OK
 Set-Cookie: viewer_access_token={tokenJWT}; HttpOnly
 (admin_access_token en el administrador;
-la aplicación móvil de edición usa /api/authenticate/mobile
+SITMUN Mobile Editor usa /api/authenticate/mobile
 y recibe el token en el cuerpo de la respuesta)
 end note
 Client -> ConfigurationAPI: Obtención de la configuración
@@ -451,7 +451,7 @@ Client -->> Usuario: Visor listo para usar
 ### Uso del proxy para acceder a un WMS privado
 
 !!! warning "Problema conocido en la versión 1.3.0"
-    En la versión 1.3.0, algunos usuarios registrados reciben 401 en las capas y tareas que pasan por el proxy, también en los WMS privados y en las consultas a bases de datos de la intranet descritos a continuación.
+    En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` tras el primer acceso y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy, también en los WMS privados y en las consultas a bases de datos de la intranet descritos a continuación.
     Los usuarios afectados y el alcance se explican en [la API de Proxy](api.md#problema-token-proxy-1-3-0).
 
 ```plantuml alt="Diagrama de secuencia del acceso a un WMS privado: el visor pide el mapa al proxy con su token; el proxy pide la configuración al backend con su clave de proxy, el backend valida el token y devuelve la URL y los parámetros del servicio, y el proxy hace la petición al WMS y devuelve la imagen."
@@ -870,7 +870,7 @@ componentes de Spring Framework configurados por el paquete `security` para
 autenticar un usuario cuando solicita un token JWT de autenticación.
 - Los controladores de la **API de Configuración y Autorización** solo podrán
 ser accedidos por usuarios a los que se haya determinado que tengan el rol
-`USER`, `PUBLIC` (usuario público) o `MOBILE_EDITION` (aplicación móvil de edición) o el rol `PROXY` (proxy). Es misión del paquete
+`USER`, `PUBLIC` (usuario público) o `MOBILE_EDITION` (SITMUN Mobile Editor) o el rol `PROXY` (proxy). Es misión del paquete
 `security` establecer los filtros necesarios para interceptar las peticiones
 y en función de los mecanismos de seguridad implementados (token JWT para
 los clientes, con el usuario público cuando no hay token; clave de API para el rol `PROXY`) determinar si están autenticadas

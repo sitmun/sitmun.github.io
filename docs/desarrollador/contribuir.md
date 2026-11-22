@@ -73,10 +73,12 @@ Desde la versión 1.3.0 todo el código de SITMUN está en un único repositorio
 | Despliegue con Docker | `compose.yaml`, `docker/`, `profiles/` | Docker Compose |
 
 Los repositorios anteriores (`sitmun-admin-app`, `sitmun-viewer-app`, `sitmun-backend-core`, `sitmun-proxy-middleware`,
-`sitmun-application-stack`, `sitmun-mbtiles`, `edition-mobile-app` y `touristic-mobile-app`) corresponden a la versión 1.2.9 y anteriores;
+`sitmun-application-stack`, `sitmun-mbtiles`, `edition-mobile-app` y `touristic-mobile-app`) son los de antes del repositorio único:
+su rama `main` tiene la versión 1.2.x, y su rama `dev`, el código hasta que se incorporó al repositorio único en la versión 1.3.0;
 `sitmun-shared` tuvo las bibliotecas comunes hasta que pasaron al repositorio único como `sitmun-common`.
 Están archivados: siguen públicos, solo de lectura, y no reciben cambios.
 Las versiones publicadas de los repositorios web y de servicios se conservan en el repositorio único como etiquetas `legacy/<repositorio>/…`.
 
 Las normas de contribución están en [CONTRIBUTING.md](https://github.com/sitmun/sitmun/blob/main/CONTRIBUTING.md).
 Las vulnerabilidades de seguridad no se comunican en una incidencia pública: se informan de forma privada con la opción «Report a vulnerability» de la pestaña «Security» de [sitmun/sitmun](https://github.com/sitmun/sitmun), según la [política de seguridad](https://github.com/sitmun/.github/blob/main/SECURITY.md).
+Para usar esa opción se requiere una cuenta de GitHub.

@@ -22,14 +22,14 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
 !!! warning "SITMUN 1.3.0: capas WMS con varios estilos"
     Si una capa del servidor ofrece más de un estilo, al guardar aparece un error por cada estilo de más
     («Múltiples Errores» si hay más de uno; [sitmun/sitmun#384](https://github.com/sitmun/sitmun/issues/384)). Las capas se crean igualmente,
-    pero cada una guarda un solo estilo y los demás se pierden. La capa se puede usar con ese estilo.
+    pero cada una guarda un solo estilo y los demás se pierden. Puedes usar la capa con ese estilo.
 
 **Opción B: a mano** (menú **Capas** → **Nuevo**)
 
 - **Nombre**: el que verá el usuario si la capa no está en un árbol (por ejemplo, en el selector de mapas de fondo).
 - **Servicio**: el del [paso 2](paso-2-servicios.md).
 - **Capa o capas del servicio utilizadas**: el nombre técnico de la capa en el servidor. Si pones más de una, separadas por comas, se dibujan juntas como una sola capa.
-- Opcional: **Escala mínima** y **Escala máxima**, **Transparencia** (0 = opaca), si se puede consultar (GetFeatureInfo) y el **Orden** de dibujo.
+- Opcional: **Escala mínima** y **Escala máxima**, **Transparencia** (0 = opaca), si quieres que se pueda consultar (GetFeatureInfo) y el **Orden** de dibujo.
 
 **Dos comprobaciones obligatorias para cada capa:**
 

@@ -31,7 +31,8 @@ También se puede especificar un CRS concreto con el que trabajará la aplicaci�
 También se permite seleccionar el **mapa de situación** que se desea utilizar en esta aplicación. La lista de mapas de situación se obtiene de todos aquellos grupos que se han etiquetado como mapas de situación en el apartado [Permisos sobre las capas](permisos-capas.md).
 
 !!! warning "SITMUN 1.3.0: mapa de situación en blanco con WMTS"
-    Si la capa del mapa de situación es WMTS, sale en blanco ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)). En la aplicación se elige un grupo «Mapa de situación» con una capa WMS.
+    El mapa de situación usa la primera capa del grupo elegido en **Mapa de situación** y, si no hay grupo, la primera capa del primer mapa de fondo. Si esa capa es WMTS, el mapa de situación sale en blanco en la versión 1.3.0 ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)).
+    Para evitarlo, se crea en [Permisos sobre las capas](permisos-capas.md) un grupo de tipo «Mapa de situación» con una sola capa WMS y se elige en el campo **Mapa de situación** de la aplicación.
 
 Por último, se puede definir cuál va a ser el comportamiento de la aplicación con los territorios hijos del territorio de referencia de dicha aplicación.
 

@@ -8,9 +8,9 @@ Este manual es una guía para los usuarios administradores de SITMUN, en su vers
 
 SITMUN 3 nace de una profunda actualización técnica y conceptual de la versión SITMUN 2 con el fin de poner al día sus estándares tecnológicos y, también, para incrementar y mejorar sus funcionalidades, tanto para el administrador como para el usuario.
 
-SITMUN 3 ya está disponible bajo una versión de código libre, concretamente bajo la **licencia EUPL v1.2**. Esto facilita que el proyecto pueda ser utilizado por otras administraciones locales y, también, que dichas administraciones puedan contribuir activamente al avance del proyecto SITMUN.
+SITMUN 3 ya está disponible bajo una versión de código libre, concretamente bajo la licencia EUPL 1.2. Esto facilita que el proyecto pueda ser utilizado por otras administraciones locales y, también, que dichas administraciones puedan contribuir activamente al avance del proyecto SITMUN.
 
-El código fuente del proyecto se puede encontrar en el [repositorio de GitHub de SITMUN](https://github.com/sitmun/).
+El código fuente del proyecto se puede encontrar en el [repositorio de GitHub de SITMUN](https://github.com/sitmun/sitmun).
 
 ## Arquitectura básica de SITMUN 3
 

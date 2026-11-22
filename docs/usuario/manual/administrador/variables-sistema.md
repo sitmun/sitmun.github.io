@@ -23,7 +23,7 @@ El backend sustituye cada variable con datos del usuario, el territorio y la apl
 | `#{PROYECCION}` | Sistema de referencia de la aplicación. |
 | `#{EXTENSION_MAX_X0}`, `#{EXTENSION_MAX_Y0}`, `#{EXTENSION_MAX_X1}`, `#{EXTENSION_MAX_Y1}` | Extensión del territorio: X e Y mínimas y máximas. |
 | `#{DATE}` | Fecha y hora de la petición (`dd/MM/yyyy HH:mm:ss`), siempre en UTC. |
-| `#{LANG}`, `#{LANGUAGE}` | Idioma de la petición (ver [Idioma de la petición](#idioma-de-la-peticion)). |
+| `#{LANG}`, `#{LANGUAGE}` | Código del idioma, por ejemplo `es`. Cómo se elige: [Idioma de la petición](#idioma-de-la-peticion). |
 
 Los nombres duplicados (por ejemplo `#{USUARIO}` y `#{USER_NAME}`) se mantienen por compatibilidad con SITMUN 2.
 

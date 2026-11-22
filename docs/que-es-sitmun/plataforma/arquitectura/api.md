@@ -19,10 +19,14 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
   En el visor y el administrador el token se guarda en una cookie *HttpOnly*
   (`viewer_access_token` o `admin_access_token`) que se renueva con `POST /api/authenticate/refresh`
   y se borra con `POST /api/authenticate/logout`.
-  La cabecera `X-SITMUN-Client` indica qué cookie usar: el administrador envía `X-SITMUN-Client: admin` en todas sus
-  llamadas, también en `refresh` y `logout`. Sin la cabecera se lee la cookie del visor (`viewer_access_token`), así que
-  una llamada a la API de Administración con la cookie `admin_access_token` y sin la cabecera responde 401.
-  La aplicación móvil de edición usa `POST /api/authenticate/mobile`, que devuelve el token en el cuerpo de la respuesta.
+  La ruta del inicio de sesión decide qué cookie se crea: el visor usa `POST /api/authenticate`, que crea
+  `viewer_access_token`, y el administrador usa `POST /api/authenticate/admin`, que crea `admin_access_token`.
+  Iniciar sesión en `POST /api/authenticate` con la cabecera `X-SITMUN-Client: admin` crea igualmente la cookie del visor,
+  y con ella la API de Administración responde 401.
+  En las llamadas siguientes, la cabecera `X-SITMUN-Client` indica qué cookie se lee: el administrador envía
+  `X-SITMUN-Client: admin` en todas ellas, también en `refresh` y `logout`. Sin la cabecera se lee la cookie del visor,
+  así que una llamada a la API de Administración con la cookie `admin_access_token` y sin la cabecera responde 401.
+  SITMUN Mobile Editor usa `POST /api/authenticate/mobile`, que devuelve el token en el cuerpo de la respuesta.
   Solo funciona si el usuario tiene acceso al menos a una aplicación de tipo «Edition application» (código `ED`); si no,
   responde 403.
   Para llamar al proxy, el cliente pide un token de corta duración con `POST /api/authenticate/proxy`.
@@ -51,7 +55,7 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
 
 - **Configuración y Autorización de Visor de mapas** (`/api/config/client/…`).
   La petición se autentica con la cookie de sesión obtenida previamente mediante la API de Autenticación
-  (la aplicación móvil de edición usa un token *Bearer*).
+  (SITMUN Mobile Editor usa un token *Bearer*).
   Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
   *usuario público*.
 - **Configuración y Autorización de Proxy** (`POST /api/config/proxy`).
@@ -90,11 +94,18 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 
 !!! warning "Problema conocido en la versión 1.3.0"
     En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
-    Por eso, los usuarios afectados reciben 401 en todas las capas y tareas que pasan por el proxy.
-    Afecta a los usuarios con fecha de último cambio de contraseña registrada: el usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y cualquier usuario que la haya restablecido con la recuperación de contraseña.
-    Cambiar la contraseña desde el formulario de usuarios no la registra.
+    Por eso, los usuarios con esa fecha registrada reciben 401 en todas las capas y tareas que el visor pide a través del proxy.
+
+    - **Usuarios afectados**: el usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`)
+      y cualquier usuario que haya restablecido su contraseña con la recuperación de contraseña.
+      Poner o cambiar la contraseña desde el formulario de usuarios no registra la fecha.
+    - **Alcance**: las capas de los servicios con «Usar proxy SITMUN» activado (la opción se activa sola en los servicios con
+      autenticación), las consultas SQL y Web API y los localizadores.
+    - **No afectados**: el usuario público y las capas que el visor carga directamente, sin pasar por el proxy.
+
     No se puede evitar con la configuración.
-    No se ven afectados el usuario público ni las capas que el visor carga directamente, sin pasar por el proxy. Con `FORCE_USE_OF_PROXY=true`, todas las capas pasan por el proxy.
+    La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0
+    ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)): solo pasan por el proxy los servicios con «Usar proxy SITMUN».
     Más información en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 ### Aspectos globales
@@ -113,7 +124,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 ### Servicios compatibles
 
 Las peticiones tienen la forma `/proxy/{appId}/{terId}/{type}/{typeId}` (o `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`
-para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticiones POST a los servicios deben llevar un cuerpo XML (por ejemplo, una petición WFS), y con otro tipo de contenido el proxy responde 415. La exportación MBTiles es la excepción: sus peticiones POST (`/proxy/{appId}/{terId}/mbtiles` y `/proxy/{appId}/{terId}/mbtiles/estimate`) llevan un cuerpo JSON.
+para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticiones POST a los servicios deben llevar un cuerpo XML (por ejemplo, una petición WFS) con la cabecera `Content-Type: application/xml`; con otro tipo de contenido, también `text/xml`, el proxy responde 415. La exportación MBTiles es la excepción: sus peticiones POST (`/proxy/{appId}/{terId}/mbtiles` y `/proxy/{appId}/{terId}/mbtiles/estimate`) llevan un cuerpo JSON.
 
 - **Servicios [OGC Web Map Service (WMS)](https://www.ogc.org/standard/wms/)**,
   que ofrecen mapas en formato imagen.
@@ -131,7 +142,7 @@ para una capa concreta) y pueden usar los métodos HTTP GET o POST; las peticion
   incluido en el proxy (PostgreSQL, Oracle, Microsoft SQL Server y H2).
   Las respuestas de las bases de datos se devuelven en formato JSON.
 
-- **Exportación MBTiles** (opcional): trabajos de generación de paquetes de teselas para la aplicación móvil de edición,
+- **Exportación MBTiles** (opcional): trabajos de generación de paquetes de teselas para SITMUN Mobile Editor,
   delegados al servicio `mbtiles`.
 
 ### Modificadores generales
@@ -159,8 +170,8 @@ abiertos sin sesión, para los idiomas y los parámetros de configuración; `GET
 para los datos y el perfil del usuario identificado; y `POST /api/tasks/template/more-info-advanced/render`
 y `POST /api/tasks/template/export`, abiertos a los roles `USER`, `ADMIN` y `PUBLIC`, para mostrar y exportar las plantillas
 de las tareas de *más información avanzada*.
-La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) obtenida de la [API de Autenticación][api-de-autenticacion]
-y envía la cabecera `X-SITMUN-Client: admin` en cada llamada.
+La **aplicación de administración** se autentica con la cookie de sesión (`admin_access_token`) que crea `POST /api/authenticate/admin`
+en la [API de Autenticación][api-de-autenticacion] y envía la cabecera `X-SITMUN-Client: admin` en cada llamada.
 La documentación interactiva de todos los endpoints está en Swagger UI (`/swagger-ui/index.html` en el backend).
 
 ### Funcionalidades {#api-de-administracion-funcionalidades}
