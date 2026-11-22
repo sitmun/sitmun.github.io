@@ -16,8 +16,6 @@ Directo al mapa
 Dos comprobaciones obligatorias para cada capa:
 EPSG:3857
 El menú lateral
-Elegir cómo instalar
-Entorno de desarrollo
 Escala mínima y máxima
 se guarda la tarea MIA
 Herramientas mínimas para un primer proyecto:
@@ -30,14 +28,9 @@ Node.js 24
 Opción A: desde el servicio (WMS)
 Opción B: a mano
 OpenStreetMap
-Parar y desinstalar
 Paso 1: activar la visualización de datos alfanuméricos de la capa
 Paso 2: activar la visualización de información en el árbol
-Pasos de instalación (producción)
-Primer acceso al administrador
-Probar SITMUN (showcase)
 Proporcionar logs
-Publicar en un servidor web
 Revisar la documentación
 SITMUN 3
 SITMUN Viewer (visor).
@@ -65,7 +58,3 @@ textos de contenido
 tipo de aplicación
 valores tipados
 Si la aplicación es privada
-Actualizar desde 1.2.x
-Publicar con HTTPS detrás de un proxy inverso
-Cambiar un secreto
-Mover SITMUN a otro servidor

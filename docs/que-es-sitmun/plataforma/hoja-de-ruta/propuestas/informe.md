@@ -4,7 +4,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: tarea de informe (exportac
 
 # Informe
 
-!!! info "Estado (noviembre 2026): parcialmente implementado"
+!!! info "Estado (noviembre de 2026): parcialmente implementado"
     La tarea de **exportación documental** genera documentos PDF a partir de plantillas de visualización.
 
 !!! info "Aspectos generales"

@@ -13,7 +13,8 @@ Esta sección recoge soluciones a los problemas más comunes que pueden surgir d
 
 !!! note "Oracle"
     Los comandos de base de datos de esta página son para PostgreSQL. Con el perfil `oracle`, el servicio se llama
-    `oracle` y el volumen `oradata`; las copias de seguridad se hacen con las herramientas de Oracle (por ejemplo, Data Pump).
+    `oracle` y el volumen `oradata`; las copias de seguridad se hacen con Data Pump
+    (ver [Copia de seguridad con Oracle](#backup-oracle)).
 
 ## Problemas de instalación
 
@@ -138,7 +139,7 @@ en la base de datos (sin perder datos) y se vuelve a crear el contenedor del bac
 
 ```bash
 docker compose exec postgres psql -U sitmun3 -d sitmun3 -c "ALTER USER sitmun3 PASSWORD '<nueva contraseña>'"
-docker compose up -d backend
+docker compose up -d --no-build backend
 ```
 
 En Oracle, `ALTER USER sitmun3 IDENTIFIED BY "<nueva contraseña>"`.
@@ -325,7 +326,7 @@ docker compose logs -f backend
 ```
 
 El backend y el proxy escriben su registro en la salida estándar. El nivel se cambia en `.env` con `LOGGING_LEVEL_ROOT`
-y `LOGGING_LEVEL_ORG_SITMUN`, y se aplica con `docker compose up -d backend proxy`. Los perfiles de producción
+y `LOGGING_LEVEL_ORG_SITMUN`, y se aplica con `docker compose up -d --no-build backend proxy` (sin `--no-build`, Compose compilaría las imágenes de nuevo). Los perfiles de producción
 (`profiles/postgres.env` y `profiles/oracle.env`) los ponen en `WARN` e `INFO`; sin ellos, Compose usa `INFO` y `DEBUG`.
 Los registros de nginx del contenedor `front` no salen en `docker compose logs front`: van a la carpeta `logs/front/nginx`,
 que contiene `access.log` y `error.log`. Nada los rota, así que conviene vaciarlos o rotarlos de vez en cuando.
@@ -387,6 +388,45 @@ docker run --rm -v sitmun_pgdata:/data -v "$(pwd)":/backup alpine sh -c "rm -rf 
 docker compose start
 ```
 
+### Copia de seguridad con Oracle { #backup-oracle }
+
+Con el perfil `oracle`, la copia es una exportación de Data Pump del esquema de la aplicación (`sitmun3` por defecto, o el
+valor de `DATABASE_USERNAME`). `expdp` e `impdp` están dentro del contenedor `oracle`, que arranca con el usuario `system` y
+la contraseña `password`, y el servicio de la base de datos se llama como `DATABASE` (`sitmun3` por defecto). Los comandos
+siguientes se han probado con la imagen `gvenzl/oracle-free:23-slim`, también en una base de datos recién creada.
+
+Data Pump escribe en un objeto directorio de Oracle. El primer comando crea la carpeta `/opt/oracle/oradata/dpdump`
+dentro del contenedor y el objeto directorio `SITMUN_DP`, que apunta a ella. Se ejecuta antes de exportar y antes de
+importar, y puede repetirse sin problema.
+
+Para crear la copia y llevarla a un archivo del equipo:
+
+```bash
+docker compose exec oracle bash -c "mkdir -p /opt/oracle/oradata/dpdump && echo \"CREATE OR REPLACE DIRECTORY SITMUN_DP AS '/opt/oracle/oradata/dpdump';\" | sqlplus -s system/password@//localhost:1521/sitmun3"
+docker compose exec oracle expdp system/password@//localhost:1521/sitmun3 schemas=sitmun3 \
+  directory=SITMUN_DP dumpfile=sitmun3.dmp logfile=exp.log reuse_dumpfiles=yes
+docker compose exec -T oracle cat /opt/oracle/oradata/dpdump/sitmun3.dmp > sitmun3.dmp
+```
+
+Para restaurarla, se paran el backend y el proxy, se crea el objeto directorio, se copia el archivo al contenedor, se
+importa y se vuelven a arrancar:
+
+```bash
+docker compose stop backend proxy
+docker compose exec oracle bash -c "mkdir -p /opt/oracle/oradata/dpdump && echo \"CREATE OR REPLACE DIRECTORY SITMUN_DP AS '/opt/oracle/oradata/dpdump';\" | sqlplus -s system/password@//localhost:1521/sitmun3"
+docker compose exec -T oracle bash -c 'cat > /opt/oracle/oradata/dpdump/sitmun3.dmp' < sitmun3.dmp
+docker compose exec oracle impdp system/password@//localhost:1521/sitmun3 schemas=sitmun3 \
+  directory=SITMUN_DP dumpfile=sitmun3.dmp logfile=imp.log table_exists_action=replace
+docker compose start backend proxy
+```
+
+`impdp` termina con un error `ORA-31684` (el usuario `sitmun3` ya existe), que es normal. La importación sustituye las
+tablas que ya existen. El archivo de la copia queda en el volumen `oradata`, en `/opt/oracle/oradata/dpdump`, y puede
+borrarse después. Para mover SITMUN a otro servidor, se siguen los mismos pasos en el contenedor `oracle` del servidor nuevo, con la base
+de datos vacía.
+Si la instalación usa otro servicio, esquema o versión de Oracle, los parámetros se ajustan según la
+[documentación de Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/23/sutil/oracle-data-pump.html).
+
 ## Contacto y soporte
 
 Si los problemas persisten:
@@ -396,7 +436,7 @@ Si los problemas persisten:
 3. Para otras consultas, ver los [órganos de gobierno de la Red SITMUN](../../que-es-sitmun/red-sitmun/contacto.md).
 
 Una vulnerabilidad de seguridad no se notifica en una incidencia pública, sino de forma privada, como indica la
-[política de seguridad](https://github.com/sitmun/sitmun/security/policy).
+[política de seguridad](https://github.com/sitmun/.github/blob/main/SECURITY.md); requiere una cuenta de GitHub.
 
 !!! tip "Información útil para una incidencia"
     - Versión de SITMUN, de Docker y de Docker Compose.

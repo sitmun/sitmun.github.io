@@ -4,7 +4,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: aplicación móvil para re
 
 # Cliente APP SITMUN aplicada a los recursos turísticos
 
-!!! success "Estado (noviembre 2026): implementado para Android"
+!!! success "Estado (noviembre de 2026): implementado para Android"
     La aplicación turística, SITMUN Touristic, está en la carpeta [`sitmun-mobile/sitmun-touristic`](https://github.com/sitmun/sitmun/tree/main/sitmun-mobile/sitmun-touristic) del repositorio de SITMUN.
 
 !!! info "Aspectos generales"

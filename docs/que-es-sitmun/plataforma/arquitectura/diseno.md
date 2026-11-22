@@ -99,7 +99,7 @@ El proxy inverso es capaz de manejar peticiones a diversos tipos de servicios, i
   [JDBC (Java Database Connectivity)](https://es.wikipedia.org/wiki/Java_Database_Connectivity) incluido en el proxy.
   Las respuestas de las bases de datos se devuelven en formato JSON.
 
-Las peticiones pueden usar los métodos HTTP GET o POST; las POST a los servicios, solo con un cuerpo XML (por ejemplo, una petición WFS). Las de la exportación MBTiles llevan un cuerpo JSON.
+Las peticiones pueden usar los métodos HTTP GET o POST; las POST a los servicios, solo con un cuerpo XML (por ejemplo, una petición WFS) y la cabecera `Content-Type: application/xml`; con otro tipo de contenido, también `text/xml`, el proxy responde 415. Las de la exportación MBTiles llevan un cuerpo JSON.
 
 Para acceder a través del **proxy**, todas las peticiones deben incluir un token de acceso JWT de corta duración,
 obtenido previamente a través de la **[API de Autenticación][api-de-autenticacion]** (`POST /api/authenticate/proxy`), que identifica al usuario.
@@ -108,9 +108,9 @@ Es decir, en caso de no incluir un token de acceso JWT, se asume que se trata de
 Además, todas las peticiones enviadas a través del **proxy** deben incluir
 un identificador de territorio y un identificador de aplicación.
 
-!!! warning "Problema conocido en la versión 1.3.0"
-    En la versión 1.3.0, algunos usuarios registrados reciben 401 en las capas y tareas que pasan por el proxy.
-    Los usuarios afectados y el alcance se explican en [la API de Proxy](api.md#problema-token-proxy-1-3-0).
+!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
+    En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` con la contraseña creada en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy.
+    Los usuarios afectados y el alcance se explican en [la API de Proxy](api.md#problema-token-proxy-1-3-0). Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 El **proxy** actúa como adaptador, traduciendo las peticiones de los clientes SITMUN a un formato adecuado
 para los servicios y datos subyacentes.
@@ -187,11 +187,11 @@ Lo que permite identificar:
 
 Para una capa concreta de un servicio se usa la forma `/proxy/{appId}/{terId}/{type}/{serviceId}/{cartographyId}`.
 
-Por ejemplo, la siguiente petición correspondería con la petición de acceso a un servicio de mapas remoto:
+Por ejemplo, la siguiente petición correspondería con la petición de acceso a un servicio de mapas remoto. El servicio (`https://wms.ejemplo.org/wms`) y sus capas son ilustrativos:
 
 ```http
 GET /proxy/1/34/WMS/1?SERVICE=WMS&REQUEST=GetMap
-    &LAYERS=01_NIVJERARQUIC_LN,02_TIPUSLINIA_LN
+    &LAYERS=carreteras,rios
     &FORMAT=image/png
     &TRANSPARENT=true&VERSION=1.1.1&SRS=EPSG:25831
     &BBOX=405913.25142303,4593667.2516974,411183.74857697,4599953.7483026
@@ -224,7 +224,7 @@ Content-Type: application/json
   "parameters": {
     "SERVICE": "WMS",
     "REQUEST": "GetMap",
-    "LAYERS": "01_NIVJERARQUIC_LN,02_TIPUSLINIA_LN",
+    "LAYERS": "carreteras,rios",
     "FORMAT": "image/png",
     "TRANSPARENT": "true",
     "VERSION": "1.1.1",
@@ -247,12 +247,12 @@ La respuesta podría ser como sigue:
     "vary": [
       "BBOX"
     ],
-    "uri": "https://geoserveis.icgc.cat/icgc_bm5m/wms/service",
+    "uri": "https://wms.ejemplo.org/wms",
     "method": "GET",
     "parameters": {
       "SERVICE": "WMS",
       "REQUEST": "GetMap",
-      "LAYERS": "01_NIVJERARQUIC_LN,02_TIPUSLINIA_LN",
+      "LAYERS": "carreteras,rios",
       "FORMAT": "image/png",
       "TRANSPARENT": "true",
       "VERSION": "1.1.1",
@@ -280,13 +280,13 @@ Los campos `exp` y `vary` de la respuesta no los usa el proxy de la versión 1.3
 Es decir:
 
 ```http
-GET /icgc_bm5m/wms/service?SERVICE=WMS&REQUEST=GetMap
-    &LAYERS=01_NIVJERARQUIC_LN,02_TIPUSLINIA_LN
+GET /wms?SERVICE=WMS&REQUEST=GetMap
+    &LAYERS=carreteras,rios
     &FORMAT=image/png
     &TRANSPARENT=true&VERSION=1.1.1&SRS=EPSG:25831
     &BBOX=405913.25142303,4593667.2516974,411183.74857697,4599953.7483026
     &WIDTH=498&HEIGHT=594
-Host: geoserveis.icgc.cat
+Host: wms.ejemplo.org
 ```
 
 [api-de-autenticacion]: api.md#api-de-autenticacion

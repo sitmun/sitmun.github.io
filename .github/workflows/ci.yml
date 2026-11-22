@@ -81,6 +81,9 @@ jobs:
       # Bold UI labels must exist in the documented SITMUN version (or be allowlisted).
       - name: Check UI labels against the documented SITMUN version
         run: python .github/scripts/check_ui_labels.py docs/usuario
+
+      - name: Check that every known-bug note points to its issue
+        run: python .github/scripts/check_bug_notes.py docs
       # --strict checks links written in the Markdown sources; lychee also checks the
       # generated HTML (theme and template links, such as the announcement bar).
       # External links are checked weekly by links.yml so a flaky site can't block a deploy.

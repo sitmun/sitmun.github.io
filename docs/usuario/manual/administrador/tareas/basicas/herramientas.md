@@ -81,7 +81,7 @@ Permite visualizar la función de búsqueda general en el mapa. Para que este co
 
 *Captura de una versión anterior de SITMUN; en 1.3.0, véase la nota siguiente.*
 
-!!! warning "SITMUN 1.3.0"
+!!! bug "Error conocido de SITMUN 1.3.0: buscador sin resultados (sitmun/sitmun#352)"
     En la versión 1.3.0 el buscador no devuelve resultados y muestra `[[searchPlaceholder]]`
     ([sitmun/sitmun#352](https://github.com/sitmun/sitmun/issues/352), corregido para la siguiente versión).
 

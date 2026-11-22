@@ -16,3 +16,7 @@ site
 .vscode
 
 __pycache__/
+
+# Local environment files (never commit)
+.env
+.env.*

@@ -4,7 +4,7 @@ description: "Propuesta de la hoja de ruta de SITMUN: mejora del inicio de sesi�
 
 # Mejora UI del login y dashboard de usuario del cliente SITMUN 3
 
-!!! info "Estado (noviembre 2026): parcialmente implementado"
+!!! info "Estado (noviembre de 2026): parcialmente implementado"
     El visor incluye dashboard de aplicaciones y territorios, perfil de usuario, sugerencias, cambio de idioma y cierre de sesión.
     Las noticias y avisos para los usuarios no están implementados.
 

@@ -11,8 +11,8 @@ description: "Clientes de SITMUN 3: visor de mapas web y embebible, aplicación 
 | Visor de mapas web | `sitmun-viewer` | `/viewer/` |
 | Visor embebible (para insertar en otra web con un `iframe`) | `sitmun-viewer` | `/viewer/#/embedded-map/{aplicación}/{territorio}/{idioma}` (sin `#/` en una instalación de desarrollo) |
 | Aplicación de administración | `sitmun-admin` | `/admin/` |
-| Aplicación móvil de edición (Android) | `sitmun-mobile/sitmun-edition` | — |
-| Aplicación móvil turística (Android) | `sitmun-mobile/sitmun-touristic` | — |
+| SITMUN Mobile Editor (Android) | `sitmun-mobile/sitmun-edition` | — |
+| SITMUN Touristic (Android) | `sitmun-mobile/sitmun-touristic` | — |
 
 ### Aplicaciones móviles
 
@@ -44,7 +44,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Compatibilidad**: compatible con los navegadores más comunes.
 
 - **Autenticación**: el cliente estará diseñado para utilizar solo HTTP sobre TLS (HTTPS).
-  En caso de ser un visor público, el usuario ingresará directamente sin inicio de sesión.
+  En caso de ser un visor público, el usuario entrará directamente sin inicio de sesión.
   El cliente debe permitir la autenticación del usuario frente a la [API de Autenticación][api-de-autenticacion].
   La API responderá con un token JSON Web Token (JWT) en una cookie de sesión, que se utilizará para interactuar con la
   [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Para la [API de Proxy][api-de-proxy]
@@ -76,9 +76,9 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   Todas las peticiones enviadas a través de la [API de Proxy][api-de-proxy] deben incluir, además,
   un identificador de territorio y un identificador de aplicación.
 
-    !!! warning "Problema conocido en la versión 1.3.0"
-        En la versión 1.3.0, algunos usuarios registrados reciben 401 en las capas y tareas que pasan por el proxy.
-        Los usuarios afectados y el alcance se explican en [la API de Proxy](arquitectura/api.md#problema-token-proxy-1-3-0).
+    !!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
+        En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` con la contraseña creada en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy.
+        Los usuarios afectados y el alcance se explican en [la API de Proxy](arquitectura/api.md#problema-token-proxy-1-3-0). Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 - **Secuencia de inicio**: el cliente solicitará a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   una configuración básica (territorios y aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar; los idiomas
@@ -101,7 +101,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Control de escala**: selector automático de nivel de escala.
 
-- **Zoom a ventana**: zoom a ventana (acceso rápido con mayúsculas más ratón).
+- **Zoom a ventana**: amplía el área que se dibuja con el ratón (acceso rápido con mayúsculas más ratón).
 
 - **Zoom de extensión**: botón de Zoom de extensión.
 
