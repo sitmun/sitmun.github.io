@@ -41,9 +41,7 @@ Permite visualizar el mapa de situación. Se ubica en el icono inferior derecho.
 
 - Control API SITNA: `sitna.overviewMap`
 
-!!! bug "Error conocido de SITMUN 1.3.0: mapa de situación en blanco con WMTS (sitmun/sitmun#388)"
-    El mapa de situación usa la primera capa del grupo elegido en **Mapa de situación** y, si no hay grupo, la primera capa del primer mapa de fondo. Si esa capa es WMTS, el mapa de situación sale en blanco en la versión 1.3.0 ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)).
-    Para evitarlo, se crea en [Permisos sobre las capas](../../permisos-capas.md) un grupo de tipo «Mapa de situación» con una sola capa WMS y se elige en el campo **Mapa de situación** de la [aplicación](../../aplicacion.md).
+El mapa de situación usa la primera capa del grupo elegido en **Mapa de situación** y, si no hay grupo, la primera capa del primer mapa de fondo.
 
 ![Mapa de situación del visor](../../img/basicas-overview-map.webp){ loading=lazy }
 

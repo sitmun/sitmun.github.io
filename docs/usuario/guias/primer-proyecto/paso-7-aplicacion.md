@@ -18,10 +18,6 @@ La aplicación es el proyecto: dice qué mapas de fondo, qué árboles y qué ro
 - **Mapa de situación**: opcional, un grupo de tipo **Mapa de situación** ([paso 4](paso-4-grupos-y-fondos.md)). El mapa de situación usa la primera capa de ese grupo. Si no eliges ninguno, usa la primera capa del primer mapa de fondo.
 - **Aplicación privada**: déjala desactivada; si la activas, el usuario `public` no la ve.
 
-!!! bug "Error conocido de SITMUN 1.3.0: mapa de situación en blanco con WMTS (sitmun/sitmun#388)"
-    El mapa de situación usa la primera capa del grupo elegido en **Mapa de situación** y, si no eliges ninguno, la primera capa del primer mapa de fondo. Si esa capa es WMTS, el mapa de situación sale en blanco en la versión 1.3.0 ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)).
-    Para evitarlo, crea en **Permisos sobre las capas** un grupo de tipo **Mapa de situación** con una sola capa WMS y elígelo aquí, en **Mapa de situación**.
-
 ![Información general de una aplicación](img/paso-7-aplicacion.webp){ loading=lazy }
 
 **Pestañas**
