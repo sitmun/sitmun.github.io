@@ -90,27 +90,22 @@ usando un token de corta duración que se ha obtenido previamente mediante la [A
 Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
 *usuario público*.
 
-<a id="problema-token-proxy-1-3-0"></a>
+<a id="token-proxy-cambio-contrasena"></a>
 
-!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
-    En la versión 1.3.0, el token de corta duración que el visor pide para el proxy no incluye la fecha del último cambio de contraseña.
-    Por eso, los usuarios con esa fecha registrada reciben 401 en todas las capas y tareas que el visor pide a través del proxy.
+El token del proxy incluye la fecha del último cambio de contraseña del usuario, igual que el de inicio de sesión.
+Si la contraseña cambia después de emitir el token, el backend lo rechaza cuando el proxy le pide la configuración,
+y el proxy responde con un error 401.
 
-    - **Usuarios afectados**: el usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`)
-      y cualquier usuario que haya restablecido su contraseña con la recuperación de contraseña.
-      Poner o cambiar la contraseña desde el formulario de usuarios no registra la fecha.
-    - **Alcance**: las capas de los servicios con «Usar proxy SITMUN» activado (la opción se activa sola en los servicios con
-      autenticación) y las tareas que el backend dirige al proxy: las consultas SQL, de API web (salvo las de API web sin
-      proxy, de ámbito `web-api-query-no-proxy`) y sobre capas, la edición de capas, y los localizadores y las tareas de más
-      información que usan SQL o una API.
-    - **No afectados**: el usuario público y las capas que el visor carga directamente, sin pasar por el proxy.
-
-    No se puede evitar con la configuración. Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387), corregido para la siguiente versión.
+En la versión 1.3.0, el token del proxy no incluía esa fecha. Por eso, los usuarios con la fecha registrada (el usuario
+`admin` cuya contraseña se creó en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la restableció con
+la recuperación de contraseña) recibían un error 401 en todas las capas y tareas que el visor pedía a través del proxy.
+La versión 1.3.1 lo corrige.
 
 !!! bug "Error conocido de SITMUN 1.3.0: `FORCE_USE_OF_PROXY` sin efecto (sitmun/sitmun#389)"
     La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0: Compose pasa su valor a una
     propiedad que el backend no lee. Pasan por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend
-    dirige al proxy (las de la lista anterior). Seguimiento: [sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389).
+    dirige al proxy: las consultas SQL, de API web (salvo las de ámbito `web-api-query-no-proxy`) y sobre capas, la
+    edición de capas, y los localizadores y las tareas de más información que usan SQL o una API. Seguimiento: [sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389).
 
 ### Aspectos globales
 

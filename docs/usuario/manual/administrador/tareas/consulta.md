@@ -42,10 +42,6 @@ Para definir una consulta SQL es necesario seleccionar previamente la conexión 
 
 Cómo crear conexiones se explica en el apartado [Conexiones](../conexiones.md).
 
-!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
-    Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que el visor pide a través de SITMUN Proxy Middleware, como estas consultas (salvo las de API web sin proxy) y los localizadores. Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña; cambiar la contraseña desde el formulario de usuarios no registra esa fecha.
-    No hay solución en la configuración. No se ven afectados el usuario público ni las capas que el visor carga directamente. Más detalles en [la API de Proxy](../../../../que-es-sitmun/plataforma/arquitectura/api.md#problema-token-proxy-1-3-0) y en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387), corregido para la siguiente versión.
-
 Los resultados de una consulta SQL tienen límites: como máximo 1000 filas (las siguientes se descartan) y 60 segundos de ejecución. Se pueden cambiar en el backend con las propiedades `sitmun.jdbc.max-rows` y `sitmun.jdbc.query-timeout-seconds`.
 
 Para realizar una consulta SQL, se recomienda probar primero la consulta directamente en la base de datos (si se dispone de acceso a ella) para comprobar que devuelve resultados. Posteriormente, la sentencia SQL puede copiarse en la tarea de SITMUN 3.
