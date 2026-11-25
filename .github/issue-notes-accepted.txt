@@ -1,3 +1,4 @@
 # Closed sitmun/sitmun issues whose docs notes stay until a release ships the fix.
 # Remove a line when the note is updated after that release.
 352  # search box; fixed on dev after v1.3.0, the note says "corregido para la siguiente versión"
+387  # viewer proxy token 401; fixed on dev after v1.3.0 (sitmun/sitmun#407), the notes say "corregido para la siguiente versión"

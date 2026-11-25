@@ -105,7 +105,7 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
       información que usan SQL o una API.
     - **No afectados**: el usuario público y las capas que el visor carga directamente, sin pasar por el proxy.
 
-    No se puede evitar con la configuración. Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+    No se puede evitar con la configuración. Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387), corregido para la siguiente versión.
 
 !!! bug "Error conocido de SITMUN 1.3.0: `FORCE_USE_OF_PROXY` sin efecto (sitmun/sitmun#389)"
     La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0: Compose pasa su valor a una
