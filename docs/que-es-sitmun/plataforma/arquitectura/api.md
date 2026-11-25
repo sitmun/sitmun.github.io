@@ -93,7 +93,8 @@ Si no se autentica, se asume que la petición se ha realizado por un usuario que
 <a id="token-proxy-cambio-contrasena"></a>
 
 El token del proxy incluye la fecha del último cambio de contraseña del usuario, igual que el de inicio de sesión.
-Si la contraseña cambia después de emitir el token, el proxy lo rechaza con un error 401.
+Si la contraseña cambia después de emitir el token, el backend lo rechaza cuando el proxy le pide la configuración,
+y el proxy responde con un error 401.
 
 En la versión 1.3.0, el token del proxy no incluía esa fecha. Por eso, los usuarios con la fecha registrada (el usuario
 `admin` cuya contraseña se creó en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la restableció con
