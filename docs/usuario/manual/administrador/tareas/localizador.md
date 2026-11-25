@@ -46,10 +46,6 @@ Complementariamente se pueden activar las opciones de:
 
 Además, están las pestañas **Roles** y **Territorios**, donde asignar los accesos que se deseen (ver [Roles](../roles.md) y [Territorios](../territorios.md)). El acceso se comprueba con los roles y territorios del localizador; la consulta enlazada no los necesita.
 
-!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
-    Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que el visor pide a través de SITMUN Proxy Middleware, como este localizador y su consulta. Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña; cambiar la contraseña desde el formulario de usuarios no registra esa fecha.
-    No hay solución en la configuración. No se ven afectados el usuario público ni las capas que el visor carga directamente. Más detalles en [la API de Proxy](../../../../que-es-sitmun/plataforma/arquitectura/api.md#problema-token-proxy-1-3-0) y en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
-
 En el visor, el localizador aparece en el panel de herramientas. El usuario elige el localizador, escribe el texto y, al pulsar un resultado, el mapa se centra en él:
 
 ![Localizador en el visor](../img/localizador-visor.webp){ loading=lazy }

@@ -76,10 +76,6 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   Todas las peticiones enviadas a través de la [API de Proxy][api-de-proxy] deben incluir, además,
   un identificador de territorio y un identificador de aplicación.
 
-    !!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
-        En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` con la contraseña creada en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy.
-        Los usuarios afectados y el alcance se explican en [la API de Proxy](arquitectura/api.md#problema-token-proxy-1-3-0). Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
-
 - **Secuencia de inicio**: el cliente solicitará a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   una configuración básica (territorios y aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar; los idiomas
   los obtiene de la API de Administración (`GET /api/languages`).
