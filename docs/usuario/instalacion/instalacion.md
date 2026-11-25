@@ -71,10 +71,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
         `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
         `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
-        Docker Compose no arranca si falta alguno. Antes de ejecutar `setup.sh` o `setup.ps1`, el `.env` debe acabar con un
-        salto de línea: si no, por un error de la versión 1.3.0
-        ([sitmun/sitmun#390](https://github.com/sitmun/sitmun/issues/390)), el script añade el primer secreto a continuación de la última línea y la estropea. Si no se
-        está seguro, se comprueba después que cada clave está en su propia línea.
+        Docker Compose no arranca si falta alguno.
 
     3. Se arranca la plataforma con las imágenes publicadas:
 
@@ -309,7 +306,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         ```
 
         Se ejecuta sin `-v`, para que el volumen antiguo siga ahí como copia de respaldo.
-    3. En la carpeta de `sitmun/sitmun`, se copia el `.env` anterior (que debe acabar con un salto de línea, por [sitmun/sitmun#390](https://github.com/sitmun/sitmun/issues/390)) y se ejecuta
+    3. En la carpeta de `sitmun/sitmun`, se copia el `.env` anterior y se ejecuta
         `setup.sh` (o `setup.ps1`), que añade los secretos que la 1.3.0 exige y la 1.2.x no tenía (`MIDDLEWARE_SECRET`,
         `SITMUN_MBTILES_JOB_HANDLE_SECRET`). Sin ellos, Compose no arranca.
         `setup.sh` no cambia los secretos que ya hay en el `.env`, ni siquiera si están en blanco o son cortos. Si
