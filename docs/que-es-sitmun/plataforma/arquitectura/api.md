@@ -101,11 +101,10 @@ En la versión 1.3.0, el token del proxy no incluía esa fecha. Por eso, los usu
 la recuperación de contraseña) recibían un error 401 en todas las capas y tareas que el visor pedía a través del proxy.
 La versión 1.3.1 lo corrige.
 
-!!! bug "Error conocido de SITMUN 1.3.0: `FORCE_USE_OF_PROXY` sin efecto (sitmun/sitmun#389)"
-    La variable `FORCE_USE_OF_PROXY` de Docker Compose no tiene efecto en la versión 1.3.0: Compose pasa su valor a una
-    propiedad que el backend no lee. Pasan por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend
-    dirige al proxy: las consultas SQL, de API web (salvo las de ámbito `web-api-query-no-proxy`) y sobre capas, la
-    edición de capas, y los localizadores y las tareas de más información que usan SQL o una API. Seguimiento: [sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389).
+Pasan por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend dirige al proxy: las consultas
+SQL, de API web (salvo las de ámbito `web-api-query-no-proxy`) y sobre capas, la edición de capas, y los localizadores
+y las tareas de más información que usan SQL o una API. No hay ninguna opción que obligue a todos los servicios a pasar
+por el proxy: la variable `FORCE_USE_OF_PROXY` de las versiones anteriores ya no existe.
 
 ### Aspectos globales
 

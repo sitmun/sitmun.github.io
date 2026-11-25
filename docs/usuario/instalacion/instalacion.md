@@ -235,10 +235,6 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
       `SITMUN_USER_SECRET` y `MIDDLEWARE_SECRET` deben tener al menos 32 caracteres: si `SITMUN_USER_SECRET` es más corto, el
       backend no arranca; si lo es `MIDDLEWARE_SECRET`, no arrancan el backend ni el proxy. Como los contenedores tienen
       `restart: always`, se reinician en bucle: el error se ve con `docker compose logs backend` (o `proxy`).
-    - `FORCE_USE_OF_PROXY`: no tiene efecto en la 1.3.0. Compose pasa su valor a una propiedad que el backend no lee
-      ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)), así que `true` no obliga a usar el proxy. Solo pasan
-      por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend dirige al proxy, como las consultas
-      SQL.
 
     ### Servidor de correo { #docker-servidor-de-correo }
 
