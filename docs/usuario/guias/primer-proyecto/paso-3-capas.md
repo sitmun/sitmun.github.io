@@ -14,11 +14,6 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
 
     ![Capas del servicio seleccionadas para registrar](../../manual/administrador/img/servicios-seleccionar-capas.webp){ loading=lazy }
 
-!!! bug "Error conocido de SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo (sitmun/sitmun#371)"
-    En un servicio que aún no has guardado, las capas obtenidas aparecen por error como «Pendiente crear»
-    en lugar de «Capa no registrada» ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
-    Al guardar solo se crean las que registras con **Registrar**.
-
 **Opción B: a mano** (menú **Capas** → **Nuevo**)
 
 - **Nombre**: el que verá el usuario si la capa no está en un árbol (por ejemplo, en el selector de mapas de fondo).
