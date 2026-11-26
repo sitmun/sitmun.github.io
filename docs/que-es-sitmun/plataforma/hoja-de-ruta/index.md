@@ -20,7 +20,7 @@ description: "Hoja de ruta de SITMUN 3: proyectos en desarrollo, en cola y final
 El objetivo de esta hoja de ruta es ofrecer una visión general del estado del proyecto SITMUN 3 y las próximas funcionalidades a desarrollar.
 
 !!! info "Aspectos generales"
-    El **[Comité técnico](../../red-sitmun/contacto.md#comite-tecnico)** de la Red SITMUN es el órgano funcional encargado de revisar la descripción o,
+    El **[Comité técnico][comite-tecnico]** de la Red SITMUN es el órgano funcional encargado de revisar la descripción o,
     en su defecto, describir el alcance funcional de cada uno de los puntos.
     También de proponer la priorización de cada uno de los proyectos o funcionalidades.
 
@@ -44,14 +44,14 @@ El objetivo de esta hoja de ruta es ofrecer una visión general del estado del p
 
 Todas las funcionalidades de esta tabla están disponibles en la versión 1.3.0, salvo la edición en el visor (ver su fila).
 
-Algunas todavía no tienen su página en el manual del administrador: la tarea de edición, la de *más información* y la exportación documental (ver [Tareas](../../../usuario/manual/administrador/tareas/index.md)).
+Algunas todavía no tienen su página en el manual del administrador: la tarea de edición, la de *más información* y la exportación documental (ver [Tareas][tareas]).
 
 | Proyecto - Funcionalidad | Descripción |
 | --- | --- |
 | **Repositorio único y despliegue con imágenes publicadas** | Todos los componentes en [sitmun/sitmun](https://github.com/sitmun/sitmun), imágenes Docker publicadas en `ghcr.io/sitmun`, asistente de primer arranque y actualización desde 1.2.8/1.2.9. |
 | **SITMUN Mobile Editor** (antes «APP SITMUN Edición») | Aplicación para dispositivos móviles (Android) que permite la edición *offline* de objetos geográficos y alfanuméricos, basada en servicios web estándar, con control de acceso de usuario y permisos, administrada desde la aplicación de administración como un cliente más. Carpeta `sitmun-mobile/sitmun-edition`. |
 | **SITMUN Touristic** (antes «APP Turismo») | Aplicación turística para dispositivos móviles común para todos los territorios que usen SITMUN, cuyos contenidos y funcionalidades se gestionan desde la aplicación de administración como un cliente más. Disponible para Android. Carpeta `sitmun-mobile/sitmun-touristic`. [Ver detalles](propuestas/app-turismo.md) |
-| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) que corresponde a la tarea básica [Edición WFS](../../../usuario/manual/administrador/tareas/basicas/herramientas.md#wfsedit) (control `sitna.WFSEdit`). El visor 1.3.0 desactiva ese control en su configuración, así que no edita. La edición está en SITMUN Mobile Editor, con la tarea de edición. |
+| **Edición gráfica y alfanumérica** | Herramienta de edición de la [API SITNA](https://github.com/sitna/api-sitna) que corresponde a la tarea básica [Edición WFS][wfsedit] (control `sitna.WFSEdit`). El visor 1.3.0 desactiva ese control en su configuración, así que no edita. La edición está en SITMUN Mobile Editor, con la tarea de edición. |
 | **Más info y más info avanzado** | El visor interpreta y ejecuta tareas *más info* y *más info avanzado* definidas en el administrador, con plantillas de visualización. [Ver detalles](propuestas/mas-info-avanzado.md) |
 | **Localizadores** | El visor interpreta y ejecuta localizadores definidos como tareas en el administrador. |
 | **Consultas** | El visor ejecuta consultas (SQL, Web API, enlaces) definidas como tareas en el administrador. |

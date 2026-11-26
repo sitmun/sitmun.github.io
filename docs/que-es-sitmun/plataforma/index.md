@@ -94,4 +94,4 @@ block-beta
 
 ---
 
-La instalación de SITMUN empieza por los [Requisitos](../../usuario/instalacion/requisitos.md).
+La instalación de SITMUN empieza por los [Requisitos][requisitos-instalacion].

@@ -22,6 +22,9 @@ config:
   # Cross-page references such as [texto][api-de-autenticacion] are resolved
   # by the autorefs plugin built into Zensical, not by link definitions in the page.
   MD052: false
+  # [](){ #id } is an autorefs anchor for a point that is not a heading: an
+  # empty link on purpose. `zensical build --strict` reports unresolved ones.
+  MD042: false
   # Bold lines are used as small captions inside tabs and steps.
   MD036: false
   # The same subheading (e.g. "Funcionalidades") under different sections is fine.

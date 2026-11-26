@@ -2,7 +2,7 @@
 description: "Tareas básicas de SITMUN 3: los controles de la API SITNA que ofrecen la interacción básica con el mapa."
 ---
 
-# Tareas básicas
+# Tareas básicas { #tareas-basicas }
 
 Las tareas básicas son aquellas que se derivan directamente de los controles de la API SITNA. Son las tareas que ofrecen la interacción básica con el usuario en el visor.
 

@@ -2,7 +2,7 @@
 description: "Permisos sobre las capas en SITMUN 3: grupos de permisos que dan acceso a los roles."
 ---
 
-# Permisos sobre las capas
+# Permisos sobre las capas { #admin-permisos-capas }
 
 En el menú **Permisos sobre las capas** se crean grupos de permisos: conjuntos de capas a los que se asignan roles.
 

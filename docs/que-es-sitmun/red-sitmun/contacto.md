@@ -2,7 +2,7 @@
 description: "Órganos de gobierno de la Red SITMUN: cómo se eligen y quién los forma."
 ---
 
-# Órganos de gobierno de la Red SITMUN
+# Órganos de gobierno de la Red SITMUN { #organos-de-gobierno }
 
 Los órganos de la Red SITMUN los establece el protocolo de colaboración de la Red y se escogen anualmente por votación en la asamblea de socios de la Red SITMUN.
 
@@ -14,7 +14,7 @@ Consell Insular de Menorca (contacto: <ricard.cots@cime.es>).
 
 Diputació de Barcelona (contacto: <saezbj@diba.cat>).
 
-## Comité técnico
+## Comité técnico { #comite-tecnico }
 
 - Fina Sáez <saezbj@diba.cat> - Diputació de Barcelona.
 - Marta Codinachs <codinachssm@diba.cat> - Diputació de Barcelona.

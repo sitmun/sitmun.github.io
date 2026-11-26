@@ -28,6 +28,18 @@ poetry export -f requirements.txt --output requirements.txt
 
 La comprobación `requirements-sync` falla si `requirements.txt` no coincide con `poetry.lock`.
 
+## Enlaces
+
+- A una página de la misma carpeta, de una subcarpeta o de la carpeta de arriba: enlace relativo, `[Capas](capas.md)` o
+  `[Tareas](../index.md)`.
+- A cualquier otra página: enlace por identificador, `[Instalación][instalacion-sitmun]`. Zensical (*autorefs*) lo
+  convierte en la dirección correcta desde cualquier página, y sigue funcionando si se mueve cualquiera de las dos.
+- El identificador se fija en el título de destino, `# Instalación { #instalacion-sitmun }`, y es único en toda la web.
+  Para un punto que no es un título se pone `[](){ #identificador }` en una línea propia.
+- No se usan enlaces desde la raíz (`/usuario/...`): Zensical no los resuelve.
+
+`zensical build --strict` falla si un identificador no existe.
+
 ## Comprobaciones
 
 Cada *pull request* a `main` ejecuta en GitHub Actions (`.github/workflows/ci.yml`):
@@ -40,6 +52,7 @@ Cada *pull request* a `main` ejecuta en GitHub Actions (`.github/workflows/ci.ym
 - que ninguna página cargue recursos de otros sitios (`check_external_resources.py`);
 - que las etiquetas de la interfaz en negrita existan en SITMUN 1.3.0 (`check_ui_labels.py`, con `.github/label-allowlist.txt`);
 - que cada aviso de un error conocido de SITMUN sea una nota `!!! bug` con el número de su incidencia en el título y un enlace a ella (`check_bug_notes.py`);
+- que ningún enlace a otra página suba dos o más carpetas (`../../`) (`check_deep_links.py`; ver [Enlaces](#enlaces));
 - que los enlaces locales funcionen (`lychee`);
 - que `requirements.txt` coincida con `poetry.lock` (`requirements-sync`).
 

@@ -2,7 +2,7 @@
 description: "App móvil de edición de SITMUN 3 (Android): edición de cartografía en trabajo de campo, online y offline, multiusuario y multiproyecto."
 ---
 
-# App móvil de edición
+# App móvil de edición { #app-edicion }
 
 La app móvil de edición (SITMUN Edition) permite **editar cartografía en trabajo de campo**, tanto con conexión como sin ella (online y offline). Es multiusuario y multiproyecto.
 
@@ -26,4 +26,4 @@ Solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a l
 
 ## Configuración en el administrador
 
-La app usa las [tareas de edición](../../../usuario/manual/administrador/tareas/index.md), que se configuran desde el [cliente de administración](administrador.md) como el resto de tareas.
+La app usa las [tareas de edición][tareas], que se configuran desde el [cliente de administración](administrador.md) como el resto de tareas.
