@@ -1,41 +1,29 @@
 ---
-description: "Clientes de SITMUN 3: visor de mapas web y embebible, aplicación de administración y aplicaciones móviles de edición y turística."
+description: "Cliente web de SITMUN 3, basado en la API SITNA: visor de mapas en el navegador para los usuarios de SITMUN, con sus requisitos de diseño originales."
 ---
 
-# Clientes
+# Cliente web (API SITNA)
 
-## Clientes disponibles
+El cliente web es **el visor de mapas con el que trabajan los usuarios de SITMUN desde el navegador**. Está basado en la [API SITNA](https://github.com/sitna/api-sitna) y se publica con la instalación en `/viewer/` (código en la carpeta `sitmun-viewer` de [sitmun/sitmun](https://github.com/sitmun/sitmun)).
 
-| Cliente | Carpeta en [sitmun/sitmun](https://github.com/sitmun/sitmun) | Dirección |
-| --- | --- | --- |
-| Visor de mapas web | `sitmun-viewer` | `/viewer/` |
-| Visor embebible (para insertar en otra web con un `iframe`) | `sitmun-viewer` | `/viewer/#/embedded-map/{aplicación}/{territorio}/{idioma}` (sin `#/` en una instalación de desarrollo) |
-| Aplicación de administración | `sitmun-admin` | `/admin/` |
-| SITMUN Mobile Editor (Android) | `sitmun-mobile/sitmun-edition` | — |
-| SITMUN Touristic (Android) | `sitmun-mobile/sitmun-touristic` | — |
+| | |
+| --- | --- |
+| **Para quién** | Usuarios de SITMUN: público general (usuario *público*, sin identificación) y personal técnico de las entidades |
+| **Plataforma** | Navegador web, también en dispositivos móviles |
+| **Dirección** | `/viewer/` |
 
-### Aplicaciones móviles
+## Cómo se configura
 
-Las aplicaciones móviles no se publican con la instalación: se compilan desde su carpeta del repositorio (ver el README de
-cada una) y se conectan al backend de una instalación.
+El visor no tiene una configuración fija: al arrancar la pide a la API de Configuración y Autorización, y la recibe adaptada al usuario, el territorio y la aplicación elegidos. Lo que ofrece (capas, herramientas, mapas de fondo) lo define el administrador en el [cliente de administración](administrador.md).
 
-- **Aplicación de edición** (SITMUN Mobile Editor): solo muestra las aplicaciones de tipo «Edition application» (código `ED`) a las que el usuario
-  tiene acceso. Sin ninguna, el inicio de sesión responde 403. Esta aplicación usa las [tareas de edición](../../usuario/manual/administrador/tareas/index.md).
-- **Aplicación turística** (SITMUN Touristic): solo muestra las aplicaciones de tipo **Aplicación turística** (código `T`) con un árbol turístico.
-  Las instalaciones a las que se puede conectar se indican antes de compilarla, en los archivos
-  `src/environments/environment*.ts`: en `instancesUrl`, la dirección de un servicio de instancias, o, si se deja vacío,
-  directamente en `instancesData`. En los dos casos es un JSON en el que cada instancia tiene `name` (el texto del selector)
-  y `urlBackend` (la dirección del backend, por ejemplo `https://ejemplo.org/backend`).
+La mayor parte de las herramientas del visor provienen de la API SITNA y se activan como [tareas básicas](../../../usuario/manual/administrador/tareas/basicas/index.md).
 
-La mayor parte de las herramientas del visor provienen de la [API SITNA](https://github.com/sitna/api-sitna)
-y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
+## Requisitos originales
 
-## Requisitos de los visores de mapas
-
-!!! note "Requisitos originales"
+!!! note
     Este apartado recoge los requisitos con los que se diseñó el visor de mapas.
     No todos están disponibles; la lista de herramientas que se pueden activar
-    está en [Tareas básicas](../../usuario/manual/administrador/tareas/basicas/index.md).
+    está en [Tareas básicas](../../../usuario/manual/administrador/tareas/basicas/index.md).
 
 ### Aspectos globales
 
@@ -44,7 +32,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 - **Compatibilidad**: compatible con los navegadores más comunes.
 
 - **Autenticación**: el cliente estará diseñado para utilizar solo HTTP sobre TLS (HTTPS).
-  En caso de ser un visor público, el usuario entrará directamente sin inicio de sesión.
+  En caso de ser un visor público, el usuario ingresará directamente sin inicio de sesión.
   El cliente debe permitir la autenticación del usuario frente a la [API de Autenticación][api-de-autenticacion].
   La API responderá con un token JSON Web Token (JWT) en una cookie de sesión, que se utilizará para interactuar con la
   [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]. Para la [API de Proxy][api-de-proxy]
@@ -76,10 +64,6 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
   Todas las peticiones enviadas a través de la [API de Proxy][api-de-proxy] deben incluir, además,
   un identificador de territorio y un identificador de aplicación.
 
-    !!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
-        En la versión 1.3.0, los usuarios con fecha de último cambio de contraseña registrada (`admin` con la contraseña creada en el primer acceso o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`, y quien la haya restablecido con la recuperación de contraseña) reciben 401 en todas las capas y tareas que pasan por el proxy.
-        Los usuarios afectados y el alcance se explican en [la API de Proxy](arquitectura/api.md#problema-token-proxy-1-3-0). Seguimiento: [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
-
 - **Secuencia de inicio**: el cliente solicitará a la [API de Configuración y Autorización][api-de-configuracion-y-autorizacion]
   una configuración básica (territorios y aplicaciones disponibles) para mostrar al usuario lo que puede seleccionar; los idiomas
   los obtiene de la API de Administración (`GET /api/languages`).
@@ -101,7 +85,7 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Control de escala**: selector automático de nivel de escala.
 
-- **Zoom a ventana**: amplía el área que se dibuja con el ratón (acceso rápido con mayúsculas más ratón).
+- **Zoom a ventana**: zoom a ventana (acceso rápido vía mayúsculas más ratón).
 
 - **Zoom de extensión**: botón de Zoom de extensión.
 
@@ -191,10 +175,6 @@ y se activan como [tareas básicas](../../usuario/manual/administrador/tareas/ba
 
 - **Street View**: herramienta para agregar Street View al mapa.
 
-## Aplicación de administración
-
-Ver el [Manual del administrador](../../usuario/manual/administrador/index.md).
-
-[api-de-autenticacion]: arquitectura/api.md#api-de-autenticacion
-[api-de-configuracion-y-autorizacion]: arquitectura/api.md#api-de-configuracion-y-autorizacion
-[api-de-proxy]: arquitectura/api.md#api-de-proxy
+[api-de-autenticacion]: ../arquitectura/api.md#api-de-autenticacion
+[api-de-configuracion-y-autorizacion]: ../arquitectura/api.md#api-de-configuracion-y-autorizacion
+[api-de-proxy]: ../arquitectura/api.md#api-de-proxy
