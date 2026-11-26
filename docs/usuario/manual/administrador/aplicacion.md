@@ -12,7 +12,7 @@ Para configurar una aplicación se rellenan los datos de información general, e
 
 En este apartado se facilitan los datos generales de la aplicación, como el nombre y la descripción.
 
-El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil SITMUN Mobile Editor (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
+El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil SITMUN Mobile Editor (ver [App móvil de edición](../../../que-es-sitmun/plataforma/clientes/app-edicion.md)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
 También se puede indicar un **punto de contacto** (el formulario no lo exige), que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
