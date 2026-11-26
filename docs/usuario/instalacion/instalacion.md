@@ -235,6 +235,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
       `SITMUN_USER_SECRET` y `MIDDLEWARE_SECRET` deben tener al menos 32 caracteres: si `SITMUN_USER_SECRET` es más corto, el
       backend no arranca; si lo es `MIDDLEWARE_SECRET`, no arrancan el backend ni el proxy. Como los contenedores tienen
       `restart: always`, se reinician en bucle: el error se ve con `docker compose logs backend` (o `proxy`).
+    - `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`: servidores externos, separados por comas, a los que el backend y el proxy
+      se conectan sin comprobar el certificado ni el nombre del servidor, por ejemplo uno con un certificado autofirmado.
+      `*` quita la comprobación para todos. Vacía por defecto: se comprueban todos.
 
     ### Servidor de correo { #docker-servidor-de-correo }
 
@@ -322,9 +325,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     La actualización también se detiene, sin cambiar nada, si la tabla `STM_LOG` tiene filas que apuntan a elementos
     borrados (la guía de actualización da la consulta para encontrarlas; solo se comprueba en una base de datos 1.2.8 o en
     una Oracle que se quedó a medias en 1.2.9) o si dos capas comparten el mismo estilo
-    (`shared geo_styid`). Además, la 1.3.0 comprueba los certificados de los servidores externos: uno con un certificado
-    autofirmado necesita `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`, que Compose 1.3.0 no pasa al backend
-    ([sitmun/sitmun#378](https://github.com/sitmun/sitmun/issues/378)).
+    (`shared geo_styid`). Además, desde la 1.3.0 el backend y el proxy comprueban los certificados de los servidores
+    externos: para un servidor con un certificado autofirmado se pone en `.env` `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`
+    (ver [Configuración](#docker-configuracion)).
 
     En Oracle 11 o 21 (19c no se ha probado), una base de datos que ya se actualizó a 1.2.9 queda con la actualización
     incompleta, porque un cambio de 1.2.9 usa sintaxis de Oracle 23. Para actualizarla se sigue el caso de una base de
