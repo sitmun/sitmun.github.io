@@ -19,11 +19,6 @@ Hay dos maneras de crear capas. La primera es la más rápida cuando el servicio
     en lugar de «Capa no registrada» ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
     Al guardar solo se crean las que registras con **Registrar**.
 
-!!! bug "Error conocido de SITMUN 1.3.0: capas WMS con varios estilos (sitmun/sitmun#384)"
-    Si una capa del servidor ofrece más de un estilo, al guardar aparece un error por cada estilo de más
-    («Múltiples Errores» si hay más de uno; [sitmun/sitmun#384](https://github.com/sitmun/sitmun/issues/384)). Las capas se crean igualmente,
-    pero cada una guarda un solo estilo y los demás se pierden. Puedes usar la capa con ese estilo.
-
 **Opción B: a mano** (menú **Capas** → **Nuevo**)
 
 - **Nombre**: el que verá el usuario si la capa no está en un árbol (por ejemplo, en el selector de mapas de fondo).
