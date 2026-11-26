@@ -433,7 +433,7 @@ Si los problemas persisten:
 
 1. Se revisan las [incidencias abiertas](https://github.com/sitmun/sitmun/issues) del repositorio de SITMUN, por si ya están descritas.
 2. Si no, se abre una [nueva incidencia](https://github.com/sitmun/sitmun/issues/new/choose) con la información de abajo.
-3. Para otras consultas, ver los [órganos de gobierno de la Red SITMUN](../../que-es-sitmun/red-sitmun/contacto.md).
+3. Para otras consultas, ver los [órganos de gobierno de la Red SITMUN][organos-de-gobierno].
 
 Una vulnerabilidad de seguridad no se notifica en una incidencia pública, sino de forma privada, como indica la
 [política de seguridad](https://github.com/sitmun/.github/blob/main/SECURITY.md); requiere una cuenta de GitHub.

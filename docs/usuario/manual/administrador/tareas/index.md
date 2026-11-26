@@ -2,7 +2,7 @@
 description: "Tareas de SITMUN 3: qué son y qué tipos de tarea ofrece el administrador."
 ---
 
-# Tareas
+# Tareas { #tareas }
 
 Las tareas de SITMUN 3 son un conjunto de elementos que permiten realizar determinadas acciones de interacción con el usuario.
 

@@ -44,7 +44,7 @@ Al seleccionar la opción de autenticación se deben facilitar el usuario y la c
 
 !!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
     Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que el visor pide a través de SITMUN Proxy Middleware (servicios con **Usar proxy SITMUN**, consultas SQL, de API web y sobre capas, localizadores; no las consultas de API web sin proxy). Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña; cambiar la contraseña desde el formulario de usuarios no registra esa fecha.
-    No hay solución en la configuración. No se ven afectados el usuario público ni las capas que el visor carga directamente. Más detalles en [la API de Proxy](../../../que-es-sitmun/plataforma/arquitectura/api.md#problema-token-proxy-1-3-0) y en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
+    No hay solución en la configuración. No se ven afectados el usuario público ni las capas que el visor carga directamente. Más detalles en [la API de Proxy][problema-token-proxy-1-3-0] y en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
 
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 
@@ -88,7 +88,7 @@ Se puede quitar una capa ya registrada seleccionándola de la lista y pulsando e
 
 ## Parámetros de configuración
 
-La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. Su valor es uno de los `TileMatrixSet` que anuncia el GetCapabilities del servicio (`?SERVICE=WMTS&REQUEST=GetCapabilities`), y el nombre técnico de cada capa es su `ows:Identifier`; las capas WMTS se crean a mano. La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) tiene un ejemplo completo.
+La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. Su valor es uno de los `TileMatrixSet` que anuncia el GetCapabilities del servicio (`?SERVICE=WMTS&REQUEST=GetCapabilities`), y el nombre técnico de cada capa es su `ows:Identifier`; las capas WMTS se crean a mano. La guía [Añadir OpenStreetMap como mapa de fondo][mapa-fondo-openstreetmap] tiene un ejemplo completo.
 
 ## Monitorización y uso
 

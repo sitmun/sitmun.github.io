@@ -2,7 +2,7 @@
 description: "Requisitos para instalar SITMUN 3 con Docker o compilarlo desde el código fuente."
 ---
 
-# Requisitos
+# Requisitos { #requisitos-instalacion }
 
 Antes de comenzar, es necesario:
 

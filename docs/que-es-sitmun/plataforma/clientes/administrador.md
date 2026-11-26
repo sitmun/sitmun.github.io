@@ -22,5 +22,5 @@ El cliente de administración lee y modifica los datos de la base de datos de SI
 
 ## Documentación de uso
 
-- Para empezar, [Primer proyecto](../../../usuario/guias/primer-proyecto/index.md) recorre ocho pasos desde la primera entrada hasta comprobar el resultado en el visor.
-- Para el detalle de cada pantalla, [Manual del administrador](../../../usuario/manual/administrador/index.md).
+- Para empezar, [Primer proyecto][primer-proyecto] recorre ocho pasos desde la primera entrada hasta comprobar el resultado en el visor.
+- Para el detalle de cada pantalla, [Manual del administrador][manual-administrador].

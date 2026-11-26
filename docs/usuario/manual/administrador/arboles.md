@@ -2,7 +2,7 @@
 description: "Árboles en el administrador de SITMUN 3: organizar en carpetas las capas y tareas que verá el usuario en el visor."
 ---
 
-# Árboles
+# Árboles { #admin-arboles }
 
 El árbol es el elemento que permite configurar y organizar el contenido que estará disponible en una aplicación web, sean capas de información u otros accesos.
 

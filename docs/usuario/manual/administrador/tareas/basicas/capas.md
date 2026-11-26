@@ -10,7 +10,7 @@ Tareas básicas para elegir el mapa de fondo y gestionar las capas del mapa.
 
 Permite seleccionar el mapa de fondo que se desea utilizar entre los disponibles. «Selector de mapa base» es el nombre de la tarea; en el visor se llama selector de mapas de fondo.
 
-Este control únicamente permite seleccionar entre los mapas de fondo disponibles. Cómo configurar una capa para que actúe como mapa de fondo se explica en el apartado [Capas de fondo](../../capas-de-fondo.md).
+Este control únicamente permite seleccionar entre los mapas de fondo disponibles. Cómo configurar una capa para que actúe como mapa de fondo se explica en el apartado [Capas de fondo][admin-capas-de-fondo].
 
 - Control API SITNA: `sitna.basemapSelector`
 
@@ -26,7 +26,7 @@ Permite añadir capas externas a SITMUN mediante la URL de un servicio de datos 
 
 ## Catálogo de capas (Layer Catalog) { #layer-catalog }
 
-Permite visualizar el catálogo de capas disponibles en el [árbol de capas](../../arboles.md).
+Permite visualizar el catálogo de capas disponibles en el [árbol de capas][admin-arboles].
 
 - Control API SITNA: `sitna.layerCatalog`
 

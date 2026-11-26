@@ -2,7 +2,7 @@
 description: "Capas en el administrador de SITMUN 3: alta de capas de un servicio y sus opciones de visualización, consulta y permisos."
 ---
 
-# Capas
+# Capas { #admin-capas }
 
 Las capas provienen de los servicios que se hayan definido previamente.
 

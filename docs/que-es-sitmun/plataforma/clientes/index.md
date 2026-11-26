@@ -52,7 +52,7 @@ El administrador define en el backend qué aplicaciones, capas, herramientas y u
 | App móvil de edición | `sitmun-mobile/sitmun-edition` | No: se compila desde su carpeta |
 | App turística | `sitmun-mobile/sitmun-touristic` | No: se compila desde su carpeta |
 
-Los dos clientes web se publican con la instalación (ver [Instalación](../../../usuario/instalacion/instalacion.md)). Las dos apps móviles se compilan desde su carpeta del repositorio (ver el README de cada una) y se conectan al backend de una instalación.
+Los dos clientes web se publican con la instalación (ver [Instalación][instalacion-sitmun]). Las dos apps móviles se compilan desde su carpeta del repositorio (ver el README de cada una) y se conectan al backend de una instalación.
 
 ## Cómo se decide qué ve cada usuario
 

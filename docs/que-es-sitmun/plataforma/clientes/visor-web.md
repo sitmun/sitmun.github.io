@@ -16,14 +16,14 @@ El cliente web es **el visor de mapas con el que trabajan los usuarios de SITMUN
 
 El visor no tiene una configuración fija: al arrancar la pide a la API de Configuración y Autorización, y la recibe adaptada al usuario, el territorio y la aplicación elegidos. Lo que ofrece (capas, herramientas, mapas de fondo) lo define el administrador en el [cliente de administración](administrador.md).
 
-La mayor parte de las herramientas del visor provienen de la API SITNA y se activan como [tareas básicas](../../../usuario/manual/administrador/tareas/basicas/index.md).
+La mayor parte de las herramientas del visor provienen de la API SITNA y se activan como [tareas básicas][tareas-basicas].
 
 ## Requisitos originales
 
 !!! note
     Este apartado recoge los requisitos con los que se diseñó el visor de mapas.
     No todos están disponibles; la lista de herramientas que se pueden activar
-    está en [Tareas básicas](../../../usuario/manual/administrador/tareas/basicas/index.md).
+    está en [Tareas básicas][tareas-basicas].
 
 ### Aspectos globales
 
