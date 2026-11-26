@@ -26,7 +26,13 @@ nav = [
     ] },
     { "La plataforma SITMUN 3" = [
       "que-es-sitmun/plataforma/index.md",
-      { "Clientes" = "que-es-sitmun/plataforma/clientes.md" },
+      { "Clientes" = [
+        "que-es-sitmun/plataforma/clientes/index.md",
+        { "Cliente de administración" = "que-es-sitmun/plataforma/clientes/administrador.md" },
+        { "Cliente web (API SITNA)" = "que-es-sitmun/plataforma/clientes/visor-web.md" },
+        { "App móvil de edición" = "que-es-sitmun/plataforma/clientes/app-edicion.md" },
+        { "App turística" = "que-es-sitmun/plataforma/clientes/app-turistica.md" },
+      ] },
       { "Arquitectura de SITMUN 3" = [
         "que-es-sitmun/plataforma/arquitectura/index.md",
         { "API" = "que-es-sitmun/plataforma/arquitectura/api.md" },
@@ -170,14 +176,14 @@ info = "octicons/browser-16"
 "usuario/manual/administrador/tareas/exportacion-documental.md" = "usuario/manual/administrador/tareas/index.md"
 "usuario/manual/administrador/tareas/edicion.md" = "usuario/manual/administrador/tareas/index.md"
 "usuario/manual/administrador/tareas/mas-informacion.md" = "usuario/manual/administrador/tareas/index.md"
-"usuario/manual/clientes/web.md" = "que-es-sitmun/plataforma/clientes.md"
-"usuario/manual/clientes/app-edicion.md" = "que-es-sitmun/plataforma/clientes.md"
+"usuario/manual/clientes/web.md" = "que-es-sitmun/plataforma/clientes/visor-web.md"
+"usuario/manual/clientes/app-edicion.md" = "que-es-sitmun/plataforma/clientes/app-edicion.md"
 "getting-started/que-es.md" = "que-es-sitmun/plataforma/index.md"
 "getting-started/requisitos.md" = "usuario/instalacion/requisitos.md"
 "getting-started/instalacion.md" = "usuario/instalacion/instalacion.md"
 "getting-started/creando.md" = "usuario/guias/primer-proyecto/index.md"
 "getting-started/personalizando.md" = "usuario/guias/primer-proyecto/index.md"
-"features-client.md" = "que-es-sitmun/plataforma/clientes.md"
+"features-client.md" = "que-es-sitmun/plataforma/clientes/index.md"
 "features-server.md" = "que-es-sitmun/plataforma/arquitectura/api.md"
 "roadmap.md" = "que-es-sitmun/plataforma/hoja-de-ruta/index.md"
 "roadmap/mas-info-avanzado.md" = "que-es-sitmun/plataforma/hoja-de-ruta/propuestas/mas-info-avanzado.md"

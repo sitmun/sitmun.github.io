@@ -7,7 +7,7 @@ description: "Primera entrada al administrador de SITMUN 3: inicio de sesión, m
 El administrador se abre en `http://<servidor>/admin/` (en una instalación local, `http://localhost:9000/admin/`).
 
 1. Elige el **Idioma** en la pantalla de inicio.
-2. Escribe **Usuario** y **Contraseña** y pulsa **Iniciar sesión**. En una instalación de producción nueva, la primera visita pide crear la contraseña del usuario `admin` y elegir el idioma por defecto (ver [Instalación](../../instalacion/instalacion.md)). En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
+2. Escribe **Usuario** y **Contraseña** y pulsa **Iniciar sesión**. En una instalación de producción nueva, la primera visita pide crear la contraseña del usuario `admin` y elegir el idioma por defecto (ver [Instalación][instalacion-sitmun]). En una base de datos de desarrollo el usuario es `admin` y la contraseña `admin`.
 3. Solo pueden entrar los usuarios con la opción **Usuario administrador de SITMUN** activada.
 
 ![Pantalla de inicio de sesión del administrador](img/primera-entrada-login.webp){ loading=lazy }

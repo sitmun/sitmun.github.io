@@ -2,7 +2,7 @@
 description: "Aplicaciones en el administrador de SITMUN 3: configurar el visor con roles, mapas de fondo, árboles y parámetros."
 ---
 
-# Aplicación
+# Aplicación { #admin-aplicacion }
 
 La aplicación es el elemento principal para configurar el visor de SITMUN. Todos los elementos anteriores (capas, árboles, tareas, etc.) quedarán integrados en una aplicación. Cuando el usuario accede a SITMUN, visualiza un panel con todas las aplicaciones disponibles, ya sean las públicas o aquellas para las que tiene permisos con su rol.
 
@@ -12,7 +12,7 @@ Para configurar una aplicación se rellenan los datos de información general, e
 
 En este apartado se facilitan los datos generales de la aplicación, como el nombre y la descripción.
 
-El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil SITMUN Mobile Editor (ver [Clientes](../../../que-es-sitmun/plataforma/clientes.md#aplicaciones-moviles)), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
+El **tipo de aplicación** se selecciona de una lista. Existen aplicaciones específicas para determinados propósitos, como la **Aplicación turística** o la «Edition application» (`ED`) que usa la aplicación móvil SITMUN Mobile Editor (ver [App móvil de edición][app-edicion]), pero para configurar un visor estándar se selecciona el tipo **Aplicación interna**. La aplicación externa sirve para enlazar con otra aplicación definida en otro sistema de visor de mapas.
 
 También se puede indicar un **punto de contacto** (el formulario no lo exige), que será alguno de los usuarios de SITMUN (se recomienda que el punto de contacto sea un usuario corporativo y no una persona física).
 
@@ -58,7 +58,7 @@ En la versión 1.3.0 SITMUN guarda estos parámetros, pero ningún componente lo
 
 ## Roles
 
-A la aplicación se le asignan los roles que tendrán acceso a ella. Sin ningún rol asignado, ningún usuario (ni siquiera el usuario público) puede ver la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, se crea un rol, se asigna al usuario `public` en su territorio (pestaña **Roles por Territorio** del usuario) y se añade a la aplicación, como explica el [Paso 1 de la guía](../../guias/primer-proyecto/paso-1-territorio-rol-usuario.md).
+A la aplicación se le asignan los roles que tendrán acceso a ella. Sin ningún rol asignado, ningún usuario (ni siquiera el usuario público) puede ver la aplicación. Una instalación nueva no trae ningún rol: para una aplicación pública, se crea un rol, se asigna al usuario `public` en su territorio (pestaña **Roles por Territorio** del usuario) y se añade a la aplicación, como explica el [Paso 1 de la guía][paso-1-territorio-rol-usuario].
 
 ## Mapas de fondo
 

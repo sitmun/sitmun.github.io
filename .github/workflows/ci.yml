@@ -84,6 +84,9 @@ jobs:
 
       - name: Check that every known-bug note points to its issue
         run: python .github/scripts/check_bug_notes.py docs
+      # A link that climbs two or more folders breaks when either page moves; use autorefs.
+      - name: Check that no page links by climbing two or more folders
+        run: python .github/scripts/check_deep_links.py docs
       # --strict checks links written in the Markdown sources; lychee also checks the
       # generated HTML (theme and template links, such as the announcement bar).
       # External links are checked weekly by links.yml so a flaky site can't block a deploy.

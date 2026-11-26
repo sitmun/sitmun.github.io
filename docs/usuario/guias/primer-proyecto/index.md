@@ -2,7 +2,7 @@
 description: "Guía paso a paso para crear el primer visor público de SITMUN 3 desde el administrador: territorio, rol, servicios, capas, árbol, herramientas y aplicación."
 ---
 
-# Primer proyecto
+# Primer proyecto { #primer-proyecto }
 
 Al terminar tendrás un visor público funcionando: mapa de fondo, capas en un árbol y herramientas básicas, accesible para cualquier persona.
 

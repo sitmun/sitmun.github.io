@@ -2,7 +2,7 @@
 description: "Cómo instalar SITMUN 1.3.0 con Docker (producción, showcase o desarrollo) o compilar cada componente desde el código fuente."
 ---
 
-# Instalación
+# Instalación { #instalacion-sitmun }
 
 Todo el código de **SITMUN 3** está en un único repositorio: [sitmun/sitmun](https://github.com/sitmun/sitmun).
 Cada componente (administrador, visor, backend, proxy, MBTiles y aplicaciones móviles) es una carpeta de ese repositorio.

@@ -43,7 +43,7 @@ tras pasar las credenciales del usuario, un token de acceso JSON Web Token (JWT)
 
 - **Recuperación de contraseña**. Sistema de recuperación de contraseña por correo electrónico con tokens seguros.
   Solo está disponible con el perfil `mail` del backend y un servidor de correo configurado
-  (ver [Instalación](../../../usuario/instalacion/instalacion.md)); sin él, `POST /api/password-reset/request` responde 404.
+  (ver [Instalación][instalacion-sitmun]); sin él, `POST /api/password-reset/request` responde 404.
 
 ## API de Configuración y Autorización {#api-de-configuracion-y-autorizacion}
 
@@ -78,7 +78,7 @@ La API de Configuración y Autorización se compone de dos tipos de endpoints:
   Estos parámetros de filtrado se añaden a la petición que se realiza al servicio o base de datos final por parte del
   proxy. Estos parámetros se gestionan mediante la [API de Administración][api-de-administracion] indicando como
   valor una variable de sistema con la sintaxis `#{NOMBRE}`, por ejemplo `#{USER_ID}`, `#{APP_ID}`, `#{TERR_ID}` o `#{TERR_COD}`.
-  La lista completa está en la página [Variables de sistema](../../../usuario/manual/administrador/variables-sistema.md).
+  La lista completa está en la página [Variables de sistema][admin-variables-sistema].
 
 ## API de Proxy {#api-de-proxy}
 
@@ -90,7 +90,7 @@ usando un token de corta duración que se ha obtenido previamente mediante la [A
 Si no se autentica, se asume que la petición se ha realizado por un usuario que en el dominio de **SITMUN 3** se denomina
 *usuario público*.
 
-<a id="token-proxy-cambio-contrasena"></a>
+[](){ #token-proxy-cambio-contrasena }
 
 El token del proxy incluye la fecha del último cambio de contraseña del usuario, igual que el de inicio de sesión.
 Si la contraseña cambia después de emitir el token, el backend lo rechaza cuando el proxy le pide la configuración,

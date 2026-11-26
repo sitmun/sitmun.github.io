@@ -84,7 +84,7 @@ Se puede quitar una capa ya registrada seleccionándola de la lista y pulsando e
 
 ## Parámetros de configuración
 
-La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. Su valor es uno de los `TileMatrixSet` que anuncia el GetCapabilities del servicio (`?SERVICE=WMTS&REQUEST=GetCapabilities`), y el nombre técnico de cada capa es su `ows:Identifier`; las capas WMTS se crean a mano. La guía [Añadir OpenStreetMap como mapa de fondo](../../guias/mapa-fondo-openstreetmap.md) tiene un ejemplo completo.
+La pestaña **Parámetros de configuración** añade parámetros a las peticiones que el visor hace al servicio. En un servicio WMTS es necesario el parámetro `matrixSet` (y opcionalmente `format`), ambos de tipo WMTS; sin `matrixSet` el mapa de la aplicación no se abre. Su valor es uno de los `TileMatrixSet` que anuncia el GetCapabilities del servicio (`?SERVICE=WMTS&REQUEST=GetCapabilities`), y el nombre técnico de cada capa es su `ows:Identifier`; las capas WMTS se crean a mano. La guía [Añadir OpenStreetMap como mapa de fondo][mapa-fondo-openstreetmap] tiene un ejemplo completo.
 
 ## Monitorización y uso
 
