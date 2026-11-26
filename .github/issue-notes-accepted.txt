@@ -1,3 +1,10 @@
 # Closed sitmun/sitmun issues whose docs notes stay until a release ships the fix.
 # Remove a line when the note is updated after that release.
 352  # search box; fixed on dev after v1.3.0, the note says "corregido para la siguiente versión"
+379  # children-territory access; fixed on dev after v1.3.0
+384  # WMS layers with several styles; fixed on dev after v1.3.0
+387  # proxy 401 after a password change; fixed on dev after v1.3.0
+388  # blank overview map with WMTS; fixed on dev after v1.3.0
+389  # FORCE_USE_OF_PROXY; removed on dev after v1.3.0
+390  # setup.sh and the .env trailing newline; fixed on dev after v1.3.0
+391  # «saved» message on Obtener detalles del servicio; fixed on dev after v1.3.0
