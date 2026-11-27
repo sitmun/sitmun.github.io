@@ -69,8 +69,8 @@ Debe mostrarse un documento XML que empieza por `<Capabilities`. Esta dirección
 
 !!! warning "Escribe los nombres exactamente así"
     `matrixSet` distingue mayúsculas y minúsculas, igual que el nombre de la capa `osm` del paso 2. Si falta o está mal escrito,
-    no se abre el mapa de ninguna de las aplicaciones que tengan este mapa de fondo: el visor muestra «Creando mapa...» y, a los 30 segundos, «Error al inicializar el mapa»
-    ([sitmun/sitmun#380](https://github.com/sitmun/sitmun/issues/380)). Comprueba el mapa en el visor justo después de configurarlo.
+    el visor no puede cargar este mapa de fondo: abre el mapa con los demás fondos, lo deja fuera y avisa con
+    «No se ha podido cargar el mapa de fondo … y se ha omitido». Comprueba el mapa en el visor justo después de configurarlo.
 
 ## Paso 2: crear la capa
 
