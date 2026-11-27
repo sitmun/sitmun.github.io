@@ -55,15 +55,11 @@ Permite visualizar la escala del mapa. Se muestra en la parte inferior derecha.
 
 ## Barra de escala (Scale Bar) { #scale-bar }
 
-Permite visualizar la escala en formato de barra. Se muestra en la esquina inferior derecha del mapa, en el mismo lugar que el control Scale, así que conviene no activar los dos en la misma aplicación (véase la nota siguiente).
+Permite visualizar la escala en formato de barra. Se muestra en la esquina inferior derecha del mapa. Si la aplicación tiene también la escala o el selector de escala, los controles se apilan en esa esquina y la barra queda encima.
 
 - Control API SITNA: `sitna.scaleBar`
 
 ![Barra de escala del visor](../../img/basicas-scale-bar.webp){ loading=lazy }
-
-!!! bug "Error conocido de SITMUN 1.3.0: escala sobre la barra de escala (sitmun/sitmun#374)"
-    Si la aplicación tiene también la tarea **Escala** (Scale), la escala tapa la barra de escala
-    ([sitmun/sitmun#374](https://github.com/sitmun/sitmun/issues/374)).
 
 ## Selector de escala (Scale Selector) { #scale-selector }
 
