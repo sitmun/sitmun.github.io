@@ -98,10 +98,7 @@ Ahora hay que gestionar los parámetros. El objetivo es el siguiente:
 
     ![Parámetros de la tarea MIA](../img/mia-parametros.webp){ loading=lazy }
 
-3. Antes de seguir, **se guarda la tarea MIA**. En SITMUN 1.3.0 el mapeo solo ofrece los parámetros del MIA ya guardados
-    ([sitmun/sitmun#373](https://github.com/sitmun/sitmun/issues/373)).
-
-4. Ahora es necesario asociar el parámetro que se acaba de crear con el de la consulta que lo necesita. Esto se hace con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que asociar dos campos: **Parámetro MIA**, que es el nombre dado al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el parámetro definido en la consulta (aparece con su etiqueta, «Identificador del bien»).
+3. Ahora es necesario asociar el parámetro que se acaba de crear con el de la consulta que lo necesita. Esto se hace con la opción **Mapeo de parámetros** de las tareas incluidas en el MIA. Hay que asociar dos campos: **Parámetro MIA**, que es el nombre dado al parámetro en el paso anterior, y **Parámetro de tarea hija**, que es el parámetro definido en la consulta (aparece con su etiqueta, «Identificador del bien»). Por último, se guarda la tarea MIA.
 
     ![Mapeo de parámetros](../img/mia-mapeo.webp){ loading=lazy }
 
