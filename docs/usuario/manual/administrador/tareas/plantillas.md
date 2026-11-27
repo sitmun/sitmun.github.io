@@ -24,11 +24,6 @@ En el apartado **Fuentes** se selecciona dicha consulta. Una vez seleccionada, e
 
 ![Seleccionar la consulta](../img/plantilla-seleccionar-consulta.webp){ loading=lazy }
 
-!!! note "Nota"
-    En SITMUN 1.3.0 la lista **Añadir tarea** repite cada tarea con varios tipos
-    ([sitmun/sitmun#372](https://github.com/sitmun/sitmun/issues/372)).
-    Se elige la entrada cuyo tipo coincide con el de la tarea, por ejemplo «Consulta SQL».
-
 *1. Seleccionar la consulta.*
 
 ![Cambiar el nombre de la referencia de la consulta](../img/plantilla-referencia.webp){ loading=lazy }
