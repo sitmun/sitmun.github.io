@@ -79,12 +79,6 @@ Permite visualizar la función de búsqueda general en el mapa. Para que este co
 
 ![Buscador del visor](../../img/basicas-search.webp){ width="464" loading=lazy }
 
-*Captura de una versión anterior de SITMUN; en 1.3.0, véase la nota siguiente.*
-
-!!! bug "Error conocido de SITMUN 1.3.0: buscador sin resultados (sitmun/sitmun#352)"
-    En la versión 1.3.0 el buscador no devuelve resultados y muestra `[[searchPlaceholder]]`
-    ([sitmun/sitmun#352](https://github.com/sitmun/sitmun/issues/352), corregido para la siguiente versión).
-
 ## Compartir (Share) { #share }
 
 La opción Share permite compartir un determinado mapa (entendiendo mapa como un conjunto de capas seleccionado y visible a una determinada escala).

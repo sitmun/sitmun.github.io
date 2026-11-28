@@ -69,18 +69,17 @@ netstat -ano | findstr :9000  # Windows
 # Otra opción: detener el proceso que usa el puerto.
 ```
 
-Los puertos 9001 a 9005 están fijos en `compose.yaml`. Para cambiarlos, o para publicarlos solo en `127.0.0.1`, se crea
-un `compose.override.yaml` junto a `compose.yaml` con la etiqueta `!override`; sin ella, Compose añade el puerto nuevo
-al antiguo en lugar de sustituirlo:
+Los puertos 9003 a 9005 de las bases de datos están fijos en `compose.yaml`. El backend y el proxy solo publican el 9001 y el
+9002 con los perfiles de desarrollo, que cargan `compose.dev-ports.yaml`. Para cambiar un puerto, o para publicarlo solo
+en `127.0.0.1`, se crea un `compose.override.yaml` junto a `compose.yaml` con la etiqueta `!override`; sin ella, Compose
+añade el puerto nuevo al antiguo en lugar de sustituirlo:
 
 ```yaml
 services:
-  backend:
+  postgres:
     ports: !override
-      - "127.0.0.1:9001:8080"
+      - "127.0.0.1:9003:5432"
 ```
-
-Si cambia el puerto del backend, cambian también las direcciones de comprobación (`/api/dashboard/health`) y de Swagger.
 
 ### Problemas de memoria
 
@@ -182,7 +181,7 @@ docker compose restart backend
 
 ```bash
 # Comprobar que el backend está en marcha
-curl http://localhost:9001/api/dashboard/health
+curl http://localhost:9000/backend/api/dashboard/health
 
 # Revisar el registro del backend
 docker compose logs backend
@@ -191,7 +190,7 @@ docker compose logs backend
 # En producción, la contraseña de admin se crea en la primera visita a /admin/
 # (o con SITMUN_BOOTSTRAP_ADMIN_PASSWORD en .env antes de arrancar).
 # "firstRun": true indica que aún no se ha hecho esa primera visita.
-curl http://localhost:9001/api/setup/status
+curl http://localhost:9000/backend/api/setup/status
 ```
 
 ### La sesión se cierra o el token deja de ser válido { #token-jwt-invalido }

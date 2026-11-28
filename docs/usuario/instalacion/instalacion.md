@@ -63,18 +63,16 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
           cambiarla después, ver [Conexión a PostgreSQL falla](solucion-problemas.md#conexion-a-postgresql-falla)).
           Conviene que la contraseña no tenga `$`: Compose lo interpreta como el inicio de una variable y, aunque se
           escriba `$$`, la comprobación de salud de Oracle lo vuelve a interpretar;
-        - <a id="cerrar-puertos"></a>se cierran al exterior los puertos 9001 a 9005 (backend, proxy y bases de datos): Compose los publica, pero solo
-          el 9000 tiene que ser accesible. En Linux, Docker publica los puertos por delante de ufw y firewalld, así que
+        - <a id="cerrar-puertos"></a>se cierran al exterior los puertos 9003 a 9005 de las bases de datos: Compose los publica, pero solo
+          el 9000 tiene que ser accesible. El backend y el proxy no publican ningún puerto: se llega a ellos a través del `front`,
+          en `/backend/` y `/middleware/`. En Linux, Docker publica los puertos por delante de ufw y firewalld, así que
           la regla del cortafuegos va en la cadena `DOCKER-USER`; otra opción es publicarlos solo en `127.0.0.1` con un
           `compose.override.yaml` (ver [Puerto ya en uso](solucion-problemas.md#puerto-ya-en-uso)). La base de datos Oracle
           tiene además fija la contraseña de `SYS` y `SYSTEM` (`password`).
 
         `setup.sh` y `setup.ps1` añaden a `.env` los tres secretos que faltan:
         `SITMUN_USER_SECRET`, `MIDDLEWARE_SECRET` y `SITMUN_MBTILES_JOB_HANDLE_SECRET`.
-        Docker Compose no arranca si falta alguno. Antes de ejecutar `setup.sh` o `setup.ps1`, el `.env` debe acabar con un
-        salto de línea: si no, por un error de la versión 1.3.0
-        ([sitmun/sitmun#390](https://github.com/sitmun/sitmun/issues/390)), el script añade el primer secreto a continuación de la última línea y la estropea. Si no se
-        está seguro, se comprueba después que cada clave está en su propia línea.
+        Docker Compose no arranca si falta alguno.
 
     3. Se arranca la plataforma con las imágenes publicadas:
 
@@ -85,13 +83,13 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     4. Se espera a que el backend responda con `"status":"UP"`. La primera vez tarda unos minutos, mientras crea la base de datos (con Oracle, algo más: la base de datos tarda en arrancar):
 
         ```bash
-        curl http://localhost:9001/api/dashboard/health
+        curl http://localhost:9000/backend/api/dashboard/health
         ```
 
         En PowerShell se usa `curl.exe` en lugar de `curl`.
 
     5. El administrador está en <http://localhost:9000/admin/> y el visor en <http://localhost:9000/viewer/> (o en la dirección pública configurada).
-       La documentación de la API (Swagger UI) está en <http://localhost:9001/swagger-ui/index.html>.
+       Con los perfiles de desarrollo (`profiles/development-*.env`), la documentación de la API (Swagger UI) está en <http://localhost:9001/swagger-ui/index.html>.
 
     ## Primer acceso al administrador { #docker-primer-acceso }
 
@@ -101,8 +99,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     o definir `SITMUN_BOOTSTRAP_ADMIN_PASSWORD` (y, opcionalmente, `SITMUN_BOOTSTRAP_LANGUAGE`) en `.env` antes de arrancar.
     La contraseña debe tener entre 8 y 50 caracteres y no puede coincidir con el nombre de usuario (`admin`, sin distinguir mayúsculas): si no cumple, el backend solo lo anota
     en su registro y la primera visita sigue pidiendo crearla.
-    Esas variables se quitan de `.env` cuando `GET /api/setup/status` responde `"firstRun": false` (en el puerto 9001 o,
-    a través del contenedor `front`, en `/backend/api/setup/status`).
+    Esas variables se quitan de `.env` cuando `GET /api/setup/status` responde `"firstRun": false` (a través del contenedor
+    `front`, en `/backend/api/setup/status`; con los perfiles de desarrollo, también en el puerto 9001).
 
     ![Primer acceso: idioma por defecto](img/primer-acceso-idioma.webp){ loading=lazy }
 
@@ -162,7 +160,7 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     ```
 
     `LOCAL_PORT=127.0.0.1:9000` publica el puerto 9000 solo en la propia máquina, de modo que únicamente el proxy inverso
-    llega al `front`. No afecta a los puertos 9001 a 9005 (backend, proxy y bases de datos), que Compose sigue publicando en
+    llega al `front`. No afecta a los puertos 9003 a 9005 de las bases de datos, que Compose sigue publicando en
     todas las interfaces: se cierran como se explica en [Pasos de instalación](#cerrar-puertos). Un ejemplo para nginx:
 
     ```nginx
@@ -186,8 +184,8 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     Los servicios están definidos en el archivo `compose.yaml`:
 
     - `front`: servidor web *nginx* en el puerto 9000. Publica el visor (`/viewer/`) y el administrador (`/admin/`) y enruta `/backend/` al `backend` y `/middleware/` al `proxy`.
-    - `backend`: API de Autenticación, autorización, configuración y administración (puerto 9001).
-    - `proxy`: SITMUN Proxy Middleware (la API de Proxy), que se comunica con el `backend` (puerto 9002).
+    - `backend`: API de Autenticación, autorización, configuración y administración. No publica ningún puerto; con los perfiles de desarrollo, el 9001 (`compose.dev-ports.yaml`).
+    - `proxy`: SITMUN Proxy Middleware (la API de Proxy), que se comunica con el `backend`. No publica ningún puerto; con los perfiles de desarrollo, el 9002.
     - `postgres`: base de datos PostgreSQL 16 en el volumen `pgdata` (puerto 9003, perfil `postgres`).
     - `oracle`: base de datos Oracle 23 Free (puerto 9004, perfil `oracle`).
     - `example`: base de datos PostgreSQL de ejemplo (puerto 9005, perfil `demo`).
@@ -238,10 +236,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
       `SITMUN_USER_SECRET` y `MIDDLEWARE_SECRET` deben tener al menos 32 caracteres: si `SITMUN_USER_SECRET` es más corto, el
       backend no arranca; si lo es `MIDDLEWARE_SECRET`, no arrancan el backend ni el proxy. Como los contenedores tienen
       `restart: always`, se reinician en bucle: el error se ve con `docker compose logs backend` (o `proxy`).
-    - `FORCE_USE_OF_PROXY`: no tiene efecto en la 1.3.0. Compose pasa su valor a una propiedad que el backend no lee
-      ([sitmun/sitmun#389](https://github.com/sitmun/sitmun/issues/389)), así que `true` no obliga a usar el proxy. Solo pasan
-      por el proxy los servicios con «Usar proxy SITMUN» y las tareas que el backend dirige al proxy, como las consultas
-      SQL.
+    - `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`: servidores externos, separados por comas, a los que el backend y el proxy
+      se conectan sin comprobar el certificado ni el nombre del servidor, por ejemplo uno con un certificado autofirmado.
+      `*` quita la comprobación para todos. Vacía por defecto: se comprueban todos.
 
     ### Servidor de correo { #docker-servidor-de-correo }
 
@@ -302,14 +299,14 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     repositorio único `sitmun/sitmun`, que no usa la carpeta ni el volumen de datos de `sitmun-application-stack`. Los pasos:
 
     1. Se hace una [copia de seguridad de la base de datos](solucion-problemas.md#backup-de-base-de-datos) de la instalación 1.2.x.
-    2. Se detiene la instalación 1.2.x, porque publica los mismos puertos (9001 a 9005) que la 1.3.0. En la carpeta antigua:
+    2. Se detiene la instalación 1.2.x, porque publica puertos que la nueva instalación también usa, como los de las bases de datos (9003 a 9005). En la carpeta antigua:
 
         ```bash
         docker compose down
         ```
 
         Se ejecuta sin `-v`, para que el volumen antiguo siga ahí como copia de respaldo.
-    3. En la carpeta de `sitmun/sitmun`, se copia el `.env` anterior (que debe acabar con un salto de línea, por [sitmun/sitmun#390](https://github.com/sitmun/sitmun/issues/390)) y se ejecuta
+    3. En la carpeta de `sitmun/sitmun`, se copia el `.env` anterior y se ejecuta
         `setup.sh` (o `setup.ps1`), que añade los secretos que la 1.3.0 exige y la 1.2.x no tenía (`MIDDLEWARE_SECRET`,
         `SITMUN_MBTILES_JOB_HANDLE_SECRET`). Sin ellos, Compose no arranca.
         `setup.sh` no cambia los secretos que ya hay en el `.env`, ni siquiera si están en blanco o son cortos. Si
@@ -329,9 +326,9 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
     La actualización también se detiene, sin cambiar nada, si la tabla `STM_LOG` tiene filas que apuntan a elementos
     borrados (la guía de actualización da la consulta para encontrarlas; solo se comprueba en una base de datos 1.2.8 o en
     una Oracle que se quedó a medias en 1.2.9) o si dos capas comparten el mismo estilo
-    (`shared geo_styid`). Además, la 1.3.0 comprueba los certificados de los servidores externos: uno con un certificado
-    autofirmado necesita `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`, que Compose 1.3.0 no pasa al backend
-    ([sitmun/sitmun#378](https://github.com/sitmun/sitmun/issues/378)).
+    (`shared geo_styid`). Además, desde la 1.3.0 el backend y el proxy comprueban los certificados de los servidores
+    externos: para un servidor con un certificado autofirmado se pone en `.env` `SITMUN_CLIENT_UNSAFE_ALLOWED_HOSTS`
+    (ver [Configuración](#docker-configuracion)).
 
     En Oracle 11 o 21 (19c no se ha probado), una base de datos que ya se actualizó a 1.2.9 queda con la actualización
     incompleta, porque un cambio de 1.2.9 usa sintaxis de Oracle 23. Para actualizarla se sigue el caso de una base de
@@ -361,6 +358,12 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
         ```
 
         Si se arrancó el *showcase*, se añade `-p sitmun-showcase` después de `docker compose`.
+
+    !!! warning "Al actualizar desde 1.3.0: territorios bloqueados"
+        Hasta la 1.3.0, **Territorio bloqueado** no tenía efecto. Desde la 1.3.1, un territorio bloqueado deja de verse en el
+        visor, y la actualización no cambia los datos. Antes de actualizar se listan con
+        `SELECT ter_id, ter_name FROM stm_territory WHERE ter_blocked = true` (en Oracle, `= 1`) y se desbloquean los que
+        deban seguir visibles.
 
     El backend actualiza la base de datos con Liquibase al arrancar. Si no arranca, el error se ve con
     `docker compose logs backend`; para volver a la versión anterior, se vuelve a la etiqueta anterior (paso 2), se arranca solo

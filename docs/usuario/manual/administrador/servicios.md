@@ -24,7 +24,7 @@ Los primeros datos que se deben proporcionar son los datos vinculados a la infor
 
 Los campos marcados con un asterisco son obligatorios para poder crear un servicio.
 
-Un aspecto que puede resultar de interés es que, en el momento de añadir la dirección de un servicio WMS, aparece el botón **Obtener detalles del servicio**. El botón también aparece en los servicios WFS, pero en la versión 1.3.0 solo funciona con WMS ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
+Un aspecto que puede resultar de interés es que, en el momento de añadir la dirección de un servicio WMS o WFS, aparece el botón **Obtener detalles del servicio**. Este botón permite consultar la información del propio servicio y autocompletar la información del formulario de creación del servicio; por ejemplo, puede añadir la propia descripción del servicio en el apartado de descripción.
 
 Además, tiene la virtud de poder probar la comunicación con el servicio y comprobar que ha sido posible realizar la conexión a dicho servicio.
 
@@ -42,10 +42,6 @@ Para un servicio con autenticación, en el desplegable **Método de autenticaci�
 
 Al seleccionar la opción de autenticación se deben facilitar el usuario y la contraseña de conexión al servicio.
 
-!!! bug "Error conocido de SITMUN 1.3.0: 401 en el proxy con algunos usuarios (sitmun/sitmun#387)"
-    Un usuario con fecha de último cambio de contraseña registrada recibe un error 401 en todas las capas y tareas que el visor pide a través de SITMUN Proxy Middleware (servicios con **Usar proxy SITMUN**, consultas SQL, de API web y sobre capas, localizadores; no las consultas de API web sin proxy). Es el caso del usuario `admin` cuya contraseña se creó en el primer acceso (o con `SITMUN_BOOTSTRAP_ADMIN_PASSWORD`) y de cualquier usuario que la haya restablecido con la recuperación de contraseña; cambiar la contraseña desde el formulario de usuarios no registra esa fecha.
-    No hay solución en la configuración. No se ven afectados el usuario público ni las capas que el visor carga directamente. Más detalles en [la API de Proxy][problema-token-proxy-1-3-0] y en [sitmun/sitmun#387](https://github.com/sitmun/sitmun/issues/387).
-
 ![Autenticación y uso del proxy en un servicio](img/servicios-autenticacion.webp){ loading=lazy }
 
 ## Capas
@@ -54,7 +50,7 @@ Una vez configurado el servicio se pueden gestionar las capas que dicho servicio
 
 La pestaña **Capas** aparecerá vacía en el momento de crear el servicio. Las capas se pueden configurar automáticamente o también existe la opción de definirlas manualmente, lo que ofrece otras posibilidades de configuración. Esta segunda opción se detalla en el apartado [Capas](capas.md).
 
-La carga automática solo funciona en los servicios WMS. En un servicio WFS la pestaña se llama **Tipos de entidad** y tiene el botón **Obtener tipos de entidad del servicio**, pero en la versión 1.3.0 no funciona: el backend solo admite WMS y responde con un error aunque la URL sea correcta ([sitmun/sitmun#382](https://github.com/sitmun/sitmun/issues/382)). En los servicios WFS y WMTS las capas se crean a mano en el menú [Capas](capas.md).
+La carga automática funciona en los servicios WMS y WFS. En un servicio WFS la pestaña se llama **Tipos de entidad** y el botón, **Obtener tipos de entidad del servicio** (**Actualizar tipos de entidad del servicio** en un servicio ya guardado). En los servicios WMTS las capas se crean a mano en el menú [Capas](capas.md).
 
 El botón **Actualizar capas del servicio** carga las capas automáticamente (en un servicio que todavía no está guardado, se llama **Obtener capas del servicio**). Tras aceptar el aviso «Peligro», aparece la lista de todas las capas que proporciona el servicio:
 
@@ -63,12 +59,6 @@ El botón **Actualizar capas del servicio** carga las capas automáticamente (en
 En este punto aún no hay ninguna capa añadida a SITMUN, solo el listado de las que ofrece el servicio. La última columna muestra el estado de cada capa con un punto de color; al pasar el ratón sobre él aparece su nombre. Las capas que ofrece el servicio aparecen con un punto amarillo, «Capa no registrada».
 
 Del listado se eligen las capas que se quieren incorporar a SITMUN y se pulsa **Registrar** (símbolo **+**). Su punto pasa a naranja, «Pendiente registrar»: están preparadas, pero todavía no forman parte de SITMUN. Las capas se crean al guardar el servicio.
-
-!!! bug "Error conocido de SITMUN 1.3.0: «Pendiente crear» en un servicio nuevo (sitmun/sitmun#371)"
-    En un servicio que todavía no se ha guardado, las capas obtenidas aparecen por error con el punto
-    naranja «Pendiente crear» en lugar del amarillo «Capa no registrada»
-    ([sitmun/sitmun#371](https://github.com/sitmun/sitmun/issues/371)).
-    Como en cualquier servicio, al guardar solo se crean las capas registradas con **Registrar**.
 
 ![Selección de capas del servicio](img/servicios-seleccionar-capas.webp){ loading=lazy }
 

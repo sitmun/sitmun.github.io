@@ -41,9 +41,7 @@ Permite visualizar el mapa de situación. Se ubica en el icono inferior derecho.
 
 - Control API SITNA: `sitna.overviewMap`
 
-!!! bug "Error conocido de SITMUN 1.3.0: mapa de situación en blanco con WMTS (sitmun/sitmun#388)"
-    El mapa de situación usa la primera capa del grupo elegido en **Mapa de situación** y, si no hay grupo, la primera capa del primer mapa de fondo. Si esa capa es WMTS, el mapa de situación sale en blanco en la versión 1.3.0 ([sitmun/sitmun#388](https://github.com/sitmun/sitmun/issues/388)).
-    Para evitarlo, se crea en [Permisos sobre las capas][admin-permisos-capas] un grupo de tipo «Mapa de situación» con una sola capa WMS y se elige en el campo **Mapa de situación** de la [aplicación][admin-aplicacion].
+El mapa de situación usa la primera capa del grupo elegido en **Mapa de situación** y, si no hay grupo, la primera capa del primer mapa de fondo.
 
 ![Mapa de situación del visor](../../img/basicas-overview-map.webp){ loading=lazy }
 
@@ -57,15 +55,11 @@ Permite visualizar la escala del mapa. Se muestra en la parte inferior derecha.
 
 ## Barra de escala (Scale Bar) { #scale-bar }
 
-Permite visualizar la escala en formato de barra. Se muestra en la esquina inferior derecha del mapa, en el mismo lugar que el control Scale, así que conviene no activar los dos en la misma aplicación (véase la nota siguiente).
+Permite visualizar la escala en formato de barra. Se muestra en la esquina inferior derecha del mapa. Si la aplicación tiene también la escala o el selector de escala, los controles se apilan en esa esquina y la barra queda encima.
 
 - Control API SITNA: `sitna.scaleBar`
 
 ![Barra de escala del visor](../../img/basicas-scale-bar.webp){ loading=lazy }
-
-!!! bug "Error conocido de SITMUN 1.3.0: escala sobre la barra de escala (sitmun/sitmun#374)"
-    Si la aplicación tiene también la tarea **Escala** (Scale), la escala tapa la barra de escala
-    ([sitmun/sitmun#374](https://github.com/sitmun/sitmun/issues/374)).
 
 ## Selector de escala (Scale Selector) { #scale-selector }
 
