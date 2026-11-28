@@ -359,6 +359,12 @@ Los repositorios antiguos por componente (`sitmun-application-stack`, `sitmun-ba
 
         Si se arrancó el *showcase*, se añade `-p sitmun-showcase` después de `docker compose`.
 
+    !!! warning "Al actualizar desde 1.3.0: territorios bloqueados"
+        Hasta la 1.3.0, **Territorio bloqueado** no tenía efecto. Desde la 1.3.1, un territorio bloqueado deja de verse en el
+        visor, y la actualización no cambia los datos. Antes de actualizar se listan con
+        `SELECT ter_id, ter_name FROM stm_territory WHERE ter_blocked = true` (en Oracle, `= 1`) y se desbloquean los que
+        deban seguir visibles.
+
     El backend actualiza la base de datos con Liquibase al arrancar. Si no arranca, el error se ve con
     `docker compose logs backend`; para volver a la versión anterior, se vuelve a la etiqueta anterior (paso 2), se arranca solo
     la base de datos, se restaura la copia del paso 1 y se arranca el resto con
