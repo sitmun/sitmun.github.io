@@ -34,17 +34,13 @@ Permite visualizar el catálogo de capas disponibles en el [árbol de capas][adm
 
 ## Leyenda (Legend) { #legend }
 
-Permite visualizar la leyenda de las capas cargadas. La leyenda que se muestra se reconfigura con las capas cargadas y visibles. Si, por ejemplo, una capa está cargada pero aún no es visible porque no está dentro del rango de escalas de visualización, la leyenda de esa capa no se mostrará.
+Permite visualizar la leyenda de las capas cargadas. La leyenda que se muestra se reconfigura con las capas cargadas y visibles. Si, por ejemplo, una capa está cargada pero aún no es visible porque no está dentro del rango de escalas de visualización, la leyenda de esa capa no se mostrará. Lo que muestra cada capa depende de su **Tipo de leyenda** en [Capas][admin-capas].
 
 - Control API SITNA: `sitna.legend`
 
 ![Leyenda del visor](../../img/basicas-legend.webp){ loading=lazy }
 
-*Captura de una versión anterior de SITMUN; en 1.3.0, véase la nota siguiente.*
-
-!!! bug "Error conocido de SITMUN 1.3.0: leyenda vacía (sitmun/sitmun#375)"
-    En la versión 1.3.0 el panel **Leyenda** muestra «No hay datos» aunque haya capas cargadas
-    ([sitmun/sitmun#375](https://github.com/sitmun/sitmun/issues/375)).
+*Captura de una versión anterior de SITMUN.*
 
 ## Gestor de capas de trabajo (Work Layer Manager) { #work-layer-manager }
 
